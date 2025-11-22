@@ -1,16 +1,16 @@
-# K1 数据手册
+# K1 Datasheet
 
 ```
-最新版本：2025/xx/xx
+Last Version: 2025/11/17
 ```
 
 ## K1 Datasheet Contents
 
-- [1. Overview](overview.md)
-- [2. Specifications](spec.md)
-- [3. Packages](packages.md)
-- [4. Pinout](pinout.md)
-- [5. Electrical Characteristics](electri.md)
+- [1. Overview](1.Overview.md)
+- [2. Specifications](2.Specifications.md)
+- [3. Package](3.Package.md)
+- [4. Pinout](4.Pinout.md)
+- [5. Electrical Characteristics](5.Electrical_Characteristics.md)
 
 ## Download the Full Document
 
