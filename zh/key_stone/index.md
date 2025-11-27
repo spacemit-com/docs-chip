@@ -8,14 +8,10 @@ Key Stone 系列提供全面的外设连接选型，集成了多套 PCIe、USB�
 
 Key Stone 系列产品致力于打造更高能效、更通用的 AI 处理器平台，推动全球绿色、开源、开放的算力生态建设，开启 RISC-V 普惠智算时代。
 
----
-
 ## Key Stone 系列
 
-- [K1](./k1/index.md)
-- [K3](./k3/index.md)
-
----
+- **[K1](./k1/index.md)**
+- **[K3](./k3/index.md)**
 
 ## 合作请联系
 
@@ -24,4 +20,3 @@ Key Stone 系列产品致力于打造更高能效、更通用的 AI 处理器平
 商务电话：189–6649–8607
 
 商务邮箱：[business@spacemit.com](mailto:business@spacemit.com)
-
