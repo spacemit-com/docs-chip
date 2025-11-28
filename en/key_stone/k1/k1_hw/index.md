@@ -1,58 +1,61 @@
-# K1 硬件文档中心
+# K1 Hardware Document Center
 
 ```
-最新版本：2025/xx/xx
+Last Version: 2025/xx/xx
 ```
 
-本页面汇总 **K1** 平台所有硬件相关资料。
+This page summarizes **all hardware-related documents** for the **K1** platform.
 
-## 设计指南文档
+## Design Guide Documents
 
-说明性技术文档，用于指导硬件开发与使用
+Explanatory technical documents used to guide hardware development and usage
 
-- **[硬件设计指南](./k1_hw_design_guide.md)**
+- **[Hardware Design Guide](./k1_hw_design_guide.md)**
 
-- **[原型机使用说明](k1_hw_prototype_guide.md)**
+- **[Prototype Board User Guide](k1_hw_prototype_guide.md)**
 
-## 硬件设计资源
+## Hardware Design Resources
 
-- **原理图与 PCB**
+- **Schematics & PCB**
 
-  - **标案原理图：** [点击下载](#)
+  - **Reference Project Schematics:** [Click to download](#)
 
-  - **原型机原理图和 PCB：** [点击下载](#)
+  - **Prototype Board Schematics and PCB:** [Click to download](#)
 
-  - **最小系统原理图和 PCB：** [点击下载](#)
+  - **Minimal System Schematics and PCB:** [Click to download](#)
 
-- **引脚与封装相关**
+- **Pinout & Package Related**
 
-  - **PIN MAP：** [点击下载](#)
+  - **PIN MAP:** [Click to download](#)
 
-  - **PIN MULTIPLEX 配置表：** [点击下载](#)
+  - **PIN MULTIPLEX Configuration Table:** [Click to download](#)
 
-  - **PIN DELAY 参数表：** [点击下载](#)
+  - **PIN DELAY Parameter Table:** [Click to download](#)
 
-  - **SoC 封装库：** [点击下载](#)
+  - **SoC Package Library:** [Click to download](#)
 
-- **其他工程文件**
+- **Other Engineering Files**
 
-  - **叠层结构文件（Stack-up）：** [点击下载](#)
+  - **Stack-up File:** [Click to download](#)
 
-  - **POD 接口定义图：** [点击下载](#)
+  - **POD Interface Definition Diagram:** [Click to download](#)
 
-  - **BOM 表：** [点击下载](#)
+  - **BOM List:** [Click to download](#)
 
-## 支持物料清单（AVL）
+## Approved Vendor List (AVL)
 
-本清单汇总了已验证支持的硬件器件，包括 DDR、eMMC/UFS、Wi-Fi/BT、SPI NOR/SPI NAND、LCD/TP/Camera 模组、Sensor/GPS 及其他可选物料。
-可用于 器件选型、兼容性确认及供应链管理。
-完整 AVL 列表请点击下载：[点击下载](#)
+This list summarizes validated and supported hardware components, including DDR, eMMC/UFS, Wi-Fi/BT, SPI NOR/SPI NAND, LCD/TP/Camera modules, Sensor/GPS, and other optional components.
+It can be used for component selection, compatibility verification, and supply chain management.
+Download the complete AVL list here: **[Click to download](#)**
 
-## 硬件参考与测试资料
-用于信号完整性、电源设计、功耗优化等高级开发场景
+## Hardware Reference & Test Materials
 
-- IBIS 模型（PENDING）
-- 源与电压配置指南（PENDING）
-- 低功耗应用设计（PENDING）
+Used for signal integrity, power design, power optimization, and other advanced development scenarios
 
-## 硬件 FAQ
+- IBIS Model (PENDING)
+- Power Source & Voltage Configuration Guide (PENDING)
+- Low-Power Application Design (PENDING)
+
+## Hardware FAQ
+
+
