@@ -1,4 +1,4 @@
-# K1 用户手册
+# K1 User Manual
 
 ```
 Last Version: 2025/11/18
