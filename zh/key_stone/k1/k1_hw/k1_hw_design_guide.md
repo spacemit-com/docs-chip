@@ -544,6 +544,8 @@ SDIO 各走线上勿有残桩（Stub），且必须参考 GND，SDIO 各走线�
 </tbody>
 </table>
 
+WiFi 模组的 SDIO 信号需严格参考硬件设计指南 PCB 设计要求进行 layout。同时 PCBA 回板后，需邮寄 PCBA 到进迭时空原厂进行 WiFi TX Delay 参数适配和测试。
+
 ![](static/MgvUbH58IoxNfwxJANtcXLcjnVa.png)
 
 #### 2.6.3 USB2.0 信号 PCB 设计

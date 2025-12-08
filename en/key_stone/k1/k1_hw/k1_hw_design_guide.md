@@ -105,7 +105,6 @@ Latest Version: 2024/03/12
 
 ![](static/JLpAb0XWWoT3J3xUQ1ZcwrtMngd.jpg)
 
-
 ### 1.2 Power Supply Design Recommendations
 
 #### 1.2.1 CORE Power
@@ -475,6 +474,8 @@ Additional tips:
 | CLK-data skew | <100 mil |
 | Max length | <2500 mil |
 | Spacing | ≥3× trace width |
+
+The SDIO signals of the WiFi module must follow the PCB layout requirements specified in the Hardware Design Guide. After the PCBA is completed and returned, the board must be sent to the SpacemiT factory for WiFi TX Delay parameter tuning and validation.
 
 ![](static/MgvUbH58IoxNfwxJANtcXLcjnVa.png)
 
