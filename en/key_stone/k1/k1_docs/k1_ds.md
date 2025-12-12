@@ -1,10 +1,10 @@
 sidebar_position: 1
 
-# K1 数据手册
+# K1 Datasheet
 
-## PDF 版本下载
+## Complete Version in PDF
 
-点击下载 PDF 版本 [K1 Datasheet (PDF)](https://cdn-resource.spacemit.com/file/%E8%8A%AF%E7%89%87/K1/K1_Datasheet_%28V7.5_2025.08.06%29.pdf)
+Please click to download the complete version in PDF: **[K1 Datasheet (PDF)](https://cdn-resource.spacemit.com/file/%E8%8A%AF%E7%89%87/K1/K1_Datasheet_%28V7.5_2025.08.06%29.pdf)**
 
 ## 1. Overview
 

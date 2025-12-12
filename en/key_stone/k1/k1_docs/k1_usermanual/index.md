@@ -1,8 +1,8 @@
 sidebar_position: 2
 
-# K1 用户手册
+# K1 User Manual
 
-## K1 用户手册结构
+## Contents
 
 - [1. Overview](1.Overview.md)
 - [2. Package](2.Package.md)
@@ -22,7 +22,7 @@ sidebar_position: 2
 - [16. High-Speed Interface System](16.High-Speed_Interface_System.md)
 - [17. Low-Speed Interface System](17.Low-Speed_Interface_System.md)
 
-## PDF 版本下载
+## Complete version in PDF
 
-点击下载 PDF 版本 [K1 用户手册 (PDF)](#)
+Please click to download the complete version in PDF: **[K1 User Manual (PDF)](#)**
 
