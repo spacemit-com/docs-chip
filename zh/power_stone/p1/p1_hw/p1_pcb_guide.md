@@ -1,8 +1,6 @@
-# P1 PCB Layout 指南
+sidebar_position: 1
 
-```
-最新版本：2024/03/15
-```
+# P1 PCB Layout 指南
 
 ## PCB 叠层与基础布线
 
