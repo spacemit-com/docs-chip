@@ -1,29 +1,10 @@
-# K1 Datasheet
+sidebar_position: 1
 
-```
-Last Version: 2025/11/17
-```
+# K1 数据手册
 
-## Download the Full Document
+## PDF 版本下载
 
-For the complete official PDF version, please click to download [K1 Datasheet (PDF)](https://cdn-resource.spacemit.com/file/%E8%8A%AF%E7%89%87/K1/K1_Datasheet_%28V7.5_2025.08.06%29.pdf)
-
-## Proprietary, Confidentiality & Disclaimer
-
-Copyright©2025 SPACEMIT. All rights reserved.  
-Without the written approval of SpacemiT (Hangzhou) Technology Co. Ltd. (hereafter SpacemiT), no individual or entity may excerpt, copy or distribute any part or all of the content of this document in any form.
-
-The copyrights of all materials and contents set forth herein are owned by SpacemiT and/or its subsidiaries, except for those specifically indicated as reference to any other party (if any).
-
-The content of this document may be periodically updated due to product version upgrades or other reasons. Unless otherwise specified, this document is provided solely as a user guide, and THE INFORMATION AND ADVICE PROVIDED IN THIS DOCUMENT DO NOT CONSTITUTE ANY EXPLICIT OR IMPLIED WARRANTIES. TO THE EXTENT NOT PROHIBITED BY LAW, THE COMPANY SHALL NOT BE LIABLE FOR ANY FORM OF DAMAGE CAUSED BY THIS DOCUMENT.
-
-## Contacts
-
-SpacemiT (Hangzhou) Technology Co. Ltd.  
-Address: Room 701, Block B, Future Center, Wuchang Street, Yuhang District, Hangzhou City, Zhejiang Province, China  
-Website: https://www.spacemit.com  
-Email: business@spacemit.com  
-Telephone: (+86) 0571-89000775
+点击下载 PDF 版本 [K1 Datasheet (PDF)](https://cdn-resource.spacemit.com/file/%E8%8A%AF%E7%89%87/K1/K1_Datasheet_%28V7.5_2025.08.06%29.pdf)
 
 ## 1. Overview
 
@@ -1756,7 +1737,7 @@ As example, below are depicted the transfers modes for some color formats, highl
 
 ![](static/unpacked_transfer_mode_RGB888.png)
 
-##### 2.5.4.2 Features
+##### Features
 
 - Support for SPI LCD module with resolution up to 320x240
 - Support for 3-/4-line Serial Peripheral Interface (SPI) and 2-line SPI data transmission

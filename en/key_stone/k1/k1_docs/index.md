@@ -1,9 +1,7 @@
-# K1
+sidebar_position: 1
 
-```
-Last version: 2025/06/25
-```
+# K1 芯片规格文档
 
-![K1 Brief 01](./static/K1_brief_01_en.png)
-![K1 Brief 02](./static/K1_brief_02_en.png)
-![K1 Brief 03](./static/K1_brief_03_en.png)
+![K1 Brief 01](./static/K1_brief_01.png)
+![K1 Brief 02](./static/K1_brief_02.png)
+![K1 Brief 03](./static/K1_brief_03.png)
