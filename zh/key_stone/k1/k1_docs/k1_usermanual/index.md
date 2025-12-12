@@ -1,8 +1,6 @@
-# K1 用户手册
+sidebar_position: 2
 
-```
-Last Version: 2025/11/18
-```
+# K1 用户手册
 
 ## Contents
 
