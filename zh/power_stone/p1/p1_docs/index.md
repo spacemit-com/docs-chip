@@ -1,6 +1,6 @@
 sidebar_position: 1
 
-# P1
+# P1 芯片规格文档
 
 [P1 数据手册](p1_ds.md)
 
