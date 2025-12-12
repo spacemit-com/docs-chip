@@ -6,25 +6,6 @@ sidebar_position: 1
 
 点击下载 PDF 版本 [K1 Datasheet (PDF)](https://cdn-resource.spacemit.com/file/%E8%8A%AF%E7%89%87/K1/K1_Datasheet_%28V7.5_2025.08.06%29.pdf)
 
-## 版权声明
-
-**版权所有 ©2024 进迭时空（杭州）科技有限公司。保留一切权利。**
-
-非经进迭时空（杭州）科技有限公司（“进迭时空”）书面许可，任何单位和个人不得擅自以任何形式摘抄、复制、传播本文档的部分或全部内容。
-本文档所载的所有资料和内容的版权均为进迭时空和/或其子公司所有，但注明引用其他方的内容除外（如有）。
- 
-由于产品版本升级或其他原因，本文档内容会不定期进行更新。除非另有约定，本文档仅作为使用指导，本文档所提供的信息和建议不构成任何明示或暗示的担保。在法律允许的范围内，进迭时空不对因本文档所造成的任何形式的损害负责。
-
- 为方便起见，本文件可能会被翻译成其他语言，您同意，如果本文档的英文版本与任何翻译版本之间存在任何冲突，则以本协议的英文版本的条款为准。
-
-## 联系信息
-
-进迭时空（杭州）科技有限公司
-地址：浙江省杭州市余杭区五常街道未来天空中心b座701
-网址：https://www.spacemit.com  
-邮箱： business@spacemit.com  
-联系电话：(+86) 0571-89000775
-
 ## 1. Overview
 
 ### 1.1 Introduction
@@ -1756,7 +1737,7 @@ As example, below are depicted the transfers modes for some color formats, highl
 
 ![](static/unpacked_transfer_mode_RGB888.png)
 
-##### 2.5.4.2 Features
+##### Features
 
 - Support for SPI LCD module with resolution up to 320x240
 - Support for 3-/4-line Serial Peripheral Interface (SPI) and 2-line SPI data transmission
