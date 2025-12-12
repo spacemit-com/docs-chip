@@ -1,35 +1,46 @@
 sidebar_position: 2
 
-# K3 硬件文档中心
+This page provides a consolidated entry point for all **K1 platform** hardware documentation and design resources.
 
-本页面汇总 **K3** 平台所有硬件相关资料。
+## Hardware Design Guides
 
-## 设计指南文档
+Technical documentation to support hardware design, board bring-up, and system integration:
 
-说明性技术文档，用于指导硬件开发与使用
+- **[Hardware Design Guide](./k1_hw_design_guide.md)**
 
-- **[硬件设计指南](#)**
+## Hardware Design Resources
 
-## 硬件设计资源
+### Schematics & PCB Files
 
-- **原理图与 PCB**
+Validated, production-ready reference designs and checklists for K3-based hardware development:
 
-  - [最小系统参考原理图](#) 
-  - [原理图工程源文件](#)
-  - [PCB 布局工程源文件](#)
-  - [原理图设计审核清单](#)
-  - [PCB 布局设计审核清单](#)
+- **Minimum System Reference Designs**
 
-- **引脚与封装相关**
+- **Design Checklists**
 
-  - [引脚复用功能配置表](#)
-  - [K1_pinmap-V1.1-20250717.xlsm](#) 
-  - [K1_pin_delay-V1.2-20240926.xlsx](#) 
-  - [K1_PODCSP-V1.0-20240301.pdf](#)
-  - [M1_PODBGA-V1.0-20240424.pdf](#) 
+### Package, Pinout, and Electrical Resources
 
-## 支持物料清单（AVL）
+- **Pin Configuration & Multiplexing**
 
-本清单汇总了已验证支持的硬件器件，包括 DDR、eMMC/UFS、Wi-Fi/BT、SPI NOR/SPI NAND、LCD/TP/Camera 模组、Sensor/GPS 及其他可选物料。
-可用于 器件选型、兼容性确认及供应链管理。
-点击下载完整 **[AVL 列表](#)**
+- **Signal Timing & Electrical Parameters**
+
+- **Package Specifications**
+
+## Approved Vendor List (AVL)
+
+The **AVL** contains validated and production-proven components compatible with the K1 platform, including:
+
+- DDR  
+- eMMC / UFS  
+- Wi-Fi / Bluetooth modules  
+- SPI NOR / SPI NAND  
+- LCD / touch panels  
+- Camera modules  
+- Sensors / GPS  
+- And other optional peripherals
+
+The AVL ensures device compatibility, assists with component selection, and supports supply chain planning.
+
+Download the complete list:
+
+- **[K3 Key Parts AVL](#)**

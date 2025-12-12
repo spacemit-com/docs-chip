@@ -1,6 +1,6 @@
 sidebar_position: 2
 
-# P1 硬件文档中心
+# P1 Hardware Documentation Center
 
 本页面汇总 **P1** 平台所有硬件相关资料。
 
