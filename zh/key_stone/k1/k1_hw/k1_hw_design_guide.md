@@ -8,7 +8,7 @@ sidebar_position: 1
 
 #### 1.1.1 DDR 电路设计
 
-- 支持 LPDDR4/LPDDR4x;DDR\_LP4x\_SEL 下拉到地配置为 LPDDR4 模式，上拉到 AVDD18\_DDR 配置为 LPDDR4x 模式。
+- 支持 LPDDR4/LPDDR4x;DDR_LP4x_SEL 下拉到地配置为 LPDDR4 模式，上拉到 AVDD18_DDR 配置为 LPDDR4x 模式。
 - LPDDR4/4x 的外部电阻（ZQ）通过 240Ω，精度 ±1% 的电阻接到 GND。
 
 ![](./static/XZHWbMYUNol3PuxGJWTcMh6Nnnb.jpg)
@@ -21,8 +21,8 @@ sidebar_position: 1
 
 - 芯片的硬件复位通过由外部控制，低电平有效。
 - 管脚需要增加 10nF 电容，用来消除复位信号上的抖动，增强抗干扰能力，防止误触发导致的系统异常复位。
-- RESET\_IN\_N 网络的上拉电源必须和 IO 电源域（即上拉到 VCC18\_GPIO）保持一致。
-- P1 的 PGOOD 信号与 K1 的 RESET\_IN\_N 信号直接连接，按键复位 K1+P1。
+- RESET_IN_N 网络的上拉电源必须和 IO 电源域（即上拉到 VCC18_GPIO）保持一致。
+- P1 的 PGOOD 信号与 K1 的 RESET_IN_N 信号直接连接，按键复位 K1+P1。
 - 若与其他复位来源复用，需要增加与非门或者二极管隔离。
 
 ![](static/L6Drbn4aWoFurexWkvfcNLCynKd.jpg)
@@ -32,7 +32,7 @@ sidebar_position: 1
 - 支持 Primary JTAG 与 Sec2 JTAG。
 - TDI，TMS，TCK，TDO 及 Power、GND 连接 Jlink 调试器（信号电平需与 Power 电压匹配），TRSTn 信号连接到 Jlink 调试器或上拉到 Power。
 - 当使用 Sec2 JTAG 时，JTAG SEL 需要上拉。
-- Sec JTAG 支持 X60 /N308 CPU，通过 MMC1\_SD\_CMD 控制。
+- Sec JTAG 支持 X60 /N308 CPU，通过 MMC1_SD_CMD 控制。
 
 ![](static/P1hUbOqj6oygc8xxYtScqTbcnec.jpg)
 
@@ -106,7 +106,7 @@ sidebar_position: 1
 
 - Quad - SPI 充当外部串行闪存设备的接口，具有多达四根双向数据线。
 - FLASH 控制器支持 SPI NOR FLASH、SPI NAND FLASH。
-- 支持 1.8V/3.3V Flash，参考芯片 VCC1833\_QSPI 电压域配置电平。
+- 支持 1.8V/3.3V Flash，参考芯片 VCC1833_QSPI 电压域配置电平。
 - Quad - SPI 的 4 个 DATE 复用了系统配置功能，在 PCB 设计需要考虑走线 Fly-by 形式，配置信息见 1.1.5 硬件初始化系统配置电路。
 
 ![](static/XAfAbsI1Aom0A4x1SR1cXpbEnjg.jpg)
@@ -134,13 +134,13 @@ K1 支持 LPDDR4/LPDDR4x，典型电压 1.1V/0.6V。DDR 颗粒的电源要求与
 
 #### 1.2.3 IO 电源设计
 
-- 管脚名 VCC18\_GPIO 连接数字 1.8V 电源。
-- 管脚名 VCC1833\_GPIO2（GPIO2 组：GPIO75~80）,  VCC1833\_GPIO3（GPIO3 组：GPIO47~52）,  VCC1833\_MMC1（MMC1\_DAT0~3、CMD、CLK）,   VCC1833\_QSPI（QSPI\_DAT0~3、CLK、CS1），根据外设使用设备选择连接数字 3.3V 或 1.8V 电源。
-- 需要在相关 VCC1833\_GPIO2,  VCC1833\_GPIO3, VCC1833\_MMC1, VCC1833\_QSPI 芯片口摆放 0.1uf/1uF 电容，如下图。
+- 管脚名 VCC18_GPIO 连接数字 1.8V 电源。
+- 管脚名 VCC1833_GPIO2（GPIO2 组：GPIO75~80）,  VCC1833_GPIO3（GPIO3 组：GPIO47~52）,  VCC1833_MMC1（MMC1_DAT0~3、CMD、CLK）,   VCC1833_QSPI（QSPI_DAT0~3、CLK、CS1），根据外设使用设备选择连接数字 3.3V 或 1.8V 电源。
+- 需要在相关 VCC1833_GPIO2,  VCC1833_GPIO3, VCC1833_MMC1, VCC1833_QSPI 芯片口摆放 0.1uf/1uF 电容，如下图。
 
 ![](static/Az7LbCdIaoQh81x1ByHcf40Anuf.jpg)
 
-**注意：GPIO90 IO 用于配置 QSPI 的默认工作电压，GPIO90 上拉 1.8V 时，VCC1833\_QSPI 需工作在 3.3V 电压；GPIO90 下拉 GND 时，VCC1833\_QSPI 需工作在 1.8V 电压。**
+**注意：GPIO90 IO 用于配置 QSPI 的默认工作电压，GPIO90 上拉 1.8V 时，VCC1833_QSPI 需工作在 3.3V 电压；GPIO90 下拉 GND 时，VCC1833_QSPI 需工作在 1.8V 电压。**
 
 **注意：GPIO 不使用时，GPIO pin 可悬空，但各组 GPIO 电源都需要供电；HDMI，PCIEA/USB3.0，PCIEB，PCIEC，MIPI CSI，EMMC，USB2.0，MIPI DSI 等模块，不使用时，电源仍需供电。**
 
@@ -148,9 +148,9 @@ K1 支持 LPDDR4/LPDDR4x，典型电压 1.1V/0.6V。DDR 颗粒的电源要求与
 
 K1 的 PLL 电源有 2 个，分别是：
 
-AVDD09\_PLL：设计上必须用磁珠（120Ω@100MHz，DC 电阻 ≤0.07Ω，下文磁珠需求相同）进行隔离。
+AVDD09_PLL：设计上必须用磁珠（120Ω@100MHz，DC 电阻 ≤0.07Ω，下文磁珠需求相同）进行隔离。
 
-AVDD18\_PLL：设计上必须用磁珠对 1.8V 电源进行隔离。
+AVDD18_PLL：设计上必须用磁珠对 1.8V 电源进行隔离。
 
 参考最新原理图 P1 设计。
 
@@ -163,7 +163,7 @@ Core 电源、DDR 电源和 IO 电源有上下电时序的要求由 PMIC P1 控�
 #### 1.2.6 远端反馈动态调压
 
 - K1 的 core 电源必须增加动态调压功能，最终可以实现动态调节 DC-DC 的输出电压。
-- VDD09\_CORE\_B\_FB 从主控 VCC\_M1\_FB ball 引出，VDD09\_CORE\_B\_FBGND 从主控 VSS\_FB 引出。
+- VDD09_CORE_B_FB 从主控 VCC_M1_FB ball 引出，VDD09_CORE_B_FBGND 从主控 VSS_FB 引出。
 
 ![](static/ZugrbJ9AToC7h3xoXAecvIGjnVa.jpg)
 ![](static/JhUub5J8boHJJNxATRXclCrWn2c.jpg)
@@ -172,11 +172,11 @@ Core 电源、DDR 电源和 IO 电源有上下电时序的要求由 PMIC P1 控�
 
 #### 1.3.1 模拟音频接口设计
 
-- Audio 模块的模拟电源 AUD\_VDDU09，AVDD18\_AUD，AVDD33\_AUD 必须使用磁珠（推荐 120Ω@100MHz）与系统电源隔离。
+- Audio 模块的模拟电源 AUD_VDDU09，AVDD18_AUD，AVDD33_AUD 必须使用磁珠（推荐 120Ω@100MHz）与系统电源隔离。
 
 #### 1.3.2 I2S 接口
 
-- K1 支持 4 个 I2S 接口，I2S0，I2S1 由主 CPU（X60）控制。R\_I2S2,R\_I2S3 由 RCPU （N308）控制。
+- K1 支持 4 个 I2S 接口，I2S0，I2S1 由主 CPU（X60）控制。R_I2S2,R_I2S3 由 RCPU （N308）控制。
 - 每组 I2S 都可以配置主从模式。
 
 #### 1.3.3 MIPI CSI RX 配置接口设计
@@ -185,42 +185,42 @@ Core 电源、DDR 电源和 IO 电源有上下电时序的要求由 PMIC P1 控�
 
 - **MIPI CSI1**
 
-四对差分数据参考 MIPI\_CSI0\_CK1XP/N 差分时钟采样；
+四对差分数据参考 MIPI_CSI0_CK1XP/N 差分时钟采样；
 
-- **MIPI\_CSI2**
+- **MIPI_CSI2**
 
-**[2 Lane 模式]：**MIPI\_CSI3\_D2P/N、MIPI\_CSI3\_D3P/N 两对差分数据参考 MIPI\_CSI2\_CKP/N 差分时钟采样
+**[2 Lane 模式]：**MIPI_CSI3_D2P/N、MIPI_CSI3_D3P/N 两对差分数据参考 MIPI_CSI2_CKP/N 差分时钟采样
 
-- **MIPI\_CSI3**
+- **MIPI_CSI3**
 
-**[2 Lane 模式]：**MIPI\_CSI3\_D0P/N、MIPI\_CSI3\_D1P/N  参考 MIPI\_CSI3\_CKP/N 时钟采样。
+**[2 Lane 模式]：**MIPI_CSI3_D0P/N、MIPI_CSI3_D1P/N  参考 MIPI_CSI3_CKP/N 时钟采样。
 
-**[4 Lane 模式]：**MIPI\_CSI3\_D0P/N、MIPI\_CSI3\_D1P/N ,MIPI\_CSI3\_D2P/N、MIPI\_CSI3\_D3P/N 参考 MIPI\_CSI3\_CKP/N 差分时钟采样。
+**[4 Lane 模式]：**MIPI_CSI3_D0P/N、MIPI_CSI3_D1P/N ,MIPI_CSI3_D2P/N、MIPI_CSI3_D3P/N 参考 MIPI_CSI3_CKP/N 差分时钟采样。
 
-AVDD09\_CSI 电源管脚需要与数字电源用磁珠隔离并在芯片管脚端放置 2 个 1uF 滤波电容。
+AVDD09_CSI 电源管脚需要与数字电源用磁珠隔离并在芯片管脚端放置 2 个 1uF 滤波电容。
 
-AVDD18\_CSI 电源管脚需要与数字电源用磁珠隔离并在芯片管脚放置 1 个 1uF 滤波电容。
+AVDD18_CSI 电源管脚需要与数字电源用磁珠隔离并在芯片管脚放置 1 个 1uF 滤波电容。
 
 #### 1.3.4 MIPI DSI TX 接口设计
 
 - K1 内置了一个 MIPI TX PHY，用于对接 MIPI 接口的 LCD 屏。
-- AVDD18\_DSI 电源管脚需要与数字电源  用磁珠隔离。
+- AVDD18_DSI 电源管脚需要与数字电源  用磁珠隔离。
 
 详细的原理图设计请参考 K1 原理图设计文件。
 
 #### 1.3.5 SPI LCD 接口设计
 
 - 支持 1 线串行外设 SPI 显示接口数据传输
-- Data 为 SPILCD\_DOUT0，或者 SPILCD\_DIN
+- Data 为 SPILCD_DOUT0，或者 SPILCD_DIN
 
-注意：LCD\_TE 信号，不能同时用于 SPI\_LCD 显示与 MIPI DSI LCD
+注意：LCD_TE 信号，不能同时用于 SPI_LCD 显示与 MIPI DSI LCD
 
 #### 1.3.6 HDMI 接口设计
 
 - K1 内置了一个 HDMI PHY。
-- HDMI 接口电源：模拟电源 AVDD33\_HDMI，AVDD18\_HDMI，需要与数字电源通过磁珠隔离，并在靠近芯片管脚端放置 2 个 1uF 滤波电容。AVDD33\_HDMI 管脚需要使用 MOS 管电路接到 3.3V，靠近芯片管脚端放置 2 个 1uF 滤波电容。
+- HDMI 接口电源：模拟电源 AVDD33_HDMI，AVDD18_HDMI，需要与数字电源通过磁珠隔离，并在靠近芯片管脚端放置 2 个 1uF 滤波电容。AVDD33_HDMI 管脚需要使用 MOS 管电路接到 3.3V，靠近芯片管脚端放置 2 个 1uF 滤波电容。
 - HDMI 信号上要有 ESD 保护，ESD 器件靠近 HDMI 连接器放置。ESD 器件寄生电容小于 0.3pF；
-- HDMI\_SCL，HDMI\_SDA，HDMI\_CEC，HDMI\_HPD 信号，需要外围电路处理，使用专用 HDMI 芯片或者分立电平转换。电平转换要求：HDMI\_SCL，HDMI\_SDA 转换为 5V，HDMI\_CEC 需要电平转为 3.3V。外接口输入的 HDMI\_HPD 需要电平转换成 1.8V 后输入芯片。具体设计如图
+- HDMI_SCL，HDMI_SDA，HDMI_CEC，HDMI_HPD 信号，需要外围电路处理，使用专用 HDMI 芯片或者分立电平转换。电平转换要求：HDMI_SCL，HDMI_SDA 转换为 5V，HDMI_CEC 需要电平转为 3.3V。外接口输入的 HDMI_HPD 需要电平转换成 1.8V 后输入芯片。具体设计如图
 
 ![](static/JLRxbInSAoBjMjxvI6pcW9wBnPu.jpg)
 
@@ -232,7 +232,7 @@ AVDD18\_CSI 电源管脚需要与数字电源用磁珠隔离并在芯片管脚�
 
 - K1 提供 3 个 USB2.0 接口，其中有 USB2.0-0、USB2.0-2 支持 OTG。
 - USB2.0-0 为 Download 接口。
-- AVDD33\_USB ，使用 1 个 3.3R 电阻与系统 3.3V 电源连接，靠近管脚放置 3 个 0.1uF 电容。
+- AVDD33_USB ，使用 1 个 3.3R 电阻与系统 3.3V 电源连接，靠近管脚放置 3 个 0.1uF 电容。
 
 ![](static/T847b1iYiolnurxSinxcbrjDnvg.jpg)
 
@@ -241,19 +241,19 @@ AVDD18\_CSI 电源管脚需要与数字电源用磁珠隔离并在芯片管脚�
 #### 1.4.2 PCIE
 
 - K1 提供 3 个 PCIE 接口，PCIEA X1，PCIEB X2,PCIEC X2.
-- AVDD09\_PCIEA，AVDD09\_PCIEB，AVDD09\_PCIEC 合并供电，使用磁珠与系统电源隔离，靠近管脚各放置 3 个 1uF 电容。
-- AVDD18\_PCIEA，AVDD18\_PCIEB，AVDD18\_PCIEC 合并供电，使用磁珠与数字电源隔离，靠近管脚各放置 3 个 1uF 电容。
+- AVDD09_PCIEA，AVDD09_PCIEB，AVDD09_PCIEC 合并供电，使用磁珠与系统电源隔离，靠近管脚各放置 3 个 1uF 电容。
+- AVDD18_PCIEA，AVDD18_PCIEB，AVDD18_PCIEC 合并供电，使用磁珠与数字电源隔离，靠近管脚各放置 3 个 1uF 电容。
 
-**注意：无论使用任意一个 PCIE, PCIEA\_R\_EXT 都需要****连接****240Ω 1% 电阻上拉到 AVDD09\_PCIE。**
+**注意：无论使用任意一个 PCIE, PCIEA_R_EXT 都需要****连接****240Ω 1% 电阻上拉到 AVDD09_PCIE。**
 
-- PCIE\_RXP/N
+- PCIE_RXP/N
 
   - 如果对接器件是 IC，那么 RX 差分信号必须在对接器件端串联 220nF 电容。
   - 如果对接器件是 PCIE 插槽， RX 差分信号直接连接至插槽管脚上无需串联电容。
-- PCIE\_TXP/N
+- PCIE_TXP/N
 
   - 差分信号必须在 K1 端串联 220nF 电容进行 AC 耦合。
-- PCIE\_REFCLKP/N 支持两种时钟方案：
+- PCIE_REFCLKP/N 支持两种时钟方案：
 
   - K1 给对接器件提供时钟。PCIE 差分时钟信号直接连接。
   - 外部器件给 K1 提供时钟。PCIE 差分时钟信号在外部器件源端必须加 49.9Ω 下拉电阻。时钟偏差约束 ±300ppm，符合 PCIE 协议规范。
@@ -270,7 +270,7 @@ K1 有 12 组 UART 接口，分为两类：X60 UART 和 N308 UART。
 K1 有 10 组 IIC 接口，分为 4 类：AP I2C ,HDMI I2C, PWR I2C。
 
 - AP I2C 有 8 组， I2C0~I2C7 ，用于外设控制功能，其中 I2C0,I2C1,I2C7 用于摄像头功能控制。
-- HDMI  I2C 有 1 组，HDMI\_I2C， 用于 HDMI 接口功能控制
+- HDMI  I2C 有 1 组，HDMI_I2C， 用于 HDMI 接口功能控制
 - PWR I2C 有 1 组，PWR， 用于电源 IC 配置功能控制
 
 #### 1.4.5 MMC
@@ -285,14 +285,14 @@ MMC1/2 支持对接 SDIO 接口 WIFI，SD Card
 - USB3.0 信号上要有 ESD 保护措施，ESD 器件的寄生电容要求小于 0.5pF，ESD 器 件靠近 USB 接口放置。
 - 信号设计处理
 
-  - USB3\_RXP/N
+  - USB3_RXP/N
     - 如果对接器件是 IC 或模组，那么 RX 差分信号需要在对接器件端串联 100nF 电容。
     - 如果对接器件是插座，那么 RX 差分信号直接连接至插座，无需串联电容。
-  - USB3\_TXP/N
+  - USB3_TXP/N
     - 如果对接器件是 IC 或模组，那么 TX 差分信号需要在 K1 端串联 100nF 电容。
     - 如果对接器件是插座，那么 TX 差分信号需要在靠近插座的位置串联 100nF 电容。
 
-**注意：无论使用 USB3.0 还是任意一个 PCIE, PCIEA\_R\_EXT 都需要****通过****240Ω 1% 电阻上拉到 AVDD09\_PCIE。**
+**注意：无论使用 USB3.0 还是任意一个 PCIE, PCIEA_R_EXT 都需要****通过****240Ω 1% 电阻上拉到 AVDD09_PCIE。**
 
 ## 2. PCB 设计
 
@@ -430,7 +430,7 @@ K1 目前使用 6 层叠层，以下为参考叠层设计。如果使用其它�
 
 #### 2.5.2 DDR - PCB Layout 推荐设计
 
-对于 6 层 PCB，建议 DDR 信号走在第 1 层、第 4 层，使其主要参考第 2 层、第 5 层完整的地平面。如果 GND 平面不完整，将对信号质量造成很大的影响。DDR 设计中间距要求和等长要求，见下表。绕线时，需导入 pin\_delay。
+对于 6 层 PCB，建议 DDR 信号走在第 1 层、第 4 层，使其主要参考第 2 层、第 5 层完整的地平面。如果 GND 平面不完整，将对信号质量造成很大的影响。DDR 设计中间距要求和等长要求，见下表。绕线时，需导入 pin_delay。
 
 <table>
 <tbody>
