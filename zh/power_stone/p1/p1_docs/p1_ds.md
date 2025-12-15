@@ -1941,62 +1941,20 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 
 #### 表 7-1 Register Base Attributes
 
-<table>
-<tbody>
-<tr>
-<td>参数</td>
-<td>简称</td>
-<td>描述</td>
-</tr>
-<tr>
-<td>Read Only</td>
-<td>R</td>
-<td>该bit可通过软件读，写无效。</td>
-</tr>
-<tr>
-<td>Read/Write</td>
-<td>RW</td>
-<td>该bit可通过软件读写</td>
-</tr>
-<tr>
-<td>Write Only</td>
-<td>W</td>
-<td>该bit只能软件写</td>
-</tr>
-<tr>
-<td>Reserved</td>
-<td>RV</td>
-<td>该bit为保留位，软件不可修改。</td>
-</tr>
-</tbody>
-</table>
+| 参数           | 简称 | 描述                             |
+|----------------|------|----------------------------------|
+| Read Only      | R    | 该 bit 可通过软件读，写无效。     |
+| Read/Write     | RW   | 该 bit 可通过软件读写。           |
+| Write Only     | W    | 该 bit 只能软件写。               |
+| Reserved       | RV   | 该 bit 为保留位，软件不可修改。   |
 
-#### 表 7-2 Register Attribute Modifier
+### 表 7-2 Register Attribute Modifier
 
-<table>
-<tbody>
-<tr>
-<td>参数</td>
-<td>简称</td>
-<td>描述</td>
-</tr>
-<tr>
-<td>Write 1 Only</td>
-<td>IO</td>
-<td>该bit只能通过软件写1，写0无效。</td>
-</tr>
-<tr>
-<td>Protected</td>
-<td>P</td>
-<td>该bit受解锁寄存器表 7128 MTP_KEY保护。<br/>当未向解锁寄存器写解锁序列时，该bit不能通过软件修改。</td>
-</tr>
-<tr>
-<td>MTP Loaded</td>
-<td>E</td>
-<td>该bit可通过MTP修改。</td>
-</tr>
-</tbody>
-</table>
+| 参数            | 简称 | 描述            |
+|-----------------|------|---------------------------|
+| Write 1 Only    | IO   | 该 bit 只能通过软件写 1，写 0 无效。          |
+| Protected       | P    | 该 bit 受解锁寄存器表 7128 MTP_KEY 保护。<br>当未向解锁寄存器写解锁序列时，该 bit 不能通过软件修改。 |
+| MTP Loaded      | E    | 该 bit 可通过 MTP 修改。       |
 
 ### 7.2 寄存器映射表
 
@@ -2004,803 +1962,137 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 
 #### 表 7-3 Register Map
 
-<table>
-<tbody>
-<tr>
-<td>Module</td>
-<td>Table Name</td>
-<td>Register Address(hex)</td>
-<td>Attribute</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=13 colspan=1><strong>GPIO</strong></td>
-<td>表 7-4</td>
-<td>0x00</td>
-<td>R</td>
-<td>GPIO端口输入值</td>
-</tr>
-<tr>
-<td>表 7-5</td>
-<td>0x01</td>
-<td>RW</td>
-<td>GPIO数据输出；<br/>有效电平配置</td>
-</tr>
-<tr>
-<td>表 7-6</td>
-<td>0x02</td>
-<td>RWE</td>
-<td>GPIO0 ~ 2上下拉配置</td>
-</tr>
-<tr>
-<td>表 7-7</td>
-<td>0x03</td>
-<td>RWE</td>
-<td>GPIO3 ~ 5上下拉配置</td>
-</tr>
-<tr>
-<td>表 7-8</td>
-<td>0x04</td>
-<td>RW</td>
-<td>GPIO滤波使能及滤波时间配置</td>
-</tr>
-<tr>
-<td>表 7-9</td>
-<td>0x05</td>
-<td>RW</td>
-<td>GPIO输出开漏配置</td>
-</tr>
-<tr>
-<td>表 7-10</td>
-<td>0x06</td>
-<td>RWE</td>
-<td>GPIO0 ~ 2中断类型配置</td>
-</tr>
-<tr>
-<td>表 7-11</td>
-<td>0x07</td>
-<td>RWE</td>
-<td>GPIO3 ~ 5中断类型配置</td>
-</tr>
-<tr>
-<td>表 7-12</td>
-<td>0x08</td>
-<td>RWE</td>
-<td>GPIO0 ~ 2模式配置</td>
-</tr>
-<tr>
-<td>表 7-13</td>
-<td>0x09</td>
-<td>RWE</td>
-<td>GPIO3 ~ 5模式配置</td>
-</tr>
-<tr>
-<td>表 7-14</td>
-<td>0x0A</td>
-<td>RWE</td>
-<td>GPIO0 ~ 1复用功能选择</td>
-</tr>
-<tr>
-<td>表 7-15</td>
-<td>0x0B</td>
-<td>RWE</td>
-<td>GPIO2 ~ 3复用功能选择</td>
-</tr>
-<tr>
-<td>表 7-16</td>
-<td>0x0C</td>
-<td>RWE</td>
-<td>GPIO4 ~ 5复用功能选择</td>
-</tr>
-<tr>
-<td rowspan=17 colspan=1><strong>RTC</strong></td>
-<td>表 7-17</td>
-<td>0x0D</td>
-<td>RW</td>
-<td>RTC seconds 读出寄存器</td>
-</tr>
-<tr>
-<td>表 7-18</td>
-<td>0x0E</td>
-<td>RW</td>
-<td>RTC minutes 读出寄存器</td>
-</tr>
-<tr>
-<td>表 7-19</td>
-<td>0x0F</td>
-<td>RW</td>
-<td>RTC hours 读出寄存器</td>
-</tr>
-<tr>
-<td>表 7-20</td>
-<td>0x10</td>
-<td>RW</td>
-<td>RTC days 读出寄存器</td>
-</tr>
-<tr>
-<td>表 7-21</td>
-<td>0x11</td>
-<td>RW</td>
-<td>RTC months 读出寄存器</td>
-</tr>
-<tr>
-<td>表 7-22</td>
-<td>0x12</td>
-<td>RW</td>
-<td>RTC years 读出寄存器</td>
-</tr>
-<tr>
-<td>表 7-23</td>
-<td>0x13</td>
-<td>RW</td>
-<td>RTC_ALARM seconds 设置</td>
-</tr>
-<tr>
-<td>表 7-24</td>
-<td>0x14</td>
-<td>RW</td>
-<td>RTC_ALARM minutes 设置</td>
-</tr>
-<tr>
-<td>表 7-25</td>
-<td>0x15</td>
-<td>RW</td>
-<td>RTC_ALARM hours 设置</td>
-</tr>
-<tr>
-<td>表 7-26</td>
-<td>0x16</td>
-<td>RW</td>
-<td>RTC_ALARM days 设置</td>
-</tr>
-<tr>
-<td>表 7-27</td>
-<td>0x17</td>
-<td>RW</td>
-<td>RTC_ALARM months 设置</td>
-</tr>
-<tr>
-<td>表 7-28</td>
-<td>0x18</td>
-<td>RW</td>
-<td>RTC_ALARM years 设置</td>
-</tr>
-<tr>
-<td>表 7-29</td>
-<td>0x19</td>
-<td>R</td>
-<td>RTC 秒计数[7:0]</td>
-</tr>
-<tr>
-<td>表 7-30</td>
-<td>0x1A</td>
-<td>R</td>
-<td>RTC 秒计数[15:8]</td>
-</tr>
-<tr>
-<td>表 7-31</td>
-<td>0x1B</td>
-<td>R</td>
-<td>RTC 秒计数[23:16]</td>
-</tr>
-<tr>
-<td>表 7-32</td>
-<td>0X1C</td>
-<td>R</td>
-<td>RTC 秒计数[31:24]</td>
-</tr>
-<tr>
-<td>表 7-33</td>
-<td>0x1D</td>
-<td>RWE</td>
-<td>RTC 控制寄存器</td>
-</tr>
-<tr>
-<td rowspan=38 colspan=1><strong>ADC</strong></td>
-<td>表 7-34</td>
-<td>0x1E</td>
-<td>RW</td>
-<td>ADC控制寄存器</td>
-</tr>
-<tr>
-<td>表 7-35</td>
-<td>0x1F</td>
-<td>RW</td>
-<td>ADC配置寄存器0</td>
-</tr>
-<tr>
-<td>表 7-36</td>
-<td>0x20</td>
-<td>RW</td>
-<td>ADC配置寄存器1</td>
-</tr>
-<tr>
-<td>表 7-37</td>
-<td>0x21</td>
-<td>RW</td>
-<td>ADC配置寄存器2</td>
-</tr>
-<tr>
-<td>表 7-38</td>
-<td>0x22</td>
-<td>RW</td>
-<td>ADC自动模式扫描通道选择</td>
-</tr>
-<tr>
-<td>表 7-39</td>
-<td>0x23</td>
-<td>RW</td>
-<td>ADC通道0手动扫描通道选择</td>
-</tr>
-<tr>
-<td>表 7-40</td>
-<td>0x24</td>
-<td>RW</td>
-<td>ADC通道0手动扫描通道选择</td>
-</tr>
-<tr>
-<td>表 7-41</td>
-<td>0x25</td>
-<td>RW</td>
-<td>ADC通道0手动扫描通道选择</td>
-</tr>
-<tr>
-<td>表 7-42</td>
-<td>0x26</td>
-<td>R</td>
-<td>ADC通道0转换结果高8位</td>
-</tr>
-<tr>
-<td>表 7-43</td>
-<td>0x27</td>
-<td>R</td>
-<td>ADC通道0转换结果低4位</td>
-</tr>
-<tr>
-<td>表 7-44</td>
-<td>0x28</td>
-<td>R</td>
-<td>Junction温度监控自动转换结果（8 MSBs）</td>
-</tr>
-<tr>
-<td>表 7-45</td>
-<td>0x29</td>
-<td>R</td>
-<td>Junction温度监控自动转换结果（4 LSBs）</td>
-</tr>
-<tr>
-<td>表 7-46</td>
-<td>0x2A</td>
-<td>R</td>
-<td>ADCIN0监控自动转换结果（8 MSBs）</td>
-</tr>
-<tr>
-<td>表 7-47</td>
-<td>0x2B</td>
-<td>R</td>
-<td>ADCIN0监控自动转换结果（4 LSBs）</td>
-</tr>
-<tr>
-<td>表 7-48</td>
-<td>0X2C</td>
-<td>R</td>
-<td>ADCIN1监控自动转换结果（8 MSBs）</td>
-</tr>
-<tr>
-<td>表 7-49</td>
-<td>0x2D</td>
-<td>R</td>
-<td>ADCIN1监控自动转换结果（4 LSBs）</td>
-</tr>
-<tr>
-<td>表 7-50</td>
-<td>0x2E</td>
-<td>R</td>
-<td>ADCIN2监控自动转换结果（8 MSBs）</td>
-</tr>
-<tr>
-<td>表 7-51</td>
-<td>0x2F</td>
-<td>R</td>
-<td>ADCIN2监控自动转换结果（4 LSBs）</td>
-</tr>
-<tr>
-<td>表 7-52</td>
-<td>0x30</td>
-<td>R</td>
-<td>ADCIN3监控自动转换结果（8 MSBs）</td>
-</tr>
-<tr>
-<td>表 7-53</td>
-<td>0x31</td>
-<td>R</td>
-<td>ADCIN3监控自动转换结果（4 LSBs）</td>
-</tr>
-<tr>
-<td>表 7-54</td>
-<td>0x32</td>
-<td>R</td>
-<td>ADCIN4监控自动转换结果（8 MSBs）</td>
-</tr>
-<tr>
-<td>表 7-55</td>
-<td>0x33</td>
-<td>R</td>
-<td>ADCIN4监控自动转换结果（4 LSBs）</td>
-</tr>
-<tr>
-<td>表 7-56</td>
-<td>0x34</td>
-<td>R</td>
-<td>ADCIN5监控自动转换结果（8 MSBs）</td>
-</tr>
-<tr>
-<td>表 7-57</td>
-<td>0x35</td>
-<td>R</td>
-<td>ADCIN5监控自动转换结果（4 LSBs）</td>
-</tr>
-<tr>
-<td>表 7-58</td>
-<td>0x36</td>
-<td>RW</td>
-<td>Junction温度监控上限阈值设置（8 MSBs）</td>
-</tr>
-<tr>
-<td>表 7-59</td>
-<td>0x37</td>
-<td>RW</td>
-<td>Junction温度监控下限阈值设置（8 MSBs）</td>
-</tr>
-<tr>
-<td>表 7-60</td>
-<td>0x38</td>
-<td>RW</td>
-<td>ADCIN0监控上限阈值设置（8 MSBs）</td>
-</tr>
-<tr>
-<td>表 7-61</td>
-<td>0x39</td>
-<td>RW</td>
-<td>ADCIN0监控下限阈值设置（8 MSBs）</td>
-</tr>
-<tr>
-<td>表 7-62</td>
-<td>0x3A</td>
-<td>RW</td>
-<td>ADCIN1监控上限阈值设置（8 MSBs）</td>
-</tr>
-<tr>
-<td>表 7-63</td>
-<td>0x3B</td>
-<td>RW</td>
-<td>ADCIN1监控下限阈值设置（8 MSBs）</td>
-</tr>
-<tr>
-<td>表 7-64</td>
-<td>0X3C</td>
-<td>RW</td>
-<td>ADCIN2监控上限阈值设置（8 MSBs）</td>
-</tr>
-<tr>
-<td>表 7-65</td>
-<td>0x3D</td>
-<td>RW</td>
-<td>ADCIN2监控下限阈值设置（8 MSBs）</td>
-</tr>
-<tr>
-<td>表 7-66</td>
-<td>0x3E</td>
-<td>RW</td>
-<td>ADCIN3监控上限阈值设置（8 MSBs）</td>
-</tr>
-<tr>
-<td>表 7-67</td>
-<td>0x3F</td>
-<td>RW</td>
-<td>ADCIN3监控下限阈值设置（8 MSBs）</td>
-</tr>
-<tr>
-<td>表 7-68</td>
-<td>0x40</td>
-<td>RW</td>
-<td>ADCIN4监控上限阈值设置（8 MSBs）</td>
-</tr>
-<tr>
-<td>表 7-69</td>
-<td>0x44</td>
-<td>RW</td>
-<td>ADCIN4监控下限阈值设置（8 MSBs）</td>
-</tr>
-<tr>
-<td>表 7-70</td>
-<td>0x42</td>
-<td>RW</td>
-<td>ADCIN5监控上限阈值设置（8 MSBs）</td>
-</tr>
-<tr>
-<td>表 7-71</td>
-<td>0x43</td>
-<td>RW</td>
-<td>ADCIN5监控下限阈值设置（8 MSBs）</td>
-</tr>
-<tr>
-<td><strong>WDT</strong></td>
-<td>表 7-72</td>
-<td>0x44</td>
-<td>RW</td>
-<td>看门狗控制寄存器</td>
-</tr>
-<tr>
-<td><strong>Battery Charge</strong></td>
-<td>表 7-73</td>
-<td>0x45</td>
-<td>RW</td>
-<td>电池充电控制寄存器</td>
-</tr>
-<tr>
-<td rowspan=33 colspan=1><strong>上下电控制 </strong></td>
-<td>表 7-74</td>
-<td>0x46</td>
-<td>RWE</td>
-<td>电源轨配置寄存器</td>
-</tr>
-<tr>
-<td>表 7-75</td>
-<td>0x47 + 3*n</td>
-<td>RWE</td>
-<td>BUCKn控制寄存器，n=0 ~ 5</td>
-</tr>
-<tr>
-<td>表 7-76</td>
-<td>0x48 + 3*n</td>
-<td>RWE</td>
-<td>BUCK电压设置</td>
-</tr>
-<tr>
-<td>表 7-77</td>
-<td>0x49 + 3*n</td>
-<td>RWE</td>
-<td>BUCK睡眠电压设置</td>
-</tr>
-<tr>
-<td>表 7-78</td>
-<td>0x59</td>
-<td>RW</td>
-<td>Switch控制寄存器</td>
-</tr>
-<tr>
-<td>表 7-79</td>
-<td>0x5A</td>
-<td>RE</td>
-<td>AONLDO控制寄存器</td>
-</tr>
-<tr>
-<td>表 7-80</td>
-<td>0x5B</td>
-<td>RWE</td>
-<td>ALDO控制寄存器</td>
-</tr>
-<tr>
-<td>表 7-81</td>
-<td>0x5C</td>
-<td>RWE</td>
-<td>ALDO电压设置</td>
-</tr>
-<tr>
-<td>表 7-82</td>
-<td>0x5D</td>
-<td>RWE</td>
-<td>ALDO睡眠电压设置</td>
-</tr>
-<tr>
-<td>表 7-83</td>
-<td>0x67</td>
-<td>RWE</td>
-<td>DLDO控制寄存器</td>
-</tr>
-<tr>
-<td>表 7-84</td>
-<td>0x68</td>
-<td>RWE</td>
-<td>DLDO电压设置</td>
-</tr>
-<tr>
-<td>表 7-85</td>
-<td>0x69</td>
-<td>RWE</td>
-<td>DLDO睡眠电压设置</td>
-</tr>
-<tr>
-<td>表 7-86</td>
-<td>0x7C</td>
-<td>RWE</td>
-<td>上下电控制寄存器0</td>
-</tr>
-<tr>
-<td>表 7-87</td>
-<td>0x7D</td>
-<td>RWE</td>
-<td>上下电控制寄存器1</td>
-</tr>
-<tr>
-<td>表 7-88</td>
-<td>0x7E</td>
-<td>RWE</td>
-<td>上下电控制寄存器2</td>
-</tr>
-<tr>
-<td>表 7-89</td>
-<td>0x7F</td>
-<td>R</td>
-<td>上下电状态寄存器0</td>
-</tr>
-<tr>
-<td>表 7-90</td>
-<td>0x80</td>
-<td>R</td>
-<td>上下电状态寄存器1</td>
-</tr>
-<tr>
-<td>表 7-91</td>
-<td>0x81</td>
-<td>RWE</td>
-<td>按键时间配置寄存器</td>
-</tr>
-<tr>
-<td>表 7-92</td>
-<td>0x82</td>
-<td>RWE</td>
-<td>上下电控制时间配置</td>
-</tr>
-<tr>
-<td>表 7-93</td>
-<td>0x88</td>
-<td>RE</td>
-<td>电源轨SLOT ID配置</td>
-</tr>
-<tr>
-<td>表 7-94</td>
-<td>0x84</td>
-<td>RE</td>
-<td>电源轨SLOT ID配置</td>
-</tr>
-<tr>
-<td>表 7-95</td>
-<td>0x85</td>
-<td>RE</td>
-<td>电源轨SLOT ID配置</td>
-</tr>
-<tr>
-<td>表 7-96</td>
-<td>0x86</td>
-<td>RE</td>
-<td>电源轨SLOT ID配置</td>
-</tr>
-<tr>
-<td>表 7-97</td>
-<td>0x87</td>
-<td>RE</td>
-<td>电源轨SLOT ID配置</td>
-</tr>
-<tr>
-<td>表 7-98</td>
-<td>0x88</td>
-<td>RE</td>
-<td>电源轨SLOT ID配置</td>
-</tr>
-<tr>
-<td>表 7-99</td>
-<td>0x89</td>
-<td>RE</td>
-<td>电源轨SLOT ID配置</td>
-</tr>
-<tr>
-<td>表 7-100</td>
-<td>0x8A</td>
-<td>RE</td>
-<td>电源轨SLOT ID配置</td>
-</tr>
-<tr>
-<td>表 7-101</td>
-<td>0x8B</td>
-<td>RE</td>
-<td>电源轨SLOT ID配置</td>
-</tr>
-<tr>
-<td>表 7-102</td>
-<td>0X8C</td>
-<td>RE</td>
-<td>EXT_EN  SLOT ID配置</td>
-</tr>
-<tr>
-<td>表 7-103</td>
-<td>0x8D</td>
-<td>RE</td>
-<td>EXT_EN  SLOT ID配置</td>
-</tr>
-<tr>
-<td>表 7-104</td>
-<td>0x8E</td>
-<td>RE</td>
-<td>EXT_EN  SLOT ID配置</td>
-</tr>
-<tr>
-<td>表 7-105</td>
-<td>0x8F</td>
-<td>RWE</td>
-<td>EXT_EN软件使能控制</td>
-</tr>
-<tr>
-<td>表 7-106</td>
-<td>0x90</td>
-<td>RWE</td>
-<td>EXT_EN睡眠流程控制</td>
-</tr>
-<tr>
-<td rowspan=7 colspan=1><strong>事件</strong></td>
-<td>表 7-107</td>
-<td>0x91</td>
-<td>RIO</td>
-<td>PMIC系统事件</td>
-</tr>
-<tr>
-<td>表 7-108</td>
-<td>0x92</td>
-<td>RIO</td>
-<td>PMIC系统事件</td>
-</tr>
-<tr>
-<td>表 7-109</td>
-<td>0x99</td>
-<td>RIO</td>
-<td>PMIC系统事件</td>
-</tr>
-<tr>
-<td>表 7-110</td>
-<td>0x94</td>
-<td>RIO</td>
-<td>BUCK过压事件</td>
-</tr>
-<tr>
-<td>表 7-111</td>
-<td>0x95</td>
-<td>RIO</td>
-<td>BUCK欠压事件</td>
-</tr>
-<tr>
-<td>表 7-112</td>
-<td>0x96</td>
-<td>RIO</td>
-<td>BUCK短路/开路事件</td>
-</tr>
-<tr>
-<td>表 7-113</td>
-<td>0x97</td>
-<td>RIO</td>
-<td>PWRKY按键事件</td>
-</tr>
-<tr>
-<td rowspan=7 colspan=1><strong>中断使能</strong></td>
-<td>表 7-114</td>
-<td>0x98</td>
-<td>RW</td>
-<td>PMIC系统事件中断使能</td>
-</tr>
-<tr>
-<td>表 7-115</td>
-<td>0x99</td>
-<td>RW</td>
-<td>PMIC系统事件中断使能</td>
-</tr>
-<tr>
-<td>表 7-116</td>
-<td>0x9A</td>
-<td>RW</td>
-<td>PMIC系统事件中断使能</td>
-</tr>
-<tr>
-<td>表 7-117</td>
-<td>0x9B</td>
-<td>RW</td>
-<td>BUCK过压事件中断使能</td>
-</tr>
-<tr>
-<td>表 7-118</td>
-<td>0X9C</td>
-<td>RW</td>
-<td>BUCK欠压事件中断使能</td>
-</tr>
-<tr>
-<td>表 7-119</td>
-<td>0x9D</td>
-<td>RW</td>
-<td>BUCK短路/开路事件中断使能</td>
-</tr>
-<tr>
-<td>表 7-120</td>
-<td>0x9E</td>
-<td>RWE</td>
-<td>PWRKY按键事件中断使能</td>
-</tr>
-<tr>
-<td><strong>保护使能</strong></td>
-<td>表 7-121</td>
-<td>0x9F</td>
-<td>RWE</td>
-<td>系统异常事件保护使能</td>
-</tr>
-<tr>
-<td rowspan=3 colspan=1><strong>ID</strong></td>
-<td>表 7-122</td>
-<td>0xA0</td>
-<td>RE</td>
-<td>设备ID</td>
-</tr>
-<tr>
-<td>表 7-123</td>
-<td>0xA1</td>
-<td>RE</td>
-<td>版本ID</td>
-</tr>
-<tr>
-<td>表 7-124</td>
-<td>0xA2</td>
-<td>RE</td>
-<td>用户ID</td>
-</tr>
-<tr>
-<td rowspan=3 colspan=1><strong>系统配置</strong></td>
-<td>表 7-125</td>
-<td>0xAA</td>
-<td>RE</td>
-<td>系统配置寄存器0</td>
-</tr>
-<tr>
-<td>表 7-126</td>
-<td>0xA4</td>
-<td>RE</td>
-<td>系统配置寄存器1</td>
-</tr>
-<tr>
-<td>表 7-127</td>
-<td>0xA5</td>
-<td>RE</td>
-<td>系统配置寄存器2</td>
-</tr>
-<tr>
-<td rowspan=5 colspan=1><strong>MTP</strong><br/> </td>
-<td>表 7-128</td>
-<td>0xA6</td>
-<td>RW</td>
-<td>MTP解锁寄存器</td>
-</tr>
-<tr>
-<td>表 7-129</td>
-<td>0xA7</td>
-<td>RWP</td>
-<td>MTP地址寄存器</td>
-</tr>
-<tr>
-<td>表 7-130</td>
-<td>0xA8</td>
-<td>RWP</td>
-<td>MTP读写数据寄存器</td>
-</tr>
-<tr>
-<td>表 7-131</td>
-<td>0xA9</td>
-<td>RWP</td>
-<td>MTP配置寄存器</td>
-</tr>
-<tr>
-<td>表 7-132</td>
-<td>0xAA</td>
-<td>RWP</td>
-<td>MTP控制寄存器</td>
-</tr>
-</tbody>
-</table>
+| Module             | Table Name   | Register Address (hex) | Attribute | Description    |
+|--------------------|--------------|-------------------------|-----------|---------------------|
+| **GPIO**           | [表 7-4](#表-7-4-gpio_idr)       | 0x00                    | R         | GPIO端口输入值                                            |
+| **GPIO**           | [表 7-5](#表-7-5-gpio_odr)       | 0x01                    | RW        | GPIO数据输出；<br>有效电平配置                            |
+| **GPIO**           | [表 7-6](#表-7-6-gpio_pupd0)       | 0x02                    | RWE       | GPIO0 ~ 2上下拉配置                                       |
+| **GPIO**           | [表 7-7](#表-7-7-gpio_pupd1)       | 0x03                    | RWE       | GPIO3 ~ 5上下拉配置                                       |
+| **GPIO**           | [表 7-8](#表-7-8-gpio_deb_en)       | 0x04                    | RW        | GPIO滤波使能及滤波时间配置                                |
+| **GPIO**           | [表 7-9](#表-7-9-gpio_od)       | 0x05                    | RW        | GPIO输出开漏配置                                          |
+| **GPIO**           | [表 7-10](#表-7-10-gpio_itype0)      | 0x06                    | RWE       | GPIO0 ~ 2中断类型配置                                     |
+| **GPIO**           | [表 7-11](#表-7-11-gpio_itype1)      | 0x07                    | RWE       | GPIO3 ~ 5中断类型配置                                     |
+| **GPIO**           | [表 7-12](#表-7-12-gpio_mode0)      | 0x08                    | RWE       | GPIO0 ~ 2模式配置                                         |
+| **GPIO**           | [表 7-13](#表-7-13-gpio_mode1)      | 0x09                    | RWE       | GPIO3 ~ 5模式配置                                         |
+| **GPIO**           | [表 7-14](#表-7-14-gpio_af01)      | 0x0A                    | RWE       | GPIO0 ~ 1复用功能选择                                     |
+| **GPIO**           | [表 7-15](#表-7-15-gpio_af23)      | 0x0B                    | RWE       | GPIO2 ~ 3复用功能选择                                     |
+| **GPIO**           | [表 7-16](#表-7-16-gpio_af45)      | 0x0C                    | RWE       | GPIO4 ~ 5复用功能选择                                     |
+| **RTC**            | [表 7-17](#表-7-17-rtc_count_s)      | 0x0D                    | RW        | RTC seconds 读出寄存器                                    |
+| **RTC**            | [表 7-18](#表-7-18-rtc_count_mi)      | 0x0E                    | RW        | RTC minutes 读出寄存器                                    |
+| **RTC**            | [表 7-19](#表-7-19-rtc_count_h)      | 0x0F                    | RW        | RTC hours 读出寄存器                                      |
+| **RTC**            | [表 7-20](#表-7-20-rtc_count_d)      | 0x10                    | RW        | RTC days 读出寄存器                                       |
+| **RTC**            | [表 7-21](#表-7-21-rtc_count_mo)      | 0x11                    | RW        | RTC months 读出寄存器                                     |
+| **RTC**            | [表 7-22](#表-7-22-rtc_count_y)      | 0x12                    | RW        | RTC years 读出寄存器                                      |
+| **RTC**            | [表 7-23](#表-7-23-rtc_alarm_s)      | 0x13                    | RW        | RTC_ALARM seconds 设置                                    |
+| **RTC**            | [表 7-24](#表-7-24-rtc_alarm_mi)      | 0x14                    | RW        | RTC_ALARM minutes 设置                                    |
+| **RTC**            | [表 7-25](#表-7-25-rtc_alarm_h)      | 0x15                    | RW        | RTC_ALARM hours 设置                                      |
+| **RTC**            | [表 7-26](#表-7-26-rtc_alarm_d)      | 0x16                    | RW        | RTC_ALARM days 设置                                       |
+| **RTC**            | [表 7-27](#表-7-27-rtc_alarm_mo)      | 0x17                    | RW        | RTC_ALARM months 设置                                     |
+| **RTC**            | [表 7-28](#表-7-28-rtc_alarm_y)      | 0x18                    | RW        | RTC_ALARM years 设置                                      |
+| **RTC**            | [表 7-29](#表-7-29-rtc_second_a)      | 0x19                    | R         | RTC 秒计数[7:0]                                           |
+| **RTC**            | [表 7-30](#表-7-30-rtc_second_b)      | 0x1A                    | R         | RTC 秒计数[15:8]                                          |
+| **RTC**            | [表 7-31](#表-7-31-rtc_second_c)      | 0x1B                    | R         | RTC 秒计数[23:16]                                         |
+| **RTC**            | [表 7-32](#表-7-32-rtc_second_d)      | 0x1C                    | R         | RTC 秒计数[31:24]                                         |
+| **RTC**            | [表 7-33](#表-7-33-rtc_ctrl)      | 0x1D                    | RWE       | RTC 控制寄存器                                            |
+| **ADC**            | [表 7-34](#表-7-34-adc_ctrl1)      | 0x1E                    | RW        | ADC控制寄存器                                             |
+| **ADC**            | [表 7-35](#表-7-35-adc_cfg01)      | 0x1F                    | RW        | ADC配置寄存器0                                            |
+| **ADC**            | [表 7-36](#表-7-36-adc_cfg11)      | 0x20                    | RW        | ADC配置寄存器1                                            |
+| **ADC**            | [表 7-37](#表-7-37-adc_cfg21)      | 0x21                    | RW        | ADC配置寄存器2                                            |
+| **ADC**            | [表 7-38](#表-7-38-adc_auto1)      | 0x22                    | RW        | ADC自动模式扫描通道选择                                   |
+| **ADC**            | [表 7-39](#表-7-39-adc_man_en01)      | 0x23                    | RW        | ADC通道0手动扫描通道选择                                  |
+| **ADC**            | [表 7-40](#表-7-40-adc_man_en11)      | 0x24                    | RW        | ADC通道0手动扫描通道选择                                  |
+| **ADC**            | [表 7-41](#表-7-41-adc_man_en21)      | 0x25                    | RW        | ADC通道0手动扫描通道选择                                  |
+| **ADC**            | [表 7-42](#表-7-42-adc_man_res_h1)      | 0x26                    | R         | ADC通道0转换结果高8位                                     |
+| **ADC**            | [表 7-43](#表-7-43-adc_man_res_l1)      | 0x27                    | R         | ADC通道0转换结果低4位                                     |
+| **ADC**            | [表 7-44](#表-7-44-adc_tj_res_h1)      | 0x28                    | R         | Junction温度监控自动转换结果（8 MSBs）                    |
+| **ADC**            | [表 7-45](#表-7-45-adc_tj_res_l1)      | 0x29                    | R         | Junction温度监控自动转换结果（4 LSBs）                    |
+| **ADC**            | [表 7-46](#表-7-46-adc_in0_res_h1)      | 0x2A                    | R         | ADCIN0监控自动转换结果（8 MSBs）                          |
+| **ADC**            | [表 7-47](#表-7-47-adc_in0_res_l1)      | 0x2B                    | R         | ADCIN0监控自动转换结果（4 LSBs）                          |
+| **ADC**            | [表 7-48](#表-7-48-adc_in1_res_l1)      | 0x2C                    | R         | ADCIN1监控自动转换结果（8 MSBs）                          |
+| **ADC**            | [表 7-49](#表-7-49-adc_in1_res_l1)      | 0x2D                    | R         | ADCIN1监控自动转换结果（4 LSBs）                          |
+| **ADC**            | [表 7-50](#表-7-50-adc_in2_res_h1)      | 0x2E                    | R         | ADCIN2监控自动转换结果（8 MSBs）                          |
+| **ADC**            | [表 7-51](#表-7-51-adc_in2_res_l1)      | 0x2F                    | R         | ADCIN2监控自动转换结果（4 LSBs）                          |
+| **ADC**            | [表 7-52](#表-7-52-adc_in3_res_h1)      | 0x30                    | R         | ADCIN3监控自动转换结果（8 MSBs）                          |
+| **ADC**            | [表 7-53](#表-7-53-adc_in3_res_l1)      | 0x31                    | R         | ADCIN3监控自动转换结果（4 LSBs）                          |
+| **ADC**            | [表 7-54](#表-7-54-adc_in4_res_h1)      | 0x32                    | R         | ADCIN4监控自动转换结果（8 MSBs）                          |
+| **ADC**            | [表 7-55](#表-7-55-adc_in4_res_l1)      | 0x33                    | R         | ADCIN4监控自动转换结果（4 LSBs）                          |
+| **ADC**            | [表 7-56](#表-7-56-adc_in5_res_h1)      | 0x34                    | R         | ADCIN5监控自动转换结果（8 MSBs）                          |
+| **ADC**            | [表 7-57](#表-7-57-adc_in5_res_l1)      | 0x35                    | R         | ADCIN5监控自动转换结果（4 LSBs）                          |
+| **ADC**            | [表 7-58](#表-7-58-adc_vth_tj_h1)      | 0x36                    | RW        | Junction温度监控上限阈值设置（8 MSBs）                    |
+| **ADC**            | [表 7-59](#表-7-59-adc_vth_tj_l1)      | 0x37                    | RW        | Junction温度监控下限阈值设置（8 MSBs）                    |
+| **ADC**            | [表 7-60](#表-7-60-adc_in0_vth_h1)      | 0x38                    | RW        | ADCIN0监控上限阈值设置（8 MSBs）                          |
+| **ADC**            | [表 7-61](#表-7-61-adc_in0_vth_l1)      | 0x39                    | RW        | ADCIN0监控下限阈值设置（8 MSBs）                          |
+| **ADC**            | [表 7-62](#表-7-62-adc_in1_vth_h1)      | 0x3A                    | RW        | ADCIN1监控上限阈值设置（8 MSBs）                          |
+| **ADC**            | [表 7-63](#表-7-63-adc_in1_vth_l1)      | 0x3B                    | RW        | ADCIN1监控下限阈值设置（8 MSBs）                          |
+| **ADC**            | [表 7-64](#表-7-64-adc_in2_vth_h1)      | 0x3C                    | RW        | ADCIN2监控上限阈值设置（8 MSBs）                          |
+| **ADC**            | [表 7-65](#表-7-65-adc_in2_vth_l1)     | 0x3D                    | RW        | ADCIN2监控下限阈值设置（8 MSBs）                          |
+| **ADC**            | [表 7-66](#表-7-66-adc_in3_vth_h1)      | 0x3E                    | RW        | ADCIN3监控上限阈值设置（8 MSBs）                          |
+| **ADC**            | [表 7-67](#表-7-67-adc_in3_vth_l1)      | 0x3F                    | RW        | ADCIN3监控下限阈值设置（8 MSBs）                          |
+| **ADC**            | [表 7-68](#表-7-68-adc_in4_vth_h1)      | 0x40                    | RW        | ADCIN4监控上限阈值设置（8 MSBs）                          |
+| **ADC**            | [表 7-69](#表-7-69-adc_in4_vth_l1)      | 0x44                    | RW        | ADCIN4监控下限阈值设置（8 MSBs）                          |
+| **ADC**            | [表 7-70](#表-7-70-adc_in5_vth_h1)      | 0x42                    | RW        | ADCIN5监控上限阈值设置（8 MSBs）                          |
+| **ADC**            | [表 7-71](#表-7-71-adc_in5_vth_l1)      | 0x43                    | RW        | ADCIN5监控下限阈值设置（8 MSBs）                          |
+| **WDT**            | [表 7-72](#表-7-72-wdt_ctrl1)      | 0x44                    | RW        | 看门狗控制寄存器                                          |
+| **Battery Charge** | [表 7-73](#表-7-73-bbat_ctrl1)      | 0x45                    | RW        | 电池充电控制寄存器                                        |
+| **上下电控制**     | [表 7-74](#表-7-74-buck_ldo_cfg1)      | 0x46                    | RWE       | 电源轨配置寄存器                                          |
+| **上下电控制**     | [表 7-75](#表-7-75-buckx_ctrl1)      | 0x47 + 3*n              | RWE       | BUCKn控制寄存器，n=0 ~ 5                                  |
+| **上下电控制**     | [表 7-76](#表-7-76-buckx_volt1)      | 0x48 + 3*n              | RWE       | BUCK电压设置                                              |
+| **上下电控制**     | [表 7-77](#表-7-77-buckx_slp_volt1)      | 0x49 + 3*n              | RWE       | BUCK睡眠电压设置                                          |
+| **上下电控制**     | [表 7-78](#表-7-78-switch_ctrl1)      | 0x59                    | RW        | Switch控制寄存器                                          |
+| **上下电控制**     | [表 7-79](#表-7-79-aonldo_ctrl1)      | 0x5A                    | RE        | AONLDO控制寄存器                                          |
+| **上下电控制**     | [表 7-80](#表-7-80-aldox_ctrl1)      | 0x5B                    | RWE       | ALDO控制寄存器                                            |
+| **上下电控制**     | [表 7-81](#表-7-81-aldox_volt1)      | 0x5C                    | RWE       | ALDO电压设置                                              |
+| **上下电控制**     | [表 7-82](#表-7-82-aldox_slp_volt1)      | 0x5D                    | RWE       | ALDO睡眠电压设置                                          |
+| **上下电控制**     | [表 7-83](#表-7-83-dldox_ctrl)      | 0x67                    | RWE       | DLDO控制寄存器                                            |
+| **上下电控制**     | [表 7-84](#表-7-84-dldox_volt)      | 0x68                    | RWE       | DLDO电压设置                                              |
+| **上下电控制**     | [表 7-85](#表-7-85-dldox_slp_volt)      | 0x69                    | RWE       | DLDO睡眠电压设置                                          |
+| **上下电控制**     | [表 7-86](#表-7-86-pwr_ctrl0)      | 0x7C                    | RWE       | 上下电控制寄存器0                                         |
+| **上下电控制**     | [表 7-87](#表-7-87-pwr_ctrl1)      | 0x7D                    | RWE       | 上下电控制寄存器1                                         |
+| **上下电控制**     | [表 7-88](#表-7-88-pwr_ctrl2)      | 0x7E                    | RWE       | 上下电控制寄存器2                                         |
+| **上下电控制**     | [表 7-89](#表-7-89-pwr_sts0)      | 0x7F                    | R         | 上下电状态寄存器0                                         |
+| **上下电控制**     | [表 7-90](#表-7-90-pwr_sts1)      | 0x80                    | R         | 上下电状态寄存器1                                         |
+| **上下电控制**     | [表 7-91](#表-7-91-pwr_key_time)      | 0x81                    | RWE       | 按键时间配置寄存器                                        |
+| **上下电控制**     | [表 7-92](#表-7-92-pwr_seq_time)      | 0x82                    | RWE       | 上下电控制时间配置                                        |
+| **上下电控制**     | [表 7-93](#表-7-93-pwr_slot0)      | 0x88                    | RE        | 电源轨SLOT ID配置                                         |
+| **上下电控制**     | [表 7-94](#表-7-94-pwr_slot1)      | 0x84                    | RE        | 电源轨SLOT ID配置                                         |
+| **上下电控制**     | [表 7-95](#表-7-95-pwr_slot2)      | 0x85                    | RE        | 电源轨SLOT ID配置                                         |
+| **上下电控制**     | [表 7-96](#表-7-96-pwr_slot3)      | 0x86                    | RE        | 电源轨SLOT ID配置                                         |
+| **上下电控制**     | [表 7-97](#表-7-97-pwr_slot4)      | 0x87                    | RE        | 电源轨SLOT ID配置                                         |
+| **上下电控制**     | [表 7-98](#表-7-98-pwr_slot5)      | 0x88                    | RE        | 电源轨SLOT ID配置                                         |
+| **上下电控制**     | [表 7-99](#表-7-99-pwr_slot6)      | 0x89                    | RE        | 电源轨SLOT ID配置                                         |
+| **上下电控制**     | [表 7-100](#表-7-110-buck_evnet0)     | 0x8A                    | RE        | 电源轨SLOT ID配置                                         |
+| **上下电控制**     | [表 7-101](#表-7-101-pwr_slot8)     | 0x8B                    | RE        | 电源轨SLOT ID配置                                         |
+| **上下电控制**     | [表 7-102](#表-7-102-pwr_slot9)     | 0x8C                    | RE        | EXT_EN SLOT ID配置                                        |
+| **上下电控制**     | [表 7-103](#表-7-103-pwr_slot10)     | 0x8D                    | RE        | EXT_EN SLOT ID配置                                        |
+| **上下电控制**     | [表 7-104](#表-7-104-pwr_slot11)     | 0x8E                    | RE        | EXT_EN SLOT ID配置                                        |
+| **上下电控制**     | [表 7-105](#表-7-105-pwr_ext_en)     | 0x8F                    | RWE       | EXT_EN软件使能控制                                        |
+| **上下电控制**     | [表 7-106](#表-7-106-pwr_ext_ctrl)     | 0x90                    | RWE       | EXT_EN睡眠流程控制                                        |
+| **事件**           | [表 7-107](#表-7-107-event0)     | 0x91                    | RIO       | PMIC系统事件                                              |
+| **事件**           | [表 7-108](#表-7-108-event1)     | 0x92                    | RIO       | PMIC系统事件                                              |
+| **事件**           | [表 7-109](#表-7-109-event2)     | 0x99                    | RIO       | PMIC系统事件                                              |
+| **事件**           | [表 7-110](#表-7-110-buck_evnet0)     | 0x94                    | RIO       | BUCK过压事件                                              |
+| **事件**           | [表 7-111](#表-7-111-buck_evnet1)     | 0x95                    | RIO       | BUCK欠压事件                                              |
+| **事件**           | [表 7-112](#表-7-112-buck_evnet2)     | 0x96                    | RIO       | BUCK短路/开路事件                                         |
+| **事件**           | [表 7-113](#表-7-113-pwrky_evnet)     | 0x97                    | RIO       | PWRKY按键事件                                             |
+| **中断使能**       | [表 7-114](#表-7-114-irq_en0)     | 0x98                    | RW        | PMIC系统事件中断使能                                      |
+| **中断使能**       | [表 7-115](#表-7-115-irq_en1)     | 0x99                    | RW        | PMIC系统事件中断使能                                      |
+| **中断使能**       | [表 7-116](#表-7-116-irq_en2)     | 0x9A                    | RW        | PMIC系统事件中断使能                                      |
+| **中断使能**       | [表 7-117](#表-7-117-irq_buck_en0)     | 0x9B                    | RW        | BUCK过压事件中断使能                                      |
+| **中断使能**       | [表 7-118](#表-7-118-irq_buck_en1)     | 0x9C                    | RW        | BUCK欠压事件中断使能                                      |
+| **中断使能**       | [表 7-119](#表-7-119-irq_buck_en1)     | 0x9D                    | RW        | BUCK短路/开路事件中断使能                                 |
+| **中断使能**       | [表 7-120](#表-7-120-irq_pwrky_en)     | 0x9E                    | RWE       | PWRKY按键事件中断使能                                     |
+| **保护使能**       | [表 7-121](#表-7-121-prot_en)     | 0x9F                    | RWE       | 系统异常事件保护使能                                      |
+| **ID**             | [表 7-122](#表-7-122-device_id)     | 0xA0                    | RE        | 设备ID                                                    |
+| **ID**             | [表 7-123](#表-7-123-version_id)     | 0xA1                    | RE        | 版本ID                                                    |
+| **ID**             | [表 7-124](#表-7-124-customer_id)     | 0xA2                    | RE        | 用户ID                                                    |
+| **系统配置**       | [表 7-125](#表-7-125-sys_cfg0)     | 0xAA                    | RE        | 系统配置寄存器0                                           |
+| **系统配置**       | [表 7-126](#表-7-126-sys_cfg1)     | 0xA4                    | RE        | 系统配置寄存器1                                           |
+| **系统配置**       | [表 7-127](#表-7-127-sys_cfg2)     | 0xA5                    | RE        | 系统配置寄存器2                                           |
+| **MTP**            | [表 7-128](#表-7-128-mtp_key)     | 0xA6                    | RW        | MTP解锁寄存器                                             |
+| **MTP**            | [表 7-129](#表-7-129-mtp_addr)     | 0xA7                    | RWP       | MTP地址寄存器                                             |
+| **MTP**            | [表 7-130](#表-7-130-mtp_data)     | 0xA8                    | RWP       | MTP读写数据寄存器                                         |
+| **MTP**            | [表 7-131](#表-7-131-mtp_cfg)     | 0xA9                    | RWP       | MTP配置寄存器                                             |
+| **MTP**            | [表 7-132](#表-7-132-mtp_ctrl)     | 0xAA                    | RWP       | MTP控制寄存器                                             |
 
 ### 7.2.2 寄存器描述
 
@@ -3799,7 +3091,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-表 7-28 RTC_ALARM_Y
+#### 表 7-28 RTC_ALARM_Y
 
 <table>
 <tbody>
@@ -5048,7 +4340,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 > **注：**
 > 1：进入关机模式恢复默认值
 
-#### 表 7-61 ADC_IN0_VTH_L
+#### 表 7-61 ADC_IN0_VTH_L(*1)
 
 <table>
 <tbody>
@@ -5071,7 +4363,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-#### 表 7-62 ADC_IN1_VTH_H
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-62 ADC_IN1_VTH_H(*1)
 
 <table>
 <tbody>
@@ -5094,7 +4389,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-#### 表 7-63 ADC_IN1_VTH_L
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-63 ADC_IN1_VTH_L(*1)
 
 <table>
 <tbody>
@@ -5117,7 +4415,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-#### 表 7-64 ADC_IN2_VTH_H
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-64 ADC_IN2_VTH_H(*1)
 
 <table>
 <tbody>
@@ -5140,7 +4441,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-#### 表 7-65 ADC_IN2_VTH_L
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-65 ADC_IN2_VTH_L(*1)
 
 <table>
 <tbody>
@@ -5163,7 +4467,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-#### 表 7-66 ADC_IN3_VTH_H
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-66 ADC_IN3_VTH_H(*1)
 
 <table>
 <tbody>
@@ -5186,7 +4493,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-#### 表 7-67 ADC_IN3_VTH_L
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-67 ADC_IN3_VTH_L(*1)
 
 <table>
 <tbody>
@@ -5209,7 +4519,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-#### 表 7-68 ADC_IN4_VTH_H
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-68 ADC_IN4_VTH_H(*1)
 
 <table>
 <tbody>
@@ -5232,7 +4545,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-#### 表 7-69 ADC_IN4_VTH_L
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-69 ADC_IN4_VTH_L(*1)
 
 <table>
 <tbody>
@@ -5255,7 +4571,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-#### 表 7-70 ADC_IN5_VTH_H
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-70 ADC_IN5_VTH_H(*1)
 
 <table>
 <tbody>
@@ -5278,7 +4597,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-#### 表 7-71 ADC_IN5_VTH_L
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-71 ADC_IN5_VTH_L(*1)
 
 <table>
 <tbody>
@@ -5301,7 +4623,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-#### 表 7-72 WDT_CTRL
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-72 WDT_CTRL(*1)
 
 <table>
 <tbody>
@@ -5345,7 +4670,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-#### 表 7-73 BBAT_CTRL
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-73 BBAT_CTRL(*1)
 
 <table>
 <tbody>
@@ -5389,7 +4717,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-#### 表 7-74 BUCK_LDO_CFG
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-74 BUCK_LDO_CFG(*1)
 
 <table>
 <tbody>
@@ -5454,7 +4785,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-#### 表 7-75 BUCKx_CTRL
+> **注：**
+> 1：进入关机模式保持不变，遇到开机事件后恢复为MTP内的数值
+
+#### 表 7-75 BUCKx_CTRL(*1)
 
 <table>
 <tbody>
@@ -5467,7 +4801,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 <td>Description</td>
 </tr>
 <tr>
-<td rowspan=5 colspan=1>0x47+3*N(1)</td>
+<td rowspan=5 colspan=1>0x47+3xN(*2)</td>
 <td>7:6</td>
 <td>Reserved</td>
 <td>RV</td>
@@ -5505,9 +4839,11 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-- N=0 ~ 5，x=1 ~ 6，依次对应 BUCK1 ~ BUCK6。
+> **注：**
+> 1：进入关机模式保持不变，遇到开机事件后恢复为MTP内的数值
+> 2：N=0 ~ 5，x=1 ~ 6，依次对应 BUCK1 ~ BUCK6。
 
-#### 表 7-76 BUCKx_VOLT
+#### 表 7-76 BUCKx_VOLT(*1)
 
 <table>
 <tbody>
@@ -5520,7 +4856,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 <td>Description</td>
 </tr>
 <tr>
-<td>0x48+3*N(1)</td>
+<td>0x48+3xN(*2)</td>
 <td>7:0</td>
 <td>BUCKx_VOLT</td>
 <td>RWE</td>
@@ -5530,9 +4866,11 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-- N=0 ~ 5，x=1 ~ 6，依次对应 BUCK1 ~ BUCK6。
+> **注：**
+> 1：进入关机模式保持不变，遇到开机事件后恢复为MTP内的数值
+> 2： N=0 ~ 5，x=1 ~ 6，依次对应 BUCK1 ~ BUCK6。
 
-#### 表 7-77 BUCKx_SLP_VOLT
+#### 表 7-77 BUCKx_SLP_VOLT(*1)
 
 <table>
 <tbody>
@@ -5545,7 +4883,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 <td>Description</td>
 </tr>
 <tr>
-<td>0x49+3*N(1)</td>
+<td>0x49+3xN(*2)</td>
 <td>7:0</td>
 <td>BUCKx_SLP_VOLT</td>
 <td>RWE</td>
@@ -5555,9 +4893,11 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-- N=0 ~ 5，x=1 ~ 6，依次对应 BUCK1 ~ BUCK6。
+> **注：**
+> 1：进入关机模式保持不变，遇到开机事件后恢复为MTP内的数值
+> 2：N=0 ~ 5，x=1 ~ 6，依次对应 BUCK1 ~ BUCK6。
 
-#### 表 7-78 SWITCH_CTRL
+#### 表 7-78 SWITCH_CTRL(*1)
 
 <table>
 <tbody>
@@ -5594,7 +4934,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-#### 表 7-79 AONLDO_CTRL
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-79 AONLDO_CTRL(*1)
 
 <table>
 <tbody>
@@ -5624,7 +4967,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-#### 表 7-80 ALDOx_CTRL
+> **注：**
+> 1：进入关机模式保持不变，遇到开机事件后恢复为MTP内的数值
+
+#### 表 7-80 ALDOx_CTRL(*1)
 
 <table>
 <tbody>
@@ -5637,7 +4983,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 <td>Description</td>
 </tr>
 <tr>
-<td rowspan=3 colspan=1>0x5B+3*N(1)</td>
+<td rowspan=3 colspan=1>0x5B+3xN(*2)</td>
 <td>7:4</td>
 <td>Reserved</td>
 <td>RV</td>
@@ -5661,9 +5007,11 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-- N=0 ~ 3，x=1 ~ 4，依次对应 ALDO1 ~ ALDO4。
+> **注：**
+> 1：进入关机模式保持不变，遇到开机事件后恢复为MTP内的数值
+> 2：N=0 ~ 3，x=1 ~ 4，依次对应 ALDO1 ~ ALDO4。
 
-#### 表 7-81 ALDOx_VOLT
+#### 表 7-81 ALDOx_VOLT(*1)
 
 <table>
 <tbody>
@@ -5676,7 +5024,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 <td>Description</td>
 </tr>
 <tr>
-<td rowspan=2 colspan=1>0x5C+3*N(1)</td>
+<td rowspan=2 colspan=1>0x5C+3xN(*2)</td>
 <td>7</td>
 <td>Reserved</td>
 <td>RV</td>
@@ -5693,9 +5041,11 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-- N=0 ~ 3，x=1 ~ 4，依次对应 ALDO1 ~ ALDO4。
+> **注：**
+> 1：进入关机模式保持不变，遇到开机事件后恢复为MTP内的数值
+> 2：N=0 ~ 3，x=1 ~ 4，依次对应 ALDO1 ~ ALDO4。
 
-#### 表 7-82 ALDOx_SLP_VOLT
+#### 表 7-82 ALDOx_SLP_VOLT(*1)
 
 <table>
 <tbody>
@@ -5708,7 +5058,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 <td>Description</td>
 </tr>
 <tr>
-<td rowspan=2 colspan=1>0x5D+3*N(1)</td>
+<td rowspan=2 colspan=1>0x5D+3xN(*2)</td>
 <td>7</td>
 <td>Reserved</td>
 <td>RV</td>
@@ -5725,7 +5075,9 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-- N=0 ~ 3，x=1 ~ 4，依次对应 ALDO1 ~ ALDO4。
+> **注：**
+> 1：进入关机模式保持不变，遇到开机事件后恢复为MTP内的数值
+> 2：N=0 ~ 3，x=1 ~ 4，依次对应 ALDO1 ~ ALDO4。
 
 #### 表 7-83 DLDOx_CTRL
 
@@ -5740,7 +5092,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 <td>Description</td>
 </tr>
 <tr>
-<td rowspan=3 colspan=1>0x67+3*N(1)</td>
+<td rowspan=3 colspan=1>0x67+3xN(*1)</td>
 <td>7:4</td>
 <td>Reserved</td>
 <td>RV</td>
@@ -5764,7 +5116,8 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-- N=0 ~ 6，x=1 ~ 7，依次对应 DLDO1 ~ DLDO7。
+> **注：**
+> 1：N=0 ~ 6，x=1 ~ 7，依次对应 DLDO1 ~ DLDO7。
 
 #### 表 7-84 DLDOx_VOLT
 
@@ -5779,7 +5132,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 <td>Description</td>
 </tr>
 <tr>
-<td rowspan=2 colspan=1>0x68+3*N(1)</td>
+<td rowspan=2 colspan=1>0x68+3xN(*1)</td>
 <td>7</td>
 <td>Reserved</td>
 <td>RV</td>
@@ -5796,7 +5149,8 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-- N=0 ~ 6，x=1 ~ 7，依次对应 DLDO1 ~ DLDO7。
+> **注：**
+> 1：N=0 ~ 6，x=1 ~ 7，依次对应 DLDO1 ~ DLDO7。
 
 #### 表 7-85 DLDOx_SLP_VOLT
 
@@ -5811,7 +5165,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 <td>Description</td>
 </tr>
 <tr>
-<td rowspan=2 colspan=1>0x69+3*N(1)</td>
+<td rowspan=2 colspan=1>0x69+3xN(*1)</td>
 <td>7</td>
 <td>Reserved</td>
 <td>RV</td>
@@ -5828,7 +5182,8 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-- N=0 ~ 6，x=1 ~ 7，依次对应 DLDO1 ~ DLDO7。
+> **注：**
+> 1：N=0 ~ 6，x=1 ~ 7，依次对应 DLDO1 ~ DLDO7。
 
 #### 表 7-86 PWR_CTRL0
 
@@ -8114,3 +7469,13 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tr>
 </tbody>
 </table>
+
+## 8. 封装信息
+
+![](./static/YNjYbwpqRoi8CGxVRm2clLZQnRN.png)
+![](./static/QleTbkKomo7UoSxLulfcTeOtnAY.png)
+
+## 9. Tray 盘
+
+![](./static/IQgfbtLlToY6CExeW0ncN709nK4.png)
+![](./static/EvxzbOvUgoYLonxfLBFcbGYOnlf.png)
