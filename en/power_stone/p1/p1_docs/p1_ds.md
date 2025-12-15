@@ -1,6 +1,6 @@
 sidebar_position: 1
 
-# P1 数据手册
+# P1 Datasheet
 
 ## PDF 版本下载
 
@@ -10,85 +10,54 @@ sidebar_position: 1
 
 ### 1.1 概述
 
-SpacemiT Power Stone® P1 是一款高性能的多通道电源管理芯片（PMIC），专为满足各种应用的多样化电源需求而设计，为客户提供完整的电源解决方案。该芯片集成了以下功能模块：
+SpacemiT® Power Stone™ P1 是一款多通道电源管理芯片（PMIC），旨在满足各种应用的不同电源需求，为客户提供完整的电源解决方案。它具有 6 个恒定导通时间（COT）控制模式降压转换器，12 个低压差稳压器（LDO），一个 I²C 接口，以及多次可编程非易失性存储器（MTP），为各种移动设备和嵌入式系统提供高度灵活的电源管理功能。
 
-- **6 个恒定导通时间（COT）控制模式降压转换器**
-- **12 个低压差稳压器（LDO）**
-- **1 个 I²C 接口**
-- **多次可编程非易失性存储器（MTP）**
+六个全集成的降压转换器为各种目标电压轨道提供稳定电源。恒定导通时间（COT）控制能够提供快速的负载瞬态性能。在连续导通模式（CCM）下，1.5 MHz 的默认固定切换频率大大减少了外部电感和电容值。全面的保护功能包括欠压锁定（UVLO）、过电流保护（OCP）、过压保护（OVP）和热关断。动态电压控制（DVC）允许根据应用需求对电源电压进行实时控制。
 
-P1 芯片适用于多种移动设备和嵌入式系统，具备高度灵活的电源管理功能。其主要特点包括：
-
-- **高效电源转换**：六个全集成降压转换器支持多种目标电压轨道，提供稳定电源。
-- **快速动态响应**：恒定导通时间（COT）控制模式确保快速负载瞬态性能。
-- **紧凑设计**：在连续导通模式（CCM）下，默认固定切换频率为 1.5MHz，可显著减少外部电感和电容值。
-- **全面保护功能**：包括欠压锁定（UVLO）、过电流保护（OCP）、过压保护（OVP）和热关断。
-- **动态电压控制（DVC）**：支持根据应用需求实时调整电源电压。
-
-此外，P1 芯片的输出电压和启动/关闭顺序可通过多次可编程非易失性存储器（MTP）接口预设，并通过 I²C 总线进行控制。该芯片仅需最少的外部元件，采用紧凑的 QFN-60 封装（7mm×7mm），适合空间受限的应用场景。
+各输出电压和启动/关闭顺序可以通过多次可编程非易失性存储器（MTP）接口进行预设，并通过 I²C 总线进行控制。P1 仅需要最少数量的外部元件，并提供紧凑的 QFN-60（7 mm × 7 mm）封装。
 
 ### 1.2 关键特性
 
-- 供电电压（VIN）：2.7V～ 5.5V
-- 6 个高效降压转换器：
-
-  - Buck1/2：0.5V～3.4V，4A，支持双相操作
-  - Buck3/4：0.5V～3.4V，2.5A，支持双相操作
-  - Buck5/6：0.5V～3.4V，2.5A
-  - 可调输出电压：所有降压转换器支持两种电压调节范围，0.5V～1.35V（步进 5mV）或 1.375V～3.4V（步进 25mV）
-  - 可调电流限制阈值：可根据不同应用的负载电流进行优化
-  - 专用引脚：用于选择不同 DDR 颗粒的 VDDQ 电压
-- 12 个可编程的 LDO 稳压器：
-
-  - 1 个专用常开 LDO
-  - 11 个低噪声 LDO
-  - 输出电压范围：0.5V～3.4V，步进 25mV
-  - 输出电流范围：0.3~0.5A
-- 1 个负载开关：最大输出电流 1A
-- 通信接口：I²C 接口。
-- 用户可编程存储器：MTP
-- 系统监控功能：
-
-  - 看门狗定时器
-  - 纽扣电池支持
-  - 2μA 超低功耗 RTC，带警报功能
-  - 12 位 ADC，8 个通道，可配置警报阈值
-- 配置灵活性：
-
-  - 输出电压和启动/关闭顺序：可通过 MTP 预设。
-  - 6 个 GPIO 引脚：用于外围设备控制。
-- 工作温度范围：-40℃ 至 125℃。
-- 封装：QFN-60，7mm×7mm，引脚间距 0.4mm。
+- **供电电压（VIN）**：2.7 V ～ 5.5 V  
+- **6 个高效降压转换器**  
+  - Buck1/2：0.5 V ～ 3.4 V，4 A，支持双相操作  
+  - Buck3/4：0.5 V ～ 3.4 V，3 A，支持双相操作  
+  - Buck5/6：0.5 V ～ 3.4 V，2.5 A  
+  - 所有降压转换器可选择的输出电压范围：  
+    - 0.5 V ～ 1.35 V，5 mV/step  
+    - 1.375 V ～ 3.4 V，25 mV/step  
+  - 电流限制阈值可调，允许根据不同应用的不同负载电流进行优化  
+  - 专用引脚用于选择不同 DDR 颗粒的 VDDQ 电压  
+- **12 个可编程的 LDO 稳压器**  
+  - 1 个专用常开 LDO  
+  - 11 个低噪声 LDO  
+  - 输出电压：0.5 V ～ 3.4 V，25 mV/step  
+  - 输出电流：0.3 ～ 0.5 A  
+- **1 个负载开关**，最大输出电流 1 A  
+- **I²C 通信接口**  
+- **用户可编程 MTP**  
+- **带有看门狗定时器的系统监视器**  
+- **纽扣电池支持**  
+- **2 µA 超低功耗 RTC**，带警报功能  
+- **12 位 ADC**，具有 8 个通道和可配置的警报阈值  
+- **输出电压和启动/关闭顺序可由 MTP 预设**  
+- **6 个用于外围控制的 GPIO 引脚**  
+- **芯片结温**：-40 ℃ 至 125 ℃  
+- **封装**：QFN-60，7 mm × 7 mm，0.4 mm 间距  
 
 ### 1.3 应用
 
-P1 适用于多种高性能设备和系统，具体应用包括：
-
-- 超级本
-- 平板电脑
-- 电子书
-- 虚拟现实/增强现实设备
-- 工业设备
-- 导航设备
+- 超级本  
+- 平板电脑  
+- 电子书  
+- 虚拟现实 / 增强现实设备  
+- 工业设备  
+- 导航设备  
 - 无人机
 
-### 1.4 模块框图
+## 2. 模块框图
 
 ![](static/CVgqbZypMo36kHx5vpEcOhPAnMg.png)
-
-## 2. 封装信息
-
-### 2.1 封装
-
-![](static/YNjYbwpqRoi8CGxVRm2clLZQnRN.png)
-
-![](static/QleTbkKomo7UoSxLulfcTeOtnAY.png)
-
-### 2.2 Tray 盘
-
-![](static/IQgfbtLlToY6CExeW0ncN709nK4.png)
-
-![](static/EvxzbOvUgoYLonxfLBFcbGYOnlf.png)
 
 ## 3. 引脚封装图
 
@@ -98,2410 +67,416 @@ P1 引脚封装图如下
 
 P1 引脚类型定义如下表描述
 
-<table>
-<tbody>
-<tr>
-<td>引脚类型</td>
-<td>描述</td>
-<td>引脚类型</td>
-<td>描述</td>
-</tr>
-<tr>
-<td>DI</td>
-<td>数字输入</td>
-<td>AI</td>
-<td>模拟输入</td>
-</tr>
-<tr>
-<td>DO</td>
-<td>数字输出</td>
-<td>AO</td>
-<td>模拟输出</td>
-</tr>
-<tr>
-<td>DIO</td>
-<td>数字输入/输出</td>
-<td>AIO</td>
-<td>模拟输入/输出</td>
-</tr>
-<tr>
-<td>PWR</td>
-<td>电源</td>
-<td>GND</td>
-<td>地</td>
-</tr>
-</tbody>
-</table>
+| 引脚类型 | 描述         | 引脚类型 | 描述         |
+|----------|--------------|----------|--------------|
+| DI       | 数字输入     | AI       | 模拟输入     |
+| DO       | 数字输出     | AO       | 模拟输出     |
+| DIO      | 数字输入/输出| AIO      | 模拟输入/输出|
+| PWR      | 电源         | GND      | 地           |
 
 P1 引脚描述如下表描述
 
-<table>
-<tbody>
-<tr>
-<td>引脚</td>
-<td>引脚名称</td>
-<td>类型</td>
-<td>描述</td>
-<td>复用功能</td>
-</tr>
-<tr>
-<td>1</td>
-<td>ALDO3</td>
-<td>AO</td>
-<td>ALDO3电压输出</td>
-<td> -</td>
-</tr>
-<tr>
-<td>2</td>
-<td>ALDOIN</td>
-<td>PWR</td>
-<td>ALDO1~4电源输入</td>
-<td> -</td>
-</tr>
-<tr>
-<td>3</td>
-<td>ALDO1</td>
-<td>AO</td>
-<td>ALDO1电压输出</td>
-<td>-</td>
-</tr>
-<tr>
-<td>4</td>
-<td>ALDO2</td>
-<td>AO</td>
-<td>ALDO2电压输出</td>
-<td> -</td>
-</tr>
-<tr>
-<td>5</td>
-<td>FB3GND</td>
-<td>GND</td>
-<td>Buck3输出电压地端反馈</td>
-<td> -</td>
-</tr>
-<tr>
-<td>6</td>
-<td>FB3</td>
-<td>AIN</td>
-<td>Buck3输出电压反馈</td>
-<td> -</td>
-</tr>
-<tr>
-<td>7</td>
-<td>SW3</td>
-<td>AIO</td>
-<td>Buck3的开关节点</td>
-<td> -</td>
-</tr>
-<tr>
-<td>8</td>
-<td>VIN3</td>
-<td>PWR</td>
-<td>Buck3的电源输入</td>
-<td> -</td>
-</tr>
-<tr>
-<td>9</td>
-<td>VIN4</td>
-<td>PWR</td>
-<td>Buck4的电源输入</td>
-<td> -</td>
-</tr>
-<tr>
-<td>10</td>
-<td>SW4</td>
-<td>AIO</td>
-<td>Buck4的开关节点</td>
-<td> -</td>
-</tr>
-<tr>
-<td>11</td>
-<td>FB4</td>
-<td>AIN</td>
-<td>Buck4输出电压反馈</td>
-<td> -</td>
-</tr>
-<tr>
-<td>12</td>
-<td>SWIN</td>
-<td>AIN</td>
-<td>负载开关输入端</td>
-<td> -</td>
-</tr>
-<tr>
-<td>13</td>
-<td>SWOUT</td>
-<td>AO</td>
-<td>负载开关输出端</td>
-<td> -</td>
-</tr>
-<tr>
-<td>14</td>
-<td>DLDO2</td>
-<td>AO</td>
-<td>DLDO2电压输出</td>
-<td> -</td>
-</tr>
-<tr>
-<td>15</td>
-<td>DLDO1</td>
-<td>AO</td>
-<td>DLDO1电压输出</td>
-<td> -</td>
-</tr>
-<tr>
-<td>16</td>
-<td>DLDO3</td>
-<td>AO</td>
-<td>DLDO3电压输出</td>
-<td> -</td>
-</tr>
-<tr>
-<td>17</td>
-<td>DLDOIN1</td>
-<td>PWR</td>
-<td>DLDO1~4电源输入</td>
-<td> -</td>
-</tr>
-<tr>
-<td>18</td>
-<td>DLDO4</td>
-<td>AO</td>
-<td>DLDO4电压输出</td>
-<td> -</td>
-</tr>
-<tr>
-<td>19</td>
-<td>VSET6</td>
-<td>AIN</td>
-<td>Buck6默认 输出电压设定</td>
-<td> -</td>
-</tr>
-<tr>
-<td>20</td>
-<td>FB6</td>
-<td>AIN</td>
-<td>Buck6输出电压反馈</td>
-<td> -</td>
-</tr>
-<tr>
-<td>21</td>
-<td>SW6</td>
-<td>AIN</td>
-<td>Buck6的开关节点</td>
-<td> -</td>
-</tr>
-<tr>
-<td>22</td>
-<td>VIN6</td>
-<td>PWR</td>
-<td>Buck6的电源输入</td>
-<td> -</td>
-</tr>
-<tr>
-<td>23</td>
-<td>VIN5</td>
-<td>PWR</td>
-<td>Buck5的电源输入</td>
-<td> -</td>
-</tr>
-<tr>
-<td>24</td>
-<td>SW5</td>
-<td>AIO</td>
-<td>Buck5的开关节点</td>
-<td> -</td>
-</tr>
-<tr>
-<td>25</td>
-<td>FB5</td>
-<td>AIN</td>
-<td>Buck5输出电压反馈</td>
-<td> -</td>
-</tr>
-<tr>
-<td>26</td>
-<td>VSET5</td>
-<td>AIN</td>
-<td>Buck5默认输出电压设定</td>
-<td> -</td>
-</tr>
-<tr>
-<td>27</td>
-<td>DLDO5</td>
-<td>AO</td>
-<td>DLDO5电压输出</td>
-<td> -</td>
-</tr>
-<tr>
-<td>28</td>
-<td>DLDO6</td>
-<td>AO</td>
-<td>DLDO6电压输出</td>
-<td> -</td>
-</tr>
-<tr>
-<td>29</td>
-<td>DLDOIN2</td>
-<td>PWR</td>
-<td>DLDO5~7电源输入</td>
-<td> -</td>
-</tr>
-<tr>
-<td>30</td>
-<td>DLDO7</td>
-<td>AO</td>
-<td>DLDO7电压输出</td>
-<td> -</td>
-</tr>
-<tr>
-<td>31</td>
-<td>TEST2</td>
-<td>DIO</td>
-<td>测试引脚</td>
-<td> -</td>
-</tr>
-<tr>
-<td>32</td>
-<td>TEST1</td>
-<td>DIO</td>
-<td>测试引脚</td>
-<td> -</td>
-</tr>
-<tr>
-<td>33</td>
-<td>AGND</td>
-<td>GND</td>
-<td>模拟地</td>
-<td> -</td>
-</tr>
-<tr>
-<td>34</td>
-<td>FB2</td>
-<td>AIN</td>
-<td>Buck2输出电压反馈</td>
-<td> -</td>
-</tr>
-<tr>
-<td>35</td>
-<td>SW2</td>
-<td>AIO</td>
-<td>Buck2的开关节点</td>
-<td> -</td>
-</tr>
-<tr>
-<td>36</td>
-<td>VIN2</td>
-<td>PWR</td>
-<td>Buck2的电源输入</td>
-<td> -</td>
-</tr>
-<tr>
-<td>37</td>
-<td>VIN1</td>
-<td>PWR</td>
-<td>Buck1的电源输入</td>
-<td> -</td>
-</tr>
-<tr>
-<td>38</td>
-<td>SW1</td>
-<td>AIO</td>
-<td>Buck1的开关节点</td>
-<td> -</td>
-</tr>
-<tr>
-<td>39</td>
-<td>FB1</td>
-<td>AIN</td>
-<td>Buck1输出电压反馈</td>
-<td> -</td>
-</tr>
-<tr>
-<td>40</td>
-<td>FB1GND</td>
-<td>GND</td>
-<td>Buck1输出电压地端反馈</td>
-<td> -</td>
-</tr>
-<tr>
-<td>41</td>
-<td>VSYS</td>
-<td>PWR</td>
-<td>内部电路电源输入</td>
-<td> -</td>
-</tr>
-<tr>
-<td>42</td>
-<td>GPIO5</td>
-<td>DIO/AIN</td>
-<td>多功能复用GPIO</td>
-<td>EXT_EN/SLEEP_WKUP/PWRCTRL/nRESET/ADC input</td>
-</tr>
-<tr>
-<td>43</td>
-<td>GPIO4</td>
-<td>DIO/AIN</td>
-<td>多功能复用GPIO</td>
-<td>EXT_EN/SLEEP_WKUP/PWRCTRL/nRESET/ADC input</td>
-</tr>
-<tr>
-<td>44</td>
-<td>SDA</td>
-<td>DIO</td>
-<td>I²C通信接口数据信号</td>
-<td> -</td>
-</tr>
-<tr>
-<td>45</td>
-<td>SCL</td>
-<td>DIN</td>
-<td>I²C通信接口时钟信号</td>
-<td> -</td>
-</tr>
-<tr>
-<td>46</td>
-<td>VCELL</td>
-<td>AIN</td>
-<td>纽扣电池电压输入端口</td>
-<td> -</td>
-</tr>
-<tr>
-<td>47</td>
-<td>XTALOUT</td>
-<td>AIN</td>
-<td>外部晶振</td>
-<td> -</td>
-</tr>
-<tr>
-<td>48</td>
-<td>XTALIN</td>
-<td>AIN</td>
-<td>外部晶振</td>
-<td> -</td>
-</tr>
-<tr>
-<td>49</td>
-<td>GPIO3</td>
-<td>DIO/AIN</td>
-<td>多功能复用GPIO</td>
-<td>EXT_EN/SLEEP_WKUP/PWRCTRL/nRESET/ADC input</td>
-</tr>
-<tr>
-<td>50</td>
-<td>32KOUT</td>
-<td>DO</td>
-<td>时钟输出</td>
-<td> -</td>
-</tr>
-<tr>
-<td>51</td>
-<td>GPIO2</td>
-<td>DIO/AIN</td>
-<td>多功能复用GPIO</td>
-<td>EXT_EN/SLEEP_WKUP/PWRCTRL/nRESET/ADC input</td>
-</tr>
-<tr>
-<td>52</td>
-<td>GPIO1</td>
-<td>DIO/AIN</td>
-<td>多功能复用GPIO</td>
-<td>EXT_EN/SLEEP_WKUP/PWRCTRL/nRESET/ADC input</td>
-</tr>
-<tr>
-<td>53</td>
-<td>GPIO0</td>
-<td>DIO/AIN</td>
-<td>多功能复用GPIO</td>
-<td>EXT_EN/SLEEP_WKUP/PWRCTRL/nRESET/ADC input</td>
-</tr>
-<tr>
-<td>54</td>
-<td>INT</td>
-<td>DIO</td>
-<td>中断输出</td>
-<td> -</td>
-</tr>
-<tr>
-<td>55</td>
-<td>PWRKY</td>
-<td>AIN</td>
-<td>开机/关机/复位按键</td>
-<td> -</td>
-</tr>
-<tr>
-<td>56</td>
-<td>PGOOD</td>
-<td>DIO</td>
-<td>Power good指示位/复位源</td>
-<td> -</td>
-</tr>
-<tr>
-<td>57</td>
-<td>AGND</td>
-<td>GND</td>
-<td>模拟地</td>
-<td> -</td>
-</tr>
-<tr>
-<td>58</td>
-<td>VREF</td>
-<td>AO</td>
-<td>芯片内部参考电压</td>
-<td> -</td>
-</tr>
-<tr>
-<td>59</td>
-<td>AONLDO</td>
-<td>AO</td>
-<td>AONLDO电压输出</td>
-<td> -</td>
-</tr>
-<tr>
-<td>60</td>
-<td>ALDO4</td>
-<td>AO</td>
-<td>ALDO4电压输出</td>
-<td>-</td>
-</tr>
-</tbody>
-</table>
+| 引脚 | 引脚名称   | 类型      | 描述                     | 复用功能                                      |
+|------|------------|-----------|--------------------------|-----------------------------------------------|
+| 1    | ALDO3      | AO        | ALDO3电压输出            | -                                             |
+| 2    | ALDOIN     | PWR       | ALDO1~4电源输入          | -                                             |
+| 3    | ALDO1      | AO        | ALDO1电压输出            | -                                             |
+| 4    | ALDO2      | AO        | ALDO2电压输出            | -                                             |
+| 5    | FB3GND     | GND       | Buck3输出电压地端反馈    | -                                             |
+| 6    | FB3        | AIN       | Buck3输出电压反馈        | -                                             |
+| 7    | SW3        | AIO       | Buck3的开关节点          | -                                             |
+| 8    | VIN3       | PWR       | Buck3的电源输入          | -                                             |
+| 9    | VIN4       | PWR       | Buck4的电源输入          | -                                             |
+| 10   | SW4        | AIO       | Buck4的开关节点          | -                                             |
+| 11   | FB4        | AIN       | Buck4输出电压反馈        | -                                             |
+| 12   | SWIN       | AIN       | 负载开关输入端           | -                                             |
+| 13   | SWOUT      | AO        | 负载开关输出端           | -                                             |
+| 14   | DLDO2      | AO        | DLDO2电压输出            | -                                             |
+| 15   | DLDO1      | AO        | DLDO1电压输出            | -                                             |
+| 16   | DLDO3      | AO        | DLDO3电压输出            | -                                             |
+| 17   | DLDOIN1    | PWR       | DLDO1~4电源输入          | -                                             |
+| 18   | DLDO4      | AO        | DLDO4电压输出            | -                                             |
+| 19   | VSET6      | AIN       | Buck6默认输出电压设定    | -                                             |
+| 20   | FB6        | AIN       | Buck6输出电压反馈        | -                                             |
+| 21   | SW6        | AIN       | Buck6的开关节点          | -                                             |
+| 22   | VIN6       | PWR       | Buck6的电源输入          | -                                             |
+| 23   | VIN5       | PWR       | Buck5的电源输入          | -                                             |
+| 24   | SW5        | AIO       | Buck5的开关节点          | -                                             |
+| 25   | FB5        | AIN       | Buck5输出电压反馈        | -                                             |
+| 26   | VSET5      | AIN       | Buck5默认输出电压设定    | -                                             |
+| 27   | DLDO5      | AO        | DLDO5电压输出            | -                                             |
+| 28   | DLDO6      | AO        | DLDO6电压输出            | -                                             |
+| 29   | DLDOIN2    | PWR       | DLDO5~7电源输入          | -                                             |
+| 30   | DLDO7      | AO        | DLDO7电压输出            | -                                             |
+| 31   | TEST2      | DIO       | 测试引脚                 | -                                             |
+| 32   | TEST1      | DIO       | 测试引脚                 | -                                             |
+| 33   | AGND       | GND       | 模拟地                   | -                                             |
+| 34   | FB2        | AIN       | Buck2输出电压反馈        | -                                             |
+| 35   | SW2        | AIO       | Buck2的开关节点          | -                                             |
+| 36   | VIN2       | PWR       | Buck2的电源输入          | -                                             |
+| 37   | VIN1       | PWR       | Buck1的电源输入          | -                                             |
+| 38   | SW1        | AIO       | Buck1的开关节点          | -                                             |
+| 39   | FB1        | AIN       | Buck1输出电压反馈        | -                                             |
+| 40   | FB1GND     | GND       | Buck1输出电压地端反馈    | -                                             |
+| 41   | VSYS       | PWR       | 内部电路电源输入         | -                                             |
+| 42   | GPIO5      | DIO/AIN   | 多功能复用GPIO           | EXT_EN/SLEEP_WKUP/PWRCTRL/nRESET/ADC input    |
+| 43   | GPIO4      | DIO/AIN   | 多功能复用GPIO           | EXT_EN/SLEEP_WKUP/PWRCTRL/nRESET/ADC input    |
+| 44   | SDA        | DIO       | I²C通信接口数据信号      | -                                             |
+| 45   | SCL        | DIN       | I²C通信接口时钟信号      | -                                             |
+| 46   | VCELL      | AIN       | 纽扣电池电压输入端口     | -                                             |
+| 47   | XTALOUT    | AIN       | 外部晶振                 | -                                             |
+| 48   | XTALIN     | AIN       | 外部晶振                 | -                                             |
+| 49   | GPIO3      | DIO/AIN   | 多功能复用GPIO           | EXT_EN/SLEEP_WKUP/PWRCTRL/nRESET/ADC input    |
+| 50   | 32KOUT     | DO        | 时钟输出                 | -                                             |
+| 51   | GPIO2      | DIO/AIN   | 多功能复用GPIO           | EXT_EN/SLEEP_WKUP/PWRCTRL/nRESET/ADC input    |
+| 52   | GPIO1      | DIO/AIN   | 多功能复用GPIO           | EXT_EN/SLEEP_WKUP/PWRCTRL/nRESET/ADC input    |
+| 53   | GPIO0      | DIO/AIN   | 多功能复用GPIO           | EXT_EN/SLEEP_WKUP/PWRCTRL/nRESET/ADC input    |
+| 54   | INT        | DIO       | 中断输出                 | -                                             |
+| 55   | PWRKY      | AIN       | 开机/关机/复位按键       | -                                             |
+| 56   | PGOOD      | DIO       | Power good指示位/复位源  | -                                             |
+| 57   | AGND       | GND       | 模拟地                   | -                                             |
+| 58   | VREF       | AO        | 芯片内部参考电压         | -                                             |
+| 59   | AONLDO     | AO        | AONLDO电压输出           | -                                             |
+| 60   | ALDO4      | AO        | ALDO4电压输出            | -                                             |
 
-## 4. 电气特性参数
-
-### 4.1. 绝对最大额定值
+## 4. 绝对最大额定值
 
 绝对最大额定值如下表描述
 
-<table>
-<tbody>
-<tr>
-<td>参数</td>
-<td>描述</td>
-<td>条件</td>
-<td>最小值</td>
-<td>典型值</td>
-<td>最大值</td>
-<td>单位</td>
-</tr>
-<tr>
-<td>T(STG)</td>
-<td>存储温度</td>
-<td>- </td>
-<td>-40</td>
-<td> -</td>
-<td>150</td>
-<td>°C</td>
-</tr>
-<tr>
-<td>T(J)</td>
-<td>结温</td>
-<td> -</td>
-<td>-40</td>
-<td> -</td>
-<td>125</td>
-<td>°C</td>
-</tr>
-<tr>
-<td>V(SYS)</td>
-<td>系统供电电压</td>
-<td> -</td>
-<td>-0.3</td>
-<td> -</td>
-<td>7.0</td>
-<td>V</td>
-</tr>
-<tr>
-<td>V(CELL)</td>
-<td>纽扣电池供电电压</td>
-<td> -</td>
-<td>-0.3</td>
-<td> -</td>
-<td>7.0</td>
-<td>V</td>
-</tr>
-<tr>
-<td>V(ESD_HBM)</td>
-<td>ESD保护-HBM</td>
-<td> -</td>
-<td>2</td>
-<td> -</td>
-<td>- </td>
-<td>kV</td>
-</tr>
-<tr>
-<td>V(ESD_CDM)</td>
-<td>ESD保护-CDM</td>
-<td> -</td>
-<td>500</td>
-<td> -</td>
-<td> -</td>
-<td>V</td>
-</tr>
-</tbody>
-</table>
+| 参数         | 描述               | 条件 | 最小值 | 典型值 | 最大值 | 单位 |
+|--------------|--------------------|------|--------|--------|--------|------|
+| T(STG)       | 存储温度           | -    | -40    | -      | 150    | °C   |
+| T(J)         | 结温               | -    | -40    | -      | 125    | °C   |
+| V(SYS)       | 系统供电电压       | -    | -0.3   | -      | 7.0    | V    |
+| V(CELL)      | 纽扣电池供电电压   | -    | -0.3   | -      | 7.0    | V    |
+| V(ESD_HBM)   | ESD保护-HBM        | -    | 2      | -      | -      | kV   |
+| V(ESD_CDM)   | ESD保护-CDM        | -    | 500    | -      | -      | V    |
 
-### 4.2 推荐工作条件
+## 5. 电气特性参数
+
+### 5.1 推荐工作条件
 
 推荐工作条件如下表描述
 
-<table>
-<tbody>
-<tr>
-<td>参数</td>
-<td>描述</td>
-<td>条件</td>
-<td>最小值</td>
-<td>典型值</td>
-<td>最大值</td>
-<td>单位</td>
-</tr>
-<tr>
-<td>T(J)</td>
-<td>结温</td>
-<td> -</td>
-<td>-40</td>
-<td> -</td>
-<td>125</td>
-<td>℃</td>
-</tr>
-<tr>
-<td>V(SYS)</td>
-<td>系统供电电压</td>
-<td> -</td>
-<td>2.7</td>
-<td> -</td>
-<td>5.5</td>
-<td>V</td>
-</tr>
-<tr>
-<td>P(DIS)</td>
-<td>芯片最大功耗</td>
-<td> -</td>
-<td>- </td>
-<td> -</td>
-<td>2</td>
-<td>W</td>
-</tr>
-<tr>
-<td>R(JA)</td>
-<td>Junction到环境热阻</td>
-<td> -</td>
-<td> -</td>
-<td>38</td>
-<td> -</td>
-<td>℃/W</td>
-</tr>
-<tr>
-<td>R(JC)</td>
-<td>Junction到芯片表面热阻</td>
-<td> -</td>
-<td> -</td>
-<td>12</td>
-<td> -</td>
-<td>℃/W</td>
-</tr>
-<tr>
-<td>R(JB)</td>
-<td>Junction到PCB板热阻</td>
-<td> -</td>
-<td> -</td>
-<td>9</td>
-<td> -</td>
-<td>℃/W</td>
-</tr>
-</tbody>
-</table>
+| 参数     | 描述                     | 条件 | 最小值 | 典型值 | 最大值 | 单位   |
+|----------|--------------------------|------|--------|--------|--------|--------|
+| T(J)     | 结温                     | -    | -40    | -      | 125    | ℃      |
+| V(SYS)   | 系统供电电压             | -    | 2.7    | -      | 5.5    | V      |
+| P(DIS)   | 芯片最大功耗             | -    | -      | -      | 2      | W      |
+| R(JA)    | Junction到环境热阻       | -    | -      | 38     | -      | ℃/W    |
+| R(JC)    | Junction到芯片表面热阻   | -    | -      | 12     | -      | ℃/W    |
+| R(JB)    | Junction到PCB板热阻      | -    | -      | 9      | -      | ℃/W    |
 
-### 4.3 各模式功耗情况
+### 5.2 各模式功耗情况
 
-各模式功耗情况如下表描述
+各模式**功耗**情况如下表描述
 
-<table>
-<tbody>
-<tr>
-<td>参数</td>
-<td>描述</td>
-<td>条件</td>
-<td>最小值</td>
-<td>典型值</td>
-<td>最大值</td>
-<td>单位</td>
-</tr>
-<tr>
-<td rowspan=5 colspan=1>功耗</td>
-<td>RESET模式</td>
-<td>-</td>
-<td>- </td>
-<td> -</td>
-<td>- </td>
-<td>μA</td>
-</tr>
-<tr>
-<td>RTC模式</td>
-<td>V(IN)=5V, Ta=25℃</td>
-<td> -</td>
-<td>1.5</td>
-<td> -</td>
-<td>μA</td>
-</tr>
-<tr>
-<td>关机模式-SHUTDOWN</td>
-<td>V(IN)=5V, Ta=25℃</td>
-<td> -</td>
-<td>35</td>
-<td> -</td>
-<td>μA</td>
-</tr>
-<tr>
-<td>开机模式-ACTIVE</td>
-<td>-</td>
-<td> -</td>
-<td>- </td>
-<td> -</td>
-<td>μA</td>
-</tr>
-<tr>
-<td>睡眠模式-SLEEP</td>
-<td>-</td>
-<td> -</td>
-<td> -</td>
-<td> -</td>
-<td>μA</td>
-</tr>
-</tbody>
-</table>
+| 描述                 | 条件                | 最小值 | 典型值 | 最大值 | 单位 |
+|----------------------|---------------------|--------|--------|--------|------|
+| RESET模式            | -                   | -      | -      | -      | μA   |
+| RTC模式              | V(IN)=5V, Ta=25℃    | -      | 2    | -      | μA   |
+| 关机模式-SHUTDOWN    | V(IN)=5V, Ta=25℃    | -      | 40     | -      | μA   |
+| 开机模式-ACTIVE      | -                   | -      | -      | -      | μA   |
+| 睡眠模式-SLEEP       | -                   | -      | -      | -      | μA   |
 
-### 4.4 数字引脚电气特性
+### 5.3 数字引脚电气特性
 
 数字引脚电气特性如下表描述
 
-<table>
-<tbody>
-<tr>
-<td>参数</td>
-<td>描述</td>
-<td>条件</td>
-<td>最小值</td>
-<td>典型值</td>
-<td>最大值</td>
-<td>单位</td>
-</tr>
-<tr>
-<td>V(IH)</td>
-<td>高电平输入</td>
-<td>2.7 ～ 5.5 V，-40 ~ 105 ℃</td>
-<td> -</td>
-<td> -</td>
-<td>0.3 * AONLDO</td>
-<td>V</td>
-</tr>
-<tr>
-<td>V(IL)</td>
-<td>低电平输入</td>
-<td>2.7 ～ 5.5 V，-40 ~ 105 ℃</td>
-<td>0.7 * AONLDO</td>
-<td> -</td>
-<td> -</td>
-<td>V</td>
-</tr>
-<tr>
-<td>V(OH)</td>
-<td>高电平输出</td>
-<td>5 V，25  ℃,<br/>AONLDO = 1.8 V，I(LOAD)=1 mA</td>
-<td> -</td>
-<td>AONLDO - 0.1</td>
-<td> -</td>
-<td>V</td>
-</tr>
-<tr>
-<td>V(OL)</td>
-<td>低电平输出</td>
-<td>5V，25 ℃,<br/>AONLDO  = 1.8 V，I(LOAD)=1 mA</td>
-<td> -</td>
-<td>0.1</td>
-<td> -</td>
-<td>V<br/></td>
-</tr>
-<tr>
-<td>I(DRIVE)</td>
-<td>源电流驱动</td>
-<td>5V，25 ℃,<br/>AONLDO = 1.8 V，PAD = 1.3 V</td>
-<td> -</td>
-<td>10</td>
-<td> -</td>
-<td>mA</td>
-</tr>
-<tr>
-<td>I(SINK)</td>
-<td>灌电流驱动</td>
-<td>5V，25 ℃,<br/>AONLDO = 1.8 V，PAD = 0.5 V</td>
-<td> -</td>
-<td>25</td>
-<td> -</td>
-<td>mA</td>
-</tr>
-<tr>
-<td>R(PU)</td>
-<td>弱上拉电阻</td>
-<td> -</td>
-<td> -</td>
-<td>20 k</td>
-<td> -</td>
-<td>Ω</td>
-</tr>
-<tr>
-<td>R(PD)</td>
-<td>弱下拉电阻</td>
-<td> -</td>
-<td> -</td>
-<td>20 k</td>
-<td> -</td>
-<td>Ω</td>
-</tr>
-</tbody>
-</table>
+| 参数      | 描述           | 条件                                      | 最小值 | 典型值          | 最大值        | 单位 |
+|-----------|----------------|-------------------------------------------|--------|-----------------|---------------|------|
+| V(IH)     | 高电平输入     | 2.7 ～ 5.5 V，-40 ~ 105 ℃                | -      | -               | 0.3 * AONLDO  | V    |
+| V(IL)     | 低电平输入     | 2.7 ～ 5.5 V，-40 ~ 105 ℃                | 0.7 * AONLDO | -         | -             | V    |
+| V(OH)     | 高电平输出     | 5 V，25 ℃<br/>AONLDO = 1.8 V，I(LOAD)=1 mA | -      | AONLDO - 0.1    | -             | V    |
+| V(OL)     | 低电平输出     | 5 V，25 ℃<br/>AONLDO = 1.8 V，I(LOAD)=1 mA | -      | 0.1             | -             | V    |
+| I(DRIVE)  | 源电流驱动     | 5 V，25 ℃<br/>AONLDO = 1.8 V，PAD = 1.3 V  | -      | 10              | -             | mA   |
+| I(SINK)   | 灌电流驱动     | 5 V，25 ℃<br/>AONLDO = 1.8 V，PAD = 0.5 V  | -      | 25              | -             | mA   |
+| R(PU)     | 弱上拉电阻     | -                                         | -      | 20 k            | -             | Ω    |
+| R(PD)     | 弱下拉电阻     | -                                         | -      | 20 k            | -             | Ω    |
 
-### 4.5 看门狗
+### 5.4 看门狗
 
 看门狗数字引脚电气特性如下表描述
 
-<table>
-<tbody>
-<tr>
-<td>参数</td>
-<td>描述</td>
-<td>条件</td>
-<td>最小值</td>
-<td>典型值</td>
-<td>最大值</td>
-<td>单位</td>
-</tr>
-<tr>
-<td>T(WD_MIN)</td>
-<td>最小看门狗时间</td>
-<td> -</td>
-<td>- </td>
-<td>1</td>
-<td> -</td>
-<td>s</td>
-</tr>
-<tr>
-<td>T(WD_MAX)</td>
-<td>最大看门狗时间</td>
-<td> -</td>
-<td> -</td>
-<td>16</td>
-<td> -</td>
-<td>s</td>
-</tr>
-</tbody>
-</table>
+| 参数         | 描述             | 条件 | 最小值 | 典型值 | 最大值 | 单位 |
+|--------------|------------------|------|--------|--------|--------|------|
+| T(WD_MIN)    | 最小看门狗时间   | -    | -      | 1      | -      | s    |
+| T(WD_MAX)    | 最大看门狗时间   | -    | -      | 16     | -      | s    |
 
-## 4.6 LDO
+### 5.5 LDO
 
-### 4.6.1 AONLDO
+#### 5.5.1 AONLDO
 
 AONLDO 电气特性如下表描述
 
-<table>
-<tbody>
-<tr>
-<td>参数</td>
-<td>描述</td>
-<td>条件</td>
-<td>最小值</td>
-<td>典型值</td>
-<td>最大值</td>
-<td>单位</td>
-</tr>
-<tr>
-<td>V(DD)</td>
-<td>输入电压范围</td>
-<td>V(IN) = V(SYS)</td>
-<td>2.7</td>
-<td> -</td>
-<td>5.5</td>
-<td>V</td>
-</tr>
-<tr>
-<td>V(LDO)</td>
-<td>输出电压范围</td>
-<td>- </td>
-<td>0.5</td>
-<td> -</td>
-<td>3.4</td>
-<td>V</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>V(LDO_ACC)</td>
-<td rowspan=2 colspan=1>输出电压精度 </td>
-<td>V(OUT) &gt; 1.2V</td>
-<td>- </td>
-<td> -</td>
-<td>±1</td>
-<td>%</td>
-</tr>
-<tr>
-<td>V(OUT) &lt; 1.2V</td>
-<td>-</td>
-<td> -</td>
-<td>±12</td>
-<td>mV</td>
-</tr>
-<tr>
-<td>I(OUT_MAX)</td>
-<td>输出电流</td>
-<td> -</td>
-<td>- </td>
-<td> -</td>
-<td>0.2</td>
-<td>A</td>
-</tr>
-<tr>
-<td>I(OCP)</td>
-<td>过流保护</td>
-<td> -</td>
-<td> -</td>
-<td>0.3</td>
-<td>- </td>
-<td>A</td>
-</tr>
-<tr>
-<td>I(SHORT)</td>
-<td>短路电流</td>
-<td> -</td>
-<td> -</td>
-<td>0.15</td>
-<td> -</td>
-<td>A</td>
-</tr>
-<tr>
-<td>V(DROPOUT)</td>
-<td>电压降</td>
-<td>V(OUT) = 1.8 V, I(OUT_MAX)</td>
-<td> -</td>
-<td>0.3</td>
-<td> -</td>
-<td>V</td>
-</tr>
-<tr>
-<td>V(S_LINE)</td>
-<td>静态线性调整</td>
-<td>V(IN) = 3 ~ 5 V</td>
-<td> -</td>
-<td>10</td>
-<td> -</td>
-<td>mV</td>
-</tr>
-<tr>
-<td>V(S_LOAD)</td>
-<td>静态负载调整</td>
-<td>I(LOAD) = 10 ~ 100 mA</td>
-<td> -</td>
-<td>15</td>
-<td> -</td>
-<td>mV</td>
-</tr>
-<tr>
-<td>PSRR</td>
-<td>PSRR</td>
-<td>I(OUT) = I(MAX) / 2, V(IN) - V(OUT) &gt; 1 V</td>
-<td> -</td>
-<td>60</td>
-<td> -</td>
-<td>dB</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>Noise</td>
-<td rowspan=2 colspan=1>输出噪声</td>
-<td>V(OUT) = 1.8 V, I(OUT) = 5 mA - I(MAX)</td>
-<td> -</td>
-<td>35</td>
-<td> -</td>
-<td>μVrms</td>
-</tr>
-<tr>
-<td>V(OUT ) = 2.5 V, I(OUT) = 5 mA - I(MAX)</td>
-<td> -</td>
-<td>35</td>
-<td> -</td>
-<td>μVrms</td>
-</tr>
-<tr>
-<td>I(Q_ON)</td>
-<td>开机模式静态电流</td>
-<td>- </td>
-<td> -</td>
-<td>15</td>
-<td> -</td>
-<td>μA</td>
-</tr>
-<tr>
-<td>R(OFF)</td>
-<td>关机模式下拉电阻</td>
-<td>- </td>
-<td> -</td>
-<td>160</td>
-<td> -</td>
-<td>ohm</td>
-</tr>
-<tr>
-<td>OV</td>
-<td>过压</td>
-<td>V(OUT)/V(OUT_TARGET)-1</td>
-<td> -</td>
-<td>20</td>
-<td> -</td>
-<td>%</td>
-</tr>
-<tr>
-<td>UV</td>
-<td>欠压</td>
-<td>1- V(OUT)/V(OUT_TARGET)</td>
-<td> -</td>
-<td>15</td>
-<td> -</td>
-<td>%</td>
-</tr>
-</tbody>
-</table>
+| 参数         | 描述               | 条件                                      | 最小值 | 典型值 | 最大值 | 单位    |
+|--------------|--------------------|-------------------------------------------|--------|--------|--------|---------|
+| V(DD)        | 输入电压范围       | V(IN) = V(SYS)                            | 2.7    | -      | 5.5    | V       |
+| V(LDO)       | 输出电压范围       | -                                         | 0.5    | -      | 3.4    | V       |
+| V(LDO_ACC)   | 输出电压精度 (V(OUT) > 1.2V) | -                                         | -      | -      | ±1     | %       |
+| V(LDO_ACC)   | 输出电压精度 (V(OUT) < 1.2V) | -                                         | -      | -      | ±12    | mV      |
+| I(OUT_MAX)   | 输出电流           | -                                         | -      | -      | 0.2    | A       |
+| I(OCP)       | 过流保护           | -                                         | -      | 0.3    | -      | A       |
+| I(SHORT)     | 短路电流           | -                                         | -      | 0.15   | -      | A       |
+| V(DROPOUT)   | 电压降             | V(OUT) = 1.8 V, I(OUT_MAX)                | -      | 0.3    | -      | V       |
+| V(S_LINE)    | 静态线性调整       | V(IN) = 3 ~ 5 V                           | -      | 10     | -      | mV      |
+| V(S_LOAD)    | 静态负载调整       | I(LOAD) = 10 ~ 100 mA                     | -      | 15     | -      | mV      |
+| PSRR         | PSRR               | I(OUT) = I(MAX) / 2, V(IN) - V(OUT) > 1 V | -      | 60     | -      | dB      |
+| Noise        | 输出噪声 (V(OUT) = 1.8 V) | V(OUT) = 1.8 V, I(OUT) = 5 mA - I(MAX)    | -      | 35     | -      | μVrms   |
+| Noise        | 输出噪声 (V(OUT) = 2.5 V) | V(OUT) = 2.5 V, I(OUT) = 5 mA - I(MAX)    | -      | 35     | -      | μVrms   |
+| I(Q_ON)      | 开机模式静态电流   | -                                         | -      | 15     | -      | μA      |
+| R(OFF)       | 关机模式下拉电阻   | -                                         | -      | 160    | -      | ohm     |
+| OV           | 过压               | V(OUT)/V(OUT_TARGET)-1                    | -      | 20     | -      | %       |
+| UV           | 欠压               | 1- V(OUT)/V(OUT_TARGET)                   | -      | 15     | -      | %       |
 
-### 4.6.2 ALDO1~4
+#### 5.5.2 ALDO1~4
 
 ALDO1~4 电气特性如下表描述
 
-<table>
-<tbody>
-<tr>
-<td>参数</td>
-<td>描述</td>
-<td>条件</td>
-<td>最小值</td>
-<td>典型值</td>
-<td>最大值</td>
-<td>单位</td>
-</tr>
-<tr>
-<td>V(DD)</td>
-<td>输入电压范围</td>
-<td>V(IN) = V(SYS)</td>
-<td>2.7</td>
-<td> -</td>
-<td>5.5</td>
-<td>V</td>
-</tr>
-<tr>
-<td>V(LDO)</td>
-<td>输出电压范围</td>
-<td>- </td>
-<td>0.5</td>
-<td> -</td>
-<td>3.4</td>
-<td>V</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>V(LDO_ACC)</td>
-<td rowspan=2 colspan=1>输出电压精度</td>
-<td>V(OUT) &gt; 1.2 V</td>
-<td> -</td>
-<td> -</td>
-<td>±1</td>
-<td>%</td>
-</tr>
-<tr>
-<td>V(OUT) &lt; 1.2 V</td>
-<td> -</td>
-<td> -</td>
-<td>±12</td>
-<td>mV</td>
-</tr>
-<tr>
-<td>I(OUT_MAX)</td>
-<td>输出电流</td>
-<td> -</td>
-<td> -</td>
-<td> -</td>
-<td>0.3</td>
-<td>A</td>
-</tr>
-<tr>
-<td>I(OCP)</td>
-<td>过流保护</td>
-<td> -</td>
-<td> -</td>
-<td>0.5</td>
-<td>- </td>
-<td>A</td>
-</tr>
-<tr>
-<td>I(SHORT)</td>
-<td>短路电流</td>
-<td> -</td>
-<td> -</td>
-<td>0.25</td>
-<td> -</td>
-<td>A</td>
-</tr>
-<tr>
-<td>V(DROPOUT)</td>
-<td>电压降</td>
-<td>V(IN)=2.0 V，I(OUT_MAX)</td>
-<td> -</td>
-<td>0.3</td>
-<td> -</td>
-<td>V</td>
-</tr>
-<tr>
-<td>V(S_LINE)</td>
-<td>静态线性调整</td>
-<td>V(IN)= 3 ~ 5 V</td>
-<td> -</td>
-<td>10</td>
-<td> -</td>
-<td>mV</td>
-</tr>
-<tr>
-<td>V(S_LOAD)</td>
-<td>静态负载调整</td>
-<td>I(LOAD) = 10 ~ 100 mA</td>
-<td> -</td>
-<td>15</td>
-<td> -</td>
-<td>mV</td>
-</tr>
-<tr>
-<td>PSRR</td>
-<td>PSRR</td>
-<td>I(OUT)= I(MAX) / 2，V(IN ) - V(OUT ) &gt; 1 V</td>
-<td> -</td>
-<td>70</td>
-<td> -</td>
-<td>dB</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>Noise</td>
-<td rowspan=2 colspan=1>输出噪声</td>
-<td>V(OUT) = 1.8 V，I(OUT) = 5 mA - I(MAX)</td>
-<td> -</td>
-<td>30</td>
-<td> -</td>
-<td>μVrms</td>
-</tr>
-<tr>
-<td>V(OUT )= 2.5 V，I(OUT) = 5 mA - I(MAX)</td>
-<td> -</td>
-<td>30</td>
-<td> -</td>
-<td>μVrms</td>
-</tr>
-<tr>
-<td>I(Q_ON)</td>
-<td>开机模式静态电流</td>
-<td> -</td>
-<td> -</td>
-<td>15</td>
-<td> -</td>
-<td>μA</td>
-</tr>
-<tr>
-<td>R(OFF)</td>
-<td>关机模式下拉电阻</td>
-<td> -</td>
-<td> -</td>
-<td>160</td>
-<td> -</td>
-<td>Ω</td>
-</tr>
-<tr>
-<td>OV</td>
-<td>过压</td>
-<td>V(OUT)/V(OUT_TARGET)-1</td>
-<td> -</td>
-<td>20</td>
-<td> -</td>
-<td>%</td>
-</tr>
-<tr>
-<td>UV</td>
-<td>欠压</td>
-<td>1- V(OUT)/V(OUT_TARGET)</td>
-<td> -</td>
-<td>15</td>
-<td> -</td>
-<td>%</td>
-</tr>
-</tbody>
-</table>
+| 参数         | 描述               | 条件                                               | 最小值 | 典型值 | 最大值 | 单位    |
+|--------------|--------------------|----------------------------------------------------|--------|--------|--------|---------|
+| V(DD)        | 输入电压范围       | V(IN) = V(SYS)                                     | 2.7    | -      | 5.5    | V       |
+| V(LDO)       | 输出电压范围       | -                                                  | 0.5    | -      | 3.4    | V       |
+| V(LDO_ACC)   | 输出电压精度 (V(OUT) > 1.2V) | V(OUT) > 1.2 V                                      | -      | -      | ±1     | %       |
+| V(LDO_ACC)   | 输出电压精度 (V(OUT) < 1.2V) | V(OUT) < 1.2 V                                      | -      | -      | ±12    | mV      |
+| I(OUT_MAX)   | 输出电流           | -                                                  | -      | -      | 0.3    | A       |
+| I(OCP)       | 过流保护           | -                                                  | -      | 0.5    | -      | A       |
+| I(SHORT)     | 短路电流           | -                                                  | -      | 0.25   | -      | A       |
+| V(DROPOUT)   | 电压降             | V(IN)=2.0 V, I(OUT_MAX)                            | -      | 0.3    | -      | V       |
+| V(S_LINE)    | 静态线性调整       | V(IN)= 3 ~ 5 V                                     | -      | 10     | -      | mV      |
+| V(S_LOAD)    | 静态负载调整       | I(LOAD) = 10 ~ 100 mA                              | -      | 15     | -      | mV      |
+| PSRR         | PSRR               | I(OUT)= I(MAX) / 2, V(IN ) - V(OUT ) > 1 V         | -      | 70     | -      | dB      |
+| Noise        | 输出噪声 (V(OUT) = 1.8 V) | V(OUT) = 1.8 V, I(OUT) = 5 mA - I(MAX)              | -      | 30     | -      | μVrms   |
+| Noise        | 输出噪声 (V(OUT) = 2.5 V) | V(OUT) = 2.5 V, I(OUT) = 5 mA - I(MAX)              | -      | 30     | -      | μVrms   |
+| I(Q_ON)      | 开机模式静态电流   | -                                                  | -      | 15     | -      | μA      |
+| R(OFF)       | 关机模式下拉电阻   | -                                                  | -      | 160    | -      | Ω       |
+| OV           | 过压               | V(OUT)/V(OUT_TARGET)-1                             | -      | 20     | -      | %       |
+| UV           | 欠压               | 1- V(OUT)/V(OUT_TARGET)                            | -      | 15     | -      | %       |
 
-### 4.6.3 DLDO1/2/3/5/6
+#### 5.5.3 DLDO1/2/3/5/6
 
 DLDO1/2/3/5/6 电气特性如下表描述
 
-<table>
-<tbody>
-<tr>
-<td>参数</td>
-<td>描述</td>
-<td>条件</td>
-<td>最小值</td>
-<td>典型值</td>
-<td>最大值</td>
-<td>单位</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>V(DD)</td>
-<td rowspan=2 colspan=1>输入电压范围</td>
-<td>V(IN) = V(SYS)</td>
-<td>2.7</td>
-<td> -</td>
-<td>5.5</td>
-<td>V</td>
-</tr>
-<tr>
-<td>来自Buck的输入电压V(IN) </td>
-<td>2.1</td>
-<td> -</td>
-<td> -</td>
-<td>V</td>
-</tr>
-<tr>
-<td>V(LDO)</td>
-<td>输出电压范围</td>
-<td>- </td>
-<td>0.5</td>
-<td> -</td>
-<td>3.4</td>
-<td>V</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>V(LDO_ACC)</td>
-<td rowspan=2 colspan=1>输出电压精度</td>
-<td>V(OUT) &gt; 1.2 V</td>
-<td>  </td>
-<td> -</td>
-<td>±1</td>
-<td>%</td>
-</tr>
-<tr>
-<td>V(OUT) &lt; 1.2 V</td>
-<td> -</td>
-<td> -</td>
-<td>±12</td>
-<td>%</td>
-</tr>
-<tr>
-<td>I(OUT_MAX)</td>
-<td>输出电流</td>
-<td>- </td>
-<td> -</td>
-<td> -</td>
-<td>0.3</td>
-<td>A</td>
-</tr>
-<tr>
-<td>I(OCP)</td>
-<td>过流保护</td>
-<td>-</td>
-<td> -</td>
-<td>0.5</td>
-<td>- </td>
-<td>A</td>
-</tr>
-<tr>
-<td>I(SHORT)</td>
-<td>短路电流</td>
-<td>-</td>
-<td> -</td>
-<td>0.25</td>
-<td> -</td>
-<td>A</td>
-</tr>
-<tr>
-<td>V(DROPOUT)</td>
-<td>电压降</td>
-<td>V(IN) = 2.1 V，I(OUT_MAX)</td>
-<td> -</td>
-<td>0.3</td>
-<td> -</td>
-<td>V</td>
-</tr>
-<tr>
-<td>V(S_LINE)</td>
-<td>静态线性调整</td>
-<td>V(IN) = 3 ~ 5 V</td>
-<td> -</td>
-<td>10</td>
-<td> -</td>
-<td>mV</td>
-</tr>
-<tr>
-<td>V(S_LOAD)</td>
-<td>静态负载调整</td>
-<td>I(LOAD) = 10 ~ 100 mA</td>
-<td> -</td>
-<td>15</td>
-<td> -</td>
-<td>mV</td>
-</tr>
-<tr>
-<td>PSRR</td>
-<td>PSRR</td>
-<td>I(OUT ) = I(MAX) / 2，<br/>V(IN )- V(OUT ) &gt; 1 V</td>
-<td> -</td>
-<td>60</td>
-<td> -</td>
-<td>dB</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>Noise</td>
-<td rowspan=2 colspan=1>输出噪声</td>
-<td>V(OUT) = 1.8 V，<br/>I(OUT) = 5 mA - I(MAX)</td>
-<td> -</td>
-<td>35</td>
-<td> -</td>
-<td>μVrms</td>
-</tr>
-<tr>
-<td>V(OUT) = 2.5 V，<br/>I(OUT) = 5 mA - I(MAX)</td>
-<td> -</td>
-<td>35</td>
-<td> -</td>
-<td>μVrms</td>
-</tr>
-<tr>
-<td>I(Q_ON)</td>
-<td>开机模式静态电流</td>
-<td>- </td>
-<td> -</td>
-<td>15</td>
-<td> -</td>
-<td>μA</td>
-</tr>
-<tr>
-<td>R(OFF)</td>
-<td>关机模式下拉电阻</td>
-<td> -</td>
-<td> -</td>
-<td>160</td>
-<td> -</td>
-<td>Ω</td>
-</tr>
-<tr>
-<td>OV</td>
-<td>过压</td>
-<td>V(OUT)/V(OUT_TARGET)-1</td>
-<td> -</td>
-<td>20</td>
-<td> -</td>
-<td>%</td>
-</tr>
-<tr>
-<td>UV</td>
-<td>欠压</td>
-<td>1- V(OUT)/V(OUT_TARGET)</td>
-<td> -</td>
-<td>15</td>
-<td> -</td>
-<td>%</td>
-</tr>
-</tbody>
-</table>
+| 参数         | 描述               | 条件                                               | 最小值 | 典型值 | 最大值 | 单位    |
+|--------------|--------------------|----------------------------------------------------|--------|--------|--------|---------|
+| V(DD)        | 输入电压范围 (V(IN) = V(SYS))  | V(IN) = V(SYS)                                     | 2.7    | -      | 5.5    | V       |
+| V(DD)        | 输入电压范围 (来自Buck的输入电压V(IN)) | 来自Buck的输入电压V(IN)                           | 2.1    | -      | -      | V       |
+| V(LDO)       | 输出电压范围       | -                                                  | 0.5    | -      | 3.4    | V       |
+| V(LDO_ACC)   | 输出电压精度 (V(OUT) > 1.2V)     | V(OUT) > 1.2 V                                      | -      | -      | ±1     | %       |
+| V(LDO_ACC)   | 输出电压精度 (V(OUT) < 1.2V)     | V(OUT) < 1.2 V                                      | -      | -      | ±12    | %       |
+| I(OUT_MAX)   | 输出电流           | -                                                  | -      | -      | 0.3    | A       |
+| I(OCP)       | 过流保护           | -                                                  | -      | 0.5    | -      | A       |
+| I(SHORT)     | 短路电流           | -                                                  | -      | 0.25   | -      | A       |
+| V(DROPOUT)   | 电压降             | V(IN) = 2.1 V, I(OUT_MAX)                          | -      | 0.3    | -      | V       |
+| V(S_LINE)    | 静态线性调整       | V(IN) = 3 ~ 5 V                                     | -      | 10     | -      | mV      |
+| V(S_LOAD)    | 静态负载调整       | I(LOAD) = 10 ~ 100 mA                              | -      | 15     | -      | mV      |
+| PSRR         | PSRR               | I(OUT) = I(MAX) / 2, V(IN) - V(OUT) > 1 V          | -      | 60     | -      | dB      |
+| Noise        | 输出噪声 (V(OUT) = 1.8 V) | V(OUT) = 1.8 V, I(OUT) = 5 mA - I(MAX)              | -      | 35     | -      | μVrms   |
+| Noise        | 输出噪声 (V(OUT) = 2.5 V) | V(OUT) = 2.5 V, I(OUT) = 5 mA - I(MAX)              | -      | 35     | -      | μVrms   |
+| I(Q_ON)      | 开机模式静态电流   | -                                                  | -      | 15     | -      | μA      |
+| R(OFF)       | 关机模式下拉电阻   | -                                                  | -      | 160    | -      | Ω       |
+| OV           | 过压               | V(OUT)/V(OUT_TARGET)-1                             | -      | 20     | -      | %       |
+| UV           | 欠压               | 1- V(OUT)/V(OUT_TARGET)                            | -      | 15     | -      | %       |
 
-### 4.6.4 DLDO4/7
+#### 5.5.4 DLDO4/7
 
 DLDO4/7 电气特性如下表描述
 
-<table>
-<tbody>
-<tr>
-<td>参数</td>
-<td>描述</td>
-<td>条件</td>
-<td>最小值</td>
-<td>典型值</td>
-<td>最大值</td>
-<td>单位</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>V(DD)</td>
-<td rowspan=2 colspan=1>输入电压范围 </td>
-<td>V(IN) = V(SYS)</td>
-<td>2.7</td>
-<td> -</td>
-<td>5.5</td>
-<td>V</td>
-</tr>
-<tr>
-<td>来自Buck的输入电压V(IN)</td>
-<td>2.1</td>
-<td> -</td>
-<td> -</td>
-<td>V</td>
-</tr>
-<tr>
-<td>V(LDO)</td>
-<td>输出电压范围</td>
-<td> -</td>
-<td>0.5</td>
-<td> -</td>
-<td>3.4</td>
-<td>V</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>V(LDO_ACC)</td>
-<td rowspan=2 colspan=1>输出电压精度</td>
-<td>V(OUT) &gt; 1.2 V</td>
-<td> -</td>
-<td> -</td>
-<td>±1</td>
-<td>%</td>
-</tr>
-<tr>
-<td>V(OUT) &lt; 1.2 V</td>
-<td> -</td>
-<td> -</td>
-<td>±12</td>
-<td>%</td>
-</tr>
-<tr>
-<td>I(OUT_MAX)</td>
-<td>输出电流</td>
-<td> -</td>
-<td> -</td>
-<td> -</td>
-<td>0.5</td>
-<td>A</td>
-</tr>
-<tr>
-<td>I(OCP)</td>
-<td>过流保护</td>
-<td> -</td>
-<td> -</td>
-<td>0.8</td>
-<td>- </td>
-<td>A</td>
-</tr>
-<tr>
-<td>I(SHORT)</td>
-<td>短路电流</td>
-<td> -</td>
-<td> -</td>
-<td>0.4</td>
-<td>-</td>
-<td>A</td>
-</tr>
-<tr>
-<td>V(DROPOUT)</td>
-<td>电压降</td>
-<td>V(IN) = 2.1 V，I(OUT_MAX)</td>
-<td> -</td>
-<td>0.4</td>
-<td>-</td>
-<td>V</td>
-</tr>
-<tr>
-<td>V(S_LINE)</td>
-<td>静态线性调整</td>
-<td>V(IN) = 3 ~ 5 V</td>
-<td> -</td>
-<td>10</td>
-<td>- </td>
-<td>mV</td>
-</tr>
-<tr>
-<td>V(S_LOAD)</td>
-<td>静态负载调整</td>
-<td>I(LOAD) = 10 ~ 100 mA</td>
-<td> -</td>
-<td>15</td>
-<td> -</td>
-<td>mV</td>
-</tr>
-<tr>
-<td>PSRR</td>
-<td>PSRR</td>
-<td>I(OUT) = I(MAX) / 2，V(IN ) - V(OUT )&gt; 1 V</td>
-<td> -</td>
-<td>60</td>
-<td> -</td>
-<td>dB</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>Noise</td>
-<td rowspan=2 colspan=1>输出噪声</td>
-<td>V(OUT) = 1.8 V，I(OUT) = 5 mA - I(MAX)</td>
-<td> -</td>
-<td>35</td>
-<td> -</td>
-<td>μVrms</td>
-</tr>
-<tr>
-<td>V(OUT)= 2.5 V，I(OUT) = 5 mA - I(MAX)</td>
-<td> -</td>
-<td>35</td>
-<td> -</td>
-<td>μVrms</td>
-</tr>
-<tr>
-<td>I(Q_ON)</td>
-<td>开机模式静态电流</td>
-<td> -</td>
-<td> -</td>
-<td>15</td>
-<td> -</td>
-<td>μA</td>
-</tr>
-<tr>
-<td>R(OFF)</td>
-<td>关机模式下拉电阻</td>
-<td> -</td>
-<td> -</td>
-<td>160</td>
-<td> -</td>
-<td>Ω</td>
-</tr>
-<tr>
-<td>OV</td>
-<td>过压</td>
-<td>V(OUT)/V(OUT_TARGET)-1</td>
-<td> -</td>
-<td>20</td>
-<td> -</td>
-<td>%</td>
-</tr>
-<tr>
-<td>UV</td>
-<td>欠压</td>
-<td>1 - V(OUT)/V(OUT_TARGET)</td>
-<td> -</td>
-<td>15</td>
-<td> -</td>
-<td>%</td>
-</tr>
-</tbody>
-</table>
+| 参数         | 描述               | 条件                                               | 最小值 | 典型值 | 最大值 | 单位    |
+|--------------|--------------------|----------------------------------------------------|--------|--------|--------|---------|
+| V(DD)        | 输入电压范围 (V(IN) = V(SYS))  | V(IN) = V(SYS)                                     | 2.7    | -      | 5.5    | V       |
+| V(DD)        | 输入电压范围 (来自Buck的输入电压V(IN)) | 来自Buck的输入电压V(IN)                           | 2.1    | -      | -      | V       |
+| V(LDO)       | 输出电压范围       | -                                                  | 0.5    | -      | 3.4    | V       |
+| V(LDO_ACC)   | 输出电压精度 (V(OUT) > 1.2V)     | V(OUT) > 1.2 V                                      | -      | -      | ±1     | %       |
+| V(LDO_ACC)   | 输出电压精度 (V(OUT) < 1.2V)     | V(OUT) < 1.2 V                                      | -      | -      | ±12    | %       |
+| I(OUT_MAX)   | 输出电流           | -                                                  | -      | -      | 0.5    | A       |
+| I(OCP)       | 过流保护           | -                                                  | -      | 0.8    | -      | A       |
+| I(SHORT)     | 短路电流           | -                                                  | -      | 0.4    | -      | A       |
+| V(DROPOUT)   | 电压降             | V(IN) = 2.1 V, I(OUT_MAX)                          | -      | 0.4    | -      | V       |
+| V(S_LINE)    | 静态线性调整       | V(IN) = 3 ~ 5 V                                     | -      | 10     | -      | mV      |
+| V(S_LOAD)    | 静态负载调整       | I(LOAD) = 10 ~ 100 mA                              | -      | 15     | -      | mV      |
+| PSRR         | PSRR               | I(OUT) = I(MAX) / 2, V(IN) - V(OUT) > 1 V          | -      | 60     | -      | dB      |
+| Noise        | 输出噪声 (V(OUT) = 1.8 V) | V(OUT) = 1.8 V, I(OUT) = 5 mA - I(MAX)              | -      | 35     | -      | μVrms   |
+| Noise        | 输出噪声 (V(OUT) = 2.5 V) | V(OUT) = 2.5 V, I(OUT) = 5 mA - I(MAX)              | -      | 35     | -      | μVrms   |
+| I(Q_ON)      | 开机模式静态电流   | -                                                  | -      | 15     | -      | μA      |
+| R(OFF)       | 关机模式下拉电阻   | -                                                  | -      | 160    | -      | Ω       |
+| OV           | 过压               | V(OUT)/V(OUT_TARGET)-1                             | -      | 20     | -      | %       |
+| UV           | 欠压               | 1 - V(OUT)/V(OUT_TARGET)                           | -      | 15     | -      | %       |
 
-### 4.7 BUCK1~6
+### 5.6 BUCK1~6
 
 BUCK1~6 电气特性如下表描述
 
-<table>
-<tbody>
-<tr>
-<td>参数</td>
-<td>描述</td>
-<td>条件</td>
-<td>最小值</td>
-<td>典型值</td>
-<td>最大值</td>
-<td>单位</td>
-</tr>
-<tr>
-<td rowspan=1 colspan=7><strong>Buck</strong><strong>的整体参数</strong></td>
-</tr>
-<tr>
-<td>V(IN_MIN)</td>
-<td>最小输入电压</td>
-<td> -</td>
-<td>- </td>
-<td>2.7</td>
-<td> -</td>
-<td>V</td>
-</tr>
-<tr>
-<td>V(IN_MAX)</td>
-<td>最大输入电压</td>
-<td> -</td>
-<td> -</td>
-<td>5.5</td>
-<td> -</td>
-<td>V</td>
-</tr>
-<tr>
-<td>V(OUT_MIN)</td>
-<td>最小输出电压</td>
-<td> -</td>
-<td> -</td>
-<td>0.5</td>
-<td> -</td>
-<td>V</td>
-</tr>
-<tr>
-<td>V(OUT_MAX)</td>
-<td>最大输出电压</td>
-<td> -</td>
-<td> -</td>
-<td>3.4</td>
-<td> -</td>
-<td>V</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>V(OUT_STEPS)</td>
-<td rowspan=2 colspan=1>调压步幅</td>
-<td>V(OUT) = 0.5 ~ 1.35 V</td>
-<td> -</td>
-<td>5</td>
-<td> -</td>
-<td>mV</td>
-</tr>
-<tr>
-<td>V(OUT) = 1.35 ~ 3.4 V</td>
-<td> -</td>
-<td>25</td>
-<td> -</td>
-<td>mV</td>
-</tr>
-<tr>
-<td>V(SLEW)</td>
-<td>DVS档位</td>
-<td> -</td>
-<td> -</td>
-<td>5/10/25/50</td>
-<td> -</td>
-<td>mV/us</td>
-</tr>
-<tr>
-<td>T(SFST)</td>
-<td>软启动时间</td>
-<td> -</td>
-<td> -</td>
-<td>1</td>
-<td> -</td>
-<td>ms</td>
-</tr>
-<tr>
-<td>T(SFST_SET)</td>
-<td>软启动档位设置</td>
-<td> -</td>
-<td> -</td>
-<td>0.78/0.9/1.12</td>
-<td> -</td>
-<td>ms</td>
-</tr>
-<tr>
-<td>R(DIDCHG)</td>
-<td>泄放电阻</td>
-<td> -</td>
-<td> -</td>
-<td>45</td>
-<td> -</td>
-<td>Ω</td>
-</tr>
-<tr>
-<td>fsw</td>
-<td>工作频率</td>
-<td>CCM</td>
-<td> -</td>
-<td>1.5</td>
-<td> -</td>
-<td>MHz</td>
-</tr>
-<tr>
-<td>OV</td>
-<td>过压</td>
-<td>V(OUT)/V(OUT_TARGET)-1</td>
-<td> -</td>
-<td>20</td>
-<td> -</td>
-<td>%</td>
-</tr>
-<tr>
-<td>UV</td>
-<td>欠压</td>
-<td>1- V(OUT)/V(OUT_TARGET)</td>
-<td> -</td>
-<td>15</td>
-<td> -</td>
-<td>%</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>V(BUCK_ACC)</td>
-<td rowspan=2 colspan=1>输出电压精度</td>
-<td>（不含线性/负载调整）<br/>V(OUT) &gt; 1 V</td>
-<td> -</td>
-<td> -</td>
-<td>±1</td>
-<td>%</td>
-</tr>
-<tr>
-<td>（不含线性/负载调整）<br/>V(OUT) &lt; 1 V</td>
-<td> -</td>
-<td>- </td>
-<td>±10</td>
-<td>mV</td>
-</tr>
-<tr>
-<td>V(S_LOAD)</td>
-<td>静态负载调整</td>
-<td>I(OUT) = 0.1 ~ 2 A，V(OUT)= 1 V</td>
-<td> -</td>
-<td> -</td>
-<td>±1</td>
-<td>%</td>
-</tr>
-<tr>
-<td>V(S_LINE)</td>
-<td>静态线性调整</td>
-<td>V(IN) = 3 ~ 5 V，V(OUT) = 1 V</td>
-<td> -</td>
-<td> -</td>
-<td>±1</td>
-<td>%</td>
-</tr>
-<tr>
-<td rowspan=4 colspan=1>V(TR_LD)</td>
-<td rowspan=4 colspan=1>负载瞬态响应<br/>(C(OUT)=44uF，I(OUT)=0.02 ~ 2.7 A) </td>
-<td>undershoot，V(OUT)&lt; 1.2 V</td>
-<td> -</td>
-<td>30</td>
-<td>60</td>
-<td>mV</td>
-</tr>
-<tr>
-<td>undershoot，V(OUT)&gt; 1.2 V</td>
-<td> -</td>
-<td>3</td>
-<td>5</td>
-<td>%</td>
-</tr>
-<tr>
-<td>overshoot，V(OUT) &lt; 1.6 V</td>
-<td> -</td>
-<td>72</td>
-<td>80</td>
-<td>mV</td>
-</tr>
-<tr>
-<td>overshoot，V(OUT) &gt; 1.6 V</td>
-<td> -</td>
-<td>- </td>
-<td>5</td>
-<td>%</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>V(RIPPLE)</td>
-<td rowspan=2 colspan=1>输出纹波</td>
-<td>I(OUT) = 0.1 A，V(OUT) = 1.1 V</td>
-<td> -</td>
-<td>13</td>
-<td>25</td>
-<td>mV</td>
-</tr>
-<tr>
-<td>I(OUT) &gt; 1 A，V(OUT) = 1.1 V</td>
-<td> -</td>
-<td>7</td>
-<td>20</td>
-<td>mV</td>
-</tr>
-<tr>
-<td rowspan=1 colspan=7><strong>Buck 1 ~ 2</strong></td>
-</tr>
-<tr>
-<td>I(OUT_MAX)</td>
-<td>输出电流 </td>
-<td>OCP large=1</td>
-<td>4.0</td>
-<td>-</td>
-<td> -</td>
-<td>A</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>Efficiency</td>
-<td rowspan=2 colspan=1>效率</td>
-<td>V(IN) = 4 V，V(OUT) = 0.9 V<br/>I(OUT) = 0.5 A</td>
-<td>- </td>
-<td>86.3<br/></td>
-<td> -</td>
-<td>%</td>
-</tr>
-<tr>
-<td>V(IN) = 4 V，V(OUT) = 0.9 V<br/>I(OUT) = 2.5 A</td>
-<td> -<br/></td>
-<td>78.2</td>
-<td> -</td>
-<td>% </td>
-</tr>
-<tr>
-<td>D(ACC)</td>
-<td>双相精度</td>
-<td>I(OUT) = 6A</td>
-<td> -</td>
-<td>10.0</td>
-<td>20.0</td>
-<td>%</td>
-</tr>
-<tr>
-<td>R(PU)</td>
-<td>弱上拉电阻</td>
-<td rowspan=2 colspan=1>V(IN) = 4 V</td>
-<td> -</td>
-<td>80</td>
-<td>- </td>
-<td>mΩ</td>
-</tr>
-<tr>
-<td>R(PD)</td>
-<td>弱下拉电阻</td>
-<td> -</td>
-<td>40</td>
-<td>- </td>
-<td>mΩ</td>
-</tr>
-<tr>
-<td rowspan=1 colspan=7><strong>Buck 3 ~ 4</strong></td>
-</tr>
-<tr>
-<td>I(OUT_MAX)</td>
-<td>输出电流</td>
-<td> </td>
-<td>2.5</td>
-<td>3.5</td>
-<td> -</td>
-<td>A</td>
-</tr>
-<tr>
-<td>I(VALLEY_LIMIT)</td>
-<td></td>
-<td>正常电平</td>
-<td>3.0</td>
-<td>- </td>
-<td>- </td>
-<td>A</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>Efficiency</td>
-<td rowspan=2 colspan=1>效率</td>
-<td>V(IN) = 4 V，V(OUT) = 1.8 V<br/>I(OUT) = 0.5 A</td>
-<td> -</td>
-<td>90.6</td>
-<td> -</td>
-<td>%</td>
-</tr>
-<tr>
-<td>V(IN) = 4 V，V(OUT) = 1.8 V<br/>I(OUT) = 2.5 A</td>
-<td> -</td>
-<td>83.4</td>
-<td>-</td>
-<td> %</td>
-</tr>
-<tr>
-<td>D(ACC)</td>
-<td>双相精度</td>
-<td>I(OUT) = 5A</td>
-<td> -</td>
-<td>- </td>
-<td>20.0</td>
-<td>%</td>
-</tr>
-<tr>
-<td>R(PU)</td>
-<td>弱上拉电阻</td>
-<td rowspan=2 colspan=1>V(IN) = 4 V </td>
-<td> -</td>
-<td>100</td>
-<td> -</td>
-<td>mΩ</td>
-</tr>
-<tr>
-<td>R(PD)</td>
-<td>弱下拉电阻</td>
-<td>- </td>
-<td>50</td>
-<td> -</td>
-<td>mΩ</td>
-</tr>
-<tr>
-<td rowspan=1 colspan=7><strong>Buck 5 ~ 6</strong></td>
-</tr>
-<tr>
-<td>I(OUT_MAX)</td>
-<td>输出电流</td>
-<td> </td>
-<td>2.5</td>
-<td> -</td>
-<td>- </td>
-<td>A</td>
-</tr>
-<tr>
-<td>I(VALLEY_LIMIT)</td>
-<td></td>
-<td>正常电平</td>
-<td>3.0</td>
-<td> -</td>
-<td> -</td>
-<td>A</td>
-</tr>
-<tr>
-<td rowspan=4 colspan=1>Efficiency</td>
-<td rowspan=4 colspan=1>效率</td>
-<td>V(IN) = 4 V，V(OUT) = 1.1 V<br/>I(OUT) = 0.5 A</td>
-<td> -</td>
-<td>87.7</td>
-<td> -</td>
-<td>%</td>
-</tr>
-<tr>
-<td>V(IN) = 4 V，V(OUT) = 1.1 V<br/>I(OUT) = 2.5 A</td>
-<td> -</td>
-<td>79.9</td>
-<td> -</td>
-<td> %</td>
-</tr>
-<tr>
-<td>V(IN) = 4 V，V(OUT) = 2.1 V<br/>I(OUT) = 0.5 A</td>
-<td> -</td>
-<td>91.6</td>
-<td> -</td>
-<td> %</td>
-</tr>
-<tr>
-<td>V(IN) = 4 V，V(OUT) = 2.1 V<br/>I(OUT) = 2.5 A</td>
-<td> -</td>
-<td>86.8</td>
-<td> -</td>
-<td> %</td>
-</tr>
-<tr>
-<td>R(PU)</td>
-<td>弱上拉电阻</td>
-<td rowspan=2 colspan=1>V(IN) = 4 V </td>
-<td> -</td>
-<td>100</td>
-<td> -</td>
-<td>mΩ</td>
-</tr>
-<tr>
-<td>R(PD)</td>
-<td>弱下拉电阻</td>
-<td> -</td>
-<td>50</td>
-<td> -</td>
-<td>mΩ</td>
-</tr>
-</tbody>
-</table>
+#### Buck 的整体参数
 
-### 4.8 负载开关
+| 参数         | 描述               | 条件                                               | 最小值 | 典型值 | 最大值 | 单位    |
+|--------------|--------------------|----------------------------------------------------|--------|--------|--------|---------|
+| V(IN_MIN)    | 最小输入电压       | -                                                  | -      | 2.7    | -      | V       |
+| V(IN_MAX)    | 最大输入电压       | -                                                  | -      | 5.5    | -      | V       |
+| V(OUT_MIN)   | 最小输出电压       | -                                                  | -      | 0.5    | -      | V       |
+| V(OUT_MAX)   | 最大输出电压       | -                                                  | -      | 3.4    | -      | V       |
+| V(OUT_STEPS) | 调压步幅  | V(OUT) = 0.5 ~ 1.35 V                                                  | -      | 5      | -      | mV      |
+| V(OUT_STEPS) | 调压步幅  | V(OUT) = 1.35 ~ 3.4 V                                                 | -      | 25     | -      | mV      |
+| V(SLEW)      | DVS档位            | -                                                  | -      | 5/10/25/50 | -    | mV/us   |
+| T(SFST)      | 软启动时间         | -                                                  | -      | 1      | -      | ms      |
+| T(SFST_SET)  | 软启动档位设置     | -                                                  | -      | 0.78/0.9/1.12 | - | ms      |
+| R(DIDCHG)    | 泄放电阻           | -                                                  | -      | 45     | -      | Ω       |
+| fsw          | 工作频率           | CCM                                                | -      | 1.5    | -      | MHz     |
+| OV           | 过压               | V(OUT)/V(OUT_TARGET)-1                             | -      | 20     | -      | %       |
+| UV           | 欠压               | 1- V(OUT)/V(OUT_TARGET)                            | -      | 15     | -      | %       |
+| V(BUCK_ACC)  | 输出电压精度  | (不含线性/负载调整) (V(OUT) > 1 V)                                                  | -      | -      | ±1     | %       |
+| V(BUCK_ACC)  | 输出电压精度  | (不含线性/负载调整) (V(OUT) < 1 V)                                                  | -      | -      | ±10    | mV      |
+| V(S_LOAD)    | 静态负载调整       | I(OUT) = 0.1 ~ 2 A, V(OUT)= 1 V                    | -      | -      | ±1     | %       |
+| V(S_LINE)    | 静态线性调整       | V(IN) = 3 ~ 5 V, V(OUT) = 1 V                      | -      | -      | ±1     | %       |
+| V(TR_LD)     | 负载瞬态响应 <br />C(OUT)=44uF, I(OUT)=0.02 ~ 2.7 A  |  (undershoot，V(OUT)< 1.2 V)                  | -      | 30     | 60     | mV      |
+|     |   | (undershoot，V(OUT)> 1.2 V)                   | -      | 3      | 5      | %       |
+|      |   | (overshoot，V(OUT) < 1.6 V)                   | -      | 72     | 80     | mV      |
+|      |   | (overshoot，V(OUT) > 1.6 V)                  | -      | -      | 5      | %       |
+| V(RIPPLE)    | 输出纹波 (I(OUT) = 0.1 A, V(OUT) = 1.1 V) | -                                                  | -      | 13     | 25     | mV      |
+| V(RIPPLE)    | 输出纹波 (I(OUT) > 1 A, V(OUT) = 1.1 V) | -                                                  | -      | 7      | 20     | mV      |
+
+#### Buck 1 ~ 2 Single Buck
+
+| 参数         | 描述               | 条件                                               | 最小值 | 典型值 | 最大值 | 单位    |
+|--------------|--------------------|----------------------------------------------------|--------|--------|--------|---------|
+| I(OUT_MAX)   | 输出电流           | OCP large=1                                       | -    | 4.0      | -      | A       |
+| Efficiency   | 效率  | V(IN) = 4 V, V(OUT) = 0.9 V, I(OUT) = 0.5 A      | -      | 86.3   | -      | %       |
+| Efficiency   | 效率  | V(IN) = 4 V, V(OUT) = 0.9 V, I(OUT) = 2.5 A        | -      | 78.2   | -      | %       |
+| D(ACC)       | 双相精度           | I(OUT) = 6A                                       | -      | 10.0   | 20.0   | %       |
+| R(PU)        | 弱上拉电阻         | V(IN) = 4 V                                        | -      | 80     | -      | mΩ      |
+| R(PD)        | 弱下拉电阻         | V(IN) = 4 V                                        | -      | 40     | -      | mΩ      |
+
+#### Buck 3 ~ 4
+
+| 参数  | 描述  | 条件  | 最小值 | 典型值 | 最大值 | 单位    |
+|-------|------|----|-----|----|---|---|
+| I(OUT_MAX)   | 输出电流           | -                                                  | 2.5    | 3.5    | -      | A       |
+| I(VALLEY_LIMIT) | 正常电平           | -                                                  | 3.0    | -      | -      | A       |
+| Efficiency   | 效率  | V(IN) = 4 V, V(OUT) = 1.8 V, I(OUT) = 0.5 A  | -      | 90.6   | -      | %       |
+| Efficiency   | 效率  | V(IN) = 4 V, V(OUT) = 1.8 V, I(OUT) = 2.5 A | -      | 83.4   | -      | %       |
+| D(ACC)       | 双相精度           | I(OUT) = 5A                                       | -      | -      | 20.0   | %       |
+| R(PU)        | 弱上拉电阻         | V(IN) = 4 V                                        | -      | 100    | -      | mΩ      |
+| R(PD)        | 弱下拉电阻         | V(IN) = 4 V                                        | -      | 50     | -      | mΩ      |
+
+#### Buck 5 ~ 6
+
+| 参数         | 描述               | 条件                                               | 最小值 | 典型值 | 最大值 | 单位    |
+|--------------|--------------------|----------------------------------------------------|--------|--------|--------|---------|
+| I(OUT_MAX)   | 输出电流           | -                                                  | 2.5    | -      | -      | A       |
+| I(VALLEY_LIMIT) | 正常电平           | -                                                  | 3.0    | -      | -      | A       |
+| Efficiency   | 效率  | V(IN) = 4 V, V(OUT) = 1.1 V, I(OUT) = 0.5 A | -      | 87.7   | -      | %       |
+| Efficiency   | 效率  | V(IN) = 4 V, V(OUT) = 1.1 V, I(OUT) = 2.5 A | -      | 79.9   | -      | %       |
+| Efficiency   | 效率  | V(IN) = 4 V, V(OUT) = 2.1 V, I(OUT) = 0.5 A | -      | 91.6   | -      | %       |
+| Efficiency   | 效率  | V(IN) = 4 V, V(OUT) = 2.1 V, I(OUT) = 2.5 A | -      | 86.8   | -      | %       |
+| R(PU)        | 弱上拉电阻         | V(IN) = 4 V                                        | -      | 100    | -      | mΩ      |
+| R(PD)        | 弱下拉电阻         | V(IN) = 4 V                                        | -      | 50     | -      | mΩ      |
+
+### 5.7 负载开关
 
 负载开关电气特性如下表描述
 
-<table>
-<tbody>
-<tr>
-<td>参数</td>
-<td>描述</td>
-<td>条件</td>
-<td>最小值</td>
-<td>典型值</td>
-<td>最大值</td>
-<td>单位</td>
-</tr>
-<tr>
-<td>SW(IN-MIN)</td>
-<td>最小输入电压</td>
-<td>V(SYS) = 4V</td>
-<td> -</td>
-<td>2.7</td>
-<td> -</td>
-<td>V</td>
-</tr>
-<tr>
-<td>SW(IN-MAX)</td>
-<td>最大输入电压</td>
-<td>V(SYS) = 4V</td>
-<td> -</td>
-<td>5.5</td>
-<td> -</td>
-<td>V</td>
-</tr>
-<tr>
-<td>R(ON) </td>
-<td>导通电阻</td>
-<td>SWIN=5V</td>
-<td> -</td>
-<td>140</td>
-<td> -</td>
-<td>mohm</td>
-</tr>
-<tr>
-<td>I_SC</td>
-<td>短路电路</td>
-<td> </td>
-<td> -</td>
-<td>0.5</td>
-<td> -</td>
-<td>A </td>
-</tr>
-<tr>
-<td>I_MAX</td>
-<td>最大电流</td>
-<td> </td>
-<td> -</td>
-<td>1.6</td>
-<td> -</td>
-<td>A</td>
-</tr>
-</tbody>
-</table>
+| 参数       | 描述         | 条件           | 最小值 | 典型值 | 最大值 | 单位   |
+|------------|--------------|----------------|--------|--------|--------|--------|
+| SW(IN-MIN) | 最小输入电压 | V(SYS) = 4V    | -      | 2.7    | -      | V      |
+| SW(IN-MAX) | 最大输入电压 | V(SYS) = 4V    | -      | 5.5    | -      | V      |
+| R(ON)      | 导通电阻     | SWIN = 5V      | -      | 140    | -      | mΩ     |
+| I_SC       | 短路电流     | -              | -      | 0.5    | -      | A      |
+| I_MAX      | 最大电流     | -              | -      | 1.6    | -      | A      |
 
-### 4.9 ADC
+### 5.8 ADC
 
-ADC 电气特性如下表描述
+#### ADC 电气特性
 
-<table>
-<tbody>
-<tr>
-<td>参数</td>
-<td>描述</td>
-<td>条件</td>
-<td>最小值</td>
-<td>典型值</td>
-<td>最大值</td>
-<td>单位</td>
-</tr>
-<tr>
-<td>Resolution</td>
-<td>分辨率</td>
-<td>- </td>
-<td>- </td>
-<td>12</td>
-<td> -</td>
-<td>Bits</td>
-</tr>
-<tr>
-<td>VDD</td>
-<td>供电电压</td>
-<td> -</td>
-<td>2.7</td>
-<td> -</td>
-<td>5.5</td>
-<td>V</td>
-</tr>
-<tr>
-<td>DNL</td>
-<td>微分非线性</td>
-<td>2.7 ~ 5.5 V<br/>-40 ~ 105 ℃</td>
-<td>-3</td>
-<td> -</td>
-<td>3</td>
-<td>LSB</td>
-</tr>
-<tr>
-<td>INL</td>
-<td>积分非线性</td>
-<td>2.7 ~ 5.5 V<br/>-40 ~ 105 ℃</td>
-<td>-4</td>
-<td>- </td>
-<td>4</td>
-<td>LSB</td>
-</tr>
-<tr>
-<td>Offset error</td>
-<td>偏移误差</td>
-<td>2.7 ~ 5.5 V<br/>-40 ~ 105 ℃</td>
-<td>-4</td>
-<td>- </td>
-<td>4</td>
-<td>LSB</td>
-</tr>
-<tr>
-<td>Gain error</td>
-<td>增益误差</td>
-<td>2.7 ~ 5.5 V<br/>-40 ~ 105 ℃</td>
-<td>-4</td>
-<td> -</td>
-<td>4</td>
-<td>LSB</td>
-</tr>
-<tr>
-<td>Sample rate</td>
-<td>采样率</td>
-<td>25 ℃</td>
-<td>0.1</td>
-<td> -</td>
-<td>25</td>
-<td>Ksps</td>
-</tr>
-<tr>
-<td>I(WORK)</td>
-<td>工作电流</td>
-<td>5V，25 ℃</td>
-<td>- </td>
-<td>190</td>
-<td> -</td>
-<td>μA</td>
-</tr>
-</tbody>
-</table>
+| 参数          | 描述         | 条件                        | 最小值 | 典型值 | 最大值 | 单位   |
+|---------------|--------------|-----------------------------|--------|--------|--------|--------|
+| Resolution    | 分辨率       | -                           | -      | 12     | -      | Bits   |
+| VDD           | 供电电压     | -                           | 2.7    | -      | 5.5    | V      |
+| DNL           | 微分非线性   | 2.7 ~ 5.5 V, -40 ~ 105 ℃    | -3     | -      | 3      | LSB    |
+| INL           | 积分非线性   | 2.7 ~ 5.5 V, -40 ~ 105 ℃    | -4     | -      | 4      | LSB    |
+| Offset error  | 偏移误差     | 2.7 ~ 5.5 V, -40 ~ 105 ℃    | -4     | -      | 4      | LSB    |
+| Gain error    | 增益误差     | 2.7 ~ 5.5 V, -40 ~ 105 ℃    | -4     | -      | 4      | LSB    |
+| Sample rate   | 采样率       | 25 ℃                       | 0.1    | -      | 25     | Ksps   |
+| I(WORK)       | 工作电流     | 5V, 25 ℃                   | -      | 190    | -      | μA     |
 
-### 4.10 ADC 内部基准电气
+#### ADC内部基准电气特性
 
-ADC 内部基准电气特性如下表描述
+| 参数         | 描述         | 条件                  | 最小值 | 典型值 | 最大值 | 单位 |
+|--------------|--------------|-----------------------|--------|--------|--------|------|
+| V(REF_2V)    | 2V基准电压   | 2.7 ~ 5.5 V, 25 ℃     | 1.995  | 2      | 2.005  | V    |
+| V(REF_3V)    | 3V基准电压   | 3.5 ~ 5.5 V, 25 ℃     | 2.995  | 3      | 3.005  | V    |
+| I(WORK)      | 工作电流     | 5.0 V, -40 ~ 105 ℃    | -      | 400    | -      | μA   |
 
-<table>
-<tbody>
-<tr>
-<td>参数</td>
-<td>描述</td>
-<td>条件</td>
-<td>最小值</td>
-<td>典型值</td>
-<td>最大值</td>
-<td>单位</td>
-</tr>
-<tr>
-<td>V(REF_2V)</td>
-<td>2V基准电压</td>
-<td>2.7 ~ 5.5 V，25 ℃</td>
-<td>1.995</td>
-<td>2</td>
-<td>2.005</td>
-<td>V</td>
-</tr>
-<tr>
-<td>V(REF_3V)</td>
-<td>3V基准电压</td>
-<td>3.5 ~ 5.5 V，25 ℃</td>
-<td>2.995</td>
-<td>3</td>
-<td>3.005</td>
-<td>V</td>
-</tr>
-<tr>
-<td>I(WORK)</td>
-<td>工作电流</td>
-<td>5.0V，-40 ~ 105 ℃</td>
-<td> -</td>
-<td>400</td>
-<td> -</td>
-<td>μA</td>
-</tr>
-</tbody>
-</table>
+### 5.9 内部时钟
 
-### 4.11 内部时钟（内部 LSI 电气）
+#### 内部LSI电气特性
 
-内部 LSI 电气特性如下表描述
+| 参数      | 描述         | 条件                     | 最小值 | 典型值 | 最大值 | 单位 |
+|-----------|--------------|--------------------------|--------|--------|--------|------|
+| F(ACC)    | 频率精度     | 5 V, 25 ℃                | 30     | 32     | 34     | kHz  |
+| V(C)      | 电压系数     | 2.0 ~ 5.5 V, 25 ℃        | -5     | -      | 2      | %    |
+| T(C)      | 温度系数     | 5 V, -40 ~ 105 ℃         | 0    | -      | 5     | %    |
+| I(WORK)   | 工作电流     | 2.0 ~ 5.5 V, -40 ~ 105 ℃ | 0.4    | 0.9    | 1.5    | μA   |
 
-<table>
-<tbody>
-<tr>
-<td>参数</td>
-<td>描述</td>
-<td>条件</td>
-<td>最小值</td>
-<td>典型值</td>
-<td>最大值</td>
-<td>单位</td>
-</tr>
-<tr>
-<td>F(ACC)</td>
-<td>频率精度</td>
-<td>5 V，25 ℃</td>
-<td>30</td>
-<td>32</td>
-<td>34</td>
-<td>kHz</td>
-</tr>
-<tr>
-<td>V(C)</td>
-<td>电压系数</td>
-<td>2.0 ~ 5.5 V，25 ℃</td>
-<td>-7</td>
-<td>- </td>
-<td>7</td>
-<td>%</td>
-</tr>
-<tr>
-<td>T(C)</td>
-<td>温度系数</td>
-<td>5V，-40 ~ 105 ℃</td>
-<td>-10</td>
-<td> -</td>
-<td>10</td>
-<td>%</td>
-</tr>
-<tr>
-<td>I(WORK)</td>
-<td>工作电流</td>
-<td>2.0 ~ 5.5 V，-40 ~ 105 ℃</td>
-<td>0.4</td>
-<td>0.9</td>
-<td>1.5</td>
-<td>μA</td>
-</tr>
-</tbody>
-</table>
+#### 内部HSI电气特性
 
-### 4.12 内部时钟（内部 HSI 电气）
+| 参数      | 描述         | 条件                     | 最小值 | 典型值 | 最大值 | 单位 |
+|-----------|--------------|--------------------------|--------|--------|--------|------|
+| F(ACC)    | 频率精度     | 5 V, 25 ℃                | 1.98   | 2      | 2.02   | MHz  |
+| V(C)      | 电压系数     | 2.0 ~ 5.5 V, 25 ℃        | -0.2   | -      | 0.2    | %    |
+| T(C)      | 温度系数     | 5 V, -40 ~ 105 ℃         | -2     | -      | 2      | %    |
+| I(WORK)   | 工作电流     | 2.0 ~ 5.5 V, -40 ~ 105 ℃ | 45     | 80     | 120    | μA   |
 
-内部 HSI 电气特性如下表描述
-
-<table>
-<tbody>
-<tr>
-<td>参数</td>
-<td>描述</td>
-<td>条件</td>
-<td>最小值</td>
-<td>典型值</td>
-<td>最大值</td>
-<td>单位</td>
-</tr>
-<tr>
-<td>F(ACC)</td>
-<td>频率精度</td>
-<td>5 V，25 ℃</td>
-<td>1.98</td>
-<td>2</td>
-<td>2.02</td>
-<td>MHz</td>
-</tr>
-<tr>
-<td>V(C)</td>
-<td>电压系数</td>
-<td>2.0 ~ 5.5 V，25 ℃</td>
-<td>-0.5</td>
-<td> -</td>
-<td>0.5</td>
-<td>%</td>
-</tr>
-<tr>
-<td>T(C)</td>
-<td>温度系数</td>
-<td>5V，-40 ~ 105 ℃</td>
-<td>-3</td>
-<td> -</td>
-<td>3</td>
-<td>%</td>
-</tr>
-<tr>
-<td>I(WORK)</td>
-<td>工作电流</td>
-<td>2.0 ~ 5.5 V，-40 ~ 105 ℃</td>
-<td>45</td>
-<td>80</td>
-<td>120</td>
-<td>μA</td>
-</tr>
-</tbody>
-</table>
-
-### 4.13 32 kHz 晶振
+### 5.10 32 kHz 晶振
 
 晶体振荡器电气特性如下表描述
 
-<table>
-<tbody>
-<tr>
-<td>参数</td>
-<td>描述</td>
-<td>条件</td>
-<td>最小值</td>
-<td>典型值</td>
-<td>最大值</td>
-<td>单位</td>
-</tr>
-<tr>
-<td>C(LOAD)</td>
-<td>外挂负载电容</td>
-<td>2.7 ~ 5.5 V，-40 ~ 105 ℃</td>
-<td>7</td>
-<td>22.5</td>
-<td>30</td>
-<td>pF</td>
-</tr>
-<tr>
-<td>I(WORK)</td>
-<td>工作电流</td>
-<td>5 V，25 ℃，C(LOAD) = 12.5 pF</td>
-<td>- </td>
-<td>1</td>
-<td>- </td>
-<td>μA</td>
-</tr>
-<tr>
-<td>T(SETUP)</td>
-<td>起振时间</td>
-<td>5 V，25 ℃</td>
-<td> -</td>
-<td>0.6</td>
-<td> -</td>
-<td>s</td>
-</tr>
-</tbody>
-</table>
+| 参数       | 描述         | 条件                              | 最小值 | 典型值 | 最大值 | 单位 |
+|------------|--------------|-----------------------------------|--------|--------|--------|------|
+| C(LOAD)    | 外挂负载电容 | 2.7 ~ 5.5 V, -40 ~ 105 ℃          | 7      | 22.5   | 30     | pF   |
+| I(WORK)    | 工作电流     | 5 V, 25 ℃, C(LOAD) = 12.5 pF      | -      | 1      | -      | μA   |
+| T(SETUP)   | 起振时间     | 5 V, 25 ℃                         | -      | 0.6    | -      | s    |
 
-### 4.14 POR/PDR
+### 5.11 POR/PDR
 
 上电掉电复位电气特性如下表描述
 
-<table>
-<tbody>
-<tr>
-<td>参数</td>
-<td>描述</td>
-<td>条件</td>
-<td>最小值</td>
-<td>典型值</td>
-<td>最大值</td>
-<td>单位</td>
-</tr>
-<tr>
-<td>POR</td>
-<td>上电复位电压</td>
-<td>-40 ~ 105 ℃</td>
-<td>1.75</td>
-<td>2.0</td>
-<td>2.25</td>
-<td>V</td>
-</tr>
-<tr>
-<td>PDR</td>
-<td>掉电复位电压</td>
-<td>-40 ~ 105 ℃</td>
-<td>1.75</td>
-<td>2.0</td>
-<td>2.25</td>
-<td>V</td>
-</tr>
-<tr>
-<td>T(FILTER)</td>
-<td>POR脉冲干扰滤波长度</td>
-<td>25 ℃，3 V ~ 1.5 V</td>
-<td>- </td>
-<td>2.0</td>
-<td>- </td>
-<td>us</td>
-</tr>
-<tr>
-<td>I(WORK)</td>
-<td>工作电流</td>
-<td>2.0 ~ 5.5 V，-40 ~ 105 ℃</td>
-<td>0.1</td>
-<td>0.3</td>
-<td>1</td>
-<td>μA</td>
-</tr>
-</tbody>
-</table>
+| 参数         | 描述             | 条件                        | 最小值 | 典型值 | 最大值 | 单位 |
+|--------------|------------------|-----------------------------|--------|--------|--------|------|
+| POR          | 上电复位电压     | -40 ~ 105 ℃                | 1.75   | 2.0    | 2.25   | V    |
+| PDR          | 掉电复位电压     | -40 ~ 105 ℃                | 1.75   | 2.0    | 2.25   | V    |
+| T(FILTER)    | POR脉冲干扰滤波长度 | 25 ℃, 3 V ~ 1.5 V          | -      | 2.0    | -      | us   |
+| I(WORK)      | 工作电流         | 2.0 ~ 5.5 V, -40 ~ 105 ℃    | 0.1    | 0.3    | 1      | μA   |
 
-### 4.15 RTC 模块 POR/PDR
+### 5.12 RTC 模块 POR/PDR
 
 RTC 上电掉电复位电气特性如下表描述
 
-<table>
-<tbody>
-<tr>
-<td>参数</td>
-<td>描述</td>
-<td>条件</td>
-<td>最小值</td>
-<td>典型值</td>
-<td>最大值</td>
-<td>单位</td>
-</tr>
-<tr>
-<td>POR</td>
-<td>上电复位电压</td>
-<td>-40 ~ 105 ℃</td>
-<td>1.55</td>
-<td>1.7</td>
-<td>1.85</td>
-<td>V</td>
-</tr>
-<tr>
-<td>PDR</td>
-<td>掉电复位电压</td>
-<td>-40 ~ 105 ℃</td>
-<td>1.55</td>
-<td>1.7</td>
-<td>1.85</td>
-<td>V</td>
-</tr>
-<tr>
-<td>I(WORK)</td>
-<td>工作电流</td>
-<td>2.0 ~ 5.5 V，-40 ~ 105 ℃</td>
-<td>0.1</td>
-<td>0.3</td>
-<td>1</td>
-<td>μA</td>
-</tr>
-</tbody>
-</table>
+| 参数     | 描述         | 条件                        | 最小值 | 典型值 | 最大值 | 单位 |
+|----------|--------------|-----------------------------|--------|--------|--------|------|
+| POR      | 上电复位电压 | -40 ~ 105 ℃                | 1.55   | 1.7    | 1.85   | V    |
+| PDR      | 掉电复位电压 | -40 ~ 105 ℃                | 1.55   | 1.7    | 1.85   | V    |
+| I(WORK)  | 工作电流     | 2.0 ~ 5.5 V, -40 ~ 105 ℃    | 0.1    | 0.3    | 1      | μA   |
 
-## 5. 核心电源管理功能
+## 6. 功能描述
 
-P1 是一款低压多通道电源管理芯片（PMIC），专为满足不同 SoC 平台的电源需求而设计。它内部集成了 6 路快速瞬态响应的降压转换器（BUCK）和 12 路低噪声低压差稳压器（LDO），能够为多种应用提供高效的电源管理解决方案。
+P1是一款低压多通道电源管理芯片（PMIC），内部集成6路快速瞬态响应BUCK，12路低噪声LDO；同时内部集成MTP，可根据不同使用场景，灵活定制各路输出默认电压和开关机时序，以满足不同SoC平台对电源时序的要求。
 
-本章详细阐述 P1 PMIC 的核心电源管理功能，包括电压转换（BUCK/LDO）、动态电源时序控制及保护机制，确保系统获得稳定高效的电能供给。
-
-### 5.1 电源管理引脚
+### 6.1 电源管理引脚
 
 电源管理引脚说明如下表描述
 
-<table>
-<tbody>
-<tr>
-<td>引脚</td>
-<td>电源</td>
-<td>描述</td>
-</tr>
-<tr>
-<td><strong>PWRKY</strong></td>
-<td>VSYS</td>
-<td>开关机控制引脚，同时作为PMIC复位按键；<br/>支持关机、短按、长按、上升沿、下降沿中断功能。</td>
-</tr>
-<tr>
-<td><strong>INT</strong></td>
-<td>OPEN DRAIN</td>
-<td>中断引脚，支持INT下拉以开机。</td>
-</tr>
-<tr>
-<td><strong>PGOOD</strong></td>
-<td>OPEN DRAIN</td>
-<td>- Input：检测PGOOD引脚释放，可作为复位源。<br/>- Output：PMIC关机或复位时下拉PGOOD，用于复位SoC。</td>
-</tr>
-<tr>
-<td><strong>PWRCTRL</strong></td>
-<td>AONLDO</td>
-<td>GPIO复用输入功能，用于控制上下电、睡眠和唤醒流程。</td>
-</tr>
-<tr>
-<td><strong>SLEEP/WKUP</strong></td>
-<td>AONLDO</td>
-<td>GPIO复用输入功能，用于控制睡眠或唤醒操作。</td>
-</tr>
-<tr>
-<td><strong>nRESET</strong></td>
-<td>AONLDO</td>
-<td>GPIO复用输入功能，作为复位源（先关机再重启）。</td>
-</tr>
-<tr>
-<td><strong>EXT_EN</strong></td>
-<td>AONLDO</td>
-<td>GPIO复用输出功能，可与其他PMIC配合使用。</td>
-</tr>
-<tr>
-<td><strong>VSET5</strong></td>
-<td>VSYS</td>
-<td>用于BUCK5电压控制档位选择。</td>
-</tr>
-<tr>
-<td><strong>VSET6</strong></td>
-<td>VSYS</td>
-<td>用于BUCK6电压控制档位选择。</td>
-</tr>
-<tr>
-<td><strong>OUT_32K</strong></td>
-<td>AONLDO</td>
-<td>内部慢时钟或晶振时钟输出引脚。</td>
-</tr>
-</tbody>
-</table>
+| 引脚           | 电源       | 描述                                                                 |
+|----------------|------------|----------------------------------------------------------------------|
+| **PWRKY**      | VSYS       | 开关机控制引脚，同时作为 PMIC 复位按键；支持关机、短按、长按、上升沿、下降沿中断功能。 |
+| **INT**        | OPEN DRAIN | 中断引脚，支持 INT 下拉以开机。                                      |
+| **PGOOD**      | OPEN DRAIN | - Input：检测 PGOOD 引脚释放，可作为复位源。<br>- Output：PMIC 关机或复位时下拉 PGOOD，用于复位 SoC。 |
+| **PWRCTRL**    | AONLDO     | GPIO 复用输入功能，用于控制上下电、睡眠和唤醒流程。                  |
+| **SLEEP/WKUP** | AONLDO     | GPIO 复用输入功能，用于控制睡眠或唤醒操作。                          |
+| **nRESET**     | AONLDO     | GPIO 复用输入功能，作为复位源（先关机再重启）。                      |
+| **EXT_EN**     | AONLDO     | GPIO 复用输出功能，可与其他 PMIC 配合使用。                          |
+| **VSET5**      | VSYS       | 用于 BUCK5 电压控制档位选择。                                        |
+| **VSET6**      | VSYS       | 用于 BUCK6 电压控制档位选择。                                        |
+| **OUT_32K**    | AONLDO     | 内部慢时钟或晶振时钟输出引脚。                                       |
 
 #### 5.1.1 PWRKY 引脚
 
@@ -3960,874 +1935,168 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 
 ## 7. 寄存器
 
-### 7.1 表 7-1 寄存器参数定义
+### 7.1 寄存器参数定义
 
-表 7-1 Register Base Attributes
+寄存器基本参数定义如表格 [表 7-1](#表-7-1-register-base-attributes) 所示。部分寄存器特殊的参数定义如表表 [7-2](#表-7-2-register-attribute-modifier) 所示。
 
-<table>
-<tbody>
-<tr>
-<td>参数</td>
-<td>简称</td>
-<td>描述</td>
-</tr>
-<tr>
-<td>Read Only</td>
-<td>R</td>
-<td>该bit可通过软件读，写无效。</td>
-</tr>
-<tr>
-<td>Read/Write</td>
-<td>RW</td>
-<td>该bit可通过软件读写</td>
-</tr>
-<tr>
-<td>Write Only</td>
-<td>W</td>
-<td>该bit只能软件写</td>
-</tr>
-<tr>
-<td>Reserved</td>
-<td>RV</td>
-<td>该bit为保留位，软件不可修改。</td>
-</tr>
-</tbody>
-</table>
+#### 表 7-1 Register Base Attributes
 
-## 7.2 表 7-2 寄存器特殊的参数定义
+| 参数           | 简称 | 描述                             |
+|----------------|------|----------------------------------|
+| Read Only      | R    | 该 bit 可通过软件读，写无效。     |
+| Read/Write     | RW   | 该 bit 可通过软件读写。           |
+| Write Only     | W    | 该 bit 只能软件写。               |
+| Reserved       | RV   | 该 bit 为保留位，软件不可修改。   |
 
-表 7-2 Register Attribute Modifier
+### 表 7-2 Register Attribute Modifier
 
-<table>
-<tbody>
-<tr>
-<td>参数</td>
-<td>简称</td>
-<td>描述</td>
-</tr>
-<tr>
-<td>Write 1 Only</td>
-<td>IO</td>
-<td>该bit只能通过软件写1，写0无效。</td>
-</tr>
-<tr>
-<td>Protected</td>
-<td>P</td>
-<td>该bit受解锁寄存器表 7128 MTP_KEY保护。<br/>当未向解锁寄存器写解锁序列时，该bit不能通过软件修改。</td>
-</tr>
-<tr>
-<td>MTP Loaded</td>
-<td>E</td>
-<td>该bit可通过MTP修改。</td>
-</tr>
-</tbody>
-</table>
+| 参数            | 简称 | 描述            |
+|-----------------|------|---------------------------|
+| Write 1 Only    | IO   | 该 bit 只能通过软件写 1，写 0 无效。          |
+| Protected       | P    | 该 bit 受解锁寄存器表 7128 MTP_KEY 保护。<br>当未向解锁寄存器写解锁序列时，该 bit 不能通过软件修改。 |
+| MTP Loaded      | E    | 该 bit 可通过 MTP 修改。       |
 
-## 7.3 表 7-3 寄存器映射表
+### 7.2 寄存器映射表
 
-表 7-3 Register Map
+### 7.2.1 寄存器映射表
 
-<table>
-<tbody>
-<tr>
-<td>Module</td>
-<td>Table Name</td>
-<td>Register Address(hex)</td>
-<td>Attribute</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=13 colspan=1><strong>GPIO</strong></td>
-<td>表 7-4</td>
-<td>0x00</td>
-<td>R</td>
-<td>GPIO端口输入值</td>
-</tr>
-<tr>
-<td>表 7-5</td>
-<td>0x01</td>
-<td>RW</td>
-<td>GPIO数据输出；<br/>有效电平配置</td>
-</tr>
-<tr>
-<td>表 7-6</td>
-<td>0x02</td>
-<td>RWE</td>
-<td>GPIO0 ~ 2上下拉配置</td>
-</tr>
-<tr>
-<td>表 7-7</td>
-<td>0x03</td>
-<td>RWE</td>
-<td>GPIO3 ~ 5上下拉配置</td>
-</tr>
-<tr>
-<td>表 7-8</td>
-<td>0x04</td>
-<td>RW</td>
-<td>GPIO滤波使能及滤波时间配置</td>
-</tr>
-<tr>
-<td>表 7-9</td>
-<td>0x05</td>
-<td>RW</td>
-<td>GPIO输出开漏配置</td>
-</tr>
-<tr>
-<td>表 7-10</td>
-<td>0x06</td>
-<td>RWE</td>
-<td>GPIO0 ~ 2中断类型配置</td>
-</tr>
-<tr>
-<td>表 7-11</td>
-<td>0x07</td>
-<td>RWE</td>
-<td>GPIO3 ~ 5中断类型配置</td>
-</tr>
-<tr>
-<td>表 7-12</td>
-<td>0x08</td>
-<td>RWE</td>
-<td>GPIO0 ~ 2模式配置</td>
-</tr>
-<tr>
-<td>表 7-13</td>
-<td>0x09</td>
-<td>RWE</td>
-<td>GPIO3 ~ 5模式配置</td>
-</tr>
-<tr>
-<td>表 7-14</td>
-<td>0x0A</td>
-<td>RWE</td>
-<td>GPIO0 ~ 1复用功能选择</td>
-</tr>
-<tr>
-<td>表 7-15</td>
-<td>0x0B</td>
-<td>RWE</td>
-<td>GPIO2 ~ 3复用功能选择</td>
-</tr>
-<tr>
-<td>表 7-16</td>
-<td>0x0C</td>
-<td>RWE</td>
-<td>GPIO4 ~ 5复用功能选择</td>
-</tr>
-<tr>
-<td rowspan=17 colspan=1><strong>RTC</strong></td>
-<td>表 7-17</td>
-<td>0x0D</td>
-<td>RW</td>
-<td>RTC seconds 读出寄存器</td>
-</tr>
-<tr>
-<td>表 7-18</td>
-<td>0x0E</td>
-<td>RW</td>
-<td>RTC minutes 读出寄存器</td>
-</tr>
-<tr>
-<td>表 7-19</td>
-<td>0x0F</td>
-<td>RW</td>
-<td>RTC hours 读出寄存器</td>
-</tr>
-<tr>
-<td>表 7-20</td>
-<td>0x10</td>
-<td>RW</td>
-<td>RTC days 读出寄存器</td>
-</tr>
-<tr>
-<td>表 7-21</td>
-<td>0x11</td>
-<td>RW</td>
-<td>RTC months 读出寄存器</td>
-</tr>
-<tr>
-<td>表 7-22</td>
-<td>0x12</td>
-<td>RW</td>
-<td>RTC years 读出寄存器</td>
-</tr>
-<tr>
-<td>表 7-23</td>
-<td>0x13</td>
-<td>RW</td>
-<td>RTC_ALARM seconds 设置</td>
-</tr>
-<tr>
-<td>表 7-24</td>
-<td>0x14</td>
-<td>RW</td>
-<td>RTC_ALARM minutes 设置</td>
-</tr>
-<tr>
-<td>表 7-25</td>
-<td>0x15</td>
-<td>RW</td>
-<td>RTC_ALARM hours 设置</td>
-</tr>
-<tr>
-<td>表 7-26</td>
-<td>0x16</td>
-<td>RW</td>
-<td>RTC_ALARM days 设置</td>
-</tr>
-<tr>
-<td>表 7-27</td>
-<td>0x17</td>
-<td>RW</td>
-<td>RTC_ALARM months 设置</td>
-</tr>
-<tr>
-<td>表 7-28</td>
-<td>0x18</td>
-<td>RW</td>
-<td>RTC_ALARM years 设置</td>
-</tr>
-<tr>
-<td>表 7-29</td>
-<td>0x19</td>
-<td>R</td>
-<td>RTC 秒计数[7:0]</td>
-</tr>
-<tr>
-<td>表 7-30</td>
-<td>0x1A</td>
-<td>R</td>
-<td>RTC 秒计数[15:8]</td>
-</tr>
-<tr>
-<td>表 7-31</td>
-<td>0x1B</td>
-<td>R</td>
-<td>RTC 秒计数[23:16]</td>
-</tr>
-<tr>
-<td>表 7-32</td>
-<td>0X1C</td>
-<td>R</td>
-<td>RTC 秒计数[31:24]</td>
-</tr>
-<tr>
-<td>表 7-33</td>
-<td>0x1D</td>
-<td>RWE</td>
-<td>RTC 控制寄存器</td>
-</tr>
-<tr>
-<td rowspan=38 colspan=1><strong>ADC</strong></td>
-<td>表 7-34</td>
-<td>0x1E</td>
-<td>RW</td>
-<td>ADC控制寄存器</td>
-</tr>
-<tr>
-<td>表 7-35</td>
-<td>0x1F</td>
-<td>RW</td>
-<td>ADC配置寄存器0</td>
-</tr>
-<tr>
-<td>表 7-36</td>
-<td>0x20</td>
-<td>RW</td>
-<td>ADC配置寄存器1</td>
-</tr>
-<tr>
-<td>表 7-37</td>
-<td>0x21</td>
-<td>RW</td>
-<td>ADC配置寄存器2</td>
-</tr>
-<tr>
-<td>表 7-38</td>
-<td>0x22</td>
-<td>RW</td>
-<td>ADC自动模式扫描通道选择</td>
-</tr>
-<tr>
-<td>表 7-39</td>
-<td>0x23</td>
-<td>RW</td>
-<td>ADC通道0手动扫描通道选择</td>
-</tr>
-<tr>
-<td>表 7-40</td>
-<td>0x24</td>
-<td>RW</td>
-<td>ADC通道0手动扫描通道选择</td>
-</tr>
-<tr>
-<td>表 7-41</td>
-<td>0x25</td>
-<td>RW</td>
-<td>ADC通道0手动扫描通道选择</td>
-</tr>
-<tr>
-<td>表 7-42</td>
-<td>0x26</td>
-<td>R</td>
-<td>ADC通道0转换结果高8位</td>
-</tr>
-<tr>
-<td>表 7-43</td>
-<td>0x27</td>
-<td>R</td>
-<td>ADC通道0转换结果低4位</td>
-</tr>
-<tr>
-<td>表 7-44</td>
-<td>0x28</td>
-<td>R</td>
-<td>Junction温度监控自动转换结果（8 MSBs）</td>
-</tr>
-<tr>
-<td>表 7-45</td>
-<td>0x29</td>
-<td>R</td>
-<td>Junction温度监控自动转换结果（4 LSBs）</td>
-</tr>
-<tr>
-<td>表 7-46</td>
-<td>0x2A</td>
-<td>R</td>
-<td>ADCIN0监控自动转换结果（8 MSBs）</td>
-</tr>
-<tr>
-<td>表 7-47</td>
-<td>0x2B</td>
-<td>R</td>
-<td>ADCIN0监控自动转换结果（4 LSBs）</td>
-</tr>
-<tr>
-<td>表 7-48</td>
-<td>0X2C</td>
-<td>R</td>
-<td>ADCIN1监控自动转换结果（8 MSBs）</td>
-</tr>
-<tr>
-<td>表 7-49</td>
-<td>0x2D</td>
-<td>R</td>
-<td>ADCIN1监控自动转换结果（4 LSBs）</td>
-</tr>
-<tr>
-<td>表 7-50</td>
-<td>0x2E</td>
-<td>R</td>
-<td>ADCIN2监控自动转换结果（8 MSBs）</td>
-</tr>
-<tr>
-<td>表 7-51</td>
-<td>0x2F</td>
-<td>R</td>
-<td>ADCIN2监控自动转换结果（4 LSBs）</td>
-</tr>
-<tr>
-<td>表 7-52</td>
-<td>0x30</td>
-<td>R</td>
-<td>ADCIN3监控自动转换结果（8 MSBs）</td>
-</tr>
-<tr>
-<td>表 7-53</td>
-<td>0x31</td>
-<td>R</td>
-<td>ADCIN3监控自动转换结果（4 LSBs）</td>
-</tr>
-<tr>
-<td>表 7-54</td>
-<td>0x32</td>
-<td>R</td>
-<td>ADCIN4监控自动转换结果（8 MSBs）</td>
-</tr>
-<tr>
-<td>表 7-55</td>
-<td>0x33</td>
-<td>R</td>
-<td>ADCIN4监控自动转换结果（4 LSBs）</td>
-</tr>
-<tr>
-<td>表 7-56</td>
-<td>0x34</td>
-<td>R</td>
-<td>ADCIN5监控自动转换结果（8 MSBs）</td>
-</tr>
-<tr>
-<td>表 7-57</td>
-<td>0x35</td>
-<td>R</td>
-<td>ADCIN5监控自动转换结果（4 LSBs）</td>
-</tr>
-<tr>
-<td>表 7-58</td>
-<td>0x36</td>
-<td>RW</td>
-<td>Junction温度监控上限阈值设置（8 MSBs）</td>
-</tr>
-<tr>
-<td>表 7-59</td>
-<td>0x37</td>
-<td>RW</td>
-<td>Junction温度监控下限阈值设置（8 MSBs）</td>
-</tr>
-<tr>
-<td>表 7-60</td>
-<td>0x38</td>
-<td>RW</td>
-<td>ADCIN0监控上限阈值设置（8 MSBs）</td>
-</tr>
-<tr>
-<td>表 7-61</td>
-<td>0x39</td>
-<td>RW</td>
-<td>ADCIN0监控下限阈值设置（8 MSBs）</td>
-</tr>
-<tr>
-<td>表 7-62</td>
-<td>0x3A</td>
-<td>RW</td>
-<td>ADCIN1监控上限阈值设置（8 MSBs）</td>
-</tr>
-<tr>
-<td>表 7-63</td>
-<td>0x3B</td>
-<td>RW</td>
-<td>ADCIN1监控下限阈值设置（8 MSBs）</td>
-</tr>
-<tr>
-<td>表 7-64</td>
-<td>0X3C</td>
-<td>RW</td>
-<td>ADCIN2监控上限阈值设置（8 MSBs）</td>
-</tr>
-<tr>
-<td>表 7-65</td>
-<td>0x3D</td>
-<td>RW</td>
-<td>ADCIN2监控下限阈值设置（8 MSBs）</td>
-</tr>
-<tr>
-<td>表 7-66</td>
-<td>0x3E</td>
-<td>RW</td>
-<td>ADCIN3监控上限阈值设置（8 MSBs）</td>
-</tr>
-<tr>
-<td>表 7-67</td>
-<td>0x3F</td>
-<td>RW</td>
-<td>ADCIN3监控下限阈值设置（8 MSBs）</td>
-</tr>
-<tr>
-<td>表 7-68</td>
-<td>0x40</td>
-<td>RW</td>
-<td>ADCIN4监控上限阈值设置（8 MSBs）</td>
-</tr>
-<tr>
-<td>表 7-69</td>
-<td>0x44</td>
-<td>RW</td>
-<td>ADCIN4监控下限阈值设置（8 MSBs）</td>
-</tr>
-<tr>
-<td>表 7-70</td>
-<td>0x42</td>
-<td>RW</td>
-<td>ADCIN5监控上限阈值设置（8 MSBs）</td>
-</tr>
-<tr>
-<td>表 7-71</td>
-<td>0x43</td>
-<td>RW</td>
-<td>ADCIN5监控下限阈值设置（8 MSBs）</td>
-</tr>
-<tr>
-<td><strong>WDT</strong></td>
-<td>表 7-72</td>
-<td>0x44</td>
-<td>RW</td>
-<td>看门狗控制寄存器</td>
-</tr>
-<tr>
-<td><strong>Battery Charge</strong></td>
-<td>表 7-73</td>
-<td>0x45</td>
-<td>RW</td>
-<td>电池充电控制寄存器</td>
-</tr>
-<tr>
-<td rowspan=33 colspan=1><strong>上下电控制 </strong></td>
-<td>表 7-74</td>
-<td>0x46</td>
-<td>RWE</td>
-<td>电源轨配置寄存器</td>
-</tr>
-<tr>
-<td>表 7-75</td>
-<td>0x47 + 3*n</td>
-<td>RWE</td>
-<td>BUCKn控制寄存器，n=0 ~ 5</td>
-</tr>
-<tr>
-<td>表 7-76</td>
-<td>0x48 + 3*n</td>
-<td>RWE</td>
-<td>BUCK电压设置</td>
-</tr>
-<tr>
-<td>表 7-77</td>
-<td>0x49 + 3*n</td>
-<td>RWE</td>
-<td>BUCK睡眠电压设置</td>
-</tr>
-<tr>
-<td>表 7-78</td>
-<td>0x59</td>
-<td>RW</td>
-<td>Switch控制寄存器</td>
-</tr>
-<tr>
-<td>表 7-79</td>
-<td>0x5A</td>
-<td>RE</td>
-<td>AONLDO控制寄存器</td>
-</tr>
-<tr>
-<td>表 7-80</td>
-<td>0x5B</td>
-<td>RWE</td>
-<td>ALDO控制寄存器</td>
-</tr>
-<tr>
-<td>表 7-81</td>
-<td>0x5C</td>
-<td>RWE</td>
-<td>ALDO电压设置</td>
-</tr>
-<tr>
-<td>表 7-82</td>
-<td>0x5D</td>
-<td>RWE</td>
-<td>ALDO睡眠电压设置</td>
-</tr>
-<tr>
-<td>表 7-83</td>
-<td>0x67</td>
-<td>RWE</td>
-<td>DLDO控制寄存器</td>
-</tr>
-<tr>
-<td>表 7-84</td>
-<td>0x68</td>
-<td>RWE</td>
-<td>DLDO电压设置</td>
-</tr>
-<tr>
-<td>表 7-85</td>
-<td>0x69</td>
-<td>RWE</td>
-<td>DLDO睡眠电压设置</td>
-</tr>
-<tr>
-<td>表 7-86</td>
-<td>0x7C</td>
-<td>RWE</td>
-<td>上下电控制寄存器0</td>
-</tr>
-<tr>
-<td>表 7-87</td>
-<td>0x7D</td>
-<td>RWE</td>
-<td>上下电控制寄存器1</td>
-</tr>
-<tr>
-<td>表 7-88</td>
-<td>0x7E</td>
-<td>RWE</td>
-<td>上下电控制寄存器2</td>
-</tr>
-<tr>
-<td>表 7-89</td>
-<td>0x7F</td>
-<td>R</td>
-<td>上下电状态寄存器0</td>
-</tr>
-<tr>
-<td>表 7-90</td>
-<td>0x80</td>
-<td>R</td>
-<td>上下电状态寄存器1</td>
-</tr>
-<tr>
-<td>表 7-91</td>
-<td>0x81</td>
-<td>RWE</td>
-<td>按键时间配置寄存器</td>
-</tr>
-<tr>
-<td>表 7-92</td>
-<td>0x82</td>
-<td>RWE</td>
-<td>上下电控制时间配置</td>
-</tr>
-<tr>
-<td>表 7-93</td>
-<td>0x88</td>
-<td>RE</td>
-<td>电源轨SLOT ID配置</td>
-</tr>
-<tr>
-<td>表 7-94</td>
-<td>0x84</td>
-<td>RE</td>
-<td>电源轨SLOT ID配置</td>
-</tr>
-<tr>
-<td>表 7-95</td>
-<td>0x85</td>
-<td>RE</td>
-<td>电源轨SLOT ID配置</td>
-</tr>
-<tr>
-<td>表 7-96</td>
-<td>0x86</td>
-<td>RE</td>
-<td>电源轨SLOT ID配置</td>
-</tr>
-<tr>
-<td>表 7-97</td>
-<td>0x87</td>
-<td>RE</td>
-<td>电源轨SLOT ID配置</td>
-</tr>
-<tr>
-<td>表 7-98</td>
-<td>0x88</td>
-<td>RE</td>
-<td>电源轨SLOT ID配置</td>
-</tr>
-<tr>
-<td>表 7-99</td>
-<td>0x89</td>
-<td>RE</td>
-<td>电源轨SLOT ID配置</td>
-</tr>
-<tr>
-<td>表 7-100</td>
-<td>0x8A</td>
-<td>RE</td>
-<td>电源轨SLOT ID配置</td>
-</tr>
-<tr>
-<td>表 7-101</td>
-<td>0x8B</td>
-<td>RE</td>
-<td>电源轨SLOT ID配置</td>
-</tr>
-<tr>
-<td>表 7-102</td>
-<td>0X8C</td>
-<td>RE</td>
-<td>EXT_EN  SLOT ID配置</td>
-</tr>
-<tr>
-<td>表 7-103</td>
-<td>0x8D</td>
-<td>RE</td>
-<td>EXT_EN  SLOT ID配置</td>
-</tr>
-<tr>
-<td>表 7-104</td>
-<td>0x8E</td>
-<td>RE</td>
-<td>EXT_EN  SLOT ID配置</td>
-</tr>
-<tr>
-<td>表 7-105</td>
-<td>0x8F</td>
-<td>RWE</td>
-<td>EXT_EN软件使能控制</td>
-</tr>
-<tr>
-<td>表 7-106</td>
-<td>0x90</td>
-<td>RWE</td>
-<td>EXT_EN睡眠流程控制</td>
-</tr>
-<tr>
-<td rowspan=7 colspan=1><strong>事件</strong></td>
-<td>表 7-107</td>
-<td>0x91</td>
-<td>RIO</td>
-<td>PMIC系统事件</td>
-</tr>
-<tr>
-<td>表 7-108</td>
-<td>0x92</td>
-<td>RIO</td>
-<td>PMIC系统事件</td>
-</tr>
-<tr>
-<td>表 7-109</td>
-<td>0x99</td>
-<td>RIO</td>
-<td>PMIC系统事件</td>
-</tr>
-<tr>
-<td>表 7-110</td>
-<td>0x94</td>
-<td>RIO</td>
-<td>BUCK过压事件</td>
-</tr>
-<tr>
-<td>表 7-111</td>
-<td>0x95</td>
-<td>RIO</td>
-<td>BUCK欠压事件</td>
-</tr>
-<tr>
-<td>表 7-112</td>
-<td>0x96</td>
-<td>RIO</td>
-<td>BUCK短路/开路事件</td>
-</tr>
-<tr>
-<td>表 7-113</td>
-<td>0x97</td>
-<td>RIO</td>
-<td>PWRKY按键事件</td>
-</tr>
-<tr>
-<td rowspan=7 colspan=1><strong>中断使能</strong></td>
-<td>表 7-114</td>
-<td>0x98</td>
-<td>RW</td>
-<td>PMIC系统事件中断使能</td>
-</tr>
-<tr>
-<td>表 7-115</td>
-<td>0x99</td>
-<td>RW</td>
-<td>PMIC系统事件中断使能</td>
-</tr>
-<tr>
-<td>表 7-116</td>
-<td>0x9A</td>
-<td>RW</td>
-<td>PMIC系统事件中断使能</td>
-</tr>
-<tr>
-<td>表 7-117</td>
-<td>0x9B</td>
-<td>RW</td>
-<td>BUCK过压事件中断使能</td>
-</tr>
-<tr>
-<td>表 7-118</td>
-<td>0X9C</td>
-<td>RW</td>
-<td>BUCK欠压事件中断使能</td>
-</tr>
-<tr>
-<td>表 7-119</td>
-<td>0x9D</td>
-<td>RW</td>
-<td>BUCK短路/开路事件中断使能</td>
-</tr>
-<tr>
-<td>表 7-120</td>
-<td>0x9E</td>
-<td>RWE</td>
-<td>PWRKY按键事件中断使能</td>
-</tr>
-<tr>
-<td><strong>保护使能</strong></td>
-<td>表 7-121</td>
-<td>0x9F</td>
-<td>RWE</td>
-<td>系统异常事件保护使能</td>
-</tr>
-<tr>
-<td rowspan=3 colspan=1><strong>ID</strong></td>
-<td>表 7-122</td>
-<td>0xA0</td>
-<td>RE</td>
-<td>设备ID</td>
-</tr>
-<tr>
-<td>表 7-123</td>
-<td>0xA1</td>
-<td>RE</td>
-<td>版本ID</td>
-</tr>
-<tr>
-<td>表 7-124</td>
-<td>0xA2</td>
-<td>RE</td>
-<td>用户ID</td>
-</tr>
-<tr>
-<td rowspan=3 colspan=1><strong>系统配置</strong></td>
-<td>表 7-125</td>
-<td>0xAA</td>
-<td>RE</td>
-<td>系统配置寄存器0</td>
-</tr>
-<tr>
-<td>表 7-126</td>
-<td>0xA4</td>
-<td>RE</td>
-<td>系统配置寄存器1</td>
-</tr>
-<tr>
-<td>表 7-127</td>
-<td>0xA5</td>
-<td>RE</td>
-<td>系统配置寄存器2</td>
-</tr>
-<tr>
-<td rowspan=5 colspan=1><strong>MTP</strong><br/> </td>
-<td>表 7-128</td>
-<td>0xA6</td>
-<td>RW</td>
-<td>MTP解锁寄存器</td>
-</tr>
-<tr>
-<td>表 7-129</td>
-<td>0xA7</td>
-<td>RWP</td>
-<td>MTP地址寄存器</td>
-</tr>
-<tr>
-<td>表 7-130</td>
-<td>0xA8</td>
-<td>RWP</td>
-<td>MTP读写数据寄存器</td>
-</tr>
-<tr>
-<td>表 7-131</td>
-<td>0xA9</td>
-<td>RWP</td>
-<td>MTP配置寄存器</td>
-</tr>
-<tr>
-<td>表 7-132</td>
-<td>0xAA</td>
-<td>RWP</td>
-<td>MTP控制寄存器</td>
-</tr>
-</tbody>
-</table>
+#### 表 7-3 Register Map
 
-## 7.4 寄存器描述
+| Module             | Table Name   | Register Address (hex) | Attribute | Description    |
+|--------------------|--------------|-------------------------|-----------|---------------------|
+| **GPIO**           | [表 7-4](#表-7-4-gpio_idr)       | 0x00                    | R         | GPIO端口输入值                                            |
+| **GPIO**           | [表 7-5](#表-7-5-gpio_odr)       | 0x01                    | RW        | GPIO数据输出；<br>有效电平配置                            |
+| **GPIO**           | [表 7-6](#表-7-6-gpio_pupd0)       | 0x02                    | RWE       | GPIO0 ~ 2上下拉配置                                       |
+| **GPIO**           | [表 7-7](#表-7-7-gpio_pupd1)       | 0x03                    | RWE       | GPIO3 ~ 5上下拉配置                                       |
+| **GPIO**           | [表 7-8](#表-7-8-gpio_deb_en)       | 0x04                    | RW        | GPIO滤波使能及滤波时间配置                                |
+| **GPIO**           | [表 7-9](#表-7-9-gpio_od)       | 0x05                    | RW        | GPIO输出开漏配置                                          |
+| **GPIO**           | [表 7-10](#表-7-10-gpio_itype0)      | 0x06                    | RWE       | GPIO0 ~ 2中断类型配置                                     |
+| **GPIO**           | [表 7-11](#表-7-11-gpio_itype1)      | 0x07                    | RWE       | GPIO3 ~ 5中断类型配置                                     |
+| **GPIO**           | [表 7-12](#表-7-12-gpio_mode0)      | 0x08                    | RWE       | GPIO0 ~ 2模式配置                                         |
+| **GPIO**           | [表 7-13](#表-7-13-gpio_mode1)      | 0x09                    | RWE       | GPIO3 ~ 5模式配置                                         |
+| **GPIO**           | [表 7-14](#表-7-14-gpio_af01)      | 0x0A                    | RWE       | GPIO0 ~ 1复用功能选择                                     |
+| **GPIO**           | [表 7-15](#表-7-15-gpio_af23)      | 0x0B                    | RWE       | GPIO2 ~ 3复用功能选择                                     |
+| **GPIO**           | [表 7-16](#表-7-16-gpio_af45)      | 0x0C                    | RWE       | GPIO4 ~ 5复用功能选择                                     |
+| **RTC**            | [表 7-17](#表-7-17-rtc_count_s)      | 0x0D                    | RW        | RTC seconds 读出寄存器                                    |
+| **RTC**            | [表 7-18](#表-7-18-rtc_count_mi)      | 0x0E                    | RW        | RTC minutes 读出寄存器                                    |
+| **RTC**            | [表 7-19](#表-7-19-rtc_count_h)      | 0x0F                    | RW        | RTC hours 读出寄存器                                      |
+| **RTC**            | [表 7-20](#表-7-20-rtc_count_d)      | 0x10                    | RW        | RTC days 读出寄存器                                       |
+| **RTC**            | [表 7-21](#表-7-21-rtc_count_mo)      | 0x11                    | RW        | RTC months 读出寄存器                                     |
+| **RTC**            | [表 7-22](#表-7-22-rtc_count_y)      | 0x12                    | RW        | RTC years 读出寄存器                                      |
+| **RTC**            | [表 7-23](#表-7-23-rtc_alarm_s)      | 0x13                    | RW        | RTC_ALARM seconds 设置                                    |
+| **RTC**            | [表 7-24](#表-7-24-rtc_alarm_mi)      | 0x14                    | RW        | RTC_ALARM minutes 设置                                    |
+| **RTC**            | [表 7-25](#表-7-25-rtc_alarm_h)      | 0x15                    | RW        | RTC_ALARM hours 设置                                      |
+| **RTC**            | [表 7-26](#表-7-26-rtc_alarm_d)      | 0x16                    | RW        | RTC_ALARM days 设置                                       |
+| **RTC**            | [表 7-27](#表-7-27-rtc_alarm_mo)      | 0x17                    | RW        | RTC_ALARM months 设置                                     |
+| **RTC**            | [表 7-28](#表-7-28-rtc_alarm_y)      | 0x18                    | RW        | RTC_ALARM years 设置                                      |
+| **RTC**            | [表 7-29](#表-7-29-rtc_second_a)      | 0x19                    | R         | RTC 秒计数[7:0]                                           |
+| **RTC**            | [表 7-30](#表-7-30-rtc_second_b)      | 0x1A                    | R         | RTC 秒计数[15:8]                                          |
+| **RTC**            | [表 7-31](#表-7-31-rtc_second_c)      | 0x1B                    | R         | RTC 秒计数[23:16]                                         |
+| **RTC**            | [表 7-32](#表-7-32-rtc_second_d)      | 0x1C                    | R         | RTC 秒计数[31:24]                                         |
+| **RTC**            | [表 7-33](#表-7-33-rtc_ctrl)      | 0x1D                    | RWE       | RTC 控制寄存器                                            |
+| **ADC**            | [表 7-34](#表-7-34-adc_ctrl1)      | 0x1E                    | RW        | ADC控制寄存器                                             |
+| **ADC**            | [表 7-35](#表-7-35-adc_cfg01)      | 0x1F                    | RW        | ADC配置寄存器0                                            |
+| **ADC**            | [表 7-36](#表-7-36-adc_cfg11)      | 0x20                    | RW        | ADC配置寄存器1                                            |
+| **ADC**            | [表 7-37](#表-7-37-adc_cfg21)      | 0x21                    | RW        | ADC配置寄存器2                                            |
+| **ADC**            | [表 7-38](#表-7-38-adc_auto1)      | 0x22                    | RW        | ADC自动模式扫描通道选择                                   |
+| **ADC**            | [表 7-39](#表-7-39-adc_man_en01)      | 0x23                    | RW        | ADC通道0手动扫描通道选择                                  |
+| **ADC**            | [表 7-40](#表-7-40-adc_man_en11)      | 0x24                    | RW        | ADC通道0手动扫描通道选择                                  |
+| **ADC**            | [表 7-41](#表-7-41-adc_man_en21)      | 0x25                    | RW        | ADC通道0手动扫描通道选择                                  |
+| **ADC**            | [表 7-42](#表-7-42-adc_man_res_h1)      | 0x26                    | R         | ADC通道0转换结果高8位                                     |
+| **ADC**            | [表 7-43](#表-7-43-adc_man_res_l1)      | 0x27                    | R         | ADC通道0转换结果低4位                                     |
+| **ADC**            | [表 7-44](#表-7-44-adc_tj_res_h1)      | 0x28                    | R         | Junction温度监控自动转换结果（8 MSBs）                    |
+| **ADC**            | [表 7-45](#表-7-45-adc_tj_res_l1)      | 0x29                    | R         | Junction温度监控自动转换结果（4 LSBs）                    |
+| **ADC**            | [表 7-46](#表-7-46-adc_in0_res_h1)      | 0x2A                    | R         | ADCIN0监控自动转换结果（8 MSBs）                          |
+| **ADC**            | [表 7-47](#表-7-47-adc_in0_res_l1)      | 0x2B                    | R         | ADCIN0监控自动转换结果（4 LSBs）                          |
+| **ADC**            | [表 7-48](#表-7-48-adc_in1_res_l1)      | 0x2C                    | R         | ADCIN1监控自动转换结果（8 MSBs）                          |
+| **ADC**            | [表 7-49](#表-7-49-adc_in1_res_l1)      | 0x2D                    | R         | ADCIN1监控自动转换结果（4 LSBs）                          |
+| **ADC**            | [表 7-50](#表-7-50-adc_in2_res_h1)      | 0x2E                    | R         | ADCIN2监控自动转换结果（8 MSBs）                          |
+| **ADC**            | [表 7-51](#表-7-51-adc_in2_res_l1)      | 0x2F                    | R         | ADCIN2监控自动转换结果（4 LSBs）                          |
+| **ADC**            | [表 7-52](#表-7-52-adc_in3_res_h1)      | 0x30                    | R         | ADCIN3监控自动转换结果（8 MSBs）                          |
+| **ADC**            | [表 7-53](#表-7-53-adc_in3_res_l1)      | 0x31                    | R         | ADCIN3监控自动转换结果（4 LSBs）                          |
+| **ADC**            | [表 7-54](#表-7-54-adc_in4_res_h1)      | 0x32                    | R         | ADCIN4监控自动转换结果（8 MSBs）                          |
+| **ADC**            | [表 7-55](#表-7-55-adc_in4_res_l1)      | 0x33                    | R         | ADCIN4监控自动转换结果（4 LSBs）                          |
+| **ADC**            | [表 7-56](#表-7-56-adc_in5_res_h1)      | 0x34                    | R         | ADCIN5监控自动转换结果（8 MSBs）                          |
+| **ADC**            | [表 7-57](#表-7-57-adc_in5_res_l1)      | 0x35                    | R         | ADCIN5监控自动转换结果（4 LSBs）                          |
+| **ADC**            | [表 7-58](#表-7-58-adc_vth_tj_h1)      | 0x36                    | RW        | Junction温度监控上限阈值设置（8 MSBs）                    |
+| **ADC**            | [表 7-59](#表-7-59-adc_vth_tj_l1)      | 0x37                    | RW        | Junction温度监控下限阈值设置（8 MSBs）                    |
+| **ADC**            | [表 7-60](#表-7-60-adc_in0_vth_h1)      | 0x38                    | RW        | ADCIN0监控上限阈值设置（8 MSBs）                          |
+| **ADC**            | [表 7-61](#表-7-61-adc_in0_vth_l1)      | 0x39                    | RW        | ADCIN0监控下限阈值设置（8 MSBs）                          |
+| **ADC**            | [表 7-62](#表-7-62-adc_in1_vth_h1)      | 0x3A                    | RW        | ADCIN1监控上限阈值设置（8 MSBs）                          |
+| **ADC**            | [表 7-63](#表-7-63-adc_in1_vth_l1)      | 0x3B                    | RW        | ADCIN1监控下限阈值设置（8 MSBs）                          |
+| **ADC**            | [表 7-64](#表-7-64-adc_in2_vth_h1)      | 0x3C                    | RW        | ADCIN2监控上限阈值设置（8 MSBs）                          |
+| **ADC**            | [表 7-65](#表-7-65-adc_in2_vth_l1)     | 0x3D                    | RW        | ADCIN2监控下限阈值设置（8 MSBs）                          |
+| **ADC**            | [表 7-66](#表-7-66-adc_in3_vth_h1)      | 0x3E                    | RW        | ADCIN3监控上限阈值设置（8 MSBs）                          |
+| **ADC**            | [表 7-67](#表-7-67-adc_in3_vth_l1)      | 0x3F                    | RW        | ADCIN3监控下限阈值设置（8 MSBs）                          |
+| **ADC**            | [表 7-68](#表-7-68-adc_in4_vth_h1)      | 0x40                    | RW        | ADCIN4监控上限阈值设置（8 MSBs）                          |
+| **ADC**            | [表 7-69](#表-7-69-adc_in4_vth_l1)      | 0x44                    | RW        | ADCIN4监控下限阈值设置（8 MSBs）                          |
+| **ADC**            | [表 7-70](#表-7-70-adc_in5_vth_h1)      | 0x42                    | RW        | ADCIN5监控上限阈值设置（8 MSBs）                          |
+| **ADC**            | [表 7-71](#表-7-71-adc_in5_vth_l1)      | 0x43                    | RW        | ADCIN5监控下限阈值设置（8 MSBs）                          |
+| **WDT**            | [表 7-72](#表-7-72-wdt_ctrl1)      | 0x44                    | RW        | 看门狗控制寄存器                                          |
+| **Battery Charge** | [表 7-73](#表-7-73-bbat_ctrl1)      | 0x45                    | RW        | 电池充电控制寄存器                                        |
+| **上下电控制**     | [表 7-74](#表-7-74-buck_ldo_cfg1)      | 0x46                    | RWE       | 电源轨配置寄存器                                          |
+| **上下电控制**     | [表 7-75](#表-7-75-buckx_ctrl1)      | 0x47 + 3xn              | RWE       | BUCKn控制寄存器，n=0 ~ 5                                  |
+| **上下电控制**     | [表 7-76](#表-7-76-buckx_volt1)      | 0x48 + 3xn              | RWE       | BUCK电压设置                                              |
+| **上下电控制**     | [表 7-77](#表-7-77-buckx_slp_volt1)      | 0x49 + 3xn              | RWE       | BUCK睡眠电压设置                                          |
+| **上下电控制**     | [表 7-78](#表-7-78-switch_ctrl1)      | 0x59                    | RW        | Switch控制寄存器                                          |
+| **上下电控制**     | [表 7-79](#表-7-79-aonldo_ctrl1)      | 0x5A                    | RE        | AONLDO控制寄存器                                          |
+| **上下电控制**     | [表 7-80](#表-7-80-aldox_ctrl1)      | 0x5B                    | RWE       | ALDO控制寄存器                                            |
+| **上下电控制**     | [表 7-81](#表-7-81-aldox_volt1)      | 0x5C                    | RWE       | ALDO电压设置                                              |
+| **上下电控制**     | [表 7-82](#表-7-82-aldox_slp_volt1)      | 0x5D                    | RWE       | ALDO睡眠电压设置                                          |
+| **上下电控制**     | [表 7-83](#表-7-83-dldox_ctrl)      | 0x67                    | RWE       | DLDO控制寄存器                                            |
+| **上下电控制**     | [表 7-84](#表-7-84-dldox_volt)      | 0x68                    | RWE       | DLDO电压设置                                              |
+| **上下电控制**     | [表 7-85](#表-7-85-dldox_slp_volt)      | 0x69                    | RWE       | DLDO睡眠电压设置                                          |
+| **上下电控制**     | [表 7-86](#表-7-86-pwr_ctrl0)      | 0x7C                    | RWE       | 上下电控制寄存器0                                         |
+| **上下电控制**     | [表 7-87](#表-7-87-pwr_ctrl1)      | 0x7D                    | RWE       | 上下电控制寄存器1                                         |
+| **上下电控制**     | [表 7-88](#表-7-88-pwr_ctrl2)      | 0x7E                    | RWE       | 上下电控制寄存器2                                         |
+| **上下电控制**     | [表 7-89](#表-7-89-pwr_sts0)      | 0x7F                    | R         | 上下电状态寄存器0                                         |
+| **上下电控制**     | [表 7-90](#表-7-90-pwr_sts1)      | 0x80                    | R         | 上下电状态寄存器1                                         |
+| **上下电控制**     | [表 7-91](#表-7-91-pwr_key_time)      | 0x81                    | RWE       | 按键时间配置寄存器                                        |
+| **上下电控制**     | [表 7-92](#表-7-92-pwr_seq_time)      | 0x82                    | RWE       | 上下电控制时间配置                                        |
+| **上下电控制**     | [表 7-93](#表-7-93-pwr_slot0)      | 0x88                    | RE        | 电源轨SLOT ID配置                                         |
+| **上下电控制**     | [表 7-94](#表-7-94-pwr_slot1)      | 0x84                    | RE        | 电源轨SLOT ID配置                                         |
+| **上下电控制**     | [表 7-95](#表-7-95-pwr_slot2)      | 0x85                    | RE        | 电源轨SLOT ID配置                                         |
+| **上下电控制**     | [表 7-96](#表-7-96-pwr_slot3)      | 0x86                    | RE        | 电源轨SLOT ID配置                                         |
+| **上下电控制**     | [表 7-97](#表-7-97-pwr_slot4)      | 0x87                    | RE        | 电源轨SLOT ID配置                                         |
+| **上下电控制**     | [表 7-98](#表-7-98-pwr_slot5)      | 0x88                    | RE        | 电源轨SLOT ID配置                                         |
+| **上下电控制**     | [表 7-99](#表-7-99-pwr_slot6)      | 0x89                    | RE        | 电源轨SLOT ID配置                                         |
+| **上下电控制**     | [表 7-100](#表-7-110-buck_evnet0)     | 0x8A                    | RE        | 电源轨SLOT ID配置                                         |
+| **上下电控制**     | [表 7-101](#表-7-101-pwr_slot8)     | 0x8B                    | RE        | 电源轨SLOT ID配置                                         |
+| **上下电控制**     | [表 7-102](#表-7-102-pwr_slot9)     | 0x8C                    | RE        | EXT_EN SLOT ID配置                                        |
+| **上下电控制**     | [表 7-103](#表-7-103-pwr_slot10)     | 0x8D                    | RE        | EXT_EN SLOT ID配置                                        |
+| **上下电控制**     | [表 7-104](#表-7-104-pwr_slot11)     | 0x8E                    | RE        | EXT_EN SLOT ID配置                                        |
+| **上下电控制**     | [表 7-105](#表-7-105-pwr_ext_en)     | 0x8F                    | RWE       | EXT_EN软件使能控制                                        |
+| **上下电控制**     | [表 7-106](#表-7-106-pwr_ext_ctrl)     | 0x90                    | RWE       | EXT_EN睡眠流程控制                                        |
+| **事件**           | [表 7-107](#表-7-107-event0)     | 0x91                    | RIO       | PMIC系统事件                                              |
+| **事件**           | [表 7-108](#表-7-108-event1)     | 0x92                    | RIO       | PMIC系统事件                                              |
+| **事件**           | [表 7-109](#表-7-109-event2)     | 0x99                    | RIO       | PMIC系统事件                                              |
+| **事件**           | [表 7-110](#表-7-110-buck_evnet0)     | 0x94                    | RIO       | BUCK过压事件                                              |
+| **事件**           | [表 7-111](#表-7-111-buck_evnet1)     | 0x95                    | RIO       | BUCK欠压事件                                              |
+| **事件**           | [表 7-112](#表-7-112-buck_evnet2)     | 0x96                    | RIO       | BUCK短路/开路事件                                         |
+| **事件**           | [表 7-113](#表-7-113-pwrky_evnet)     | 0x97                    | RIO       | PWRKY按键事件                                             |
+| **中断使能**       | [表 7-114](#表-7-114-irq_en0)     | 0x98                    | RW        | PMIC系统事件中断使能                                      |
+| **中断使能**       | [表 7-115](#表-7-115-irq_en1)     | 0x99                    | RW        | PMIC系统事件中断使能                                      |
+| **中断使能**       | [表 7-116](#表-7-116-irq_en2)     | 0x9A                    | RW        | PMIC系统事件中断使能                                      |
+| **中断使能**       | [表 7-117](#表-7-117-irq_buck_en0)     | 0x9B                    | RW        | BUCK过压事件中断使能                                      |
+| **中断使能**       | [表 7-118](#表-7-118-irq_buck_en1)     | 0x9C                    | RW        | BUCK欠压事件中断使能                                      |
+| **中断使能**       | [表 7-119](#表-7-119-irq_buck_en1)     | 0x9D                    | RW        | BUCK短路/开路事件中断使能                                 |
+| **中断使能**       | [表 7-120](#表-7-120-irq_pwrky_en)     | 0x9E                    | RWE       | PWRKY按键事件中断使能                                     |
+| **保护使能**       | [表 7-121](#表-7-121-prot_en)     | 0x9F                    | RWE       | 系统异常事件保护使能                                      |
+| **ID**             | [表 7-122](#表-7-122-device_id)     | 0xA0                    | RE        | 设备ID                                                    |
+| **ID**             | [表 7-123](#表-7-123-version_id)     | 0xA1                    | RE        | 版本ID                                                    |
+| **ID**             | [表 7-124](#表-7-124-customer_id)     | 0xA2                    | RE        | 用户ID                                                    |
+| **系统配置**       | [表 7-125](#表-7-125-sys_cfg0)     | 0xAA                    | RE        | 系统配置寄存器0                                           |
+| **系统配置**       | [表 7-126](#表-7-126-sys_cfg1)     | 0xA4                    | RE        | 系统配置寄存器1                                           |
+| **系统配置**       | [表 7-127](#表-7-127-sys_cfg2)     | 0xA5                    | RE        | 系统配置寄存器2                                           |
+| **MTP**            | [表 7-128](#表-7-128-mtp_key)     | 0xA6                    | RW        | MTP解锁寄存器                                             |
+| **MTP**            | [表 7-129](#表-7-129-mtp_addr)     | 0xA7                    | RWP       | MTP地址寄存器                                             |
+| **MTP**            | [表 7-130](#表-7-130-mtp_data)     | 0xA8                    | RWP       | MTP读写数据寄存器                                         |
+| **MTP**            | [表 7-131](#表-7-131-mtp_cfg)     | 0xA9                    | RWP       | MTP配置寄存器                                             |
+| **MTP**            | [表 7-132](#表-7-132-mtp_ctrl)     | 0xAA                    | RWP       | MTP控制寄存器                                             |
 
-### 表 7-4 GPIO_IDR
+### 7.2.2 寄存器描述
+
+#### 表 7-4 GPIO_IDR
 
 <table>
 <tbody>
@@ -4892,7 +2161,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-5 GPIO_ODR
+#### 表 7-5 GPIO_ODR
 
 <table>
 <tbody>
@@ -4952,7 +2221,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-6 GPIO_PUPD0
+#### 表 7-6 GPIO_PUPD0
 
 <table>
 <tbody>
@@ -4996,7 +2265,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-7 GPIO_PUPD1
+#### 表 7-7 GPIO_PUPD1
 
 <table>
 <tbody>
@@ -5040,7 +2309,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-8 GPIO_DEB_EN
+#### 表 7-8 GPIO_DEB_EN
 
 <table>
 <tbody>
@@ -5105,7 +2374,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-9 GPIO_OD
+#### 表 7-9 GPIO_OD
 
 <table>
 <tbody>
@@ -5170,7 +2439,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-10 GPIO_ITYPE0
+#### 表 7-10 GPIO_ITYPE0
 
 <table>
 <tbody>
@@ -5214,7 +2483,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-11 GPIO_ITYPE1
+#### 表 7-11 GPIO_ITYPE1
 
 <table>
 <tbody>
@@ -5258,7 +2527,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-12 GPIO_MODE0
+#### 表 7-12 GPIO_MODE0
 
 <table>
 <tbody>
@@ -5302,7 +2571,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-13 GPIO_MODE1
+#### 表 7-13 GPIO_MODE1
 
 <table>
 <tbody>
@@ -5346,7 +2615,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-14 GPIO_AF01
+#### 表 7-14 GPIO_AF01
 
 <table>
 <tbody>
@@ -5383,7 +2652,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-15 GPIO_AF23
+#### 表 7-15 GPIO_AF23
 
 <table>
 <tbody>
@@ -5420,7 +2689,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-16 GPIO_AF45
+#### 表 7-16 GPIO_AF45
 
 <table>
 <tbody>
@@ -5457,7 +2726,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-17 RTC_COUNT_S
+#### 表 7-17 RTC_COUNT_S
 
 <table>
 <tbody>
@@ -5487,7 +2756,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-18 RTC_COUNT_MI
+#### 表 7-18 RTC_COUNT_MI
 
 <table>
 <tbody>
@@ -5517,7 +2786,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-19 RTC_COUNT_H
+#### 表 7-19 RTC_COUNT_H
 
 <table>
 <tbody>
@@ -5547,7 +2816,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-20 RTC_COUNT_D
+#### 表 7-20 RTC_COUNT_D
 
 <table>
 <tbody>
@@ -5577,7 +2846,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-21 RTC_COUNT_MO
+#### 表 7-21 RTC_COUNT_MO
 
 <table>
 <tbody>
@@ -5607,7 +2876,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-22 RTC_COUNT_Y
+#### 表 7-22 RTC_COUNT_Y
 
 <table>
 <tbody>
@@ -5637,7 +2906,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-23 RTC_ALARM_S
+#### 表 7-23 RTC_ALARM_S
 
 <table>
 <tbody>
@@ -5674,7 +2943,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-24 RTC_ALARM_MI
+#### 表 7-24 RTC_ALARM_MI
 
 <table>
 <tbody>
@@ -5711,7 +2980,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-25 RTC_ALARM_H
+#### 表 7-25 RTC_ALARM_H
 
 <table>
 <tbody>
@@ -5748,7 +3017,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-26 RTC_ALARM_D
+#### 表 7-26 RTC_ALARM_D
 
 <table>
 <tbody>
@@ -5785,7 +3054,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-27 RTC_ALARM_MO
+#### 表 7-27 RTC_ALARM_MO
 
 <table>
 <tbody>
@@ -5822,7 +3091,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-表 7-28 RTC_ALARM_Y
+#### 表 7-28 RTC_ALARM_Y
 
 <table>
 <tbody>
@@ -5859,7 +3128,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-29 RTC_SECOND_A
+#### 表 7-29 RTC_SECOND_A
 
 <table>
 <tbody>
@@ -5882,7 +3151,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-30 RTC_SECOND_B
+#### 表 7-30 RTC_SECOND_B
 
 <table>
 <tbody>
@@ -5905,7 +3174,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-31 RTC_SECOND_C
+#### 表 7-31 RTC_SECOND_C
 
 <table>
 <tbody>
@@ -5928,7 +3197,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-32 RTC_SECOND_D
+#### 表 7-32 RTC_SECOND_D
 
 <table>
 <tbody>
@@ -5951,7 +3220,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-33 RTC_CTRL
+#### 表 7-33 RTC_CTRL
 
 <table>
 <tbody>
@@ -5973,49 +3242,49 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tr>
 <tr>
 <td>6</td>
-<td>TICK_EN</td>
+<td>TICK_EN(*1)</td>
 <td>RW</td>
 <td>0x0</td>
 <td>TICK使能<br/>0：禁止<br/>1：使能</td>
 </tr>
 <tr>
 <td>5</td>
-<td>ALARM_EN</td>
+<td>ALARM_EN(*1)</td>
 <td>RW</td>
 <td>0x0</td>
 <td>ALARM使能<br/>0：禁止<br/>1：使能</td>
 </tr>
 <tr>
 <td>4<br/></td>
-<td>TICK_TYPE</td>
+<td>TICK_TYPE(*1)</td>
 <td>RW</td>
 <td>0x0</td>
 <td>TICK周期选择：<br/>0：1s<br/>1：1min</td>
 </tr>
 <tr>
 <td>3</td>
-<td>RTC_CLK_SEL</td>
+<td>RTC_CLK_SEL(*1)</td>
 <td>RW</td>
 <td>0x0</td>
 <td>RTC时钟选择<br/>0：内部时钟（32 kHz）<br/>1：外部晶振时钟</td>
 </tr>
 <tr>
 <td>2</td>
-<td>RTC_EN</td>
+<td>RTC_EN(*1)</td>
 <td>RW</td>
 <td>0x0</td>
 <td>RTC使能<br/>0：禁止<br/>1：使能</td>
 </tr>
 <tr>
 <td>1</td>
-<td>OUT_32K_EN</td>
+<td>OUT_32K_EN(*2)</td>
 <td>RWE</td>
 <td>0x0</td>
 <td>RTC时钟输出使能<br/>0：禁止<br/>1：使能</td>
 </tr>
 <tr>
 <td>0</td>
-<td>CRYSTAL_EN</td>
+<td>CRYSTAL_EN(*3)</td>
 <td>RWE</td>
 <td>0x0</td>
 <td>外部晶振使能<br/>0：禁止<br/>1：使能</td>
@@ -6023,7 +3292,12 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-34 ADC_CTRL
+> **注：**
+> 1：关机模式保持不变
+> 2：进入关机模式=0，遇到开机事件后恢复为MTP内的数值
+> 3：关机模式保持不变，遇到开机事件后恢复为MTP内的数值
+
+#### 表 7-34 ADC_CTRL(*1)
 
 <table>
 <tbody>
@@ -6045,7 +3319,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tr>
 <tr>
 <td>1</td>
-<td>ADC_GO<strong>(1)</strong></td>
+<td>ADC_GO(*2)</td>
 <td>RW</td>
 <td>0</td>
 <td>ADC转换启动位<br/>0：AD转换完成/未进行<br/>1：AD转换正在进行</td>
@@ -6060,7 +3334,11 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-35 ADC_CFG0
+> **注：**
+> 1：进入关机模式恢复默认值
+> 2：手动模式下，该 bit 软件置 1 后，转换每完成一次即硬件清零；自动模式下，该 bit 软件置 1 后，由软件清零停止自动转换；任何模式下，转换过程中清零该 bit，都会停止并打断转换过程。
+
+#### 表 7-35 ADC_CFG0(*1)
 
 <table>
 <tbody>
@@ -6082,49 +3360,49 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tr>
 <tr>
 <td>6</td>
-<td>ADCTJ_DEB_EN(1)</td>
+<td>ADCTJ_DEB_EN(*1)</td>
 <td>RW</td>
 <td>0x0</td>
 <td>ADC结温超阈值中断标志滤波<br/>0：禁止<br/>1：使能</td>
 </tr>
 <tr>
 <td>5<br/></td>
-<td>ADCIN5_DEB_EN(1)<br/></td>
+<td>ADCIN5_DEB_EN(*1)<br/></td>
 <td>RW</td>
 <td>0x0</td>
 <td>ADCIN5中断标志滤波<br/>0：禁止<br/>1：使能</td>
 </tr>
 <tr>
 <td>4</td>
-<td>ADCIN4_DEB_EN(1)</td>
+<td>ADCIN4_DEB_EN(*1)</td>
 <td>RW</td>
 <td>0x0</td>
 <td>ADCIN4中断标志滤波<br/>0：禁止<br/>1：使能</td>
 </tr>
 <tr>
 <td>3</td>
-<td>ADCIN3_DEB_EN(1)</td>
+<td>ADCIN3_DEB_EN(*1)</td>
 <td>RW</td>
 <td>0x0</td>
 <td>ADCIN3中断标志滤波<br/>0：禁止<br/>1：使能</td>
 </tr>
 <tr>
 <td>2</td>
-<td>ADCIN2_DEB_EN(1)</td>
+<td>ADCIN2_DEB_EN(*1)</td>
 <td>RW</td>
 <td>0x0</td>
 <td>ADCIN2中断标志滤波<br/>0：禁止<br/>1：使能</td>
 </tr>
 <tr>
 <td>1</td>
-<td>ADCIN1_DEB_EN(1)</td>
+<td>ADCIN1_DEB_EN(*1)</td>
 <td>RW</td>
 <td>0x0</td>
 <td>ADCIN1中断标志滤波<br/>0：禁止<br/>1：使能</td>
 </tr>
 <tr>
 <td>0</td>
-<td>ADCIN0_DEB_EN(1)</td>
+<td>ADCIN0_DEB_EN(*1)</td>
 <td>RW</td>
 <td>0x0</td>
 <td>ADCIN0中断标志滤波<br/>0：禁止<br/>1：使能</td>
@@ -6132,9 +3410,11 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-- 连续 ADC_DEB_NUM 次 ADC 转换结果超阈值或低阈值即置起相应标志位。
+> **注：**
+> 1：进入关机模式恢复默认值
+> 2：连续ADC_DEB_NUM次ADC转换结果超阈值或低阈值即置起相应标志位。
 
-### 表 7-36 ADC_CFG1
+#### 表 7-36 ADC_CFG1(*1)
 
 <table>
 <tbody>
@@ -6178,7 +3458,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-37 ADC_CFG2
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-37 ADC_CFG2(*1)
 
 <table>
 <tbody>
@@ -6222,7 +3505,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-38 ADC_AUTO
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-38 ADC_AUTO(*1)
 
 <table>
 <tbody>
@@ -6244,49 +3530,49 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tr>
 <tr>
 <td>6</td>
-<td>AUTO_IN5_EN(1)</td>
+<td>AUTO_IN5_EN(*2)</td>
 <td>RW</td>
 <td>0x0</td>
 <td>ADCIN5自动采样使能<br/>0：禁止自动采样<br/>1：使能自动采样</td>
 </tr>
 <tr>
 <td>5</td>
-<td>AUTO_IN4_EN(1)</td>
+<td>AUTO_IN4_EN(*2)</td>
 <td>RW</td>
 <td>0x0</td>
 <td>ADCIN4自动采样使能<br/>0：禁止自动采样<br/>1：使能自动采样</td>
 </tr>
 <tr>
 <td>4</td>
-<td>AUTO_IN3_EN(1)</td>
+<td>AUTO_IN3_EN(*2)</td>
 <td>RW</td>
 <td>0x0</td>
 <td>ADCIN3自动采样使能<br/>0：禁止自动采样<br/>1：使能自动采样</td>
 </tr>
 <tr>
 <td>3</td>
-<td>AUTO_IN2_EN(1)</td>
+<td>AUTO_IN2_EN(*2)</td>
 <td>RW</td>
 <td>0x0</td>
 <td>ADCIN2自动采样使能<br/>0：禁止自动采样<br/>1：使能自动采样</td>
 </tr>
 <tr>
 <td>2</td>
-<td>AUTO_IN1_EN(1)</td>
+<td>AUTO_IN1_EN(*2)</td>
 <td>RW</td>
 <td>0x0</td>
 <td>ADCIN1自动采样使能<br/>0：禁止自动采样<br/>1：使能自动采样</td>
 </tr>
 <tr>
 <td>1</td>
-<td>AUTO_IN0_EN(1)</td>
+<td>AUTO_IN0_EN(*2)</td>
 <td>RW</td>
 <td>0x0</td>
 <td>ADCIN0自动采样使能<br/>0：禁止自动采样<br/>1：使能自动采样</td>
 </tr>
 <tr>
 <td>0</td>
-<td>AUTO_TJ_EN(1)</td>
+<td>AUTO_TJ_EN(*2)</td>
 <td>RW</td>
 <td>0x0</td>
 <td>Junction温度通道自动采样使能<br/>0：禁止自动采样<br/>1：使能自动采样</td>
@@ -6294,9 +3580,11 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-- 连 ADC_AUTO[6:0]只要有任 1bit 使能，启动转换之后即进入自动扫描模式。
+> **注：**
+> 1：进入关机模式恢复默认值
+> 2：连 ADC_AUTO[6:0]只要有任 1bit 使能，启动转换之后即进入自动扫描模式。
 
-### 表 7-39 ADC_MAN_EN0
+#### 表 7-39 ADC_MAN_EN0(*1)
 
 <table>
 <tbody>
@@ -6368,7 +3656,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-40 ADC_MAN_EN1
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-40 ADC_MAN_EN1(*1)
 
 <table>
 <tbody>
@@ -6383,56 +3674,56 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 <tr>
 <td rowspan=8 colspan=1>0x24</td>
 <td>7</td>
-<td>ADC_DLDO3_EN(1)</td>
+<td>ADC_DLDO3_EN(*2)</td>
 <td>RW</td>
 <td>0x0</td>
 <td>DLDO3输出电压监控使能<br/>0： 禁止<br/>1： 使能</td>
 </tr>
 <tr>
 <td>6</td>
-<td>ADC_DLDO2_EN(1)</td>
+<td>ADC_DLDO2_EN(*2)</td>
 <td>RW</td>
 <td>0x0</td>
 <td>DLDO2输出电压监控使能<br/>0： 禁止<br/>1： 使能</td>
 </tr>
 <tr>
 <td>5</td>
-<td>ADC_DLDO1_EN(1)</td>
+<td>ADC_DLDO1_EN(*2)</td>
 <td>RW</td>
 <td>0x0</td>
 <td>DLDO1输出电压监控使能<br/>0： 禁止<br/>1： 使能</td>
 </tr>
 <tr>
 <td>4</td>
-<td>ADC_ALDO4_EN(1)</td>
+<td>ADC_ALDO4_EN(*2)</td>
 <td>RW</td>
 <td>0x0</td>
 <td>ALDO4输出电压监控使能<br/>0： 禁止<br/>1： 使能</td>
 </tr>
 <tr>
 <td>3</td>
-<td>ADC_ALDO3_EN(1)</td>
+<td>ADC_ALDO3_EN(*2)</td>
 <td>RW</td>
 <td>0x0</td>
 <td>ALDO3输出电压监控使能<br/>0： 禁止<br/>1： 使能</td>
 </tr>
 <tr>
 <td>2</td>
-<td>ADC_ALDO2_EN(1)</td>
+<td>ADC_ALDO2_EN(*2)</td>
 <td>RW</td>
 <td>0x0</td>
 <td>ALDO2输出电压监控使能<br/>0： 禁止<br/>1： 使能</td>
 </tr>
 <tr>
 <td>1</td>
-<td>ADC_ALDO1_EN(1)</td>
+<td>ADC_ALDO1_EN(*2)</td>
 <td>RW</td>
 <td>0x0</td>
 <td>ALDO1输出电压监控使能<br/>0： 禁止<br/>1： 使能</td>
 </tr>
 <tr>
 <td>0</td>
-<td>ADC_AONLDO_EN(1)</td>
+<td>ADC_AONLDO_EN(*2)</td>
 <td>RW</td>
 <td>0x0</td>
 <td>AONLDO输出电压监控使能<br/>0： 禁止<br/>1： 使能</td>
@@ -6440,9 +3731,11 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-- ADC_AUTO 无自动通道使能时，只要 ADC_MAN_EN0 ~ ADC_MAN_EN2 中任意手动通道使能后，启动转换之后即进入手动模式。
+> **注：**
+> 1：进入关机模式恢复默认值
+> 2：ADC_AUTO 无自动通道使能时，只要 ADC_MAN_EN0 ~ ADC_MAN_EN2 中任意手动通道使能后，启动转换之后即进入手动模式。
 
-### 表 7-41 ADC_MAN_EN2
+#### 表 7-41 ADC_MAN_EN2(*1)
 
 <table>
 <tbody>
@@ -6464,28 +3757,28 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tr>
 <tr>
 <td>3</td>
-<td>ADC_DLDO_7_EN(1)</td>
+<td>ADC_DLDO_7_EN(*2)</td>
 <td>RW</td>
 <td>0x0</td>
 <td>DLDO7输出电压监控使能<br/>0： 禁止<br/>1： 使能</td>
 </tr>
 <tr>
 <td>2</td>
-<td>ADC_DLDO_6_EN(1)<br/></td>
+<td>ADC_DLDO_6_EN(*2)<br/></td>
 <td>RW</td>
 <td>0x0</td>
 <td>DLDO6输出电压监控使能<br/>0： 禁止<br/>1： 使能</td>
 </tr>
 <tr>
 <td>1</td>
-<td>ADC_DLDO_5_EN(1)</td>
+<td>ADC_DLDO_5_EN(*2)</td>
 <td>RW</td>
 <td>0x0</td>
 <td>DLDO5输出电压监控使能<br/>0： 禁止<br/>1： 使能</td>
 </tr>
 <tr>
 <td>0</td>
-<td>ADC_DLDO_4_EN(1)</td>
+<td>ADC_DLDO_4_EN(*2)</td>
 <td>RW</td>
 <td>0x0</td>
 <td>DLDO4输出电压监控使能<br/>0： 禁止<br/>1： 使能</td>
@@ -6493,9 +3786,11 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-- ADC_AUTO 无自动通道使能时，只要 ADC_MAN_EN0 ~ ADC_MAN_EN2 中任意手动通道使能后，启动转换之后即进入手动模式。
+> **注：**
+> 1：进入关机模式恢复默认值
+> 2：ADC_AUTO 无自动通道使能时，只要 ADC_MAN_EN0 ~ ADC_MAN_EN2 中任意手动通道使能后，启动转换之后即进入手动模式。
 
-### 表 7-42 ADC_MAN_RES_H
+#### 表 7-42 ADC_MAN_RES_H(*1)
 
 <table>
 <tbody>
@@ -6518,7 +3813,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-43 ADC_MAN_RES_L
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-43 ADC_MAN_RES_L(*1)
 
 <table>
 <tbody>
@@ -6548,7 +3846,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-44 ADC_TJ_RES_H
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-44 ADC_TJ_RES_H(*1)
 
 <table>
 <tbody>
@@ -6571,7 +3872,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-45 ADC_TJ_RES_L
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-45 ADC_TJ_RES_L(*1)
 
 <table>
 <tbody>
@@ -6601,7 +3905,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-46 ADC_IN0_RES_H
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-46 ADC_IN0_RES_H(*1)
 
 <table>
 <tbody>
@@ -6624,7 +3931,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-47 ADC_IN0_RES_L
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-47 ADC_IN0_RES_L(*1)
 
 <table>
 <tbody>
@@ -6654,7 +3964,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-48 ADC_IN1_RES_L
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-48 ADC_IN1_RES_L(*1)
 
 <table>
 <tbody>
@@ -6677,7 +3990,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-49 ADC_IN1_RES_L
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-49 ADC_IN1_RES_L(*1)
 
 <table>
 <tbody>
@@ -6707,7 +4023,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-50 ADC_IN2_RES_H
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-50 ADC_IN2_RES_H(*1)
 
 <table>
 <tbody>
@@ -6730,7 +4049,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-51 ADC_IN2_RES_L
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-51 ADC_IN2_RES_L(*1)
 
 <table>
 <tbody>
@@ -6760,7 +4082,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-52 ADC_IN3_RES_H
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-52 ADC_IN3_RES_H(*1)
 
 <table>
 <tbody>
@@ -6783,7 +4108,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-53 ADC_IN3_RES_L
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-53 ADC_IN3_RES_L(*1)
 
 <table>
 <tbody>
@@ -6813,7 +4141,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-54 ADC_IN4_RES_H
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-54 ADC_IN4_RES_H(*1)
 
 <table>
 <tbody>
@@ -6836,7 +4167,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-55 ADC_IN4_RES_L
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-55 ADC_IN4_RES_L(*1)
 
 <table>
 <tbody>
@@ -6866,7 +4200,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-56 ADC_IN5_RES_H
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-56 ADC_IN5_RES_H(*1)
 
 <table>
 <tbody>
@@ -6889,7 +4226,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-57 ADC_IN5_RES_L
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-57 ADC_IN5_RES_L(*1)
 
 <table>
 <tbody>
@@ -6919,7 +4259,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-58 ADC_VTH_TJ_H
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-58 ADC_VTH_TJ_H(*1)
 
 <table>
 <tbody>
@@ -6942,7 +4285,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-59 ADC_VTH_TJ_L
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-59 ADC_VTH_TJ_L(*1)
 
 <table>
 <tbody>
@@ -6965,7 +4311,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-60 ADC_IN0_VTH_H
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-60 ADC_IN0_VTH_H(*1)
 
 <table>
 <tbody>
@@ -6988,7 +4337,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-61 ADC_IN0_VTH_L
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-61 ADC_IN0_VTH_L(*1)
 
 <table>
 <tbody>
@@ -7011,7 +4363,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-62 ADC_IN1_VTH_H
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-62 ADC_IN1_VTH_H(*1)
 
 <table>
 <tbody>
@@ -7034,7 +4389,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-63 ADC_IN1_VTH_L
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-63 ADC_IN1_VTH_L(*1)
 
 <table>
 <tbody>
@@ -7057,7 +4415,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-64 ADC_IN2_VTH_H
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-64 ADC_IN2_VTH_H(*1)
 
 <table>
 <tbody>
@@ -7080,7 +4441,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-65 ADC_IN2_VTH_L
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-65 ADC_IN2_VTH_L(*1)
 
 <table>
 <tbody>
@@ -7103,7 +4467,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-66 ADC_IN3_VTH_H
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-66 ADC_IN3_VTH_H(*1)
 
 <table>
 <tbody>
@@ -7126,7 +4493,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-67 ADC_IN3_VTH_L
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-67 ADC_IN3_VTH_L(*1)
 
 <table>
 <tbody>
@@ -7149,7 +4519,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-68 ADC_IN4_VTH_H
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-68 ADC_IN4_VTH_H(*1)
 
 <table>
 <tbody>
@@ -7172,7 +4545,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-69 ADC_IN4_VTH_L
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-69 ADC_IN4_VTH_L(*1)
 
 <table>
 <tbody>
@@ -7195,7 +4571,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-70 ADC_IN5_VTH_H
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-70 ADC_IN5_VTH_H(*1)
 
 <table>
 <tbody>
@@ -7218,7 +4597,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-71 ADC_IN5_VTH_L
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-71 ADC_IN5_VTH_L(*1)
 
 <table>
 <tbody>
@@ -7241,7 +4623,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-72 WDT_CTRL
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-72 WDT_CTRL(*1)
 
 <table>
 <tbody>
@@ -7285,7 +4670,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-73 BBAT_CTRL
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-73 BBAT_CTRL(*1)
 
 <table>
 <tbody>
@@ -7329,7 +4717,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-74 BUCK_LDO_CFG
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-74 BUCK_LDO_CFG(*1)
 
 <table>
 <tbody>
@@ -7394,7 +4785,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-75 BUCKx_CTRL
+> **注：**
+> 1：进入关机模式保持不变，遇到开机事件后恢复为MTP内的数值
+
+#### 表 7-75 BUCKx_CTRL(*1)
 
 <table>
 <tbody>
@@ -7407,7 +4801,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 <td>Description</td>
 </tr>
 <tr>
-<td rowspan=5 colspan=1>0x47+3*N(1)</td>
+<td rowspan=5 colspan=1>0x47+3xN(*2)</td>
 <td>7:6</td>
 <td>Reserved</td>
 <td>RV</td>
@@ -7445,9 +4839,11 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-- N=0 ~ 5，x=1 ~ 6，依次对应 BUCK1 ~ BUCK6。
+> **注：**
+> 1：进入关机模式保持不变，遇到开机事件后恢复为MTP内的数值
+> 2：N=0 ~ 5，x=1 ~ 6，依次对应 BUCK1 ~ BUCK6。
 
-### 表 7-76 BUCKx_VOLT
+#### 表 7-76 BUCKx_VOLT(*1)
 
 <table>
 <tbody>
@@ -7460,7 +4856,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 <td>Description</td>
 </tr>
 <tr>
-<td>0x48+3*N(1)</td>
+<td>0x48+3xN(*2)</td>
 <td>7:0</td>
 <td>BUCKx_VOLT</td>
 <td>RWE</td>
@@ -7470,9 +4866,11 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-- N=0 ~ 5，x=1 ~ 6，依次对应 BUCK1 ~ BUCK6。
+> **注：**
+> 1：进入关机模式保持不变，遇到开机事件后恢复为MTP内的数值
+> 2： N=0 ~ 5，x=1 ~ 6，依次对应 BUCK1 ~ BUCK6。
 
-### 表 7-77 BUCKx_SLP_VOLT
+#### 表 7-77 BUCKx_SLP_VOLT(*1)
 
 <table>
 <tbody>
@@ -7485,7 +4883,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 <td>Description</td>
 </tr>
 <tr>
-<td>0x49+3*N(1)</td>
+<td>0x49+3xN(*2)</td>
 <td>7:0</td>
 <td>BUCKx_SLP_VOLT</td>
 <td>RWE</td>
@@ -7495,9 +4893,11 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-- N=0 ~ 5，x=1 ~ 6，依次对应 BUCK1 ~ BUCK6。
+> **注：**
+> 1：进入关机模式保持不变，遇到开机事件后恢复为MTP内的数值
+> 2：N=0 ~ 5，x=1 ~ 6，依次对应 BUCK1 ~ BUCK6。
 
-### 表 7-78 SWITCH_CTRL
+#### 表 7-78 SWITCH_CTRL(*1)
 
 <table>
 <tbody>
@@ -7534,7 +4934,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-79 AONLDO_CTRL
+> **注：**
+> 1：进入关机模式恢复默认值
+
+#### 表 7-79 AONLDO_CTRL(*1)
 
 <table>
 <tbody>
@@ -7564,7 +4967,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-80 ALDOx_CTRL
+> **注：**
+> 1：进入关机模式保持不变，遇到开机事件后恢复为MTP内的数值
+
+#### 表 7-80 ALDOx_CTRL(*1)
 
 <table>
 <tbody>
@@ -7577,7 +4983,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 <td>Description</td>
 </tr>
 <tr>
-<td rowspan=3 colspan=1>0x5B+3*N(1)</td>
+<td rowspan=3 colspan=1>0x5B+3xN(*2)</td>
 <td>7:4</td>
 <td>Reserved</td>
 <td>RV</td>
@@ -7601,9 +5007,11 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-- N=0 ~ 3，x=1 ~ 4，依次对应 ALDO1 ~ ALDO4。
+> **注：**
+> 1：进入关机模式保持不变，遇到开机事件后恢复为MTP内的数值
+> 2：N=0 ~ 3，x=1 ~ 4，依次对应 ALDO1 ~ ALDO4。
 
-### 表 7-81 ALDOx_VOLT
+#### 表 7-81 ALDOx_VOLT(*1)
 
 <table>
 <tbody>
@@ -7616,7 +5024,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 <td>Description</td>
 </tr>
 <tr>
-<td rowspan=2 colspan=1>0x5C+3*N(1)</td>
+<td rowspan=2 colspan=1>0x5C+3xN(*2)</td>
 <td>7</td>
 <td>Reserved</td>
 <td>RV</td>
@@ -7633,9 +5041,11 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-- N=0 ~ 3，x=1 ~ 4，依次对应 ALDO1 ~ ALDO4。
+> **注：**
+> 1：进入关机模式保持不变，遇到开机事件后恢复为MTP内的数值
+> 2：N=0 ~ 3，x=1 ~ 4，依次对应 ALDO1 ~ ALDO4。
 
-### 表 7-82 ALDOx_SLP_VOLT
+#### 表 7-82 ALDOx_SLP_VOLT(*1)
 
 <table>
 <tbody>
@@ -7648,7 +5058,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 <td>Description</td>
 </tr>
 <tr>
-<td rowspan=2 colspan=1>0x5D+3*N(1)</td>
+<td rowspan=2 colspan=1>0x5D+3xN(*2)</td>
 <td>7</td>
 <td>Reserved</td>
 <td>RV</td>
@@ -7665,9 +5075,11 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-- N=0 ~ 3，x=1 ~ 4，依次对应 ALDO1 ~ ALDO4。
+> **注：**
+> 1：进入关机模式保持不变，遇到开机事件后恢复为MTP内的数值
+> 2：N=0 ~ 3，x=1 ~ 4，依次对应 ALDO1 ~ ALDO4。
 
-### 表 7-83 DLDOx_CTRL
+#### 表 7-83 DLDOx_CTRL
 
 <table>
 <tbody>
@@ -7680,7 +5092,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 <td>Description</td>
 </tr>
 <tr>
-<td rowspan=3 colspan=1>0x67+3*N(1)</td>
+<td rowspan=3 colspan=1>0x67+3xN(*1)</td>
 <td>7:4</td>
 <td>Reserved</td>
 <td>RV</td>
@@ -7704,9 +5116,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-- N=0 ~ 6，x=1 ~ 7，依次对应 DLDO1 ~ DLDO7。
+> **注：**
+> 1：N=0 ~ 6，x=1 ~ 7，依次对应 DLDO1 ~ DLDO7。
 
-### 表 7-84 DLDOx_VOLT
+#### 表 7-84 DLDOx_VOLT
 
 <table>
 <tbody>
@@ -7719,7 +5132,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 <td>Description</td>
 </tr>
 <tr>
-<td rowspan=2 colspan=1>0x68+3*N(1)</td>
+<td rowspan=2 colspan=1>0x68+3xN(*1)</td>
 <td>7</td>
 <td>Reserved</td>
 <td>RV</td>
@@ -7736,9 +5149,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-- N=0 ~ 6，x=1 ~ 7，依次对应 DLDO1 ~ DLDO7。
+> **注：**
+> 1：N=0 ~ 6，x=1 ~ 7，依次对应 DLDO1 ~ DLDO7。
 
-### 表 7-85 DLDOx_SLP_VOLT
+#### 表 7-85 DLDOx_SLP_VOLT
 
 <table>
 <tbody>
@@ -7751,7 +5165,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 <td>Description</td>
 </tr>
 <tr>
-<td rowspan=2 colspan=1>0x69+3*N(1)</td>
+<td rowspan=2 colspan=1>0x69+3xN(*1)</td>
 <td>7</td>
 <td>Reserved</td>
 <td>RV</td>
@@ -7768,9 +5182,10 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-- N=0 ~ 6，x=1 ~ 7，依次对应 DLDO1 ~ DLDO7。
+> **注：**
+> 1：N=0 ~ 6，x=1 ~ 7，依次对应 DLDO1 ~ DLDO7。
 
-### 表 7-86 PWR_CTRL0
+#### 表 7-86 PWR_CTRL0
 
 <table>
 <tbody>
@@ -7842,7 +5257,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-87 PWR_CTRL1
+#### 表 7-87 PWR_CTRL1
 
 <table>
 <tbody>
@@ -7914,7 +5329,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-88 PWR_CTRL2
+#### 表 7-88 PWR_CTRL2
 
 <table>
 <tbody>
@@ -7986,7 +5401,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-89 PWR_STS0
+#### 表 7-89 PWR_STS0
 
 <table>
 <tbody>
@@ -8044,7 +5459,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-90 PWR_STS1
+#### 表 7-90 PWR_STS1
 
 <table>
 <tbody>
@@ -8109,7 +5524,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-91 PWR_KEY_TIME
+#### 表 7-91 PWR_KEY_TIME
 
 <table>
 <tbody>
@@ -8153,7 +5568,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-92 PWR_SEQ_TIME
+#### 表 7-92 PWR_SEQ_TIME
 
 <table>
 <tbody>
@@ -8197,7 +5612,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-93 PWR_SLOT0
+#### 表 7-93 PWR_SLOT0
 
 <table>
 <tbody>
@@ -8227,7 +5642,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-94 PWR_SLOT1
+#### 表 7-94 PWR_SLOT1
 
 <table>
 <tbody>
@@ -8257,7 +5672,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-95 PWR_SLOT2
+#### 表 7-95 PWR_SLOT2
 
 <table>
 <tbody>
@@ -8287,7 +5702,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-96 PWR_SLOT3
+#### 表 7-96 PWR_SLOT3
 
 <table>
 <tbody>
@@ -8317,7 +5732,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-97 PWR_SLOT4
+#### 表 7-97 PWR_SLOT4
 
 <table>
 <tbody>
@@ -8347,7 +5762,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-98 PWR_SLOT5
+#### 表 7-98 PWR_SLOT5
 
 <table>
 <tbody>
@@ -8377,7 +5792,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-99 PWR_SLOT6
+#### 表 7-99 PWR_SLOT6
 
 <table>
 <tbody>
@@ -8407,7 +5822,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-100 PWR_SLOT7
+#### 表 7-100 PWR_SLOT7
 
 <table>
 <tbody>
@@ -8437,7 +5852,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-101 PWR_SLOT8
+#### 表 7-101 PWR_SLOT8
 
 <table>
 <tbody>
@@ -8467,7 +5882,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-102 PWR_SLOT9
+#### 表 7-102 PWR_SLOT9
 
 <table>
 <tbody>
@@ -8497,7 +5912,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-103 PWR_SLOT10
+#### 表 7-103 PWR_SLOT10
 
 <table>
 <tbody>
@@ -8527,7 +5942,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-104 PWR_SLOT11
+#### 表 7-104 PWR_SLOT11
 
 <table>
 <tbody>
@@ -8557,7 +5972,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-105 PWR_EXT_EN
+#### 表 7-105 PWR_EXT_EN
 
 <table>
 <tbody>
@@ -8622,7 +6037,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-106 PWR_EXT_CTRL
+#### 表 7-106 PWR_EXT_CTRL
 
 <table>
 <tbody>
@@ -8687,7 +6102,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-107 EVENT0
+#### 表 7-107 EVENT0
 
 <table>
 <tbody>
@@ -8752,7 +6167,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-108 EVENT1
+#### 表 7-108 EVENT1
 
 <table>
 <tbody>
@@ -8817,7 +6232,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-109 EVENT2
+#### 表 7-109 EVENT2
 
 <table>
 <tbody>
@@ -8889,7 +6304,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-110 BUCK_EVNET0
+#### 表 7-110 BUCK_EVNET0
 
 <table>
 <tbody>
@@ -8954,7 +6369,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-111 BUCK_EVNET1
+#### 表 7-111 BUCK_EVNET1
 
 <table>
 <tbody>
@@ -9019,7 +6434,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-112 BUCK_EVNET2
+#### 表 7-112 BUCK_EVNET2
 
 <table>
 <tbody>
@@ -9084,7 +6499,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-113 PWRKY_EVNET
+#### 表 7-113 PWRKY_EVNET
 
 <table>
 <tbody>
@@ -9149,7 +6564,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-114 IRQ_EN0
+#### 表 7-114 IRQ_EN0
 
 <table>
 <tbody>
@@ -9214,7 +6629,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-115 IRQ_EN1
+#### 表 7-115 IRQ_EN1
 
 <table>
 <tbody>
@@ -9279,7 +6694,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-116 IRQ_EN2
+#### 表 7-116 IRQ_EN2
 
 <table>
 <tbody>
@@ -9351,7 +6766,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-117 IRQ_BUCK_EN0
+#### 表 7-117 IRQ_BUCK_EN0
 
 <table>
 <tbody>
@@ -9416,7 +6831,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-118 IRQ_BUCK_EN1
+#### 表 7-118 IRQ_BUCK_EN1
 
 <table>
 <tbody>
@@ -9481,7 +6896,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-119 IRQ_BUCK_EN1
+#### 表 7-119 IRQ_BUCK_EN1
 
 <table>
 <tbody>
@@ -9546,7 +6961,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-120 IRQ_PWRKY_EN
+#### 表 7-120 IRQ_PWRKY_EN
 
 <table>
 <tbody>
@@ -9618,7 +7033,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-121 PROT_EN
+#### 表 7-121 PROT_EN
 
 <table>
 <tbody>
@@ -9690,7 +7105,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-122 DEVICE_ID
+#### 表 7-122 DEVICE_ID
 
 <table>
 <tbody>
@@ -9713,7 +7128,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-123 VERSION_ID
+#### 表 7-123 VERSION_ID
 
 <table>
 <tbody>
@@ -9736,7 +7151,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-124 CUSTOMER_ID
+#### 表 7-124 CUSTOMER_ID
 
 <table>
 <tbody>
@@ -9759,7 +7174,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-125 SYS_CFG0
+#### 表 7-125 SYS_CFG0
 
 <table>
 <tbody>
@@ -9789,7 +7204,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-126 SYS_CFG1
+#### 表 7-126 SYS_CFG1
 
 <table>
 <tbody>
@@ -9833,7 +7248,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-127 SYS_CFG2
+#### 表 7-127 SYS_CFG2
 
 <table>
 <tbody>
@@ -9884,7 +7299,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-128 MTP_KEY
+#### 表 7-128 MTP_KEY
 
 <table>
 <tbody>
@@ -9907,7 +7322,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-129 MTP_ADDR
+#### 表 7-129 MTP_ADDR
 
 <table>
 <tbody>
@@ -9937,7 +7352,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-130 MTP_DATA
+#### 表 7-130 MTP_DATA
 
 <table>
 <tbody>
@@ -9960,7 +7375,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-131 MTP_CFG
+#### 表 7-131 MTP_CFG
 
 <table>
 <tbody>
@@ -10011,7 +7426,7 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tbody>
 </table>
 
-### 表 7-132 MTP_CTRL
+#### 表 7-132 MTP_CTRL
 
 <table>
 <tbody>
@@ -10054,3 +7469,13 @@ TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 *
 </tr>
 </tbody>
 </table>
+
+## 8. 封装信息
+
+![](./static/YNjYbwpqRoi8CGxVRm2clLZQnRN.png)
+![](./static/QleTbkKomo7UoSxLulfcTeOtnAY.png)
+
+## 9. Tray 盘
+
+![](./static/IQgfbtLlToY6CExeW0ncN709nK4.png)
+![](./static/EvxzbOvUgoYLonxfLBFcbGYOnlf.png)
