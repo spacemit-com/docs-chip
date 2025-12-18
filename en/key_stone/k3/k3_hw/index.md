@@ -1,12 +1,12 @@
 sidebar_position: 2
 
-This page provides a consolidated entry point for all **K1 platform** hardware documentation and design resources.
+This page provides a consolidated entry point for all **K3 platform** hardware documentation and design resources.
 
 ## Hardware Design Guides
 
 Technical documentation to support hardware design, board bring-up, and system integration:
 
-- **[Hardware Design Guide](./k1_hw_design_guide.md)**
+- **[Hardware Design Guide](./k3_hw_design_guide.md)**
 
 ## Hardware Design Resources
 
