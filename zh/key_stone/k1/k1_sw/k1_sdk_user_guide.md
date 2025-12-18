@@ -1,4 +1,4 @@
-sidebar_position: 3
+sidebar_position: 1
 
 # K1 SDK 使用说明总览
 
