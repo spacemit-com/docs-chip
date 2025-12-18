@@ -283,7 +283,7 @@ The debugging interface serves as the channel for software to interact with the 
 
 The micro-architecture of the debugging interface is depicted below.
 
-![](static/debugging_interface.png)
+<img src="static/debugging_interface.png" alt="" width="600">
 
 As can be seen, the debugging system consists of
 
@@ -353,7 +353,7 @@ The DDR controller is also designed to support AMBA AXI4 bus protocols. It is fu
 
 The architecture of the DDR controller interface is depicted below.
 
-![](static/DDR_controller.png)
+<img src="static/DDR_controller.png" alt="" width="600">
 
 #### Quad-SPI
 
@@ -665,11 +665,11 @@ The GPU core has an AXI 128bits bus for accessing SOC's DDR memory with a core f
 
 The micro-architecture of the V2D subsystem is depicted below.
 
-![](static/V2D_subsystem.png)
+<img src="static/V2D_subsystem.png" alt="" width="600">
 
 Instead, the typical V2D work scenario is depicted below.
 
-![](static/V2D_work_scenario.png)
+<img src="static/V2D_work_scenario.png" alt="" width="600">
 
 ##### Functions
 
@@ -680,7 +680,7 @@ The process of fetching a 16×16 block of data from a source frame (src frame) a
 - **AFBC**: fetch rect left, top, width, height 4 align
 - **Non-AFBC**: fetch rect left, top, width, height 1 align
 
-![](static/Fetch_Data.png)
+<img src="static/Fetch_Data.png" alt="" width="400">
 
 The code for fetching data for displaying is listed below, and the details of the specific variables and registers involved are tabled immediately after.
 
@@ -922,7 +922,7 @@ if LayerX_solid_enable = 1
 
 Support for 0°, 90°, 180°, 270° rotation (performed clockwise) as well as mirror and flip option, as depicted below (example).
 
-![](static/Rotation.png)
+<img src="static/Rotation.png" alt="" width="200">
 
 The code for rotating, mirroring and flipping graphical content is listed below, and the details of the specific variables and registers involved are tabled immediately after).
 
@@ -1646,7 +1646,7 @@ The Display Controller is a hardware block that is used to transfer display data
 
 The micro-architecture of the display subsystem is depicted below.
 
-![](static/display_subsystem.png)
+<img src="static/display_subsystem.png" alt="" width="600">
 
 #### HDMI Interface
 
@@ -1668,7 +1668,7 @@ The micro-architecture of the display subsystem is depicted below.
 
 The architecture of the HDMI interface is depicted below.
 
-![](static/HDMI_interface.png)
+<img src="static/HDMI_interface.png" alt="" width="600">
 
 ### MIPI DSI Interface
 
@@ -1719,23 +1719,23 @@ As example, below are depicted the transfers modes for some color formats, highl
 
 **[Packet transfer mode for RGB565]**
 
-![](static/packet_transfer_mode_RGB565.png)
+<img src="static/packet_transfer_mode_RGB565.png" alt="" width="700">
 
 **[Packet transfer mode for RGB666]**
 
-![](static/packet_transfer_mode_RGB666.png)
+<img src="static/packet_transfer_mode_RGB666.png" alt="" width="700">
 
 **[Packet transfer mode for RGB888]**
 
-![](static/packet_transfer_mode_RGB888.png)
+<img src="static/packet_transfer_mode_RGB888.png" alt="" width="700">
 
 **[Unpacked transfer mode for RGB666]**
 
-![](static/unpacked_transfer_mode_RGB666.png)
+<img src="static/unpacked_transfer_mode_RGB666.png" alt="" width="700">
 
 **[Unpacked transfer mode for RGB888]**
 
-![](static/unpacked_transfer_mode_RGB888.png)
+<img src="static/unpacked_transfer_mode_RGB888.png" alt="" width="700">
 
 ##### Features
 
@@ -1795,7 +1795,7 @@ An example of layers and their respective alpha values is depicted below, where
 - **L1**: Middle layer, alpha value **a1**
 - **L2**: Top layer, alpha value **a2**
 
-![](static/blending_function.png)
+<img src="static/blending_function.png" alt="" width="500">
 
 The following blending modes are supported:
 
@@ -1905,7 +1905,7 @@ L' = L1 + L0 × a1/256;
 
 The process of the Dither function is depicted below.
 
-![](static/Dither_function.png)
+<img src="static/Dither_function.png" alt="" width="600">
 
 The Dither function can be enabled/disabled by software.
 
@@ -1937,7 +1937,7 @@ To apply the image capture function, the following parameters should be configur
 
 The process of the image capture function is depicted below.
 
-![](static/image_capture.png)
+<img src="static/image_capture.png" alt="" width="800">
 
 ### 2.6 Audio Subsystem
 
@@ -2001,7 +2001,7 @@ All ports support Gen2 with a data transfer speed of 5GT/s per lane. However, on
 
 The architecture of the PCIe Dual-Mode port set is depicted below.
 
-![](static/PCIe_Dual-Mode_port.png)
+<img src="static/PCIe_Dual-Mode_port.png" alt="" width="700">
 
 As can be seen, there are
 
@@ -2143,7 +2143,7 @@ The architecture of the USB port set is depicted below, where
 - **USB#1 Port =** USB2.0 Host-Only Port
 - **USB#2 Port =** USB3.0 Port with a USB2.0 DRD interface
 
-![](static/USB_port.png)
+<img src="static/USB_port.png" alt="" width="700">
 
 #### Ethernet GMAC
 
@@ -2168,7 +2168,7 @@ The GMAC IP core can operate at 10 Mbps, 100 Mbps (Fast Ethernet) or 1000 Mbps (
 
 The micro-architecture of Ethernet GMAC unit is depicted below.
 
-![](static/Ethernet_GMAC.png)
+<img src="static/Ethernet_GMAC.png" alt="" width="600">
 
 #### SDIO Interface
 
@@ -2339,13 +2339,12 @@ The I2C bus interface is a peripheral device residing on the peripheral bus that
   - High-Speed Master Operation Mode: up to 3.3 Mbps (High-Speed I2C only)
 
   > **Note.** In High-Speed Master Operation Mode, I2C operational frequencies decrease due to the pull-up resistors on the bus. The SCL frequency is inversely proportional to the pull-up resistor value (1/R).
-  >
 
 ##### Block Diagram
 
 The architecture of the I2C bus interface is depicted below.
 
-![](static/I2C_bus_interface.png)
+<img src="static/I2C_bus_interface.png" alt="" width="500">
 
 #### IR-RX Interface
 
@@ -2369,7 +2368,7 @@ For detailed information about specific slave implementations, please refer to t
 
 The architecture of the One-Wire Bus Master Interface is depicted below.
 
-![](static/One-Wire_Bus_Master_Interface.png)
+<img src="static/One-Wire_Bus_Master_Interface.png" alt="" width="500">
 
 #### I2S Interface
 
@@ -2502,7 +2501,7 @@ The DMA controller can manage different data transfer types in DMA Flow-Through 
 
 The architecture of the DMA controller is depicted below.
 
-![](static/DMA_controller.png)
+<img src="static/DMA_controller.png" alt="" width="500">
 
 #### Timer
 
@@ -2549,7 +2548,7 @@ TSEN can be used by software to monitor the on-die temperature to let take all n
 
 The architecture of the Temperature Sensor Module is depicted below.
 
-![](static/Temperature_Sensor.png)
+<img src="static/Temperature_Sensor.png" alt="" width="400">
 
 #### PWM
 
@@ -2588,7 +2587,7 @@ The Mailbox is designed to deliver messages or signals between SoC and MCU subsy
 
 The architecture of the Mailbox is depicted below.
 
-![](static/Mailbox.png)
+<img src="static/Mailbox.png" alt="" width="600">
 
 #### GPI
 
@@ -2657,7 +2656,7 @@ The detailed clock tree structure is depicted below, where is highlighted how th
 
 Instead, the high-level architecture of the clock system is depicted below.
 
-![](static/clock_system.png)
+<img src="static/clock_system.png" alt="" width="600">
 
 VCXO_OUT is driven with the OSC frequency if either of the following occurs:
 
@@ -8199,7 +8198,7 @@ Most I/O pins of K1 are multi-function allowing them to be configured for one of
 
 The assigned signals are organized by their functions (e.g. power supply, clock, etc.) which are arranged in groups according to their interfaces (e.g. JTAG, SPIx, etc.) as per description in the following subsections (sorted alphabetically for user convenience).
 
-> **Note. **Definition of symbols used for signal/pin type:
+> **Note.**Definition of symbols used for signal/pin type:
 >
 > - I = Input
 > - O = Output
@@ -8398,2818 +8397,371 @@ The assigned signals are organized by their functions (e.g. power supply, clock,
 
 ##### Dedicated
 
-<table>
-<tbody>
-<tr>
-<td rowspan=1 colspan=2><strong>Signal/Pin</strong></td>
-<td rowspan=2 colspan=1><strong>Description</strong></td>
-</tr>
-<tr>
-<td><strong>Name</strong></td>
-<td><strong>Type</strong></td>
-</tr>
-<tr>
-<td>PWR_SDA</td>
-<td>I/O</td>
-<td>TWSI serial data/address signal</td>
-</tr>
-<tr>
-<td>PWR_SCL</td>
-<td>I/O</td>
-<td>TWSI serial clock line signal</td>
-</tr>
-</tbody>
-</table>
+| Signal/Pin Name      | Type | Description                     |
+|-----------|------|---------------------------------|
+| PWR_SDA   | I/O  | TWSI serial data/address signal |
+| PWR_SCL   | I/O  | TWSI serial clock line signal   |
 
 ##### Common
 
-<table>
-<tbody>
-<tr>
-<td rowspan=1 colspan=2><strong>Signal/Pin</strong></td>
-<td rowspan=2 colspan=1><strong>Description</strong></td>
-</tr>
-<tr>
-<td><strong>Name</strong></td>
-<td><strong>Type</strong></td>
-</tr>
-<tr>
-<td>I2Cx_SCL</td>
-<td>I/O,OD</td>
-<td>TWSIx clock</td>
-</tr>
-<tr>
-<td>I2Cx_SDA</td>
-<td>I/O,OD</td>
-<td>TWSIx data</td>
-</tr>
-</tbody>
-</table>
+| Signal/Pin Name       | Type   | Description |
+|------------|--------|-------------|
+| I2Cx_SCL   | I/O,OD | TWSIx clock |
+| I2Cx_SDA   | I/O,OD | TWSIx data  |
 
 #### UARTx
 
-<table>
-<tbody>
-<tr>
-<td rowspan=1 colspan=2><strong>Signal/Pin</strong></td>
-<td rowspan=2 colspan=1><strong>Description</strong></td>
-</tr>
-<tr>
-<td><strong>Name</strong></td>
-<td><strong>Type</strong></td>
-</tr>
-<tr>
-<td>UARTx_CTSn</td>
-<td>I</td>
-<td>UARTx clear-to-send</td>
-</tr>
-<tr>
-<td>UARTx_RTSn</td>
-<td>O</td>
-<td>UARTx request-to-send</td>
-</tr>
-<tr>
-<td>UARTx_RXD</td>
-<td>I</td>
-<td>UARTx receive data</td>
-</tr>
-<tr>
-<td>UARTx_TXD</td>
-<td>O</td>
-<td>UARTx transmit data</td>
-</tr>
-</tbody>
-</table>
+| Signal/Pin Name          | Type | Description           |
+|---------------|------|-----------------------|
+| UARTx_CTSn    | I    | UARTx clear-to-send   |
+| UARTx_RTSn    | O    | UARTx request-to-send |
+| UARTx_RXD     | I    | UARTx receive data    |
+| UARTx_TXD     | O    | UARTx transmit data   |
 
 #### USB
 
-<table>
-<tbody>
-<tr>
-<td rowspan=1 colspan=2><strong>Signal/Pin</strong></td>
-<td rowspan=2 colspan=1><strong>Description</strong></td>
-</tr>
-<tr>
-<td><strong>Name</strong></td>
-<td><strong>Type</strong></td>
-</tr>
-<tr>
-<td>USBx_N</td>
-<td>I/O</td>
-<td rowspan=2 colspan=1>USB D±</td>
-</tr>
-<tr>
-<td>USBx_P</td>
-<td>I/O</td>
-</tr>
-<tr>
-<td>VBUS_ON</td>
-<td>I</td>
-<td>USB VBUS present indicator</td>
-</tr>
-</tbody>
-</table>
+| Signal/Pin Name | Type | Description           |
+|------------|------|-----------------------|
+| USBx_N     | I/O  | USB D±                |
+| USBx_P     | I/O  | USB D±                |
+| VBUS_ON    | I    | USB VBUS present indicator |
 
 ### 4.5 Multi-Function I/O Pin Assignments
 
 All functions that are assigned to a pin as its primary functions are tabled below.
 
-<table>
-<tbody>
-<tr>
-<td><strong>Group</strong></td>
-<td><strong>Pad Name</strong></td>
-<td><strong>Default Pulling</strong></td>
-<td><strong>Pad Edge Detected</strong></td>
-<td><strong>Function 0</strong></td>
-<td><strong>Function 1</strong></td>
-<td><strong>Function 2</strong></td>
-<td><strong>Function 3</strong></td>
-<td><strong>Function 4</strong></td>
-<td><strong>Function 5</strong></td>
-<td><strong>Function 6</strong></td>
-</tr>
-<tr>
-<td rowspan=6 colspan=1>QSPI</td>
-<td>QSPI_DAT3</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>QSPI_DAT[3]/strap[3]</td>
-<td>GPIO[98]</td>
-<td> <br/></td>
-<td>UART1_TXD &lt;secure domain&gt;</td>
-<td> <br/></td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>QSPI_DAT2</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>QSPI_DAT[2]/strap[2]</td>
-<td>GPIO[99]<br/></td>
-<td> <br/></td>
-<td>UART1_RXD &lt;secure domain&gt;</td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>QSPI_DAT1</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>QSPI_DAT[1]/strap[1]</td>
-<td>GPIO[100]</td>
-<td> </td>
-<td>UART1_CTS &lt;secure domain&gt;</td>
-<td>UART4_TXD</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>QSPI_DAT0</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>QSPI_DAT[0]/strap[0]</td>
-<td>GPIO[101]</td>
-<td> </td>
-<td>UART1_RTS &lt;secure domain&gt;</td>
-<td>UART4_RXD</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>QSPI_CLK</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>QSPI_CLK</td>
-<td>GPIO[102]</td>
-<td> </td>
-<td>UART5_TXD</td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>QSPI_CS1</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>QSPI_CS1</td>
-<td>GPIO[103]</td>
-<td> </td>
-<td>UART5_RXD</td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td rowspan=6 colspan=1>SD/MMC<br/></td>
-<td>MMC1_DAT3</td>
-<td>UP<br/></td>
-<td>ENABLE</td>
-<td>MMC1_DAT[3]</td>
-<td>R_I2S2_SCLK</td>
-<td>SEC2_TMS</td>
-<td>UART0_TXD</td>
-<td>GPIO[104]</td>
-<td>PWM0</td>
-<td> </td>
-</tr>
-<tr>
-<td>MMC1_DAT2</td>
-<td>UP<br/></td>
-<td>ENABLE</td>
-<td>MMC1_DAT[2]<br/></td>
-<td>R_I2S2_LRCK</td>
-<td>SEC2_TDI</td>
-<td>UART0_RXD</td>
-<td>GPIO[105]</td>
-<td>PWM1</td>
-<td> </td>
-</tr>
-<tr>
-<td>MMC1_DAT1</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>MMC1_DAT[1]</td>
-<td>R_I2S2_TXD</td>
-<td>SEC2_TDO</td>
-<td> </td>
-<td>GPIO[106]</td>
-<td>PWM2</td>
-<td> </td>
-</tr>
-<tr>
-<td>MMC1_DAT0</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>MMC1_DAT[0]</td>
-<td>R_I2S2_RXD</td>
-<td>SEC2_TRSTn</td>
-<td> </td>
-<td>GPIO[107]</td>
-<td>PWM3</td>
-<td> </td>
-</tr>
-<tr>
-<td>MMC1_CMD</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>MMC1_CMD</td>
-<td>UART0_TXD</td>
-<td>CPU_SEL</td>
-<td>R_UART0_TXD</td>
-<td>GPIO[108]</td>
-<td>PWM4</td>
-<td> </td>
-</tr>
-<tr>
-<td>MMC1_CLK</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>MMC1_CLK</td>
-<td>R_I2S2_SYSCLK</td>
-<td>SEC2_TCK</td>
-<td> </td>
-<td>GPIO[109]</td>
-<td>PWM5</td>
-<td> </td>
-</tr>
-<tr>
-<td rowspan=21 colspan=1>PMIC</td>
-<td>RESET_IN_N</td>
-<td>UP</td>
-<td>NO</td>
-<td>RESET_IN_N</td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>EXT_32K_IN</td>
-<td>DOWN</td>
-<td>NO</td>
-<td>EXT_32K_IN</td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>PWR_SCL</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>PWR_SCL</td>
-<td>GPIO[93]</td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>PWR_SDA</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>PWR_SDA</td>
-<td>GPIO[94]</td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>SLEEP_OUT</td>
-<td>NO</td>
-<td>ENABLE</td>
-<td>SLEEP_OUT</td>
-<td>GPIO[95]</td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>DVL0</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>DVL0</td>
-<td>GPIO[96]</td>
-<td> </td>
-<td>VCXO_REQ</td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>DVL1</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>DVL1</td>
-<td>GPIO[97]</td>
-<td>IR_RX</td>
-<td>VCXO_OUT</td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>PMIC_INT_N</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>PMIC_INT_N</td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[81]</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>GPIO[81]</td>
-<td>R_I2S3_SCLK</td>
-<td>UART3_TXD</td>
-<td>UART4_CTS_N</td>
-<td>MN_CLK</td>
-<td>AP_I2C5_SCL</td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[82]</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>GPIO[82]</td>
-<td>R_I2S3_LRCK</td>
-<td>UART3_RXD</td>
-<td>UART4_RTS_N</td>
-<td>UART8_TXD</td>
-<td>AP_I2C5_SDA</td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[83]</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>GPIO[83]</td>
-<td>R_I2S3_TXD</td>
-<td>UART3_CTS_N</td>
-<td>UART4_TXD</td>
-<td>UART8_RXD</td>
-<td>AP_I2C6_SCL</td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[84]</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>GPIO[84]</td>
-<td>R_I2S3_RXD</td>
-<td>UART3_RTS_N</td>
-<td>UART4_RXD</td>
-<td>AP_I2C2_SCL</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[85]</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>GPIO[85]</td>
-<td>R_I2S3_SYSCLK</td>
-<td>UART6_CTS_N</td>
-<td>MN_CLK2</td>
-<td>AP_I2C2_SDA</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[86]</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>GPIO[86]</td>
-<td>HDMI_TX_HSCL</td>
-<td>UART6_TXD</td>
-<td>DCLK &lt;SPI_LCD&gt;</td>
-<td>UART7_CTS_N</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[87]</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>GPIO[87]</td>
-<td>HDMI_TX_HSDA</td>
-<td>UART6_RXD</td>
-<td>DCX/DOUT1 &lt;SPI_LCD&gt;</td>
-<td>UART7_RTS_N</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[88]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[88]</td>
-<td>HDMI_TX_HCEC</td>
-<td>UART7_TXD</td>
-<td>DIN &lt;SPI_LCD&gt;</td>
-<td>PWM6</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[89]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[89]</td>
-<td>HDMI_TX_PDP</td>
-<td>UART7_RXD</td>
-<td>DOUT0 &lt;SPI_LCD&gt;</td>
-<td>VCXO_REQ</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[90]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[90]/strap[4]</td>
-<td> </td>
-<td>UART6_RTS_N</td>
-<td>CS&lt;SPI_LCD&gt;</td>
-<td>VCXO_OUT</td>
-<td>AP_I2C6_SDA</td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[91]</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>GPIO[91]</td>
-<td>MN_CLK2</td>
-<td>VCXO_OUT</td>
-<td>DSI_TE</td>
-<td>R_I2C0_SCL</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[92]</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>GPIO[92]</td>
-<td>MN_CLK</td>
-<td>PWM7</td>
-<td> </td>
-<td>R_I2C0_SDA</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>JTAG_SEL</td>
-<td>DOWN</td>
-<td>NO</td>
-<td>JTAG_SEL</td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td rowspan=61 colspan=1>GPIO 1</td>
-<td>GPIO[0]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[0]</td>
-<td>GMAC0_RXDV</td>
-<td>UART6_TXD</td>
-<td>PWM8</td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[1]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[1]</td>
-<td>GMAC0_RX_D0</td>
-<td>UART6_RXD</td>
-<td>PWM9</td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[2]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[2]</td>
-<td>GMAC0_RX_D1</td>
-<td>UART6_CTS_N</td>
-<td>PWM10</td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[3]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[3]</td>
-<td>GMAC0_RX_CLK</td>
-<td>UART6_RTS_N</td>
-<td>PWM11</td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[4]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[4]</td>
-<td>GMAC0_RX_D2</td>
-<td>UART7_TXD</td>
-<td>PWM12</td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[5]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[5]</td>
-<td>GMAC0_RX_D3</td>
-<td>UART7_RXD</td>
-<td>PWM13</td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[6]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[6]</td>
-<td>GMAC0_TX_D0</td>
-<td>UART7_CTS_N</td>
-<td>PWM14</td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[7]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[7]</td>
-<td>GMAC0_TX_D1</td>
-<td>UART7_RTS_N</td>
-<td>PWM15</td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[8]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[8]</td>
-<td>GMAC0_TX</td>
-<td>UART8_TXD</td>
-<td><del> </del></td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[9]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[9]</td>
-<td>GMAC0_TX_D2</td>
-<td>UART8_RXD</td>
-<td>PWM16</td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[10]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[10]</td>
-<td>GMAC0_TX_D3</td>
-<td>UART8_CTS_N</td>
-<td>PWM17</td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[11]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[11]</td>
-<td>GMAC0_TX_EN</td>
-<td>UART8_RTS_N</td>
-<td>PWM18</td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[12]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[12]</td>
-<td>GMAC0_MDC</td>
-<td>UART9_TXD</td>
-<td>VCXO_OUT</td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[13]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[13]</td>
-<td>GMAC0_MDIO</td>
-<td>UART9_RXD</td>
-<td>PWM19</td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[14]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[14]</td>
-<td>GMAC0_INT_N</td>
-<td> </td>
-<td>PWM0</td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[15]</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>GPIO[15]</td>
-<td>MMC2_DATA3</td>
-<td>PCIe0_PERSTN</td>
-<td> </td>
-<td>PCIe1_PERSTN</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[16]</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>GPIO[16]</td>
-<td>MMC2_DATA2</td>
-<td>PCIe0_WAKEN</td>
-<td>VCXO_REQ</td>
-<td>PCIe1_WAKEN</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[17]</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>GPIO[17]</td>
-<td>MMC2_DATA1</td>
-<td>PCIe0_CLKREQN</td>
-<td>VCXO_OUT</td>
-<td>PCIe1_CLKREQN</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[18]</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>GPIO[18]</td>
-<td>MMC2_DATA0</td>
-<td>UART3_TXD</td>
-<td> </td>
-<td>PCIe2_PERSTN</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[19]</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>GPIO[19]</td>
-<td>MMC2_CMD</td>
-<td>UART3_RXD</td>
-<td> </td>
-<td>PCIe2_WAKEN</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[20]</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>GPIO[20]</td>
-<td>MMC2_CLK</td>
-<td>UART3_CTS_N</td>
-<td>MN_CLK</td>
-<td>PCIe2_CLKREQN</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[21]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[21]</td>
-<td>UART2_TXD</td>
-<td>UART3_RTS_N</td>
-<td>32K_OUT</td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[22]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[22]</td>
-<td>UART2_RXD</td>
-<td>PWM2</td>
-<td> </td>
-<td>PWM0</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[23]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[23]</td>
-<td>UART2_CTS_N</td>
-<td>UART4_TXD</td>
-<td>MN_CLK</td>
-<td>PWM1</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[24]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[24]</td>
-<td>UART2_RTS_N</td>
-<td>UART4_RXD</td>
-<td>I2S1_SYSCLK</td>
-<td>PWM2</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[25]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[25]</td>
-<td>I2S1_SCLK</td>
-<td>UART5_TXD</td>
-<td> </td>
-<td>PWM3</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[26]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[26]</td>
-<td>I2S1_LRCK</td>
-<td>UART5_RXD</td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[27]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[27]</td>
-<td>I2S1_TXD</td>
-<td>UART5_CTS_N</td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[28]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[28]</td>
-<td>I2S1_RXD</td>
-<td>UART5_RTS_N</td>
-<td> </td>
-<td>32K_OUT</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[29]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[29]</td>
-<td>GMAC1_RXDV</td>
-<td>UART1_TXD &lt;secure domain&gt;</td>
-<td>PWM1</td>
-<td>PCIe0_PERSTN</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[30]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[30]</td>
-<td>GMAC1_RX_D0</td>
-<td>UART1_RXD &lt;secure domain&gt;</td>
-<td>PWM2</td>
-<td>PCIe0_WAKEN</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[31]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[31]</td>
-<td>GMAC1_RX_D1</td>
-<td>UART1_CTS_N &lt;secure domain&gt;</td>
-<td>32K_OUT</td>
-<td>PCIe0_CLKREQN</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[32]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[32]</td>
-<td>GMAC1_RX_CLK</td>
-<td>UART1_RTS_N &lt;secure domain&gt;</td>
-<td>MN_CLK</td>
-<td>PCIe1_PERSTN</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[33]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[33]</td>
-<td>GMAC1_RX_D2</td>
-<td>UART4_TXD</td>
-<td>PWM3</td>
-<td>PCIe1_WAKEN</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[34]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[34]</td>
-<td>GMAC1_RX_D3</td>
-<td>UART4_RXD</td>
-<td>PWM4</td>
-<td>PCIe1_CLKREQN</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[35]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[35]</td>
-<td>GMAC1_TX_D0</td>
-<td>UART4_CTS_N</td>
-<td>PWM5</td>
-<td>PCIe2_PERSTN</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[36]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[36]</td>
-<td>GMAC1_TX_D1</td>
-<td>UART4_RTS_N</td>
-<td>PWM6</td>
-<td>PCIe2_WAKEN</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[37]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[37]</td>
-<td>GMAC1_TX</td>
-<td>PWM7</td>
-<td><del> </del></td>
-<td>PCIe2_CLKREQN</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[38]</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>GPIO[38]</td>
-<td>GMAC1_TX_D2</td>
-<td>AP_I2C3_SCL &lt;secure domain&gt;</td>
-<td>R_I2S3_SCLK</td>
-<td>PWM8</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[39]</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>GPIO[39]</td>
-<td>GMAC1_TX_D3</td>
-<td>AP_I2C3_SDA &lt;secure domain&gt;</td>
-<td>R_I2S3_LRCK</td>
-<td>PWM9</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[40]</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>GPIO[40]</td>
-<td>GMAC1_TX_EN</td>
-<td>AP_I2C4_SCL</td>
-<td>R_I2S3_TXD</td>
-<td>PWM10</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[41]</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>GPIO[41]</td>
-<td>GMAC1_MDC</td>
-<td>AP_I2C4_SDA</td>
-<td>R_I2S3_RXD</td>
-<td>PWM11</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[42]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[42]</td>
-<td>GMAC1_MDIO</td>
-<td>UART5_TXD</td>
-<td>R_I2S3_SYSCLK</td>
-<td>PWM12</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[43]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[43]</td>
-<td>GMAC1_INT_N</td>
-<td>UART5_RXD</td>
-<td> </td>
-<td>PWM13</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[44]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[44]</td>
-<td>MN_CLK</td>
-<td>UART5_CTS_N</td>
-<td>R_IR_RX</td>
-<td>PWM14</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[45]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[45]</td>
-<td>GMAC0_CLK_REF</td>
-<td>UART5_RTS_N</td>
-<td> </td>
-<td>PWM15</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[46]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[46]</td>
-<td>GMAC1_CLK_REF</td>
-<td> </td>
-<td> </td>
-<td>PWM16</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[110]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[110]</td>
-<td>R_CAN_TX0</td>
-<td>R_UART1_TXD</td>
-<td>UART9_CTS_N</td>
-<td>PCIe0_PERSTN</td>
-<td>ONE_WIRE</td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[115]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[115]</td>
-<td>R_CAN_RX0</td>
-<td>R_UART1_RXD</td>
-<td>UART9_RTS_N</td>
-<td>PCIe0_WAKEN</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[116]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[116]</td>
-<td>R_PWM1</td>
-<td>R_UART1_CTS_N</td>
-<td>UART9_TXD</td>
-<td>PCIe0_CLKREQN</td>
-<td>VCXO_REQ[1]</td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[117]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[117]</td>
-<td>R_PWM2</td>
-<td>R_UART1_RTS_N</td>
-<td>UART9_RXD</td>
-<td>PCIe2_CLKREQN</td>
-<td>VCXO_CLK_OUT</td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[118]</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>GPIO[118]</td>
-<td>AP_I2C7_SCL (CAM)</td>
-<td>AP_I2C6_SCL</td>
-<td>I2S0_SCLK</td>
-<td>R_PWM8</td>
-<td>KP_MKIN[0]</td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[119]</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>GPIO[119]</td>
-<td>AP_I2C7_SDA (CAM)</td>
-<td>AP_I2C6_SDA</td>
-<td>I2S0_LRCK</td>
-<td>R_PWM9</td>
-<td>KP_MKOUT[0]</td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[120]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[120]</td>
-<td>CAM_MCLK2</td>
-<td> </td>
-<td>I2S0_TXD</td>
-<td>R_PWM6</td>
-<td>KP_MKIN[1]</td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[121]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[121]</td>
-<td>CAMERA2_RST</td>
-<td>VBUS_ON2</td>
-<td>I2S0_RXD</td>
-<td>R_PWM7</td>
-<td>KP_MKOUT[1]</td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[122]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[122]</td>
-<td>CAMERA2_PDN</td>
-<td>USB_ID2</td>
-<td>I2S0_SYSCLK</td>
-<td> </td>
-<td>KP_MKIN[2]</td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[123]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[123]</td>
-<td>DRIVE_VBUS2_ISO</td>
-<td>KP_DKIN[0]</td>
-<td>KP_MKIN[0]</td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[124]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[124]</td>
-<td>DRIVE_VBUS1_ISO</td>
-<td>KP_DKIN[1]</td>
-<td>KP_MKOUT[0]</td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[125]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[125]</td>
-<td>VBUS_ON0</td>
-<td>KP_DKIN[2]</td>
-<td>KP_MKIN[1]</td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[126]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[126]</td>
-<td>USB_ID0</td>
-<td>KP_DKIN[3]</td>
-<td>KP_MKOUT[1]</td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[127]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[127]</td>
-<td>DRIVE_VBUS0_ISO</td>
-<td>KP_DKIN[4]</td>
-<td>KP_MKIN[2]</td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td rowspan=6 colspan=1>GPIO 2</td>
-<td>GPIO[75]</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>GPIO[75]</td>
-<td>SPI2_SCLK &lt;secure domain&gt;</td>
-<td>SPI3_SCLK</td>
-<td>CAN_TX0</td>
-<td>UART8_TXD</td>
-<td>AP_I2C4_SCL</td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[76]</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>GPIO[76]</td>
-<td>SPI2_FRM &lt;secure domain&gt;</td>
-<td>SPI3_FRM</td>
-<td>CAN_RX0</td>
-<td>UART8_RXD</td>
-<td>AP_I2C4_SDA</td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[77]</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>GPIO[77]</td>
-<td>SPI2_TXD &lt;secure domain&gt;</td>
-<td>SPI3_TXD</td>
-<td>AP_I2C3_SCL &lt;secure domain&gt;</td>
-<td>UART8_CTS_N</td>
-<td>R_PWM0</td>
-<td>KP_MKOUT[2]</td>
-</tr>
-<tr>
-<td>GPIO[78]</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>GPIO[78]</td>
-<td>SPI2_RXD &lt;secure domain&gt;</td>
-<td>SPI3_RXD</td>
-<td>AP_I2C3_SDA &lt;secure domain&gt;</td>
-<td>UART8_RTS_N</td>
-<td>R_PWM1</td>
-<td>KP_MKIN[3]</td>
-</tr>
-<tr>
-<td>GPIO[79]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[79]</td>
-<td>IR_RX</td>
-<td>R_PWM2</td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td>KP_MKOUT[3]</td>
-</tr>
-<tr>
-<td>GPIO[80]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[80]</td>
-<td>MMC_Card_detect</td>
-<td>R_PWM3</td>
-<td>UART0_RXD</td>
-<td>R_UART0_RXD</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td rowspan=6 colspan=1>GPIO 3<br/></td>
-<td>GPIO[47]</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>GPIO[47]</td>
-<td>R_UART0_TXD</td>
-<td>R_CAN_TX0</td>
-<td>R_PWM8</td>
-<td>AP_I2C3_SCL&lt;secure domain&gt;</td>
-<td>ONE_WIRE</td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[48]</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>GPIO[48]</td>
-<td>R_UART0_RXD</td>
-<td>R_CAN_RX0</td>
-<td>R_IR_RX</td>
-<td>AP_I2C3_SDA&lt;secure domain&gt;</td>
-<td>KP_MKOUT[2]</td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[49]</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>GPIO[49]</td>
-<td>R_SPI_SCLK</td>
-<td>R_UART1_CTS_N</td>
-<td>R_PWM4</td>
-<td>R_I2C0_SCL</td>
-<td>KP_MKIN[3]</td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[50]</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>GPIO[50]</td>
-<td>R_SPI_FRM</td>
-<td>R_UART1_RTS_N</td>
-<td>R_PWM5</td>
-<td>R_I2C0_SDA</td>
-<td>KP_MKOUT[3]</td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[51]</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>GPIO[51]</td>
-<td>R_SPI_TXD</td>
-<td>R_UART1_TXD</td>
-<td>R_PWM6</td>
-<td>AP_I2C4_SCL</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[52]</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>GPIO[52]</td>
-<td>R_SPI_RXD</td>
-<td>R_UART1_RXD</td>
-<td>R_PWM7</td>
-<td>AP_I2C4_SDA</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td rowspan=17 colspan=1>GPIO 4</td>
-<td>GPIO[53]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[53]</td>
-<td>CAM_MCLK0</td>
-<td>PWM17</td>
-<td>PCIe0_CLKREQN</td>
-<td>UART3_TXD</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[54]</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>GPIO[54]</td>
-<td>AP_I2C0_SCL (CAM)</td>
-<td>CAN_TX0</td>
-<td>PCIe0_PERSTN</td>
-<td>UART3_RXD</td>
-<td>AP_I2C5_SCL</td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[55]</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>GPIO[55]</td>
-<td>AP_I2C0_SDA (CAM)</td>
-<td>CAN_RX0</td>
-<td>PCIe0_WAKEN</td>
-<td>UART3_CTS_N</td>
-<td>AP_I2C5_SDA</td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[56]</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>GPIO[56]</td>
-<td>AP_I2C1_SCL (CAM)</td>
-<td>UART6_TXD</td>
-<td>PCIe1_PERSTN</td>
-<td>UART3_RTS_N</td>
-<td>AP_I2C6_SCL</td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[57]</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>GPIO[57]</td>
-<td>AP_I2C1_SDA (CAM)</td>
-<td>UART6_RXD</td>
-<td>PCIe1_WAKEN</td>
-<td>PWM18</td>
-<td>AP_I2C6_SDA</td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[58]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[58]</td>
-<td>CAM_MCLK1</td>
-<td>I2S0_SYSCLK</td>
-<td>PCIe1_CLKREQN</td>
-<td>IR_RX</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[111]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[111]</td>
-<td>CAMERA0_RST</td>
-<td>I2S0_SCLK</td>
-<td>PCIe2_PERSTN</td>
-<td>UART4_TXD</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[112]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[112]</td>
-<td>CAMERA1_RST</td>
-<td>I2S0_LRCK</td>
-<td>PCIe2_WAKEN</td>
-<td>UART4_RXD</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[113]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[113]</td>
-<td>CAMERA0_PDN</td>
-<td>I2S0_TXD</td>
-<td>PCIe2_CLKREQN</td>
-<td>UART4_CTS_N</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[114]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[114]</td>
-<td>CAMERA1_PDN</td>
-<td>I2S0_RXD</td>
-<td>DSI_TE</td>
-<td>UART4_RTS_N</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[63]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[63]</td>
-<td>DRIVE_VBUS0_ISO</td>
-<td>R_I2S2_SYSCLK</td>
-<td> </td>
-<td>PWM19</td>
-<td>KP_DKIN[0]</td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[64]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[64]</td>
-<td>VBUS_ON0</td>
-<td>R_I2S2_SCLK</td>
-<td>SPI2_SCLK &lt;secure domain&gt;</td>
-<td>R_PWM0</td>
-<td>KP_DKIN[1]</td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[65]</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>GPIO[65]</td>
-<td>USB_ID0</td>
-<td>R_I2S2_LRCK</td>
-<td>SPI2_FRM &lt;secure domain&gt;</td>
-<td>R_PWM1</td>
-<td>KP_DKIN[2]</td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[66]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[66]</td>
-<td>DRIVE_VBUS1_ISO</td>
-<td>R_I2S2_TXD</td>
-<td>SPI2_TXD  &lt;secure domain&gt;</td>
-<td>R_PWM2</td>
-<td>KP_DKIN[3]</td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[67]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[67]</td>
-<td>DRIVE_VBUS2_ISO</td>
-<td>R_I2S2_RXD</td>
-<td>SPI2_RXD &lt;secure domain&gt;</td>
-<td>R_PWM3</td>
-<td>KP_DKIN[4]</td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[68]</td>
-<td>DOWN</td>
-<td>ENABLE</td>
-<td>GPIO[68]</td>
-<td>VBUS_ON2</td>
-<td>UART0_TXD</td>
-<td>AP_I2C2_SCL</td>
-<td>R_PWM4</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[69]</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>GPIO[69]</td>
-<td>USB_ID2</td>
-<td>UART0_RXD</td>
-<td>AP_I2C2_SDA</td>
-<td>R_PWM5</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td rowspan=10 colspan=1>GPIO 5<br/></td>
-<td>GPIO[59]</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>GPIO[59]</td>
-<td>HDMI_TX_HSCL</td>
-<td>SPI3_SCLK</td>
-<td>UART1_TXD &lt;secure domain&gt;</td>
-<td>PCIe1_PERSTN</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[60]</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>GPIO[60]</td>
-<td>HDMI_TX_HSDA</td>
-<td>SPI3_FRM</td>
-<td>UART1_RXD &lt;secure domain&gt;</td>
-<td>PCIe1_WAKEN</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[61]</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>GPIO[61]</td>
-<td>HDMI_TX_HCEC</td>
-<td>SPI3_TXD</td>
-<td>UART1_CTS_N &lt;secure domain&gt;</td>
-<td>PCIe1_CLKREQN</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[62]</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>GPIO[62]</td>
-<td>HDMI_TX_PDP</td>
-<td>SPI3_RXD</td>
-<td>UART1_RTS_N &lt;secure domain&gt;</td>
-<td>PCIe2_PERSTN</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>PRI_TDI</td>
-<td>UP</td>
-<td>NO</td>
-<td>PRI_TDI</td>
-<td>GPIO[70]</td>
-<td>AP_I2C2_SCL</td>
-<td>DCLK &lt;SPI_LCD&gt;</td>
-<td>UART5_TXD</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>PRI_TMS</td>
-<td>UP</td>
-<td>NO</td>
-<td>PRI_TMS</td>
-<td>GPIO[71]</td>
-<td>AP_I2C2_SDA</td>
-<td>DCX/DOUT1 &lt;SPI_LCD&gt;</td>
-<td>UART5_RXD</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>PRI_TCK</td>
-<td>DOWN</td>
-<td>NO</td>
-<td>PRI_TCK</td>
-<td>GPIO[72]</td>
-<td>UART9_TXD</td>
-<td>DIN&lt;SPI_LCD&gt;</td>
-<td>UART5_CTS_N</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>PRI_TDO</td>
-<td>UP</td>
-<td>NO</td>
-<td>PRI_TDO</td>
-<td>GPIO[73]</td>
-<td>UART9_RXD</td>
-<td>DOUT0 &lt;SPI_LCD&gt;</td>
-<td>UART5_RTS_N</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>PRI_TRSTn</td>
-<td>UP</td>
-<td>NO</td>
-<td>PRI_TRSTn</td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO[74]</td>
-<td>UP</td>
-<td>ENABLE</td>
-<td>GPIO[74]</td>
-<td> </td>
-<td>PWM9</td>
-<td>CS&lt;SPI_LCD&gt;</td>
-<td>PCIe2_WAKEN</td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td rowspan=11 colspan=1>EMMC5.1</td>
-<td>EMMC_D0</td>
-<td> </td>
-<td> </td>
-<td>EMMC_D0</td>
-<td>GPIO[93]</td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>EMMC_D1</td>
-<td> </td>
-<td> </td>
-<td>EMMC_D1</td>
-<td>GPIO[94]</td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>EMMC_D2</td>
-<td> </td>
-<td> </td>
-<td>EMMC_D2</td>
-<td>GPIO[95]</td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>EMMC_D3</td>
-<td> </td>
-<td> </td>
-<td>EMMC_D3</td>
-<td>GPIO[96]</td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>EMMC_D4</td>
-<td> </td>
-<td> </td>
-<td>EMMC_D4</td>
-<td>GPIO[97]</td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>EMMC_D5</td>
-<td> </td>
-<td> </td>
-<td>EMMC_D5</td>
-<td>GPIO[98]</td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>EMMC_D6</td>
-<td> </td>
-<td> </td>
-<td>EMMC_D6</td>
-<td>GPIO[99]</td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>EMMC_D7</td>
-<td> </td>
-<td> </td>
-<td>EMMC_D7</td>
-<td>GPIO[100]</td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>EMMC_DS</td>
-<td> </td>
-<td> </td>
-<td>EMMC_DS</td>
-<td>GPIO[101]</td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>EMMC_CLK</td>
-<td> </td>
-<td> </td>
-<td>EMMC_CLK</td>
-<td>GPIO[102]</td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>EMMC_CMD</td>
-<td> </td>
-<td> </td>
-<td>EMMC_CMD</td>
-<td>GPIO[103]</td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-</tbody>
-</table>
+| Group     | Pad Name           | Default Pulling | Pad Edge Detected | Function 0                     | Function 1                        | Function 2                   | Function 3                    | Function 4            | Function 5        | Function 6        |
+|-----------|--------------------|------------------|--------------------|--------------------------------|-----------------------------------|------------------------------|-------------------------------|-----------------------|-------------------|-------------------|
+| **QSPI**      | QSPI_DAT3          | DOWN             | ENABLE             | QSPI_DAT[3]/strap[3]           | GPIO[98]                          |                              | UART1_TXD <secure domain>     |                       |                   |                   |
+|           | QSPI_DAT2          | DOWN             | ENABLE             | QSPI_DAT[2]/strap[2]           | GPIO[99]                          |                              | UART1_RXD <secure domain>     |                       |                   |                   |
+|           | QSPI_DAT1          | DOWN             | ENABLE             | QSPI_DAT[1]/strap[1]           | GPIO[100]                         |                              | UART1_CTS <secure domain>     | UART4_TXD             |                   |                   |
+|           | QSPI_DAT0          | DOWN             | ENABLE             | QSPI_DAT[0]/strap[0]           | GPIO[101]                         |                              | UART1_RTS <secure domain>     | UART4_RXD             |                   |                   |
+|           | QSPI_CLK           | DOWN             | ENABLE             | QSPI_CLK                       | GPIO[102]                         |                              | UART5_TXD                     |                       |                   |                   |
+|           | QSPI_CS1           | UP               | ENABLE             | QSPI_CS1                       | GPIO[103]                         |                              | UART5_RXD                     |                       |                   |                   |
+| **SD/MMC**    | MMC1_DAT3          | UP               | ENABLE             | MMC1_DAT[3]                    | R_I2S2_SCLK                       | SEC2_TMS                     | UART0_TXD                     | GPIO[104]             | PWM0              |                   |
+|           | MMC1_DAT2          | UP               | ENABLE             | MMC1_DAT[2]                    | R_I2S2_LRCK                       | SEC2_TDI                     | UART0_RXD                     | GPIO[105]             | PWM1              |                   |
+|           | MMC1_DAT1          | UP               | ENABLE             | MMC1_DAT[1]                    | R_I2S2_TXD                        | SEC2_TDO                     |                               | GPIO[106]             | PWM2              |                   |
+|           | MMC1_DAT0          | UP               | ENABLE             | MMC1_DAT[0]                    | R_I2S2_RXD                        | SEC2_TRSTn                   |                               | GPIO[107]             | PWM3              |                   |
+|           | MMC1_CMD           | UP               | ENABLE             | MMC1_CMD                       | UART0_TXD                         | CPU_SEL                      | R_UART0_TXD                   | GPIO[108]             | PWM4              |                   |
+|           | MMC1_CLK           | DOWN             | ENABLE             | MMC1_CLK                       | R_I2S2_SYSCLK                     | SEC2_TCK                     |                               | GPIO[109]             | PWM5              |                   |
+| **PMIC**      | RESET_IN_N         | UP               | NO                 | RESET_IN_N                     |                                   |                              |                               |                       |                   |                   |
+|           | EXT_32K_IN         | DOWN             | NO                 | EXT_32K_IN                     |                                   |                              |                               |                       |                   |                   |
+|           | PWR_SCL            | UP               | ENABLE             | PWR_SCL                        | GPIO[93]                          |                              |                               |                       |                   |                   |
+|           | PWR_SDA            | UP               | ENABLE             | PWR_SDA                        | GPIO[94]                          |                              |                               |                       |                   |                   |
+|           | SLEEP_OUT          | NO               | ENABLE             | SLEEP_OUT                      | GPIO[95]                          |                              |                               |                       |                   |                   |
+|           | DVL0               | DOWN             | ENABLE             | DVL0                           | GPIO[96]                          | VCXO_REQ                     |                               |                       |                   |                   |
+|           | DVL1               | DOWN             | ENABLE             | DVL1                           | GPIO[97]                          | IR_RX<br>VCXO_OUT            |                               |                       |                   |                   |
+|           | PMIC_INT_N         | UP               | ENABLE             | PMIC_INT_N                     |                                   |                              |                               |                       |                   |                   |
+|           | GPIO[81]           | UP               | ENABLE             | GPIO[81]                       | R_I2S3_SCLK                       | UART3_TXD                    | UART4_CTS_N                   | MN_CLK                | AP_I2C5_SCL       |                   |
+|           | GPIO[82]           | UP               | ENABLE             | GPIO[82]                       | R_I2S3_LRCK                       | UART3_RXD                    | UART4_RTS_N                   | UART8_TXD             | AP_I2C5_SDA       |                   |
+|           | GPIO[83]           | UP               | ENABLE             | GPIO[83]                       | R_I2S3_TXD                        | UART3_CTS_N                  | UART4_TXD                     | UART8_RXD             | AP_I2C6_SCL       |                   |
+|           | GPIO[84]           | UP               | ENABLE             | GPIO[84]                       | R_I2S3_RXD                        | UART3_RTS_N                  | UART4_RXD                     | AP_I2C2_SCL           |                   |                   |
+|           | GPIO[85]           | UP               | ENABLE             | GPIO[85]                       | R_I2S3_SYSCLK                     | UART6_CTS_N                  | MN_CLK2                       | AP_I2C2_SDA           |                   |                   |
+|           | GPIO[86]           | UP               | ENABLE             | GPIO[86]                       | HDMI_TX_HSCL                      | UART6_TXD                    | DCLK <SPI_LCD>                | UART7_CTS_N           |                   |                   |
+|           | GPIO[87]           | UP               | ENABLE             | GPIO[87]                       | HDMI_TX_HSDA                      | UART6_RXD                    | DCX/DOUT1 <SPI_LCD>           | UART7_RTS_N           |                   |                   |
+|           | GPIO[88]           | DOWN             | ENABLE             | GPIO[88]                       | HDMI_TX_HCEC                      | UART7_TXD                    | DIN <SPI_LCD>                 | PWM6                  |                   |                   |
+|           | GPIO[89]           | DOWN             | ENABLE             | GPIO[89]                       | HDMI_TX_PDP                       | UART7_RXD                    | DOUT0 <SPI_LCD>               | VCXO_REQ              |                   |                   |
+|           | GPIO[90]           | DOWN             | ENABLE             | GPIO[90]/strap[4]              |                                   | UART6_RTS_N                  | CS<SPI_LCD>                   | VCXO_OUT              | AP_I2C6_SDA       |                   |
+|           | GPIO[91]           | UP               | ENABLE             | GPIO[91]                       | MN_CLK2                           | VCXO_OUT                     | DSI_TE                        | R_I2C0_SCL            |                   |                   |
+|           | GPIO[92]           | UP               | ENABLE             | GPIO[92]                       | MN_CLK                            | PWM7                         | R_I2C0_SDA                    |                       |                   |                   |
+|           | JTAG_SEL           | DOWN             | NO                 | JTAG_SEL                       |                                   |                              |                               |                       |                   |                   |
+| **GPIO 1**    | GPIO[0]            | DOWN             | ENABLE             | GPIO[0]                        | GMAC0_RXDV                        | UART6_TXD                    | PWM8                          |                       |                   |                   |
+|           | GPIO[1]            | DOWN             | ENABLE             | GPIO[1]                        | GMAC0_RX_D0                       | UART6_RXD                    | PWM9                          |                       |                   |                   |
+|           | GPIO[2]            | DOWN             | ENABLE             | GPIO[2]                        | GMAC0_RX_D1                       | UART6_CTS_N                  | PWM10                         |                       |                   |                   |
+|           | GPIO[3]            | DOWN             | ENABLE             | GPIO[3]                        | GMAC0_RX_CLK                      | UART6_RTS_N                  | PWM11                         |                       |                   |                   |
+|           | GPIO[4]            | DOWN             | ENABLE             | GPIO[4]                        | GMAC0_RX_D2                       | UART7_TXD                    | PWM12                         |                       |                   |                   |
+|           | GPIO[5]            | DOWN             | ENABLE             | GPIO[5]                        | GMAC0_RX_D3                       | UART7_RXD                    | PWM13                         |                       |                   |                   |
+|           | GPIO[6]            | DOWN             | ENABLE             | GPIO[6]                        | GMAC0_TX_D0                       | UART7_CTS_N                  | PWM14                         |                       |                   |                   |
+|           | GPIO[7]            | DOWN             | ENABLE             | GPIO[7]                        | GMAC0_TX_D1                       | UART7_RTS_N                  | PWM15                         |                       |                   |                   |
+|           | GPIO[8]            | DOWN             | ENABLE             | GPIO[8]                        | GMAC0_TX                          | UART8_TXD                    |                               |                       |                   |                   |
+|           | GPIO[9]            | DOWN             | ENABLE             | GPIO[9]                        | GMAC0_TX_D2                       | UART8_RXD                    | PWM16                         |                       |                   |                   |
+|           | GPIO[10]           | DOWN             | ENABLE             | GPIO[10]                       | GMAC0_TX_D3                       | UART8_CTS_N                  | PWM17                         |                       |                   |                   |
+|           | GPIO[11]           | DOWN             | ENABLE             | GPIO[11]                       | GMAC0_TX_EN                       | UART8_RTS_N                  | PWM18                         |                       |                   |                   |
+|           | GPIO[12]           | DOWN             | ENABLE             | GPIO[12]                       | GMAC0_MDC                         | UART9_TXD                    | VCXO_OUT                      |                       |                   |                   |
+|           | GPIO[13]           | DOWN             | ENABLE             | GPIO[13]                       | GMAC0_MDIO                        | UART9_RXD                    | PWM19                         |                       |                   |                   |
+|           | GPIO[14]           | DOWN             | ENABLE             | GPIO[14]                       | GMAC0_INT_N                       | PWM0                         |                               |                       |                   |                   |
+|           | GPIO[15]           | UP               | ENABLE             | GPIO[15]                       | MMC2_DATA3                        | PCIe0_PERSTN                 | PCIe1_PERSTN                  |                       |                   |                   |
+|           | GPIO[16]           | UP               | ENABLE             | GPIO[16]                       | MMC2_DATA2                        | PCIe0_WAKEN<br>VCXO_REQ      | PCIe1_WAKEN                   |                       |                   |                   |
+|           | GPIO[17]           | UP               | ENABLE             | GPIO[17]                       | MMC2_DATA1                        | PCIe0_CLKREQN<br>VCXO_OUT    | PCIe1_CLKREQN                 |                       |                   |                   |
+|           | GPIO[18]           | UP               | ENABLE             | GPIO[18]                       | MMC2_DATA0                        | UART3_TXD                    | PCIe2_PERSTN                  |                       |                   |                   |
+|           | GPIO[19]           | UP               | ENABLE             | GPIO[19]                       | MMC2_CMD                          | UART3_RXD                    | PCIe2_WAKEN                   |                       |                   |                   |
+|           | GPIO[20]           | UP               | ENABLE             | GPIO[20]                       | MMC2_CLK                          | UART3_CTS_N<br>MN_CLK        | PCIe2_CLKREQN                 |                       |                   |                   |
+|           | GPIO[21]           | DOWN             | ENABLE             | GPIO[21]                       | UART2_TXD                         | UART3_RTS_N                  | 32K_OUT                       |                       |                   |                   |
+|           | GPIO[22]           | DOWN             | ENABLE             | GPIO[22]                       | UART2_RXD                         | PWM2                         | PWM0                          |                       |                   |                   |
+|           | GPIO[23]           | DOWN             | ENABLE             | GPIO[23]                       | UART2_CTS_N                       | UART4_TXD<br>MN_CLK          | PWM1                          |                       |                   |                   |
+|           | GPIO[24]           | DOWN             | ENABLE             | GPIO[24]                       | UART2_RTS_N                       | UART4_RXD<br>I2S1_SYSCLK     | PWM2                          |                       |                   |                   |
+|           | GPIO[25]           | DOWN             | ENABLE             | GPIO[25]                       | I2S1_SCLK                         | UART5_TXD                    | PWM3                          |                       |                   |                   |
+|           | GPIO[26]           | DOWN             | ENABLE             | GPIO[26]                       | I2S1_LRCK                         | UART5_RXD                    |                               |                       |                   |                   |
+|           | GPIO[27]           | DOWN             | ENABLE             | GPIO[27]                       | I2S1_TXD                          | UART5_CTS_N                  |                               |                       |                   |                   |
+|           | GPIO[28]           | DOWN             | ENABLE             | GPIO[28]                       | I2S1_RXD                          | UART5_RTS_N                  | 32K_OUT                       |                       |                   |                   |
+|           | GPIO[29]           | DOWN             | ENABLE             | GPIO[29]                       | GMAC1_RXDV                        | UART1_TXD <secure domain><br>PWM1 | PCIe0_PERSTN              |                       |                   |                   |
+|           | GPIO[30]           | DOWN             | ENABLE             | GPIO[30]                       | GMAC1_RX_D0                       | UART1_RXD <secure domain><br>PWM2 | PCIe0_WAKEN               |                       |                   |                   |
+|           | GPIO[31]           | DOWN             | ENABLE             | GPIO[31]                       | GMAC1_RX_D1                       | UART1_CTS_N <secure domain><br>32K_OUT | PCIe0_CLKREQN         |                       |                   |                   |
+|           | GPIO[32]           | DOWN             | ENABLE             | GPIO[32]                       | GMAC1_RX_CLK                      | UART1_RTS_N <secure domain><br>MN_CLK | PCIe1_PERSTN          |                       |                   |                   |
+|           | GPIO[33]           | DOWN             | ENABLE             | GPIO[33]                       | GMAC1_RX_D2                       | UART4_TXD<br>PWM3            | PCIe1_WAKEN                   |                       |                   |                   |
+|           | GPIO[34]           | DOWN             | ENABLE             | GPIO[34]                       | GMAC1_RX_D3                       | UART4_RXD<br>PWM4            | PCIe1_CLKREQN                 |                       |                   |                   |
+|           | GPIO[35]           | DOWN             | ENABLE             | GPIO[35]                       | GMAC1_TX_D0                       | UART4_CTS_N<br>PWM5          | PCIe2_PERSTN                  |                       |                   |                   |
+|           | GPIO[36]           | DOWN             | ENABLE             | GPIO[36]                       | GMAC1_TX_D1                       | UART4_RTS_N<br>PWM6          | PCIe2_WAKEN                   |                       |                   |                   |
+|           | GPIO[37]           | DOWN             | ENABLE             | GPIO[37]                       | GMAC1_TX                          | PWM7                         | PCIe2_CLKREQN                 |                       |                   |                   |
+|           | GPIO[38]           | UP               | ENABLE             | GPIO[38]                       | GMAC1_TX_D2                       | AP_I2C3_SCL <secure domain><br>R_I2S3_SCLK | PWM8              |                       |                   |                   |
+|           | GPIO[39]           | UP               | ENABLE             | GPIO[39]                       | GMAC1_TX_D3                       | AP_I2C3_SDA <secure domain><br>R_I2S3_LRCK | PWM9              |                       |                   |                   |
+|           | GPIO[40]           | UP               | ENABLE             | GPIO[40]                       | GMAC1_TX_EN                       | AP_I2C4_SCL<br>R_I2S3_TXD    | PWM10                         |                       |                   |                   |
+|           | GPIO[41]           | UP               | ENABLE             | GPIO[41]                       | GMAC1_MDC                         | AP_I2C4_SDA<br>R_I2S3_RXD    | PWM11                         |                       |                   |                   |
+|           | GPIO[42]           | DOWN             | ENABLE             | GPIO[42]                       | GMAC1_MDIO                        | UART5_TXD<br>R_I2S3_SYSCLK   | PWM12                         |                       |                   |                   |
+|           | GPIO[43]           | DOWN             | ENABLE             | GPIO[43]                       | GMAC1_INT_N                       | UART5_RXD                    | PWM13                         |                       |                   |                   |
+|           | GPIO[44]           | DOWN             | ENABLE             | GPIO[44]                       | MN_CLK                            | UART5_CTS_N<br>R_IR_RX       | PWM14                         |                       |                   |                   |
+|           | GPIO[45]           | DOWN             | ENABLE             | GPIO[45]                       | GMAC0_CLK_REF                     | UART5_RTS_N                  | PWM15                         |                       |                   |                   |
+|           | GPIO[46]           | DOWN             | ENABLE             | GPIO[46]                       | GMAC1_CLK_REF                     |                              | PWM16                         |                       |                   |                   |
+|           | GPIO[110]          | DOWN             | ENABLE             | GPIO[110]                      | R_CAN_TX0                         | R_UART1_TXD                  | UART9_CTS_N                   | PCIe0_PERSTN          | ONE_WIRE          |                   |
+|           | GPIO[115]          | DOWN             | ENABLE             | GPIO[115]                      | R_CAN_RX0                         | R_UART1_RXD                  | UART9_RTS_N                   | PCIe0_WAKEN           |                   |                   |
+|           | GPIO[116]          | DOWN             | ENABLE             | GPIO[116]                      | R_PWM1                            | R_UART1_CTS_N                | UART9_TXD                     | PCIe0_CLKREQN         | VCXO_REQ[1]       |                   |
+|           | GPIO[117]          | DOWN             | ENABLE             | GPIO[117]                      | R_PWM2                            | R_UART1_RTS_N                | UART9_RXD                     | PCIe2_CLKREQN         | VCXO_CLK_OUT      |                   |
+|           | GPIO[118]          | UP               | ENABLE             | GPIO[118]                      | AP_I2C7_SCL (CAM)                 | AP_I2C6_SCL                  | I2S0_SCLK                     | R_PWM8                | KP_MKIN[0]        |                   |
+|           | GPIO[119]          | UP               | ENABLE             | GPIO[119]                      | AP_I2C7_SDA (CAM)                 | AP_I2C6_SDA                  | I2S0_LRCK                     | R_PWM9                | KP_MKOUT[0]       |                   |
+|           | GPIO[120]          | DOWN             | ENABLE             | GPIO[120]                      | CAM_MCLK2                         | I2S0_TXD                     | R_PWM6                        | KP_MKIN[1]            |                   |                   |
+|           | GPIO[121]          | DOWN             | ENABLE             | GPIO[121]                      | CAMERA2_RST                       | VBUS_ON2                     | I2S0_RXD                      | R_PWM7                | KP_MKOUT[1]       |                   |
+|           | GPIO[122]          | DOWN             | ENABLE             | GPIO[122]                      | CAMERA2_PDN                       | USB_ID2                      | I2S0_SYSCLK                   | KP_MKIN[2]            |                   |                   |
+|           | GPIO[123]          | DOWN             | ENABLE             | GPIO[123]                      | DRIVE_VBUS2_ISO                   | KP_DKIN[0]                   | KP_MKIN[0]                    |                       |                   |                   |
+|           | GPIO[124]          | DOWN             | ENABLE             | GPIO[124]                      | DRIVE_VBUS1_ISO                   | KP_DKIN[1]                   | KP_MKOUT[0]                   |                       |                   |                   |
+|           | GPIO[125]          | DOWN             | ENABLE             | GPIO[125]                      | VBUS_ON0                          | KP_DKIN[2]                   | KP_MKIN[1]                    |                       |                   |                   |
+|           | GPIO[126]          | DOWN             | ENABLE             | GPIO[126]                      | USB_ID0                           | KP_DKIN[3]                   | KP_MKOUT[1]                   |                       |                   |                   |
+|           | GPIO[127]          | DOWN             | ENABLE             | GPIO[127]                      | DRIVE_VBUS0_ISO                   | KP_DKIN[4]                   | KP_MKIN[2]                    |                       |                   |                   |
+| **GPIO 2**    | GPIO[75]           | UP               | ENABLE             | GPIO[75]                       | SPI2_SCLK <secure domain>         | SPI3_SCLK                    | CAN_TX0                       | UART8_TXD             | AP_I2C4_SCL       |                   |
+|           | GPIO[76]           | UP               | ENABLE             | GPIO[76]                       | SPI2_FRM <secure domain>          | SPI3_FRM                     | CAN_RX0                       | UART8_RXD             | AP_I2C4_SDA       |                   |
+|           | GPIO[77]           | UP               | ENABLE             | GPIO[77]                       | SPI2_TXD <secure domain>          | SPI3_TXD                     | AP_I2C3_SCL <secure domain>   | UART8_CTS_N           | R_PWM0            | KP_MKOUT[2]       |
+|           | GPIO[78]           | UP               | ENABLE             | GPIO[78]                       | SPI2_RXD <secure domain>          | SPI3_RXD                     | AP_I2C3_SDA <secure domain>   | UART8_RTS_N           | R_PWM1            | KP_MKIN[3]        |
+|           | GPIO[79]           | DOWN             | ENABLE             | GPIO[79]                       | IR_RX                             | R_PWM2                       |                               |                       |                   | KP_MKOUT[3]       |
+|           | GPIO[80]           | DOWN             | ENABLE             | GPIO[80]                       | MMC_Card_detect                   | R_PWM3                       | UART0_RXD<br>R_UART0_RXD      |                       |                   |                   |
+| **GPIO 3**    | GPIO[47]           | UP               | ENABLE             | GPIO[47]                       | R_UART0_TXD                       | R_CAN_TX0                    | R_PWM8                        | AP_I2C3_SCL<secure domain> | ONE_WIRE          |                   |
+|           | GPIO[48]           | UP               | ENABLE             | GPIO[48]                       | R_UART0_RXD                       | R_CAN_RX0                    | R_IR_RX                       | AP_I2C3_SDA<secure domain> | KP_MKOUT[2]       |                   |
+|           | GPIO[49]           | UP               | ENABLE             | GPIO[49]                       | R_SPI_SCLK                        | R_UART1_CTS_N                | R_PWM4                        | R_I2C0_SCL            | KP_MKIN[3]        |                   |
+|           | GPIO[50]           | UP               | ENABLE             | GPIO[50]                       | R_SPI_FRM                         | R_UART1_RTS_N                | R_PWM5                        | R_I2C0_SDA            | KP_MKOUT[3]       |                   |
+|           | GPIO[51]           | UP               | ENABLE             | GPIO[51]                       | R_SPI_TXD                         | R_UART1_TXD                  | R_PWM6                        | AP_I2C4_SCL           |                   |                   |
+|           | GPIO[52]           | UP               | ENABLE             | GPIO[52]                       | R_SPI_RXD                         | R_UART1_RXD                  | R_PWM7                        | AP_I2C4_SDA           |                   |                   |
+| **GPIO 4**    | GPIO[53]           | DOWN             | ENABLE             | GPIO[53]                       | CAM_MCLK0                         | PWM17                        | PCIe0_CLKREQN                 | UART3_TXD             |                   |                   |
+|           | GPIO[54]           | UP               | ENABLE             | GPIO[54]                       | AP_I2C0_SCL (CAM)                 | CAN_TX0                      | PCIe0_PERSTN                  | UART3_RXD             | AP_I2C5_SCL       |                   |
+|           | GPIO[55]           | UP               | ENABLE             | GPIO[55]                       | AP_I2C0_SDA (CAM)                 | CAN_RX0                      | PCIe0_WAKEN                   | UART3_CTS_N           | AP_I2C5_SDA       |                   |
+|           | GPIO[56]           | UP               | ENABLE             | GPIO[56]                       | AP_I2C1_SCL (CAM)                 | UART6_TXD                    | PCIe1_PERSTN                  | UART3_RTS_N           | AP_I2C6_SCL       |                   |
+|           | GPIO[57]           | UP               | ENABLE             | GPIO[57]                       | AP_I2C1_SDA (CAM)                 | UART6_RXD                    | PCIe1_WAKEN                   | PWM18                 | AP_I2C6_SDA       |                   |
+|           | GPIO[58]           | DOWN             | ENABLE             | GPIO[58]                       | CAM_MCLK1                         | I2S0_SYSCLK                  | PCIe1_CLKREQN                 | IR_RX                 |                   |                   |
+|           | GPIO[111]          | DOWN             | ENABLE             | GPIO[111]                      | CAMERA0_RST                       | I2S0_SCLK                    | PCIe2_PERSTN                  | UART4_TXD             |                   |                   |
+|           | GPIO[112]          | DOWN             | ENABLE             | GPIO[112]                      | CAMERA1_RST                       | I2S0_LRCK                    | PCIe2_WAKEN                   | UART4_RXD             |                   |                   |
+|           | GPIO[113]          | DOWN             | ENABLE             | GPIO[113]                      | CAMERA0_PDN                       | I2S0_TXD                     | PCIe2_CLKREQN                 | UART4_CTS_N           |                   |                   |
+|           | GPIO[114]          | DOWN             | ENABLE             | GPIO[114]                      | CAMERA1_PDN                       | I2S0_RXD                     | DSI_TE                        | UART4_RTS_N           |                   |                   |
+|           | GPIO[63]           | DOWN             | ENABLE             | GPIO[63]                       | DRIVE_VBUS0_ISO                   | R_I2S2_SYSCLK                | PWM19                         | KP_DKIN[0]            |                   |                   |
+|           | GPIO[64]           | DOWN             | ENABLE             | GPIO[64]                       | VBUS_ON0                          | R_I2S2_SCLK                  | SPI2_SCLK <secure domain>     | R_PWM0                | KP_DKIN[1]        |                   |
+|           | GPIO[65]           | UP               | ENABLE             | GPIO[65]                       | USB_ID0                           | R_I2S2_LRCK                  | SPI2_FRM <secure domain>      | R_PWM1                | KP_DKIN[2]        |                   |
+|           | GPIO[66]           | DOWN             | ENABLE             | GPIO[66]                       | DRIVE_VBUS1_ISO                   | R_I2S2_TXD                   | SPI2_TXD <secure domain>      | R_PWM2                | KP_DKIN[3]        |                   |
+|           | GPIO[67]           | DOWN             | ENABLE             | GPIO[67]                       | DRIVE_VBUS2_ISO                   | R_I2S2_RXD                   | SPI2_RXD <secure domain>      | R_PWM3                | KP_DKIN[4]        |                   |
+|           | GPIO[68]           | DOWN             | ENABLE             | GPIO[68]                       | VBUS_ON2                          | UART0_TXD                    | AP_I2C2_SCL                   | R_PWM4                |                   |                   |
+|           | GPIO[69]           | UP               | ENABLE             | GPIO[69]                       | USB_ID2                           | UART0_RXD                    | AP_I2C2_SDA                   | R_PWM5                |                   |                   |
+| **GPIO 5**    | GPIO[59]           | UP               | ENABLE             | GPIO[59]                       | HDMI_TX_HSCL                      | SPI3_SCLK                    | UART1_TXD <secure domain>     | PCIe1_PERSTN          |                   |                   |
+|           | GPIO[60]           | UP               | ENABLE             | GPIO[60]                       | HDMI_TX_HSDA                      | SPI3_FRM                     | UART1_RXD <secure domain>     | PCIe1_WAKEN           |                   |                   |
+|           | GPIO[61]           | UP               | ENABLE             | GPIO[61]                       | HDMI_TX_HCEC                      | SPI3_TXD                     | UART1_CTS_N <secure domain>   | PCIe1_CLKREQN         |                   |                   |
+|           | GPIO[62]           | UP               | ENABLE             | GPIO[62]                       | HDMI_TX_PDP                       | SPI3_RXD                     | UART1_RTS_N <secure domain>   | PCIe2_PERSTN          |                   |                   |
+|           | PRI_TDI            | UP               | NO                 | PRI_TDI                        | GPIO[70]                          | AP_I2C2_SCL                  | DCLK <SPI_LCD>                | UART5_TXD             |                   |                   |
+|           | PRI_TMS            | UP               | NO                 | PRI_TMS                        | GPIO[71]                          | AP_I2C2_SDA                  | DCX/DOUT1 <SPI_LCD>           | UART5_RXD             |                   |                   |
+|           | PRI_TCK            | DOWN             | NO                 | PRI_TCK                        | GPIO[72]                          | UART9_TXD                    | DIN<SPI_LCD>                  | UART5_CTS_N           |                   |                   |
+|           | PRI_TDO            | UP               | NO                 | PRI_TDO                        | GPIO[73]                          | UART9_RXD                    | DOUT0 <SPI_LCD>               | UART5_RTS_N           |                   |                   |
+|           | PRI_TRSTn          | UP               | NO                 | PRI_TRSTn                      |                                   |                              |                               |                       |                   |                   |
+|           | GPIO[74]           | UP               | ENABLE             | GPIO[74]                       |                                   | PWM9                         | CS<SPI_LCD>                   | PCIe2_WAKEN           |                   |                   |
+| **EMMC5.1**   | EMMC_D0            |                  |                    | EMMC_D0                        | GPIO[93]                          |                              |                               |                       |                   |                   |
+|           | EMMC_D1            |                  |                    | EMMC_D1                        | GPIO[94]                          |                              |                               |                       |                   |                   |
+|           | EMMC_D2            |                  |                    | EMMC_D2                        | GPIO[95]                          |                              |                               |                       |                   |                   |
+|           | EMMC_D3            |                  |                    | EMMC_D3                        | GPIO[96]                          |                              |                               |                       |                   |                   |
+|           | EMMC_D4            |                  |                    | EMMC_D4                        | GPIO[97]                          |                              |                               |                       |                   |                   |
+|           | EMMC_D5            |                  |                    | EMMC_D5                        | GPIO[98]                          |                              |                               |                       |                   |                   |
+|           | EMMC_D6            |                  |                    | EMMC_D6                        | GPIO[99]                          |                              |                               |                       |                   |                   |
+|           | EMMC_D7            |                  |                    | EMMC_D7                        | GPIO[100]                         |                              |                               |                       |                   |                   |
+|           | EMMC_DS            |                  |                    | EMMC_DS                        | GPIO[101]                         |                              |                               |                       |                   |                   |
+|           | EMMC_CLK           |                  |                    | EMMC_CLK                       | GPIO[102]                         |                              |                               |                       |                   |                   |
+|           | EMMC_CMD           |                  |                    | EMMC_CMD                       | GPIO[103]                         |                              |                               |                       |                   |                   |
 
 ### 4.6 Power Supply Pins
 
-<table>
-<tbody>
-<tr>
-<td><strong>Pin Name</strong></td>
-<td><strong>Domain Name</strong></td>
-<td><strong>Domain Voltage</strong></td>
-<td><strong>Description</strong></td>
-</tr>
-<tr>
-<td>AUD_VDDU09</td>
-<td>AUDIO</td>
-<td>0.9V</td>
-<td>0.9V power for audio</td>
-</tr>
-<tr>
-<td>AUD_VNEG</td>
-<td>AUDIO</td>
-<td>-1.8V</td>
-<td>Negative voltage for headphone driver</td>
-</tr>
-<tr>
-<td>AUD_VPOS</td>
-<td>AUDIO</td>
-<td>1.8V</td>
-<td>Positive voltage for headphone driver</td>
-</tr>
-<tr>
-<td>AVDD18_AUD</td>
-<td>AUDIO</td>
-<td>1.8V</td>
-<td>1.8V power for audio</td>
-</tr>
-<tr>
-<td>AVDD3V3_AUD</td>
-<td>AUDIO</td>
-<td>3.3V</td>
-<td>3.3V power for earphone driver</td>
-</tr>
-<tr>
-<td>VCC_M1</td>
-<td>CORE</td>
-<td>0.9V</td>
-<td>Digital core power</td>
-</tr>
-<tr>
-<td>AVDD09_CSI</td>
-<td>CSI</td>
-<td>0.9V</td>
-<td>MIPI_CSI digital power</td>
-</tr>
-<tr>
-<td>AVDD18_CSI</td>
-<td>CSI</td>
-<td>1.8V</td>
-<td>MIPI_CSI analog power</td>
-</tr>
-<tr>
-<td>AVDD09_AFEAP</td>
-<td>DCXO</td>
-<td>0.9V</td>
-<td>0.9V power for DCXO</td>
-</tr>
-<tr>
-<td>AVDD18_AFEAP</td>
-<td>DCXO</td>
-<td>1.8V</td>
-<td>1.8V power for DCXO</td>
-</tr>
-<tr>
-<td>AVDD06_DDR</td>
-<td>DDR</td>
-<td>lp4x: 0.6V<br/>lp4: TBD<br/>lp3: TBD</td>
-<td>LPDDR4X IO power</td>
-</tr>
-<tr>
-<td>AVDD11_DDR</td>
-<td>DDR</td>
-<td>lp4x:1.1V <br/>lp4:1.1V<br/>lp3: 1.2V</td>
-<td>LPDDR PHY power supply</td>
-</tr>
-<tr>
-<td>AVDD18_DDR</td>
-<td>DDR</td>
-<td>1.8V</td>
-<td>LPDDR PHY PLL 1.8V power</td>
-</tr>
-<tr>
-<td>AVDD18_PHY</td>
-<td>DDR</td>
-<td>1.8V</td>
-<td>Analog 1.8V power</td>
-</tr>
-<tr>
-<td>AVDDU_DDR</td>
-<td>DDR</td>
-<td>0.9V</td>
-<td>LPDDR PHY PLL logical power</td>
-</tr>
-<tr>
-<td>AVDDU_PHY</td>
-<td>DDR</td>
-<td>0.9V</td>
-<td>LPDDR PHY core logical power</td>
-</tr>
-<tr>
-<td>DDR_LDO_CAP</td>
-<td>DDR</td>
-<td>0.7~0.9V</td>
-<td>External LDO output ball.<br/>Connect to a 100nF capacitor on PCB board.</td>
-</tr>
-<tr>
-<td>DDR_LP23_VREFCA</td>
-<td>DDR</td>
-<td>lp3:0.6V<br/>lp4: high-z</td>
-<td>CA VREF for lpddr23.<br/>LP4/4x, Keep the pin NC.</td>
-</tr>
-<tr>
-<td>DDR_LP23_VREFDQ</td>
-<td>DDR</td>
-<td>lp3: 0.6V<br/>lp4: high-z</td>
-<td>DQ VREF for lpddr23.<br/>LP4/4x, keep the pin NC.</td>
-</tr>
-<tr>
-<td>VDDQ_V1P2</td>
-<td>DDR</td>
-<td>lp3: 1.2V<br/>lp4x: 0.6V</td>
-<td>LPDDR3 IO power</td>
-</tr>
-<tr>
-<td>AVDD09_DSI1</td>
-<td>DSI</td>
-<td>0.9V</td>
-<td>DSI digital power</td>
-</tr>
-<tr>
-<td>AVDD12_DSI1</td>
-<td>DSI</td>
-<td>1.2V</td>
-<td>DSI driver power</td>
-</tr>
-<tr>
-<td>AVDD18_DSI1</td>
-<td>DSI</td>
-<td>1.8V</td>
-<td>DSI analog power</td>
-</tr>
-<tr>
-<td>AVDD18_EFUSE</td>
-<td>EFUSE</td>
-<td>1.8V</td>
-<td>ANAGRP</td>
-</tr>
-<tr>
-<td>AVDD09_EMMC</td>
-<td>EMMC</td>
-<td>0.9V</td>
-<td>eMMC digital power</td>
-</tr>
-<tr>
-<td>AVDD18_EMMC</td>
-<td>EMMC</td>
-<td>1.8V</td>
-<td>eMMC analog power</td>
-</tr>
-<tr>
-<td>VCC18_GPIO</td>
-<td>GPIO1/4/5/PMIC</td>
-<td>1.8V</td>
-<td>GPIO1/4/5/PMIC I/O power</td>
-</tr>
-<tr>
-<td>VCC1833_GPIO2</td>
-<td>GPIO2</td>
-<td>1.8V/3.3V</td>
-<td>GPIO2 IO power</td>
-</tr>
-<tr>
-<td>VCC1833_GPIO3</td>
-<td>GPIO3</td>
-<td>1.8V/3.3V</td>
-<td>GPIO3 IO power</td>
-</tr>
-<tr>
-<td>AVDD09_HDMI</td>
-<td>HDMI</td>
-<td>0.9V</td>
-<td>HDMI digital power</td>
-</tr>
-<tr>
-<td>AVDD18_HDMI</td>
-<td>HDMI</td>
-<td>1.8V</td>
-<td>HDMI 1.8V power</td>
-</tr>
-<tr>
-<td>AVDD33_HDMI</td>
-<td>HDMI</td>
-<td>3.3V</td>
-<td>HDMI 3.3V power</td>
-</tr>
-<tr>
-<td>AVDD09_PCIEA</td>
-<td>PCIEA</td>
-<td>0.9V</td>
-<td>PCIEA digital power</td>
-</tr>
-<tr>
-<td>AVDD18_PCIEA</td>
-<td>PCIEA</td>
-<td>1.8V</td>
-<td>PCIEA analog power</td>
-</tr>
-<tr>
-<td>AVDD09_PCIEB</td>
-<td>PCIEB</td>
-<td>0.9V</td>
-<td>PCIEB digital power</td>
-</tr>
-<tr>
-<td>AVDD18_PCIEB</td>
-<td>PCIEB</td>
-<td>1.8V</td>
-<td>PCIEB analog power</td>
-</tr>
-<tr>
-<td>AVDD09_PCIEC</td>
-<td>PCIEC</td>
-<td>0.9V</td>
-<td>PCIEC digital power</td>
-</tr>
-<tr>
-<td>AVDD18_PCIEC</td>
-<td>PCIEC</td>
-<td>1.8V</td>
-<td>PCIEC analog power</td>
-</tr>
-<tr>
-<td>AVDD09_PLL</td>
-<td>PLL</td>
-<td>0.9V</td>
-<td>System PLL power supply</td>
-</tr>
-<tr>
-<td>AVDD18_PLL</td>
-<td>PLL</td>
-<td>1.8V</td>
-<td>System PLL power supply</td>
-</tr>
-<tr>
-<td>VCC1833_QSPI</td>
-<td>QSPI</td>
-<td>1.8V/3.3V</td>
-<td>QSPI IO power</td>
-</tr>
-<tr>
-<td>VCC1833_MMC1</td>
-<td>SD card</td>
-<td>1.8V/3.3V</td>
-<td>SD card IO power</td>
-</tr>
-<tr>
-<td>AVDD09_USB</td>
-<td>USB2.0</td>
-<td>0.9V</td>
-<td>USB2.0 digital power</td>
-</tr>
-<tr>
-<td>AVDD18_USB</td>
-<td>USB2.0</td>
-<td>1.8V</td>
-<td>USB2.0 1.8V power</td>
-</tr>
-<tr>
-<td>AVDD33_USB</td>
-<td>USB2.0</td>
-<td>3.3V</td>
-<td>USB2.0 3.3V power</td>
-</tr>
-</tbody>
-</table>
+| Pin Name           | Domain Name        | Domain Voltage                     | Description                                                                 |
+|--------------------|--------------------|------------------------------------|-----------------------------------------------------------------------------|
+| AUD_VDDU09         | AUDIO              | 0.9V                               | 0.9V power for audio                                                        |
+| AUD_VNEG           | AUDIO              | -1.8V                              | Negative voltage for headphone driver                                       |
+| AUD_VPOS           | AUDIO              | 1.8V                               | Positive voltage for headphone driver                                       |
+| AVDD18_AUD         | AUDIO              | 1.8V                               | 1.8V power for audio                                                        |
+| AVDD3V3_AUD        | AUDIO              | 3.3V                               | 3.3V power for earphone driver                                              |
+| VCC_M1             | CORE               | 0.9V                               | Digital core power                                                          |
+| AVDD09_CSI         | CSI                | 0.9V                               | MIPI_CSI digital power                                                      |
+| AVDD18_CSI         | CSI                | 1.8V                               | MIPI_CSI analog power                                                       |
+| AVDD09_AFEAP       | DCXO               | 0.9V                               | 0.9V power for DCXO                                                         |
+| AVDD18_AFEAP       | DCXO               | 1.8V                               | 1.8V power for DCXO                                                         |
+| AVDD06_DDR         | DDR                | lp4x: 0.6V<br/>lp4: TBD<br/>lp3: TBD | LPDDR4X IO power                                                            |
+| AVDD11_DDR         | DDR                | lp4x: 1.1V<br/>lp4: 1.1V<br/>lp3: 1.2V | LPDDR PHY power supply                                                      |
+| AVDD18_DDR         | DDR                | 1.8V                               | LPDDR PHY PLL 1.8V power                                                    |
+| AVDD18_PHY         | DDR                | 1.8V                               | Analog 1.8V power                                                           |
+| AVDDU_DDR          | DDR                | 0.9V                               | LPDDR PHY PLL logical power                                                 |
+| AVDDU_PHY          | DDR                | 0.9V                               | LPDDR PHY core logical power                                                |
+| DDR_LDO_CAP        | DDR                | 0.7~0.9V                           | External LDO output ball.<br/>Connect to a 100nF capacitor on PCB board.    |
+| DDR_LP23_VREFCA    | DDR                | lp3: 0.6V<br/>lp4: high-z          | CA VREF for lpddr23.<br/>LP4/4x, Keep the pin NC.                           |
+| DDR_LP23_VREFDQ    | DDR                | lp3: 0.6V<br/>lp4: high-z          | DQ VREF for lpddr23.<br/>LP4/4x, keep the pin NC.                           |
+| VDDQ_V1P2          | DDR                | lp3: 1.2V<br/>lp4x: 0.6V           | LPDDR3 IO power                                                             |
+| AVDD09_DSI1        | DSI                | 0.9V                               | DSI digital power                                                           |
+| AVDD12_DSI1        | DSI                | 1.2V                               | DSI driver power                                                            |
+| AVDD18_DSI1        | DSI                | 1.8V                               | DSI analog power                                                            |
+| AVDD18_EFUSE       | EFUSE              | 1.8V                               | ANAGRP                                                                      |
+| AVDD09_EMMC        | EMMC               | 0.9V                               | eMMC digital power                                                          |
+| AVDD18_EMMC        | EMMC               | 1.8V                               | eMMC analog power                                                           |
+| VCC18_GPIO         | GPIO1/4/5/PMIC     | 1.8V                               | GPIO1/4/5/PMIC I/O power                                                    |
+| VCC1833_GPIO2      | GPIO2              | 1.8V/3.3V                          | GPIO2 IO power                                                              |
+| VCC1833_GPIO3      | GPIO3              | 1.8V/3.3V                          | GPIO3 IO power                                                              |
+| AVDD09_HDMI        | HDMI               | 0.9V                               | HDMI digital power                                                          |
+| AVDD18_HDMI        | HDMI               | 1.8V                               | HDMI 1.8V power                                                             |
+| AVDD33_HDMI        | HDMI               | 3.3V                               | HDMI 3.3V power                                                             |
+| AVDD09_PCIEA       | PCIEA              | 0.9V                               | PCIEA digital power                                                         |
+| AVDD18_PCIEA       | PCIEA              | 1.8V                               | PCIEA analog power                                                          |
+| AVDD09_PCIEB       | PCIEB              | 0.9V                               | PCIEB digital power                                                         |
+| AVDD18_PCIEB       | PCIEB              | 1.8V                               | PCIEB analog power                                                          |
+| AVDD09_PCIEC       | PCIEC              | 0.9V                               | PCIEC digital power                                                         |
+| AVDD18_PCIEC       | PCIEC              | 1.8V                               | PCIEC analog power                                                          |
+| AVDD09_PLL         | PLL                | 0.9V                               | System PLL power supply                                                     |
+| AVDD18_PLL         | PLL                | 1.8V                               | System PLL power supply                                                     |
+| VCC1833_QSPI       | QSPI               | 1.8V/3.3V                          | QSPI IO power                                                               |
+| VCC1833_MMC1       | SD card            | 1.8V/3.3V                          | SD card IO power                                                            |
+| AVDD09_USB         | USB2.0             | 0.9V                               | USB2.0 digital power                                                        |
+| AVDD18_USB         | USB2.0             | 1.8V                               | USB2.0 1.8V power                                                           |
+| AVDD33_USB         | USB2.0             | 3.3V                               | USB2.0 3.3V power                                                           |
 
 ### 4.7 Multi-Function Pin Registers
 
 In K1 are defined and implemented Multi-Function Pin Registers (MFPRs). In particular, there are 129 MFPR in total, starting from the base address 0xD401E000 with a stride of 0x4, as tabled below.
 
-<table>
-<tbody>
-<tr>
-<td><strong>MFPR ID</strong></td>
-<td><strong>Address</strong></td>
-<td><strong>Offset</strong></td>
-</tr>
-<tr>
-<td>GPIO_00</td>
-<td>0xD401E004</td>
-<td>0x4</td>
-</tr>
-<tr>
-<td>GPIO_01</td>
-<td>0xD401E008</td>
-<td>0x8</td>
-</tr>
-<tr>
-<td>GPIO_02</td>
-<td>0xD401E00C</td>
-<td>0xC</td>
-</tr>
-<tr>
-<td>GPIO_03</td>
-<td>0xD401E010</td>
-<td>0x10</td>
-</tr>
-<tr>
-<td>GPIO_04</td>
-<td>0xD401E014</td>
-<td>0x14</td>
-</tr>
-<tr>
-<td>GPIO_05</td>
-<td>0xD401E018</td>
-<td>0x18</td>
-</tr>
-<tr>
-<td>GPIO_06</td>
-<td>0xD401E01C</td>
-<td>0x1C</td>
-</tr>
-<tr>
-<td>GPIO_07</td>
-<td>0xD401E020</td>
-<td>0x20</td>
-</tr>
-<tr>
-<td>GPIO_08</td>
-<td>0xD401E024</td>
-<td>0x24</td>
-</tr>
-<tr>
-<td>GPIO_09</td>
-<td>0xD401E028</td>
-<td>0x28</td>
-</tr>
-<tr>
-<td>GPIO_10</td>
-<td>0xD401E02C</td>
-<td>0x2C</td>
-</tr>
-<tr>
-<td>GPIO_11</td>
-<td>0xD401E030</td>
-<td>0x30</td>
-</tr>
-<tr>
-<td>GPIO_12</td>
-<td>0xD401E034</td>
-<td>0x34</td>
-</tr>
-<tr>
-<td>GPIO_13</td>
-<td>0xD401E038</td>
-<td>0x38</td>
-</tr>
-<tr>
-<td>GPIO_14</td>
-<td>0xD401E03C</td>
-<td>0x3C</td>
-</tr>
-<tr>
-<td>GPIO_15</td>
-<td>0xD401E040</td>
-<td>0x40</td>
-</tr>
-<tr>
-<td>GPIO_16</td>
-<td>0xD401E044</td>
-<td>0x44</td>
-</tr>
-<tr>
-<td>GPIO_17</td>
-<td>0xD401E048</td>
-<td>0x48</td>
-</tr>
-<tr>
-<td>GPIO_18</td>
-<td>0xD401E04C</td>
-<td>0x4C</td>
-</tr>
-<tr>
-<td>GPIO_19</td>
-<td>0xD401E050</td>
-<td>0x50</td>
-</tr>
-<tr>
-<td>GPIO_20</td>
-<td>0xD401E054</td>
-<td>0x54</td>
-</tr>
-<tr>
-<td>GPIO_21</td>
-<td>0xD401E058</td>
-<td>0x58</td>
-</tr>
-<tr>
-<td>GPIO_22</td>
-<td>0xD401E05C</td>
-<td>0x5C</td>
-</tr>
-<tr>
-<td>GPIO_23</td>
-<td>0xD401E060</td>
-<td>0x60</td>
-</tr>
-<tr>
-<td>GPIO_24</td>
-<td>0xD401E064</td>
-<td>0x64</td>
-</tr>
-<tr>
-<td>GPIO_25</td>
-<td>0xD401E068</td>
-<td>0x68</td>
-</tr>
-<tr>
-<td>GPIO_26</td>
-<td>0xD401E06C</td>
-<td>0x6C</td>
-</tr>
-<tr>
-<td>GPIO_27</td>
-<td>0xD401E070</td>
-<td>0x70</td>
-</tr>
-<tr>
-<td>GPIO_28</td>
-<td>0xD401E074</td>
-<td>0x74</td>
-</tr>
-<tr>
-<td>GPIO_29</td>
-<td>0xD401E078</td>
-<td>0x78</td>
-</tr>
-<tr>
-<td>GPIO_30</td>
-<td>0xD401E07C</td>
-<td>0x7C</td>
-</tr>
-<tr>
-<td>GPIO_31</td>
-<td>0xD401E080</td>
-<td>0x80</td>
-</tr>
-<tr>
-<td>GPIO_32</td>
-<td>0xD401E084</td>
-<td>0x84</td>
-</tr>
-<tr>
-<td>GPIO_33</td>
-<td>0xD401E088</td>
-<td>0x88</td>
-</tr>
-<tr>
-<td>GPIO_34</td>
-<td>0xD401E08C</td>
-<td>0x8C</td>
-</tr>
-<tr>
-<td>GPIO_35</td>
-<td>0xD401E090</td>
-<td>0x90</td>
-</tr>
-<tr>
-<td>GPIO_36</td>
-<td>0xD401E094</td>
-<td>0x94</td>
-</tr>
-<tr>
-<td>GPIO_37</td>
-<td>0xD401E098</td>
-<td>0x98</td>
-</tr>
-<tr>
-<td>GPIO_38</td>
-<td>0xD401E09C</td>
-<td>0x9C</td>
-</tr>
-<tr>
-<td>GPIO_39</td>
-<td>0xD401E0A0</td>
-<td>0xA0</td>
-</tr>
-<tr>
-<td>GPIO_40</td>
-<td>0xD401E0A4</td>
-<td>0xA4</td>
-</tr>
-<tr>
-<td>GPIO_41</td>
-<td>0xD401E0A8</td>
-<td>0xA8</td>
-</tr>
-<tr>
-<td>GPIO_42</td>
-<td>0xD401E0AC</td>
-<td>0xAC</td>
-</tr>
-<tr>
-<td>GPIO_43</td>
-<td>0xD401E0B0</td>
-<td>0xB0</td>
-</tr>
-<tr>
-<td>GPIO_44</td>
-<td>0xD401E0B4</td>
-<td>0xB4</td>
-</tr>
-<tr>
-<td>GPIO_45</td>
-<td>0xD401E0B8</td>
-<td>0xB8</td>
-</tr>
-<tr>
-<td>GPIO_46</td>
-<td>0xD401E0BC</td>
-<td>0xBC</td>
-</tr>
-<tr>
-<td>GPIO_47</td>
-<td>0xD401E0C0</td>
-<td>0xC0</td>
-</tr>
-<tr>
-<td>GPIO_48</td>
-<td>0xD401E0C4</td>
-<td>0xC4</td>
-</tr>
-<tr>
-<td>GPIO_49</td>
-<td>0xD401E0C8</td>
-<td>0xC8</td>
-</tr>
-<tr>
-<td>GPIO_50</td>
-<td>0xD401E0CC</td>
-<td>0xCC</td>
-</tr>
-<tr>
-<td>GPIO_51</td>
-<td>0xD401E0D0</td>
-<td>0xD0</td>
-</tr>
-<tr>
-<td>GPIO_52</td>
-<td>0xD401E0D4</td>
-<td>0xD4</td>
-</tr>
-<tr>
-<td>GPIO_53</td>
-<td>0xD401E0D8</td>
-<td>0xD8</td>
-</tr>
-<tr>
-<td>GPIO_54</td>
-<td>0xD401E0DC</td>
-<td>0xDC</td>
-</tr>
-<tr>
-<td>GPIO_55</td>
-<td>0xD401E0E0</td>
-<td>0xE0</td>
-</tr>
-<tr>
-<td>GPIO_56</td>
-<td>0xD401E0E4</td>
-<td>0xE4</td>
-</tr>
-<tr>
-<td>GPIO_57</td>
-<td>0xD401E0E8</td>
-<td>0xE8</td>
-</tr>
-<tr>
-<td>GPIO_58</td>
-<td>0xD401E0EC</td>
-<td>0xEC</td>
-</tr>
-<tr>
-<td>GPIO_59</td>
-<td>0xD401E0F0</td>
-<td>0xF0</td>
-</tr>
-<tr>
-<td>GPIO_60</td>
-<td>0xD401E0F4</td>
-<td>0xF4</td>
-</tr>
-<tr>
-<td>GPIO_61</td>
-<td>0xD401E0F8</td>
-<td>0xF8</td>
-</tr>
-<tr>
-<td>GPIO_62</td>
-<td>0xD401E0FC</td>
-<td>0xFC</td>
-</tr>
-<tr>
-<td>GPIO_63</td>
-<td>0xD401E100</td>
-<td>0x100</td>
-</tr>
-<tr>
-<td>GPIO_64</td>
-<td>0xD401E104</td>
-<td>0x104</td>
-</tr>
-<tr>
-<td>GPIO_65</td>
-<td>0xD401E108</td>
-<td>0x108</td>
-</tr>
-<tr>
-<td>GPIO_66</td>
-<td>0xD401E10C</td>
-<td>0x10C</td>
-</tr>
-<tr>
-<td>GPIO_67</td>
-<td>0xD401E110</td>
-<td>0x110</td>
-</tr>
-<tr>
-<td>GPIO_68</td>
-<td>0xD401E114</td>
-<td>0x114</td>
-</tr>
-<tr>
-<td>GPIO_69</td>
-<td>0xD401E118</td>
-<td>0x118</td>
-</tr>
-<tr>
-<td>PRI_TDI</td>
-<td>0xD401E11C</td>
-<td>0x11C</td>
-</tr>
-<tr>
-<td>PRI_TMS</td>
-<td>0xD401E120</td>
-<td>0x120</td>
-</tr>
-<tr>
-<td>PRI_TCK</td>
-<td>0xD401E124</td>
-<td>0x124</td>
-</tr>
-<tr>
-<td>PRI_TDO</td>
-<td>0xD401E128</td>
-<td>0x128</td>
-</tr>
-<tr>
-<td>GPIO_74</td>
-<td>0xD401E12C</td>
-<td>0x12C</td>
-</tr>
-<tr>
-<td>GPIO_75</td>
-<td>0xD401E130</td>
-<td>0x130</td>
-</tr>
-<tr>
-<td>GPIO_76</td>
-<td>0xD401E134</td>
-<td>0x134</td>
-</tr>
-<tr>
-<td>GPIO_77</td>
-<td>0xD401E138</td>
-<td>0x138</td>
-</tr>
-<tr>
-<td>GPIO_78</td>
-<td>0xD401E13C</td>
-<td>0x13C</td>
-</tr>
-<tr>
-<td>GPIO_79</td>
-<td>0xD401E140</td>
-<td>0x140</td>
-</tr>
-<tr>
-<td>GPIO_80</td>
-<td>0xD401E144</td>
-<td>0x144</td>
-</tr>
-<tr>
-<td>GPIO_81</td>
-<td>0xD401E148</td>
-<td>0x148</td>
-</tr>
-<tr>
-<td>GPIO_82</td>
-<td>0xD401E14C</td>
-<td>0x14C</td>
-</tr>
-<tr>
-<td>GPIO_83</td>
-<td>0xD401E150</td>
-<td>0x150</td>
-</tr>
-<tr>
-<td>GPIO_84</td>
-<td>0xD401E154</td>
-<td>0x154</td>
-</tr>
-<tr>
-<td>GPIO_85</td>
-<td>0xD401E158</td>
-<td>0x158</td>
-</tr>
-<tr>
-<td>QSPI_DAT0</td>
-<td>0xD401E168</td>
-<td>0x168</td>
-</tr>
-<tr>
-<td>QSPI_DAT1</td>
-<td>0xD401E16C</td>
-<td>0x16C</td>
-</tr>
-<tr>
-<td>QSPI_DAT2</td>
-<td>0xD401E170</td>
-<td>0x170</td>
-</tr>
-<tr>
-<td>QSPI_DAT3</td>
-<td>0xD401E174</td>
-<td>0x174</td>
-</tr>
-<tr>
-<td>QSPI_CS1</td>
-<td>0xD401E178</td>
-<td>0x178</td>
-</tr>
-<tr>
-<td>QSPI_CLK</td>
-<td>0xD401E17C</td>
-<td>0x17C</td>
-</tr>
-<tr>
-<td>MMC1_DAT3</td>
-<td>0xD401E1B8</td>
-<td>0x1B8</td>
-</tr>
-<tr>
-<td>MMC1_DAT2</td>
-<td>0xD401E1BC</td>
-<td>0x1BC</td>
-</tr>
-<tr>
-<td>MMC1_DAT1</td>
-<td>0xD401E1C0</td>
-<td>0x1C0</td>
-</tr>
-<tr>
-<td>MMC1_DAT0</td>
-<td>0xD401E1C4</td>
-<td>0x1C4</td>
-</tr>
-<tr>
-<td>MMC1_CMD</td>
-<td>0xD401E1C8</td>
-<td>0x1C8</td>
-</tr>
-<tr>
-<td>MMC1_CLK</td>
-<td>0xD401E1CC</td>
-<td>0x1CC</td>
-</tr>
-<tr>
-<td>GPIO_110</td>
-<td>0xD401E1D0</td>
-<td>0x1D0</td>
-</tr>
-<tr>
-<td>PWR_SCL</td>
-<td>0xD401E1D4</td>
-<td>0x1D4</td>
-</tr>
-<tr>
-<td>PWR_SDA</td>
-<td>0xD401E1D8</td>
-<td>0x1D8</td>
-</tr>
-<tr>
-<td>VCXO_EN</td>
-<td>0xD401E1DC</td>
-<td>0x1DC</td>
-</tr>
-<tr>
-<td>DVL0</td>
-<td>0xD401E1E0</td>
-<td>0x1E0</td>
-</tr>
-<tr>
-<td>DVL1</td>
-<td>0xD401E1E4</td>
-<td>0x1E4</td>
-</tr>
-<tr>
-<td>PMIC_INT_N</td>
-<td>0xD401E1E8</td>
-<td>0x1E8</td>
-</tr>
-<tr>
-<td>GPIO_86</td>
-<td>0xD401E1EC</td>
-<td>0x1EC</td>
-</tr>
-<tr>
-<td>GPIO_87</td>
-<td>0xD401E1F0</td>
-<td>0x1F0</td>
-</tr>
-<tr>
-<td>GPIO_88</td>
-<td>0xD401E1F4</td>
-<td>0x1F4</td>
-</tr>
-<tr>
-<td>GPIO_89</td>
-<td>0xD401E1F8</td>
-<td>0x1F8</td>
-</tr>
-<tr>
-<td>GPIO_90</td>
-<td>0xD401E1FC</td>
-<td>0x1FC</td>
-</tr>
-<tr>
-<td>GPIO_91</td>
-<td>0xD401E200</td>
-<td>0x200</td>
-</tr>
-<tr>
-<td>GPIO_92</td>
-<td>0xD401E204</td>
-<td>0x204</td>
-</tr>
-<tr>
-<td>GPIO_111</td>
-<td>0xD401E20C</td>
-<td>0x20C</td>
-</tr>
-<tr>
-<td>GPIO_112</td>
-<td>0xD401E210</td>
-<td>0x210</td>
-</tr>
-<tr>
-<td>GPIO_113</td>
-<td>0xD401E214</td>
-<td>0x214</td>
-</tr>
-<tr>
-<td>GPIO_114</td>
-<td>0xD401E218</td>
-<td>0x218</td>
-</tr>
-<tr>
-<td>GPIO_115</td>
-<td>0xD401E21C</td>
-<td>0x21C</td>
-</tr>
-<tr>
-<td>GPIO_116</td>
-<td>0xD401E220</td>
-<td>0x220</td>
-</tr>
-<tr>
-<td>GPIO_117</td>
-<td>0xD401E224</td>
-<td>0x224</td>
-</tr>
-<tr>
-<td>GPIO_118</td>
-<td>0xD401E228</td>
-<td>0x228</td>
-</tr>
-<tr>
-<td>GPIO_119</td>
-<td>0xD401E22C</td>
-<td>0x22C</td>
-</tr>
-<tr>
-<td>GPIO_120</td>
-<td>0xD401E230</td>
-<td>0x230</td>
-</tr>
-<tr>
-<td>GPIO_121</td>
-<td>0xD401E234</td>
-<td>0x234</td>
-</tr>
-<tr>
-<td>GPIO_122</td>
-<td>0xD401E238</td>
-<td>0x238</td>
-</tr>
-<tr>
-<td>GPIO_123</td>
-<td>0xD401E23C</td>
-<td>0x23C</td>
-</tr>
-<tr>
-<td>GPIO_124</td>
-<td>0xD401E240</td>
-<td>0x240</td>
-</tr>
-<tr>
-<td>GPIO_125</td>
-<td>0xD401E244</td>
-<td>0x244</td>
-</tr>
-<tr>
-<td>GPIO_126</td>
-<td>0xD401E248</td>
-<td>0x248</td>
-</tr>
-<tr>
-<td>GPIO_127</td>
-<td>0xD401E24C</td>
-<td>0x24C</td>
-</tr>
-</tbody>
-</table>
+| MFPR ID      | Address       | Offset |
+|--------------|---------------|--------|
+| GPIO_00      | 0xD401E004    | 0x4    |
+| GPIO_01      | 0xD401E008    | 0x8    |
+| GPIO_02      | 0xD401E00C    | 0xC    |
+| GPIO_03      | 0xD401E010    | 0x10   |
+| GPIO_04      | 0xD401E014    | 0x14   |
+| GPIO_05      | 0xD401E018    | 0x18   |
+| GPIO_06      | 0xD401E01C    | 0x1C   |
+| GPIO_07      | 0xD401E020    | 0x20   |
+| GPIO_08      | 0xD401E024    | 0x24   |
+| GPIO_09      | 0xD401E028    | 0x28   |
+| GPIO_10      | 0xD401E02C    | 0x2C   |
+| GPIO_11      | 0xD401E030    | 0x30   |
+| GPIO_12      | 0xD401E034    | 0x34   |
+| GPIO_13      | 0xD401E038    | 0x38   |
+| GPIO_14      | 0xD401E03C    | 0x3C   |
+| GPIO_15      | 0xD401E040    | 0x40   |
+| GPIO_16      | 0xD401E044    | 0x44   |
+| GPIO_17      | 0xD401E048    | 0x48   |
+| GPIO_18      | 0xD401E04C    | 0x4C   |
+| GPIO_19      | 0xD401E050    | 0x50   |
+| GPIO_20      | 0xD401E054    | 0x54   |
+| GPIO_21      | 0xD401E058    | 0x58   |
+| GPIO_22      | 0xD401E05C    | 0x5C   |
+| GPIO_23      | 0xD401E060    | 0x60   |
+| GPIO_24      | 0xD401E064    | 0x64   |
+| GPIO_25      | 0xD401E068    | 0x68   |
+| GPIO_26      | 0xD401E06C    | 0x6C   |
+| GPIO_27      | 0xD401E070    | 0x70   |
+| GPIO_28      | 0xD401E074    | 0x74   |
+| GPIO_29      | 0xD401E078    | 0x78   |
+| GPIO_30      | 0xD401E07C    | 0x7C   |
+| GPIO_31      | 0xD401E080    | 0x80   |
+| GPIO_32      | 0xD401E084    | 0x84   |
+| GPIO_33      | 0xD401E088    | 0x88   |
+| GPIO_34      | 0xD401E08C    | 0x8C   |
+| GPIO_35      | 0xD401E090    | 0x90   |
+| GPIO_36      | 0xD401E094    | 0x94   |
+| GPIO_37      | 0xD401E098    | 0x98   |
+| GPIO_38      | 0xD401E09C    | 0x9C   |
+| GPIO_39      | 0xD401E0A0    | 0xA0   |
+| GPIO_40      | 0xD401E0A4    | 0xA4   |
+| GPIO_41      | 0xD401E0A8    | 0xA8   |
+| GPIO_42      | 0xD401E0AC    | 0xAC   |
+| GPIO_43      | 0xD401E0B0    | 0xB0   |
+| GPIO_44      | 0xD401E0B4    | 0xB4   |
+| GPIO_45      | 0xD401E0B8    | 0xB8   |
+| GPIO_46      | 0xD401E0BC    | 0xBC   |
+| GPIO_47      | 0xD401E0C0    | 0xC0   |
+| GPIO_48      | 0xD401E0C4    | 0xC4   |
+| GPIO_49      | 0xD401E0C8    | 0xC8   |
+| GPIO_50      | 0xD401E0CC    | 0xCC   |
+| GPIO_51      | 0xD401E0D0    | 0xD0   |
+| GPIO_52      | 0xD401E0D4    | 0xD4   |
+| GPIO_53      | 0xD401E0D8    | 0xD8   |
+| GPIO_54      | 0xD401E0DC    | 0xDC   |
+| GPIO_55      | 0xD401E0E0    | 0xE0   |
+| GPIO_56      | 0xD401E0E4    | 0xE4   |
+| GPIO_57      | 0xD401E0E8    | 0xE8   |
+| GPIO_58      | 0xD401E0EC    | 0xEC   |
+| GPIO_59      | 0xD401E0F0    | 0xF0   |
+| GPIO_60      | 0xD401E0F4    | 0xF4   |
+| GPIO_61      | 0xD401E0F8    | 0xF8   |
+| GPIO_62      | 0xD401E0FC    | 0xFC   |
+| GPIO_63      | 0xD401E100    | 0x100  |
+| GPIO_64      | 0xD401E104    | 0x104  |
+| GPIO_65      | 0xD401E108    | 0x108  |
+| GPIO_66      | 0xD401E10C    | 0x10C  |
+| GPIO_67      | 0xD401E110    | 0x110  |
+| GPIO_68      | 0xD401E114    | 0x114  |
+| GPIO_69      | 0xD401E118    | 0x118  |
+| PRI_TDI      | 0xD401E11C    | 0x11C  |
+| PRI_TMS      | 0xD401E120    | 0x120  |
+| PRI_TCK      | 0xD401E124    | 0x124  |
+| PRI_TDO      | 0xD401E128    | 0x128  |
+| GPIO_74      | 0xD401E12C    | 0x12C  |
+| GPIO_75      | 0xD401E130    | 0x130  |
+| GPIO_76      | 0xD401E134    | 0x134  |
+| GPIO_77      | 0xD401E138    | 0x138  |
+| GPIO_78      | 0xD401E13C    | 0x13C  |
+| GPIO_79      | 0xD401E140    | 0x140  |
+| GPIO_80      | 0xD401E144    | 0x144  |
+| GPIO_81      | 0xD401E148    | 0x148  |
+| GPIO_82      | 0xD401E14C    | 0x14C  |
+| GPIO_83      | 0xD401E150    | 0x150  |
+| GPIO_84      | 0xD401E154    | 0x154  |
+| GPIO_85      | 0xD401E158    | 0x158  |
+| QSPI_DAT0    | 0xD401E168    | 0x168  |
+| QSPI_DAT1    | 0xD401E16C    | 0x16C  |
+| QSPI_DAT2    | 0xD401E170    | 0x170  |
+| QSPI_DAT3    | 0xD401E174    | 0x174  |
+| QSPI_CS1     | 0xD401E178    | 0x178  |
+| QSPI_CLK     | 0xD401E17C    | 0x17C  |
+| MMC1_DAT3    | 0xD401E1B8    | 0x1B8  |
+| MMC1_DAT2    | 0xD401E1BC    | 0x1BC  |
+| MMC1_DAT1    | 0xD401E1C0    | 0x1C0  |
+| MMC1_DAT0    | 0xD401E1C4    | 0x1C4  |
+| MMC1_CMD     | 0xD401E1C8    | 0x1C8  |
+| MMC1_CLK     | 0xD401E1CC    | 0x1CC  |
+| GPIO_110     | 0xD401E1D0    | 0x1D0  |
+| PWR_SCL      | 0xD401E1D4    | 0x1D4  |
+| PWR_SDA      | 0xD401E1D8    | 0x1D8  |
+| VCXO_EN      | 0xD401E1DC    | 0x1DC  |
+| DVL0         | 0xD401E1E0    | 0x1E0  |
+| DVL1         | 0xD401E1E4    | 0x1E4  |
+| PMIC_INT_N   | 0xD401E1E8    | 0x1E8  |
+| GPIO_86      | 0xD401E1EC    | 0x1EC  |
+| GPIO_87      | 0xD401E1F0    | 0x1F0  |
+| GPIO_88      | 0xD401E1F4    | 0x1F4  |
+| GPIO_89      | 0xD401E1F8    | 0x1F8  |
+| GPIO_90      | 0xD401E1FC    | 0x1FC  |
+| GPIO_91      | 0xD401E200    | 0x200  |
+| GPIO_92      | 0xD401E204    | 0x204  |
+| GPIO_111     | 0xD401E20C    | 0x20C  |
+| GPIO_112     | 0xD401E210    | 0x210  |
+| GPIO_113     | 0xD401E214    | 0x214  |
+| GPIO_114     | 0xD401E218    | 0x218  |
+| GPIO_115     | 0xD401E21C    | 0x21C  |
+| GPIO_116     | 0xD401E220    | 0x220  |
+| GPIO_117     | 0xD401E224    | 0x224  |
+| GPIO_118     | 0xD401E228    | 0x228  |
+| GPIO_119     | 0xD401E22C    | 0x22C  |
+| GPIO_120     | 0xD401E230    | 0x230  |
+| GPIO_121     | 0xD401E234    | 0x234  |
+| GPIO_122     | 0xD401E238    | 0x238  |
+| GPIO_123     | 0xD401E23C    | 0x23C  |
+| GPIO_124     | 0xD401E240    | 0x240  |
+| GPIO_125     | 0xD401E244    | 0x244  |
+| GPIO_126     | 0xD401E248    | 0x248  |
+| GPIO_127     | 0xD401E24C    | 0x24C  |
 
 #### MFPR Functional Description
 
@@ -11217,1263 +8769,216 @@ In K1 are defined and implemented Multi-Function Pin Registers (MFPRs). In parti
 
 The input thresholds of Buffer Mode of I/O PADs are tabled below.
 
-<table>
-<tbody>
-<tr>
-<td rowspan=1 colspan=5><strong>ST1:ST0==2'b00</strong></td>
-</tr>
-<tr>
-<td><strong>Input Threshold</strong></td>
-<td><strong>Min</strong></td>
-<td><strong>Typ</strong></td>
-<td><strong>Max</strong></td>
-<td><strong>Unit</strong></td>
-</tr>
-<tr>
-<td>VT</td>
-<td>0.75</td>
-<td>0.91</td>
-<td>1.09</td>
-<td>V</td>
-</tr>
-<tr>
-<td>VT PU</td>
-<td>0.74</td>
-<td>0.90</td>
-<td>1.08</td>
-<td>V</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>VT PD</td>
-<td>0.76</td>
-<td>0.92</td>
-<td>1.10</td>
-<td>V</td>
-</tr>
-</tbody>
-</table>
+**ST1:ST0 == 2'b00**
+
+| Input Threshold | Min  | Typ  | Max  | Unit |
+|-----------------|------|------|------|------|
+| VT              | 0.75 | 0.91 | 1.09 | V    |
+| VT PU           | 0.74 | 0.90 | 1.08 | V    |
+|                 |      |      |      |      |
+| VT PD           | 0.76 | 0.92 | 1.10 | V    |
 
 Instead, the input thresholds of Schmitt Trigger Mode of I/O PADs are tabled below.
 
-<table>
-<tbody>
-<tr>
-<td rowspan=1 colspan=5><strong>ST1:ST0==2'b01</strong></td>
-</tr>
-<tr>
-<td><strong>Input Threshold</strong></td>
-<td><strong>Min</strong></td>
-<td><strong>Typ</strong></td>
-<td><strong>Max</strong></td>
-<td><strong>Unit</strong></td>
-</tr>
-<tr>
-<td>VT+</td>
-<td>0.82</td>
-<td>0.97</td>
-<td>1.13</td>
-<td>V</td>
-</tr>
-<tr>
-<td>VT-</td>
-<td>0.72</td>
-<td>0.85</td>
-<td>1.02</td>
-<td>V</td>
-</tr>
-<tr>
-<td>VT+PU</td>
-<td>0.81</td>
-<td>0.96</td>
-<td>1.12</td>
-<td>V</td>
-</tr>
-<tr>
-<td>VT-PU</td>
-<td>0.71</td>
-<td>0.84</td>
-<td>1.01</td>
-<td>V</td>
-</tr>
-<tr>
-<td>VT+PD</td>
-<td>0.82</td>
-<td>0.98</td>
-<td>1.14</td>
-<td>V</td>
-</tr>
-<tr>
-<td>VT-PD</td>
-<td>0.73</td>
-<td>0.86</td>
-<td>1.03</td>
-<td>V</td>
-</tr>
-</tbody>
-</table>
+**ST1:ST0 == 2'b01**
 
-<table>
-<tbody>
-<tr>
-<td rowspan=1 colspan=5><strong>ST1:ST0==2'b10/2'b11</strong></td>
-</tr>
-<tr>
-<td><strong>Input Threshold</strong></td>
-<td><strong>Min</strong></td>
-<td><strong>Typ</strong></td>
-<td><strong>Max</strong></td>
-<td><strong>Unit</strong></td>
-</tr>
-<tr>
-<td>VT+</td>
-<td>0.87</td>
-<td>1.04</td>
-<td>1.19</td>
-<td>V</td>
-</tr>
-<tr>
-<td>VT-</td>
-<td>0.69</td>
-<td>0.80</td>
-<td>0.95</td>
-<td>V</td>
-</tr>
-<tr>
-<td>VT+PU</td>
-<td>0.86</td>
-<td>1.03</td>
-<td>1.18</td>
-<td>V</td>
-</tr>
-<tr>
-<td>VT-PU</td>
-<td>0.68</td>
-<td>0.79</td>
-<td>0.94</td>
-<td>V</td>
-</tr>
-<tr>
-<td>VT+PD</td>
-<td>0.88</td>
-<td>1.05</td>
-<td>1.20</td>
-<td>V</td>
-</tr>
-<tr>
-<td>VT-PD</td>
-<td>0.69</td>
-<td>0.81</td>
-<td>0.96</td>
-<td>V</td>
-</tr>
-</tbody>
-</table>
+| Input Threshold | Min  | Typ  | Max  | Unit |
+|-----------------|------|------|------|------|
+| VT+             | 0.82 | 0.97 | 1.13 | V    |
+| VT-             | 0.72 | 0.85 | 1.02 | V    |
+| VT+PU           | 0.81 | 0.96 | 1.12 | V    |
+| VT-PU           | 0.71 | 0.84 | 1.01 | V    |
+| VT+PD           | 0.82 | 0.98 | 1.14 | V    |
+| VT-PD           | 0.73 | 0.86 | 1.03 | V    |
+
+**ST1:ST0 == 2'b10 / 2'b11**
+
+| Input Threshold | Min  | Typ  | Max  | Unit |
+|-----------------|------|------|------|------|
+| VT+             | 0.87 | 1.04 | 1.19 | V    |
+| VT-             | 0.69 | 0.80 | 0.95 | V    |
+| VT+PU           | 0.86 | 1.03 | 1.18 | V    |
+| VT-PU           | 0.68 | 0.79 | 0.94 | V    |
+| VT+PD           | 0.88 | 1.05 | 1.20 | V    |
+| VT-PD           | 0.69 | 0.81 | 0.96 | V    |
 
 ##### MFPR Field Description
 
-<table>
-<tbody>
-<tr>
-<td><strong>Bit(s)</strong></td>
-<td><strong>Field</strong></td>
-<td><strong>Type</strong></td>
-<td><strong>Reset</strong></td>
-<td><strong>Description</strong></td>
-</tr>
-<tr>
-<td>31:16</td>
-<td>RSVD</td>
-<td>RO</td>
-<td>0</td>
-<td>This field is reserved for future use</td>
-</tr>
-<tr>
-<td>15</td>
-<td>PULL SEL<br/></td>
-<td>RW</td>
-<td>0x1</td>
-<td>This field selects between two sets of controls for the pull-up and pull-down functionality as follows:<br/>- 0: The pull-up and pull-down resistors are controlled by the selected alternate function for the pin<br/>- 1: The pull-up and pull-down resistors are controlled by the &lt;PULLUP EN&gt; and &lt;PULLDN EN&gt; fields in this register, overriding the function indicated by the selected alternate function.  <br/>During low-power states, this field is overridden to 1 and controlled by the &lt;PULLUP EN&gt; and &lt;PULLDN EN&gt; fields.<br/>In these low-power states, this field is effectively 1, although the register value is not changed (refer to low-power (sleep) mode operation for more information). </td>
-</tr>
-<tr>
-<td>14</td>
-<td>PULLUP EN<br/></td>
-<td>RW</td>
-<td>0x0</td>
-<td>This field controls the output function while the &lt;PULL SEL&gt; field is set to 1 (or is effectively 1) as follows:<br/>- 0: The internal pull-up resistor of the pin is disabled<br/>- 1: The internal pull-up resistor of the pin is enabled<br/>The address and reset value is on a pin-by-pin basis. Do not rely on the reset value of this field. It must be configured by software to the desired settings. </td>
-</tr>
-<tr>
-<td>13</td>
-<td>PULLDN EN<br/></td>
-<td>RW</td>
-<td>0x0</td>
-<td>This field controls the output function while &lt;PULL SEL&gt; is set to 1 (or is effectively 1) as follows:<br/>- 0: The internal pull-down resistor of the pin is disabled<br/>- 1: The internal pull-down resistor of the pin is enabled<br/>The address and reset value is on a pin-by-pin basis . Do not rely on the reset value of this field. It must be configured by software to the desired settings. </td>
-</tr>
-<tr>
-<td>12:11</td>
-<td>DRIVE[1:0]<br/></td>
-<td>RW</td>
-<td>0x2</td>
-<td>This field defines the drive strength and slew rate for this pin (in functional mode when the pin is driving HIGH or LOW value) as follows:<br/>- 2'b00: SLOW <br/>- 2'b01: SLOW  <br/>- 2'b10: MEDIUM <br/>- 2'b11: FAST <br/>They are the DS1 and DS0 bit of the drive strength in the current table. </td>
-</tr>
-<tr>
-<td>10</td>
-<td>DRIVE[2]<br/></td>
-<td>RW</td>
-<td>0x0</td>
-<td>This is the DS2 bit to program for higher level of driving strength in the current table. <br/>The address and reset value is on a pin-by-pin basis. Do not rely on the reset value of this field. It must be configured by software to the desired settings. <br/>For Medium (all GPIOs except for SD card), it is 010. <br/>For Fast (SD card I/O), it is 110.  </td>
-</tr>
-<tr>
-<td>9:8</td>
-<td>ST[1:0]</td>
-<td>RW</td>
-<td>0x0</td>
-<td>This field controls the Schmitt trigger input threshold as follows:<br/>- 2'b00: buffer input, threshold is 0.9v <br/>- 2'b01/10/11: enabled the Schmitt trigger with larger hysteresis for VT- and VT+ threshold (refer to <strong>Section 4.7</strong>)  </td>
-</tr>
-<tr>
-<td>7</td>
-<td>SLE</td>
-<td>RW</td>
-<td>0x0</td>
-<td>This field enables/disables the slew rate output control as follows: <br/>- 1'b1: Enabled <br/>- 1'b0: Disabled<br/>Enabling the slew rate output control will slow down the output ramp for EMI considerations. </td>
-</tr>
-<tr>
-<td>6</td>
-<td>EDGE_CLEAR<br/></td>
-<td>RW</td>
-<td>0x1</td>
-<td>This field enable/disable the edge-detection logic as follows: <br/>- 1'b0: Enabled and ready to detect an edge<br/>- 1'b1: Disabled and no edge is detected<br/>This is an enable for the &lt;EDGE_FALL_EN&gt; and &lt;EDGE_RISE_EN&gt; control fields. <br/>This field is only present when a pin has been defined as potentially waking up on an edge. <br/>If the device is not configured in this manner, this field is not present (i.e. reserved) and writing to it has no effect (refer to <strong>Section 4.5</strong> for more information about which MFPRs include or not include these bits). </td>
-</tr>
-<tr>
-<td>5</td>
-<td>EDGE_FALL_EN<br/></td>
-<td>RW</td>
-<td>0x0</td>
-<td>This field enables/disable to detect a falling edge as follows:<br/>- 1'b0: Disabled<br/>- 1'b1: Enable<br/>To detect a falling edge on this pin, <br/>- The pin needs not be an output<br/>- This field must be set to 1<br/>- The &lt;EDGE_CLEAR&gt; field must be set to 0  <br/>This field is only present when a pin has been defined as potentially waking up on an edge. <br/>If the device is not configured in this manner, this field is not present (i.e. reserved) and writing to it has no effect (refer to <strong>Section 4.5</strong> for more information about which MFPRs include or not include these bits). </td>
-</tr>
-<tr>
-<td>4</td>
-<td>EDGE_RISE_EN<br/></td>
-<td>RW</td>
-<td>0x0</td>
-<td>This field enables/disable to detect a rising edge as follows:<br/>- 1'b0: Disables<br/>- 1'b1: Enabled<br/>To detect a rising edge on this pin,,<br/>- The pin need not be an output<br/>- This field must be set to 1<br/>- The &lt;EDGE_CLEAR&gt; field must be set to 0<br/>This field is only present when a pin has been defined as potentially waking up on an edge. <br/>If the device is not configured in this manner, this field is not present (i.e. reserved). and writing to it has no effect (refer to <strong>Section 4.5</strong> for more information about which MFPRs include or not include these bits). </td>
-</tr>
-<tr>
-<td>3</td>
-<td>SPU</td>
-<td>RW</td>
-<td>0x0</td>
-<td>This field enables/disables a strong pull resistor as follows:<br/>- 1'b0: Disabled<br/>- 1'b1: Enabled <br/>This field is used for I2C or SD card PADs which require a strong pull resistor.</td>
-</tr>
-<tr>
-<td>2:0</td>
-<td>AF SEL</td>
-<td>RW</td>
-<td>0x0</td>
-<td>This field is used for the selection of an alternate function for a pin between eight possible options as follows: <br/>- 0x0: Alternate function 0 (always as the primary at reset) <br/>- 0x1: Alternate function 1 <br/>- 0x2: Alternate function 2 <br/>- 0x3: Alternate function 3 <br/>- 0x4: Alternate function 4 <br/>- 0x5: Alternate function 5 <br/>- 0x6: Alternate function 6 <br/>- 0x7: Alternate function 7 </td>
-</tr>
-</tbody>
-</table>
+| Bit(s)   | Field         | Type | Reset | Description |
+|----------|---------------|------|-------|-------------|
+| 31:16    | RSVD          | RO   | 0     | This field is reserved for future use |
+| 15       | PULL SEL      | RW   | 0x1   | This field selects between two sets of controls for the pull-up and pull-down functionality as follows:<br/>- 0: The pull-up and pull-down resistors are controlled by the selected alternate function for the pin<br/>- 1: The pull-up and pull-down resistors are controlled by the &lt;PULLUP EN&gt; and &lt;PULLDN EN&gt; fields in this register, overriding the function indicated by the selected alternate function.<br/>During low-power states, this field is overridden to 1 and controlled by the &lt;PULLUP EN&gt; and &lt;PULLDN EN&gt; fields.<br/>In these low-power states, this field is effectively 1, although the register value is not changed (refer to low-power (sleep) mode operation for more information). |
+| 14       | PULLUP EN     | RW   | 0x0   | This field controls the output function while the &lt;PULL SEL&gt; field is set to 1 (or is effectively 1) as follows:<br/>- 0: The internal pull-up resistor of the pin is disabled<br/>- 1: The internal pull-up resistor of the pin is enabled<br/>The address and reset value is on a pin-by-pin basis. Do not rely on the reset value of this field. It must be configured by software to the desired settings. |
+| 13       | PULLDN EN     | RW   | 0x0   | This field controls the output function while &lt;PULL SEL&gt; is set to 1 (or is effectively 1) as follows:<br/>- 0: The internal pull-down resistor of the pin is disabled<br/>- 1: The internal pull-down resistor of the pin is enabled<br/>The address and reset value is on a pin-by-pin basis. Do not rely on the reset value of this field. It must be configured by software to the desired settings. |
+| 12:11    | DRIVE[1:0]    | RW   | 0x2   | This field defines the drive strength and slew rate for this pin (in functional mode when the pin is driving HIGH or LOW value) as follows:<br/>- 2'b00: SLOW<br/>- 2'b01: SLOW<br/>- 2'b10: MEDIUM<br/>- 2'b11: FAST<br/>They are the DS1 and DS0 bit of the drive strength in the current table. |
+| 10       | DRIVE[2]      | RW   | 0x0   | This is the DS2 bit to program for higher level of driving strength in the current table.<br/>The address and reset value is on a pin-by-pin basis. Do not rely on the reset value of this field. It must be configured by software to the desired settings.<br/>For Medium (all GPIOs except for SD card), it is 010.<br/>For Fast (SD card I/O), it is 110. |
+| 9:8      | ST[1:0]       | RW   | 0x0   | This field controls the Schmitt trigger input threshold as follows:<br/>- 2'b00: buffer input, threshold is 0.9v<br/>- 2'b01/10/11: enabled the Schmitt trigger with larger hysteresis for VT- and VT+ threshold (refer to <strong>Section 4.7</strong>) |
+| 7        | SLE           | RW   | 0x0   | This field enables/disables the slew rate output control as follows:<br/>- 1'b1: Enabled<br/>- 1'b0: Disabled<br/>Enabling the slew rate output control will slow down the output ramp for EMI considerations. |
+| 6        | EDGE_CLEAR    | RW   | 0x1   | This field enable/disable the edge-detection logic as follows:<br/>- 1'b0: Enabled and ready to detect an edge<br/>- 1'b1: Disabled and no edge is detected<br/>This is an enable for the &lt;EDGE_FALL_EN&gt; and &lt;EDGE_RISE_EN&gt; control fields.<br/>This field is only present when a pin has been defined as potentially waking up on an edge.<br/>If the device is not configured in this manner, this field is not present (i.e. reserved) and writing to it has no effect (refer to <strong>Section 4.5</strong> for more information about which MFPRs include or not include these bits). |
+| 5        | EDGE_FALL_EN  | RW   | 0x0   | This field enables/disable to detect a falling edge as follows:<br/>- 1'b0: Disabled<br/>- 1'b1: Enable<br/>To detect a falling edge on this pin,<br/>- The pin needs not be an output<br/>- This field must be set to 1<br/>- The &lt;EDGE_CLEAR&gt; field must be set to 0<br/>This field is only present when a pin has been defined as potentially waking up on an edge.<br/>If the device is not configured in this manner, this field is not present (i.e. reserved) and writing to it has no effect (refer to <strong>Section 4.5</strong> for more information about which MFPRs include or not include these bits). |
+| 4        | EDGE_RISE_EN  | RW   | 0x0   | This field enables/disable to detect a rising edge as follows:<br/>- 1'b0: Disables<br/>- 1'b1: Enabled<br/>To detect a rising edge on this pin,<br/>- The pin need not be an output<br/>- This field must be set to 1<br/>- The &lt;EDGE_CLEAR&gt; field must be set to 0<br/>This field is only present when a pin has been defined as potentially waking up on an edge.<br/>If the device is not configured in this manner, this field is not present (i.e. reserved) and writing to it has no effect (refer to <strong>Section 4.5</strong> for more information about which MFPRs include or not include these bits). |
+| 3        | SPU           | RW   | 0x0   | This field enables/disables a strong pull resistor as follows:<br/>- 1'b0: Disabled<br/>- 1'b1: Enabled<br/>This field is used for I2C or SD card PADs which require a strong pull resistor. |
+| 2:0      | AF SEL        | RW   | 0x0   | This field is used for the selection of an alternate function for a pin between eight possible options as follows:<br/>- 0x0: Alternate function 0 (always as the primary at reset)<br/>- 0x1: Alternate function 1<br/>- 0x2: Alternate function 2<br/>- 0x3: Alternate function 3<br/>- 0x4: Alternate function 4<br/>- 0x5: Alternate function 5<br/>- 0x6: Alternate function 6<br/>- 0x7: Alternate function 7 |
 
 ## 5. Electrical Characteristics
 
 ### 5.1 Pin AC/DC Operating Conditions
 
-<table>
-<tbody>
-<tr>
-<td><strong>Item</td>
-<td><strong>Symbol</strong><strong>/Pin</strong></td>
-<td><strong>Min</strong></td>
-<td><strong>Typ</strong></td>
-<td><strong>Max</strong></td>
-<td><strong>Unit</strong></td>
-<td><strong>Note</strong></td>
-</tr>
-<tr>
-<td>Digital Power</td>
-<td>VCC_M1</td>
-<td>0.85</td>
-<td>0.9</td>
-<td>1.0</td>
-<td>V</td>
-<td> </td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>PLL</td>
-<td>AVDD09_PLL</td>
-<td>0.855</td>
-<td>0.9</td>
-<td>0.945</td>
-<td>V</td>
-<td> </td>
-</tr>
-<tr>
-<td>AVDD18_PLL</td>
-<td>1.71</td>
-<td>1.8</td>
-<td>1.89</td>
-<td>V</td>
-<td> </td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>OSC</td>
-<td>AVDD09_AFEAP</td>
-<td>0.855</td>
-<td>0.9</td>
-<td>0.945</td>
-<td>V</td>
-<td> </td>
-</tr>
-<tr>
-<td>AVDD18_AFEAP</td>
-<td>1.71</td>
-<td>1.8</td>
-<td>1.89</td>
-<td>V</td>
-<td> </td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>PCIeC</td>
-<td>AVDD18_PCIEC</td>
-<td>1.71</td>
-<td>1.8</td>
-<td>1.89</td>
-<td>V</td>
-<td> </td>
-</tr>
-<tr>
-<td>AVDD09_PCIEC</td>
-<td>0.855</td>
-<td>0.9</td>
-<td>0.945</td>
-<td>V</td>
-<td> </td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>PCIeB</td>
-<td>AVDD18_PCIEB</td>
-<td>1.71</td>
-<td>1.8</td>
-<td>1.89</td>
-<td>V</td>
-<td> </td>
-</tr>
-<tr>
-<td>AVDD09_PCIEB</td>
-<td>0.855</td>
-<td>0.9</td>
-<td>0.945</td>
-<td>V</td>
-<td> </td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>PCIeA</td>
-<td>AVDD18_PCIEA</td>
-<td>1.71</td>
-<td>1.8</td>
-<td>1.89</td>
-<td>V</td>
-<td> </td>
-</tr>
-<tr>
-<td>AVDD09_PCIEA</td>
-<td>0.855</td>
-<td>0.9</td>
-<td>0.945</td>
-<td>V</td>
-<td> </td>
-</tr>
-<tr>
-<td>USB IO</td>
-<td>AVDD33_USB</td>
-<td>3.135</td>
-<td>3.3</td>
-<td>3.465</td>
-<td>V</td>
-<td> </td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>USB PHY</td>
-<td>AVDD18_USB</td>
-<td>1.71</td>
-<td>1.8</td>
-<td>1.89</td>
-<td>V</td>
-<td> </td>
-</tr>
-<tr>
-<td>AVDD09_USB</td>
-<td>0.855</td>
-<td>0.9</td>
-<td>0.945</td>
-<td>V</td>
-<td> </td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>MIPI DSI PHY</td>
-<td>AVDD09_DSI1</td>
-<td>0.855</td>
-<td>0.9</td>
-<td>0.945</td>
-<td>V</td>
-<td> </td>
-</tr>
-<tr>
-<td>AVDD18_DSI1</td>
-<td>1.71</td>
-<td>1.8</td>
-<td>1.89</td>
-<td>V</td>
-<td></td>
-</tr>
-<tr>
-<td>MIPI DSI IO</td>
-<td>AVDD12_DSI1</td>
-<td>1.14</td>
-<td>1.2</td>
-<td>1.26</td>
-<td>V</td>
-<td> </td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>MIPI CSI PHY</td>
-<td>AVDD09_CSI</td>
-<td>0.855</td>
-<td>0.9</td>
-<td>0.945</td>
-<td>V</td>
-<td> </td>
-</tr>
-<tr>
-<td>AVDD18_CSI</td>
-<td>1.71</td>
-<td>1.8</td>
-<td>1.89</td>
-<td>V</td>
-<td> </td>
-</tr>
-<tr>
-<td rowspan=3 colspan=1>HDMI</td>
-<td>AVDD09_HDMI</td>
-<td>0.855</td>
-<td>0.9</td>
-<td>0.945</td>
-<td>V</td>
-<td> </td>
-</tr>
-<tr>
-<td>AVDD18_HDMI</td>
-<td>1.71</td>
-<td>1.8</td>
-<td>1.89</td>
-<td>V</td>
-<td> </td>
-</tr>
-<tr>
-<td>AVDD33_HDMI</td>
-<td>3.135</td>
-<td>3.3</td>
-<td>3.465</td>
-<td>V</td>
-<td> </td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>eMMC</td>
-<td>VDD09_EMMC</td>
-<td>0.855</td>
-<td>0.9</td>
-<td>0.945</td>
-<td>V</td>
-<td> </td>
-</tr>
-<tr>
-<td>V18_EMMC</td>
-<td>1.71</td>
-<td>1.8</td>
-<td>1.89</td>
-<td>V</td>
-<td> </td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>QSPI</td>
-<td rowspan=2 colspan=1>VCC1833_QSPI</td>
-<td>1.71</td>
-<td>1.8</td>
-<td>1.89</td>
-<td>V</td>
-<td rowspan=2 colspan=1>Dual power domain</td>
-</tr>
-<tr>
-<td>3.135</td>
-<td>3.3</td>
-<td>3.465</td>
-<td>V</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>SD</td>
-<td rowspan=2 colspan=1>VCC1833_MMC1</td>
-<td>1.71</td>
-<td>1.8</td>
-<td>1.89</td>
-<td>V</td>
-<td rowspan=2 colspan=1>Dual power domain</td>
-</tr>
-<tr>
-<td>3.135</td>
-<td>3.3</td>
-<td>3.465</td>
-<td>V</td>
-</tr>
-<tr>
-<td rowspan=6 colspan=1>DDR PHY<br/></td>
-<td>AVDD18_PHY</td>
-<td>1.71</td>
-<td>1.8</td>
-<td>1.89</td>
-<td>V</td>
-<td> </td>
-</tr>
-<tr>
-<td>AVDD18_DDR</td>
-<td>1.71</td>
-<td>1.8</td>
-<td>1.89</td>
-<td>V</td>
-<td> </td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>AVDD11_DDR</td>
-<td>1.045</td>
-<td>1.1</td>
-<td>1.155</td>
-<td>V</td>
-<td>LP4/4X</td>
-</tr>
-<tr>
-<td>1.14</td>
-<td>1.2</td>
-<td>1.26</td>
-<td>V</td>
-<td>LP3</td>
-</tr>
-<tr>
-<td>AVDDU_PHY</td>
-<td>0.855</td>
-<td>0.9</td>
-<td>0.945</td>
-<td>V</td>
-<td></td>
-</tr>
-<tr>
-<td>AVDDU_DDR</td>
-<td>0.855</td>
-<td>0.9</td>
-<td>0.945</td>
-<td>V</td>
-<td></td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>DDR IO</td>
-<td>AVDD06_DDR</td>
-<td>0.57</td>
-<td>0.6</td>
-<td>0.63</td>
-<td>V</td>
-<td> </td>
-</tr>
-<tr>
-<td>VDDQ_V1P2</td>
-<td>1.14</td>
-<td>1.2</td>
-<td>1.26</td>
-<td>V</td>
-<td> </td>
-</tr>
-<tr>
-<td>eFuse</td>
-<td>AVDD18_EFUSE</td>
-<td>1.71</td>
-<td>1.8</td>
-<td>1.89</td>
-<td>V</td>
-<td> </td>
-</tr>
-<tr>
-<td>Audio Logic </td>
-<td>AUD_VDDU09</td>
-<td>0.855</td>
-<td>0.9</td>
-<td>0.945</td>
-<td>V</td>
-<td> </td>
-</tr>
-<tr>
-<td>Audio Power NEG</td>
-<td>AUD_VNEG</td>
-<td>-1.71</td>
-<td>-1.8</td>
-<td>-1.89</td>
-<td>V</td>
-<td> </td>
-</tr>
-<tr>
-<td>Audio Power POS</td>
-<td>AUD_VPOS</td>
-<td>1.71</td>
-<td>1.8</td>
-<td>1.89</td>
-<td>V</td>
-<td> </td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>Audio Analog</td>
-<td>AVDD18_AUD</td>
-<td>1.71</td>
-<td>1.8</td>
-<td>1.89</td>
-<td>V</td>
-<td> </td>
-</tr>
-<tr>
-<td>AVDD3V3_AUD</td>
-<td>3.135</td>
-<td>3.3</td>
-<td>3.465</td>
-<td>V</td>
-<td> </td>
-</tr>
-<tr>
-<td>GPIO</td>
-<td>VCC18_GPIO</td>
-<td>1.71</td>
-<td>1.8</td>
-<td>1.89</td>
-<td>V</td>
-<td> </td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>GIOP3</td>
-<td rowspan=2 colspan=1>VCC1833_GPIO3</td>
-<td>1.71</td>
-<td>1.8</td>
-<td>1.89</td>
-<td>V</td>
-<td rowspan=2 colspan=1>Dual power domain</td>
-</tr>
-<tr>
-<td>3.135</td>
-<td>3.3</td>
-<td>3.465</td>
-<td>V</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>GIOP2</td>
-<td rowspan=2 colspan=1>VCC1833_GPIO2</td>
-<td>1.71</td>
-<td>1.8</td>
-<td>1.89</td>
-<td>V</td>
-<td rowspan=2 colspan=1>Dual power domain</td>
-</tr>
-<tr>
-<td>3.135</td>
-<td>3.3</td>
-<td>3.465</td>
-<td>V</td>
-</tr>
-</tbody>
-</table>
+| Item             | Symbol/Pin        | Min    | Typ   | Max    | Unit | Note               |
+|------------------|-------------------|--------|-------|--------|------|--------------------|
+| Digital Power    | VCC_M1            | 0.85   | 0.9   | 1.0    | V    |                    |
+| PLL              | AVDD09_PLL        | 0.855  | 0.9   | 0.945  | V    |                    |
+| PLL              | AVDD18_PLL        | 1.71   | 1.8   | 1.89   | V    |                    |
+| OSC              | AVDD09_AFEAP      | 0.855  | 0.9   | 0.945  | V    |                    |
+| OSC              | AVDD18_AFEAP      | 1.71   | 1.8   | 1.89   | V    |                    |
+| PCIeC            | AVDD18_PCIEC      | 1.71   | 1.8   | 1.89   | V    |                    |
+| PCIeC            | AVDD09_PCIEC      | 0.855  | 0.9   | 0.945  | V    |                    |
+| PCIeB            | AVDD18_PCIEB      | 1.71   | 1.8   | 1.89   | V    |                    |
+| PCIeB            | AVDD09_PCIEB      | 0.855  | 0.9   | 0.945  | V    |                    |
+| PCIeA            | AVDD18_PCIEA      | 1.71   | 1.8   | 1.89   | V    |                    |
+| PCIeA            | AVDD09_PCIEA      | 0.855  | 0.9   | 0.945  | V    |                    |
+| USB IO           | AVDD33_USB        | 3.135  | 3.3   | 3.465  | V    |                    |
+| USB PHY          | AVDD18_USB        | 1.71   | 1.8   | 1.89   | V    |                    |
+| USB PHY          | AVDD09_USB        | 0.855  | 0.9   | 0.945  | V    |                    |
+| MIPI DSI PHY     | AVDD09_DSI1       | 0.855  | 0.9   | 0.945  | V    |                    |
+| MIPI DSI PHY     | AVDD18_DSI1       | 1.71   | 1.8   | 1.89   | V    |                    |
+| MIPI DSI IO      | AVDD12_DSI1       | 1.14   | 1.2   | 1.26   | V    |                    |
+| MIPI CSI PHY     | AVDD09_CSI        | 0.855  | 0.9   | 0.945  | V    |                    |
+| MIPI CSI PHY     | AVDD18_CSI        | 1.71   | 1.8   | 1.89   | V    |                    |
+| HDMI             | AVDD09_HDMI       | 0.855  | 0.9   | 0.945  | V    |                    |
+| HDMI             | AVDD18_HDMI       | 1.71   | 1.8   | 1.89   | V    |                    |
+| HDMI             | AVDD33_HDMI       | 3.135  | 3.3   | 3.465  | V    |                    |
+| eMMC             | VDD09_EMMC        | 0.855  | 0.9   | 0.945  | V    |                    |
+| eMMC             | V18_EMMC          | 1.71   | 1.8   | 1.89   | V    |                    |
+| QSPI             | VCC1833_QSPI      | 1.71   | 1.8   | 1.89   | V    | Dual power domain  |
+| QSPI             | VCC1833_QSPI      | 3.135  | 3.3   | 3.465  | V    | Dual power domain  |
+| SD               | VCC1833_MMC1      | 1.71   | 1.8   | 1.89   | V    | Dual power domain  |
+| SD               | VCC1833_MMC1      | 3.135  | 3.3   | 3.465  | V    | Dual power domain  |
+| DDR PHY          | AVDD18_PHY        | 1.71   | 1.8   | 1.89   | V    |                    |
+| DDR PHY          | AVDD18_DDR        | 1.71   | 1.8   | 1.89   | V    |                    |
+| DDR PHY          | AVDD11_DDR        | 1.045  | 1.1   | 1.155  | V    | LP4/4X             |
+| DDR PHY          | AVDD11_DDR        | 1.14   | 1.2   | 1.26   | V    | LP3                |
+| DDR PHY          | AVDDU_PHY         | 0.855  | 0.9   | 0.945  | V    |                    |
+| DDR PHY          | AVDDU_DDR         | 0.855  | 0.9   | 0.945  | V    |                    |
+| DDR IO           | AVDD06_DDR        | 0.57   | 0.6   | 0.63   | V    |                    |
+| DDR IO           | VDDQ_V1P2         | 1.14   | 1.2   | 1.26   | V    |                    |
+| eFuse            | AVDD18_EFUSE      | 1.71   | 1.8   | 1.89   | V    |                    |
+| Audio Logic      | AUD_VDDU09        | 0.855  | 0.9   | 0.945  | V    |                    |
+| Audio Power NEG  | AUD_VNEG          | -1.71  | -1.8  | -1.89  | V    |                    |
+| Audio Power POS  | AUD_VPOS          | 1.71   | 1.8   | 1.89   | V    |                    |
+| Audio Analog     | AVDD18_AUD        | 1.71   | 1.8   | 1.89   | V    |                    |
+| Audio Analog     | AVDD3V3_AUD       | 3.135  | 3.3   | 3.465  | V    |                    |
+| GPIO             | VCC18_GPIO        | 1.71   | 1.8   | 1.89   | V    |                    |
+| GIOP3            | VCC1833_GPIO3     | 1.71   | 1.8   | 1.89   | V    | Dual power domain  |
+| GIOP3            | VCC1833_GPIO3     | 3.135  | 3.3   | 3.465  | V    | Dual power domain  |
+| GIOP2            | VCC1833_GPIO2     | 1.71   | 1.8   | 1.89   | V    | Dual power domain  |
+| GIOP2            | VCC1833_GPIO2     | 3.135  | 3.3   | 3.465  | V    | Dual power domain  |
 
 ### 5.2 Absolute Max Ratings
 
 #### For Pins
 
-<table>
-<tbody>
-<tr>
-<td>Item</td>
-<td><strong>Symbol</strong><strong>/Pin</strong></td>
-<td><strong>Min</strong></td>
-<td><strong>Max</strong></td>
-<td><strong>Unit</strong></td>
-</tr>
-<tr>
-<td>Digital Power</td>
-<td>VCC_M1</td>
-<td>-0.1</td>
-<td>1.035</td>
-<td>V</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>PLL</td>
-<td>AVDD09_PLL</td>
-<td>-0.1</td>
-<td>1.035</td>
-<td>V</td>
-</tr>
-<tr>
-<td>AVDD18_PLL</td>
-<td>-0.1</td>
-<td>2.07</td>
-<td>V</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>OSC</td>
-<td>AVDD09_AFEAP</td>
-<td>-0.1</td>
-<td>1.035</td>
-<td>V</td>
-</tr>
-<tr>
-<td>AVDD18_AFEAP</td>
-<td>-0.1</td>
-<td>2.07</td>
-<td>V</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>PCIeC</td>
-<td>AVDD18_PCIEC</td>
-<td>-0.1</td>
-<td>2.07</td>
-<td>V</td>
-</tr>
-<tr>
-<td>AVDD09_PCIEC</td>
-<td>-0.1</td>
-<td>1.035</td>
-<td>V</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>PCIeB</td>
-<td>AVDD18_PCIEB</td>
-<td>-0.1</td>
-<td>2.07</td>
-<td>V</td>
-</tr>
-<tr>
-<td>AVDD09_PCIEB</td>
-<td>-0.1</td>
-<td>1.035</td>
-<td>V</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>PCIeA</td>
-<td>AVDD18_PCIEA</td>
-<td>-0.1</td>
-<td>2.07</td>
-<td>V</td>
-</tr>
-<tr>
-<td>AVDD09_PCIEA</td>
-<td>-0.1</td>
-<td>1.035</td>
-<td>V</td>
-</tr>
-<tr>
-<td>USB IO</td>
-<td>AVDD33_USB</td>
-<td>-0.1</td>
-<td>3.795</td>
-<td>V</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>USB PHY</td>
-<td>AVDD18_USB</td>
-<td>-0.1</td>
-<td>2.07</td>
-<td>V</td>
-</tr>
-<tr>
-<td>AVDD09_USB</td>
-<td>-0.1</td>
-<td>1.035</td>
-<td>V</td>
-</tr>
-<tr>
-<td>MIPI DSI IO</td>
-<td>AVDD12_DSI1</td>
-<td>-0.1</td>
-<td>1.38</td>
-<td>V</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>MIPI DSI PHY</td>
-<td>AVDD09_DSI1</td>
-<td>-0.1</td>
-<td>1.035</td>
-<td>V</td>
-</tr>
-<tr>
-<td>AVDD18_DSI1</td>
-<td>-0.1</td>
-<td>2.07</td>
-<td>V</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>MIPI CSI PHY</td>
-<td>AVDD09_CSI</td>
-<td>-0.1</td>
-<td>1.035</td>
-<td>V</td>
-</tr>
-<tr>
-<td>AVDD18_CSI</td>
-<td>-0.1</td>
-<td>2.07</td>
-<td>V</td>
-</tr>
-<tr>
-<td rowspan=3 colspan=1>HDMI</td>
-<td>AVDD09_HDMI</td>
-<td>-0.1</td>
-<td>1.035</td>
-<td>V</td>
-</tr>
-<tr>
-<td>AVDD18_HDMI</td>
-<td>-0.1</td>
-<td>2.07</td>
-<td>V</td>
-</tr>
-<tr>
-<td>AVDD33_HDMI</td>
-<td>-0.1</td>
-<td>3.795</td>
-<td>V</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>eMMC</td>
-<td>VDD09_EMMC</td>
-<td>-0.1</td>
-<td>1.035</td>
-<td>V</td>
-</tr>
-<tr>
-<td>V18_EMMC</td>
-<td>-0.1</td>
-<td>2.07</td>
-<td>V</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>QSPI</td>
-<td rowspan=2 colspan=1>VCC1833_QSPI</td>
-<td>-0.1</td>
-<td>2.07</td>
-<td>V</td>
-</tr>
-<tr>
-<td>-0.1</td>
-<td>3.795</td>
-<td>V</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>SD</td>
-<td rowspan=2 colspan=1>VCC1833_MMC1</td>
-<td>-0.1</td>
-<td>2.07</td>
-<td>V</td>
-</tr>
-<tr>
-<td>-0.1</td>
-<td>3.795</td>
-<td>V</td>
-</tr>
-<tr>
-<td rowspan=6 colspan=1>DDR PHY</td>
-<td>AVDD18_PHY</td>
-<td>-0.1</td>
-<td>2.07</td>
-<td>V</td>
-</tr>
-<tr>
-<td>AVDD18_DDR</td>
-<td>-0.1</td>
-<td>2.07</td>
-<td>V</td>
-</tr>
-<tr>
-<td>AVDD11_DDR</td>
-<td>-0.1</td>
-<td>1.265</td>
-<td>V</td>
-</tr>
-<tr>
-<td>AVDD11_DDR</td>
-<td>-0.1</td>
-<td>1.38</td>
-<td>V</td>
-</tr>
-<tr>
-<td>AVDDU_PHY</td>
-<td>-0.1</td>
-<td>1.035</td>
-<td>V</td>
-</tr>
-<tr>
-<td>AVDDU_DDR</td>
-<td>-0.1</td>
-<td>1.035</td>
-<td>V</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>DDR IO</td>
-<td>AVDD06_DDR</td>
-<td>-0.1</td>
-<td>0.69</td>
-<td>V</td>
-</tr>
-<tr>
-<td>VDDQ_V1P2</td>
-<td>-0.1</td>
-<td>1.38</td>
-<td>V</td>
-</tr>
-<tr>
-<td>eFuse</td>
-<td>AVDD18_EFUSE</td>
-<td>-0.1</td>
-<td>2.07</td>
-<td>V</td>
-</tr>
-<tr>
-<td>Audio Logic </td>
-<td>AUD_VDDU09</td>
-<td>-0.1</td>
-<td>1.035</td>
-<td>V</td>
-</tr>
-<tr>
-<td>Audio Power NEG</td>
-<td>AUD_VNEG</td>
-<td>N/A</td>
-<td>-2.07</td>
-<td>V</td>
-</tr>
-<tr>
-<td>Audio Power POS</td>
-<td>AUD_VPOS</td>
-<td>-0.1</td>
-<td>2.07</td>
-<td>V</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>Audio Analog</td>
-<td>AVDD18_AUD</td>
-<td>-0.1</td>
-<td>2.07</td>
-<td>V</td>
-</tr>
-<tr>
-<td>AVDD3V3_AUD</td>
-<td>-0.1</td>
-<td>3.795</td>
-<td>V</td>
-</tr>
-<tr>
-<td>GPIO</td>
-<td>VCC18_GPIO</td>
-<td>-0.1</td>
-<td>2.07</td>
-<td>V</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>GPIO3</td>
-<td rowspan=2 colspan=1>VCC1833_GPIO3</td>
-<td>-0.1</td>
-<td>2.07</td>
-<td>V</td>
-</tr>
-<tr>
-<td>-0.1</td>
-<td>3.795</td>
-<td>V</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>GPIO2</td>
-<td rowspan=2 colspan=1>VCC1833_GPIO2</td>
-<td>-0.1</td>
-<td>2.07</td>
-<td>V</td>
-</tr>
-<tr>
-<td>-0.1</td>
-<td>3.795</td>
-<td>V</td>
-</tr>
-</tbody>
-</table>
+| Item             | Symbol/Pin        | Min   | Max    | Unit |
+|------------------|-------------------|-------|--------|------|
+| Digital Power    | VCC_M1            | -0.1  | 1.035  | V    |
+| PLL              | AVDD09_PLL        | -0.1  | 1.035  | V    |
+| PLL              | AVDD18_PLL        | -0.1  | 2.07   | V    |
+| OSC              | AVDD09_AFEAP      | -0.1  | 1.035  | V    |
+| OSC              | AVDD18_AFEAP      | -0.1  | 2.07   | V    |
+| PCIeC            | AVDD18_PCIEC      | -0.1  | 2.07   | V    |
+| PCIeC            | AVDD09_PCIEC      | -0.1  | 1.035  | V    |
+| PCIeB            | AVDD18_PCIEB      | -0.1  | 2.07   | V    |
+| PCIeB            | AVDD09_PCIEB      | -0.1  | 1.035  | V    |
+| PCIeA            | AVDD18_PCIEA      | -0.1  | 2.07   | V    |
+| PCIeA            | AVDD09_PCIEA      | -0.1  | 1.035  | V    |
+| USB IO           | AVDD33_USB        | -0.1  | 3.795  | V    |
+| USB PHY          | AVDD18_USB        | -0.1  | 2.07   | V    |
+| USB PHY          | AVDD09_USB        | -0.1  | 1.035  | V    |
+| MIPI DSI IO      | AVDD12_DSI1       | -0.1  | 1.38   | V    |
+| MIPI DSI PHY     | AVDD09_DSI1       | -0.1  | 1.035  | V    |
+| MIPI DSI PHY     | AVDD18_DSI1       | -0.1  | 2.07   | V    |
+| MIPI CSI PHY     | AVDD09_CSI        | -0.1  | 1.035  | V    |
+| MIPI CSI PHY     | AVDD18_CSI        | -0.1  | 2.07   | V    |
+| HDMI             | AVDD09_HDMI       | -0.1  | 1.035  | V    |
+| HDMI             | AVDD18_HDMI       | -0.1  | 2.07   | V    |
+| HDMI             | AVDD33_HDMI       | -0.1  | 3.795  | V    |
+| eMMC             | VDD09_EMMC        | -0.1  | 1.035  | V    |
+| eMMC             | V18_EMMC          | -0.1  | 2.07   | V    |
+| QSPI             | VCC1833_QSPI      | -0.1  | 2.07   | V    |
+| QSPI             | VCC1833_QSPI      | -0.1  | 3.795  | V    |
+| SD               | VCC1833_MMC1      | -0.1  | 2.07   | V    |
+| SD               | VCC1833_MMC1      | -0.1  | 3.795  | V    |
+| DDR PHY          | AVDD18_PHY        | -0.1  | 2.07   | V    |
+| DDR PHY          | AVDD18_DDR        | -0.1  | 2.07   | V    |
+| DDR PHY          | AVDD11_DDR        | -0.1  | 1.265  | V    |
+| DDR PHY          | AVDD11_DDR        | -0.1  | 1.38   | V    |
+| DDR PHY          | AVDDU_PHY         | -0.1  | 1.035  | V    |
+| DDR PHY          | AVDDU_DDR         | -0.1  | 1.035  | V    |
+| DDR IO           | AVDD06_DDR        | -0.1  | 0.69   | V    |
+| DDR IO           | VDDQ_V1P2         | -0.1  | 1.38   | V    |
+| eFuse            | AVDD18_EFUSE      | -0.1  | 2.07   | V    |
+| Audio Logic      | AUD_VDDU09        | -0.1  | 1.035  | V    |
+| Audio Power NEG  | AUD_VNEG          | N/A   | -2.07  | V    |
+| Audio Power POS  | AUD_VPOS          | -0.1  | 2.07   | V    |
+| Audio Analog     | AVDD18_AUD        | -0.1  | 2.07   | V    |
+| Audio Analog     | AVDD3V3_AUD       | -0.1  | 3.795  | V    |
+| GPIO             | VCC18_GPIO        | -0.1  | 2.07   | V    |
+| GPIO3            | VCC1833_GPIO3     | -0.1  | 2.07   | V    |
+| GPIO3            | VCC1833_GPIO3     | -0.1  | 3.795  | V    |
+| GPIO2            | VCC1833_GPIO2     | -0.1  | 2.07   | V    |
+| GPIO2            | VCC1833_GPIO2     | -0.1  | 3.795  | V    |
 
 #### For Packages
 
-<table>
-<tbody>
-<tr>
-<td><strong>Item</strong></td>
-<td><strong>Symbol</strong></td>
-<td><strong>Min</strong></td>
-<td><strong>Max</strong></td>
-<td><strong>Unit</strong></td>
-</tr>
-<tr>
-<td>Operating Temperature<br/>(Industrial Standard)</td>
-<td>Ta</td>
-<td>-40</td>
-<td>+85</td>
-<td>°C </td>
-</tr>
-<tr>
-<td>Junction Temperature</td>
-<td>Tj</td>
-<td>N/A</td>
-<td>125</td>
-<td>℃</td>
-</tr>
-<tr>
-<td>Storage Temperature</td>
-<td>Tstg</td>
-<td>-40</td>
-<td>125</td>
-<td>℃</td>
-</tr>
-</tbody>
-</table>
+| Item                              | Symbol | Min  | Max  | Unit |
+|-----------------------------------|--------|------|------|------|
+| Operating Temperature<br>(Industrial Standard) | Ta     | -40  | +85  | °C   |
+| Junction Temperature              | Tj     | N/A  | 125  | ℃    |
+| Storage Temperature               | Tstg   | -40  | 125  | ℃    |
 
 ### 5.3 Pin Max Currents
 
-<table>
-<tbody>
-<tr>
-<td><strong>Item</strong></td>
-<td><strong>Symbol</strong><strong>/Pin</strong></td>
-<td><strong>Max</strong></td>
-<td><strong>Unit</strong></td>
-</tr>
-<tr>
-<td>Digital Power</td>
-<td>VCC_M1</td>
-<td>10000</td>
-<td>mA</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>PLL</td>
-<td>AVDD09_PLL</td>
-<td>5</td>
-<td>mA</td>
-</tr>
-<tr>
-<td>AVDD18_PLL</td>
-<td>5</td>
-<td>mA</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>OSC</td>
-<td>AVDD09_AFEAP</td>
-<td>5</td>
-<td>mA</td>
-</tr>
-<tr>
-<td>AVDD18_AFEAP</td>
-<td>5</td>
-<td>mA</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>PCIeC</td>
-<td>AVDD18_PCIEC</td>
-<td>50</td>
-<td>mA</td>
-</tr>
-<tr>
-<td>AVDD09_PCIEC</td>
-<td>100</td>
-<td>mA</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>PCIeB</td>
-<td>AVDD18_PCIEB</td>
-<td>50</td>
-<td>mA</td>
-</tr>
-<tr>
-<td>AVDD09_PCIEB</td>
-<td>100</td>
-<td>mA</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>PCIeA</td>
-<td>AVDD18_PCIEA</td>
-<td>50</td>
-<td>mA</td>
-</tr>
-<tr>
-<td>AVDD09_PCIEA</td>
-<td>100</td>
-<td>mA</td>
-</tr>
-<tr>
-<td>USB IO</td>
-<td>AVDD33_USB</td>
-<td>90</td>
-<td>mA</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>USB PHY</td>
-<td>AVDD18_USB</td>
-<td>90</td>
-<td>mA</td>
-</tr>
-<tr>
-<td>AVDD09_USB</td>
-<td>15</td>
-<td>mA</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>MIPI DSI PHY</td>
-<td>AVDD09_DSI1</td>
-<td>20</td>
-<td>mA</td>
-</tr>
-<tr>
-<td>AVDD18_DSI1</td>
-<td>50</td>
-<td>mA</td>
-</tr>
-<tr>
-<td>MIPI DSI IO</td>
-<td>AVDD12_DSI1</td>
-<td>50</td>
-<td>mA</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>MIPI CSI PHY</td>
-<td>AVDD09_CSI</td>
-<td>70</td>
-<td>mA</td>
-</tr>
-<tr>
-<td>AVDD18_CSI</td>
-<td>100</td>
-<td>mA</td>
-</tr>
-<tr>
-<td rowspan=3 colspan=1>HDMI</td>
-<td>AVDD09_HDMI</td>
-<td>10</td>
-<td>mA</td>
-</tr>
-<tr>
-<td>AVDD18_HDMI</td>
-<td>10</td>
-<td>mA</td>
-</tr>
-<tr>
-<td>AVDD33_HDMI</td>
-<td>10</td>
-<td>mA</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>eMMC</td>
-<td>VDD09_EMMC</td>
-<td>50</td>
-<td>mA</td>
-</tr>
-<tr>
-<td>V18_EMMC</td>
-<td>50</td>
-<td>mA</td>
-</tr>
-<tr>
-<td>QSPI</td>
-<td>VCC1833_QSPI</td>
-<td>150</td>
-<td>mA</td>
-</tr>
-<tr>
-<td>SD</td>
-<td>VCC1833_MMC1</td>
-<td>150</td>
-<td>mA</td>
-</tr>
-<tr>
-<td rowspan=5 colspan=1>DDR PHY</td>
-<td>AVDD18_PHY</td>
-<td>200</td>
-<td>mA</td>
-</tr>
-<tr>
-<td>AVDD18_DDR</td>
-<td>20</td>
-<td>mA</td>
-</tr>
-<tr>
-<td>AVDD11_DDR</td>
-<td>100</td>
-<td>mA</td>
-</tr>
-<tr>
-<td>AVDDU_PHY</td>
-<td>100</td>
-<td>mA</td>
-</tr>
-<tr>
-<td>AVDDU_DDR</td>
-<td>100</td>
-<td>mA</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>DDR IO</td>
-<td>AVDD06_DDR</td>
-<td>100</td>
-<td>mA</td>
-</tr>
-<tr>
-<td>VDDQ_V1P2</td>
-<td>600</td>
-<td>mA</td>
-</tr>
-<tr>
-<td>eFuse</td>
-<td>AVDD18_EFUSE</td>
-<td>150</td>
-<td>mA</td>
-</tr>
-<tr>
-<td>Audio Logic </td>
-<td>AUD_VDDU09</td>
-<td>1</td>
-<td>mA</td>
-</tr>
-<tr>
-<td>Audio Power NEG</td>
-<td>AUD_VNEG</td>
-<td>102</td>
-<td>mA</td>
-</tr>
-<tr>
-<td>Audio Power POS</td>
-<td>AUD_VPOS</td>
-<td>102</td>
-<td>mA</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>Audio Analog</td>
-<td>AVDD18_AUD</td>
-<td>10</td>
-<td>mA</td>
-</tr>
-<tr>
-<td>AVDD3V3_AUD</td>
-<td>100</td>
-<td>mA</td>
-</tr>
-</tbody>
-</table>
+| Item             | Symbol/Pin       | Max   | Unit |
+|------------------|------------------|-------|------|
+| Digital Power    | VCC_M1           | 10000 | mA   |
+| PLL              | AVDD09_PLL       | 5     | mA   |
+| PLL              | AVDD18_PLL       | 5     | mA   |
+| OSC              | AVDD09_AFEAP     | 5     | mA   |
+| OSC              | AVDD18_AFEAP     | 5     | mA   |
+| PCIeC            | AVDD18_PCIEC     | 50    | mA   |
+| PCIeC            | AVDD09_PCIEC     | 100   | mA   |
+| PCIeB            | AVDD18_PCIEB     | 50    | mA   |
+| PCIeB            | AVDD09_PCIEB     | 100   | mA   |
+| PCIeA            | AVDD18_PCIEA     | 50    | mA   |
+| PCIeA            | AVDD09_PCIEA     | 100   | mA   |
+| USB IO           | AVDD33_USB       | 90    | mA   |
+| USB PHY          | AVDD18_USB       | 90    | mA   |
+| USB PHY          | AVDD09_USB       | 15    | mA   |
+| MIPI DSI PHY     | AVDD09_DSI1      | 20    | mA   |
+| MIPI DSI PHY     | AVDD18_DSI1      | 50    | mA   |
+| MIPI DSI IO      | AVDD12_DSI1      | 50    | mA   |
+| MIPI CSI PHY     | AVDD09_CSI       | 70    | mA   |
+| MIPI CSI PHY     | AVDD18_CSI       | 100   | mA   |
+| HDMI             | AVDD09_HDMI      | 10    | mA   |
+| HDMI             | AVDD18_HDMI      | 10    | mA   |
+| HDMI             | AVDD33_HDMI      | 10    | mA   |
+| eMMC             | VDD09_EMMC       | 50    | mA   |
+| eMMC             | V18_EMMC         | 50    | mA   |
+| QSPI             | VCC1833_QSPI     | 150   | mA   |
+| SD               | VCC1833_MMC1     | 150   | mA   |
+| DDR PHY          | AVDD18_PHY       | 200   | mA   |
+| DDR PHY          | AVDD18_DDR       | 20    | mA   |
+| DDR PHY          | AVDD11_DDR       | 100   | mA   |
+| DDR PHY          | AVDDU_PHY        | 100   | mA   |
+| DDR PHY          | AVDDU_DDR        | 100   | mA   |
+| DDR IO           | AVDD06_DDR       | 100   | mA   |
+| DDR IO           | VDDQ_V1P2        | 600   | mA   |
+| eFuse            | AVDD18_EFUSE     | 150   | mA   |
+| Audio Logic      | AUD_VDDU09       | 1     | mA   |
+| Audio Power NEG  | AUD_VNEG         | 102   | mA   |
+| Audio Power POS  | AUD_VPOS         | 102   | mA   |
+| Audio Analog     | AVDD18_AUD       | 10    | mA   |
+| Audio Analog     | AVDD3V3_AUD      | 100   | mA   |
 
 ### 5.4 Power On/Off Sequence
 
@@ -12485,7 +8990,7 @@ Instead, the input thresholds of Schmitt Trigger Mode of I/O PADs are tabled bel
 
 The order of the involved pins with state change during the power on sequence is depicted below.
 
-![](static/power_on.png)
+<img src="static/power_on.png" alt="" width="600">
 
 #### Power Off Sequence
 
@@ -12493,15 +8998,14 @@ The order of the involved pins with state change during the power on sequence is
 
 The order of the involved pins with state change during the power off sequence is depicted below.
 
-![](static/power_off.png)
+<img src="static/power_off.png" alt="" width="600">
 
 ### 5.5 Power Consumption
 
 #### In Typical Application Scenarios
 
-To be defined soon.
+> TBD
 
 #### In Particular Application Scenarios
 
-To be defined soon.
-
+> TBD
