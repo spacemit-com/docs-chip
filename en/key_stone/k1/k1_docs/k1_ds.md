@@ -2561,11 +2561,7 @@ The related package outline drawing (POD) are depicted in the following sections
 
 ## 4. Pinout
 
-### 4.1 Introduction
-
-The two available packages of K1 as per **Chapter 3** are <u>pin-to-pin</u>.
-
-### 4.2 Pinout Diagram & Description
+### 4.1 Pinout Diagram & Description
 
 The overall pinout diagram of K1 is depicted below.
 
@@ -3340,7 +3336,7 @@ in order to provide conveniently the pinout description of K1 in the following s
 | AF25   | VSS              | G    | 0V           | Digital Core Ground               |
 | AF26   | VSS              | G    | 0V           | Digital Core Ground               |
 
-### 4.3 I/O Pin Parameters
+### 4.2 I/O Pin Parameters
 
 #### For 1.8V I/O Pins
 
@@ -3370,7 +3366,7 @@ in order to provide conveniently the pinout description of K1 in the following s
 |   | Iol (DS[2:0]=000/001/010/011/100/101/110/111)                         | Low level output current when Vpad=0.4V          | 7/10/14/18/21/24/28/31mA |       |             |
 |   | Ioh (DS[2:0]=000/001/010/011/100/101/110/111)                         | High level output current when Vpad=VCC-0.5V     | 7/10/13/16/19/23/26/29mA |       |             |
 
-### 4.4 Multiplexed Signal/Pin Functions
+### 4.3 Multiplexed Signal/Pin Functions
 
 The **Function 0** through 7 signals is assigned to the I/O pins of K1.
 
@@ -3468,7 +3464,7 @@ The assigned signals are organized by their functions (e.g. power supply, clock,
 | USBx_P     | I/O  | USB D±                |
 | VBUS_ON    | I    | USB VBUS present indicator |
 
-### 4.5 Multi-Function I/O Pin Assignments
+### 4.4 Multi-Function I/O Pin Assignments
 
 All functions that are assigned to a pin as its primary functions are tabled below.
 
@@ -3619,7 +3615,7 @@ All functions that are assigned to a pin as its primary functions are tabled bel
 |           | EMMC_CLK           |                  |                    | EMMC_CLK                       | GPIO[102]                         |                              |                               |                       |                   |                   |
 |           | EMMC_CMD           |                  |                    | EMMC_CMD                       | GPIO[103]                         |                              |                               |                       |                   |                   |
 
-### 4.6 Power Supply Pins
+### 4.5 Power Supply Pins
 
 | Pin Name           | Domain Name        | Domain Voltage                     | Description                                                                 |
 |--------------------|--------------------|------------------------------------|-----------------------------------------------------------------------------|
@@ -3669,7 +3665,7 @@ All functions that are assigned to a pin as its primary functions are tabled bel
 | AVDD18_USB         | USB2.0             | 1.8V                               | USB2.0 1.8V power                                                           |
 | AVDD33_USB         | USB2.0             | 3.3V                               | USB2.0 3.3V power                                                           |
 
-### 4.7 Multi-Function Pin Registers
+### 4.6 Multi-Function Pin Registers
 
 In K1 are defined and implemented Multi-Function Pin Registers (MFPRs). In particular, there are 129 MFPR in total, starting from the base address 0xD401E000 with a stride of 0x4, as tabled below.
 
