@@ -1,6 +1,9 @@
 sidebar_position: 1
 
-# P1S 芯片规格文档
+# P1S Specification & Documentation
 
-![](./static/p1s01.png)
-![](./static/p1s02.png)
+[P1S Datasheet](p1s_ds.md)
+
+![](./static/p1s_en_01.png)
+![](./static/p1s_en_02.png)
+![](./static/p1s_en_03.png)
