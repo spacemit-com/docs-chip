@@ -20,142 +20,204 @@ SpacemiT Key Stone® K1 is a high-performance and ultra-low-power SoC that integ
 - Compatibility with mainstream OS to meet the needs of various application scenarios
 - Compliance with the industrial-grade reliability standards
 
-### 1.2 General Features
+## 1. 概述
 
-- Application Processor (AP)
-  - SpacemiT® X60™ RISC-V Dual-Cluster 8-Core Processor
-  - Adherence to the RISC-V 64GCVB architecture and RVA22 standard
-  - Cluster 0
-    - Quad-Core with 2.0 TOPS AI computing power
-    - 32K L1-Cache per core
-    - 512K L2-Cache
-    - 512KB TCM
-    - 256bit vector
-  - Cluster 1
-    - Quad-Core
-    - 32K L1-Cache per core
-    - 512K L2-Cache
-    - 256bit vector
-  - DVFS with adaptive operating voltage from 0.6V to 1.05V
-- DDR Memory
-  - Dual-Chip selection, 32-bit LPDDR4/LPDDR4x SDRAM with 2666 Mbps transfer rate, supporting up to 16 GB of RAM
-  - Dual-Chip selection, 32-bit LPDDR3 SDRAM with 1866 Mbps transfer rate, supporting up to 4 GB of RAM
-- RCPU (Real-Time CPU)
-  - SRAM 256KB x1
-  - R_CAN-FD x1
-  - R_I2C x1
-  - R_SPI x2
-  - HDMI Audio
-  - R_Debug
-  - R_UART x2
-  - R_PWM x10
-  - DMA x1
-  - R_IR_RX x1
-- Peripheral Controller
-  - GPIO (×128)
-    - 128 pins
-    - Pull-up/pull-down programmable
-    - 104x 1.8V IO8
-    - 24x 1.8V/3.3V IO
-  - UART (×10)
-    - AP/BT/print
-  - I2C (×10)
-    - For camera, G-Sensor, E-COMPASS, Proximit-Sensor, Light-Sensor, Gyro, Fingerprint, NFC, PMIC, Touch, etc.
-    - 8x AP_I2C (AP I2C0/1/7 dedicated for camera) + 1x HDMI I2C + 1x PWR I2C
-  - SPI (×4)
-    - Support for both master and slave mode
-    - For IMU, codec etc.
-    - Platform with 4 SPI (1x QSPI, 1x SPI LCD, 2x SPI)
-  - USB (×3)
-    - USB 2.0 OTG
-    - USB 2.0 Host
-    - USB 3.0 (combo PCIE PortA)
-  - PCIE (×3)
-    - PCIE PortA Gen2x1
-    - PCIE PortB Gen2x2
-    - PCIE PortC Gen2x2
-  - GMAC (×2)
-    - 10/100/1000 Mbps
-    - RGMII
-  - SDIO (×1 for WIFI)
-    - Compatible with 4-bit SDIO 3.0 UHS-I protocol, up to SDR104 (208MHz)
-  - SD (×1 for TF card)
-    - Compatible with 4-bit SD 3.0 UHS-I protocol, up to SDR104 (208MHz)
-  - eMMC (×1)
-    - Compatible with 8bit eMMC5.1, up to HS400 (200MHz)
-  - MIPI CSI (CSI-2 v1.1) 4-Lane (×2)
-    - 4-Lane + 4-Lane mode
-    - 4-Lane + 2-Lane mode
-    - 4-Lane + 2-Lane + 2-Lane mode (triple sensor)
-  - MIPI DSI (DSI v1.1) (×1)
-    - 4-Lane DSI
-  - PWM (×20)
-  - CAN-FD (×1)
-  - IR-RX (×1)
-- Security System
-  - RISC-V PMP Security
-  - Secure Boot
-  - Secure eFuse 4K bits
-  - Cryptographic engine (TRNG, AES, RSA, ECC, SHA2, HMAC)
-- Debug System
-  - Two JTAGs for both CPU and MCU subsystem
-  - UARTs
-  - CPU/IO register snapshot after watchdog reboot
-- Boot System
-  - Initial AP boot from SPI-Nand/SPI-NorFlash/eMMC/SD
-  - 128KB boot-ROM
-- Aided System
-  - Watchdog design for each CPU/MCU subsystem
-- Operating Temperature
-  - -40°C ~ +85°C (Industrial Standard)
+### 1.1 简介
 
-### 1.3 Multimedia Features
+进迭时空的 Key Stone® K1 是一款高性能、超低功耗的片上系统（SoC），集成了 8 个 RISC-V CPU 核心，并融合了 进迭时空的道义 AI 计算能力。其主要优势包括：
 
-- GPU
-  - IMG BXE-2-32@819MHz, 32KB SLC
-  - Support for OpenCL3.0 / OpenGL ES 3.2 / Vulkan1.3
-- VPU (Video Processing Unit)
-  - H.265/H.264/VP8/VP9/MPEG4/MPEG2 decoder 4K@60fps
-  - H.265/H.264/VP8/VP9 encoder 4K@30fps
-  - Support for simultaneous encoding and decoding at 1080P@60fps
-  - Support for simultaneous H264/H265 encoding at 1080P@30fps and H264/H265 decoding at 4K@30fps
-- Display
-  - 1 MIPI DSI-4 lane or SPI interface
-  - Support for up to HD+ (1920x1080@60fps)
-  - Support for up to 4-full-size-layer composer and maximum 8-layer composer by up-down layer reuse in RDMA channel
-  - Support for cmdlist mechanism which can configure register parameters by hardware
-  - Support for concurrent write-back with both raw and AFBC format
-  - Support for dither/crop/rotation in write-back path
-  - Support for an advanced MMU (virtual address) mechanism with nearly no page missing in 90/270 degree rotation
-  - Support for color key and solid color
-  - Support for both advanced error diffusion and pattern based dither for panel
-  - Support for both raw and AFBC format image source
-  - Support for color saturation/contrast enhancement
-  - Support for both video mode and cmd mode for panel
-  - Support for DDR frequency dynamic changing with embedded DFC buffer
-  - HDMI 1.4
-- Camera
-  - Dual-ISP
-    - 16M (max) 30fps Dual ISP
-    - One 4-Lane CSI + one 4-Lane CSI, or 4-Lane + 2-Lane + 2-Lane
-    - RAW sensor, output YUV data to DRAM
-    - Hardware JPEG encoder, supporting up to 23M
-    - Support for YUV/EXIF/JFIF format
-    - AF/AE/AWB
-    - Face detection
-    - Digital zoom, panorama view
-    - PDAF
-    - PiP (Picture-in-Picture)
-    - Continuous video AF
-    - HW 3D denoise
-- Audio
-  - 2 × Full-Duplex I2S Interfaces
-  - 1 × HDMI Audio Interface
+- 集成进迭时空自主研发的 X60™ RISC-V 核心处理器，符合 **RISC-V 64GCVB 指令集架构** 和 **RVA22 标准**；
+- 通过定制化 RISC-V 指令实现 **CPU-AI 融合计算架构**，可提供高达 **2.0 TOPS（INT8）** 的 AI 算力；
+- 支持主流 AI 推理框架，包括 **TensorFlow Lite、TensorFlow** 和 **ONNX Runtime**；
+- 采用多粒度电源岛设计与动态电源状态调节技术，实现超低功耗运行，在能效方面具备显著竞争优势；
+- 提供完整的外设接口组合，支持各类创新应用与产品开发；
+- 兼容主流操作系统，满足多样化的应用场景需求；
+- 符合工业级可靠性标准，适用于严苛环境下的稳定运行。
 
-### 1.4 Block Diagram
+### 1.2 主要特性
 
-The architecture of K1 is depicted below.  
-![K1 Block Diagram](./static/k1_blockdiagram.png)
+- **应用处理器（Application Processor, AP）**
+  - 进迭时空 X60™ RISC-V 双簇八核处理器
+  - 符合 **RISC-V 64GCVB 指令集架构** 与 **RVA22 标准**
+  - **簇 0（Cluster 0）**
+    - 四核配置，集成 **2.0 TOPS（INT8）AI 算力**
+    - 每核配备 **32 KB L1 缓存**
+    - 共享 **512 KB L2 缓存**
+    - 配置 **512 KB TCM（紧耦合存储器）**
+    - 支持 **256 位向量扩展（Vector Extension）**
+  - **簇 1（Cluster 1）**
+    - 四核配置
+    - 每核配备 **32 KB L1 缓存**
+    - 共享 **512 KB L2 缓存**
+    - 支持 **256 位向量扩展（Vector Extension）**
+  - 支持 **动态电压频率调节（DVFS）**，工作电压自适应范围为 **0.6 V 至 1.05 V**
+
+- **DDR 内存**
+  - 支持双芯片片选，**32 位 LPDDR4/LPDDR4x SDRAM**，传输速率高达 **2666 Mbps**，最大支持 **16 GB 容量**
+  - 支持双芯片片选，**32 位 LPDDR3 SDRAM**，传输速率高达 **1866 Mbps**，最大支持 **4 GB 容量**
+
+- **实时处理器（Real-Time CPU, RCPU）**
+  - **256 KB SRAM ×1**
+  - **R_CAN-FD ×1**
+  - **R_I²C ×1**
+  - **R_SPI ×2**
+  - **HDMI 音频接口**
+  - **R_Debug 调试接口**
+  - **R_UART ×2**
+  - **R_PWM ×10**
+  - **DMA 控制器 ×1**
+  - **R_IR_RX（红外接收）×1**
+
+- **外设控制器（Peripheral Controller）**
+  - **GPIO（×128）**
+    - 共 128 个引脚
+    - 支持可编程上拉/下拉电阻
+    - 其中 104 个为 **1.8 V IO8** 引脚
+    - 其余 24 个支持 **1.8 V / 3.3 V** 双电压 IO
+
+  - **UART（×10）**
+    - 用于应用处理器（AP）、蓝牙（BT）及调试打印等用途
+
+  - **I²C（×10）**
+    - 用于连接摄像头、重力传感器（G-Sensor）、电子罗盘（E-Compass）、接近传感器（Proximity Sensor）、环境光传感器（Light Sensor）、陀螺仪（Gyro）、指纹模组、NFC、电源管理芯片（PMIC）、触摸屏等外设
+    - 包含：
+      - **8 路 AP_I²C**（其中 AP I²C0/1/7 专用于摄像头）
+      - **1 路 HDMI I²C**
+      - **1 路 PWR I²C**
+
+  - **SPI（×4）**
+    - 支持主/从模式
+    - 用于 IMU、音频编解码器（Codec）等外设
+    - 平台配置包括：
+      - **1 路 QSPI**
+      - **1 路 SPI LCD**
+      - **2 路通用 SPI**
+
+  - **USB（×3）**
+    - **1 路 USB 2.0 OTG**
+    - **1 路 USB 2.0 Host**
+    - **1 路 USB 3.0**（与 PCIe PortA 复用）
+
+  - **PCIe（×3）**
+    - **PortA：Gen2 ×1**
+    - **PortB：Gen2 ×2**
+    - **PortC：Gen2 ×2**
+
+  - **GMAC（×2）**
+    - 支持 **10/100/1000 Mbps** 速率
+    - 接口标准为 **RGMII**
+
+  - **SDIO（×1，用于 Wi-Fi）**
+    - 兼容 **4 位 SDIO 3.0 UHS-I** 协议，最高支持 **SDR104 模式（208 MHz）**
+
+  - **SD 卡接口（×1，用于 TF 卡）**
+    - 兼容 **4 位 SD 3.0 UHS-I** 协议，最高支持 **SDR104 模式（208 MHz）**
+
+  - **eMMC（×1）**
+    - 兼容 **8 位 eMMC 5.1** 标准，最高支持 **HS400 模式（200 MHz）**
+
+  - **MIPI CSI（CSI-2 v1.1，×2）**
+    - 支持多种组合模式：
+      - **4-Lane + 4-Lane**
+      - **4-Lane + 2-Lane**
+      - **4-Lane + 2-Lane + 2-Lane**（三路图像传感器）
+
+  - **MIPI DSI（DSI v1.1，×1）**
+    - **4-Lane DSI** 接口
+
+  - **PWM（×20）**
+
+  - **CAN-FD（×1）**
+
+  - **红外接收（IR-RX，×1）**
+
+- **安全系统（Security System）**
+  - 支持 **RISC-V PMP（Physical Memory Protection）** 安全机制
+  - 支持 **安全启动（Secure Boot）**
+  - 集成 **4 Kbit 安全 eFuse**
+  - 内置 **硬件加密引擎**，支持以下算法：
+    - **TRNG（真随机数发生器）**
+    - **AES**
+    - **RSA**
+    - **ECC（椭圆曲线密码）**
+    - **SHA-2**
+    - **HMAC**
+
+- **调试系统（Debug System）**
+  - 提供 **两路 JTAG 接口**，分别用于 **CPU 子系统** 和 **MCU 子系统**
+  - 支持通过 **UART** 进行调试输出
+  - 在看门狗复位后，可自动保存 **CPU/IO 寄存器快照**
+
+- **启动系统（Boot System）**
+  - 应用处理器（AP）支持从以下介质启动：
+    - **SPI NAND Flash**
+    - **SPI NOR Flash**
+    - **eMMC**
+    - **SD 卡**
+  - 内置 **128 KB Boot ROM**
+
+- **辅助系统（Aided System）**
+  - 为每个 **CPU/MCU 子系统** 独立配置 **看门狗定时器（Watchdog）**
+
+- **工作温度范围（Operating Temperature）**
+  - **-40°C ~ +85°C**，符合 **工业级标准**
+
+### 1.3 多媒体特性
+
+- **GPU**
+  - 集成 **IMG BXE-2-32 GPU**，主频 **819 MHz**，配备 **32 KB SLC（系统级缓存）**
+  - 支持图形 API：
+    - **OpenCL 3.0**
+    - **OpenGL ES 3.2**
+    - **Vulkan 1.3**
+
+- **VPU（视频处理单元）**
+  - **解码能力**：支持 **H.265 / H.264 / VP8 / VP9 / MPEG-4 / MPEG-2**，最高达 **4K@60fps**
+  - **编码能力**：支持 **H.265 / H.264 / VP8 / VP9**，最高达 **4K@30fps**
+  - 支持 **1080p@60fps 同时编解码**
+  - 支持 **1080p@30fps H.264/H.265 编码 + 4K@30fps H.264/H.265 解码** 并行处理
+
+- **显示（Display）**
+  - 输出接口：**1 路 MIPI DSI（4-lane）** 或 **SPI 接口**
+  - 最高分辨率支持：**HD+（1920×1080@60fps）**
+  - 支持最多 **4 个全尺寸图层合成**，通过 RDMA 通道的上下层复用机制可扩展至 **8 层合成**
+  - 支持 **cmdlist 硬件机制**，可由硬件自动配置寄存器参数
+  - 支持 **回写（Write-back）功能**，同时兼容 **原始格式（Raw）** 与 **AFBC 压缩格式**
+  - 回写路径支持 **抖动（Dither）、裁剪（Crop）、旋转（Rotation）**
+  - 采用 **高级 MMU（虚拟地址）机制**，在 **90°/270° 旋转** 场景下几乎无页缺失（page miss）
+  - 支持 **色键（Color Key）** 与 **纯色填充（Solid Color）**
+  - 面板输出支持 **高级误差扩散抖动（Error Diffusion Dither）** 和 **基于图案的抖动（Pattern-based Dither）**
+  - 图像源支持 **Raw 格式** 与 **AFBC 压缩格式**
+  - 支持 **色彩饱和度与对比度增强**
+  - 面板支持 **视频模式（Video Mode）** 与 **命令模式（Command Mode）**
+  - 支持 **DDR 频率动态切换**，内置 **DFC 缓冲区** 以保障显示流畅性
+  - 集成 **HDMI 1.4** 输出接口
+
+- **摄像头（Camera）**
+  - **双 ISP 架构**
+    - 最高支持 **1600 万像素 @30fps 双路 ISP 并行处理**
+    - CSI 接口组合灵活：
+      - **4-Lane + 4-Lane**
+      - 或 **4-Lane + 2-Lane + 2-Lane**（支持三摄）
+    - 支持 **RAW 格式图像传感器**，输出 **YUV 数据至 DRAM**
+    - 内置 **硬件 JPEG 编码器**，最高支持 **2300 万像素**
+    - 支持输出格式：**YUV / EXIF / JFIF**
+    - 支持 **自动对焦（AF）、自动曝光（AE）、自动白平衡（AWB）**
+    - 支持 **人脸检测**
+    - 支持 **数字变焦、全景拼接（Panorama View）**
+    - 支持 **相位检测自动对焦（PDAF）**
+    - 支持 **画中画（PiP, Picture-in-Picture）**
+    - 支持 **连续视频自动对焦**
+    - 支持 **硬件加速 3D 降噪（3D Denoise）**
+
+- **音频（Audio）**
+  - **2 路全双工 I²S 接口**
+  - **1 路 HDMI 音频接口**
+
+### 1.4 架构框图
+
+K1 的系统架构如下图所示。   
+![K1 架构框图](./static/k1_blockdiagram.png)
 
 ## 2. Specifications
 
