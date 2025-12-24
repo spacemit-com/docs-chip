@@ -6,20 +6,6 @@ sidebar_position: 1
 
 点击下载 PDF 版本 [K1 Datasheet (PDF)](https://cdn-resource.spacemit.com/file/%E8%8A%AF%E7%89%87/K1/K1_Datasheet_%28V7.5_2025.08.06%29.pdf)
 
-## 1. Overview
-
-### 1.1 Introduction
-
-SpacemiT Key Stone® K1 is a high-performance and ultra-low-power SoC that integrates 8 RISC-V CPU cores with SpacemiT® Daoyi™ AI computing power. It comes with the following most relevant advantages:
-
-- Integration with SpacemiT® self-innovated X60™ RISC-V core processor which adheres to the RISC-V 64GCVB architecture and RVA22 standard
-- Capable of delivering 2.0 TOPS AI computing power by leveraging customized RISC-V instructions to enable CPU AI fusion computing
-- Support for the popular AI inference frameworks such as TensorFlow Lite, TensorFlow, and ONNX Runtime
-- Attainment of ultra-low power consumption through the incorporation of multiple granular power islands and dynamic power state adjustments, making K1 highly competitive in energy efficiency
-- Availability of full-feature interfaces for enabling innovative applications and products
-- Compatibility with mainstream OS to meet the needs of various application scenarios
-- Compliance with the industrial-grade reliability standards
-
 ## 1. 概述
 
 ### 1.1 简介
