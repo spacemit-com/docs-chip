@@ -491,7 +491,7 @@ K1 includes a high-performance Image Signal Processor (ISP) which supports simul
 
 > **Notes.** To be highlighted the following limitations:
 >
-> - The system supports dual-camera video stream processing (RAW). In the “4-Lane + 2-Lane + 2-Lane mode (triple sensor)” as per **Section 2.3.1**, one sensor must be a YUV input format source, and the write path should not use the MMU.
+> - The system supports dual-camera video stream processing (RAW). In the “4-Lane + 2-Lane + 2-Lane mode (triple sensor)” as per **[MIPI Camera IN Interface](#mipi-camera-in-interface)**, one sensor must be a YUV input format source, and the write path should not use the MMU.
 > - When processing dual-camera video stream (RAW), the total input width of each channel should not exceed 4750 pixels. The combination of the instantaneous speed of the output pixel from both sensors must be less than "_ISP's clock / 6_"
 > - For video recording, the maximum width of the output video is 1920 pixels, regardless of the input resolution.
 > - For photo capture, the output image size can match the input resolution.
@@ -824,7 +824,7 @@ Support for 0°, 90°, 180°, 270° rotation (performed clockwise) as well as mi
 
 <img src="static/Rotation.png" alt="" width="200">
 
-The code for rotating, mirroring and flipping graphical content is listed below, and the details of the specific variables and registers involved are tabled immediately after).
+The code for rotating, mirroring and flipping graphical content is listed below, and the details of the specific variables and registers involved are tabled immediately after.
 
 ```sql
 Input param: Rect_left, Rect_top, Rect_width, Rect_height, data_in[4][256].

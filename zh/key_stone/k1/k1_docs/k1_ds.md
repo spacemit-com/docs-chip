@@ -205,532 +205,538 @@ sidebar_position: 1
 K1 的系统架构如下图所示。   
 ![K1 架构框图](./static/k1_blockdiagram.png)
 
-## 2. Specifications
+## 2. 规格参数
 
-### 2.1 CPU Subsystem
+### 2.1 CPU 子系统
 
-- Availability of two asymmetric CPU clusters, where
+- 采用 **双非对称 CPU 簇架构**，其中：
+  - **簇 0（Cluster 0）**：包含 **4 个 SpacemiT® X60™ RISC-V 核心**，集成 **2.0 TOPS AI 算力扩展单元**
+  - **簇 1（Cluster 1）**：包含 **4 个 SpacemiT® X60™ RISC-V 核心**，**不带 AI 加速能力**
+- 高性能、低功耗的 **SpacemiT® X60™ CPU 核心**，符合 **RISC-V 64GCVB 指令集架构** 与 **RVA22 标准**
+- 支持 **核心本地中断控制器（CLINT）** 与 **平台级中断控制器（PLIC）**
+- 符合 **RISC-V Debug 规范 v0.13.2**
+- 在看门狗复位触发时，可自动捕获 **关键 CPU 状态快照**，便于故障诊断与调试
+- 采用 **电源岛（Power Island）设计** 与 **两级功耗管理策略**（针对每个 CPU 核心及整个簇），实现 **超低功耗运行**
 
-  - Cluster 0 includes Quad RISC-V SpacemiT® X60™ cores with 2.0 TOPS AI-Power extension
-  - Cluster 1 includes Quad RISC-V SpacemiT® X60™ cores without AI capability
-- High-performance: low-power SpacemiT® X60™ CPU core adheres to RISC-V 64GCVB architecture and RVA22 standard
-- Support for a processor core local interrupt controller (CLINT) and a platform level interrupt controller (PLIC)
-- Compliance with RISC-V debug V0.13.2 standard
-- Capture of a snapshot of critical CPU information upon watchdog reset to aid debugging
-- Power islands and two-level power strategies design for each CPU core and clusters in order to achieve ultra-low power consumption
+#### SpacemiT® X60™ RISC-V 核心
 
-#### SpacemiT® X60™ RISC-V Core
+##### 简介
 
-##### Introduction
+X60™ 是一款创新型高能效处理器核心，集成了 进迭时空自主研发的 **道义 AI 创新部署方案**，严格遵循 **RISC-V 64GCVB 指令集架构** 与 **RVA22 标准**。
 
-X60™ is an innovative high-efficiency processor core with SpacemiT® Daoyi™ AI innovation deployment that adheres to RISC-V 64GCVB and RVA22 standards.
-
-In order to meet the current and future computational demand, X60™ incorporates numerous DSA technologies and micro-architecture optimizations, and provides robust computing power for AI applications, machine learning, SLAM, etc.
-
-##### Features
-
-- Compliance with RISC-V 64GCVB and RVA22 standards
-- Each core has 32KB L1-I cache and 32KB L1-D cache
-- Each cluster contains 512KB L2 cache
-- Cluster 0 integrates 512KB TCM (Tight-Coupled Memory) for AI extension
-- L1 cache supports MESI consistency protocol, instead L2 cache supports MOESI consistency protocol
-- Vector extension: RVV1.0 with VLEN 256/128-bit and x2 execution width
-- AI customized instructions explored and implemented in Cluster 0
-- Support for CLINT and PLIC with a total of 256 interrupts
-- Support for RISC-V performance PMU
-- Support for SV39 virtual memory
-- Support for 32 PMP entries adhering to RISC-V security framework
-- Support for RISC-V debug framework
-- Support for the following extensions:
-
-  - RV64I
-  - M
-  - A
-  - F
-  - D
-  - C
-  - V
-  - Sscofpmf
-  - Sstc
-  - Svinval
-  - Svnapot
-  - Svpbmt
-  - Zicbom
-  - Zicbop
-  - Zicboz
-  - Zicntr
-  - Zicond
-  - Zicsr
-  - Zifencei
-  - Zihintpause
-  - Zihpm
-  - Zfh
-  - Zfhmin
-  - Zkt
-  - Zba
-  - Zbb
-  - Zbc
-  - Zbs
-  - Zbkc
-  - Zvfh
-  - Zvfhmin
-  - Zvkt
-- Support for the following AI customized instructions:
-
-  - Category "<u>Integer dot-product matrix multiply-accumulate (int8 type)</u>", including
-    - smt.vmadot
-    - smt.vmadotu
-    - smt.vmadotsu
-    - smt.vmadotus
-  - Category "<u>Integer sliding-window dot-product matrix multiply-accumulate (int8 type)</u>", including
-    - smt.vmadot1
-    - smt.vmadot1u
-    - smt.vmadot1su
-    - smt.vmadot1us
-    - smt.vmadot2
-    - smt.vmadot2u
-    - smt.vmadot2su
-    - smt.vmadot2us
-    - smt.vmadot3
-    - smt.vmadot3u
-    - smt.vmadot3su
-    - smt.vmadot3us
-
-  **Note.** For details on all these AI-customized instructions, please refer to [https://github.com/spacemit-com/riscv-ime-extension-spec](https://github.com/spacemit-com/riscv-ime-extension-spec)
-
-##### Block Diagram
-
-The micro-architecture of X60™ is depicted below.
-
-![](static/X60.png)
-
-#### Interrupt Controller
-
-##### Introduction
-
-K1 contains
-
-- One Processor Core Local Interrupt Controller (CLINT)
-- One Platform Level Interrupt Controller (PLIC)
-
-to manage interrupts for two processor clusters.
-
-The exception handling, which includes exceptions and external interrupts, is an important function of the processor. When specific events occur, the processor redirects to handle them. Such events can include hardware faults, instruction execution errors, user program service requests, and more.
-
-CLINT is a memory address mapped module for handling software interrupts and timer interrupts.
-
-Instead, PLIC samples external interrupt sources, then prioritizes and distributes them accordingly. In the PLIC model, both the machine mode and supervisor mode of each core are valid interrupt targets. PLIC supports up to 256 external interrupt sources. Each interrupt supports both level and edge formats.
-
-#### Debug & Trace
-
-##### Introduction
-
-The debugging interface serves as the channel for software to interact with the processor. Through this interface, users can access CPU registers and memory contents, as well as other on-chip device information. Additionally, tasks such as downloading programs can be performed via the debugging interface.
-
-##### Block Diagram
-
-The micro-architecture of the debugging interface is depicted below.
-
-<img src="static/debugging_interface.png" alt="" width="600">
-
-As can be seen, the debugging system consists of
-
-- A debugging software
-- A debugging agent service
-- A debugger
-- A debugging interface
-
-These components are interconnected as follows:
-
-- The debugging software communicates with the debugging agent service over a network
-- The debugging agent service connects to the debugger via USB
-- The debugger interacts with the CPU through the JTAG interface
-
-The JTAG memory access method could be either _progbuf_ or _sysbus_ mode, where
-
-- The _progbuf_ mode is a standard JTAG method that accesses memory through the CPU
-- The _sysbus_ mode bypasses the CPU to access on-chip resources via the System Bus Access (SBA) port
-
-### 2.2 Memory & Storage
-
-#### On-Chip Memory
-
-##### Introduction
-
-K1 includes the following on-chip memory:
-
-- 128KB boot-ROM
-- 256KB SRAM shared between Main CPU and RCPU
-
-#### DDR
-
-##### Introduction
-
-The DDR controller features a cutting-edge design that optimizes DRAM access by rearranging requests into an efficient order, rather than processing them in their original sequence. It uses re-ordering buffers (ROBs) to reorganize accesses to the SRAM device for improving performance, while maintaining the original transaction order for requests with the same ID on the AXI interface.
-
-Additionally, the DDR controller includes a unified write pool to temporarily store write transactions. Such write pool minimizes write latency and reduces the performance penalty due to switching between read and write operation at the DRAM interface. With a built-in heuristic write buffer control and user-programmable write buffer control, the DDR controller dynamically balances read and write operation performance in real-time.
-
-The DDR controller is also designed to support AMBA AXI4 bus protocols. It is fully scalable and supports up to 4 AXI ports.
+为满足当前及未来在人工智能、机器学习、SLAM（即时定位与地图构建）等场景下的计算需求，X60™ 引入了多项 **领域专用架构（DSA）技术** 与 **微架构优化**，提供强劲且高效的通用与 AI 融合计算能力。
 
 ##### Features
 
-- Priority-based arbitration with a starvation prevention scheme
-- Merge of write operations to the same address by using a write buffer to reduce DDR write operation traffic
-- Direct forward of read operations of the write buffer to the ROB without accessing DDR
-- Two levels dynamic scheduling with bandwidth guarantee
-- Support of power-saving features, including active/pre-charge power-off and self-refresh, with control options available automatically (via idle timer), manually (through registers) or externally (via dedicated ports)
-- Support for dynamic frequency change
-- Support for JEDEC compliant LPDDR3 and LPDDR4 devices
-- Support for DRAM size from 64MB to 16GB
-- One DRAM channel with a x32 DDR PHY, programmable by software to support x32, x16 or x8 data width
-- Support for x16, x32 DRAM devices (1 DQS per 8 DQ)
-- Support for up to 2 Chip Select (CS) or Rank per channel
-- Support for up to 8 banks per CS for LPDDRx
-- Each CS can be mapped to a different starting address
-- Each CS can be programmed for 8MB to 16GB
-- DRAM banks can be kept open after access (no auto-pre-charge)
-- Support for burst length of 8 and 16 for the applicable DDR type
-- Programmable address order
-- Flexible bank placement between CS and data width
-- Implementation of memory controller performance counters
-- Global monitors for RISC-V exclusive load/store access
-- Secure access management for DDR transactions
-- Frequency change register update: implementation of a register table for hardware-triggered sequence update after frequency changes
+##### 特性
 
-##### Block Diagram
+- 符合 **RISC-V 64GCVB 架构** 与 **RVA22 标准**
+- 每个核心配备：
+  - **32 KB L1 指令缓存（L1-I）**
+  - **32 KB L1 数据缓存（L1-D）**
+- 每个簇（Cluster）共享 **512 KB L2 缓存**
+- **簇 0 （Cluster 0）额外集成 512 KB TCM（紧耦合存储器）**，专用于 AI 扩展加速
+- 缓存一致性协议：
+  - **L1 缓存支持 MESI 协议**
+  - **L2 缓存支持 MOESI 协议**
+- 向量扩展：**RVV 1.0**，支持 **VLEN = 256/128 位**，具备 **双发射（x2）执行宽度**
+- **簇 0 （Cluster 0）实现了定制化的 AI 指令扩展**
+- 支持 **CLINT（核心本地中断控制器）** 与 **PLIC（平台级中断控制器）**，共支持 **256 个中断源**
+- 支持 **RISC-V 性能监控单元（PMU）**
+- 支持 **SV39 虚拟内存机制**
+- 支持 **32 项 PMP（物理内存保护）条目**，符合 RISC-V 安全框架
+- 支持 **RISC-V 调试框架（Debug Spec v0.13.2）**
+- 支持以下标准 RISC-V 扩展指令集：
+  - `RV64I`
+  - `M`
+  - `A`
+  - `F`
+  - `D`
+  - `C`
+  - `V`
+  - `Sscofpmf`
+  - `Sstc`
+  - `Svinval`
+  - `Svnapot`
+  - `Svpbmt`
+  - `Zicbom`
+  - `Zicbop`
+  - `Zicboz`
+  - `Zicntr`
+  - `Zicond`
+  - `Zicsr`
+  - `Zifencei`
+  - `Zihintpause`
+  - `Zihpm`
+  - `Zfh`
+  - `Zfhmin`
+  - `Zkt`
+  - `Zba`
+  - `Zbb`
+  - `Zbc`
+  - `Zbs`
+  - `Zbkc`
+  - `Zvfh`
+  - `Zvfhmin`
+  - `Zvkt`
+- 支持以下 **AI 定制指令**：
+  - **类别：<u>整型点积矩阵乘加（int8 类型）</u>**，包括：
+    - `smt.vmadot`
+    - `smt.vmadotu`
+    - `smt.vmadotsu`
+    - `smt.vmadotus`
+  - **类别：<u>整型滑动窗口点积矩阵乘加（int8 类型）</u>**，包括：
+    - `smt.vmadot1` / `smt.vmadot1u` / `smt.vmadot1su` / `smt.vmadot1us`
+    - `smt.vmadot2` / `smt.vmadot2u` / `smt.vmadot2su` / `smt.vmadot2us`
+    - `smt.vmadot3` / `smt.vmadot3u` / `smt.vmadot3su` / `smt.vmadot3us`
 
-The architecture of the DDR controller interface is depicted below.
+> **注**：有关上述所有 AI 定制指令的详细定义，请参阅官方规范文档：  
+> [https://github.com/spacemit-com/riscv-ime-extension-spec](https://github.com/spacemit-com/riscv-ime-extension-spec)
 
-<img src="static/DDR_controller.png" alt="" width="600">
+##### 架构框图
 
-#### Quad-SPI
+X60™ 的微架构如下图所示。
 
-##### Introduction
+![X60™ 微架构](static/X60.png)
 
-Quad-SPI acts as an interface to external serial flash devices with up to four bidirectional data lines.
+#### 中断控制器
 
-##### Features
+##### 简介
 
-- Flexible sequence engine to support various flash vendor devices
-- Single, dual and quad mode operation
-- DMA supports reading RX buffer data via AMBA AHB bus (64-bit width interface) or IP register space (32-bit access), and filling TX buffer via IP register space (32-bit access)
-- Configurable DMA inner loop size
-- Fifteen interrupt conditions
-- Memory-mapped read access for connected flash devices
-- Programmable sequence engine for future command/protocol changes, and able to support all existing vendor commands and operations
-- Support for all types of addressing
-- Support for standard SPI, Fast, Dual, Dual I/O, Quad, Quad I/O mode
-- Operation up to 104MHz clock frequency
+K1 集成了以下两类中断控制器，用于管理两个处理器簇的中断请求：
 
-#### eMMC Interface
+- **1 个处理器核心本地中断控制器（CLINT）**
+- **1 个平台级中断控制器（PLIC）**
 
-##### Introduction
+异常处理（包括异常和外部中断）是处理器的关键功能之一。当特定事件（如硬件故障、指令执行错误、用户程序系统调用请求等）发生时，处理器会跳转至相应的异常处理程序进行响应。
 
-The eMMC interface is a hardware block that acts as a host of the eMMC bus to transfer data between eMMC card and the internal bus master.
+- **CLINT** 是一个基于内存映射的模块，主要用于处理 **软件中断** 和 **定时器中断**。
+- **PLIC** 负责采集 **外部中断源**，并根据优先级进行仲裁后分发至目标处理器核心。在 PLIC 架构中，每个核心的 **机器模式（Machine Mode）** 和 **监督模式（Supervisor Mode）** 均可作为有效的中断目标。PLIC 最多支持 **256 个外部中断源**，且每个中断源均支持 **电平触发（Level-triggered）** 和 **边沿触发（Edge-triggered）** 两种格式。
 
-##### Features
+#### 调试与追踪（Debug & Trace）
 
-- Compliance with the 8 bits eMMC 5.1 protocol specification
-- Use of the same SD-HCI register set for eMMC transfers, with additional vendor-specific registers
-- Support for 1-bit/8-bit MMC and CE-ATA cards
-- Support for the following data transfer types defined in the SD-HCI specification:
+##### 简介
 
-  - PIO
-  - SDMA
-  - ADMA
-  - ADMA2
-- Support for the SPI mode for eMMC card
-- Support for the following speed modes defined in eMMC 5.1:
+调试接口是软件与处理器交互的通道。通过该接口，用户可访问 CPU 寄存器、内存内容以及其他片上设备信息，并可执行程序下载等操作。
 
-  - Legacy (up to 26MB/s, 1.8V signal)
-  - High-speed SDR (up to 52MB/s, 1.8V signal)
-  - High-speed DDR (up to 52MB/s, 1.8V signal)
-  - HS200 (up to 200MB/s, 1.8V signal)
-  - HS400 (up to 400MB/s, 1.8V signal)
-- Hardware generation/checking of CRC for all command and data transactions on the card bus
-- 1024-byte FIFO (2 x 512-byte data blocks) for data transmission and reception
+##### 架构框图
 
-#### SD/MMC Interface
+调试接口的微架构如下图所示：
 
-##### Introduction
+![调试接口架构](static/debugging_interface.png)
 
-The SD/MMC interface is a hardware block that acts as a host of the SD/MMC bus to transfer data between SD/MMC card and the internal bus master.
+如图所示，调试系统由以下组件构成：
 
-##### Features
+- **调试软件（Debugging Software）**
+- **调试代理服务（Debugging Agent Service）**
+- **调试器（Debugger）**
+- **调试接口（Debugging Interface）**
 
-- Compliance with the 4-bit SD 3.0 UHS-I protocol specification
-- Adoption of the SD-HCI register set with additional vendor-specific registers
-- Support for 1-bit/4-bit SD memory
-- Support for the following data transfer types defined in the SD-HCI specification:
+各组件之间的连接关系如下：
 
-  - PIO
-  - SDMA
-  - ADMA
-  - ADMA2
-- Support for the following speed modes defined in the SD 3.0 specification:
+- **调试软件** 通过网络与 **调试代理服务** 通信；
+- **调试代理服务** 通过 **USB** 连接至 **调试器**；
+- **调试器** 通过 **JTAG 接口** 与 CPU 交互。
 
-  - Default Speed (up to 12.5MB/s, 3.3V signal)
-  - High Speed (up to 25MB/s, 3.3V signal)
-  - SDR12 (up to 25 MHz, 1.8V signal)
-  - SDR25 (up to 50 MHz, 1.8V signal)
-  - SDR50 (up to 100 MHz, 1.8V signal)
-  - SDR104 (up to 208 MHz, 1.8V signal)
-  - DDR50 (up to 50 MHz, 1.8V signal)
-- Hardware generation/checking of CRC for all command and data transactions on the card bus
-- Support for the read-wait control feature for SD/MMC cards
-- Support for the suspend-resume feature for SD/MMC cards
-- SD/MMC card insertion/removal detection feature via GPIO
-- 1024 Bytes FIFO (2 x 512 Bytes data block) for data transmission and reception
+JTAG 内存访问支持两种模式：**`progbuf`** 和 **`sysbus`**，具体如下：
 
-### 2.3 Image Subsystem
+- **`progbuf` 模式**：标准 JTAG 访问方式，通过 CPU 执行指令来访问内存；
+- **`sysbus` 模式**：绕过 CPU，直接通过 **系统总线访问端口（System Bus Access, SBA）** 访问片上资源，提升调试效率。
 
-#### MIPI Camera IN Interface
+### 2.2 内存与存储
 
-##### Introduction
+#### 片上存储器（On-Chip Memory）
 
-The MIPI Camera IN interface features two MIPI-CSI2 v1.1 controllers both equipped with 4 lanes each of which supports a maximum transfer rate of 1.5Gbps.
+##### 简介
 
-##### Features
+K1 集成以下片上存储器资源：
 
-- Support for the following modes to allocate lanes to sensors:
+- **128 KB Boot ROM**：用于存放一级引导代码，支持从多种外部介质启动；
+- **256 KB SRAM**：由主应用处理器（Main CPU）与实时处理器（RCPU）共享使用。
 
-  - 4-Lane + 4-Lane mode (double sensor)
-  - 4-Lane + 2-Lane mode (double sensor)
-  - 4-Lane + 2-Lane + 2-Lane mode (triple sensor)
+### 2.2 内存与存储
 
-  > **Note.** In "4-Lane + 2-Lane + 2-Lane mode (triple sensor)", only 2 Bayer RAW and 1 YUV input format are supported.
-  >
-- Support for the following input formats:
+#### DDR 控制器
 
+##### 简介
+
+DDR 控制器采用前沿架构设计，通过 **重排序缓冲区（Re-ordering Buffers, ROBs）** 对 DRAM 访问请求进行智能重排，以提升内存带宽利用率和访问效率。该设计不按原始请求顺序处理事务，而是根据地址局部性和 DRAM 物理特性优化调度顺序，同时在 AXI 接口上对相同 ID 的请求保持原有事务顺序，确保系统一致性。
+
+此外，控制器内置 **统一写入池（Unified Write Pool）**，用于暂存写事务。该机制有效降低写入延迟，并减少因 DDR 接口频繁切换读/写操作带来的性能损失。结合 **启发式写缓冲控制** 与 **用户可编程写缓冲策略**，DDR 控制器可在运行时动态平衡读写性能。
+
+该 DDR 控制器完全兼容 **AMBA AXI4 总线协议**，具备高度可扩展性，最多支持 **4 个 AXI 主端口**。
+
+##### 特性
+
+- 支持 **基于优先级的仲裁机制**，并配备 **防饥饿（Starvation Prevention）策略**
+- 利用 **写缓冲合并（Write Buffer Merge）** 同一地址的多次写操作，显著降低 DDR 写流量
+- 对写缓冲中的读请求可 **直接转发至 ROB**，无需访问 DDR，提升响应速度
+- 支持 **两级动态调度机制**，并提供 **带宽保障（Bandwidth Guarantee）**
+- 支持多种 **低功耗特性**：
+  - 激活/预充电断电（Active/Pre-charge Power-off）
+  - 自刷新（Self-refresh）
+  - 控制方式支持：
+    - **自动模式**（通过空闲计时器触发）
+    - **手动模式**（通过寄存器配置）
+    - **外部控制**（通过专用引脚）
+- 支持 **动态频率切换（Dynamic Frequency Change）**
+- 兼容 **JEDEC 标准的 LPDDR3 与 LPDDR4/LPDDR4x 存储器件**
+- 支持 DRAM 容量范围：**64 MB 至 16 GB**
+- 单通道 DDR PHY，**x32 位宽**，可通过软件配置为 **x32 / x16 / x8** 数据宽度
+- 支持 **x16 与 x32 DRAM 芯片**（每 8 位数据对应 1 路 DQS）
+- 每通道支持最多 **2 个片选（Chip Select, CS）或 Rank**
+- 每个 CS 最多支持 **8 个 Bank**（适用于 LPDDRx）
+- 每个 CS 可映射至 **独立的起始地址**
+- 每个 CS 容量可配置为 **8 MB 至 16 GB**
+- 支持 **Bank 保持开启（No Auto-Precharge）**，提升连续访问效率
+- 支持 **突发长度（Burst Length）8 和 16**（依 DDR 类型而定）
+- 支持 **可编程地址映射顺序**
+- 支持 **CS 与数据宽度之间的灵活 Bank 布局**
+- 集成 **内存控制器性能计数器（Performance Counters）**
+- 支持 **RISC-V 独占加载/存储（Exclusive Load/Store）的全局监控**
+- 提供 **DDR 事务的安全访问管理机制**
+- 实现 **频率切换后的寄存器自动更新机制**：通过硬件触发的寄存器表，在频率变更后自动完成时序参数重配置
+
+##### 架构框图
+
+DDR 控制器接口架构如下图所示：
+
+![DDR 控制器架构](static/DDR_controller.png)
+
+#### Quad-SPI 控制器
+
+##### 简介
+
+Quad-SPI 控制器用于连接外部串行闪存（Serial Flash）设备，支持最多 **四条双向数据线**，实现高速、灵活的 SPI 通信。
+
+##### 特性
+
+- 内置 **灵活的序列引擎（Sequence Engine）**，可适配多种厂商的 Flash 器件；
+- 支持 **单线（Single）、双线（Dual）和四线（Quad）** 操作模式；
+- **DMA 支持**：
+  - 通过 **AMBA AHB 总线（64 位宽接口）** 或 **IP 寄存器空间（32 位访问）** 读取 RX 缓冲区数据；
+  - 通过 **IP 寄存器空间（32 位访问）** 填充 TX 缓冲区；
+- DMA **内层循环大小可配置**；
+- 支持 **15 种中断触发条件**；
+- 支持对连接的 Flash 设备进行 **内存映射读取（Memory-Mapped Read Access）**，简化软件访问；
+- **序列引擎可编程**，便于未来扩展新命令或协议，同时兼容所有现有厂商的指令与操作；
+- 支持 **所有类型的地址模式**；
+- 兼容多种 SPI 模式：
+  - 标准 SPI（Standard SPI）
+  - 快速读（Fast Read）
+  - Dual / Dual I/O
+  - Quad / Quad I/O
+- 最高工作时钟频率达 **104 MHz**。
+
+#### eMMC 接口
+
+##### 简介
+
+eMMC 接口是一个硬件模块，作为 eMMC 总线的主机（Host），用于在 eMMC 卡与内部总线主控之间传输数据。
+
+##### 特性
+
+- 符合 **8 位 eMMC 5.1 协议规范**；
+- 使用与 SD-HCI 兼容的寄存器集进行 eMMC 数据传输，并扩展了厂商自定义寄存器；
+- 支持 **1 位 / 8 位 MMC 卡** 以及 **CE-ATA 卡**；
+- 支持 SD-HCI 规范中定义的以下数据传输方式：
+  - **PIO（Programmed I/O）**
+  - **SDMA（Simple DMA）**
+  - **ADMA（Advanced DMA）**
+  - **ADMA2**
+- 支持 eMMC 卡的 **SPI 模式**；
+- 支持 eMMC 5.1 定义的以下速度模式：
+  - **Legacy 模式**：最高 **26 MB/s**（1.8 V 信号）
+  - **High-Speed SDR**：最高 **52 MB/s**（1.8 V 信号）
+  - **High-Speed DDR**：最高 **52 MB/s**（1.8 V 信号）
+  - **HS200**：最高 **200 MB/s**（1.8 V 信号）
+  - **HS400**：最高 **400 MB/s**（1.8 V 信号）
+- 对卡总线上的所有命令与数据事务，**硬件自动生成并校验 CRC**；
+- 配备 **1024 字节 FIFO**（由 2 个 512 字节数据块组成），用于数据收发缓冲。
+
+#### SD/MMC 接口
+
+##### 简介
+
+SD/MMC 接口是一个硬件模块，作为 SD/MMC 总线的主机（Host），用于在 SD/MMC 卡与内部总线主控之间进行数据传输。
+
+##### 特性
+
+- 符合 **4 位 SD 3.0 UHS-I 协议规范**；
+- 采用 **SD-HCI 寄存器集**，并扩展了厂商自定义寄存器；
+- 支持 **1 位 / 4 位 SD 存储卡**；
+- 支持 SD-HCI 规范中定义的以下数据传输方式：
+  - **PIO（Programmed I/O）**
+  - **SDMA（Simple DMA）**
+  - **ADMA（Advanced DMA）**
+  - **ADMA2**
+- 支持 SD 3.0 规范定义的以下速度模式：
+  - **Default Speed**：最高 **12.5 MB/s**（3.3 V 信号）
+  - **High Speed**：最高 **25 MB/s**（3.3 V 信号）
+  - **SDR12**：最高 **25 MHz**（1.8 V 信号）
+  - **SDR25**：最高 **50 MHz**（1.8 V 信号）
+  - **SDR50**：最高 **100 MHz**（1.8 V 信号）
+  - **SDR104**：最高 **208 MHz**（1.8 V 信号）
+  - **DDR50**：最高 **50 MHz**（1.8 V 信号，双倍数据速率）
+- 对卡总线上的所有命令与数据事务，**硬件自动生成并校验 CRC**；
+- 支持 **读等待控制（Read-Wait Control）** 功能，适用于低速或响应延迟的 SD/MMC 卡；
+- 支持 **挂起/恢复（Suspend/Resume）** 功能，提升系统能效；
+- 通过 **GPIO 实现 SD/MMC 卡插拔检测**；
+- 配备 **1024 字节 FIFO**（由 2 个 512 字节数据块组成），用于高效的数据收发缓冲。
+
+### 2.3 图像子系统
+
+#### MIPI 摄像头输入接口（MIPI Camera IN Interface）
+
+##### 简介
+
+MIPI 摄像头输入接口包含 **两个 MIPI CSI-2 v1.1 控制器**，每个控制器均配备 **4 条数据通道（Lanes）**，每通道最高支持 **1.5 Gbps** 传输速率。
+
+##### 特性
+
+- 支持以下 **多摄像头 Lane 分配模式**：
+
+  - **4-Lane + 4-Lane 模式**：支持双摄像头（双传感器）
+  - **4-Lane + 2-Lane 模式**：支持双摄像头（不同带宽需求）
+  - **4-Lane + 2-Lane + 2-Lane 模式**：支持三摄像头（三传感器）
+
+  > **注**：在 **“4-Lane + 2-Lane + 2-Lane（三传感器）”** 模式下，仅支持 **2 路 Bayer RAW 格式** 和 **1 路 YUV 格式** 输入。
+
+- 支持以下 **图像输入格式**：
   - Legacy YUV420 8-bit
   - YUV420 8-bit
   - RAW8
   - RAW10
   - RAW12
   - RAW14
-  - Embedded data type
-- Support for the following types of data interleaving:
+  - 嵌入式数据类型（Embedded Data Type）
 
-  - Data type interleaving
-  - Virtual channel interleaving
+- 支持以下 **数据交织（Interleaving）方式**：
+  - **数据类型交织（Data Type Interleaving）**
+  - **虚拟通道交织（Virtual Channel Interleaving）**
 
-#### ISP
+#### ISP（图像信号处理器）
 
-##### Introduction
+##### 简介
 
-K1 includes a high-performance Image Signal Processor (ISP) which supports simultaneous processing of up to two raw video streams, with a total processing capacity of 21M@30fps.
+K1 集成高性能 **图像信号处理器（ISP）**，支持 **最多两路 RAW 视频流并发处理**，总处理能力达 **2100 万像素 @30fps**。
 
-##### Features
+##### 特性
 
-- Support for both video and picture mode
-- Processing of RAW sensor data and output of YUV data to DRAM
-- Hardware JPEG encoder/decoder (support for up to 23M)
-- Support for YUV, EXIF, JFIF format
-- Auto-focus (AF), Auto-exposure (AE) and Auto-white balance (AWB)
-- Face detection
-- Digital zoom and panorama view
-- Phase Detection Auto-focus (PDAF)
-- Picture-in-Picture (PiP)
-- Continuous video AF
-- Hardware 3D denoise
-- Multi-layer 2D YUV denoise
-- Post-processing for lens shading correction
-- Edge enhancement
+- 支持 **视频模式** 与 **拍照模式**
+- 可处理 **RAW 格式传感器数据**，并将 **YUV 数据输出至 DRAM**
+- 内置 **硬件 JPEG 编解码器**，最高支持 **2300 万像素**
+- 支持输出格式：**YUV、EXIF、JFIF**
+- 支持 **自动对焦（AF）、自动曝光（AE）、自动白平衡（AWB）**
+- 支持 **人脸检测**
+- 支持 **数字变焦** 与 **全景拼接（Panorama View）**
+- 支持 **相位检测自动对焦（PDAF）**
+- 支持 **画中画（PiP, Picture-in-Picture）**
+- 支持 **连续视频自动对焦**
+- 支持 **硬件加速 3D 降噪**
+- 支持 **多层 2D YUV 降噪**
+- 支持 **镜头阴影校正（Lens Shading Correction）** 后处理
+- 支持 **边缘增强（Edge Enhancement）**
 
-> **Notes.** To be highlighted the following limitations:
+> **注意事项（限制说明）**：
 >
-> - The system supports dual-camera video stream processing (RAW). In the “4-Lane + 2-Lane + 2-Lane mode (triple sensor)” as per **Section 2.3.1**, one sensor must be a YUV input format source, and the write path should not use the MMU.
-> - When processing dual-camera video stream (RAW), the total input width of each channel should not exceed 4750 pixels. The combination of the instantaneous speed of the output pixel from both sensors must be less than "_ISP's clock / 6_"
-> - For video recording, the maximum width of the output video is 1920 pixels, regardless of the input resolution.
-> - For photo capture, the output image size can match the input resolution.
+> - 系统支持 **双路 RAW 摄像头视频流处理**。在 **[MIPI 摄像头输入接口](#mipi-摄像头输入接口mipi-camera-in-interface)** 章节中所述的 **“4-Lane + 2-Lane + 2-Lane（三传感器）”** 模式下，其中一路传感器必须为 **YUV 输入格式**，且该通路的写入路径 **不得使用 MMU**。
+> - 在处理 **双路 RAW 摄像头视频流** 时，每通道输入图像的 **总宽度不得超过 4750 像素**，且两路传感器输出像素的 **瞬时速率之和必须小于 “ISP 时钟频率 / 6”**。
+> - **视频录制** 时，无论输入分辨率如何，**输出视频最大宽度限制为 1920 像素**。
+> - **拍照模式** 下，输出图像尺寸可与输入分辨率一致。
 
 #### GPU
 
-##### Introduction
+##### 简介
 
-GPU is built around multi-threaded Unified Shading Clusters (USCs) that features an ALU architecture with high SIMD efficiency, and supports tile-based deferred rendering with concurrent processing of multiple tiles.
+GPU 围绕多线程统一着色集群（USCs）构建，采用高效 SIMD 架构的 ALU 设计，并支持基于分块的延迟渲染（Tile-based Deferred Rendering），能够同时处理多个图块。
 
-The GPU engine handles a number of different workloads, including:
+GPU 引擎可以处理多种不同类型的工作负载，包括：
 
-- 3D graphics workload: vertex and pixel data processing for rendering 3D scenes
-- Compute workload (GP-GPU): general purpose data processing
+- **3D 图形工作负载**：用于渲染 3D 场景的顶点和像素数据处理；
+- **计算工作负载（GP-GPU）**：通用目的的数据处理；
 
-> **Note.** 3D graphics and compute (with barriers) workloads cannot be overlapped at the same time
+> **注意**：3D 图形与计算（带有屏障）工作负载不能同时进行。
 
-The GPU core has an AXI 128bits bus for accessing SOC's DDR memory with a core frequency of up to 819MHz.
+GPU 核心通过 **AXI 128 位总线** 访问 SOC 的 DDR 内存，核心频率最高可达 **819 MHz**。
 
-##### General Features
+##### 通用特性
 
-- Base architecture which is fully compliant with the following APIs:
+- 基础架构完全符合以下 API 标准：
+  - **OpenGL ES 1.1/3.2**
+  - **EGL 1.5**
+  - **OpenCL 3.0**
+  - **Vulkan 1.3**
+- **基于分块的延迟渲染架构（TBDR）** 用于 3D 图形工作负载，支持同时处理多个图块，数据处理分为两个阶段：
+  - **几何处理阶段**：涉及顶点操作如变换、顶点光照以及将 3D 场景分割成图块；
+  - **片段处理阶段**：涉及像素操作如光栅化、纹理映射及像素着色；
+- 可编程高质量图像抗锯齿；
+- 细粒度三角形剔除；
+- 支持数字版权管理（DRM）安全；
+- 支持 GPU 虚拟化，如下：
+  - 最多支持 **8 个虚拟 GPU**；
+  - IMG HyperLane 技术，提供 **8 条 HyperLanes**；
+  - 每个 OSI 分离的 IRQ 支持；
+- 多线程统一着色集群（USC）引擎，集成了像素着色器、顶点着色器及 GP-GPU（计算着色器）功能；
+- USC 采用了具有高 SIMD 效率的 ALU 架构；
+- 完全虚拟化的内存寻址（最多支持 64 GB 地址空间），支持统一内存架构；
+- 细粒度的任务切换、工作负载平衡和电源管理；
+- 先进的 DMA 驱动操作以最小化主机 CPU 的交互；
+- 缓存类型如下：
+  - **32 KB 系统级缓存（SLC）**；
+  - 专用纹理缓存单元（TCU）；
+- 压缩纹理解码；
+- 使用 Imagination 帧缓冲压缩和解压缩（TFBC）算法实现无损或视觉上无损的低面积图像压缩；
+- 专用处理器用于 B 系列核心固件执行；
+- 单线程固件处理器，配备 **2 KB 指令缓存** 和 **2 KB 数据缓存**；
+- 固件处理器独立的电源岛；
+- 片上性能、功耗及统计寄存器。
 
-  - OpenGL ES 1.1/3.2
-  - EGL1.5
-  - OpenCL 3.0
-  - Vulkan 1.3
-- Tile-based deferred rendering architecture (TBDR) for 3D graphics workloads, with concurrent processing of multiple tiles where data are processed in two phases as follows:
+##### 3D 图形特性
 
-  - Geometry Processing Phase: involvement of vertex operations such as transformation and vertex lighting as well as dividing a 3D scene into tiles
-  - Fragment Processing Phase: involvement of pixel operations such as rasterization, texturing and shading of pixels
-- Programmable high quality image anti-aliasing
-- Fine grain triangle culling
-- Support for Digital Right Management (DRM) security
-- Support for GPU virtualization as follows:
+- **光栅化（Rasterization）**
 
-  - Up to 8 virtual GPUs
-  - IMG hyperlane technology with 8 hyperlanes available
-  - Separate IRQs per OSI
-- Multi-threaded Unified Shading Cluster (USC) engine incorporating pixel shader, vertex shader and GP-GPU (compute shader) functionality
-- USC incorporates an ALU architecture with high SIMD efficiency
-- Fully virtualized memory addressing (up to 64 GB address space), supporting unified memory architecture
-- Fine-grained task switching, workload balancing and power management
-- Advanced DMA driven operation for minimum host CPU interaction
-- Cache type as follows:
+  - 延迟像素着色；
+  - 芯片内图块浮点深度缓冲区；
+  - 具有芯片内图块模板缓冲区的 **8 位模板**；
+  - 每个 ISP 最大支持 **2 个在飞图块**；
+  - 每时钟周期 **16 个并行深度/模板测试**；
+  - **1 条固定功能光栅化管线**；
 
-  - 32KB System Level Cache (SLC)
-  - Specialized Texture Cache Unit (TCU)
-- Compressed Texture Decoding
-- Lossless and/or visually lossless low area image compression, using imagination frame buffer compression and decompression (TFBC) algorithm
-- Dedicated processor for B-Series core firmware execution
-- Single-threaded firmware processor with a 2KB instruction cache and a 2KB data cache
-- Separated power island for the firmware processor
-- On-chip performance, power and statistics registers
+- **纹理查找（Texture Lookups）**
 
-##### 3D Graphics Features
+  - 支持从源指令加载；
+  - 通过纹理处理单元（TPU）启用纹理写入；
 
-- **Rasterization**
+- **过滤（Filtering）**
 
-  - Deferred pixel shading
-  - On-chip tile floating point depth buffer
-  - 8-bit stencil with on-chip tile stencil buffer
-  - Maximum 2 tiles in flight (per ISP)
-  - 16 parallel depth/stencil tests per clock
-  - 1 fixed-function rasterisation pipeline(s)
+  - 点采样、双线性及三线性过滤；
+  - 各向异性过滤；
+  - 对于立方环境映射纹理和跨面过滤的支持，包括角过滤；
 
-- **Texture Lookups**
+- **纹理格式（Texture Formats）**
 
-  - Support for loading from source instruction
-  - Texture write enabled through the Texture Processing Unit (TPU)
+  - 支持 ASTC LDR 压缩纹理格式；
+  - 对非压缩纹理和 YUV 纹理的 TFBC 无损或有损压缩格式支持；
+  - ETC 格式；
+  - YUV 平面支持；
 
-- **Filtering**
+- **分辨率支持（Resolution Support）**
 
-  - Point, bilinear and trilinear filtering
-  - Anisotropic filtering
-  - Corner filtering support for cube environment mapped textures and filtering across faces
+  - 最大帧缓冲区尺寸：**8K×8K**；
+  - 最大纹理尺寸：**8K×8K**；
 
-- **Texture Formats**
+- **抗锯齿（Anti-Aliasing）**
 
-  - ASTC LDR compressed texture format support
-  - TFBC lossless and/or lossy compression format support for non-compressed textures and YUV textures
-  - ETC
-  - YUV planar support
+  - 最高支持 **4x 多重采样抗锯齿**；
 
-- **Resolution Support**
+- **图元装配（Primitive Assembly）**
 
-  - Max frame buffer size: 8K×8K
-  - Max texture max size: 8K×8K
+  - 早期隐藏物体剔除；
+  - 图块加速；
 
-- **Anti-Aliasing**
+- **渲染至缓冲区（Render to Buffers）**
 
-  - Max 4× multisampling
+  - 扭曲格式支持；
+  - 多个片上渲染目标（MRT）；
+  - 无损或有损帧缓冲压缩/解压缩；
+  - 可编程几何着色器支持；
+  - 直接几何流输出（变换反馈）；
 
-- **Primitive Assembly**
+- **计算（Compute）**
 
-  - Early hidden object removal
-  - Tile acceleration
+  - 支持一维、二维和三维计算图元；
+  - 块 DMA 到/自 USC 公共存储（用于局部数据）；
+  - 每任务输入数据 DMA（到 USC 统一存储）；
+  - 条件执行；
+  - 执行围栏；
+  - 计算工作负载可以与其他任何工作负载重叠；
+  - 四舍五入到最近偶数。
 
-- **Render to Buffers**
+##### 统一着色集群（USC）特性
 
-  - Twiddled format support
-  - Multiple On-Chip Render Targets (MRT)
-  - Lossless and/or lossy frame buffer compression/decompression
-  - Programmable geometry shader support
-  - Direct geometry stream out (transform feedback)
+- **2 条 ALU 流水线**  
+- 每时钟周期支持 **8 个并行实例**  
+- 配备 **本地数据缓存、纹理缓存和指令缓存**  
+- 支持 **可变长度指令集编码**  
+- 完整支持 **OpenCL™ 原子操作**  
+- 采用 **标量与向量混合的 SIMD 执行模型**  
+- 集成 **USC F16 累积乘加（SOPMAD）算术逻辑单元（ALU）**，用于高效半精度浮点计算
 
-- **Compute**
+#### V2D（2D 视频加速引擎）
 
-  - 1, 2 and 3 dimensional compute primitives
-  - Block DMA to/from USC Common Store (for local data)
-  - Per task input data DMA (to USC Unified Store)
-  - Conditional execution
-  - Execution fences
-  - Compute workload can be overlapped with any other workload
-  - Round to nearest even
+##### 特性
 
-##### Unified Shading Cluster (USC) Features**
+- 支持 **图像缩放**：
+  - 最大 **8 倍放大（Upscaling）**
+  - 最小 **1/8 倍缩小（Downscaling）**
+- 支持 **旋转与翻转**：
+  - 旋转角度：**0°、90°、180°、270°**
+  - 支持 **镜像（Mirror）** 与 **翻转（Flip）** 操作
+- 支持 **简单图层混合** 与 **背景合成**
+- 支持 **图像裁剪（Cropping）**
+- 支持 **纯色填充（Fetch Solid Color）**
+- 支持 **色彩空间转换**，包括：
+  - **RGB ↔ BT.601（窄域/全域）**
+  - **RGB ↔ BT.709（窄域/全域）**
+- 最大 **NV12 分辨率** 支持：
+  - **4656 × 3596** 或 **4672 × 3504**
+- 支持 **抖动（Dithering）**，实现更平滑的色彩过渡
+- 支持 **MMU（内存管理单元）**
+- 支持 **APB3** 与 **AXI3** 总线接口
 
-- 2 ALU pipelines
-- 8 parallel instances per clock
-- Local data, texture and instruction caches
-- Variable length instruction set encoding
-- Full support for OpenCL™ atomic operations
-- Scalar and vector SIMD execution model
-- USC F16 Sum-of-Products Multiply-Add (SOPMAD) Arithmetic Logic Unit (ALU)
+- 支持以下 **输入格式**：
 
-#### V2D
+  - RGB888（可选 R/B 交换）
+  - RGBX888（可选 R/B 交换）
+  - RGBA8888（可选 R/B 交换）
+  - ARGB8888（可选 R/B 交换）
+  - RGB565（可选 R/B 交换）
+  - RGBA5658（可选 R/B 交换）
+  - ARGB8565（可选 R/B 交换）
+  - A8（8 位 Alpha 图像）
+  - Y8（8 位灰度图像）
+  - YUV420 半平面格式（支持 UV 交换）
+  - AFBC 16×16 RGBA8888（layerout0，支持 split 与 non-split 模式）
+  - AFBC 16×16 NV12（layerout1，支持 split 与 non-split 模式）
 
-##### Features
+- 支持以下 **输出格式**：
 
-- Support for upscaling (up to 8x) and downscaling (down to 1/8x)
-- Support for 0°, 90°, 180°, 270° rotation as well as mirror and flip option
-- Support for simple layer and background blending
-- Support for image cropping
-- Support for fetch solid color
-- Support for color space conversion between RGB, BT601 and BT709 (both narrow and full range)
-- 4656x3596 or 4672x3504 as max NV12 resolution
-- Support for dithering for smoother color transitions
-- Support for MMU
-- Support for APB3 and AXI3 bus interfaces
-- Support for the following **input formats**:
+  - RGB888（可选 R/B 交换）
+  - RGBX888（可选 R/B 交换）
+  - RGBA8888（可选 R/B 交换）
+  - ARGB8888（可选 R/B 交换）
+  - RGB565（可选 R/B 交换）
+  - RGBA5658（可选 R/B 交换）
+  - ARGB8565（可选 R/B 交换）
+  - A8（8 位 Alpha 图像）
+  - Y8（8 位灰度图像）
+  - YUV420 半平面格式（支持 UV 交换）
+  - AFBC 16×16 RGBA8888（layerout0，支持 split 与 non-split 模式）
+  - AFBC 16×16 NV12（layerout1，支持 split 与 non-split 模式）
 
-  - RGB888 (with optional RB swap)
-  - RGBX888 (with optional RB swap)
-  - RGBA8888 (with optional RB swap)
-  - ARGB8888 (with optional RB swap)
-  - RGB565 (with optional RB swap)
-  - RGBA5658 (with optional RB swap)
-  - ARGB8565 (with optional RB swap)
-  - A8 (8-bit alpha image)
-  - Y8 (8-bit gray image)
-  - YUV420 semi-planar (UV can swap)
-  - AFBC 16x16 RGBA8888 (layerout0 split and non-split)
-  - AFBC 16x16 NV12 (layerout1 split and non-split)
-- Support for the following **output formats**:
+##### 架构框图
 
-  - RGB888 (with optional RB swap)
-  - RGBX888 (with optional RB swap)
-  - RGBA8888 (with optional RB swap)
-  - ARGB8888 (with optional RB swap)
-  - RGB565 (with optional RB swap)
-  - RGBA5658 (with optional RB swap)
-  - ARGB8565 (with optional RB swap)
-  - A8 (8-bit alpha image)
-  - Y8 (8-bit gray image)
-  - YUV420 semi planar (UV can swap)
-  - AFBC 16x16 RGBA8888 (layerout0 split and non-split)
-  - AFBC 16x16 NV12 (layerout1 split and non-split)
+V2D 子系统的微架构如下图所示：
 
-##### Block Diagram
+![V2D 子系统架构](static/V2D_subsystem.png)
 
-The micro-architecture of the V2D subsystem is depicted below.
+典型的 V2D 工作场景如下图所示：
 
-<img src="static/V2D_subsystem.png" alt="" width="600">
+![V2D 典型工作场景](static/V2D_work_scenario.png)
 
-Instead, the typical V2D work scenario is depicted below.
+##### 功能
 
-<img src="static/V2D_work_scenario.png" alt="" width="600">
+###### 获取数据（Fetch Data）
 
-##### Functions
+从源帧（src frame）中获取 16×16 块的数据，并将其映射到目标超级块（dst superblock）的过程如下图所示，其中：
 
-###### Fetch Data
+- **AFBC**：获取矩形区域的左、上、宽度、高度需为 4 的倍数对齐；
+- **非 AFBC**：获取矩形区域的左、上、宽度、高度需为 1 的倍数对齐；
 
-The process of fetching a 16×16 block of data from a source frame (src frame) and related mapping to the destination superblock (dst superblock) is depicted below, where
+![获取数据](static/Fetch_Data.png)
 
-- **AFBC**: fetch rect left, top, width, height 4 align
-- **Non-AFBC**: fetch rect left, top, width, height 1 align
-
-<img src="static/Fetch_Data.png" alt="" width="400">
-
-The code for fetching data for displaying is listed below, and the details of the specific variables and registers involved are tabled immediately after.
+用于显示的数据获取代码如下所示，具体涉及的变量和寄存器详情紧接在表格后列出。
 
 ```
 Input param: Rect_left, Rect_top, Rect_width, Rect_height
@@ -806,29 +812,33 @@ Loop every pixel in Rect
 }
 ```
 
-| Variable           | Bit                    | Comment        |
-|--------------------|------------------------|--------------------------|
-| Rect_left<br/>Rect_top          | 16bit unsigned         | Range [0, 65535]                                                        |
-| Rect_width<br/>Rect_height      | 5bit unsigned          | Range [1, 16]                                                           |
-| Rect_x<br/>Rect_y               | 16bit unsigned         | Range [0, 65535]<br/>Pixel global position                              |
-| c0, c1, c2, c3                  | 8bit unsigned          | Range [0, 255]                                                          |
-| byte_low<br/>byte_high          | 8bit unsigned          | Range [0, 255]<br/>byte_low: lower byte in RGB565<br/>byte_high: higher byte in RGB565 |
-| data[4][256]                    | 8bit unsigned × 4 × 256 | Range [0, 255]                                                          |
-| index                           | 8bit unsigned          | Range [0, 255]                                                          |
+**变量详情**
 
-| Register        | Comment                              |
-|-----------------|--------------------------------------|
-| LayerX_format   | X is either 0 or 1, refer to module register |
-| LayerX_swap     | X is either 0 or 1, refer to module register |
+| 变量名           | 位宽                    | 注释        |
+|------------------|------------------------|--------------------------|
+| Rect_left<br/>Rect_top | 16位无符号整数         | 范围 [0, 65535]                                                        |
+| Rect_width<br/>Rect_height | 5位无符号整数          | 范围 [1, 16]                                                           |
+| Rect_x<br/>Rect_y | 16位无符号整数         | 范围 [0, 65535]<br/>像素全局位置                              |
+| c0, c1, c2, c3   | 8位无符号整数          | 范围 [0, 255]                                                          |
+| byte_low<br/>byte_high | 8位无符号整数          | 范围 [0, 255]<br/>`byte_low`: RGB565格式中的低位字节<br/>`byte_high`: RGB565格式中的高位字节 |
+| data[4][256]     | 8位无符号整数 × 4 × 256 | 范围 [0, 255]                                                          |
+| index            | 8位无符号整数          | 范围 [0, 255]                                                          |
 
-###### Solid Color
+**寄存器详情**
 
-The code for applying the solid color within a specific rectangle is listed below, and the details of the specific variables and registers involved are tabled immediately after.
+| 寄存器名        | 注释                              |
+|-----------------|------------------------------------|
+| LayerX_format   | X 可以是 0 或 1，参见模块寄存器说明 |
+| LayerX_swap     | X 可以是 0 或 1，参见模块寄存器说明 |
 
-> **Notes.**
+###### 纯色填充（Solid Color）
+
+用于在特定矩形区域内应用纯色的代码如下所示，具体涉及的变量和寄存器详情紧接在表格后列出。
+
+> **注意：**
 >
-> - If the register `LayerX_solid` is enabled, the fetched data is set to solid R, G, B, A
-> - The coordinates of the fetch rect and solid rect are updated after rotation
+> - 如果启用了寄存器 `LayerX_solid`，获取的数据将被设置为固定的 R、G、B、A 值。
+> - 获取矩形和纯色矩形的坐标在旋转后会更新。
 
 ```sql
 Input param: Rect_left, Rect_top, Rect_width, Rect_height.
@@ -850,29 +860,34 @@ if LayerX_solid_enable = 1
 }
 ```
 
-| Variable           | Bit                    | Comment                     |
-|--------------------|------------------------|-----------------------------|
-| Rect_left, Rect_top          | 16bit unsigned         | Range [0, 65535]            |
-| Rect_width, Rect_height      | 5bit unsigned          | Range [1, 16]               |
-| Rect_x, Rect_y               | 16bit unsigned         | Range [0, 65535]<br/>Pixel global position |
-| c0, c1, c2, c3               | 8bit unsigned          | Range [0, 255]              |
-| data[4][256]                 | 8bit unsigned × 4 × 256 | Range [0, 255]              |
-| index                        | 8bit unsigned          | Range [0, 255]              |
+**变量定义**
 
-| Register               | Comment                            |
-|------------------------|------------------------------------|
-| LayerX_solid_enable    | X is 0 or 1, refer to module register |
-| LayerX_solid_R         | X is 0 or 1, refer to module register |
-| LayerX_solid_G         | X is 0 or 1, refer to module register |
-| LayerX_solid_B         | X is 0 or 1, refer to module register |
-| LayerX_solid_A         | X is 0 or 1, refer to module register |
-###### Rotation
+| 变量名                  | 位宽               | 说明                                     |
+|------------------------|--------------------|------------------------------------------|
+| Rect_left, Rect_top    | 16 位无符号整数     | 范围 [0, 65535]                          |
+| Rect_width, Rect_height| 5 位无符号整数      | 范围 [1, 16]                             |
+| Rect_x, Rect_y         | 16 位无符号整数     | 范围 [0, 65535]<br/>像素的全局坐标位置   |
+| c0, c1, c2, c3         | 8 位无符号整数      | 范围 [0, 255]                            |
+| data[4][256]           | 8 位无符号 × 4 × 256| 范围 [0, 255]                            |
+| index                  | 8 位无符号整数      | 范围 [0, 255]                            |
 
-Support for 0°, 90°, 180°, 270° rotation (performed clockwise) as well as mirror and flip option, as depicted below (example).
+**寄存器定义**
 
-<img src="static/Rotation.png" alt="" width="200">
+| 寄存器名               | 说明                                      |
+|------------------------|-------------------------------------------|
+| LayerX_solid_enable    | X 为 0 或 1，具体定义参见模块寄存器文档   |
+| LayerX_solid_R         | X 为 0 或 1，表示图层 X 的纯色红色分量    |
+| LayerX_solid_G         | X 为 0 或 1，表示图层 X 的纯色绿色分量    |
+| LayerX_solid_B         | X 为 0 或 1，表示图层 X 的纯色蓝色分量    |
+| LayerX_solid_A         | X 为 0 或 1，表示图层 X 的纯色 Alpha 分量 |
 
-The code for rotating, mirroring and flipping graphical content is listed below, and the details of the specific variables and registers involved are tabled immediately after).
+##### 旋转（Rotation）
+
+支持 **0°、90°、180°、270°**（顺时针方向）的图像旋转，以及 **镜像（Mirror）** 和 **翻转（Flip）** 操作，如下图所示（示例）：
+
+![旋转示意图](static/Rotation.png)
+
+用于执行图形内容旋转、镜像和翻转的代码逻辑如下所示，具体涉及的变量与寄存器定义紧随其后。
 
 ```sql
 Input param: Rect_left, Rect_top, Rect_width, Rect_height, data_in[4][256].
@@ -940,32 +955,35 @@ Loop all pixels in data_in{
 }
 ```
 
-| Variable                              | Bit                    | Comment          |
-|---------------------------------------|------------------------|------------------|
-| Rect_left, Rect_top                   | 16bit unsigned         | Range [0, 65535] |
-| Rect_width, Rect_height               | 5bit unsigned          | Range [1, 16]    |
-| Block_rect_left, Block_rect_top       | 16bit unsigned         | Range [0, 65535] |
-| Block_rect_width, Block_rect_height   | 5bit unsigned          | Range [1, 16]    |
-| data_in[4][256],<br/>data_out[4][256] | 8bit unsigned × 4 × 256 | Range [0, 255]   |
+**变量定义**
 
-| Register                    | Bit             | Comment                            |
-|-----------------------------|-----------------|------------------------------------|
-| LayerX_degree               | 3bit unsigned   | X is 0 or 1, refer to module register |
-| LayerX_width, LayerX_height | 16bit unsigned  | X is 0 or 1, refer to module register |
+| 变量名                              | 位宽               | 说明                                     |
+|-------------------------------------|--------------------|------------------------------------------|
+| Rect_left, Rect_top                | 16 位无符号整数     | 源矩形区域左上角坐标，范围 [0, 65535]    |
+| Rect_width, Rect_height            | 5 位无符号整数      | 源矩形区域尺寸，范围 [1, 16]             |
+| Block_rect_left, Block_rect_top    | 16 位无符号整数     | 块矩形区域左上角坐标，范围 [0, 65535]    |
+| Block_rect_width, Block_rect_height| 5 位无符号整数      | 块矩形区域尺寸，范围 [1, 16]             |
+| data_in[4][256],<br/>data_out[4][256] | 8 位无符号 × 4 × 256 | 输入和输出像素数据缓存（RGBA），范围 [0, 255] |
 
-###### CSC
+**寄存器定义**
 
-Support for Color Space Conversion (CSC) as per formats below:
+| 寄存器名                    | 位宽               | 说明                                      |
+|-----------------------------|--------------------|-------------------------------------------|
+| LayerX_degree               | 3 位无符号整数      | X 是 0 或 1，用于指定图层 X 的旋转角度：<br> - 000 = 0°<br> - 001 = 90°<br> - 010 = 180°<br> - 011 = 270°<br>具体定义参见模块寄存器文档 |
+| LayerX_width, LayerX_height | 16 位无符号整数     | X 是 0 或 1，分别表示图层 X 的宽度和高度，具体定义参见模块寄存器文档 |
 
-- BT601 and BT709: conversion between narrow and full range
-- RGB to YUV
-- YUV to RGB
+###### 色彩空间转换（CSC）
 
-The conversion process transforms input channels into output channels by using a transformation matrix with clamping in order to ensure valid output values, i.e. within the range [0, 255].
+支持以下格式的 **色彩空间转换（Color Space Conversion, CSC）**：
 
-For that purpose, the formulas below are implemented, and the details of the specific variables and registers involved are tabled immediately after.
+- **BT.601 与 BT.709**：支持窄域（Narrow Range）与全域（Full Range）之间的相互转换；
+- **RGB ↔ YUV**：支持 RGB 到 YUV 及 YUV 到 RGB 的双向转换。
 
-**[Firstly for computing the intermediate channel values]**
+转换过程通过一个 **3×3 变换矩阵** 对输入通道进行线性变换，并对结果进行 **限幅（Clamping）**，以确保输出值始终处于有效范围 **[0, 255]** 内。
+
+为此，系统实现如下公式，具体涉及的变量与寄存器定义紧随其后。
+
+**第一步：计算中间通道值**
 
 $$
 C0_{inter} = (Layer_matrix[0][0]*C0_{in} + Layer_matrix[0][1]*C1_{in} + Layer_matrix[0][2]*C2_{in} + 512)>>(10+Layer_matrix[0][3])
@@ -979,7 +997,7 @@ $$
 C2_{inter} = (Layer_matrix[2][0]*C0_{in} + Layer_matrix[2][1]*C1_{in} + Layer_matrix[2][2]*C2_{in} + 512)>>(10+Layer_matrix[2][3])
 $$
 
-**[Then for clamping in order to ensure valid output values]**
+**第二步：限幅处理以确保合法输出**
 
 $$
 C0_{out}=clamp(C0_{inter},0,255)
@@ -997,36 +1015,40 @@ $$
 C3_{out}=clamp(C3_{in},0,255)
 $$
 
-| Variable                     | Bit            | Comment                   |
-|------------------------------|----------------|---------------------------|
-| C0in, C1in, C2in, C3in       | 8bit unsigned  | Input channel             |
-| C0inter, C1inter, C2inter    | 10bit signed   | Intermediate channel value|
-| C0out, C1out, C2out, C3out   | 8bit unsigned  | Output channel            |
+**变量定义**
 
-| Register               | Index | Bit           | Comment              |
-|------------------------|-------|---------------|----------------------|
-| LayerX_CSC_enable      | -     | 1bit unsigned | 0: disable<br/>1: enable |
-| Layer_matrix[#][#]     | 0-11  | 13bit signed  | Range [-4096, 4095]  |
+| 变量名                          | 位宽             | 说明                     |
+|----------------------------------|------------------|--------------------------|
+| C0in, C1in, C2in, C3in          | 8 位无符号整数    | 输入通道（如 R/G/B/A 或 Y/U/V/A） |
+| C0inter, C1inter, C2inter       | 10 位有符号整数   | 中间通道值               |
+| C0out, C1out, C2out, C3out      | 8 位无符号整数    | 输出通道                 |
 
-In the code, the conversion process is applied with the following condition:
+**寄存器定义**
+
+| 寄存器名              | 索引     | 位宽           | 说明                                      |
+|-----------------------|----------|----------------|-------------------------------------------|
+| LayerX_CSC_enable     | —        | 1 位无符号整数  | 0：禁用 CSC<br/>1：启用 CSC               |
+| Layer_matrix[#][#]    | 0–11     | 13 位有符号整数 | 共 12 个系数（3×4），取值范围 [-4096, 4095] |
+
+在代码中，CSC 功能按以下条件执行：
 
 ```
 if LayerX_CSC_enable == 0
     skip CSC function
 ```
 
-###### Scaling
+###### 缩放（Scaling）
 
-The scaling operation follows a systematic superblock-based approach, where
+缩放操作采用基于超级块（superblock）的系统化处理方式，具体流程如下：
 
-- The first four superblocks are outputted horizontally then vertically
-- After the vertical output is completed, the process restarts from the first row of superblocks
+- 首先按 **水平方向** 输出前四个超级块，随后按 **垂直方向** 继续输出；
+- 当 **垂直方向输出完成** 后，处理流程将重新从 **第一行超级块** 开始。
 
-###### Storing
+###### 存储（Storing）
 
-A 16×16 image block can be stored in DDR memory, however only the portion that falls within the output crop region is stored which is converted to the specified output color format, such as YUV, RGB, etc.
+一个 16×16 的图像块可被写入 DDR 内存，但**仅位于输出裁剪区域（output crop region）内的部分会被实际存储**。该部分数据在存储前会转换为指定的输出色彩格式（如 YUV、RGB 等）。
 
-The code for storing an image block is listed below, and the details of the specific variables and registers involved are tabled immediately after.
+用于存储图像块的代码逻辑如下所示，具体涉及的变量与寄存器定义紧随其后。
 
 ```sql
 Input param: Rect_left, Rect_top, Rect_width, Rect_height, data_in[4][256]
@@ -1115,209 +1137,227 @@ if output_format == ARGB8888
 }
 ```
 
-| Variable                                      | Bit                    | Comment        |
-|-----------------------------------------------|------------------------|----------------|
-| Rect_left<br/>Rect_top                        | 16bit unsigned         | Range [0, 65535] |
-| Rect_width<br/>Rect_height                    | 5bit unsigned          | Range [1, 16]    |
-| pixel_index                                   | 8bit unsigned          | Range [0, 65535] |
-| s0, s1, s2, s3                                | 8bit unsigned          | Range [0, 255]   |
-| Y00, Y01, Y10, Y11, U00, U01,<br/>U10, U11, V00, V01, V10, V11,<br/>U, V, R, G, B, A | 8bit unsigned | Range [0, 255] |
-| data_in[4][256]                               | 8bit unsigned × 4 × 256 | Range [0, 255]   |
+**变量定义**
 
-| Register           | Bit             | Comment            |
-|--------------------|-----------------|-----------------------------------------|
-| Output_format      | 3bit unsigned   | 0: RGB888 (R at low address, B at high address)<br/>1: RGBX8888<br/>2: RGBA8888<br/>3: ARGB8888 (A at low address, B at high address)<br/>5: yuv420sp (U at low address, V at high address) |
-| Output_swap        | 1bit unsigned   | 0: No swap<br/>1: RGB swap RB, YUV swap UV                                                  |
-| Output_layout      | 1bit unsigned   | 0: Linear<br/>1: FBC compressed                                                             |
-| Output_crop_left   | 16bit unsigned  | Range [0, 65534]; `crop_left < output_left + output_width`                                  |
-| Output_crop_top    | 16bit unsigned  | Range [0, 65534]; `crop_top < output_top + output_height`                                   |
-| Output_crop_width  | 16bit unsigned  | Range [1, 65535]<br/>`crop_left + crop_width ≤ output_left + output_width`                  |
-| Output_crop_height | 16bit unsigned  | Range [1, 65535]<br/>`crop_top + crop_height ≤ output_top + output_height`                  |
+| 变量名        | 位宽               | 说明         |
+|----------------|--------------------|------------|
+| Rect_left<br/>Rect_top                     | 16 位无符号整数     | 范围 [0, 65535]                          |
+| Rect_width<br/>Rect_height                 | 5 位无符号整数      | 范围 [1, 16]                             |
+| pixel_index                                | 8 位无符号整数      | 范围 [0, 65535]（注：实际有效范围受 16×16 块限制） |
+| s0, s1, s2, s3                             | 8 位无符号整数      | 范围 [0, 255]，通常用于中间或通道数据    |
+| Y00, Y01, Y10, Y11,<br/>U00, U01, U10, U11,<br/>V00, V01, V10, V11,<br/>U, V, R, G, B, A | 8 位无符号整数 | 范围 [0, 255]，表示像素的色彩分量（YUV/RGB/Alpha） |
+| data_in[4][256]                            | 8 位无符号 × 4 × 256 | 输入像素数据缓存（RGBA 或其他四通道格式），范围 [0, 255] |
 
-### 2.4 Video Subsystem
+**寄存器定义**
 
-#### Introduction
+| 寄存器名           | 位宽             | 说明                |
+|--------------------|------------------|--------------------|
+| Output_format      | 3 位无符号整数    | 指定输出色彩格式：<br/>• 0: RGB888（低地址为 R，高地址为 B）<br/>• 1: RGBX8888<br/>• 2: RGBA8888<br/>• 3: ARGB8888（低地址为 A，高地址为 B）<br/>• 5: YUV420 半平面格式（UV 交错，低地址为 U，高地址为 V） |
+| Output_swap        | 1 位无符号整数    | 通道交换控制：<br/>• 0: 不交换<br/>• 1: RGB 模式下交换 R/B；YUV 模式下交换 U/V |
+| Output_layout      | 1 位无符号整数    | 存储布局：<br/>• 0: 线性（Linear）<br/>• 1: FBC 压缩格式（Frame Buffer Compression） |
+| Output_crop_left   | 16 位无符号整数   | 裁剪区域左边界，范围 [0, 65534]；需满足 `crop_left < output_left + output_width` |
+| Output_crop_top    | 16 位无符号整数   | 裁剪区域上边界，范围 [0, 65534]；需满足 `crop_top < output_top + output_height` |
+| Output_crop_width  | 16 位无符号整数   | 裁剪区域宽度，范围 [1, 65535]；需满足 `crop_left + crop_width ≤ output_left + output_width` |
+| Output_crop_height | 16 位无符号整数   | 裁剪区域高度，范围 [1, 65535]；需满足 `crop_top + crop_height ≤ output_top + output_height` |
 
-The Video Processing Unit (VPU) is a video accelerator engine with two cores designed for decoding and encoding multiple video standards. It includes a host CPU to run firmware to control the hardware engine of functions, such as bit stream parsing, control of video hardware sub-blocks and error resilience.
+### 2.4 视频子系统
 
-The VPU can work at up to 819MHz clock frequency, and supports a wide range of video standards, including H.265, H.264, VP8, VP9, MPEG4, MPEG2 and H263. It supports simultaneous
+#### 概述
 
-- Encoding and decoding at 1080P@60fps
-- H264/H265 encoding at 1080P@30fps and H264/H265 decoding at 4K@30fps
+视频处理单元（Video Processing Unit, VPU）是一个配备双核的视频加速引擎，专为多种视频标准的**解码与编码**而设计。VPU 内置一个主机 CPU，用于运行固件以控制硬件引擎的各项功能，包括**码流解析**、**视频硬件子模块控制**以及**错误恢复机制**等。
 
-The video codec core block executes the actual decoding and encoding for each standard by using hardwired logic. Among them, Macroblock Sequencer is the main controller that schedules process flows of the sub-blocks, and aims to reduce loads on the processor and complexity of the firmware.
+VPU 最高可运行在 **819 MHz** 的时钟频率下，支持广泛的视频编解码标准，包括：**H.265（HEVC）**、**H.264（AVC）**、**VP8**、**VP9**、**MPEG-4**、**MPEG-2** 和 **H.263**。
 
-As mentioned, several standard-independent blocks share common logics while they are in operation in order to ensure efficiency and streamlined performance.
+VPU 支持以下并发工作模式：
 
-#### Video Encoder
+- **1080p@60fps 的同时编码与解码**
+- **H.264/H.265 编码 @1080p@30fps** 与 **H.264/H.265 解码 @4K@30fps** 同时进行
 
-##### Encoding Features
+视频编解码核心模块通过**全硬件逻辑（hardwired logic）** 实现各标准的具体编解码操作。其中，**宏块序列器（Macroblock Sequencer）** 作为主控制器，负责调度各子模块的处理流程，旨在**降低处理器负载**并**简化固件复杂度**。
 
-- Configurable Arm Frame Buffer Compression (AFBC) 1.0 or 1.2 for input
-- Support for YUV422 and YUV420 AFBC block split for 16 x 16
-- Support for stride (not applicable to AFBC input formats)
-- Horizontal and vertical mirroring (not applicable to AFBC input formats)
-- Optional source frame rotation in 90-degree steps before encoding (not applicable to AFBC input format)
+如前所述，多个与具体标准无关的通用功能模块在运行时共享公共逻辑，以确保整体处理效率和性能的流畅性。
 
-  > **Note.** If YUV422 is rotated by 90 or 270 degrees and not converting to YUV420, the result will be converted to YUV440.
-  >
-- Encoding support for the following source-frame input formats:
+#### 视频编码器（Video Encoder）
 
-  - 1-plane YUV422, scan-line format, interleaved in YUYV or UYVY order
-    > **Note.** YUV422 input scan be converted to YUV420
-    >
-  - 1-plane RGB (8-bit) in byte-address order: RGBA, BGRA, ARGB or ABGR
-  - 2-plane YUV420, scan-line format, with chroma interleaved in UV or VU order
-  - 3-plane YUV420, scan-line format
-    > **Note.** 3-plane format is supported for testing purposes only, and should not be used for optimal performance
-    >
-  - AFBC YUV422
-  - AFBC YUV420
+##### 编码特性
 
-##### Supported Encoding Formats
+- 支持可配置的 **ARM 帧缓冲压缩（AFBC）1.0 或 1.2** 作为输入格式；
+- 支持 **YUV422 和 YUV420** 格式的 AFBC **16×16 块拆分（block split）**；
+- 支持 **跨距（stride）** 配置（**不适用于 AFBC 输入格式**）；
+- 支持 **水平与垂直镜像**（**不适用于 AFBC 输入格式**）；
+- 支持在编码前对源帧进行 **90 度步进的旋转**（**不适用于 AFBC 输入格式**）：
 
-- HEVC (H.265) Main
-- H.264 Baseline Profile (BP)
-- H.264 Main Profile (MP)
-- H.264 High Profile (HP)
-- VP8
-- VP9 Profile 0
+  > **注意**：若 YUV422 输入被旋转 90° 或 270°，且未转换为 YUV420，则输出将自动转换为 **YUV440** 格式。
 
-###### HEVC (H.265) Encoding Features
+- 支持以下源帧输入格式的编码：
 
-- Encoded bit stream is compliant with the HEVC (H.265) Main Profile
-- Encoding speed of 1080p@60fps (dual cores at approximately 300 MHz)
-- Bitrates up to 50MBit/s using a single core operating at 300MHz
-- Max frame width and height: 4096 pixels
-- 8-bit encoding with I, P, and B frames
-- Progressive encoding with 64×64 CTU size
-- Support for tiled mode up to four tiles with horizontal splits only
-- Wave front parallel encoding
-- Motion Estimation (ME) search window dimensions: ±128 pixels horizontally, ±64 pixels vertically
-- ME search precision: down to Quarter Picture Element (QPEL) resolution
-- Luma intra-modes: 8×8, 16×16, and 32×32
-- Chroma intra-modes: 4×4, 8×8, and 16×16
-- Inter-modes: 8×8, 16×16, and 32×32
-- Transform size for luma: 8×8, 16×16, and 32×32
-- Transform size for chromas: 4×4, 8×8, and 16×16
-- Skipped CUs and Merge modes
-- Deblocking
-- Sample Adaptive Offset (SAO)
-- Constrained intra-prediction selectable
-- Fixed Quantization Parameters (QP) or rate-controlled operation.
-- Rate control uses a leaky bucket model based on bitrate and buffer size settings
-- Long term reference frame support
-- Selectable intra-frame refresh interval
-- Slice insertion on a CTU row granularity
-- Selectable limits for the search window and split options
-- Encoders do not prevent the output from exceeding the maximum number of bits per CTU
+  - **单平面 YUV422**，逐行扫描格式，色度分量交错排列，顺序为 **YUYV** 或 **UYVY**  
+    > **注意**：YUV422 输入可选转换为 YUV420 进行编码。
 
-###### H.264 Encoding Features
+  - **单平面 RGB（8 位）**，按字节地址顺序排列，支持 **RGBA、BGRA、ARGB 或 ABGR**；
 
-- Encoded bitstream is compliant with the Baseline, Main, High Profiles
-- Encoding speed of 1080p@60fps (dual cores at approximately 300 MHz)
-- Bitrates up to 50MBit/s using a single core operating at 300MHz
-- Max frame width and height: 4096 pixels.
-- Support for I, P, and B frames
-- Support for progressive encoding
-- Context Adaptive Binary Arithmetic Coding (CABAC) or Context Adaptive Variable Length Coding (CAVLC) entropy coding
+  - **双平面 YUV420**，逐行扫描格式，色度分量交错排列，顺序为 **UV** 或 **VU**；
 
-  > **Note.** B frames are not supported with CAVLC entropy coding
-  >
-- Motion Estimation (ME) search window dimensions: ±128 pixels horizontally, ±64 pixels vertically
-- ME search precision: down to Quarter Picture Element (QPEL) resolution
-- Luma intra-modes: 4×4, 8×8, 16×16
-- Chroma intra-modes: 8×8
-- Inter-modes: 8×8, and 16×16
-- Transform size: 4×4 and 8×8
-- Support for skipped macroblocks
-- Deblocking
-- Constrained intra-prediction selectable
-- Fixed QP operation or rate-controlled operation
-- Rate control uses a leaky bucket model based on bitrate and buffer size settings
-- Support for long term reference frame
-- Selectable intra-frame refresh intervals
-- Slice insertion granularity of 32-pixel high rows
-- Possible to limit the search window and the macroblock split options
-- Always enabled the escape option to prevent the emulation of a Network Abstraction Layer (NAL) unit start code regardless of the NAL packet format setting
+  - **三平面 YUV420**，逐行扫描格式  
+    > **注意**：三平面格式**仅用于测试目的**，**不推荐用于追求最佳性能的场景**。
 
-  > **Notes.**
-    > - For further details, please refer to ITU-T H.264 Annex B: [VC-1 Compressed Video Bitstream Format and Decoding Process](https://multimedia.cx/mirror/VC-1_Compressed_Video_Bitstream_Format_and_Decoding_Process.pdf)
-    > - Encoders do not prevent the output from exceeding the maximum number of bits per macroblock
+  - **AFBC YUV422**
 
-###### VP8 Encoding Features
+  - **AFBC YUV420**
 
-- Encoding speed of 1080p@60fps (dual core at approximately 400 MHz)
-- Bitrate up to 50MBit/s using a single core operating at 400MHz
-- Max frame width and height: 2048 pixels
-- Support for I and P frames
-- Support for progressive encoding
-- Motion Estimation (ME) search window dimensions: ±128 pixels horizontally, ±64 pixels vertically
-- ME search precision: down to QPEL resolution
-- Luma intra-modes: 4×4, 8×8, 16×16
-- Chroma intra-modes: 8×8
-- Inter-modes: 8x8, and 16×16
-- Support for macroblocks skipping
-- Deblocking
-- Fixed QP operation or rate-controlled operation
-- Rate control uses a leaky bucket model based on bitrate and buffer size settings
-- Selectable intra-frame refresh intervals
-- Possible to limit the search window and the macroblock split
+##### 支持的编码格式
 
-###### VP9 Encoding Features
+- **HEVC（H.265）Main** 档案
+- **H.264 Baseline Profile（BP）** 基础档
+- **H.264 Main Profile（MP）** 主档
+- **H.264 High Profile（HP）** 高级档
+- **VP8**
+- **VP9 Profile 0** 档案 0
 
-- Encoded bitstream is compliant with VP9 Profile 0 at 8-bit depth
-- Encoding speed of 1080p@60fps (dual core at approximately 300 MHz)
-- Bitrate up to 50MBit/s using a single core operating at 300MHz
-- Max frame width and height: 4096 pixels
-- Support for 8-bit sample depth
-- Support for I and P frames
-- Support for progressive encoding
-- Tiled rows and columns
-- Motion Estimation (ME) search window dimensions: ± 128 pixels horizontally, ± 64 pixels vertically
-- ME search precision: down to Quarter Picture ELement (QPEL) resolution
-- Luma intra-modes: 8×8, 16×16, and 32×32
-- Chroma intra-modes: 4×4, 8×8, and 16×16
-- Inter-modes: 8×8, 16×16, and 32×32
-- Transform size for luma: 8×8, 16×16, and 32×32
-- Transform size for chroma: 4×4, 8×8, and 16×16
-- Support for superblocks skipping
-- Deblocking
-- Fixed QP operation or rate-controlled operation
-- Rate control uses a leaky bucket model based on bitrate and buffer size settings
-- Selectable intra-frame refresh intervals
-- Support for implicit or explicit probability update using delayed contexts
+###### HEVC（H.265）编码特性
 
-#### Video Decoder
+- 编码输出的码流符合 **HEVC（H.265）Main Profile** 规范；
+- 支持 **1080p@60fps** 编码性能（双核运行，频率约 300 MHz）；
+- 单核在 300 MHz 下可支持最高 **50 Mbps** 码率；
+- 最大帧宽与帧高：**4096 像素**；
+- 支持 **8 位** 编码，包含 **I 帧、P 帧和 B 帧**；
+- 仅支持 **逐行扫描（Progressive）** 编码，最大 **CTU（Coding Tree Unit）尺寸为 64×64**；
+- 支持 **平铺模式（Tiled Mode）**，最多 **4 个水平方向切片（仅支持水平分割）**；
+- 支持 **波前并行处理（Wavefront Parallel Processing, WPP）**；
+- 运动估计（ME）搜索窗口范围：
+  - 水平方向：±128 像素  
+  - 垂直方向：±64 像素；
+- ME 搜索精度可达 **四分之一像素（QPEL, Quarter-Pixel）**；
+- 亮度（Luma）帧内预测块尺寸：**8×8、16×16、32×32**；
+- 色度（Chroma）帧内预测块尺寸：**4×4、8×8、16×16**；
+- 帧间预测（Inter-mode）块尺寸：**8×8、16×16、32×32**；
+- 亮度变换块尺寸：**8×8、16×16、32×32**；
+- 色度变换块尺寸：**4×4、8×8、16×16**；
+- 支持 **跳过 CU（Skipped CUs）** 与 **Merge 模式**；
+- 支持 **去块滤波（Deblocking Filter）**；
+- 支持 **样本自适应偏移（Sample Adaptive Offset, SAO）**；
+- 可选启用 **受限帧内预测（Constrained Intra Prediction）**；
+- 支持 **固定量化参数（Fixed QP）** 或 **基于码率控制的动态 QP** 操作；
+  - 码率控制采用基于 **漏桶模型（Leaky Bucket Model）**，依据设定的码率与缓冲区大小进行调节；
+- 支持 **长期参考帧（Long Term Reference Frames）**；
+- 可配置 **帧内刷新间隔（Intra-frame Refresh Interval）**；
+- 支持以 **CTU 行粒度** 插入切片（Slice）；
+- 可配置运动估计的 **搜索窗口范围** 与 **分割选项上限**；
+- **注意**：编码器 **不会阻止单个 CTU 输出比特数超过标准规定的最大值**。
 
-##### Decoding Features
+###### H.264 编码特性
 
-- Support for the following source frame output formats:
-  - 2-plane YUV420 scan line format: chroma interleaved in UV or VU order
-  - 3-plane YUV420 scan line format
-    > **Notes.**
-    > - Support for 3-plane format is included for testing purposes only, do not use such max performance for normal applications
-    > - Ensure of correct alignment of YUV buffer and stride for optima performance
+- 编码输出的码流符合 **H.264 Baseline、Main 和 High Profile** 规范；
+- 支持 **1080p@60fps** 编码性能（双核运行，频率约 300 MHz）；
+- 单核在 300 MHz 下可支持最高 **50 Mbps** 码率；
+- 最大帧宽与帧高：**4096 像素**；
+- 支持 **I 帧、P 帧和 B 帧**；
+- 仅支持 **逐行扫描（Progressive）** 编码；
+- 支持两种熵编码方式：
+  - **CABAC**（Context Adaptive Binary Arithmetic Coding）
+  - **CAVLC**（Context Adaptive Variable Length Coding）  
+  > **注意**：使用 CAVLC 时 **不支持 B 帧**。
 
-- YUV420 AFBC format, 8-bit color depth
-- Configurable for AFBC 1.0 or AFBC 1.2 output
-- Support for stride for scan-line formats only
-- Decoded frame rotation is supported in 90-degree steps before output
+- 运动估计（ME）搜索窗口范围：
+  - 水平方向：±128 像素  
+  - 垂直方向：±64 像素；
+- ME 搜索精度可达 **四分之一像素（QPEL, Quarter-Pixel）**；
+- 亮度（Luma）帧内预测块尺寸：**4×4、8×8、16×16**；
+- 色度（Chroma）帧内预测块尺寸：**8×8**；
+- 帧间预测（Inter-mode）块尺寸：**8×8、16×16**；
+- 变换块尺寸：**4×4 和 8×8**；
+- 支持 **跳过宏块（Skipped Macroblocks）**；
+- 支持 **去块滤波（Deblocking Filter）**；
+- 可选启用 **受限帧内预测（Constrained Intra Prediction）**；
+- 支持 **固定量化参数（Fixed QP）** 或 **基于码率控制的动态 QP** 操作；
+  - 码率控制采用基于 **漏桶模型（Leaky Bucket Model）**，依据设定的码率与缓冲区大小进行调节；
+- 支持 **长期参考帧（Long Term Reference Frames）**；
+- 可配置 **帧内刷新间隔（Intra-frame Refresh Interval）**；
+- 切片（Slice）插入粒度为 **每 32 像素高的行**；
+- 可限制运动估计的 **搜索窗口范围** 与 **宏块分割选项**；
+- **始终启用转义机制（Escape Option）**，以防止在任何 NAL 单元包格式下出现 **NAL 起始码（Start Code）的误匹配（Emulation Prevention）**。
 
-  > **Note.** Not applicable for AFBC output formats
-  >
-- Support for output average luminance (brightness) and chrominance (color) values for each 32×32 pixel block in every displayed output frame
+> **注**：
+> - 更多细节请参阅 ITU-T H.264 附录 B：[VC-1 Compressed Video Bitstream Format and Decoding Process](https://multimedia.cx/mirror/VC-1_Compressed_Video_Bitstream_Format_and_Decoding_Process.pdf)  
+> - 编码器 **不会阻止单个宏块输出比特数超过标准规定的最大值**，需由上层应用确保合规性。
 
-##### Supported Decoding Formats
+###### VP8 编码特性
 
-- HEVC (H.265): Main Profile
-- H.264: Baseline, Main, High Profile
-- VP8
-- VP9: Profile 0
-- VC-1: SP/MP/AP
-- MPEG4: SP/ASP
-- MPEG2: MP
-- H.263: Profile 0
+- 支持 **1080p@60fps** 编码性能（双核运行，频率约 400 MHz）；
+- 单核在 400 MHz 下可支持最高 **50 Mbps** 码率；
+- 最大帧宽与帧高：**2048 像素**；
+- 支持 **I 帧和 P 帧**；
+- 仅支持 **逐行扫描（Progressive）** 编码；
+- 运动估计（ME）搜索窗口范围：
+  - 水平方向：±128 像素  
+  - 垂直方向：±64 像素；
+- ME 搜索精度可达 **四分之一像素（QPEL, Quarter-Pixel）**；
+- 亮度（Luma）帧内预测块尺寸：**4×4、8×8、16×16**；
+- 色度（Chroma）帧内预测块尺寸：**8×8**；
+- 帧间预测（Inter-mode）块尺寸：**8×8、16×16**；
+- 支持 **跳过宏块（Macroblock Skipping）**；
+- 支持 **去块滤波（Deblocking Filter）**；
+- 支持 **固定量化参数（Fixed QP）** 或 **基于码率控制的动态 QP** 操作；
+  - 码率控制采用基于 **漏桶模型（Leaky Bucket Model）**，依据设定的码率与缓冲区大小进行调节；
+- 可配置 **帧内刷新间隔（Intra-frame Refresh Interval）**；
+- 可限制运动估计的 **搜索窗口范围** 与 **宏块分割选项**。
+
+###### VP9 编码特性
+
+- 编码输出的码流符合 **VP9 Profile 0** 规范，支持 **8 位色深**；
+- 支持 **1080p@60fps** 编码性能（双核运行，频率约 300 MHz）；
+- 单核在 300 MHz 下可支持最高 **50 Mbps** 码率；
+- 最大帧宽与帧高：**4096 像素**；
+- 仅支持 **8 位样本精度**；
+- 支持 **I 帧和 P 帧**；
+- 仅支持 **逐行扫描（Progressive）** 编码；
+- 支持 **平铺行与列（Tiled Rows and Columns）**，提升并行处理能力；
+- 运动估计（ME）搜索窗口范围：
+  - 水平方向：±128 像素  
+  - 垂直方向：±64 像素；
+- ME 搜索精度可达 **四分之一像素（QPEL, Quarter-Picture Element）**；
+- 亮度（Luma）帧内预测块尺寸：**8×8、16×16、32×32**；
+- 色度（Chroma）帧内预测块尺寸：**4×4、8×8、16×16**；
+- 帧间预测（Inter-mode）块尺寸：**8×8、16×16、32×32**；
+- 亮度变换块尺寸：**8×8、16×16、32×32**；
+- 色度变换块尺寸：**4×4、8×8、16×16**；
+- 支持 **超级块跳过（Superblock Skipping）**；
+- 支持 **去块滤波（Deblocking Filter）**；
+- 支持 **固定量化参数（Fixed QP）** 或 **基于码率控制的动态 QP** 操作；
+  - 码率控制采用基于 **漏桶模型（Leaky Bucket Model）**，依据设定的码率与缓冲区大小进行调节；
+- 可配置 **帧内刷新间隔（Intra-frame Refresh Interval）**；
+- 支持使用延迟上下文（delayed contexts）进行 **隐式或显式概率更新（Implicit or Explicit Probability Update）**。
+
+#### 视频解码器（Video Decoder）
+
+##### 解码特性
+
+- 支持以下源帧输出格式：
+  - **双平面 YUV420** 逐行扫描格式：色度分量交错排列，顺序为 **UV 或 VU**；
+  - **三平面 YUV420** 逐行扫描格式  
+    > **注意**：
+    > - 三平面格式的支持仅用于测试目的，不建议在追求高性能的应用中使用；
+    > - 确保 YUV 缓冲区的正确对齐和跨距（stride）设置以获得最佳性能。
+
+- 支持 **YUV420 AFBC 格式**，8 位色彩深度；
+- 可配置输出为 **AFBC 1.0 或 AFBC 1.2** 标准；
+- 仅对逐行扫描格式支持 **跨距（stride）** 配置；
+- 在输出前支持对解码帧进行 **90 度步进的旋转**：
+
+  > **注意**：该功能不适用于 AFBC 输出格式。
+
+- 支持输出每个显示帧中每 **32×32 像素块** 的平均亮度（亮度值）和色度（颜色值）。
+
+##### 支持的解码格式
+
+- **HEVC（H.265）**：Main Profile  
+- **H.264**：Baseline Profile、Main Profile、High Profile  
+- **VP8**  
+- **VP9**：Profile 0  
+- **VC-1**：Simple Profile（SP）、Main Profile（MP）、Advanced Profile（AP）  
+- **MPEG-4**：Simple Profile（SP）、Advanced Simple Profile（ASP）  
+- **MPEG-2**：Main Profile（MP）  
+- **H.263**：Profile 0
 
 ###### HEVC (H.265) Decoding Features
 
