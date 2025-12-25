@@ -10,9 +10,9 @@ sidebar_position: 1
 
 ### 1.1 简介
 
-进迭时空的 Key Stone® K1 是一款高性能、超低功耗的片上系统（SoC），集成了 8 个 RISC-V CPU 核心，并融合了 进迭时空的道义 AI 计算能力。其主要优势包括：
+进迭时空的 Key Stone® K1 是一款高性能、超低功耗的片上系统（SoC），集成了 8 个 RISC-V CPU 核，并融合了 进迭时空的道义 AI 计算能力。其主要优势包括：
 
-- 集成进迭时空自主研发的 X60™ RISC-V 核心处理器，符合 **RISC-V 64GCVB 指令集架构** 和 **RVA22 标准**；
+- 集成进迭时空自主研发的 X60™ RISC-V 核处理器，符合 **RISC-V 64GCVB 指令集架构** 和 **RVA22 标准**；
 - 通过定制化 RISC-V 指令实现 **CPU-AI 融合计算架构**，可提供高达 **2.0 TOPS（INT8）** 的 AI 算力；
 - 支持主流 AI 推理框架，包括 **TensorFlow Lite、TensorFlow** 和 **ONNX Runtime**；
 - 采用多粒度电源岛设计与动态电源状态调节技术，实现超低功耗运行，在能效方面具备显著竞争优势；
@@ -202,7 +202,7 @@ sidebar_position: 1
 
 ### 1.4 架构框图
 
-K1 的系统架构如下图所示。   
+K1 的系统架构如下图所示。
 ![K1 架构框图](./static/k1_blockdiagram.png)
 
 ## 2. 规格参数
@@ -210,28 +210,26 @@ K1 的系统架构如下图所示。
 ### 2.1 CPU 子系统
 
 - 采用 **双非对称 CPU 簇架构**，其中：
-  - **簇 0（Cluster 0）**：包含 **4 个 SpacemiT® X60™ RISC-V 核心**，集成 **2.0 TOPS AI 算力扩展单元**
-  - **簇 1（Cluster 1）**：包含 **4 个 SpacemiT® X60™ RISC-V 核心**，**不带 AI 加速能力**
-- 高性能、低功耗的 **SpacemiT® X60™ CPU 核心**，符合 **RISC-V 64GCVB 指令集架构** 与 **RVA22 标准**
-- 支持 **核心本地中断控制器（CLINT）** 与 **平台级中断控制器（PLIC）**
+  - **簇 0（Cluster 0）**：包含 **4 个 SpacemiT® X60™ RISC-V 核**，集成 **2.0 TOPS AI 算力扩展单元**
+  - **簇 1（Cluster 1）**：包含 **4 个 SpacemiT® X60™ RISC-V 核**，**不带 AI 加速能力**
+- 高性能、低功耗的 **SpacemiT® X60™ CPU 核**，符合 **RISC-V 64GCVB 指令集架构** 与 **RVA22 标准**
+- 支持 **核本地中断控制器（CLINT）** 与 **平台级中断控制器（PLIC）**
 - 符合 **RISC-V Debug 规范 v0.13.2**
 - 在看门狗复位触发时，可自动捕获 **关键 CPU 状态快照**，便于故障诊断与调试
-- 采用 **电源岛（Power Island）设计** 与 **两级功耗管理策略**（针对每个 CPU 核心及整个簇），实现 **超低功耗运行**
+- 采用 **电源岛（Power Island）设计** 与 **两级功耗管理策略**（针对每个 CPU 核及整个簇），实现 **超低功耗运行**
 
-#### SpacemiT® X60™ RISC-V 核心
+#### SpacemiT® X60™ RISC-V 核
 
 ##### 简介
 
-X60™ 是一款创新型高能效处理器核心，集成了 进迭时空自主研发的 **道义 AI 创新部署方案**，严格遵循 **RISC-V 64GCVB 指令集架构** 与 **RVA22 标准**。
+X60™ 是一款创新型高能效处理器核，集成了 进迭时空自主研发的 **道义 AI 创新部署方案**，严格遵循 **RISC-V 64GCVB 指令集架构** 与 **RVA22 标准**。
 
 为满足当前及未来在人工智能、机器学习、SLAM（即时定位与地图构建）等场景下的计算需求，X60™ 引入了多项 **领域专用架构（DSA）技术** 与 **微架构优化**，提供强劲且高效的通用与 AI 融合计算能力。
-
-##### Features
 
 ##### 特性
 
 - 符合 **RISC-V 64GCVB 架构** 与 **RVA22 标准**
-- 每个核心配备：
+- 每个核配备：
   - **32 KB L1 指令缓存（L1-I）**
   - **32 KB L1 数据缓存（L1-D）**
 - 每个簇（Cluster）共享 **512 KB L2 缓存**
@@ -241,7 +239,7 @@ X60™ 是一款创新型高能效处理器核心，集成了 进迭时空自主
   - **L2 缓存支持 MOESI 协议**
 - 向量扩展：**RVV 1.0**，支持 **VLEN = 256/128 位**，具备 **双发射（x2）执行宽度**
 - **簇 0 （Cluster 0）实现了定制化的 AI 指令扩展**
-- 支持 **CLINT（核心本地中断控制器）** 与 **PLIC（平台级中断控制器）**，共支持 **256 个中断源**
+- 支持 **CLINT（核本地中断控制器）** 与 **PLIC（平台级中断控制器）**，共支持 **256 个中断源**
 - 支持 **RISC-V 性能监控单元（PMU）**
 - 支持 **SV39 虚拟内存机制**
 - 支持 **32 项 PMP（物理内存保护）条目**，符合 RISC-V 安全框架
@@ -305,13 +303,13 @@ X60™ 的微架构如下图所示。
 
 K1 集成了以下两类中断控制器，用于管理两个处理器簇的中断请求：
 
-- **1 个处理器核心本地中断控制器（CLINT）**
+- **1 个处理器核本地中断控制器（CLINT）**
 - **1 个平台级中断控制器（PLIC）**
 
 异常处理（包括异常和外部中断）是处理器的关键功能之一。当特定事件（如硬件故障、指令执行错误、用户程序系统调用请求等）发生时，处理器会跳转至相应的异常处理程序进行响应。
 
 - **CLINT** 是一个基于内存映射的模块，主要用于处理 **软件中断** 和 **定时器中断**。
-- **PLIC** 负责采集 **外部中断源**，并根据优先级进行仲裁后分发至目标处理器核心。在 PLIC 架构中，每个核心的 **机器模式（Machine Mode）** 和 **监督模式（Supervisor Mode）** 均可作为有效的中断目标。PLIC 最多支持 **256 个外部中断源**，且每个中断源均支持 **电平触发（Level-triggered）** 和 **边沿触发（Edge-triggered）** 两种格式。
+- **PLIC** 负责采集 **外部中断源**，并根据优先级进行仲裁后分发至目标处理器核。在 PLIC 架构中，每个核的 **机器模式（Machine Mode）** 和 **监督模式（Supervisor Mode）** 均可作为有效的中断目标。PLIC 最多支持 **256 个外部中断源**，且每个中断源均支持 **电平触发（Level-triggered）** 和 **边沿触发（Edge-triggered）** 两种格式。
 
 #### 调试与追踪（Debug & Trace）
 
@@ -558,7 +556,7 @@ GPU 引擎可以处理多种不同类型的工作负载，包括：
 
 > **注意**：3D 图形与计算（带有屏障）工作负载不能同时进行。
 
-GPU 核心通过 **AXI 128 位总线** 访问 SOC 的 DDR 内存，核心频率最高可达 **819 MHz**。
+GPU 核通过 **AXI 128 位总线** 访问 SOC 的 DDR 内存，核频率最高可达 **819 MHz**。
 
 ##### 通用特性
 
@@ -587,7 +585,7 @@ GPU 核心通过 **AXI 128 位总线** 访问 SOC 的 DDR 内存，核心频率�
   - 专用纹理缓存单元（TCU）；
 - 压缩纹理解码；
 - 使用 Imagination 帧缓冲压缩和解压缩（TFBC）算法实现无损或视觉上无损的低面积图像压缩；
-- 专用处理器用于 B 系列核心固件执行；
+- 专用处理器用于 B 系列固件执行；
 - 单线程固件处理器，配备 **2 KB 指令缓存** 和 **2 KB 数据缓存**；
 - 固件处理器独立的电源岛；
 - 片上性能、功耗及统计寄存器。
@@ -1173,7 +1171,7 @@ VPU 支持以下并发工作模式：
 - **1080p@60fps 的同时编码与解码**
 - **H.264/H.265 编码 @1080p@30fps** 与 **H.264/H.265 解码 @4K@30fps** 同时进行
 
-视频编解码核心模块通过**全硬件逻辑（hardwired logic）** 实现各标准的具体编解码操作。其中，**宏块序列器（Macroblock Sequencer）** 作为主控制器，负责调度各子模块的处理流程，旨在**降低处理器负载**并**简化固件复杂度**。
+视频编解码核模块通过**全硬件逻辑（hardwired logic）** 实现各标准的具体编解码操作。其中，**宏块序列器（Macroblock Sequencer）** 作为主控制器，负责调度各子模块的处理流程，旨在**降低处理器负载**并**简化固件复杂度**。
 
 如前所述，多个与具体标准无关的通用功能模块在运行时共享公共逻辑，以确保整体处理效率和性能的流畅性。
 
@@ -1278,6 +1276,7 @@ VPU 支持以下并发工作模式：
 - **始终启用转义机制（Escape Option）**，以防止在任何 NAL 单元包格式下出现 **NAL 起始码（Start Code）的误匹配（Emulation Prevention）**。
 
 > **注**：
+>
 > - 更多细节请参阅 ITU-T H.264 附录 B：[VC-1 Compressed Video Bitstream Format and Decoding Process](https://multimedia.cx/mirror/VC-1_Compressed_Video_Bitstream_Format_and_Decoding_Process.pdf)  
 > - 编码器 **不会阻止单个宏块输出比特数超过标准规定的最大值**，需由上层应用确保合规性。
 
@@ -1359,294 +1358,312 @@ VPU 支持以下并发工作模式：
 - **MPEG-2**：Main Profile（MP）  
 - **H.263**：Profile 0
 
-###### HEVC (H.265) Decoding Features
+###### HEVC（H.265）解码特性
 
-- Fully compliance with the Main Profiles
-- Support for 2160p@30fps using dual core operating at approximately 300MHz
-- Capability of handling average bitrate up to 100MBit/s with a single core at 600MHz
-- Max frame width and height: 4096 pixels
-- Error concealment is performed for handling bit errors
-- Output of relevant stream parameter information during decoding
+- 完全符合 **HEVC Main Profile** 规范；
+- 支持 **2160p@30fps** 解码性能（双核运行，频率约 300 MHz）；
+- 单核在 600 MHz 下可处理最高 **100 Mbps** 的平均码率；
+- 最大帧宽与帧高：**4096 像素**；
+- 支持 **错误隐藏（Error Concealment）** 机制，用于应对码流中的比特错误；
+- 解码过程中可输出相关的 **码流参数信息**（如分辨率、Profile、Level 等）。
 
-###### H.264 Decoding Features
+###### H.264 解码特性
 
-- Fully compliance with H.264 Baseline, Main, High and High 10 progressive Profiles
-- For streams using Flexible Macroblock Ordering (FMO) or Arbitrary Slice Ordering (ASO) in Baseline Profile, it is used WVGA resolution with decoding speed of 30fps with a single core at 400MHz
-- For streams without FMA and ASO, the decoding speeds are as follows:
+- 完全符合 **H.264 Baseline、Main、High 以及 High 10 Progressive Profile** 规范；
+- 对于使用 **灵活宏块排序（FMO）** 或 **任意切片排序（ASO）** 的 Baseline Profile 码流，支持 **WVGA 分辨率下 30fps** 的解码性能（单核运行，频率 400 MHz）；
+- 对于 **未使用 FMO 和 ASO** 的码流，解码性能如下：
 
-  - 2160p@30fps using dual core at approximately 300MHz
-  - 1080i@120fps using dual core at 400MHz
-- For progressive streams:
+  - **2160p@30fps**（双核运行，频率约 300 MHz）  
+  - **1080i@120fps**（双核运行，频率 400 MHz）
 
-  - Average bitrate up to 100MBit/s with a single core at 600MHz
-  - Max frame width and height: 4096 pixels
-- For interlaced streams:
+- 对于 **逐行扫描（Progressive）** 码流：
+  - 单核在 600 MHz 下可处理最高 **100 Mbps** 的平均码率；
+  - 最大帧宽与帧高：**4096 像素**；
 
-  - Average bitrate up to 50MBit/s with a single core at 400MHz
-  - Max frame width: 2048 pixels
-  - Max frame height: 4096 pixels
-- Error concealment is performed for managing bitstream errors
-- Output of relevant stream parameter information during decoding
-- Always enabled the escape option to prevent the emulation of a Network Abstraction Layer (NAL) unit start code, regardless of the NAL packet format setting
+- 对于 **隔行扫描（Interlaced）** 码流：
+  - 单核在 400 MHz 下可处理最高 **50 Mbps** 的平均码率；
+  - 最大帧宽：**2048 像素**；
+  - 最大帧高：**4096 像素**；
 
-  > **Note.** For further details, please refer to ITU-T H.264 Annex B: [VC-1 Compressed Video Bitstream Format and Decoding Process](https://multimedia.cx/mirror/VC-1_Compressed_Video_Bitstream_Format_and_Decoding_Process.pdf)
-  >
+- 支持 **错误隐藏（Error Concealment）** 机制，用于处理码流中的传输或解析错误；
+- 解码过程中可输出相关的 **码流参数信息**（如 Profile、Level、分辨率、帧率等）；
+- **始终启用转义机制（Escape Option）**，以防止在任何 NAL 单元包格式下出现 **NAL 起始码（Start Code）的误匹配（Emulation Prevention）**。
 
-###### VP8 Decoding Features
+> **注**：  
+> 更多细节请参阅 ITU-T H.264 Annex B。  
 
-- Fully compliance with the VP8 Specification
-- Support for decoding speed of 1080p@60fps using dual core at approximately 400MHz
-- Average bitrate up to 50MBit/s with single core at 400MHz
-- Max frame width and height: 2048 pixels
-- Error concealment is performed for managing bitstream errors
+###### VP8 解码特性
 
-###### VP9 Decoding Features
+- 完全符合 **VP8 规范**；
+- 支持 **1080p@60fps** 解码性能（双核运行，频率约 400 MHz）；
+- 单核在 400 MHz 下可处理最高 **50 Mbps** 的平均码率；
+- 最大帧宽与帧高：**2048 像素**；
+- 支持 **错误隐藏（Error Concealment）** 机制，用于处理码流中的传输或解析错误。
 
-- Fully compliance with Profile 0
-- Support for decoding speed of 2160p@30fps using dual core at approximately 300MHz and assuming no non-visible and no Alt-Ref frames
-- Support for decoding speed of 2160p@30fps using dual core at approximately 400MHz and assuming an Alt-Ref frame distance of 4
-- Average bitrate up to 60MBit/s using single core at 600MHz
-- Max frame width and height: 4096 pixels
-- Error concealment is performed for managing bitstream errors
-- Output of relevant stream parameter information during decoding
+###### VP9 解码特性
 
-###### VC-1 Decoding Features
+- 完全符合 **VP9 Profile 0** 规范；
+- 在 **不包含不可见帧（non-visible frames）且无 Alt-Ref 帧** 的前提下，支持 **2160p@30fps** 解码性能（双核运行，频率约 300 MHz）；
+- 在 **Alt-Ref 帧间隔为 4** 的典型配置下，支持 **2160p@30fps** 解码性能（双核运行，频率约 400 MHz）；
+- 单核在 600 MHz 下可处理最高 **60 Mbps** 的平均码率；
+- 最大帧宽与帧高：**4096 像素**；
+- 支持 **错误隐藏（Error Concealment）** 机制，用于处理码流中的传输或解析错误；
+- 解码过程中可输出相关的 **码流参数信息**（如 Profile、分辨率、色深、参考帧结构等）。
 
-- Fully compliance with VC-1 Simple, Main, and Advanced Profiles
-- Support for decoding speeds of 1080p@60fps and 1080i@120fps using dual core at approximately 400MHz
-- Average bitrate up to 40MBit/s with single core at 400MHz
-- Max frame width: 2048 pixels
-- Max frame height: 4096 pixels
-- Error concealment is performed for managing bitstream errors
+###### VC-1 解码特性
 
-  > **Notes.**
-  > - Advanced Profile bitstream data must always include the Encapsulation Mechanism regardless of the NAL packet format setting
-  > - For further details, please refer to SMPTE-421M-2006 Annex E
-  > - The range mapping feature of the VC-1 Advanced Profile does not apply to AFBC output
+- 完全符合 **VC-1 Simple Profile（SP）、Main Profile（MP）和 Advanced Profile（AP）** 规范；
+- 支持以下解码性能（双核运行，频率约 400 MHz）：
+  - **1080p@60fps**（逐行扫描）
+  - **1080i@120fps**（隔行扫描）
+- 单核在 400 MHz 下可处理最高 **40 Mbps** 的平均码率；
+- 最大帧宽：**2048 像素**；
+- 最大帧高：**4096 像素**；
+- 支持 **错误隐藏（Error Concealment）** 机制，用于处理码流中的传输或解析错误。
 
-###### MPEG4 Decoding Features
+> **注意**：
+>
+> - 无论 NAL 包格式如何设置，**Advanced Profile** 的码流数据 **必须始终包含封装机制（Encapsulation Mechanism）**；
+> - 更多细节请参阅 **SMPTE-421M-2006 附录 E**；
+> - **VC-1 Advanced Profile 中的范围映射（Range Mapping）功能不适用于 AFBC 输出格式**。
 
-- Compliance with MPEG4 Simple Profile and Advanced Simple Profile
-- Support for Global Motion Compensation (GMC) with a limitation of a single warp point
-- Support for decoding speed of 1080p@60fps or 1080i@120fps using dual core at 400MHz
-- Capability of handling average bitrate up to 20MBit/s with a single core operating at 400MHz
-- Max frame width and height: 2048 pixels
-- Error concealment is performed for managing bitstream errors
+###### MPEG-4 解码特性
 
-###### MPEG2 Decoding Features
+- 符合 **MPEG-4 Simple Profile（SP）** 和 **Advanced Simple Profile（ASP）** 规范；
+- 支持 **全局运动补偿（Global Motion Compensation, GMC）**，限制为 **最多一个变形点（warp point）**；
+- 支持以下解码性能（双核运行，频率 400 MHz）：
+  - **1080p@60fps**
+  - **1080i@120fps**
+- 单核在 400 MHz 下可处理最高 **20 Mbps** 的平均码率；
+- 最大帧宽与帧高：**2048 像素**；
+- 支持 **错误隐藏（Error Concealment）** 机制，用于处理码流中的传输或解析错误。
 
-- Compliance with MPEG2 Main Profile
-- Support for decoding speed of  1080p@60fps or 1080i@120fps using dual core at 400MHz
-- Capability of handling average bitrate up to 20MBit/s with single core operating at 400MHz
-- Max frame width: 4906 pixels (2,048 pixels for interlaced stream)
-- Max frame height: 4096 pixels
-- Error concealment is performed for managing bitstream errors
+###### MPEG-2 解码特性
 
-###### H.263 Decoding Features
+- 符合 **MPEG-2 Main Profile（MP）** 规范；
+- 支持以下解码性能（双核运行，频率 400 MHz）：
+  - **1080p@60fps**
+  - **1080i@120fps**
+- 单核在 400 MHz 下可处理最高 **20 Mbps** 的平均码率；
+- 最大帧宽：
+  - **4096 像素**
+  - **2048 像素**
+- 最大帧高：**4096 像素**；
+- 支持 **错误隐藏（Error Concealment）** 机制，用于处理码流中的传输或解析错误。
 
-- Compliance with H.263 Profile 0
-- Support for decoding speed of 1080p@60fps using dual core at approximately 400MHz
-- Capability of handling average bitrates up to 20MBit/s with single core operating at 400MHz
-- Max frame width and height: 2048 pixels
-- Error concealment is performed for managing bitstream errors
+###### H.263 解码特性
 
-### 2.5 Display Subsystem
+- 符合 **H.263 Profile 0** 规范；
+- 支持 **1080p@60fps** 解码性能（双核运行，频率约 400 MHz）；
+- 单核在 400 MHz 下可处理最高 **20 Mbps** 的平均码率；
+- 最大帧宽与帧高：**2048 像素**；
+- 支持 **错误隐藏（Error Concealment）** 机制，用于处理码流中的传输或解析错误。
 
-#### Display Controller
+### 2.5 显示子系统
 
-##### Introduction
+#### 显示控制器（Display Controller）
 
-The Display Controller is a hardware block that is used to transfer display data from the display's internal memory to the DSI controller. It supports one independent display device through MIPI DSI.
+##### 概述
 
-##### Features
+显示控制器是一个硬件模块，用于将显示数据从内部显存传输至 **MIPI DSI 控制器**。它通过 MIPI DSI 接口支持一路独立的显示设备。
 
-- Support for up to HD+ (1920x1080@60fps)
-- Support for up to 4-full-size-layer composer and maximum 8 layer-composers by up-down layer reuse in the RDMA channel
-- Support for _cmdlist_ mechanism allowing hardware register parameters to be configured
-- Support for concurrent write-back operations with both raw and AFBC format
-- Support for dithering, cropping, rotation in write-back path
-- Advanced MMU (virtual address) mechanism for nearly no page missing during 90° and 270° rotation
-- Support for color keying and solid color generation
-- Support for both advanced error diffusion and pattern-based dithering for the panel
-- Support for both AFBC and raw format image sources
-- Color saturation and contrast enhancement
-- Support for both video mode and _cmd_ mode (with frame buffer in LCM) for the panel
-- Support for dynamic DDR frequency adjustment with an embedded DFC buffer
-- Support for the following **input formats** (see also the map shown immediately after):
+##### 特性
 
-  - A2BGR101010, A2RGB101010, BGR101010A2, RGB101010A2
-  - ABGR8888, ARGB8888, BGRA8888, RGBA8888
-  - XBGR8888, XRGB8888, BGRX8888, RGBX8888
-  - BGR888, RGB888, ABGR1555, RGBA5551, BGR565/RGB565
-  - XYUV_444_P1_8, XYUV_444_P1_10, YVYU_422_P1_8, VYUY_422_P1_8
-  - YUV_420_P2_8, YUV_420_P3_8
-    ![](static/input_formats.png)
-- Support for the following **output formats**:
+- 支持最高 **HD+ 分辨率（1920×1080@60fps）**；
+- 支持最多 **4 个全尺寸图层合成器（full-size layer composer）**，通过 RDMA 通道的上下图层复用机制，最多可扩展至 **8 个图层合成器**；
+- 支持 **cmdlist 机制**，允许通过命令列表配置硬件寄存器参数；
+- 支持 **回写（Write-back）路径** 中同时输出 **原始格式（Raw）** 和 **AFBC 压缩格式**；
+- 回写路径支持 **抖动（Dithering）**、**裁剪（Cropping）** 和 **旋转（Rotation）**；
+- 采用 **高级 MMU（虚拟地址）机制**，在执行 90° 和 270° 旋转时几乎无页缺失（page miss）；
+- 支持 **色键（Color Keying）** 与 **纯色生成（Solid Color Generation）**；
+- 面板输出支持 **高级误差扩散抖动（Advanced Error Diffusion Dithering）** 和 **基于图案的抖动（Pattern-based Dithering）**；
+- 支持 **AFBC 格式** 与 **原始格式（Raw）** 的图像源输入；
+- 支持 **色彩饱和度** 与 **对比度增强**；
+- 面板支持 **视频模式（Video Mode）** 与 **命令模式（Command Mode，LCM 内置帧缓冲）**；
+- 支持通过内置 **DFC 缓冲区** 实现 **动态 DDR 频率调节**；
+- 支持以下 **输入格式**（参见下图格式映射）：
+
+  - A2BGR101010, A2RGB101010, BGR101010A2, RGB101010A2  
+  - ABGR8888, ARGB8888, BGRA8888, RGBA8888  
+  - XBGR8888, XRGB8888, BGRX8888, RGBX8888  
+  - BGR888, RGB888, ABGR1555, RGBA5551, BGR565 / RGB565  
+  - XYUV_444_P1_8, XYUV_444_P1_10, YVYU_422_P1_8, VYUY_422_P1_8  
+  - YUV_420_P2_8, YUV_420_P3_8  
+
+  ![输入格式映射](static/input_formats.png)
+
+- 支持以下 **输出格式**：
 
   - RGB888, RGB565, RGB666
 
-##### Block Diagram
+##### 架构框图
 
-The micro-architecture of the display subsystem is depicted below.
+显示子系统的微架构如下图所示：
 
-<img src="static/display_subsystem.png" alt="" width="600">
+<img src="static/display_subsystem.png" alt="显示子系统架构" width="600">
 
-#### HDMI Interface
+#### HDMI 接口
 
-##### Features
+##### 特性
 
-- Compliance with HDMI Specification v1.4
-- Dual-channel audio stream within the range 32~192KHz
-- Physical lane speed up to 2.4Gbps/lane × 3lane
-- Support for up to 1920x1440@60Hz
-- Support for RGB and YcbCr 4:2:2 / 4:4:4 input video format
-- Support for RGB and YcbCr 4:2:2 / 4:4:4 output video formats
-- Support for 8bpc / 10bpc / 12bpc input and output color depths
-- Support for EIA/CEA-861-F video timing and InfoFrame structure
-- Support for L-PCM(IEC 60958), 32~192KHz dual channel audio data
-- Support for Consumer Electronic Control (CEC) standard packets and user-defined packets
-- Inclusion of an Internal I2C Master for remote ED access supporting 100~400Kbps speed
+- 符合 **HDMI 规范 v1.4**；
+- 支持 **双声道音频流**，采样率范围为 **32 kHz 至 192 kHz**；
+- 物理通道速率最高达 **2.4 Gbps/通道 × 3 通道**；
+- 支持最高分辨率 **1920×1440@60Hz**；
+- 支持 **RGB** 和 **YCbCr 4:2:2 / 4:4:4** 格式的输入视频；
+- 支持 **RGB** 和 **YCbCr 4:2:2 / 4:4:4** 格式的输出视频；
+- 支持 **8 bpc / 10 bpc / 12 bpc** 的输入与输出色彩深度；
+- 支持 **EIA/CEA-861-F** 视频时序标准及 **InfoFrame** 结构；
+- 支持 **L-PCM（IEC 60958）** 音频格式，双声道，采样率 32~192 kHz；
+- 支持 **消费电子控制（CEC）** 标准数据包及用户自定义数据包；
+- 内置 **I²C 主控制器**，用于远程访问 EDID，支持 **100~400 kbps** 通信速率。
 
-##### Block Diagram
+##### 架构框图
 
-The architecture of the HDMI interface is depicted below.
+HDMI 接口的架构如下图所示：
 
-<img src="static/HDMI_interface.png" alt="" width="600">
+![HDMI 接口架构](static/HDMI_interface.png){: width="600" }
 
-### MIPI DSI Interface
+#### MIPI DSI 接口
 
-##### Introduction
+##### 概述
 
-The MIPI Display Serial Interface (MIPI DSI) is a high-speed interface between a host processor and peripheral devices that adheres to MIPI Alliance specifications for mobile device interfaces.
+MIPI 显示串行接口（MIPI Display Serial Interface, MIPI DSI）是一种主机处理器与外设之间高速通信的接口，遵循 **MIPI 联盟** 针对移动设备接口制定的标准规范。
 
-##### Features
+##### 特性
 
-- Compliance with the MIPI DSI standard v1.0
-- Compliance with the MIPI DPHY specification v1.1
-- Support for MIPI DPHY up to 4 data lanes and speed up to 1200Mbps per lane
-- Support for 1 active panel per DPHY link
-- Compliance with the Display Command Set (DCS) standard
-- Support for all pixel formats defined in DSI and DCS
-- Support for video burst mode with DPHY up to 1.2Ghz per lane
-- Support for virtual channels in the MIPI Link
-- Support for up to 1080p resolution
-- Support for command, video and burst modes
-- Support for HS-TX, LP-TX, LP-RX and LP-CD signaling
+- 符合 **MIPI DSI 标准 v1.0**；
+- 符合 **MIPI D-PHY 规范 v1.1**；
+- 支持最多 **4 条数据通道（Data Lanes）** 的 MIPI D-PHY，每通道速率最高达 **1200 Mbps**；
+- 每个 D-PHY 链路支持 **1 个激活显示面板**；
+- 符合 **显示命令集（Display Command Set, DCS）** 标准；
+- 支持 DSI 与 DCS 规范中定义的 **全部像素格式**；
+- 支持 **视频突发模式（Video Burst Mode）**，D-PHY 每通道速率最高达 **1.2 Gbps**；
+- 支持 MIPI 链路上的 **虚拟通道（Virtual Channels）**；
+- 支持最高 **1080p 分辨率**；
+- 支持 **命令模式（Command Mode）**、**视频模式（Video Mode）** 和 **突发模式（Burst Mode）**；
+- 支持以下信号类型：
+  - **HS-TX**（高速发送）
+  - **LP-TX**（低功耗发送）
+  - **LP-RX**（低功耗接收）
+  - **LP-CD**（低功耗内容检测）
 
-#### SPI LCD Display Interface
+#### SPI LCD 显示接口
 
-##### Introduction
+##### 概述
 
-The SPI LCD Display Interface is used to
+SPI LCD 显示接口用于：
 
-- Send image data commands
-- Read image data
-- Transmit image data
+- 发送图像数据命令  
+- 读取图像数据  
+- 传输图像数据  
 
-It supports the operational modes
+该接口支持以下操作模式：
 
-- Single data line mode
-- Dual data line mode
+- **单数据线模式（Single data line mode）**  
+- **双数据线模式（Dual data line mode）**
 
-where each of which support the work modes
+在上述每种模式下，均进一步支持以下工作模式：
 
-- 3-line/9bit mode
-- 4-line/8bit mode
+- **3 线 / 9 位模式（3-line/9bit mode）**  
+- **4 线 / 8 位模式（4-line/8bit mode）**
 
-By software, it is possible to configure which line will be the first for transmitting data. Further, it is possible to configure the transfer mode choosing between
+通过软件可配置：
 
-- Packet transfer mode
-- Unpacked transfer mode
+- 哪条数据线作为**首条传输线**；
+- 选择以下**传输模式**之一：
+  - **打包传输模式（Packet transfer mode）**
+  - **非打包传输模式（Unpacked transfer mode）**
 
-As example, below are depicted the transfers modes for some color formats, highlighting how data are organized and transmitted.
+以下图示展示了不同色彩格式下的数据组织与传输方式示例：
 
-**[Packet transfer mode for RGB565]**
+**[RGB565 的打包传输模式]**
 
-<img src="static/packet_transfer_mode_RGB565.png" alt="" width="700">
+![RGB565 打包传输模式](static/packet_transfer_mode_RGB565.png){: width="700" }
 
-**[Packet transfer mode for RGB666]**
+**[RGB666 的打包传输模式]**
 
-<img src="static/packet_transfer_mode_RGB666.png" alt="" width="700">
+![RGB666 打包传输模式](static/packet_transfer_mode_RGB666.png){: width="700" }
 
-**[Packet transfer mode for RGB888]**
+**[RGB888 的打包传输模式]**
 
-<img src="static/packet_transfer_mode_RGB888.png" alt="" width="700">
+![RGB888 打包传输模式](static/packet_transfer_mode_RGB888.png){: width="700" }
 
-**[Unpacked transfer mode for RGB666]**
+**[RGB666 的非打包传输模式]**
 
-<img src="static/unpacked_transfer_mode_RGB666.png" alt="" width="700">
+![RGB666 非打包传输模式](static/unpacked_transfer_mode_RGB666.png){: width="700" }
 
-**[Unpacked transfer mode for RGB888]**
+**[RGB888 的非打包传输模式]**
 
-<img src="static/unpacked_transfer_mode_RGB888.png" alt="" width="700">
+![RGB888 非打包传输模式](static/unpacked_transfer_mode_RGB888.png){: width="700" }
 
-##### Features
+##### 特性
 
-- Support for SPI LCD module with resolution up to 320x240
-- Support for 3-/4-line Serial Peripheral Interface (SPI) and 2-line SPI data transmission
-- Support for up to 3 simultaneous overlays (2 for RGB, 1 for YUV & RGB)
-- Support for dithering
-- Support for gamma curve
-- Alpha blending with configurable alpha values or per-pixel alpha blending
-- Support for YUV to RGB color space conversion
-- Support for image scaling
-- Support for color keying
-- Support for memory write-back
-- Support for the following **input formats** for **image layer**:
+- 支持最高分辨率为 **320×240** 的 SPI LCD 模块；
+- 支持 **3 线 / 4 线 SPI** 以及 **2 线 SPI 数据传输**；
+- 支持最多 **3 路同时叠加层（Overlays）**（其中 2 路用于 RGB，1 路支持 YUV 与 RGB）；
+- 支持 **抖动（Dithering）**；
+- 支持 **伽马曲线（Gamma Curve）** 调整；
+- 支持 **Alpha 混合**，可配置全局 Alpha 值或 **逐像素 Alpha 混合（Per-pixel Alpha Blending）**；
+- 支持 **YUV 到 RGB 色彩空间转换**；
+- 支持 **图像缩放（Scaling）**；
+- 支持 **色键（Color Keying）**；
+- 支持 **内存回写（Memory Write-back）**；
 
-  - YUV422 planar
-  - YUV422 packet
-  - YUV420 planar
-  - RGB888
-  - RGB565
-  - RGB666
-  - BGR888
-  - BGR565
-  - BGR666
+- **图像层（Image Layer）** 支持以下输入格式：
 
-  > **Note.** As can be seen, it is supported **R-B swap option** for the sake of flexibility
-  >
-- Support for the following **input formats** for **OSD layer**:
+  - YUV422 平面格式（Planar）  
+  - YUV422 打包格式（Packet）  
+  - YUV420 平面格式（Planar）  
+  - RGB888  
+  - RGB565  
+  - RGB666  
+  - BGR888  
+  - BGR565  
+  - BGR666  
 
-  - RGB888
-  - RGB565
-  - RGB666
-  - BGR888
-  - BGR565
-  - BGR666
+  > **注**：如上所示，为提升灵活性，支持 **R/B 通道交换（R-B Swap）选项**。
 
-  > **Note.** As can be seen, it is supported **R-B swap option** for the sake of flexibility
-  >
+- **OSD 层（OSD Layer）** 支持以下输入格式：
 
-##### Block Diagram
+  - RGB888  
+  - RGB565  
+  - RGB666  
+  - BGR888  
+  - BGR565  
+  - BGR666  
 
-The architecture of the SPI LCD Display Interface is depicted below.
+  > **注**：同样支持 **R/B 通道交换（R-B Swap）选项**，以增强格式适配能力。
 
-![](static/SPI_LCD_Display_Interface.png)
+##### 架构框图
 
-It is clearly understandable how the display data are efficiently processed, then converted into SPI-compatible signals, then transmitted to the connected LCD display.
+SPI LCD 显示接口的架构如下图所示。
 
-##### Functions
+![SPI LCD 显示接口架构](static/SPI_LCD_Display_Interface.png)
 
-###### Blending Function
+从图中可以清晰地了解到显示数据是如何被高效处理，然后转换为 SPI 兼容信号，并最终传输到连接的 LCD 显示屏上的。
 
-The blending function of the DSI controller is used to combine multiple layers of images or overlays with different levels of transparency (alpha values).
+##### 功能
 
-An example of layers and their respective alpha values is depicted below, where
+###### 混合功能（Blending Function）
 
-- **L0**: Bottom layer, base image
-- **L1**: Middle layer, alpha value **a1**
-- **L2**: Top layer, alpha value **a2**
+DSI 控制器的混合功能用于结合多个具有不同透明度（alpha 值）的图像层或叠加层。
 
-<img src="static/blending_function.png" alt="" width="400">
+下面展示了各层及其相应的 alpha 值的一个例子，其中：
 
-The following blending modes are supported:
+- **L0**：底层，基础图像；
+- **L1**：中间层，alpha 值为 **a1**；
+- **L2**：顶层，alpha 值为 **a2**；
 
-- Normal Alpha Blending Mode
-- Pre-Multiple Alpha Blending Mode
-- Special Alpha Blending Mode
+![混合功能示例](static/blending_function.png){: width="400"}
 
-In the code, a different formula is implemented for each blending mode that uses the alpha value **a1** as per the following conditions:
+支持以下几种混合模式：
+
+- 正常 Alpha 混合模式（Normal Alpha Blending Mode）
+- 预乘 Alpha 混合模式（Pre-Multiple Alpha Blending Mode）
+- 特殊 Alpha 混合模式（Special Alpha Blending Mode）
+
+在代码中，根据以下条件为每个混合模式实现了不同的公式使用 alpha 值 **a1**：
 
 ```c
 if (L1 == color_key)
@@ -1657,27 +1674,27 @@ else
 a1 = pixel_alpha;
 ```
 
-Details for each blending mode are explained in the following subsections.
+每种混合模式的详细信息将在接下来的小节中解释。
 
-**[Normal Alpha Blending Mode]**
+**[正常 Alpha 混合模式]**
 
-With reference to the example figure shown above,
+参照上面所示的例子，
 
-- For **2 layers**, the formula implemented is
+- 对于 **2 层**，实现的公式为：
 
-  - $$
+   $$
     L'=L1×a1+L0×(1-a1)
     $$
-- For **3 layers** (<u>not recommended</u>), the formula implemented is
 
-  - $$
+- 对于 **3 层**（不推荐），实现的公式为：
+
+   $$
     L'=L2×a2+L1×a1×(1-a2)+L0×(1-a1)×(1-a2)
     $$
 
-  > **Note.** Alpha value is not supported for write-back in this case
+  > **注意：** 在这种情况下，写回（write-back）不支持 alpha 值。
   
-
-In the code, the pixel value **L'** depends on the alpha value **a1** as per the following conditions:
+在代码中，像素值 **L'** 根据以下条件依赖于 alpha 值 **a1**：
 
 ```c
 if (a1 == 8’hFF)
@@ -1688,24 +1705,25 @@ else
 L' = (L1-L0) × a1/256 + L0
 ```
 
-**[Pre-Multiple Alpha Blending Mode]**
+**[预乘 Alpha 混合模式]**
 
-With reference to the example figure shown above,
+参照上面所示的例子，
 
-- For **2 layers**, the formula implemented is
+- 对于 **2 层**，实现的公式为：
 
-  - $$
+   $$
     L'=L1+L0×(1−a1)
     $$
-- For **3 layers** (<u>not recommended</u>), the formula implemented is
 
-  - $$
+- 对于 **3 层**（不推荐），实现的公式为：
+
+   $$
     L'=L2+L1×(1−a2)+L0×(1−a1)×(1−a2)
     $$
 
-  > **Note.** Alpha value is supported for write-back and its value is given by the formula $a'=a1+a2−a1×a2$
+  > **注意：** 在这种情况下，写回支持 alpha 值，其值由公式 $a'=a1+a2−a1×a2$ 给出。
 
-In the code, the pixel value **L'** depends on the alpha value **a1** as per the following conditions:
+在代码中，像素值 **L'** 根据以下条件依赖于 alpha 值 **a1**：
 
 ```c
 if (a1 == 8’hFF)
@@ -1716,25 +1734,25 @@ else
 L' = L1-L0 × (1-a1)/256;
 ```
 
-**[Special Alpha Blending Mode]**
+**[特殊 Alpha 混合模式]**
 
-With reference to the example figure shown above,
+参照上面所示的例子，
 
-- For **2 layers**, the formula implemented is
+- 对于 **2 层**，实现的公式为：
 
    $$
     L'=L1+L0×a1
     $$
-- For **3 layers** (<u>not recommended</u>), the formula implemented is
+
+- 对于 **3 层**（不推荐），实现的公式为：
 
    $$
     L'=L2+L1×a2+L0×a1×a2
     $$
 
-  > **Note.** Alpha value is not supported for write-back in this case
+  > **注意：** 在这种情况下，写回不支持 alpha 值。
   
-
-In the code, the pixel value **L'** depends on the alpha value **a1** as per the following conditions:
+在代码中，像素值 **L'** 根据以下条件依赖于 alpha 值 **a1**：
 
 ```c
 if (a1 == 8’hFF)
@@ -1743,725 +1761,731 @@ else
 L' = L1 + L0 × a1/256;
 ```
 
-###### Dither Function
+###### 抖动功能（Dither Function）
 
-The process of the Dither function is depicted below.
+抖动功能的处理流程如下图所示：
 
-<img src="static/Dither_function.png" alt="" width="600">
+![抖动功能](static/Dither_function.png){: width="600" }
 
-The Dither function can be enabled/disabled by software.
+该功能可通过软件**启用或禁用**。
 
-###### Fmark Function
+###### 帧标记功能（Fmark Function）
 
-The Fmark function controls the start of displaying output. In particular,
+Fmark 功能用于控制显示输出的起始时机。具体行为如下：
 
-- If Fmark function is **enabled**, displaying output will wait until the Fmark signal is received
-- If Fmark function is **disabled**, displaying output will start immediately after initiated by software
+- 若 **启用 Fmark 功能**，显示输出将等待 **Fmark 信号** 到达后才开始；
+- 若 **禁用 Fmark 功能**，显示输出将在软件发起后**立即开始**。
 
-By software is possible to enable/disable Fmark function as well as control the polarity of the Fmark signal.
+通过软件可配置：
 
-It is recommended to have a register to set how long displaying output is delayed after LCDC received the Fmark signal.
+- **启用/禁用 Fmark 功能**；
+- **Fmark 信号的极性（Polarity）**。
 
-###### Background Color Display Function
+建议设置一个寄存器，用于配置 **LCDC 接收到 Fmark 信号后，显示输出延迟启动的时间**。
 
-When no layer is enabled, a background color can be displayed without fetching data from DDR. The background color can be configured by software.
+###### 背景颜色显示功能（Background Color Display Function）
 
-###### Image Capture Function
+当所有图层均未启用时，可直接显示由软件配置的**背景色**，无需从 DDR 中读取图像数据。
 
-To apply the image capture function, the following parameters should be configured by software firstly:
+###### 图像捕获功能（Image Capture Function）
 
-- **startx** = X coordinate of the start point of the capture
-- **starty** = Y coordinate of the start point of the capture
-- **width** = Width (in pixels) of the capture from (X,Y) start point
-- **height** = Height (in pixels) of the capture from (X, Y) start point
-- **base_addr** = Memory start address for storing the capture
-- **pitch** = Distance (in bytes) between the start of two consecutive rows of pixels stored in the memory, including any padding for alignment or hardware requirements
+要启用图像捕获功能，需先通过软件配置以下参数：
 
-The process of the image capture function is depicted below.
+- **startx**：捕获区域起始点的 X 坐标  
+- **starty**：捕获区域起始点的 Y 坐标  
+- **width**：从起始点 (X, Y) 开始的捕获宽度（单位：像素）  
+- **height**：从起始点 (X, Y) 开始的捕获高度（单位：像素）  
+- **base_addr**：用于存储捕获图像的内存起始地址  
+- **pitch**：内存中连续两行像素起始地址之间的字节距离（包含为对齐或硬件要求而添加的填充字节）
 
-<img src="static/image_capture.png" alt="" width="800">
+图像捕获功能的处理流程如下图所示：
 
-### 2.6 Audio Subsystem
+![图像捕获功能](static/image_capture.png){: width="800" }
 
-#### Introduction
+### 2.6 音频子系统
 
-Audio subsystem integrates two primary interfaces:
+#### 概述
 
-- 2 × Full-Duplex I2S Interfaces
-- 1 × HDMI Audio Interface
+音频子系统集成了两个主要接口：
 
-#### Features
+- 2 × 全双工 I2S 接口
+- 1 × HDMI 音频接口
 
-- **I2S Interfaces**
+#### 特性
 
-  - Full-duplex operation with simultaneous playback and recording support
-  - Compliance with standard I2S format with fixed parameters:
-    - 48 kHz sample rate
-    - 16-bit data depth
-    - 2 channels
-  - Configurable system clock (sysclk) modes: 64fs, 128fs or 256fs
+- **I2S 接口**
 
-- **HDMI Audio Interface**
+  - 支持全双工操作，同时支持播放和录音；
+  - 符合标准 I2S 格式，具有固定参数：
+    - 采样率为 **48 kHz**；
+    - 数据深度为 **16 位**；
+    - 2 个声道；
+  - 可配置的系统时钟（sysclk）模式：64fs、128fs 或 256fs；
 
-  - Playback-only functionality with fixed parameters:
-    - 48 kHz sample rate
-    - 16-bit data depth
-    - 2 channels
+- **HDMI 音频接口**
 
-### 2.7 Connectivity Subsystem
+  - 仅支持播放功能，具有固定参数：
+    - 采样率为 **48 kHz**；
+    - 数据深度为 **16 位**；
+    - 2 个声道。
+
+### 2.7 互联子系统
 
 #### PCIe 2.0
 
-##### Introduction
+##### 概述
 
-K1 implements three PCIe Dual-Mode ports which can be configured as either Root Complex (RC) or Endpoint (EP) device.
+K1 实现了 **三个 PCIe 双模端口**，每个端口均可配置为 **根联合体（Root Complex, RC）** 或 **端点设备（Endpoint, EP）**。
 
-All ports support Gen2 with a data transfer speed of 5GT/s per lane. However, one port supports one lane only and two ports support two lanes each.
+所有端口均支持 **PCIe Gen2**，每通道数据传输速率为 **5 GT/s**。其中：
 
-##### Features
+- 一个端口仅支持 **1 通道（x1）**；
+- 两个端口各支持 **2 通道（x2）**。
 
-- Support for Dual-Mode, programmable as either Complex (RC) or Endpoint (EP) device
-- Support for all non-optional features of the PCI Express Base Specification - Revision 5.0 - Version 1.0 (limited to Gen2 speed scope)
-- Support for Internal Address Translation Unit (iATU) with 8 entries for outbound and 8 entries for inbound traffic
-- Support for Embedded DMA with Hardware Flow Control which includes 4 write channels and 4 read channels
-- Support for ECRC generation and check
-- Support for max payload size up to 256 bytes
-- Support forAutomatic Lane Flip and Reversal
-- Support for L0 and L1 Power State of Active State Link PM
-- Support for Latency Tolerance Reporting (LTR)
-- Support for only Virtual Channel 0
-- Support for ID Based Ordering (IDO)
-- Support for Completion Timeout Ranges
-- Support for Separate Reference Clock With Independent Spread (SRIS)
-- Support for up to 64 outbound Non-Post Requests
-- Support for up to 32 outstanding AXI slave Non-Post requests
-- Support for only Function 0 with 6 size-programmable BARs in EP Mode
-- Support for MSI Capability in EP Mode
-- Support for Integrated MSI Reception Module in RC Mode
+##### 特性
 
-##### Block Diagram
+- 支持 **双模配置**，可通过软件编程为 **RC 或 EP 设备**；
+- 支持 **PCI Express Base Specification Rev 5.0 v1.0** 中所有非可选功能（限于 Gen2 速率范围）；
+- 集成 **内部地址转换单元（iATU）**，包含 **8 个出站（outbound）条目** 和 **8 个入站（inbound）条目**；
+- 支持 **嵌入式 DMA（Embedded DMA）**，具备硬件流控机制，包含 **4 个写通道** 和 **4 个读通道**；
+- 支持 **ECRC（End-to-End CRC）生成与校验**；
+- 最大有效载荷（Max Payload Size）支持至 **256 字节**；
+- 支持 **自动通道翻转与极性反转（Automatic Lane Flip and Reversal）**；
+- 支持 **Active State Power Management (ASPM)** 的 **L0 和 L1 电源状态**；
+- 支持 **延迟容忍度报告（Latency Tolerance Reporting, LTR）**；
+- 仅支持 **虚拟通道 0（Virtual Channel 0）**；
+- 支持 **基于 ID 的排序（ID Based Ordering, IDO）**；
+- 支持 **完成超时范围（Completion Timeout Ranges）**；
+- 支持 **独立参考时钟带独立扩频（Separate Reference Clock with Independent Spread, SRIS）**；
+- 支持最多 **64 个出站 Non-Posted 请求**；
+- 支持最多 **32 个未完成的 AXI 从设备 Non-Posted 请求**；
+- 在 EP 模式下，仅支持 **Function 0**，并提供 **6 个可编程大小的 BAR（Base Address Register）**；
+- 在 EP 模式下支持 **MSI（Message Signaled Interrupt）能力**；
+- 在 RC 模式下集成 **MSI 接收模块（Integrated MSI Reception Module）**。
 
-The architecture of the PCIe Dual-Mode port set is depicted below.
+##### 架构框图
 
-<img src="static/PCIe_Dual-Mode_port.png" alt="" width="700">
+PCIe 双模端口组的架构如下图所示：
 
-As can be seen, there are
+![PCIe 双模端口架构](static/PCIe_Dual-Mode_port.png){: width="700" }
 
-- One PCIe Gen2x1 Dual-Mode port (hereafter Port A)
-- Two PCIe Gen2x2 Dual-Mode ports (hereafter Port B and Port C)
+如图所示，包含以下组件：
 
-as said previously, and all them consists of
+- **1 个 PCIe Gen2 x1 双模端口**（以下简称 **Port A**）
+- **2 个 PCIe Gen2 x2 双模端口**（以下简称 **Port B** 和 **Port C**）
 
-- A **controller** integrated into SoC via **3 AXI ports** which are designed as
+各端口均由以下部分构成：
 
-  - **AXI Master Port** to manages inbound traffic (i.e. data coming into the system) either from a remote device or through the PCIe controller's internal DMA, allowing the access to DDR memory for transferring data both to and from the remote device
-  - **AXI Data Slave Port** to allows the local CPU accessing itself for outbound traffic
-  - **AXI DBI Slave Port** to be used for the PCIe controller's configuration interface
-- A **PHY** complied with PIPE 3 specification and distinguished in
+- **控制器（Controller）**：通过 **3 个 AXI 接口** 集成到 SoC 中，具体包括：
+  - **AXI 主端口（AXI Master Port）**：用于处理入站流量（即来自远程设备或通过 PCIe 控制器内部 DMA 的数据），可访问 DDR 内存以实现与远程设备之间的双向数据传输；
+  - **AXI 数据从端口（AXI Data Slave Port）**：供本地 CPU 访问，用于发起出站流量；
+  - **AXI DBI 从端口（AXI DBI Slave Port）**：用于 PCIe 控制器的配置接口。
 
-  - **Phy2x1_22** which
-    - Supports Gen2 with one lane (x1)
-    - Is built using a 22nm process
-    - Is shared between Port A and USB3 controller but <u>not simultaneously</u>, i.e. both Port A and USB3 controller can operate but <u>not at the same time</u>
-  - **Phy2x2_22** which
-    - Supports Gen2 with two lanes (x2)
-    - Is built using a 22nm process
-    - Comes for Port B and Port C <u>distinctly</u>, i.e. Port B and Port C have their own dedicated PHY
-- A **miscellaneous logic**, in particular **chip I/O with remote links partner** as follows:
+- **物理层（PHY）**：符合 **PIPE 3.0 规范**，分为两类：
+  - **Phy2x1_22**
+    - 支持 Gen2 ×1 通道；
+    - 采用 **22nm 工艺** 制造；
+    - **Port A 与 USB3 控制器共享该 PHY**，但 **不能同时使用**（即 Port A 与 USB3 可分别工作，但不可并发）；
+  - **Phy2x2_22**
+    - 支持 Gen2 ×2 通道；
+    - 采用 **22nm 工艺** 制造；
+    - **Port B 与 Port C 各自拥有独立的 PHY**（即不共享）。
 
-  - **Differential Data Signals**: Rx_p/n, Tx_p/n (x2 lanes for Port B/C, x1 lane for Port A)
-  - **Reference Clock Signals**: refclk_p/n (support for both input and output mode)
-  - **Warm Reset Signal**: PERST# (input in EP mode, output in RC mode)
-  - **Wake-Up signal**: WAKE# (output in EP mode, input in RC mode)
+- **辅助逻辑（Miscellaneous Logic）**，主要包括与远端链路伙伴连接的 **芯片 I/O 信号**：
+  - **差分数据信号**：Rx_p/n、Tx_p/n  
+    （Port B/C 为 ×2 通道，Port A 为 ×1 通道）
+  - **参考时钟信号**：refclk_p/n（支持输入或输出模式）
+  - **热复位信号**：PERST#  
+    （EP 模式下为输入，RC 模式下为输出）
+  - **唤醒信号**：WAKE#  
+    （EP 模式下为输出，RC 模式下为输入）
 
 #### USB
 
-##### Introduction
+##### 概述
+
+K1 集成了三个 USB 端口，具体如下：
+
+- 1 个 **USB 2.0 OTG 端口**
+- 1 个 **USB 2.0 仅主机（Host-Only）端口**
+- 1 个 **USB 3.0 端口**，同时集成 **USB 2.0 双角色设备（DRD）接口**
+
+##### 特性
+
+###### USB 2.0 OTG 端口特性
+
+- **控制器（Controller）**
+  - 支持 **USB 2.0 主机（Host）与设备（Device）双模式**
+  - 符合 **USB 2.0 标准**
+  - 在主机和设备模式下均支持：
+    - **高速（High Speed, HS）480 Mbps**
+    - **全速（Full Speed, FS）12 Mbps**
+  - 仅在主机模式下支持 **低速（Low Speed, LS）1.5 Mbps**
+  - 主机控制器寄存器及数据结构符合 **Intel EHCI 规范**
+  - 设备控制器寄存器及数据结构基于 **EHCI 编程接口扩展实现**
+  - 总线接口符合 **AMBA-AHB 规范**
 
-K1 includes three USB ports as follows:
+- **通信接口（Communication Interface）**
+  - 采用 **UTMI+ 接口** 与 USB 2.0 PHY 通信
+
+- **协议支持（Protocols）**
+  - 支持 **会话请求协议（Session Request Protocol, SRP）**
+  - 支持 **主机协商协议（Host Negotiation Protocol, HNP）**
+
+- **通道与端点（Channel & Endpoint）**
+  - 支持最多 **16 个主机通道（Host Channels）**
+  - 设备模式下支持 **16 个 IN 端点** 和 **16 个 OUT 端点**，其中：
+    - **16 KB 缓冲区** 用于发送数据
+    - **2 KB 缓冲区** 用于接收数据
+
+###### USB 2.0 仅主机端口特性
+
+- **控制器（Controller）**
+  - 支持 **USB 2.0 HS / FS / LS 主机模式**
+  - 符合 **USB 2.0 标准**
+  - 主机模式下支持：
+    - **高速（480 Mbps）**
+    - **全速（12 Mbps）**
+    - **低速（1.5 Mbps）**
+  - 主机控制器寄存器及数据结构符合 **Intel EHCI 规范**
+  - 总线接口符合 **AMBA-AHB 规范**
 
-- A USB2.0 OTG Port
-- A USB2.0 Host Only Port
-- A USB3.0 Port with a USB2.0 DRD interface
+- **通信接口（Communication Interface）**
+  - 采用 **UTMI+ 接口** 与 USB 2.0 PHY 通信
 
-##### Features
+- **通道支持（Channel Support）**
+  - 支持最多 **16 个主机通道**
 
-###### USB2.0 OTG Port Features
+###### 带 USB 2.0 DRD 接口的 USB 3.0 端口特性
 
-- **Controller:**
+- **控制器（Controller）**
+  - 支持 **USB 3.0 主机与设备双模式**
+  - 同时支持 **USB 2.0 主机与设备双模式**
+  - 符合 **USB 3.0 与 USB 2.0 标准**
+  - 支持 **USB 3.0 SuperSpeed（5 Gbps）** 以及 **USB 2.0 主机/设备模式**
+  - USB 3.0 主机控制器寄存器及数据结构符合 **Intel xHCI 规范**
+  - USB 3.0 设备控制器寄存器及数据结构为 **自定义实现**，需软件配置
+  - 支持 **1 个 USB 3.0 端口** 和 **1 个 USB 2.0 端口**
+  - 主机与设备模式下支持：
+    - **高速（480 Mbps）**
+    - **全速（12 Mbps）**
+  - 仅在主机模式下支持 **低速（1.5 Mbps）**
+
+- **通信接口（Communication Interface）**
+  - USB 3.0 PHY 使用 **PIPE3 接口（125 MHz）**
+  - USB 2.0 PHY 使用 **UTMI+ 接口（30/60 MHz）**
+
+- **时钟域（Clock Domains）**
+  - PIPE3 PHY：125 MHz  
+  - UTMI+ PHY：30/60 MHz  
+  - MAC：标称 125 MHz  
+  - 总线（BUS）时钟域  
+  - RAM 时钟域  
+
+- **系统与电源管理（System & Power Management）**
+  - 内置 **DMA 控制器**
+  - 支持 **USB 2.0 挂起（Suspend）模式**
+  - 支持 **USB 3.0 U1 / U2 / U3 低功耗状态**
+
+- **端点与内存（Endpoint & Memory）**
+  - 设备模式下支持最多 **32 个端点**
+  - 端点 FIFO 大小 **灵活可配**（不限于 2 的幂次），支持使用连续内存区域
+  - 支持 **描述符缓存** 与 **数据预取**，以提升高延迟系统中的性能
+
+- **附加功能（Additional Features）**
+  - 支持 **软件控制的标准 USB 命令**（USB SETUP 命令由应用层解码）
+  - 提供 **硬件级错误处理**，覆盖 USB 总线及包层级异常
+  - 支持 **中断机制**
+
+##### 架构框图
+
+USB 端口组的架构如下图所示，其中：
+
+- **USB#0 端口 = USB 2.0 OTG 端口**  
+- **USB#1 端口 = USB 2.0 仅主机端口**  
+- **USB#2 端口 = 带 USB 2.0 DRD 接口的 USB 3.0 端口**
+
+![USB 端口架构](static/USB_port.png){: width="700" }
+
+#### 以太网 GMAC
+
+##### 概述
+
+K1 集成了一个 **GMAC IP 核**，该核满足 **10/100/1000 Mbps 以太网（符合 IEEE 802.3-2012 标准）节点** 所需的基本协议功能。
+
+GMAC IP 核支持以下速率：
+
+- **10 Mbps**
+- **100 Mbps（快速以太网）**
+- **1000 Mbps（千兆以太网）**
+
+此外，该核集成了一个高性能的 **64 位 Scatter-Gather DMA 引擎**，用于在 **主机内存（HOST Memory）** 与 **内部 FIFO** 之间高效传输数据包，从而实现高吞吐性能。
+
+##### 特性
+
+- 支持 **发送/接收数据封装功能**，包括：
+  - **帧定界（Framing）**：帧边界识别与帧同步；
+  - **错误检测（Error Detection）**：物理介质传输错误检测；
+- 在 **半双工模式（Half-Duplex Mode）** 下（10/100 Mbps），支持：
+  - **介质访问管理**：包括介质分配（冲突避免）和争用仲裁（冲突处理）；
+  - **冲突帧重传机制**；
+- 在 **全双工模式（Full Duplex Mode）** 下支持 **流控（Flow Control）功能**：
+  - 解码 **PAUSE 控制帧**；
+  - 暂停发送器；
+  - 主动生成 **PAUSE 控制帧**；
+- 支持 **4 位数据通路的 RGMII 接口**，用于连接 RGMII 兼容的 PHY 芯片；
+- 提供 **管理接口（Management Interface）**，通过 **MDC/MDIO 引脚** 生成管理帧，与外部 PHY 设备通信；
+- 在 **AXI 总线** 上具备 **总线主控（Bus Mastering）能力**，支持以 **64 位传输模式** 在主机内存与内部 FIFO 之间搬运数据包；
+- 基于描述符（Descriptor-based）自动完成主机内存与内部 FIFO 之间的数据包传输，**显著降低 CPU 开销**。
+
+##### 架构框图
+
+以太网 GMAC 单元的微架构如下图所示：
+
+![以太网 GMAC 架构](static/Ethernet_GMAC.png){: width="600" }
+
+#### SDIO 接口
+
+##### 概述
+
+SDIO 接口是一个硬件模块，作为 SDIO 总线的主机，用于在 **SDIO Wi-Fi 模块** 和 **内部总线主控** 之间传输数据。
+
+##### 特性
+
+- 符合 **SDIO 4.10 协议规范** 的 **4 位模式**；
+- 与 **SD-HCI 规范** 中定义的寄存器集保持一致，并包含额外的供应商特定寄存器；
+- 支持 **1 位和 4 位 SDIO 总线**；
+- 支持 SD-HCI 规范中定义的以下数据传输类型：
+  - **PIO（Programmed I/O）**
+  - **SDMA（Single DMA）**
+  - **ADMA（Advanced DMA）**
+  - **ADMA2（Advanced DMA 2）**
+- 支持 SD 3.0 规范中定义的以下速度模式：
+  - **默认速度模式（Default Speed Mode）**：最高可达 **12.5 MB/s**，信号电平为 **3.3V**；
+  - **高速模式（High Speed Mode）**：最高可达 **25 MB/s**，信号电平为 **3.3V**；
+  - **SDR12（Single Data Rate 12）**：最高频率 **25 MHz**，信号电平为 **1.8V**；
+  - **SDR25（Single Data Rate 25）**：最高频率 **50 MHz**，信号电平为 **1.8V**；
+  - **SDR50（Single Data Rate 50）**：最高频率 **100 MHz**，信号电平为 **1.8V**；
+  - **SDR104（Single Data Rate 104）**：最高频率 **208 MHz**，信号电平为 **1.8V**；
+  - **DDR50（Dual Data Rate 50）**：最高频率 **100 MHz**，信号电平为 **1.8V**；
+- 对卡总线上所有命令和数据事务提供基于硬件的 **CRC 生成与校验**；
+- 支持 SDIO 卡中的 **读等待控制（Read-wait Control）**；
+- 支持 SDIO 卡中的 **挂起/恢复（Suspend/Resume）功能**；
+- 提供 **1024 字节（2 x 512 字节数据块）FIFO**，用于发送和接收数据。
+
+#### CAN-FD 接口
+
+##### 概述
+
+CAN-FD 控制器完整实现了 CAN 协议规范，同时兼容 **支持灵活数据速率的 CAN（CAN-FD）协议** 和 **CAN 2.0 Part B 协议**。
+
+##### 特性
+
+- 完整支持 **CAN-FD 协议** 与 **CAN 2.0 Part B 规范**，包括：
+  - 标准数据帧（Standard Data Frames）
+  - 扩展数据帧（Extended Data Frames）
+  - 数据长度范围：**0 至 64 字节**
+  - 可编程比特率（Programmable Bit Rate）
+  - 基于内容的寻址（Content-Related Addressing）
+- 符合 **ISO 11898-1** 标准；
+- 经硅验证（Silicon-Proven），通过 **ISO 16845-1:2016** CAN 一致性测试；
+- 邮箱（Mailbox）结构灵活，可配置为存储 **0、8、16、32 或 64 字节** 的数据；
+- 每个邮箱均可独立配置为 **接收或发送模式**，并支持标准帧与扩展帧；
+- 每个邮箱配备 **独立的接收掩码寄存器（Receive Mask Register）**；
+- 内置功能完整的 **接收 FIFO**，最多可缓存 **6 帧**，具备自动内部指针管理及 **DMA 支持**；
+- 支持 **传输中止（Transmission Abort）** 功能；
+- 提供 **128 个消息缓冲区槽位（每个槽位 8 字节）**，可灵活配置为发送或接收用途；
+- CAN 协议引擎的时钟源可选：**外设时钟** 或 **振荡器时钟**；
+- **不使用 RAM 进行收发操作**，但可将该 RAM 用作通用 RAM 空间；
+- 支持 **监听模式（Listen-Only Mode, LOM）**；
+- 支持 **可编程回环模式（Loop-Back Mode）**，用于自检；
+- 可编程的 **传输优先级策略**，支持以下方式：
+  - 最低 ID 优先
+  - 最低缓冲区编号优先
+  - 最高优先级优先
+- 集成 **16 位自由运行定时器**，用于时间戳生成，支持可选的外部时间滴答（Time Tick）输入；
+- 支持通过特定消息实现 **全局网络时间同步**；
+- 支持 **可屏蔽中断（Maskable Interrupts）**；
+- 与传输介质无关（需外接收发器）；
+- 采用仲裁机制，确保 **高优先级消息具有极短延迟**；
+- 支持 **低功耗模式**，可通过总线活动或帧匹配（Pretended Networking）触发唤醒；
+- 在高速 CAN-FD 数据段传输时，支持 **收发器延迟补偿（Transceiver Delay Compensation, TDC）**；
+- 远程请求帧（Remote Request Frame）可由软件自动处理；
+- **CAN 比特时序参数与配置寄存器仅在 Freeze 模式下可写**；
+- 可配置传输邮箱状态选择策略：**最低优先级缓冲区** 或 **空缓冲区**；
+- 支持 **标识符接收过滤命中指示寄存器（IDHIT）**，用于标记接收到的帧匹配结果；
+- 错误状态寄存器 1 中的 **SYNCH 位** 表示是否已与 CAN 总线同步；
+- 支持 **发送消息的 CRC 状态反馈**；
+- 支持 **接收 FIFO 全局掩码寄存器（Global Mask Register）**；
+- 在匹配过程中，可选择 **邮箱与接收 FIFO 之间的优先级**；
+- 高级接收 FIFO ID 过滤功能，支持以下匹配能力：
+  - 最多 **128 个扩展 ID**
+  - 最多 **256 个标准 ID**
+  - 最多 **512 个部分 ID（8 位）**
+  - ID 过滤表最多包含 **32 个条目**
+- 完全向后兼容早期版本的 CAN-FD 实现；
+- 支持 **内存读取访问中的错误检测与纠正**：
+  - 每字节 CAN-FD 内存配对 **5 位奇偶校验位**，构成 **13 位字**；
+  - 错误纠正机制可：
+    - **检测并纠正单比特错误（可纠正错误）**
+    - **检测但无法纠正双比特错误（不可纠正错误）**
+- 在低功耗模式（**Doze 模式** 和 **Stop 模式**）下支持 **伪网络（Pretended Networking）功能**。
+
+#### SPI 接口
+
+##### 概述
+
+SPI 接口是一种同步串行接口，支持通过 **Motorola 串行外设接口（SPI）协议** 与外部设备进行数据通信。该接口可配置为以下两种工作模式：
+
+- **主模式（Master Mode）**：连接的外设作为从设备；
+- **从模式（Slave Mode）**：连接的外设作为主设备。
+
+##### 特性
+
+- 支持 SPI 协议中 **CPOL 与 CPHA 的全部四种组合**；
+- 可配置为 **主模式** 或 **从模式**；
+- 支持 **仅接收（Receive-without-Transmit）操作**；
+- 串行比特率范围：**6.3 kbps（最小推荐值）至 52 Mbps（最大值）**；
+- 数据位宽可配置为 **8 位、16 位、18 位或 32 位**；
+- 配备独立的 **发送 FIFO（TXFIFO）** 和 **接收 FIFO（RXFIFO）**，具体特性如下：
+  - **非打包数据模式（Non-Packed Data Mode）**：
+    - 两个 FIFO 均为 **32 行 × 32 位** 宽度，共支持 **32 个数据样本**；
+  - **打包数据模式（Packed Data Mode）**：
+    - 当数据样本宽度为 **8 位或 16 位** 时，使用 **双倍深度 FIFO**；
+    - 两个 FIFO 均为 **64 个位置 × 16 位** 宽度，共支持 **64 个数据样本**；
+  - 两个 FIFO 均可通过 **程序化 I/O（PIO）** 或 **DMA 突发传输** 进行填充或清空。
+
+#### UART 接口
+
+##### 概述
+
+通用异步收发器（UART）接口可通过 **直接内存访问（DMA）** 或 **程序化 I/O（PIO）** 进行控制。
+
+##### 特性
+
+- 最多支持 **10 个 UART 接口**；
+- 兼容 **16550A** 和 **16750 UART 标准**；
+- 支持在串行数据流中 **自动添加或移除标准异步通信位**（起始位、停止位和校验位）；
+- **独立控制** 发送、接收、线路状态及数据集相关中断；
+- 提供 **调制解调器控制功能**（仅 UART2 和 UART3 支持 CTSn 与 RTSn 信号）；
+- 支持 **自动流控（Auto-flow）**，无需产生中断即可管理数据 I/O：
+  - **RTSn（输出）** 由 UART 接收 FIFO 状态自动控制；
+  - **CTSn（输入）** 来自 UART 调制解调器的发送控制信号；
+- 可编程串行接口，支持以下配置选项：
+  - 数据位长度：**7 位或 8 位**；
+  - 校验方式：**偶校验、奇校验或无校验**；
+  - 停止位：**1 位**；
+  - 波特率生成：**4 个高速 UART 最高支持 3.6 Mbps**；
+  - 支持 **伪起始位检测（False Start-Bit Detection）**；
+- 配备 **64 字节发送 FIFO**；
+- 配备 **64 字节接收 FIFO**；
+- 支持 **完整的状态报告**；
+- 支持 **生成与检测线路中断（Line Break）**；
+- 内置 **诊断功能**，包括：
+  - **回环控制（Loopback Control）**：用于通信链路故障隔离；
+  - 支持模拟 **中断、校验错误和帧错误**；
+- 具备 **完全优先级化的中断系统**；
+- 支持 **独立的 DMA 请求通道**，分别用于发送和接收数据服务；
+- 支持 **红外串行异步接口**，符合 **红外数据协会（IrDA）规范**。
+
+#### 总线接口
+
+##### 概述
+
+Inter-Integrated Circuit（I2C）总线是一种真正的 **多主设备总线**，具备 **冲突检测** 与 **仲裁机制**。
+
+系统中包含一个专用的 I2C 模块，称为 **电源 I2C 模块（Power I2C Module）**，用于连接 **电源管理 IC（PMIC）**。
+
+该 I2C 总线接口可在 I2C 总线上作为 **主设备（Master）** 或 **从设备（Slave）** 工作。此串行总线由 Philips 公司开发，采用 **两线制接口**，定义如下：
 
-  - Support for both USB2.0 Host and Device mode
-  - Compliance with the USB2.0 standard
-  - Support for USB2.0 High Speed (480Mb/s) and Full Speed (12Mb/s) for both Host and Device modes
-  - Support for USB2.0 Low Speed (1.5Mb/s) for Host Only Mode
-  - Host controller registers and data structures are compliant with the Intel EHCI specification
-  - Device controller registers and data structures are implemented as extensions to the EHCI programming interface
-  - Bus interface is compliant with AMBA-AHB specification
+- **SDA**：数据引脚，用于输入和输出；
+- **SCL**：时钟引脚，提供时序参考并控制 I2C 总线操作。
 
-- **Communication Interface:**
+I2C 总线允许 I2C 单元与其它 I2C 外设及微控制器进行通信。其硬件需求极简，为芯片间及与外部设备之间传输状态和控制信息提供了一种经济高效的解决方案。
 
-  - Implementation of UTMI+ interface to communicate with USB2.0 PHY
+该 I2C 总线接口作为一个外设模块挂载在 **外设总线（Peripheral Bus）** 上，主要实现以下功能：
 
-- **Protocols:**
+- **数据传输**：通过带缓冲的接口实现可靠通信；
+- **控制与状态管理**：通过内存映射寄存器（Memory-Mapped Registers）进行访问。
 
-  - Support for the Session Request Protocol (SRP)
-  - Support for the Host Negotiation Protocol (HNP)
+##### 特性
 
-- **Channel & Endpoint:**
+- 符合 **I2C 总线规范**，但 **不支持以下特性**：
+  - 硬件通用呼叫（Hardware General Call）
+  - 10 位从设备地址（10-bit Slave Addressing）
+  - CBUS 兼容性
+- 支持 **多主设备模式（Multi-Master）** 与 **总线仲裁（Arbitration）**
+- 支持以下 **工作模式与速率**：
 
-  - Support for up to 16 host channels
-  - In Device mode, support for 16 IN and 16 OUT endpoints, where
-    - 16KB buffer is for transmitting data
-    - 2KB buffer is for receiving data
+  - **标准模式（Standard Mode）**：最高 **100 kbps**  
+  - **快速模式（Fast Mode）**：最高 **400 kbps**  
+  - **高速从设备模式（High-Speed Slave Mode）**：最高 **3.4 Mbps**（仅限高速 I2C）  
+  - **高速主设备模式（High-Speed Master Mode）**：最高 **3.3 Mbps**（仅限高速 I2C）
 
-###### USB2.0 Host Only Port Features
+  > **注**：在高速主设备模式下，由于总线上存在上拉电阻，实际 I2C 工作频率会有所下降。SCL 时钟频率与上拉电阻值成反比（∝ 1/R）。
 
-- **Controller:**
+##### 架构框图
 
-  - Support for USB2.0 HS, USB2.0 FS, USB2.0 LS Host modes
-  - Compliance with the USB2.0 standard
-  - Support for High Speed (480Mb/s), Full Speed (12Mb/s), Low Speed (1.5Mb/s) for Host mode
-  - Host controller registers and data structures are compliant with the Intel EHCI specification
-  - Bus interface is compliant with AMBA-AHB specification
+I2C 总线接口的架构如下图所示：
 
-- **Communication Interface:**
+![I2C 总线接口架构](static/I2C_bus_interface.png){: width="500" }
 
-  - Implementation of UTMI+ interface to communicate with USB2.0 PHY
+#### 红外接收接口（IR-RX Interface）
 
-- **Channel Support:**
+##### 特性
 
-  - Support for up to 16 host channels
+- 将红外输入信号转换为 **游程编码（Run-Length Code, RLC）格式**；
+- 支持 **可配置的信号宽度阈值**，用于噪声检测；
+- 配备 **32 字节 FIFO**，用于存储接收到的数据。
 
-###### USB3.0 Port with a USB2.0 DRD Interface Features
+#### 单总线主控接口（One-Wire Bus Master Interface）
 
-- **Controller**
+##### 概述
 
-  - Support for both USB3.0 Host and Device modes
-  - Support for both USB2.0 Host and Device modes
-  - Compliance with both the USB3.0 and USB2.0 standards
-  - Support for USB3.0 (Super Speed) and USB2.0 Host and Device mode
-  - USB3.0 Host Controller registers and data structures are compliant with the Intel xHCI specification
-  - USB3.0 Device controller registers and data structures are self-defined requiring software configuration
-  - Support for one USB3.0 port and one USB2.0 port
-  - Support for High Speed (480Mb/s) and Full Speed (12Mb/s) for Host and Device mode
-  - Support for Low Speed (1.5Mb/s) for Host-Only mode
+单总线主控接口控制器负责在 **单总线（One-Wire）** 上接收和发送数据。该控制器通过 **8 位命令** 完全控制单总线操作。处理器通过 **5 个专用寄存器** 与控制器交互，用于：
 
-- **Communication Interface:**
+- 加载命令  
+- 读写数据  
+- 配置中断控制  
 
-  - Use of PIPE3 (125MHz) interface for USB3.0 PHY
-  - Use of UTMI+ (30/60MHz) interface for USB2.0 PHY
+一旦主机加载命令或数据，**所有单总线时序与控制信号** 均由单总线主控接口控制器内部自动生成。
 
-- **Clock Domains:**
+当总线上发生需要 CPU 响应的事件时，控制器会：
 
-  - PIPE3 PHY (125MHz)
-  - UTMI+ PHY (30/60MHz)
-  - MAC (nominal 125MHz)
-  - BUS clock domain
-  - RAM clock domain
+- 置位相应的 **状态位**；
+- 若中断使能，则向 CPU 发出 **中断请求**。
 
-- **System & Power Management:**
+关于具体从设备（Slave）实现的详细信息，请参考 **《iButton® 标准手册》（Book of iButton® Standards）**，其中详细描述了单总线主控接口的操作方式。
 
-  - Internal DMA controller
-  - Support for USB2.0 suspend mode
-  - Support for U1/U2/U3 low-power modes for USB3.0
+##### 架构框图
 
-- **Endpoint & Memory:**
+单总线主控接口的架构如下图所示：
 
-  - Support for up to 32 endpoints in Device mode
-  - Flexible endpoint FIFO sizes (not limited to powers of 2) allowing the use of contiguous memory locations
-  - Descriptor caching and data pre-fetching for improving performance in high-latency systems
+![单总线主控接口架构](static/One-Wire_Bus_Master_Interface.png){: width="500" }
 
-- **Additional Features:**
+#### I2S 接口
 
-  - Software-controlled standard USB commands (USB SETUP commands forwarded to application for decoding)
-  - Hardware-level error handling for USB bus and packet-level issues
-  - Support for interrupts
+##### 概述
 
-##### Block Diagram
+I2S 接口是一种同步串行接口，专为连接各类外部设备而设计，包括 **模数转换器（ADC）**、**音频编解码器** 和 **电信编解码器**。该接口原生支持 **Inter-IC Sound（I2S）协议** 用于数据传输。
 
-The architecture of the USB port set is depicted below, where
+##### 特性
 
-- **USB#0 Port =** USB2.0 OTG Port
-- **USB#1 Port =** USB2.0 Host-Only Port
-- **USB#2 Port =** USB3.0 Port with a USB2.0 DRD interface
-
-<img src="static/USB_port.png" alt="" width="700">
-
-#### Ethernet GMAC
-
-##### Introduction
-
-K1 features a GMAC IP core which includes the essential protocol requirements for the operation of 10/100/1000 Mbps Ethernet/IEEE 802.3-2012 compliant node.
-
-The GMAC IP core can operate at 10 Mbps, 100 Mbps (Fast Ethernet) or 1000 Mbps (Gigabit Ethernet). Additionally, it includes a powerful 64-bit Scatter-Gather DMA to transfer packets between HOST Memory and Internal FIFOs to achieve high performance.
-
-##### Features
-
-- Capability of handling transmit/receive data encapsulation functions, including Framing (frame boundary delimitation, frame synchronization) and Error Detection (physical medium transmission errors)
-- Media access management with medium allocation (collision avoidance) and contention resolution (collision handling) in Half-Duplex Mode of operation at speeds of 10/100 Mbps
-- Retransmission of frames that result in Collision in Half-Duplex mode
-- Support for Flow Control functions in Full Duplex mode by decoding PAUSE control frames, disabling the transmitter and generating PAUSE control Frames
-- Support for a 4-bit data path based RGMII Interface to connect with RGMII-based PHY
-- Support for Management Interface by generating management frames on the MDC/MDIO pins to communicate with external PHY devices
-- Bus mastering on the AXI interface to transfer packets between the HOST memory and the internal FIFOs using 64-bit transfer mode
-- Automatic transfer of packets between the HOST memory and internal FIFOs (based on descriptors) to minimize CPU overhead
-
-##### Block Diagram
-
-The micro-architecture of Ethernet GMAC unit is depicted below.
-
-<img src="static/Ethernet_GMAC.png" alt="" width="600">
-
-#### SDIO Interface
-
-##### Introduction
+- 可配置为 **主模式（Master Mode）**（外设作为从设备）或 **从模式（Slave Mode）**（外设作为主设备）；
+- 支持 **仅接收（Receive-without-Transmit）操作**；
+- 串行比特率范围：**6.3 kbps（最小推荐值）至 52 Mbps（最大值）**；
+- 数据位宽可配置为 **8 位、16 位、18 位或 32 位**；
+- 配备独立的 **发送 FIFO（TXFIFO）** 和 **接收 FIFO（RXFIFO）**，具体特性如下：
+  - **非打包数据模式（Non-Packed Data Mode）**：
+    - 两个 FIFO 均为 **32 行 × 32 位** 宽度，共支持 **32 个数据样本**；
+  - **打包数据模式（Packed Data Mode）**：
+    - 当数据样本宽度为 **8 位或 16 位** 时，使用 **双倍深度 FIFO**；
+    - 两个 FIFO 均为 **64 个位置 × 16 位** 宽度，共支持 **64 个数据样本**；
+  - 两个 FIFO 均可通过 **程序化 I/O（PIO）** 或 **DMA 突发传输** 进行填充或清空；
+- 支持最多 **8 个时隙（Time Slots）**，可在任意、全部或无时隙中独立进行 **发送/接收操作**；
+- 音频时钟控制模块提供 **4 倍或 8 倍输出时钟**，以支持大多数标准音频采样频率。
 
-The SDIO interface is a hardware block that serves as the host of the SDIO bus to transfer data between the SDIO Wi-Fi module and the internal bus master.
+### 2.8 安全子系统
 
-##### Features
+#### 加密引擎（Encryption Engine）
 
-- Compliance with with 4-bit SDIO 4.10 protocol specification
-- Consistent with the register set defined in SD-HCI specification with additional vendor-specific registers
-- Support for 1-bit and 4-bit SDIO bus
-- Support for the following data transfer type defined in the SD-HCI specification:
+##### 特性
 
-  - PIO
-  - SDMA
-  - ADMA
-  - ADMA2
-- Support for the following speed modes defined in SD 3.0 specification:
+- 支持对称加密算法，包括 **AES**；
+- 支持公钥加密算法，包括 **RSA** 和 **ECC**；
+- 支持哈希（HASH）算法，包括 **SHA-2** 系列。
 
-  - Default Speed mode, up to 12.5MB/s, 3.3V signal level
-  - High Speed mode, up to 25MB/s, 3.3V signal
-  - SDR12, SDR up to 25 MHz, 1.8V signal
-  - SDR25, SDR up to 50 MHz, 1.8V signal
-  - SDR50, SDR up to 100 MHz, 1.8V signal
-  - SDR104, SDR up to 208 MHz, 1.8V signal
-  - DDR50, DDR up to 100MHz, 1.8V signal
-- Hardware-based CRC generation and check for all command and data transactions on the card bus
-- Support for read-wait control in SDIO cards
-- Support for suspend/resume functionality in SDIO cards
-- 1024 Bytes (2 x 512 Bytes data block) FIFO for sending and receiving data
-
-#### CAN-FD Interface
-
-##### Introduction
-
-The CAN-FD controller is a full implementation of the CAN protocol specification which is compliant with both the CAN with Flexible Data-Rate (CAN-FD) protocol and CAN 2.0 Part B protocol.
-
-##### Features
-
-- Full implementation of the CAN-FD protocol and CAN specification 2.0 Part B with
-
-  - Standard data frames
-  - Extended data frames
-  - Data lengths from 0 to 64 bytes
-  - Programmable bit rate
-  - Content-related addressing
-- Compliant with the ISO 11898-1 standard
-- Silicon-proven implementation passing ISO 16845-1:2016 CAN conformance tests
-- Flexible mailboxes configurable to store 0, 8, 16, 32 or 64 bytes of data
-- Each mailbox configurable to either receive or transmit supporting both standard and extended messages
-- Distinct receive mask registers per mailbox
-- Full-featured receive FIFO with a storage capacity of up to 6 frames with automatic internal pointer handling and DMA support
-- Transmission abort capability
-- Support for flexible message buffers with a total of 128 message buffer slots (8 bytes each) which can be configurable as transmitter or receiver
-- Programmable clock source for the CAN Protocol Engine, either peripheral clock or oscillator clock
-- RAM is not used for reception or transmission but can be used as general purpose RAM space
-- Support for Listen-Only Mode (LOM)
-- Programmable Loop-Back mode for self-test operation
-- Programmable transmission priority scheme: based on lowest ID, lowest buffer number or highest priority
-- 16-bit free-running timer for time stamps with an optional external time tick
-- Global network time synchronized by a specific message
-- Maskable interrupts
-- Independence from the transmission medium (required an external transceiver)
-- Short latency for high-priority messages due to an arbitration scheme
-- Low-power modes with programmable wakeup on bus activity or frame matching (pretended networking)
-- Transceiver Delay Compensation (TDC) when transmitting CAN-FD messages at faster data rates
-- Remote request frames can be managed automatically by software
-- CAN bit time settings and configuration can only be written in Freeze mode
-- Configurable transmission mailbox status: either lowest priority buffer or empty buffer
-- Support for Identifier Acceptance Filter Hit Indicator (IDHIT) register for received frames
-- SYNCH bit in Error Status 1 register indicates synchronization with the CAN bus
-- Support for CRC status for transmitted message
-- Support for reception FIFO Global Mask register
-- Selectable priority between mailboxes and reception FIFO during matching process
-- Advanced receive FIFO ID filtering, capable of matching incoming IDs against either 128 extended IDs, 256 standard IDs, or 512 partial (8 bit) IDs, with up to 32 elements in the ID Filter Table
-- Fully backward compatibility with previous CAN-FD version
-- Support for detection and correction of errors in memory read accesses. Each byte of CAN-FD memory is paired with 5 parity bits, forming a 13-bit word. The error correction mechanism can
+#### 真随机数发生器（TRNG）
 
-  - Detect and correct single-bit errors (correctable errors)
-  - Detect, but not correct, two-bit errors (non-correctable errors)
-- Support for pretended networking functionality in low-power modes: Doze mode and Stop mode
+##### 特性
 
-#### SPI Interface
-
-##### Introduction
-
-The SPI interface is a synchronous serial interface that allows the communication with external devices using Motorola Serial Peripheral Interface (SPI) protocol for data transfer. It can be configured to operate in either Master mode (where the attached peripheral functions as a slave) or Slave mode (where the attached peripheral functions as a master).
-
-##### Features
-
-- Support for four combinations of CPOL and CPHA for Serial Peripheral Interface (SPI)
-- Configurable to operate in either Master mode (where the attached peripheral functions as a slave) or Slave mode (where the attached peripheral functions as a master)
-- Support for Receive-without-Transmit operation
-- Support for serial bit rate from 6.3Kps (min recommended) to 52Mbps (max)
-- Data size configurable to 8, 16, 18 or 32 bits in length
-- Availability of a transmit FIFO (TXFIFO) and another independent receive FIFO (RXFIFO), where
-
-  - In Non-Packed Data mode, both FIFOs are 32 rows deep x 32 bits wide supporting a total of 32 samples
-  - In Packed Data mode, double-depth FIFOs are used when the data samples are 8 bits or 16 bits wide, and both FIFOs are 64 locations deep x 16 bits wide supporting a total of 64 samples
-  - Both FIFOs can be loaded or emptied by using either programmed I/O (PIO) or DMA burst transfers
-
-#### UART Interface
-
-##### Introduction
-
-The Universal Asynchronous Receiver/Transmitter (UART) interface is controlled via Direct-Memory Access (DMA) or programmed I/O.
-
-##### Features
-
-- Support for up to 10 UART interfaces
-- Compatible with the 16550A and 16750 UART standards
-- Support for adding and deleting standard asynchronous communication bits (start, stop and parity) in the serial data stream
-- Independent control of transmission, reception, line status, data-set interrupts
-- Modem control functions (CTSn and RTSn for both UART2 and UART3)
-- Auto-flow capability for data I/O management without generating interrupts, where
-
-  - RTSn (output) is controlled by the UART receive FIFO
-  - CTSn (input) is from UART modem transmission controls
-- Programmable serial interface with configurable options as follow:
-
-  - 7-bit or 8-bit character length
-  - Even, odd or no parity detection
-  - 1 stop-bit generation
-  - Baud rate generation up to 3.6Mbps for the 4 Fast UARTs
-  - False start-bit detection
-- 64-byte transmit FIFO
-- 64-byte receive FIFO
-- Support for complete status reporting
-- Support for generating and detecting line breaks
-- Support for internal diagnostics including:
-
-  - Loopback control for fault isolation in communications link
-  - Break, parity and framing error simulation
-- Fully prioritized interrupt system
-- Support for separated DMA requests for both transmit and receive data services
-- Serial infrared asynchronous interface compliant with the Infrared Data Association (IrDA) specification
-
-#### Bus Interface
-
-##### Introduction
-
-The Inter-Integrated Circuit (I2C) bus is a true multi-master bus including collision detection and arbitration.
-
-A dedicated I2C module, referred to as the power I2C module, is used to interface to the power management IC.
-
-The I2C bus interface can function as both a master and a slave device on the I2C bus. This serial bus, developed by Philips Corporation, uses a 2-pin interface as follows:
-
-- **SDA**: Data pin for input and output functions
-- **SCL**: Clock pin for timing reference and control of the I2C bus
-
-The I2C bus allows the I2C unit to interface with other I2C peripherals and microcontrollers. It requires minimal hardware, providing an economical solution for communicating status and control information between chips and external devices.
-
-The I2C bus interface is a peripheral device residing on the peripheral bus that performs
-
-- **Data transfer**, handled through a buffered interface for reliable communication
-- **Control and status management**, accessed via memory-mapped registers
-
-##### Features
-
-- Compliance with I2C bus specification with the exception of the support for the hardware general call, 10-bit slave addressing and CBUS compatibility
-- Support for Multi-Master and Arbitration
-- **Operation modes and speeds** as follows:
-
-  - Standard Operation Mode: up to 100 Kbps
-  - Fast Operation Mode: up to 400 Kbps
-  - High-Speed Slave Operation Mode: up to 3.4 Mbps (High-Speed I2C only)
-  - High-Speed Master Operation Mode: up to 3.3 Mbps (High-Speed I2C only)
-
-  > **Note.** In High-Speed Master Operation Mode, I2C operational frequencies decrease due to the pull-up resistors on the bus. The SCL frequency is inversely proportional to the pull-up resistor value (1/R).
-
-##### Block Diagram
-
-The architecture of the I2C bus interface is depicted below.
-
-<img src="static/I2C_bus_interface.png" alt="" width="500">
-
-#### IR-RX Interface
-
-##### Features
-
-- Infrared input signals are transformed into the Run-Length-Code (RLC) format
-- Configurable signal width threshold for noise detection
-- 32 Bytes FIFO for received data storage
-
-#### One-Wir Bus Master Interface
-
-##### Introduction
-
-The One-Wire Bus Master Interface Controller is responsible for receiving and transmitting data on the One-Wire bus. It fully controls the One-Wire bus using 8-bit commands. The processor interacts with the controller by loading commands, reading and writing data, and configuring interrupt controls through 5 specific registers.
-
-All One-Wire bus timing and control are generated within the One-Wire Bus Master Interface Controller once a command or data is loaded by the host. When there is activity on the bus that requires the CPU to respond, the One-Wire Bus Master Interface Controller sets a status bit and, if enabled, sends an interrupt to the CPU.
-
-For detailed information about specific slave implementations, please refer to the **Book of iButton® Standards** which describes the operation of the One-Wire bus master interface.
-
-##### Block Diagram
-
-The architecture of the One-Wire Bus Master Interface is depicted below.
-
-<img src="static/One-Wire_Bus_Master_Interface.png" alt="" width="500">
-
-#### I2S Interface
-
-##### Introduction
-
-The I2S interface is a synchronous serial interface designed to connect to various external devices, including Analog-to-Digital converters (ADC), audio and telecommunication codec. It directly supports the Inter-IC Sound (I2S) Protocol for data transfer.
-
-##### Features
-
-- Configurable to operate in either Master mode (where the attached peripheral functions as a slave) or Slave mode (where the attached peripheral functions as a master)
-- Support for Receive-without-Transmit operation
-- Support for serial bit rate from 6.3Kbps (min recommended) up to 52Mbps (max)
-- Data sizes configurable to 8, 16, 18 or 32 bits in lenght
-- Availability of a transmit FIFO (TXFIFO) and another independent receive FIFO (RXFIFO), where
-
-  - In Non-Packed Data mode, both FIFOs are 32 rows deep x 32 bits wide supporting a total of 32 samples
-  - In Packed Data mode, double-depth FIFOs are used when the data samples are 8 bits or 16 bits wide, and both FIFOs are 64 locations deep x 16 bits wide supporting a total of 64 samples
-  - Both FIFOs can be loaded or emptied by using either programmed I/O (PIO) or DMA burst transfers
-- Support for up to eight time slots with independent transmit/receive operation in any/all/none of the time slots
-- Audio clock control provides a 4x or 8x output clock to support most standard audio frequencies
-
-### 2.8 Security Subsystem
-
-#### Encryption Engin
-
-##### Features
-
-- Support for symmetric encryption algorithms including AES
-- Support for public key algorithms including RSA/ECC
-- Support for HASH algorithms including SHA2
-
-#### TRNG
-
-##### Features
-
-- Support for True Random Number Generator (TRNG) for security applications
+- 支持用于安全应用的 **真随机数发生器（True Random Number Generator, TRNG）**。
 
 #### eFuse
 
-#### Features
-
-- Support for total 4K eFuse bits organized into 16 banks
-- User keys storage
-- Anti-Rollback bits for secure firmware update
-- Life Cycle Stage (LCS) bits for secure life cycle management
-- Hardware lock for each eFuse bank
-
-#### AES Engine
-
-##### Features
-
-- Dedicated high-performance AES Engine for massive data encryption/decryption
-
-### 2.9 System Peripherals
+##### 特性
 
-#### DMA
-
-##### Introduction
+- 共提供 **4 Kbit eFuse 存储空间**，划分为 **16 个 Bank**；
+- 支持 **用户密钥存储**；
+- 提供 **防回滚（Anti-Rollback）位**，用于实现安全固件升级；
+- 包含 **生命周期阶段（Life Cycle Stage, LCS）位**，用于安全生命周期管理；
+- 每个 eFuse Bank 均配备 **硬件写保护锁（Hardware Lock）**。
 
-The Direct-Memory Access (DMA) controller is designed to transfer data between memory and peripheral devices without CPU intervention.
+#### AES 引擎（AES Engine）
 
-Peripheral devices do not directly supply addresses or commands to the memory controller. Each DMA request from a peripheral triggers a memory-bus transaction. The processor can directly access the peripheral bus by using the DMA controller which acts as a DMA bridge to bypass the DMA of the system
+##### 特性
 
-The DMA controller can manage different data transfer types in DMA Flow-Through Mode through 16 configurable DMA channels as tabled below.
+- 集成专用的 **高性能 AES 引擎**，适用于大规模数据的 **加密与解密** 操作。
 
-<table>
-<tbody>
-<tr>
-<td></td>
-<td><strong>Internal Mem</strong><strong>ory</strong></td>
-<td><strong>External Mem</strong><strong>ory</strong></td>
-<td><strong>Internal Peri</strong><strong>pheral</strong></td>
-<td><strong>External Peri</strong><strong>pheral</strong></td>
-</tr>
-<tr>
-<td><strong>Internal Mem</strong><strong>ory</strong></td>
-<td>Flow-Through Mode</td>
-<td> ___</td>
-<td> ___</td>
-<td> ___</td>
-</tr>
-<tr>
-<td><strong>External Mem</strong><strong>ory</strong></td>
-<td>Flow-Through Mode</td>
-<td>Flow-Through Mode</td>
-<td> ___</td>
-<td> ___</td>
-</tr>
-<tr>
-<td><strong>Internal Peri</strong><strong>pheral</strong></td>
-<td>Flow-Through Mode</td>
-<td>Flow-Through Mode</td>
-<td>___</td>
-<td>___ </td>
-</tr>
-<tr>
-<td><strong>External Peri</strong><strong>pheral</strong></td>
-<td>Flow-Through Mode</td>
-<td>Flow-Through Mode</td>
-<td>___</td>
-<td>___</td>
-</tr>
-</tbody>
-</table>
+### 2.9 系统外设
 
-##### Features
+#### DMA 控制器
 
-- Capability of handling data transfers by two instances of the DMA controller, in particular
+##### 概述
 
-  - One for secure domains
-  - One for non-secure domains
-- Support for the following data transfer types in DMA Flow-Through Mode:
+直接内存访问（DMA）控制器用于在 **内存与外设之间传输数据**，无需 CPU 干预。
 
-  - Memory-to-memory
-  - Peripheral-to-memory
-  - Memory-to-peripheral
-- Support for DMA Flow-Through Mode for data transfers between Flash and DDR
-- Implementation of a priority mechanism to process active channels at any time (up to 4 channels with outstanding DMA requests)
-- Each of the 16 DMA channels is allow to operate for descriptor-fetch or non-descriptor-fetch transfers
-- Support for the following special descriptor modes:
+外设 **不能直接向内存控制器提供地址或命令**。每个来自外设的 DMA 请求都会触发一次内存总线事务。处理器可通过 DMA 控制器作为 **DMA 桥接器** 直接访问外设总线，从而绕过系统级的 DMA 机制。
 
-  - Descriptor Comparison
-  - Descriptor branching
-- Retrieval of trailing bytes from the receive peripheral-device buffers
-- Support for programmable data-burst sizes (8, 16, 32 or 64 bytes) and configurable peripheral device data widths (byte, half-word or word)
-- Support for up to 8191 bytes of data transfer per descriptor (larger data transfers can be performed by chaining multiple descriptors)
-- Support for a flow control bit to manage requests from peripheral device (requests are not processed unless a flow control bit is set)
+DMA 控制器通过 **16 个可配置的 DMA 通道**，在 **DMA 直通模式（Flow-Through Mode）** 下支持多种数据传输类型，如下表所示：
 
-##### Block Diagram
+|                          | **内部内存**       | **外部内存**         | **内部外设**     | **外部外设**     |
+|--------------------------|--------------------|----------------------|------------------|------------------|
+| **内部内存**             | 直通模式           | —                    | —                | —                |
+| **外部内存**             | 直通模式           | 直通模式             | —                | —                |
+| **内部外设**             | 直通模式           | 直通模式             | —                | —                |
+| **外部外设**             | 直通模式           | 直通模式             | —                | —                |
 
-The architecture of the DMA controller is depicted below.
+> 注：表中 “—” 表示当前不支持该类传输。
 
-<img src="static/DMA_controller.png" alt="" width="500">
+##### 特性
 
-#### Timer
+- 配备 **两个独立的 DMA 控制器实例**，分别用于：
+  - **安全域（Secure Domain）**
+  - **非安全域（Non-Secure Domain）**
+- 在 **DMA 直通模式** 下支持以下数据传输类型：
+  - **内存到内存（Memory-to-Memory）**
+  - **外设到内存（Peripheral-to-Memory）**
+  - **内存到外设（Memory-to-Peripheral）**
+- 支持 **Flash 与 DDR 之间的 DMA 直通模式数据传输**；
+- 实现 **优先级仲裁机制**，可同时处理最多 **4 个具有未决请求的活跃通道**；
+- 所有 **16 个 DMA 通道** 均支持：
+  - **带描述符获取（Descriptor-Fetch）传输**
+  - **无描述符（Non-Descriptor-Fetch）传输**
+- 支持以下 **高级描述符模式**：
+  - **描述符比较（Descriptor Comparison）**
+  - **描述符跳转（Descriptor Branching）**
+- 支持从接收外设的缓冲区中 **提取尾部字节（Trailing Bytes）**；
+- 支持 **可编程数据突发长度**：**8、16、32 或 64 字节**；
+- 支持 **可配置外设数据宽度**：**字节（Byte）、半字（Half-Word）或字（Word）**；
+- 单个描述符最大支持 **8191 字节** 的数据传输；更大传输可通过 **多描述符链式（Chaining）** 实现；
+- 提供 **流控位（Flow Control Bit）**，用于管理外设请求（仅当流控位置位时，请求才会被处理）。
 
-##### Introduction
+##### 架构框图
 
-K1 includes three general-purpose 32bit timers for system applications, and each one has its own 32bit Timer Counter Control Register (TCCRn) functioning as an up counter.
+DMA 控制器的架构如下图所示：
 
-#### Features
+![DMA 控制器架构](static/DMA_controller.png){: width="500" }
 
-- Programmable count mode as follows:
-  - Fast count mode by input clock frequency of 12.8 MHz, 6.4 MHz, 3 MHz or 1 MHz
-  - Slow count mode by input clock frequency of 32.768 KHz
+#### 定时器（Timer）
 
-#### WatchDog
+##### 概述
 
-##### Introduction
+K1 集成了 **三个通用 32 位定时器**，用于系统级应用。每个定时器均配备一个独立的 **32 位定时器计数控制寄存器（TCCRn）**，作为向上计数器（Up Counter）使用。
 
-K1 includes one 16bit WatchDog Timer (WDT).
+##### 特性
 
-##### Features
+- 支持可编程计数模式，包括：
+  - **快速计数模式**：输入时钟频率可选 **12.8 MHz、6.4 MHz、3 MHz 或 1 MHz**
+  - **慢速计数模式**：输入时钟频率为 **32.768 kHz**
 
-- Programmable count mode as follows:
-  - Fast count mode by input clock frequency of 12.8 MHz, 6.4 MHz, 3 MHz or 1 MHz)
-  - Slow count mode by input clock frequency of 32.768 KHz
+#### 看门狗定时器（Watchdog Timer, WDT）
 
-#### Temperature Sensor
+##### 概述
 
-##### Introduction
+K1 集成了 **一个 16 位看门狗定时器（WDT）**，用于系统可靠性监控与自动恢复。
 
-The Temperature Sensor Module (TSEN) provides temperature sensing and conversion functions, using a temperature-dependent voltage to time conversion method.
+##### 特性
 
-TSEN has an alarm function that triggers an interrupt when the temperature exceeds a specified warning threshold. It also includes a programmable self-repeating mode which performs temperature sensing operations automatically at intervals by a programmed delay.
+- 支持可编程计数模式，包括：
+  - **快速计数模式**：输入时钟频率可选 **12.8 MHz、6.4 MHz、3 MHz 或 1 MHz**
+  - **慢速计数模式**：输入时钟频率为 **32.768 kHz**
 
-TSEN can be used by software to monitor the on-die temperature to let take all necessary actions, such as reducing the core frequency when a temperature interrupt is triggered.
+#### 温度传感器（Temperature Sensor）
 
-##### Features
+##### 概述
 
-- Possibility to turn on/off TSEN (by software)
-- Possibility to configure (by software) a high and low warning threshold of a BJT temperature for triggering related interrupts
-- Record of the highest detected temperature of a BJT and its corresponding ID, and keeping track of the two most recent detected temperatures
-- Possibility to enable (by software) the emergency system reset/reboot when a temperature violation occurs (the temperature sensor will trigger a system reset/reboot similar to the one performed by the Watchdog if the detected temperature exceeds the configured threshold)
+温度传感器模块（TSEN）提供温度感知与转换功能，采用 **基于温度相关电压-时间转换** 的方法实现测温。
 
-##### Block Diagram
+TSEN 具备 **报警功能**：当芯片温度超过设定的告警阈值时，会触发中断。此外，模块支持 **可编程的自动重复模式**，可按软件配置的时间间隔自动执行温度采样。
 
-The architecture of the Temperature Sensor Module is depicted below.
+软件可通过 TSEN 监控芯片内部（on-die）温度，并在温度中断触发时采取必要措施，例如 **降低 CPU 核频率** 以防止过热。
 
-<img src="static/Temperature_Sensor.png" alt="" width="400">
+##### 特性
 
-#### PWM
+- 支持通过软件 **开启或关闭 TSEN 模块**；
+- 支持通过软件 **配置 BJT 温度的高/低告警阈值**，用于触发相应的中断；
+- 自动记录 **检测到的最高 BJT 温度及其对应的 ID**，并持续跟踪 **最近两次检测到的温度值**；
+- 支持通过软件 **启用紧急系统复位/重启功能**：当检测温度超过配置阈值时，温度传感器将触发 **系统复位或重启**（行为类似于看门狗超时复位）。
 
-##### Introduction
+##### 架构框图
 
-K1 contains 20 Pulse-Width Modulation (PWM) channels labeled as PWMx where x=[0,19].
+温度传感器模块的架构如下图所示：
 
-Each PWM channel operates independently with its own configuration registers and generates an output PWM signal on a multi-function pin.
+![温度传感器模块架构](static/Temperature_Sensor.png){: width="400" }
 
-Each PWM channel allows controlling over both the leading-edge timing and the trailing-edge timing of its output signal.
+#### PWM（脉宽调制）
 
-The timing of each PWM channel can be set to run continuously or be adjusted dynamically to meet the change of requirements.
+##### 概述
 
-The power-saving mode allows stopping the internal clock of a PWM channel (PSCLK_PWM), resulting to a constant high or low state of the output signal of that PWM channel (PWM_OUT), thus saving power when the output signal of that PWM channel is not needed.
+K1 集成了 **20 个独立的脉宽调制（PWM）通道**，编号为 **PWMx（x = 0 至 19）**。
 
-##### Features
+每个 PWM 通道均拥有 **独立的配置寄存器**，并通过多功能引脚输出 PWM 信号。  
+用户可分别控制其输出信号的 **上升沿（leading-edge）** 和 **下降沿（trailing-edge）** 时序。
 
-- Support for 50% duty-cycle ranging from 198.4Hz to 6.5MHz (additional duty-cycle options depend on the choice of the preferred frequency)
-- Enhanced period time controlled through 6-bit clock divider and 10-bit period time counter
-- 15-bit pulse counter control
+各 PWM 通道的时序可配置为 **连续运行模式**，也可 **动态调整** 以适应实时需求变化。
 
-#### Mailbox
+在 **低功耗模式** 下，可通过关闭 PWM 通道的内部时钟（PSCLK_PWM），使对应输出信号（PWM_OUT）锁定为 **恒定高电平或低电平**，从而在无需 PWM 输出时有效降低功耗。
 
-##### Introduction
+##### 特性
 
-The Mailbox is designed to deliver messages or signals between SoC and MCU subsystem.
+- 支持 **50% 占空比** 的输出频率范围为 **198.4 Hz 至 6.5 MHz**（其他占空比选项取决于所选频率）；
+- 周期时间由 **6 位时钟分频器** 与 **10 位周期计数器** 联合精确控制；
+- 脉冲宽度由 **15 位脉冲计数器** 进行精细调节。
 
-##### Features
+#### 邮箱（Mailbox）
 
-- A processor is allow to generate an interrupt for another processor
-- Support for a polling word to enable signaling an event from one party to another without the need of interrupts
-- Reception of an ACK interrupt indicates that the other party is active
-- A processor can wake up another processor (supported)
+##### 概述
 
-##### Block Diagram
+邮箱模块用于在 **SoC** 与 **MCU 子系统** 之间传递消息或信号，实现高效、低延迟的跨处理器通信。
 
-The architecture of the Mailbox is depicted below.
+##### 特性
 
-<img src="static/Mailbox.png" alt="" width="600">
+- 支持一个处理器向另一个处理器 **触发中断**，以通知消息到达或事件发生；
+- 提供 **轮询字（Polling Word）** 机制，允许一方在 **不使用中断** 的情况下向另一方发送事件信号；
+- 接收到 **ACK 中断** 表示对端处理器处于活跃状态，通信链路正常；
+- 支持一个处理器 **唤醒另一个处理器**（Wake-up 功能）。
 
-#### GPI
+##### 架构框图
 
-##### Introduction
+邮箱模块的架构如下图所示：
 
-K1 provides General-Purpose Input/Output (GPIO) ports for generating and capturing application-specific input and output. These ports are accessed through the alternate function muxing, and the GPIO unit manages their control and status.
+![邮箱模块架构](static/Mailbox.png){: width="600" }
 
-##### Features
+#### GPIO（通用输入/输出）
 
-- A GPIO port configured as an input can also serve as an interrupt source
-- At system reset, by default all GPIO ports are configured as an input until changed by the boot process or user software
-- Each GPIO port has a dedicated control signal
-- Support for separated interrupts over either leading-edge timing or trailing-edge timing or both
-- The GPIO port output can be individually set or cleared
-- The GPIO port input can be individually read
+##### 概述
 
-#### RTC
+K1 提供 **通用输入/输出（GPIO）端口**，用于生成和捕获应用特定的输入与输出信号。这些端口通过 **复用功能选择器（Alternate Function Muxing）** 接入系统，由 GPIO 单元统一管理其控制与状态。
 
-##### Features
+##### 特性
 
-- Count of the number of seconds basing on the internal 1-Hz clock
-- Possibility to calibrate the frequency of the internal oscillator
-- Support for an alarm interrupt and 1-Hz interrupt
+- 配置为 **输入模式** 的 GPIO 端口可作为 **中断源**；
+- 系统复位后，默认所有 GPIO 端口均配置为 **输入模式**，直至引导程序或用户软件显式修改；
+- 每个 GPIO 端口均配备 **独立的控制信号**；
+- 支持 **边沿触发中断**，可单独配置为：
+  - 上升沿（Leading-edge）
+  - 下降沿（Trailing-edge）
+  - 或两者同时触发；
+- GPIO 输出可 **单独置位或清零**；
+- GPIO 输入可 **单独读取**。
 
-#### Time-Out Monitor
+#### RTC（实时时钟）
 
-##### Features
+##### 特性
 
-- Configurable time-out monitor threshold
-- Configurable auto response function for time-out monitor events
-- Storage of the address and ID of the first timeout monitor transaction for debugging
-- Configurable check for AW/ARREADY signals
+- 基于内部 **1 Hz 时钟** 进行 **秒级计数**；
+- 支持对 **内部振荡器频率进行校准**；
+- 支持 **闹钟中断** 和 **1 Hz 周期中断**。
+
+#### 超时监控器（Time-Out Monitor）
+
+##### 特性
+
+- 支持 **可配置的超时阈值**；
+- 支持 **可配置的超时事件自动响应机制**（如复位、中断等）；
+- 可记录 **首个超时事务的地址与发起方 ID**，便于调试分析；
+- 支持对 **AWREADY / ARREADY 信号** 的可配置监控检查，用于检测总线挂死或响应异常。
 
 ### 2.10 Sensor-Hub Subsystem
 
@@ -2472,231 +2496,221 @@ K1 provides General-Purpose Input/Output (GPIO) ports for generating and capturi
 - Support for 2 UART interfaces
 - Support for 1 CAN interface
 
-### 2.11 Clock & Reset
+### 2.11 时钟与复位（Clock & Reset）
 
-#### Introduction
+#### 概述
 
-K1 comes with the following clocks:
+K1 提供以下基础时钟源：
 
-- One 32K RTC clock
-- One 24M OSC clock
+- **1 个 32 kHz RTC 时钟**
+- **1 个 24 MHz 晶振（OSC）时钟**
 
-#### Features
+#### 特性
 
-- Three PLLs implemented inside to provide various frequencies to meet different scenario requirements
-- DVFS feature supported to balance the tradeoff between power and performance
-- Glitch-free clock switches and clock dividers implemented to provide all required frequencies with limited PLLs cost
-- Clock gating and software reset schemes applied to modules in fine granularity to achieve power saving and flexible management
+- 内部集成 **三个锁相环（PLL）**，可生成多种频率，满足不同应用场景的需求；
+- 支持 **动态电压与频率调节（DVFS）**，在功耗与性能之间实现优化平衡；
+- 实现 **无毛刺（Glitch-Free）时钟切换** 与 **时钟分频器**，在有限 PLL 资源下灵活提供系统所需全部频率；
+- 对各功能模块采用 **细粒度时钟门控（Clock Gating）** 与 **软件复位机制**，以实现低功耗与灵活的模块管理。
 
-#### Block Diagram
+#### 架构框图
 
-##### Clock System
+##### 时钟系统
 
-The detailed clock tree structure is depicted below, where is highlighted how the clock signals are generated, managed and distributed across the system to support various modules and functions.
+下图展示了详细的 **时钟树结构**，清晰说明了时钟信号如何在系统内生成、管理并分发至各功能模块：
 
-![](static/clock_tree.png)
+![时钟树结构](static/clock_tree.png)
 
-Instead, the high-level architecture of the clock system is depicted below.
+此外，下图展示了时钟系统的 **高层架构**：
 
-<img src="static/clock_system.png" alt="" width="600">
+![时钟系统高层架构](static/clock_system.png){: width="600" }
 
-VCXO_OUT is driven with the OSC frequency if either of the following occurs:
+当满足以下任一条件时，**VCXO_OUT** 将输出 OSC 频率：
 
-- VCXO_REQ is asserted, and the relevant REQ_EN bit field is set in the VCXO software request control register
-- Software request bit field is enabled in the VCXO software request control register
+- **VCXO_REQ** 信号被置位，且 VCXO 软件请求控制寄存器中的相应 **REQ_EN 位域已使能**；
+- VCXO 软件请求控制寄存器中的 **软件请求位域被启用**。
 
-There are three Phase-Locked Loop (PLL) designed to accept a wide range of input frequencies, and generate a broad range of output frequencies to all modules for functioning properly in different application scenario. Details for each PLL are provided in the following subsections.
+系统内设计有 **三个锁相环（PLL）**，支持宽范围输入频率，并可生成广泛的输出频率，确保各模块在不同应用场景下正常工作。各 PLL 的详细规格将在后续小节中分别说明。
 
-###### PLL
+###### PLL（锁相环）
 
-PLL1 is designed to generate fixed frequency points for the CPU cores and other peripherals, where
+- **PLL1** 用于为 CPU 核及其他外设生成 **固定频率点**，其特性如下：
+  - PLL1 输出频率在运行时的更改 **仅限调试用途**，**不得用于量产系统**；
+  - 系统复位后，PLL1 **默认启用**，仅当整个芯片进入睡眠模式且 **VCXO 关断功能已使能** 时才会关闭；
+  - PLL1 及振荡器控制寄存器（位于主 PMU 中）的配置决定了系统复位或关断后，PLL1 输出时钟 **稳定所需的延迟时间**；
+  - **不建议** 在正常运行过程中通过更新 PLL1 配置寄存器来改变输出频率。
+  
+- **PLL2** 用于生成多种 **固定频率**，与 PLL1 协同工作，为不同模块提供完整的频率覆盖，其特性如下：
+  - PLL2 输出频率在运行时的更改 **仅限调试用途**，**不得用于量产系统**；
+  - 系统复位后，PLL2 **默认禁用**，需通过软件显式使能；
+  - PLL2 及振荡器控制寄存器（位于主 PMU 中）的配置决定了系统复位或关断后，PLL2 输出时钟 **稳定所需的延迟时间**；
+  - **不建议** 在正常运行过程中通过更新 PLL2 配置寄存器来改变输出频率。
 
-- Changes of the run-time frequency in the PLL1 output are only available for debugging purposes and should not be used in production systems
-- PLL1 is enabled by default at system reset and shutdown only when the entire chip entered sleep mode with VCXO shutdown enabled
-- The settings configured in the PLL1 and oscillator control registers of the Main PMU control the delay required for the PLL1 output clocks to stabilize after system reset or shutdown
-- Updating the PLL1 configuration registers to change frequency during normal operations is not recommended
+- **PLL3** 专为 **CPU 频率调节与切换（如 DVFS 场景）** 提供可变频率支持，其特性如下：
+  - 系统复位后，PLL3 **默认禁用**，需通过软件按需使能；
+  - PLL3 及振荡器控制寄存器（位于主 PMU 中）的配置决定了系统复位或关断后，PLL3 输出时钟 **稳定所需的延迟时间**；
+  - **不建议** 在正常运行过程中通过更新 PLL3 配置寄存器来改变输出频率。
 
-###### PLL2
+##### 资源复位方案（Resource Reset Scheme）
 
-PLL2 is designed to generate various fixed frequencies, working alongside PLL1 to provide a full range of frequencies required for different modules, where
+K1 支持多种资源复位方案，具体如下表所示：
 
-- Changes of run-time frequency in the PLL2 output are only available for debugging purposes and should not be used in production systems
-- PLL2 is disabled at system reset and must be enabled through software when required
-- The settings configured in the PLL2 and oscillator control registers of the Main PMU control the delay required for the PLL2 output clocks to stabilize after system reset or shutdown
-- Updating the PLL2 configuration registers to change frequency during normal operations is not recommended
+| 编号 | 复位方案                   | 说明          |
+|------|-----------|-------------------------|
+| 1    | 上电复位（Power-On-Reset） | 在芯片上电过程中对 **整个芯片** 执行复位                             |
+| 2    | 看门狗复位（WatchDog Reset） | 对 **整个芯片** 执行复位，但 **保留引脚复用（Pinmux）寄存器和调试寄存器** 的内容 |
+| 3    | 模块级软件复位（Module Software Reset） | 通过软件 **单独复位各个模块**                                         |
+| 4    | 电源域上电复位（Power Island POR Reset） | 在某一 **电源域上电过程中**，对该 **整个电源域** 执行复位               |
 
-###### PLL3
+### 2.12 启动模式（Boot Modes）
 
-PLL3 is designed to provide frequencies for CPU frequency scaling and switching, where
+#### 概述
 
-- PLL3 is disabled at system reset and must be enabled through software when required
-- The settings configured in the PLL3 and oscillator control register of the Main PMU control the delay required for the PLL3 output clocks to stabilize after system reset or shutdown
-- Updating the PLL3 configuration registers to change frequency during normal operations is not recommended
+K1 支持从以下存储介质启动：
 
-##### Resource Reset Scheme
+- **SPI NAND Flash**  
+- **SPI NOR Flash**  
+- **eMMC**  
+- **SD/TF 卡**
 
-K1 allows applying different schemes of resource reset as tabled below.
+具体的启动模式由硬件引脚 **QSPI_DATA[1:0]**（亦称 **STRAP[1:0]**）的状态决定，如下表所示：
 
-| No. | Resource Reset Scheme     | Description   |
-|-----|----------------------------|------------------|
-| 1   | Power-On-Reset             | Reset the whole chip during power-on sequence                   |
-| 2   | WatchDog Reset             | Reset the whole chip excluding pinmux registers and debug registers |
-| 3   | Module Software Reset      | Reset each module individually through software                 |
-| 4   | Power Island POR Reset     | Reset the whole power island during its power-on sequence       |
+| 编号 | QSPI_DATA[1] / STRAP[1] | QSPI_DATA[0] / STRAP[0] | 启动模式                              |
+|------|--------------------------|--------------------------|---------------------------------------|
+| 1    | 下拉（Down）             | 下拉（Down）             | **SD/TF 卡 → eMMC**（默认启动顺序）   |
+| 2    | 上拉（Up）               | 下拉（Down）             | **SD/TF 卡 → SPI NAND Flash**         |
+| 3    | 下拉（Down）             | 上拉（Up）               | **SD/TF 卡 → SPI NOR Flash**          |
+| 4    | 上拉（Up）               | 上拉（Up）               | **仅从 SD/TF 卡启动**                 |
 
-### 2.12 Boot Modes
+### 2.13 电源管理单元（Power Management Unit, PMU）
 
-#### Introduction
+#### 概述
 
-K1 supports booting from
+K1 采用 **两级电源管理策略**，以实现不同粒度的功耗控制。系统定义了多个 **电源域（Power Domain）** 与 **电源状态（Power State）**，从而达成超低功耗目标。
 
-- SPI NAND Flash
-- SPI NOR Flash
-- eMMC
-- SD/TF Card
+共实现 **9 个电源域**，分别对应以下功能模块：
 
-The details of the boot mode selection are tabled below.
+- **CPU 核（CPU Cores）**  
+  > **注**：每个 CPU 核拥有独立的电源域，可单独控制。
 
-| No. | QSPI_DATA[1] / STRAP[1] | QSPI_DATA[0] / STRAP[0] | Boot Mode                     |
-|-----|--------------------------|--------------------------|-------------------------------|
-| 1   | Down                     | Down                     | SD/TF Card → EMMC (default)   |
-| 2   | Up                       | Down                     | SD/TF Card → SPI NAND Flash   |
-| 3   | Down                     | Up                       | SD/TF Card → SPI NOR Flash    |
-| 4   | Up                       | Up                       | SD/TF Card                    |
+- **CPU 集群（CPU Clusters）**  
+  > **注**：每个 CPU 集群拥有独立的电源域，可单独控制。
 
-### 2.13 Power Management Unit
+- 视频编解码器（Video Encoder/Decoder）  
+- GPU  
+- HDMI 显示子系统（HDMI Display Subsystem）  
+- MIPI DSI 子系统（MIPI DSI Subsystem）  
+- 视频输入子系统（Video Input Subsystem）  
+- RCPU（包含 N308、音频编解码器、RCPU 外设）  
+- 常开域（Always-On Domain, AON）
 
-#### Introduction
+除 **AON 域** 外，其余所有电源域均可根据具体应用场景 **动态关闭供电**。
 
-A two-level power management strategy is implemented to control various granularities of power consumption. Different power domains and power states are also defined to achieve ultra-low power consumption.
+为实现最低功耗，系统定义了以下 **电源状态**：
 
-A total of 9 power domains are implemented, and they are for
+| 编号 | 电源状态名称             | 描述          |
+|------|--------------------------|-------------|
+| 1    | **ACTIVE**               | 系统处于活跃运行状态，所有电源域均上电（除部分可通过电源开关独立关闭的域外）。   |
+| 2    | **CORE-IDLE**            | 各 CPU 核停止执行指令，进入空闲状态；执行 `WFI`（Wait-for-Interrupt）后自动进行时钟门控。当接收到路由至该核的中断时，退出此状态并继续执行。    |
+| 3    | **Core-Power-Off**       | 在 CORE-IDLE 状态基础上，经投票（voted）后，各核可进一步进入断电状态。当中断到来时，重新上电并释放复位，恢复执行。  |
+| 4    | **CPU-Cluster-Power-Off**| 当集群内所有核均进入 Core-Power-Off 状态后，整个 CPU 集群（含 L2/TCM 内存）可经投票进入此低功耗状态。<br/>任何路由至该集群内核的中断将唤醒集群：上电、恢复时钟、释放复位。   |
+| 5    | **Home-Screen**          | 当两个 CPU 集群均进入 CPU-Cluster-Power-Off 状态后，主总线（AXI）时钟可经投票被门控关闭。<br/>任意中断将唤醒芯片：恢复 AXI 总线时钟，并为对应 CPU 集群和核上电、恢复时钟、释放复位以执行中断服务程序。 |
+| 6    | **Chip-Sleep**           | 这是 **超低功耗状态**：所有 PLL 与电源岛关闭，仅保留 **32 kHz RTC 时钟**；24 MHz VCXO 可配置为开启或关闭。<br/>仅 AON 域的逻辑与 I/O 保持工作；PMIC 控制引脚 `SLEEP_OUT` 被拉低，通知 PMIC 降低 VCC 电压以进一步省电。 |
+| 7    | **RCPU with SoC LP**     | RCPU 电源域为独立电源岛，可在上述任一 PMU 状态下独立运行。RCPU 可根据自身场景需求，投票使 SoC 进入不同低功耗状态。<br/>RCPU 自身支持四种低功耗状态：<br/>- **Active Mode**：时钟运行<br/>- **ClkGate Mode**：时钟门控<br/>- **PLL Off Mode**：PLL 关闭<br/>- **Power Off Mode**：RCPU 主电源关闭，但 RCPU 的 AON 域仍保持工作 |
 
-- CPU cores
+> **注**：VPU、GPU、ISP、DPU 等电源岛可由软件独立控制开关，其状态 **不受上表中状态 1~5 的约束**。
 
-  > **Note.** Each CPU core has its own power domain independently controlled
+在 **Chip-Sleep 状态**（见上表编号 6）下，以下中断或事件可唤醒芯片：
 
-- CPU clusters
+- 引脚边沿检测（Pad edge detection）  
+- 按键按下（Keypad press）  
+- RTC / 定时器 / 看门狗（RTC/Timer/WDT）  
+- USB / RCPU / AP2AUDIO_IPC  
+- SD / eMMC / PCIe  
+- PMIC 中断  
 
-  > **Note.** Each CPU cluster has its own power domain independently controlled
+在 **RCPU 断电状态**（见上表编号 7 中的 Power Off Mode）下，以下中断或事件可唤醒 RCPU PMU 并恢复其供电：
 
-- Video Encoder/Decoder
-- GPU
-- HDMI Display Subsystem
-- MIPI DSI Subsystem
-- Video Input Subsystem
-- RCPU (including N308, Audio Codec, RCPU Peripherals)
-- Always-On-Domain (AON)
+- 音频插拔中断 / 挂机键中断 / Class-G 短路电源中断 / 音频过流保护（OCP）中断  
+- 应用处理器（AP）通过 IPC 发起的上电请求  
+- RCPU AON 定时器唤醒请求  
+- Sensor-Hub GPIO 唤醒请求
 
-All those power domains, except AON, can be powered off depending on specific application scenarios.
+## 3 芯片封装（Package）
 
-In order to achieve the minimal power consumption, different power states are designed as tabled below:
+### 3.1 概述
 
-| No. | Power State Name        | Description                                                                                                                                                                                                 |
-|-----|--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1   | ACTIVE                   | The system is alive and active, with all power domains on, except those power domains with power switches that can be turned off selectively and independently.                                               |
-| 2   | CORE-IDLE                | Each core stops executing instructions and enters an idle state, with clock gating automatically after a Wait-for-Interrupt (WFI) execution. The core exits this state when receiving an interrupt routed to it and continues execution. |
-| 3   | Core-Power-Off           | Each core, when voted, enters a power-off state after Core-Idle sleep mode. The core exits this state when receiving an interrupt, with power turned on and reset released.                                   |
-| 4   | CPU-Cluster-Power-Off    | Each CPU cluster, when voted, enters this low-power state after all cores within this cluster have entered the Core-Power-Off state, with L2/TCM memory also shut down.<br/>Any active interrupt routing to CPU cores in this cluster would bring CPU cluster out of this state, then power on, clock resume and reset release. |
-| 5   | Home-Screen              | The main bus fabric AXI clock is gated off (if voted) after both CPU clusters enter CPU-Cluster-Power-Off mode.<br/>Any interrupt will wake up the chip from this state by resuming the main bus AXI clock, and powering up the corresponding CPU cluster and CPU core to which the interrupt is routed, resuming the CPU clock, and releasing the reset to service the interrupt routine. |
-| 6   | Chip-Sleep               | This is the most ultra-low power state, with all PLLs/Power islands off. Only 32K RTC clock remains alive, and the 24M VCXO can be configured to be on or off.<br/>In this state only the logic/IO in AON domain alives, and a pin named SLEEP_OUT connected to PMIC would be deasserted to signal PMIC to lower the VCC power supply voltage to reduce lower power comsumption. |
-| 7   | RCPU with SOC LP         | RCPU power domain is an independent power island and can function in any of above PMU states. RCPU can vote for different SoC low-power states according to its specific scenario requirements.<br/>The RCPU itself has four low-power states as follows:<br/>- Active Mode: Clock running<br/>- ClkGate Mode: Clock gating<br/>- PLL Off Mode: PLL powered off<br/>- Power Off Mode: RCPU power is shut down, but the RCPU AON domain remains alive |
+K1 提供以下两种封装形式：
 
-> **Note.** VPU, GPU, ISP, DPU power islands can be turned on or off by software, and are independent of the power states **No. 1~5** in the table above
+| 封装类型 | 尺寸（mm） | 引脚间距（mm） | 引脚数量         |
+|----------|------------|----------------|------------------|
+| FCCSP    | 17×17      | 0.65           | 676（26×26 阵列）|
+| FCBGA    | 19×19      | 0.65           | 676（26×26 阵列）|
 
-In the **Chip-Sleep low power state** (see **No. 6** in the table above), the following interrupts or events can wake up the chip:
+相关封装外形图（Package Outline Drawing, POD）详见以下章节。
 
-- Pad edge detection
-- Keypad press
-- RTC/Timer/WDT
-- USB/RCPU/AP2AUDIO_IPC
-- SD/EMMC/PCIE
-- PMIC
+### 3.2 FCCSP 封装
 
-In the **RCPU power off state** (see **No. 7** in the table above), the following interrupts or events can wake up RCPU PMU to resume its power supply:
+![FCCSP 封装外形图 1](static/POD_1.png)  
+![FCCSP 封装外形图 2](static/POD_2.png)  
 
-- Audio plug interrupt / Hook key interrupt / Class-G short power interrupt / Audio OCP interrupt
-- AP IPC power-on request
-- RCPU AON Timer wakeup request
-- Sensor-Hub GPIO wakeup request
+![FCCSP 俯视与结构示意图](static/fccsp00.png){: width="600" }
 
-## 3. Package
+### 3.3 FCBGA 封装
 
-### 3.1 Introduction
+![FCBGA 封装外形图](static/POD_3.png)  
 
-K1 is available in two packages as tabled below.
+![FCBGA 俯视与结构示意图](static/fcbga00.png){: width="600" }
 
-| Type   | Size (mm) | Pin Pitch (mm) | Pin Count       |
-|--------|-----------|----------------|-----------------|
-| FCCSP  | 17×17     | 0.65           | 676 (26×26)     |
-| FCBGA  | 19×19     | 0.65           | 676 (26×26)     |
+## 4 引脚定义（Pinout）
 
-The related package outline drawing (POD) are depicted in the following sections.
+### 4.1 引脚分布图与说明
 
-### 3.2 FCCSP Type
+K1 的完整引脚分布图如下所示：
 
-![](static/POD_1.png)
+![K1 引脚分布图](static/K1_pinout.png)
 
-![](static/POD_2.png)
-
-<img src="static/fccsp00.png" alt="" width="600">
-
-### 3.3 FCBGA Type
-
-![](static/POD_3.png)
-
-<img src="static/fcbga00.png" alt="" width="600">
-
-## 4. Pinout
-
-### 4.1 Pinout Diagram & Description
-
-The overall pinout diagram of K1 is depicted below.
-
-![](static/K1_pinout.png)
-
-> **Note.** Meaning of the different colors:
+> **注**：图中不同颜色代表以下含义：
 >
-> - Power supplies (different voltages):
->   - Brown
->   - Dark Blue
->   - Grey
->   - Light Blue
->   - Orange
->   - Purple
->   - Red
->   - Yellow
-> - Grounds:
->   - Dark Green
->   - Light Green
-> - Signals:
->   - White
+> - **电源引脚**（不同电压域）：
+>   - 棕色（Brown）
+>   - 深蓝色（Dark Blue）
+>   - 灰色（Grey）
+>   - 浅蓝色（Light Blue）
+>   - 橙色（Orange）
+>   - 紫色（Purple）
+>   - 红色（Red）
+>   - 黄色（Yellow）
+> - **接地引脚（GND）**：
+>   - 深绿色（Dark Green）
+>   - 浅绿色（Light Green）
+> - **信号引脚**：
+>   - 白色（White）
 
-Let's consider the division into the quadrants
+为便于描述，K1 的 26×26 引脚阵列按以下四个象限划分：
 
-- (A~N, 1~13)
-- (A~N, 14~26)
-- (M~AF, 1~13)
-- (M~AF, 14~26)
+- **象限 1**：行 A~N，列 1~13  
+- **象限 2**：行 A~N，列 14~26  
+- **象限 3**：行 M~AF，列 1~13  
+- **象限 4**：行 M~AF，列 14~26  
 
-in order to provide conveniently the pinout description of K1 in the following subsections.
+后续小节将按上述象限结构依次提供详细的引脚功能说明。
 
-#### (A~N, 1~13)
+#### 象限 1：(A~N, 1~13)
 
-![](static/K1_pinout_1.png)
+![K1 引脚分布图 - 象限 1](static/K1_pinout_1.png)
 
-> **Note.** Definition of symbols used for pin type:
+> **注**：引脚类型符号定义：
 >
-> - AO = Analog output
-> - AI = Analog input
-> - AIO = Analog input/output
-> - G = Ground
-> - I/O = Input/Output
-> - P = Power
-> - RO = Reference output
+> - AO = 模拟输出（Analog Output）
+> - AI = 模拟输入（Analog Input）
+> - AIO = 模拟输入/输出（Analog Input/Output）
+> - G = 接地（Ground）
+> - I/O = 输入/输出（Input/Output）
+> - P = 电源（Power）
+> - RO = 参考输出（Reference Output）
 
-| Pin ID       | Name                | Type | Power Domain                          | Function                                                                 |
-|--------------|---------------------|------|----------------------------------------|--------------------------------------------------------------------------|
+| 引脚编号     | 名称                | 类型 | 电源域                              | 功能说明                                                                 |
+|--------------|---------------------|------|-------------------------------------|--------------------------------------------------------------------------|
 | A1           | VSS                 | G    | 0V                                     | Digital Core Ground                                                     |
 | A2           | VSSQ_DDR            | G    | 0V                                     | DDR Ground                                                              |
 | A3           | DQ_B_2              | AIO  | lp3: 1.2V<br/>lp4x: 0.6V               | LPDDR4X: CHB DQ2 <br/>LPDDR3: DQ28                                      |
@@ -2866,21 +2880,21 @@ in order to provide conveniently the pinout description of K1 in the following s
 | N12          | VCC_M1              | P    | 0.9V                                   | Digital Core power                                                      |
 | N13          | VSS                 | G    | 0V                                     | Digital Core Ground                                                     |
 
-#### (A~N, 14~26)
+#### 象限 2：(A~N, 14~26)
 
-![](static/K1_pinout_2.png)
+![K1 引脚分布图 - 象限 2](static/K1_pinout_2.png)
 
-> **Note.** Definition of symbols used for pin type:
+> **注**：引脚类型符号定义：
 >
-> - AO = Analog output
-> - AI = Analog input
-> - AIO = Analog input/output
-> - G = Ground
-> - I/O = Input/Output
-> - P = Power
-> - RO = Reference output
+> - AO = 模拟输出（Analog Output）  
+> - AI = 模拟输入（Analog Input）  
+> - AIO = 模拟输入/输出（Analog Input/Output）  
+> - G = 接地（Ground）  
+> - I/O = 输入/输出（Input/Output）  
+> - P = 电源（Power）  
+> - RO = 参考输出（Reference Output）
 
-| Pin ID       | Name            | Type | Power Domain                     | Function                                                                 |
+| 引脚编号     | 名称            | 类型 | 电源域                          | 功能说明                                                                 |
 |--------------|-----------------|------|----------------------------------|--------------------------------------------------------------------------|
 | A14          | DQS1_C_B        | AIO  | lp3: 1.2V<br/>lp4x: 0.6V         | LPDDR4X: Negative of CHB DQS1<br/>LPDDR3: Negtive of DQS1                |
 | A15          | DQS1_C_A        | AIO  | lp3: 1.2V<br/>lp4x: 0.6V         | LPDDR4X: Negative of CHA DQS1<br/>LPDDR3: Negtive of DQS0                |
@@ -3052,22 +3066,22 @@ in order to provide conveniently the pinout description of K1 in the following s
 | N25          | NA              | AO   | 3.3V                             | NA                                                                       |
 | N26          | NA              | AO   | 3.3V                             | NA                                                                       |
 
-#### (P~AF, 1~13)
+#### 象限 3：(P~AF, 1~13)
 
-![](static/K1_pinout_3.png)
+![K1 引脚分布图 - 象限 3](static/K1_pinout_3.png)
 
-> **Note.** Definition of symbols used for pin type:
+> **注**：引脚类型符号定义：
 >
-> - AO = Analog output
-> - AI = Analog input
-> - AIO = Analog input/output
-> - G = Ground
-> - I/O = Input/Output
-> - P = Power
-> - RO = Reference output
+> - AO = 模拟输出（Analog Output）  
+> - AI = 模拟输入（Analog Input）  
+> - AIO = 模拟输入/输出（Analog Input/Output）  
+> - G = 接地（Ground）  
+> - I/O = 输入/输出（Input/Output）  
+> - P = 电源（Power）  
+> - RO = 参考输出（Reference Output）
 
-| Pin ID | Name                | Type | Power Domain   | Function                                |
-|--------|---------------------|------|----------------|-----------------------------------------|
+| 引脚编号     | 名称            | 类型 | 电源域                          | 功能说明                                                                 |
+|--------------|-----------------|------|----------------------------------|--------------------------------------------------------------------------|
 | P1     | PCIEA_RXN           | AI   | 1.8V           | PCIEA RXLANEN                           |
 | P2     | PCIEA_RXP           | AI   | 1.8V           | PCIEA RXLANEP                           |
 | P3     | AVSS_USB            | G    | 0V             | USB2.0 Ground                           |
@@ -3238,22 +3252,22 @@ in order to provide conveniently the pinout description of K1 in the following s
 | AF12   | PWR_SDA             | I/O  | 1.8V           | PMIC I2C bus data/address               |
 | AF13   | GPIO_49             | I/O  | 1.8V/3.3V      | General Purpose I/O 49                  |
 
-#### (P~AF, 14~26)
+#### 象限 4：(P~AF, 14~26)
 
-![](static/K1_pinout_4.png)
+![K1 引脚分布图 - 象限 4](static/K1_pinout_4.png)
 
-> **Note.** Definition of symbols used for pin type:
+> **注**：引脚类型符号定义：
 >
-> - AO = Analog output
-> - AI = Analog input
-> - AIO = Analog input/output
-> - G = Ground
-> - I/O = Input/Output
-> - P = Power
-> - RO = Reference output
+> - AO = 模拟输出（Analog Output）  
+> - AI = 模拟输入（Analog Input）  
+> - AIO = 模拟输入/输出（Analog Input/Output）  
+> - G = 接地（Ground）  
+> - I/O = 输入/输出（Input/Output）  
+> - P = 电源（Power）  
+> - RO = 参考输出（Reference Output）
 
-| Pin ID | Name             | Type | Power Domain | Function                          |
-|--------|------------------|------|--------------|-----------------------------------|
+| 引脚编号     | 名称            | 类型 | 电源域                          | 功能说明                                                                 |
+|--------------|-----------------|------|----------------------------------|--------------------------------------------------------------------------|
 | P14    | VSS              | G    | 0V           | Digital Core Ground               |
 | P15    | VCC_M1           | P    | 0.9V         | Digital Core power                |
 | P16    | VSS              | G    | 0V           | Digital Core Ground               |
@@ -3424,340 +3438,340 @@ in order to provide conveniently the pinout description of K1 in the following s
 | AF25   | VSS              | G    | 0V           | Digital Core Ground               |
 | AF26   | VSS              | G    | 0V           | Digital Core Ground               |
 
-### 4.2 I/O Pin Parameters
+### 4.2 I/O 引脚参数（I/O Pin Parameters）
 
-#### For 1.8V I/O Pins
+#### 1.8V I/O 引脚
 
-| Power Domain | Symbol                                      | Description                                | Min         | Typ     | Max         |
-|--------------|---------------------------------------------|--------------------------------------------|-------------|---------|-------------|
-| **1.8V Input**   | Vih                                         | High level input                           | VCC×0.7V    | 1.8V    | VCC+0.2V    |
-|   | Vil                                         | Low level input                            | -0.3V       | 0V      | VCC×0.3V    |
-|    | Rpu                                         | Pull up resistor                           | 55kΩ        | 79kΩ    | 121kΩ       |
-|    | Rpd                                         | Pull down resistor                         | 51kΩ        | 87kΩ    | 169kΩ       |
-|    | Iil                                         | Input leakage current (Pad in input mode)  |             |         | 10µA        |
-| **1.8V Output**  | Voh                                         | High level output                          | VCC−0.2V    |         |             |
-|   | Vol                                         | Low level output                           |             |         | 0.2V        |
-|   | Iol (DCS[1:0]=00/01/10/11)                 | Low level output current when Vpad=0.2V    | 13/25/37/49mA |         |             |
-|   | Ioh (DCS[1:0]=00/01/10/11)                 | High level output current when Vpad=VCC−0.2V | 11/21/32/42mA |         |             |
+| 电源域       | 符号     | 描述                        | 最小值      | 典型值 | 最大值      |
+|--------------|----------|-----------------------------|-------------|---------|-------------|
+| **1.8V 输入** | Vih      | 高电平输入电压               | VCC×0.7V    | 1.8V    | VCC+0.2V    |
+|              | Vil      | 低电平输入电压               | -0.3V       | 0V      | VCC×0.3V    |
+|              | Rpu      | 上拉电阻                    | 55kΩ        | 79kΩ    | 121kΩ       |
+|              | Rpd      | 下拉电阻                    | 51kΩ        | 87kΩ    | 169kΩ       |
+|              | Iil      | 输入漏电流（引脚处于输入模式）|             |         | 10µA        |
+| **1.8V 输出** | Voh      | 高电平输出电压               | VCC−0.2V    |         |             |
+|              | Vol      | 低电平输出电压               |             |         | 0.2V        |
+|              | Iol (DCS[1:0]=00/01/10/11) | 当 Vpad=0.2V 时的低电平输出电流 | 13/25/37/49mA |         |             |
+|              | Ioh (DCS[1:0]=00/01/10/11) | 当 Vpad=VCC−0.2V 时的高电平输出电流 | 11/21/32/42mA |         |             |
 
-#### For 3.3V I/O Pins
+#### 3.3V I/O 引脚
 
-| Power Domain | Symbol                                                                 | Description                                      | Min        | Typ   | Max         |
-|--------------|------------------------------------------------------------------------|--------------------------------------------------|------------|-------|-------------|
-| **3.3V Input**   | Vih                                                                    | High level input                                 | 2V         |       | VCC+0.3V    |
-|    | Vil                                                                    | Low level input                                  | -0.3V      | 0V    | 0.8V        |
-|    | Rpu                                                                    | Pull up resistor                                 | 26kΩ       | 47kΩ  | 72kΩ        |
-|    | Rpd                                                                    | Pull down resistor                               | 27kΩ       | 54kΩ  | 267kΩ       |
-|    | Iil                                                                    | Input leakage current                            |            |       | 10µA        |
-| **3.3V Output**  | Voh                                                                    | High level output                                | 2.4V       |       |             |
-|   | Vol                                                                    | Low level output                                 |            |       | 0.4V        |
-|   | Iol (DS[2:0]=000/001/010/011/100/101/110/111)                         | Low level output current when Vpad=0.4V          | 7/10/14/18/21/24/28/31mA |       |             |
-|   | Ioh (DS[2:0]=000/001/010/011/100/101/110/111)                         | High level output current when Vpad=VCC-0.5V     | 7/10/13/16/19/23/26/29mA |       |             |
+| 电源域       | 符号     | 描述                        | 最小值      | 典型值 | 最大值      |
+|--------------|----------|-----------------------------|-------------|---------|-------------|
+| **3.3V 输入** | Vih      | 高电平输入电压               | 2V          |         | VCC+0.3V    |
+|              | Vil      | 低电平输入电压               | -0.3V       | 0V      | 0.8V        |
+|              | Rpu      | 上拉电阻                    | 26kΩ        | 47kΩ    | 72kΩ        |
+|              | Rpd      | 下拉电阻                    | 27kΩ        | 54kΩ    | 267kΩ       |
+|              | Iil      | 输入漏电流                   |             |         | 10µA        |
+| **3.3V 输出** | Voh      | 高电平输出电压               | 2.4V        |         |             |
+|              | Vol      | 低电平输出电压               |             |         | 0.4V        |
+|              | Iol (DS[2:0]=000/001/010/011/100/101/110/111) | 当 Vpad=0.4V 时的低电平输出电流 | 7/10/14/18/21/24/28/31mA |         |             |
+|              | Ioh (DS[2:0]=000/001/010/011/100/101/110/111) | 当 Vpad=VCC-0.5V 时的高电平输出电流 | 7/10/13/16/19/23/26/29mA |         |             |
 
-### 4.3 Multiplexed Signal/Pin Functions
+### 4.3 多功能信号/引脚功能（Multiplexed Signal/Pin Functions）
 
-The **Function 0** through 7 signals is assigned to the I/O pins of K1.
+K1 的 I/O 引脚支持 **Function 0 至 Function 7** 共 8 种功能配置。
 
-Most I/O pins of K1 are multi-function allowing them to be configured for one of several available functions using Multi-Function Pin Registers (MFPRs). Additionally, some functions can be configured to be present on several different pins.
+大多数 I/O 引脚为 **多功能引脚**，可通过 **多功能引脚寄存器（Multi-Function Pin Registers, MFPRs）** 配置为多种可用功能之一。此外，部分功能信号可映射到多个不同的物理引脚上。
 
-The assigned signals are organized by their functions (e.g. power supply, clock, etc.) which are arranged in groups according to their interfaces (e.g. JTAG, SPIx, etc.) as per description in the following subsections (sorted alphabetically for user convenience).
+所有分配的信号按其功能类别（如电源、时钟等）进行组织，并进一步按接口类型（如 JTAG、SPIx 等）分组。为便于用户查阅，以下各小节按 **字母顺序排列**。
 
-> **Note.**Definition of symbols used for signal/pin type:
+> **注**：信号/引脚类型符号定义：
 >
-> - I = Input
-> - O = Output
-> - I/O = Input/Output
-> - OD = Open-Drain
-> - RO = Reference output
+> - I = 输入（Input）  
+> - O = 输出（Output）  
+> - I/O = 输入/输出（Input/Output）  
+> - OD = 开漏（Open-Drain）  
+> - RO = 参考输出（Reference Output）
 
 #### JTAG
 
-##### Primary
+##### 主 JTAG 接口（Primary）
 
-| Signal/Pin        | Type | Description                                                                                                                                     |
-|-------------|------|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| PRI_TCK     | I    | Primary JTAG interface 1 test clock. Used for all transfers on the JTAG test interface.                                                          |
-| PRI_TDI     | I    | Primary JTAG interface 1 test data input. Used to send data from the JTAG controller to the K1 processor. This pin has an internal pullup resistor. |
-| PRI_TDO     | O    | Primary JTAG Interface 1 test data output. Used to return data from the K1 processor to the JTAG controller.                                     |
-| PRI_TMS     | I    | Primary JTAG Interface 1 test mode select. Used to select the test mode required from the JTAG controller. This pin has an internal pullup resistor. |
-| PRI_TRSTn   | I    | Primary JTAG Interface 1 test reset. Used for IEEE 1194.1 test reset.                                                                            |
-| VCXO_OUT    | O    | 24 MHz VCXO output clock                                                                                                                        |
-| VCXO_REQ    | I    | OCLK1 request                                                                                                                                   |
+| 信号/引脚名   | 类型 | 描述         |
+|---------------|------|----------------------------|
+| PRI_TCK       | I    | 主 JTAG 接口 1 的测试时钟。用于 JTAG 测试接口上的所有数据传输。                                                                           |
+| PRI_TDI       | I    | 主 JTAG 接口 1 的测试数据输入。用于将数据从 JTAG 调试器发送至 K1 处理器。该引脚内置上拉电阻。                                              |
+| PRI_TDO       | O    | 主 JTAG 接口 1 的测试数据输出。用于将数据从 K1 处理器返回至 JTAG 调试器。                                                                  |
+| PRI_TMS       | I    | 主 JTAG 接口 1 的测试模式选择。用于从 JTAG 调试器选择所需的测试模式。该引脚内置上拉电阻。                                                  |
+| PRI_TRSTn     | I    | 主 JTAG 接口 1 的测试复位信号（低电平有效）。符合 IEEE 1149.1 标准（注：原文 “1194.1” 应为笔误，标准号为 **IEEE 1149.1**）。               |
+| VCXO_OUT      | O    | 24 MHz VCXO 输出时钟  |
+| VCXO_REQ      | I    | OCLK1 时钟请求信号  |
 
-##### Secondary
+##### 次 JTAG 接口（Secondary）
 
-| Signal/Pin         | Type | Description               |
-|--------------|------|-----------------------|
-| SEC2_TCK     | I    | Secondary JTAG Interface 2 test clock. Used for all transfers on the JTAG test interface.                                                        |
-| SEC2_TDI     | I    | Secondary JTAG Interface 2 test data input. Used to send data from the JTAG controller to the K1 processor. This pin has an internal pullup resistor. |
-| SEC2_TDO     | O    | Secondary JTAG Interface 2 test data output. Used to return data from the K1 processor to the JTAG controller.                                   |
-| SEC2_TMS     | I    | Secondary JTAG Interface 2 test mode select. Used to select the test mode required from the JTAG controller. This pin has an internal pullup resistor. |
-| SEC2_TRSTn   | I    | Secondary JTAG Interface 2 test reset. Used for IEEE 1194.1 test reset.                                                                          |
+| 信号/引脚名   | 类型 | 描述        |
+|---------------|------|---------------------------|
+| SEC2_TCK      | I    | 次 JTAG 接口 2 的测试时钟。用于 JTAG 测试接口上的所有数据传输。                                                                           |
+| SEC2_TDI      | I    | 次 JTAG 接口 2 的测试数据输入。用于将数据从 JTAG 调试器发送至 K1 处理器。该引脚内置上拉电阻。                                              |
+| SEC2_TDO      | O    | 次 JTAG 接口 2 的测试数据输出。用于将数据从 K1 处理器返回至 JTAG 调试器。                                                                  |
+| SEC2_TMS      | I    | 次 JTAG 接口 2 的测试模式选择。用于从 JTAG 调试器选择所需的测试模式。该引脚内置上拉电阻。                                                  |
+| SEC2_TRSTn    | I    | 次 JTAG 接口 2 的测试复位信号（低电平有效）。符合 IEEE 1149.1 标准。                                                                      |
 
-#### Keypad Controller
+#### 键盘控制器（Keypad Controller）
 
-| Signal/Pin           | Type | Description                     |
-|----------------|------|---------------------------------|
-| KP_DK[4:0]     | I    | Keypad direct key inputs [4:0]  |
-| KP_MKIN[3:0]   | I    | Keypad matrix key inputs [3:0]  |
-| KP_MKOUT[3:0]  | O    | Keypad matrix key outputs [3:0] |
+| 信号/引脚名        | 类型 | 描述                     |
+|--------------------|------|--------------------------|
+| KP_DK[4:0]         | I    | 键盘直连按键输入 [4:0]   |
+| KP_MKIN[3:0]       | I    | 键盘矩阵按键输入 [3:0]   |
+| KP_MKOUT[3:0]      | O    | 键盘矩阵按键输出 [3:0]   |
 
-##### Miscellaneous
+#### 其他功能（Miscellaneous）
 
-| Signal/Pin           | Type | Description    |
-|----------------|------|----------------|
-| MPLL_TST_CK    |      | PLL test pin                                                                                                                                                                                                |
-| MN_CLK_OUT     | O    | Fractional (M/N) divided clock. Main PMU general purpose M/N fractional clock divider clock output. CLK_REQ must be set as Function 0 and pulled high for the 13 MHz clock to be output on GPIO[122] (MN_CLK_OUT). |
-| Sleep_OUT      | O    | PMIC sleep setting                                                                                                                                                                                          |
+| 信号/引脚名     | 类型 | 描述   |
+|-----------------|------|---------------------------|
+| MPLL_TST_CK     | —    | PLL 测试引脚    |
+| MN_CLK_OUT      | O    | 分数分频（M/N）时钟输出。为主 PMU 提供的通用 M/N 分数分频器的时钟输出。<br/>若需在 GPIO[122]（即 MN_CLK_OUT）上输出 13 MHz 时钟，必须将 CLK_REQ 配置为 **Function 0** 并拉高。                         |
+| Sleep_OUT       | O    | PMIC 睡眠控制信号 |
 
 #### SPIx
 
-| Signal/Pin        | Type | Description  |
-|-------------|------|------------------------|
-| SPIx_FRM    | I/O  | Synchronous serial port frame 0/2. The serial frame sync can be configured as an output (master mode operation) or an input (slave mode operation). |
-| SPIx_RXD    | I    | Synchronous serial port receive data 0/2. Serial data latched using the bit clock.                                                               |
-| SPIx_SCLK   | I/O  | Synchronous serial port clock 0/2. The serial bit clock can be configured as an output (master mode operation) or an input (slave mode operation). |
-| SPIx_TXD    | O    | Synchronous serial port transmit data 0/2. Serial data driven out synchronously with the bit clock.                                              |
+| 信号/引脚名     | 类型   | 描述                                                                 |
+|-----------------|--------|----------------------------------------------------------------------|
+| SPIx_FRM        | I/O    | 同步串口帧信号 0/2。帧同步信号可配置为输出（主模式操作）或输入（从模式操作）。 |
+| SPIx_RXD        | I      | 同步串口接收数据 0/2。使用位时钟锁存串行数据。                         |
+| SPIx_SCLK       | I/O    | 同步串口时钟 0/2。串行位时钟可配置为输出（主模式操作）或输入（从模式操作）。 |
+| SPIx_TXD        | O      | 同步串口发送数据 0/2。与位时钟同步驱动出的串行数据。                   |
 
 #### TWSI
 
-##### Dedicated
+##### 专用接口（Dedicated）
 
-| Signal/Pin      | Type | Description                     |
-|-----------|------|---------------------------------|
-| PWR_SDA   | I/O  | TWSI serial data/address signal |
-| PWR_SCL   | I/O  | TWSI serial clock line signal   |
+| 信号/引脚名   | 类型   | 描述                     |
+|---------------|--------|--------------------------|
+| PWR_SDA       | I/O    | TWSI 串行数据/地址信号   |
+| PWR_SCL       | I/O    | TWSI 串行时钟线信号      |
 
-##### Common
+##### 公用接口（Common）
 
-| Signal/Pin       | Type   | Description |
-|------------|--------|-------------|
-| I2Cx_SCL   | I/O,OD | TWSIx clock |
-| I2Cx_SDA   | I/O,OD | TWSIx data  |
+| 信号/引脚名   | 类型         | 描述          |
+|---------------|--------------|---------------|
+| I2Cx_SCL      | I/O, OD      | TWSIx 时钟    |
+| I2Cx_SDA      | I/O, OD      | TWSIx 数据    |
 
 #### UARTx
 
-| Signal/Pin          | Type | Description           |
-|---------------|------|-----------------------|
-| UARTx_CTSn    | I    | UARTx clear-to-send   |
-| UARTx_RTSn    | O    | UARTx request-to-send |
-| UARTx_RXD     | I    | UARTx receive data    |
-| UARTx_TXD     | O    | UARTx transmit data   |
+| 信号/引脚名       | 类型   | 描述               |
+|-------------------|--------|--------------------|
+| UARTx_CTSn        | I      | UARTx 清除发送信号 |
+| UARTx_RTSn        | O      | UARTx 请求发送信号 |
+| UARTx_RXD         | I      | UARTx 接收数据     |
+| UARTx_TXD         | O      | UARTx 发送数据     |
 
 #### USB
 
-| Signal/Pin | Type | Description           |
-|------------|------|-----------------------|
-| USBx_N     | I/O  | USB D±                |
-| USBx_P     | I/O  | USB D±                |
-| VBUS_ON    | I    | USB VBUS present indicator |
+| 信号/引脚名   | 类型   | 描述                       |
+|---------------|--------|----------------------------|
+| USBx_N        | I/O    | USB D± 数据线（负极）      |
+| USBx_P        | I/O    | USB D± 数据线（正极）      |
+| VBUS_ON       | I      | 指示 USB VBUS 是否存在     |
 
-### 4.4 Multi-Function I/O Pin Assignments
+### 4.4 多功能 I/O 引脚分配
 
-All functions that are assigned to a pin as its primary functions are tabled below.
+下表列出了各引脚默认配置下的所有主功能（Function 0）及其可复用的替代功能（Function 1 ~ Function 6）。
 
-| Group     | Pad Name           | Default Pulling | Pad Edge Detected | Function 0                     | Function 1                        | Function 2                   | Function 3                    | Function 4            | Function 5        | Function 6        |
-|-----------|--------------------|------------------|--------------------|--------------------------------|-----------------------------------|------------------------------|-------------------------------|-----------------------|-------------------|-------------------|
-| **QSPI**      | QSPI_DAT3          | DOWN             | ENABLE             | QSPI_DAT[3]/strap[3]           | GPIO[98]                          |                              | UART1_TXD <secure domain>     |                       |                   |                   |
-|           | QSPI_DAT2          | DOWN             | ENABLE             | QSPI_DAT[2]/strap[2]           | GPIO[99]                          |                              | UART1_RXD <secure domain>     |                       |                   |                   |
-|           | QSPI_DAT1          | DOWN             | ENABLE             | QSPI_DAT[1]/strap[1]           | GPIO[100]                         |                              | UART1_CTS <secure domain>     | UART4_TXD             |                   |                   |
-|           | QSPI_DAT0          | DOWN             | ENABLE             | QSPI_DAT[0]/strap[0]           | GPIO[101]                         |                              | UART1_RTS <secure domain>     | UART4_RXD             |                   |                   |
-|           | QSPI_CLK           | DOWN             | ENABLE             | QSPI_CLK                       | GPIO[102]                         |                              | UART5_TXD                     |                       |                   |                   |
-|           | QSPI_CS1           | UP               | ENABLE             | QSPI_CS1                       | GPIO[103]                         |                              | UART5_RXD                     |                       |                   |                   |
-| **SD/MMC**    | MMC1_DAT3          | UP               | ENABLE             | MMC1_DAT[3]                    | R_I2S2_SCLK                       | SEC2_TMS                     | UART0_TXD                     | GPIO[104]             | PWM0              |                   |
-|           | MMC1_DAT2          | UP               | ENABLE             | MMC1_DAT[2]                    | R_I2S2_LRCK                       | SEC2_TDI                     | UART0_RXD                     | GPIO[105]             | PWM1              |                   |
-|           | MMC1_DAT1          | UP               | ENABLE             | MMC1_DAT[1]                    | R_I2S2_TXD                        | SEC2_TDO                     |                               | GPIO[106]             | PWM2              |                   |
-|           | MMC1_DAT0          | UP               | ENABLE             | MMC1_DAT[0]                    | R_I2S2_RXD                        | SEC2_TRSTn                   |                               | GPIO[107]             | PWM3              |                   |
-|           | MMC1_CMD           | UP               | ENABLE             | MMC1_CMD                       | UART0_TXD                         | CPU_SEL                      | R_UART0_TXD                   | GPIO[108]             | PWM4              |                   |
-|           | MMC1_CLK           | DOWN             | ENABLE             | MMC1_CLK                       | R_I2S2_SYSCLK                     | SEC2_TCK                     |                               | GPIO[109]             | PWM5              |                   |
-| **PMIC**      | RESET_IN_N         | UP               | NO                 | RESET_IN_N                     |                                   |                              |                               |                       |                   |                   |
-|           | EXT_32K_IN         | DOWN             | NO                 | EXT_32K_IN                     |                                   |                              |                               |                       |                   |                   |
-|           | PWR_SCL            | UP               | ENABLE             | PWR_SCL                        | GPIO[93]                          |                              |                               |                       |                   |                   |
-|           | PWR_SDA            | UP               | ENABLE             | PWR_SDA                        | GPIO[94]                          |                              |                               |                       |                   |                   |
-|           | SLEEP_OUT          | NO               | ENABLE             | SLEEP_OUT                      | GPIO[95]                          |                              |                               |                       |                   |                   |
-|           | DVL0               | DOWN             | ENABLE             | DVL0                           | GPIO[96]                          | VCXO_REQ                     |                               |                       |                   |                   |
-|           | DVL1               | DOWN             | ENABLE             | DVL1                           | GPIO[97]                          | IR_RX<br>VCXO_OUT            |                               |                       |                   |                   |
-|           | PMIC_INT_N         | UP               | ENABLE             | PMIC_INT_N                     |                                   |                              |                               |                       |                   |                   |
-|           | GPIO[81]           | UP               | ENABLE             | GPIO[81]                       | R_I2S3_SCLK                       | UART3_TXD                    | UART4_CTS_N                   | MN_CLK                | AP_I2C5_SCL       |                   |
-|           | GPIO[82]           | UP               | ENABLE             | GPIO[82]                       | R_I2S3_LRCK                       | UART3_RXD                    | UART4_RTS_N                   | UART8_TXD             | AP_I2C5_SDA       |                   |
-|           | GPIO[83]           | UP               | ENABLE             | GPIO[83]                       | R_I2S3_TXD                        | UART3_CTS_N                  | UART4_TXD                     | UART8_RXD             | AP_I2C6_SCL       |                   |
-|           | GPIO[84]           | UP               | ENABLE             | GPIO[84]                       | R_I2S3_RXD                        | UART3_RTS_N                  | UART4_RXD                     | AP_I2C2_SCL           |                   |                   |
-|           | GPIO[85]           | UP               | ENABLE             | GPIO[85]                       | R_I2S3_SYSCLK                     | UART6_CTS_N                  | MN_CLK2                       | AP_I2C2_SDA           |                   |                   |
-|           | GPIO[86]           | UP               | ENABLE             | GPIO[86]                       | HDMI_TX_HSCL                      | UART6_TXD                    | DCLK <SPI_LCD>                | UART7_CTS_N           |                   |                   |
-|           | GPIO[87]           | UP               | ENABLE             | GPIO[87]                       | HDMI_TX_HSDA                      | UART6_RXD                    | DCX/DOUT1 <SPI_LCD>           | UART7_RTS_N           |                   |                   |
-|           | GPIO[88]           | DOWN             | ENABLE             | GPIO[88]                       | HDMI_TX_HCEC                      | UART7_TXD                    | DIN <SPI_LCD>                 | PWM6                  |                   |                   |
-|           | GPIO[89]           | DOWN             | ENABLE             | GPIO[89]                       | HDMI_TX_PDP                       | UART7_RXD                    | DOUT0 <SPI_LCD>               | VCXO_REQ              |                   |                   |
-|           | GPIO[90]           | DOWN             | ENABLE             | GPIO[90]/strap[4]              |                                   | UART6_RTS_N                  | CS<SPI_LCD>                   | VCXO_OUT              | AP_I2C6_SDA       |                   |
-|           | GPIO[91]           | UP               | ENABLE             | GPIO[91]                       | MN_CLK2                           | VCXO_OUT                     | DSI_TE                        | R_I2C0_SCL            |                   |                   |
-|           | GPIO[92]           | UP               | ENABLE             | GPIO[92]                       | MN_CLK                            | PWM7                         | R_I2C0_SDA                    |                       |                   |                   |
-|           | JTAG_SEL           | DOWN             | NO                 | JTAG_SEL                       |                                   |                              |                               |                       |                   |                   |
-| **GPIO 1**    | GPIO[0]            | DOWN             | ENABLE             | GPIO[0]                        | GMAC0_RXDV                        | UART6_TXD                    | PWM8                          |                       |                   |                   |
-|           | GPIO[1]            | DOWN             | ENABLE             | GPIO[1]                        | GMAC0_RX_D0                       | UART6_RXD                    | PWM9                          |                       |                   |                   |
-|           | GPIO[2]            | DOWN             | ENABLE             | GPIO[2]                        | GMAC0_RX_D1                       | UART6_CTS_N                  | PWM10                         |                       |                   |                   |
-|           | GPIO[3]            | DOWN             | ENABLE             | GPIO[3]                        | GMAC0_RX_CLK                      | UART6_RTS_N                  | PWM11                         |                       |                   |                   |
-|           | GPIO[4]            | DOWN             | ENABLE             | GPIO[4]                        | GMAC0_RX_D2                       | UART7_TXD                    | PWM12                         |                       |                   |                   |
-|           | GPIO[5]            | DOWN             | ENABLE             | GPIO[5]                        | GMAC0_RX_D3                       | UART7_RXD                    | PWM13                         |                       |                   |                   |
-|           | GPIO[6]            | DOWN             | ENABLE             | GPIO[6]                        | GMAC0_TX_D0                       | UART7_CTS_N                  | PWM14                         |                       |                   |                   |
-|           | GPIO[7]            | DOWN             | ENABLE             | GPIO[7]                        | GMAC0_TX_D1                       | UART7_RTS_N                  | PWM15                         |                       |                   |                   |
-|           | GPIO[8]            | DOWN             | ENABLE             | GPIO[8]                        | GMAC0_TX                          | UART8_TXD                    |                               |                       |                   |                   |
-|           | GPIO[9]            | DOWN             | ENABLE             | GPIO[9]                        | GMAC0_TX_D2                       | UART8_RXD                    | PWM16                         |                       |                   |                   |
-|           | GPIO[10]           | DOWN             | ENABLE             | GPIO[10]                       | GMAC0_TX_D3                       | UART8_CTS_N                  | PWM17                         |                       |                   |                   |
-|           | GPIO[11]           | DOWN             | ENABLE             | GPIO[11]                       | GMAC0_TX_EN                       | UART8_RTS_N                  | PWM18                         |                       |                   |                   |
-|           | GPIO[12]           | DOWN             | ENABLE             | GPIO[12]                       | GMAC0_MDC                         | UART9_TXD                    | VCXO_OUT                      |                       |                   |                   |
-|           | GPIO[13]           | DOWN             | ENABLE             | GPIO[13]                       | GMAC0_MDIO                        | UART9_RXD                    | PWM19                         |                       |                   |                   |
-|           | GPIO[14]           | DOWN             | ENABLE             | GPIO[14]                       | GMAC0_INT_N                       | PWM0                         |                               |                       |                   |                   |
-|           | GPIO[15]           | UP               | ENABLE             | GPIO[15]                       | MMC2_DATA3                        | PCIe0_PERSTN                 | PCIe1_PERSTN                  |                       |                   |                   |
-|           | GPIO[16]           | UP               | ENABLE             | GPIO[16]                       | MMC2_DATA2                        | PCIe0_WAKEN<br>VCXO_REQ      | PCIe1_WAKEN                   |                       |                   |                   |
-|           | GPIO[17]           | UP               | ENABLE             | GPIO[17]                       | MMC2_DATA1                        | PCIe0_CLKREQN<br>VCXO_OUT    | PCIe1_CLKREQN                 |                       |                   |                   |
-|           | GPIO[18]           | UP               | ENABLE             | GPIO[18]                       | MMC2_DATA0                        | UART3_TXD                    | PCIe2_PERSTN                  |                       |                   |                   |
-|           | GPIO[19]           | UP               | ENABLE             | GPIO[19]                       | MMC2_CMD                          | UART3_RXD                    | PCIe2_WAKEN                   |                       |                   |                   |
-|           | GPIO[20]           | UP               | ENABLE             | GPIO[20]                       | MMC2_CLK                          | UART3_CTS_N<br>MN_CLK        | PCIe2_CLKREQN                 |                       |                   |                   |
-|           | GPIO[21]           | DOWN             | ENABLE             | GPIO[21]                       | UART2_TXD                         | UART3_RTS_N                  | 32K_OUT                       |                       |                   |                   |
-|           | GPIO[22]           | DOWN             | ENABLE             | GPIO[22]                       | UART2_RXD                         | PWM2                         | PWM0                          |                       |                   |                   |
-|           | GPIO[23]           | DOWN             | ENABLE             | GPIO[23]                       | UART2_CTS_N                       | UART4_TXD<br>MN_CLK          | PWM1                          |                       |                   |                   |
-|           | GPIO[24]           | DOWN             | ENABLE             | GPIO[24]                       | UART2_RTS_N                       | UART4_RXD<br>I2S1_SYSCLK     | PWM2                          |                       |                   |                   |
-|           | GPIO[25]           | DOWN             | ENABLE             | GPIO[25]                       | I2S1_SCLK                         | UART5_TXD                    | PWM3                          |                       |                   |                   |
-|           | GPIO[26]           | DOWN             | ENABLE             | GPIO[26]                       | I2S1_LRCK                         | UART5_RXD                    |                               |                       |                   |                   |
-|           | GPIO[27]           | DOWN             | ENABLE             | GPIO[27]                       | I2S1_TXD                          | UART5_CTS_N                  |                               |                       |                   |                   |
-|           | GPIO[28]           | DOWN             | ENABLE             | GPIO[28]                       | I2S1_RXD                          | UART5_RTS_N                  | 32K_OUT                       |                       |                   |                   |
-|           | GPIO[29]           | DOWN             | ENABLE             | GPIO[29]                       | GMAC1_RXDV                        | UART1_TXD <secure domain><br>PWM1 | PCIe0_PERSTN              |                       |                   |                   |
-|           | GPIO[30]           | DOWN             | ENABLE             | GPIO[30]                       | GMAC1_RX_D0                       | UART1_RXD <secure domain><br>PWM2 | PCIe0_WAKEN               |                       |                   |                   |
-|           | GPIO[31]           | DOWN             | ENABLE             | GPIO[31]                       | GMAC1_RX_D1                       | UART1_CTS_N <secure domain><br>32K_OUT | PCIe0_CLKREQN         |                       |                   |                   |
-|           | GPIO[32]           | DOWN             | ENABLE             | GPIO[32]                       | GMAC1_RX_CLK                      | UART1_RTS_N <secure domain><br>MN_CLK | PCIe1_PERSTN          |                       |                   |                   |
-|           | GPIO[33]           | DOWN             | ENABLE             | GPIO[33]                       | GMAC1_RX_D2                       | UART4_TXD<br>PWM3            | PCIe1_WAKEN                   |                       |                   |                   |
-|           | GPIO[34]           | DOWN             | ENABLE             | GPIO[34]                       | GMAC1_RX_D3                       | UART4_RXD<br>PWM4            | PCIe1_CLKREQN                 |                       |                   |                   |
-|           | GPIO[35]           | DOWN             | ENABLE             | GPIO[35]                       | GMAC1_TX_D0                       | UART4_CTS_N<br>PWM5          | PCIe2_PERSTN                  |                       |                   |                   |
-|           | GPIO[36]           | DOWN             | ENABLE             | GPIO[36]                       | GMAC1_TX_D1                       | UART4_RTS_N<br>PWM6          | PCIe2_WAKEN                   |                       |                   |                   |
-|           | GPIO[37]           | DOWN             | ENABLE             | GPIO[37]                       | GMAC1_TX                          | PWM7                         | PCIe2_CLKREQN                 |                       |                   |                   |
-|           | GPIO[38]           | UP               | ENABLE             | GPIO[38]                       | GMAC1_TX_D2                       | AP_I2C3_SCL <secure domain><br>R_I2S3_SCLK | PWM8              |                       |                   |                   |
-|           | GPIO[39]           | UP               | ENABLE             | GPIO[39]                       | GMAC1_TX_D3                       | AP_I2C3_SDA <secure domain><br>R_I2S3_LRCK | PWM9              |                       |                   |                   |
-|           | GPIO[40]           | UP               | ENABLE             | GPIO[40]                       | GMAC1_TX_EN                       | AP_I2C4_SCL<br>R_I2S3_TXD    | PWM10                         |                       |                   |                   |
-|           | GPIO[41]           | UP               | ENABLE             | GPIO[41]                       | GMAC1_MDC                         | AP_I2C4_SDA<br>R_I2S3_RXD    | PWM11                         |                       |                   |                   |
-|           | GPIO[42]           | DOWN             | ENABLE             | GPIO[42]                       | GMAC1_MDIO                        | UART5_TXD<br>R_I2S3_SYSCLK   | PWM12                         |                       |                   |                   |
-|           | GPIO[43]           | DOWN             | ENABLE             | GPIO[43]                       | GMAC1_INT_N                       | UART5_RXD                    | PWM13                         |                       |                   |                   |
-|           | GPIO[44]           | DOWN             | ENABLE             | GPIO[44]                       | MN_CLK                            | UART5_CTS_N<br>R_IR_RX       | PWM14                         |                       |                   |                   |
-|           | GPIO[45]           | DOWN             | ENABLE             | GPIO[45]                       | GMAC0_CLK_REF                     | UART5_RTS_N                  | PWM15                         |                       |                   |                   |
-|           | GPIO[46]           | DOWN             | ENABLE             | GPIO[46]                       | GMAC1_CLK_REF                     |                              | PWM16                         |                       |                   |                   |
-|           | GPIO[110]          | DOWN             | ENABLE             | GPIO[110]                      | R_CAN_TX0                         | R_UART1_TXD                  | UART9_CTS_N                   | PCIe0_PERSTN          | ONE_WIRE          |                   |
-|           | GPIO[115]          | DOWN             | ENABLE             | GPIO[115]                      | R_CAN_RX0                         | R_UART1_RXD                  | UART9_RTS_N                   | PCIe0_WAKEN           |                   |                   |
-|           | GPIO[116]          | DOWN             | ENABLE             | GPIO[116]                      | R_PWM1                            | R_UART1_CTS_N                | UART9_TXD                     | PCIe0_CLKREQN         | VCXO_REQ[1]       |                   |
-|           | GPIO[117]          | DOWN             | ENABLE             | GPIO[117]                      | R_PWM2                            | R_UART1_RTS_N                | UART9_RXD                     | PCIe2_CLKREQN         | VCXO_CLK_OUT      |                   |
-|           | GPIO[118]          | UP               | ENABLE             | GPIO[118]                      | AP_I2C7_SCL (CAM)                 | AP_I2C6_SCL                  | I2S0_SCLK                     | R_PWM8                | KP_MKIN[0]        |                   |
-|           | GPIO[119]          | UP               | ENABLE             | GPIO[119]                      | AP_I2C7_SDA (CAM)                 | AP_I2C6_SDA                  | I2S0_LRCK                     | R_PWM9                | KP_MKOUT[0]       |                   |
-|           | GPIO[120]          | DOWN             | ENABLE             | GPIO[120]                      | CAM_MCLK2                         | I2S0_TXD                     | R_PWM6                        | KP_MKIN[1]            |                   |                   |
-|           | GPIO[121]          | DOWN             | ENABLE             | GPIO[121]                      | CAMERA2_RST                       | VBUS_ON2                     | I2S0_RXD                      | R_PWM7                | KP_MKOUT[1]       |                   |
-|           | GPIO[122]          | DOWN             | ENABLE             | GPIO[122]                      | CAMERA2_PDN                       | USB_ID2                      | I2S0_SYSCLK                   | KP_MKIN[2]            |                   |                   |
-|           | GPIO[123]          | DOWN             | ENABLE             | GPIO[123]                      | DRIVE_VBUS2_ISO                   | KP_DKIN[0]                   | KP_MKIN[0]                    |                       |                   |                   |
-|           | GPIO[124]          | DOWN             | ENABLE             | GPIO[124]                      | DRIVE_VBUS1_ISO                   | KP_DKIN[1]                   | KP_MKOUT[0]                   |                       |                   |                   |
-|           | GPIO[125]          | DOWN             | ENABLE             | GPIO[125]                      | VBUS_ON0                          | KP_DKIN[2]                   | KP_MKIN[1]                    |                       |                   |                   |
-|           | GPIO[126]          | DOWN             | ENABLE             | GPIO[126]                      | USB_ID0                           | KP_DKIN[3]                   | KP_MKOUT[1]                   |                       |                   |                   |
-|           | GPIO[127]          | DOWN             | ENABLE             | GPIO[127]                      | DRIVE_VBUS0_ISO                   | KP_DKIN[4]                   | KP_MKIN[2]                    |                       |                   |                   |
-| **GPIO 2**    | GPIO[75]           | UP               | ENABLE             | GPIO[75]                       | SPI2_SCLK <secure domain>         | SPI3_SCLK                    | CAN_TX0                       | UART8_TXD             | AP_I2C4_SCL       |                   |
-|           | GPIO[76]           | UP               | ENABLE             | GPIO[76]                       | SPI2_FRM <secure domain>          | SPI3_FRM                     | CAN_RX0                       | UART8_RXD             | AP_I2C4_SDA       |                   |
-|           | GPIO[77]           | UP               | ENABLE             | GPIO[77]                       | SPI2_TXD <secure domain>          | SPI3_TXD                     | AP_I2C3_SCL <secure domain>   | UART8_CTS_N           | R_PWM0            | KP_MKOUT[2]       |
-|           | GPIO[78]           | UP               | ENABLE             | GPIO[78]                       | SPI2_RXD <secure domain>          | SPI3_RXD                     | AP_I2C3_SDA <secure domain>   | UART8_RTS_N           | R_PWM1            | KP_MKIN[3]        |
-|           | GPIO[79]           | DOWN             | ENABLE             | GPIO[79]                       | IR_RX                             | R_PWM2                       |                               |                       |                   | KP_MKOUT[3]       |
-|           | GPIO[80]           | DOWN             | ENABLE             | GPIO[80]                       | MMC_Card_detect                   | R_PWM3                       | UART0_RXD<br>R_UART0_RXD      |                       |                   |                   |
-| **GPIO 3**    | GPIO[47]           | UP               | ENABLE             | GPIO[47]                       | R_UART0_TXD                       | R_CAN_TX0                    | R_PWM8                        | AP_I2C3_SCL<secure domain> | ONE_WIRE          |                   |
-|           | GPIO[48]           | UP               | ENABLE             | GPIO[48]                       | R_UART0_RXD                       | R_CAN_RX0                    | R_IR_RX                       | AP_I2C3_SDA<secure domain> | KP_MKOUT[2]       |                   |
-|           | GPIO[49]           | UP               | ENABLE             | GPIO[49]                       | R_SPI_SCLK                        | R_UART1_CTS_N                | R_PWM4                        | R_I2C0_SCL            | KP_MKIN[3]        |                   |
-|           | GPIO[50]           | UP               | ENABLE             | GPIO[50]                       | R_SPI_FRM                         | R_UART1_RTS_N                | R_PWM5                        | R_I2C0_SDA            | KP_MKOUT[3]       |                   |
-|           | GPIO[51]           | UP               | ENABLE             | GPIO[51]                       | R_SPI_TXD                         | R_UART1_TXD                  | R_PWM6                        | AP_I2C4_SCL           |                   |                   |
-|           | GPIO[52]           | UP               | ENABLE             | GPIO[52]                       | R_SPI_RXD                         | R_UART1_RXD                  | R_PWM7                        | AP_I2C4_SDA           |                   |                   |
-| **GPIO 4**    | GPIO[53]           | DOWN             | ENABLE             | GPIO[53]                       | CAM_MCLK0                         | PWM17                        | PCIe0_CLKREQN                 | UART3_TXD             |                   |                   |
-|           | GPIO[54]           | UP               | ENABLE             | GPIO[54]                       | AP_I2C0_SCL (CAM)                 | CAN_TX0                      | PCIe0_PERSTN                  | UART3_RXD             | AP_I2C5_SCL       |                   |
-|           | GPIO[55]           | UP               | ENABLE             | GPIO[55]                       | AP_I2C0_SDA (CAM)                 | CAN_RX0                      | PCIe0_WAKEN                   | UART3_CTS_N           | AP_I2C5_SDA       |                   |
-|           | GPIO[56]           | UP               | ENABLE             | GPIO[56]                       | AP_I2C1_SCL (CAM)                 | UART6_TXD                    | PCIe1_PERSTN                  | UART3_RTS_N           | AP_I2C6_SCL       |                   |
-|           | GPIO[57]           | UP               | ENABLE             | GPIO[57]                       | AP_I2C1_SDA (CAM)                 | UART6_RXD                    | PCIe1_WAKEN                   | PWM18                 | AP_I2C6_SDA       |                   |
-|           | GPIO[58]           | DOWN             | ENABLE             | GPIO[58]                       | CAM_MCLK1                         | I2S0_SYSCLK                  | PCIe1_CLKREQN                 | IR_RX                 |                   |                   |
-|           | GPIO[111]          | DOWN             | ENABLE             | GPIO[111]                      | CAMERA0_RST                       | I2S0_SCLK                    | PCIe2_PERSTN                  | UART4_TXD             |                   |                   |
-|           | GPIO[112]          | DOWN             | ENABLE             | GPIO[112]                      | CAMERA1_RST                       | I2S0_LRCK                    | PCIe2_WAKEN                   | UART4_RXD             |                   |                   |
-|           | GPIO[113]          | DOWN             | ENABLE             | GPIO[113]                      | CAMERA0_PDN                       | I2S0_TXD                     | PCIe2_CLKREQN                 | UART4_CTS_N           |                   |                   |
-|           | GPIO[114]          | DOWN             | ENABLE             | GPIO[114]                      | CAMERA1_PDN                       | I2S0_RXD                     | DSI_TE                        | UART4_RTS_N           |                   |                   |
-|           | GPIO[63]           | DOWN             | ENABLE             | GPIO[63]                       | DRIVE_VBUS0_ISO                   | R_I2S2_SYSCLK                | PWM19                         | KP_DKIN[0]            |                   |                   |
-|           | GPIO[64]           | DOWN             | ENABLE             | GPIO[64]                       | VBUS_ON0                          | R_I2S2_SCLK                  | SPI2_SCLK <secure domain>     | R_PWM0                | KP_DKIN[1]        |                   |
-|           | GPIO[65]           | UP               | ENABLE             | GPIO[65]                       | USB_ID0                           | R_I2S2_LRCK                  | SPI2_FRM <secure domain>      | R_PWM1                | KP_DKIN[2]        |                   |
-|           | GPIO[66]           | DOWN             | ENABLE             | GPIO[66]                       | DRIVE_VBUS1_ISO                   | R_I2S2_TXD                   | SPI2_TXD <secure domain>      | R_PWM2                | KP_DKIN[3]        |                   |
-|           | GPIO[67]           | DOWN             | ENABLE             | GPIO[67]                       | DRIVE_VBUS2_ISO                   | R_I2S2_RXD                   | SPI2_RXD <secure domain>      | R_PWM3                | KP_DKIN[4]        |                   |
-|           | GPIO[68]           | DOWN             | ENABLE             | GPIO[68]                       | VBUS_ON2                          | UART0_TXD                    | AP_I2C2_SCL                   | R_PWM4                |                   |                   |
-|           | GPIO[69]           | UP               | ENABLE             | GPIO[69]                       | USB_ID2                           | UART0_RXD                    | AP_I2C2_SDA                   | R_PWM5                |                   |                   |
-| **GPIO 5**    | GPIO[59]           | UP               | ENABLE             | GPIO[59]                       | HDMI_TX_HSCL                      | SPI3_SCLK                    | UART1_TXD <secure domain>     | PCIe1_PERSTN          |                   |                   |
-|           | GPIO[60]           | UP               | ENABLE             | GPIO[60]                       | HDMI_TX_HSDA                      | SPI3_FRM                     | UART1_RXD <secure domain>     | PCIe1_WAKEN           |                   |                   |
-|           | GPIO[61]           | UP               | ENABLE             | GPIO[61]                       | HDMI_TX_HCEC                      | SPI3_TXD                     | UART1_CTS_N <secure domain>   | PCIe1_CLKREQN         |                   |                   |
-|           | GPIO[62]           | UP               | ENABLE             | GPIO[62]                       | HDMI_TX_PDP                       | SPI3_RXD                     | UART1_RTS_N <secure domain>   | PCIe2_PERSTN          |                   |                   |
-|           | PRI_TDI            | UP               | NO                 | PRI_TDI                        | GPIO[70]                          | AP_I2C2_SCL                  | DCLK <SPI_LCD>                | UART5_TXD             |                   |                   |
-|           | PRI_TMS            | UP               | NO                 | PRI_TMS                        | GPIO[71]                          | AP_I2C2_SDA                  | DCX/DOUT1 <SPI_LCD>           | UART5_RXD             |                   |                   |
-|           | PRI_TCK            | DOWN             | NO                 | PRI_TCK                        | GPIO[72]                          | UART9_TXD                    | DIN<SPI_LCD>                  | UART5_CTS_N           |                   |                   |
-|           | PRI_TDO            | UP               | NO                 | PRI_TDO                        | GPIO[73]                          | UART9_RXD                    | DOUT0 <SPI_LCD>               | UART5_RTS_N           |                   |                   |
-|           | PRI_TRSTn          | UP               | NO                 | PRI_TRSTn                      |                                   |                              |                               |                       |                   |                   |
-|           | GPIO[74]           | UP               | ENABLE             | GPIO[74]                       |                                   | PWM9                         | CS<SPI_LCD>                   | PCIe2_WAKEN           |                   |                   |
-| **EMMC5.1**   | EMMC_D0            |                  |                    | EMMC_D0                        | GPIO[93]                          |                              |                               |                       |                   |                   |
-|           | EMMC_D1            |                  |                    | EMMC_D1                        | GPIO[94]                          |                              |                               |                       |                   |                   |
-|           | EMMC_D2            |                  |                    | EMMC_D2                        | GPIO[95]                          |                              |                               |                       |                   |                   |
-|           | EMMC_D3            |                  |                    | EMMC_D3                        | GPIO[96]                          |                              |                               |                       |                   |                   |
-|           | EMMC_D4            |                  |                    | EMMC_D4                        | GPIO[97]                          |                              |                               |                       |                   |                   |
-|           | EMMC_D5            |                  |                    | EMMC_D5                        | GPIO[98]                          |                              |                               |                       |                   |                   |
-|           | EMMC_D6            |                  |                    | EMMC_D6                        | GPIO[99]                          |                              |                               |                       |                   |                   |
-|           | EMMC_D7            |                  |                    | EMMC_D7                        | GPIO[100]                         |                              |                               |                       |                   |                   |
-|           | EMMC_DS            |                  |                    | EMMC_DS                        | GPIO[101]                         |                              |                               |                       |                   |                   |
-|           | EMMC_CLK           |                  |                    | EMMC_CLK                       | GPIO[102]                         |                              |                               |                       |                   |                   |
-|           | EMMC_CMD           |                  |                    | EMMC_CMD                       | GPIO[103]                         |                              |                               |                       |                   |                   |
+| 组别       | 引脚名称           | 默认上/下拉 | 边沿检测使能 | 功能 0                         | 功能 1                            | 功能 2                       | 功能 3                        | 功能 4                | 功能 5            | 功能 6            |
+|------------|--------------------|--------------|----------------|--------------------------------|-----------------------------------|------------------------------|-------------------------------|-----------------------|-------------------|-------------------|
+| **QSPI**      | QSPI_DAT3          | 下拉         | 使能           | QSPI_DAT[3]/strap[3]           | GPIO[98]                          |                              | UART1_TXD <安全域>            |                       |                   |                   |
+|           | QSPI_DAT2          | 下拉         | 使能           | QSPI_DAT[2]/strap[2]           | GPIO[99]                          |                              | UART1_RXD <安全域>            |                       |                   |                   |
+|           | QSPI_DAT1          | 下拉         | 使能           | QSPI_DAT[1]/strap[1]           | GPIO[100]                         |                              | UART1_CTS <安全域>            | UART4_TXD             |                   |                   |
+|           | QSPI_DAT0          | 下拉         | 使能           | QSPI_DAT[0]/strap[0]           | GPIO[101]                         |                              | UART1_RTS <安全域>            | UART4_RXD             |                   |                   |
+|           | QSPI_CLK           | 下拉         | 使能           | QSPI_CLK                       | GPIO[102]                         |                              | UART5_TXD                     |                       |                   |                   |
+|           | QSPI_CS1           | 上拉         | 使能           | QSPI_CS1                       | GPIO[103]                         |                              | UART5_RXD                     |                       |                   |                   |
+| **SD/MMC**    | MMC1_DAT3          | 上拉         | 使能           | MMC1_DAT[3]                    | R_I2S2_SCLK                       | SEC2_TMS                     | UART0_TXD                     | GPIO[104]             | PWM0              |                   |
+|           | MMC1_DAT2          | 上拉         | 使能           | MMC1_DAT[2]                    | R_I2S2_LRCK                       | SEC2_TDI                     | UART0_RXD                     | GPIO[105]             | PWM1              |                   |
+|           | MMC1_DAT1          | 上拉         | 使能           | MMC1_DAT[1]                    | R_I2S2_TXD                        | SEC2_TDO                     |                               | GPIO[106]             | PWM2              |                   |
+|           | MMC1_DAT0          | 上拉         | 使能           | MMC1_DAT[0]                    | R_I2S2_RXD                        | SEC2_TRSTn                   |                               | GPIO[107]             | PWM3              |                   |
+|           | MMC1_CMD           | 上拉         | 使能           | MMC1_CMD                       | UART0_TXD                         | CPU_SEL                      | R_UART0_TXD                   | GPIO[108]             | PWM4              |                   |
+|           | MMC1_CLK           | 下拉         | 使能           | MMC1_CLK                       | R_I2S2_SYSCLK                     | SEC2_TCK                     |                               | GPIO[109]             | PWM5              |                   |
+| **PMIC**      | RESET_IN_N         | 上拉         | 否             | RESET_IN_N                     |                                   |                              |                               |                       |                   |                   |
+|           | EXT_32K_IN         | 下拉         | 否             | EXT_32K_IN                     |                                   |                              |                               |                       |                   |                   |
+|           | PWR_SCL            | 上拉         | 使能           | PWR_SCL                        | GPIO[93]                          |                              |                               |                       |                   |                   |
+|           | PWR_SDA            | 上拉         | 使能           | PWR_SDA                        | GPIO[94]                          |                              |                               |                       |                   |                   |
+|           | SLEEP_OUT          | 无           | 使能           | SLEEP_OUT                      | GPIO[95]                          |                              |                               |                       |                   |                   |
+|           | DVL0               | 下拉         | 使能           | DVL0                           | GPIO[96]                          | VCXO_REQ                     |                               |                       |                   |                   |
+|           | DVL1               | 下拉         | 使能           | DVL1                           | GPIO[97]                          | IR_RX<br>VCXO_OUT            |                               |                       |                   |                   |
+|           | PMIC_INT_N         | 上拉         | 使能           | PMIC_INT_N                     |                                   |                              |                               |                       |                   |                   |
+|           | GPIO[81]           | 上拉         | 使能           | GPIO[81]                       | R_I2S3_SCLK                       | UART3_TXD                    | UART4_CTS_N                   | MN_CLK                | AP_I2C5_SCL       |                   |
+|           | GPIO[82]           | 上拉         | 使能           | GPIO[82]                       | R_I2S3_LRCK                       | UART3_RXD                    | UART4_RTS_N                   | UART8_TXD             | AP_I2C5_SDA       |                   |
+|           | GPIO[83]           | 上拉         | 使能           | GPIO[83]                       | R_I2S3_TXD                        | UART3_CTS_N                  | UART4_TXD                     | UART8_RXD             | AP_I2C6_SCL       |                   |
+|           | GPIO[84]           | 上拉         | 使能           | GPIO[84]                       | R_I2S3_RXD                        | UART3_RTS_N                  | UART4_RXD                     | AP_I2C2_SCL           |                   |                   |
+|           | GPIO[85]           | 上拉         | 使能           | GPIO[85]                       | R_I2S3_SYSCLK                     | UART6_CTS_N                  | MN_CLK2                       | AP_I2C2_SDA           |                   |                   |
+|           | GPIO[86]           | 上拉         | 使能           | GPIO[86]                       | HDMI_TX_HSCL                      | UART6_TXD                    | DCLK <SPI_LCD>                | UART7_CTS_N           |                   |                   |
+|           | GPIO[87]           | 上拉         | 使能           | GPIO[87]                       | HDMI_TX_HSDA                      | UART6_RXD                    | DCX/DOUT1 <SPI_LCD>           | UART7_RTS_N           |                   |                   |
+|           | GPIO[88]           | 下拉         | 使能           | GPIO[88]                       | HDMI_TX_HCEC                      | UART7_TXD                    | DIN <SPI_LCD>                 | PWM6                  |                   |                   |
+|           | GPIO[89]           | 下拉         | 使能           | GPIO[89]                       | HDMI_TX_PDP                       | UART7_RXD                    | DOUT0 <SPI_LCD>               | VCXO_REQ              |                   |                   |
+|           | GPIO[90]           | 下拉         | 使能           | GPIO[90]/strap[4]              |                                   | UART6_RTS_N                  | CS<SPI_LCD>                   | VCXO_OUT              | AP_I2C6_SDA       |                   |
+|           | GPIO[91]           | 上拉         | 使能           | GPIO[91]                       | MN_CLK2                           | VCXO_OUT                     | DSI_TE                        | R_I2C0_SCL            |                   |                   |
+|           | GPIO[92]           | 上拉         | 使能           | GPIO[92]                       | MN_CLK                            | PWM7                         | R_I2C0_SDA                    |                       |                   |                   |
+|           | JTAG_SEL           | 下拉         | 否             | JTAG_SEL                       |                                   |                              |                               |                       |                   |                   |
+| **GPIO 1**    | GPIO[0]            | 下拉         | 使能           | GPIO[0]                        | GMAC0_RXDV                        | UART6_TXD                    | PWM8                          |                       |                   |                   |
+|           | GPIO[1]            | 下拉         | 使能           | GPIO[1]                        | GMAC0_RX_D0                       | UART6_RXD                    | PWM9                          |                       |                   |                   |
+|           | GPIO[2]            | 下拉         | 使能           | GPIO[2]                        | GMAC0_RX_D1                       | UART6_CTS_N                  | PWM10                         |                       |                   |                   |
+|           | GPIO[3]            | 下拉         | 使能           | GPIO[3]                        | GMAC0_RX_CLK                      | UART6_RTS_N                  | PWM11                         |                       |                   |                   |
+|           | GPIO[4]            | 下拉         | 使能           | GPIO[4]                        | GMAC0_RX_D2                       | UART7_TXD                    | PWM12                         |                       |                   |                   |
+|           | GPIO[5]            | 下拉         | 使能           | GPIO[5]                        | GMAC0_RX_D3                       | UART7_RXD                    | PWM13                         |                       |                   |                   |
+|           | GPIO[6]            | 下拉         | 使能           | GPIO[6]                        | GMAC0_TX_D0                       | UART7_CTS_N                  | PWM14                         |                       |                   |                   |
+|           | GPIO[7]            | 下拉         | 使能           | GPIO[7]                        | GMAC0_TX_D1                       | UART7_RTS_N                  | PWM15                         |                       |                   |                   |
+|           | GPIO[8]            | 下拉         | 使能           | GPIO[8]                        | GMAC0_TX                          | UART8_TXD                    |                               |                       |                   |                   |
+|           | GPIO[9]            | 下拉         | 使能           | GPIO[9]                        | GMAC0_TX_D2                       | UART8_RXD                    | PWM16                         |                       |                   |                   |
+|           | GPIO[10]           | 下拉         | 使能           | GPIO[10]                       | GMAC0_TX_D3                       | UART8_CTS_N                  | PWM17                         |                       |                   |                   |
+|           | GPIO[11]           | 下拉         | 使能           | GPIO[11]                       | GMAC0_TX_EN                       | UART8_RTS_N                  | PWM18                         |                       |                   |                   |
+|           | GPIO[12]           | 下拉         | 使能           | GPIO[12]                       | GMAC0_MDC                         | UART9_TXD                    | VCXO_OUT                      |                       |                   |                   |
+|           | GPIO[13]           | 下拉         | 使能           | GPIO[13]                       | GMAC0_MDIO                        | UART9_RXD                    | PWM19                         |                       |                   |                   |
+|           | GPIO[14]           | 下拉         | 使能           | GPIO[14]                       | GMAC0_INT_N                       | PWM0                         |                               |                       |                   |                   |
+|           | GPIO[15]           | 上拉         | 使能           | GPIO[15]                       | MMC2_DATA3                        | PCIe0_PERSTN                 | PCIe1_PERSTN                  |                       |                   |                   |
+|           | GPIO[16]           | 上拉         | 使能           | GPIO[16]                       | MMC2_DATA2                        | PCIe0_WAKEN<br>VCXO_REQ      | PCIe1_WAKEN                   |                       |                   |                   |
+|           | GPIO[17]           | 上拉         | 使能           | GPIO[17]                       | MMC2_DATA1                        | PCIe0_CLKREQN<br>VCXO_OUT    | PCIe1_CLKREQN                 |                       |                   |                   |
+|           | GPIO[18]           | 上拉         | 使能           | GPIO[18]                       | MMC2_DATA0                        | UART3_TXD                    | PCIe2_PERSTN                  |                       |                   |                   |
+|           | GPIO[19]           | 上拉         | 使能           | GPIO[19]                       | MMC2_CMD                          | UART3_RXD                    | PCIe2_WAKEN                   |                       |                   |                   |
+|           | GPIO[20]           | 上拉         | 使能           | GPIO[20]                       | MMC2_CLK                          | UART3_CTS_N<br>MN_CLK        | PCIe2_CLKREQN                 |                       |                   |                   |
+|           | GPIO[21]           | 下拉         | 使能           | GPIO[21]                       | UART2_TXD                         | UART3_RTS_N                  | 32K_OUT                       |                       |                   |                   |
+|           | GPIO[22]           | 下拉         | 使能           | GPIO[22]                       | UART2_RXD                         | PWM2                         | PWM0                          |                       |                   |                   |
+|           | GPIO[23]           | 下拉         | 使能           | GPIO[23]                       | UART2_CTS_N                       | UART4_TXD<br>MN_CLK          | PWM1                          |                       |                   |                   |
+|           | GPIO[24]           | 下拉         | 使能           | GPIO[24]                       | UART2_RTS_N                       | UART4_RXD<br>I2S1_SYSCLK     | PWM2                          |                       |                   |                   |
+|           | GPIO[25]           | 下拉         | 使能           | GPIO[25]                       | I2S1_SCLK                         | UART5_TXD                    | PWM3                          |                       |                   |                   |
+|           | GPIO[26]           | 下拉         | 使能           | GPIO[26]                       | I2S1_LRCK                         | UART5_RXD                    |                               |                       |                   |                   |
+|           | GPIO[27]           | 下拉         | 使能           | GPIO[27]                       | I2S1_TXD                          | UART5_CTS_N                  |                               |                       |                   |                   |
+|           | GPIO[28]           | 下拉         | 使能           | GPIO[28]                       | I2S1_RXD                          | UART5_RTS_N                  | 32K_OUT                       |                       |                   |                   |
+|           | GPIO[29]           | 下拉         | 使能           | GPIO[29]                       | GMAC1_RXDV                        | UART1_TXD <安全域><br>PWM1   | PCIe0_PERSTN                  |                       |                   |                   |
+|           | GPIO[30]           | 下拉         | 使能           | GPIO[30]                       | GMAC1_RX_D0                       | UART1_RXD <安全域><br>PWM2   | PCIe0_WAKEN                   |                       |                   |                   |
+|           | GPIO[31]           | 下拉         | 使能           | GPIO[31]                       | GMAC1_RX_D1                       | UART1_CTS_N <安全域><br>32K_OUT | PCIe0_CLKREQN              |                       |                   |                   |
+|           | GPIO[32]           | 下拉         | 使能           | GPIO[32]                       | GMAC1_RX_CLK                      | UART1_RTS_N <安全域><br>MN_CLK | PCIe1_PERSTN               |                       |                   |                   |
+|           | GPIO[33]           | 下拉         | 使能           | GPIO[33]                       | GMAC1_RX_D2                       | UART4_TXD<br>PWM3            | PCIe1_WAKEN                   |                       |                   |                   |
+|           | GPIO[34]           | 下拉         | 使能           | GPIO[34]                       | GMAC1_RX_D3                       | UART4_RXD<br>PWM4            | PCIe1_CLKREQN                 |                       |                   |                   |
+|           | GPIO[35]           | 下拉         | 使能           | GPIO[35]                       | GMAC1_TX_D0                       | UART4_CTS_N<br>PWM5          | PCIe2_PERSTN                  |                       |                   |                   |
+|           | GPIO[36]           | 下拉         | 使能           | GPIO[36]                       | GMAC1_TX_D1                       | UART4_RTS_N<br>PWM6          | PCIe2_WAKEN                   |                       |                   |                   |
+|           | GPIO[37]           | 下拉         | 使能           | GPIO[37]                       | GMAC1_TX                          | PWM7                         | PCIe2_CLKREQN                 |                       |                   |                   |
+|           | GPIO[38]           | 上拉         | 使能           | GPIO[38]                       | GMAC1_TX_D2                       | AP_I2C3_SCL <安全域><br>R_I2S3_SCLK | PWM8                  |                       |                   |                   |
+|           | GPIO[39]           | 上拉         | 使能           | GPIO[39]                       | GMAC1_TX_D3                       | AP_I2C3_SDA <安全域><br>R_I2S3_LRCK | PWM9                  |                       |                   |                   |
+|           | GPIO[40]           | 上拉         | 使能           | GPIO[40]                       | GMAC1_TX_EN                       | AP_I2C4_SCL<br>R_I2S3_TXD    | PWM10                         |                       |                   |                   |
+|           | GPIO[41]           | 上拉         | 使能           | GPIO[41]                       | GMAC1_MDC                         | AP_I2C4_SDA<br>R_I2S3_RXD    | PWM11                         |                       |                   |                   |
+|           | GPIO[42]           | 下拉         | 使能           | GPIO[42]                       | GMAC1_MDIO                        | UART5_TXD<br>R_I2S3_SYSCLK   | PWM12                         |                       |                   |                   |
+|           | GPIO[43]           | 下拉         | 使能           | GPIO[43]                       | GMAC1_INT_N                       | UART5_RXD                    | PWM13                         |                       |                   |                   |
+|           | GPIO[44]           | 下拉         | 使能           | GPIO[44]                       | MN_CLK                            | UART5_CTS_N<br>R_IR_RX       | PWM14                         |                       |                   |                   |
+|           | GPIO[45]           | 下拉         | 使能           | GPIO[45]                       | GMAC0_CLK_REF                     | UART5_RTS_N                  | PWM15                         |                       |                   |                   |
+|           | GPIO[46]           | 下拉         | 使能           | GPIO[46]                       | GMAC1_CLK_REF                     |                              | PWM16                         |                       |                   |                   |
+|           | GPIO[110]          | 下拉         | 使能           | GPIO[110]                      | R_CAN_TX0                         | R_UART1_TXD                  | UART9_CTS_N                   | PCIe0_PERSTN          | ONE_WIRE          |                   |
+|           | GPIO[115]          | 下拉         | 使能           | GPIO[115]                      | R_CAN_RX0                         | R_UART1_RXD                  | UART9_RTS_N                   | PCIe0_WAKEN           |                   |                   |
+|           | GPIO[116]          | 下拉         | 使能           | GPIO[116]                      | R_PWM1                            | R_UART1_CTS_N                | UART9_TXD                     | PCIe0_CLKREQN         | VCXO_REQ[1]       |                   |
+|           | GPIO[117]          | 下拉         | 使能           | GPIO[117]                      | R_PWM2                            | R_UART1_RTS_N                | UART9_RXD                     | PCIe2_CLKREQN         | VCXO_CLK_OUT      |                   |
+|           | GPIO[118]          | 上拉         | 使能           | GPIO[118]                      | AP_I2C7_SCL (CAM)                 | AP_I2C6_SCL                  | I2S0_SCLK                     | R_PWM8                | KP_MKIN[0]        |                   |
+|           | GPIO[119]          | 上拉         | 使能           | GPIO[119]                      | AP_I2C7_SDA (CAM)                 | AP_I2C6_SDA                  | I2S0_LRCK                     | R_PWM9                | KP_MKOUT[0]       |                   |
+|           | GPIO[120]          | 下拉         | 使能           | GPIO[120]                      | CAM_MCLK2                         | I2S0_TXD                     | R_PWM6                        | KP_MKIN[1]            |                   |                   |
+|           | GPIO[121]          | 下拉         | 使能           | GPIO[121]                      | CAMERA2_RST                       | VBUS_ON2                     | I2S0_RXD                      | R_PWM7                | KP_MKOUT[1]       |                   |
+|           | GPIO[122]          | 下拉         | 使能           | GPIO[122]                      | CAMERA2_PDN                       | USB_ID2                      | I2S0_SYSCLK                   | KP_MKIN[2]            |                   |                   |
+|           | GPIO[123]          | 下拉         | 使能           | GPIO[123]                      | DRIVE_VBUS2_ISO                   | KP_DKIN[0]                   | KP_MKIN[0]                    |                       |                   |                   |
+|           | GPIO[124]          | 下拉         | 使能           | GPIO[124]                      | DRIVE_VBUS1_ISO                   | KP_DKIN[1]                   | KP_MKOUT[0]                   |                       |                   |                   |
+|           | GPIO[125]          | 下拉         | 使能           | GPIO[125]                      | VBUS_ON0                          | KP_DKIN[2]                   | KP_MKIN[1]                    |                       |                   |                   |
+|           | GPIO[126]          | 下拉         | 使能           | GPIO[126]                      | USB_ID0                           | KP_DKIN[3]                   | KP_MKOUT[1]                   |                       |                   |                   |
+|           | GPIO[127]          | 下拉         | 使能           | GPIO[127]                      | DRIVE_VBUS0_ISO                   | KP_DKIN[4]                   | KP_MKIN[2]                    |                       |                   |                   |
+| **GPIO 2**    | GPIO[75]           | 上拉         | 使能           | GPIO[75]                       | SPI2_SCLK <安全域>                | SPI3_SCLK                    | CAN_TX0                       | UART8_TXD             | AP_I2C4_SCL       |                   |
+|           | GPIO[76]           | 上拉         | 使能           | GPIO[76]                       | SPI2_FRM <安全域>                 | SPI3_FRM                     | CAN_RX0                       | UART8_RXD             | AP_I2C4_SDA       |                   |
+|           | GPIO[77]           | 上拉         | 使能           | GPIO[77]                       | SPI2_TXD <安全域>                 | SPI3_TXD                     | AP_I2C3_SCL <安全域>          | UART8_CTS_N           | R_PWM0            | KP_MKOUT[2]       |
+|           | GPIO[78]           | 上拉         | 使能           | GPIO[78]                       | SPI2_RXD <安全域>                 | SPI3_RXD                     | AP_I2C3_SDA <安全域>          | UART8_RTS_N           | R_PWM1            | KP_MKIN[3]        |
+|           | GPIO[79]           | 下拉         | 使能           | GPIO[79]                       | IR_RX                             | R_PWM2                       |                               |                       |                   | KP_MKOUT[3]       |
+|           | GPIO[80]           | 下拉         | 使能           | GPIO[80]                       | MMC_Card_detect                   | R_PWM3                       | UART0_RXD<br>R_UART0_RXD      |                       |                   |                   |
+| **GPIO 3**    | GPIO[47]           | 上拉         | 使能           | GPIO[47]                       | R_UART0_TXD                       | R_CAN_TX0                    | R_PWM8                        | AP_I2C3_SCL<安全域>   | ONE_WIRE          |                   |
+|           | GPIO[48]           | 上拉         | 使能           | GPIO[48]                       | R_UART0_RXD                       | R_CAN_RX0                    | R_IR_RX                       | AP_I2C3_SDA<安全域>   | KP_MKOUT[2]       |                   |
+|           | GPIO[49]           | 上拉         | 使能           | GPIO[49]                       | R_SPI_SCLK                        | R_UART1_CTS_N                | R_PWM4                        | R_I2C0_SCL            | KP_MKIN[3]        |                   |
+|           | GPIO[50]           | 上拉         | 使能           | GPIO[50]                       | R_SPI_FRM                         | R_UART1_RTS_N                | R_PWM5                        | R_I2C0_SDA            | KP_MKOUT[3]       |                   |
+|           | GPIO[51]           | 上拉         | 使能           | GPIO[51]                       | R_SPI_TXD                         | R_UART1_TXD                  | R_PWM6                        | AP_I2C4_SCL           |                   |                   |
+|           | GPIO[52]           | 上拉         | 使能           | GPIO[52]                       | R_SPI_RXD                         | R_UART1_RXD                  | R_PWM7                        | AP_I2C4_SDA           |                   |                   |
+| **GPIO 4**    | GPIO[53]           | 下拉         | 使能           | GPIO[53]                       | CAM_MCLK0                         | PWM17                        | PCIe0_CLKREQN                 | UART3_TXD             |                   |                   |
+|           | GPIO[54]           | 上拉         | 使能           | GPIO[54]                       | AP_I2C0_SCL (CAM)                 | CAN_TX0                      | PCIe0_PERSTN                  | UART3_RXD             | AP_I2C5_SCL       |                   |
+|           | GPIO[55]           | 上拉         | 使能           | GPIO[55]                       | AP_I2C0_SDA (CAM)                 | CAN_RX0                      | PCIe0_WAKEN                   | UART3_CTS_N           | AP_I2C5_SDA       |                   |
+|           | GPIO[56]           | 上拉         | 使能           | GPIO[56]                       | AP_I2C1_SCL (CAM)                 | UART6_TXD                    | PCIe1_PERSTN                  | UART3_RTS_N           | AP_I2C6_SCL       |                   |
+|           | GPIO[57]           | 上拉         | 使能           | GPIO[57]                       | AP_I2C1_SDA (CAM)                 | UART6_RXD                    | PCIe1_WAKEN                   | PWM18                 | AP_I2C6_SDA       |                   |
+|           | GPIO[58]           | 下拉         | 使能           | GPIO[58]                       | CAM_MCLK1                         | I2S0_SYSCLK                  | PCIe1_CLKREQN                 | IR_RX                 |                   |                   |
+|           | GPIO[111]          | 下拉         | 使能           | GPIO[111]                      | CAMERA0_RST                       | I2S0_SCLK                    | PCIe2_PERSTN                  | UART4_TXD             |                   |                   |
+|           | GPIO[112]          | 下拉         | 使能           | GPIO[112]                      | CAMERA1_RST                       | I2S0_LRCK                    | PCIe2_WAKEN                   | UART4_RXD             |                   |                   |
+|           | GPIO[113]          | 下拉         | 使能           | GPIO[113]                      | CAMERA0_PDN                       | I2S0_TXD                     | PCIe2_CLKREQN                 | UART4_CTS_N           |                   |                   |
+|           | GPIO[114]          | 下拉         | 使能           | GPIO[114]                      | CAMERA1_PDN                       | I2S0_RXD                     | DSI_TE                        | UART4_RTS_N           |                   |                   |
+|           | GPIO[63]           | 下拉         | 使能           | GPIO[63]                       | DRIVE_VBUS0_ISO                   | R_I2S2_SYSCLK                | PWM19                         | KP_DKIN[0]            |                   |                   |
+|           | GPIO[64]           | 下拉         | 使能           | GPIO[64]                       | VBUS_ON0                          | R_I2S2_SCLK                  | SPI2_SCLK <安全域>            | R_PWM0                | KP_DKIN[1]        |                   |
+|           | GPIO[65]           | 上拉         | 使能           | GPIO[65]                       | USB_ID0                           | R_I2S2_LRCK                  | SPI2_FRM <安全域>             | R_PWM1                | KP_DKIN[2]        |                   |
+|           | GPIO[66]           | 下拉         | 使能           | GPIO[66]                       | DRIVE_VBUS1_ISO                   | R_I2S2_TXD                   | SPI2_TXD <安全域>             | R_PWM2                | KP_DKIN[3]        |                   |
+|           | GPIO[67]           | 下拉         | 使能           | GPIO[67]                       | DRIVE_VBUS2_ISO                   | R_I2S2_RXD                   | SPI2_RXD <安全域>             | R_PWM3                | KP_DKIN[4]        |                   |
+|           | GPIO[68]           | 下拉         | 使能           | GPIO[68]                       | VBUS_ON2                          | UART0_TXD                    | AP_I2C2_SCL                   | R_PWM4                |                   |                   |
+|           | GPIO[69]           | 上拉         | 使能           | GPIO[69]                       | USB_ID2                           | UART0_RXD                    | AP_I2C2_SDA                   | R_PWM5                |                   |                   |
+| **GPIO 5**    | GPIO[59]           | 上拉         | 使能           | GPIO[59]                       | HDMI_TX_HSCL                      | SPI3_SCLK                    | UART1_TXD <安全域>            | PCIe1_PERSTN          |                   |                   |
+|           | GPIO[60]           | 上拉         | 使能           | GPIO[60]                       | HDMI_TX_HSDA                      | SPI3_FRM                     | UART1_RXD <安全域>            | PCIe1_WAKEN           |                   |                   |
+|           | GPIO[61]           | 上拉         | 使能           | GPIO[61]                       | HDMI_TX_HCEC                      | SPI3_TXD                     | UART1_CTS_N <安全域>          | PCIe1_CLKREQN         |                   |                   |
+|           | GPIO[62]           | 上拉         | 使能           | GPIO[62]                       | HDMI_TX_PDP                       | SPI3_RXD                     | UART1_RTS_N <安全域>          | PCIe2_PERSTN          |                   |                   |
+|           | PRI_TDI            | 上拉         | 否             | PRI_TDI                        | GPIO[70]                          | AP_I2C2_SCL                  | DCLK <SPI_LCD>                | UART5_TXD             |                   |                   |
+|           | PRI_TMS            | 上拉         | 否             | PRI_TMS                        | GPIO[71]                          | AP_I2C2_SDA                  | DCX/DOUT1 <SPI_LCD>           | UART5_RXD             |                   |                   |
+|           | PRI_TCK            | 下拉         | 否             | PRI_TCK                        | GPIO[72]                          | UART9_TXD                    | DIN<SPI_LCD>                  | UART5_CTS_N           |                   |                   |
+|           | PRI_TDO            | 上拉         | 否             | PRI_TDO                        | GPIO[73]                          | UART9_RXD                    | DOUT0 <SPI_LCD>               | UART5_RTS_N           |                   |                   |
+|           | PRI_TRSTn          | 上拉         | 否             | PRI_TRSTn                      |                                   |                              |                               |                       |                   |                   |
+|           | GPIO[74]           | 上拉         | 使能           | GPIO[74]                       |                                   | PWM9                         | CS<SPI_LCD>                   | PCIe2_WAKEN           |                   |                   |
+| **eMMC5.1**   | EMMC_D0            |              |                | EMMC_D0                        | GPIO[93]                          |                              |                               |                       |                   |                   |
+|           | EMMC_D1            |              |                | EMMC_D1                        | GPIO[94]                          |                              |                               |                       |                   |                   |
+|           | EMMC_D2            |              |                | EMMC_D2                        | GPIO[95]                          |                              |                               |                       |                   |                   |
+|           | EMMC_D3            |              |                | EMMC_D3                        | GPIO[96]                          |                              |                               |                       |                   |                   |
+|           | EMMC_D4            |              |                | EMMC_D4                        | GPIO[97]                          |                              |                               |                       |                   |                   |
+|           | EMMC_D5            |              |                | EMMC_D5                        | GPIO[98]                          |                              |                               |                       |                   |                   |
+|           | EMMC_D6            |              |                | EMMC_D6                        | GPIO[99]                          |                              |                               |                       |                   |                   |
+|           | EMMC_D7            |              |                | EMMC_D7                        | GPIO[100]                         |                              |                               |                       |                   |                   |
+|           | EMMC_DS            |              |                | EMMC_DS                        | GPIO[101]                         |                              |                               |                       |                   |                   |
+|           | EMMC_CLK           |              |                | EMMC_CLK                       | GPIO[102]                         |                              |                               |                       |                   |                   |
+|           | EMMC_CMD           |              |                | EMMC_CMD                       | GPIO[103]                         |                              |                               |                       |                   |                   |
+### 4.5 电源引脚
 
-### 4.5 Power Supply Pins
+| 引脚名称           | 电源域             | 域电压                              | 描述                                                                 |
+|--------------------|--------------------|-------------------------------------|----------------------------------------------------------------------|
+| AUD_VDDU09         | AUDIO（音频）       | 0.9V                                | 音频模块 0.9V 电源                                                  |
+| AUD_VNEG           | AUDIO（音频）       | -1.8V                               | 耳机驱动器负电源                                                    |
+| AUD_VPOS           | AUDIO（音频）       | 1.8V                                | 耳机驱动器正电源                                                    |
+| AVDD18_AUD         | AUDIO（音频）       | 1.8V                                | 音频模块 1.8V 电源                                                  |
+| AVDD3V3_AUD        | AUDIO（音频）       | 3.3V                                | 耳机驱动器 3.3V 电源                                                |
+| VCC_M1             | CORE（数字核）    | 0.9V                                | 数字核电源                                                        |
+| AVDD09_CSI         | CSI（摄像头串行接口）| 0.9V                                | MIPI CSI 数字电源                                                   |
+| AVDD18_CSI         | CSI（摄像头串行接口）| 1.8V                                | MIPI CSI 模拟电源                                                   |
+| AVDD09_AFEAP       | DCXO（温补晶体振荡器）| 0.9V                               | DCXO 0.9V 电源                                                      |
+| AVDD18_AFEAP       | DCXO（温补晶体振荡器）| 1.8V                               | DCXO 1.8V 电源                                                      |
+| AVDD06_DDR         | DDR（内存）         | LPDDR4X: 0.6V<br/>LPDDR4: TBD<br/>LPDDR3: TBD | LPDDR4X I/O 电源                                                    |
+| AVDD11_DDR         | DDR（内存）         | LPDDR4X: 1.1V<br/>LPDDR4: 1.1V<br/>LPDDR3: 1.2V | LPDDR PHY 电源                                                      |
+| AVDD18_DDR         | DDR（内存）         | 1.8V                                | LPDDR PHY PLL 1.8V 电源                                             |
+| AVDD18_PHY         | DDR（内存）         | 1.8V                                | 模拟 1.8V 电源                                                      |
+| AVDDU_DDR          | DDR（内存）         | 0.9V                                | LPDDR PHY PLL 逻辑电源                                              |
+| AVDDU_PHY          | DDR（内存）         | 0.9V                                | LPDDR PHY 核逻辑电源                                              |
+| DDR_LDO_CAP        | DDR（内存）         | 0.7~0.9V                            | 外部 LDO 输出引脚。<br/>PCB 上需连接一个 100nF 电容。               |
+| DDR_LP23_VREFCA    | DDR（内存）         | LPDDR3: 0.6V<br/>LPDDR4: 高阻态      | LPDDR2/3 的 CA 参考电压。<br/>LPDDR4/4X 时，此引脚悬空（NC）。     |
+| DDR_LP23_VREFDQ    | DDR（内存）         | LPDDR3: 0.6V<br/>LPDDR4: 高阻态      | LPDDR2/3 的 DQ 参考电压。<br/>LPDDR4/4X 时，此引脚悬空（NC）。     |
+| VDDQ_V1P2          | DDR（内存）         | LPDDR3: 1.2V<br/>LPDDR4X: 0.6V      | LPDDR3 I/O 电源                                                     |
+| AVDD09_DSI1        | DSI（显示串行接口） | 0.9V                                | DSI 数字电源                                                        |
+| AVDD12_DSI1        | DSI（显示串行接口） | 1.2V                                | DSI 驱动器电源                                                      |
+| AVDD18_DSI1        | DSI（显示串行接口） | 1.8V                                | DSI 模拟电源                                                        |
+| AVDD18_EFUSE       | EFUSE（电子熔丝）   | 1.8V                                | 模拟电源组（ANAGRP）                                                |
+| AVDD09_EMMC        | eMMC                | 0.9V                                | eMMC 数字电源                                                       |
+| AVDD18_EMMC        | eMMC                | 1.8V                                | eMMC 模拟电源                                                       |
+| VCC18_GPIO         | GPIO1/4/5/PMIC      | 1.8V                                | GPIO1/4/5/PMIC I/O 电源                                             |
+| VCC1833_GPIO2      | GPIO2               | 1.8V / 3.3V                         | GPIO2 I/O 电源                                                      |
+| VCC1833_GPIO3      | GPIO3               | 1.8V / 3.3V                         | GPIO3 I/O 电源                                                      |
+| AVDD09_HDMI        | HDMI                | 0.9V                                | HDMI 数字电源                                                       |
+| AVDD18_HDMI        | HDMI                | 1.8V                                | HDMI 1.8V 电源                                                      |
+| AVDD33_HDMI        | HDMI                | 3.3V                                | HDMI 3.3V 电源                                                      |
+| AVDD09_PCIEA       | PCIEA               | 0.9V                                | PCIEA 数字电源                                                      |
+| AVDD18_PCIEA       | PCIEA               | 1.8V                                | PCIEA 模拟电源                                                      |
+| AVDD09_PCIEB       | PCIEB               | 0.9V                                | PCIEB 数字电源                                                      |
+| AVDD18_PCIEB       | PCIEB               | 1.8V                                | PCIEB 模拟电源                                                      |
+| AVDD09_PCIEC       | PCIEC               | 0.9V                                | PCIEC 数字电源                                                      |
+| AVDD18_PCIEC       | PCIEC               | 1.8V                                | PCIEC 模拟电源                                                      |
+| AVDD09_PLL         | PLL（锁相环）       | 0.9V                                | 系统 PLL 电源                                                       |
+| AVDD18_PLL         | PLL（锁相环）       | 1.8V                                | 系统 PLL 电源                                                       |
+| VCC1833_QSPI       | QSPI                | 1.8V / 3.3V                         | QSPI I/O 电源                                                       |
+| VCC1833_MMC1       | SD 卡               | 1.8V / 3.3V                         | SD 卡 I/O 电源                                                      |
+| AVDD09_USB         | USB 2.0             | 0.9V                                | USB 2.0 数字电源                                                    |
+| AVDD18_USB         | USB 2.0             | 1.8V                                | USB 2.0 1.8V 电源                                                   |
+| AVDD33_USB         | USB 2.0             | 3.3V                                | USB 2.0 3.3V 电源                                                   |
 
-| Pin Name           | Domain Name        | Domain Voltage                     | Description                                                                 |
-|--------------------|--------------------|------------------------------------|-----------------------------------------------------------------------------|
-| AUD_VDDU09         | AUDIO              | 0.9V                               | 0.9V power for audio                                                        |
-| AUD_VNEG           | AUDIO              | -1.8V                              | Negative voltage for headphone driver                                       |
-| AUD_VPOS           | AUDIO              | 1.8V                               | Positive voltage for headphone driver                                       |
-| AVDD18_AUD         | AUDIO              | 1.8V                               | 1.8V power for audio                                                        |
-| AVDD3V3_AUD        | AUDIO              | 3.3V                               | 3.3V power for earphone driver                                              |
-| VCC_M1             | CORE               | 0.9V                               | Digital core power                                                          |
-| AVDD09_CSI         | CSI                | 0.9V                               | MIPI_CSI digital power                                                      |
-| AVDD18_CSI         | CSI                | 1.8V                               | MIPI_CSI analog power                                                       |
-| AVDD09_AFEAP       | DCXO               | 0.9V                               | 0.9V power for DCXO                                                         |
-| AVDD18_AFEAP       | DCXO               | 1.8V                               | 1.8V power for DCXO                                                         |
-| AVDD06_DDR         | DDR                | lp4x: 0.6V<br/>lp4: TBD<br/>lp3: TBD | LPDDR4X IO power                                                            |
-| AVDD11_DDR         | DDR                | lp4x: 1.1V<br/>lp4: 1.1V<br/>lp3: 1.2V | LPDDR PHY power supply                                                      |
-| AVDD18_DDR         | DDR                | 1.8V                               | LPDDR PHY PLL 1.8V power                                                    |
-| AVDD18_PHY         | DDR                | 1.8V                               | Analog 1.8V power                                                           |
-| AVDDU_DDR          | DDR                | 0.9V                               | LPDDR PHY PLL logical power                                                 |
-| AVDDU_PHY          | DDR                | 0.9V                               | LPDDR PHY core logical power                                                |
-| DDR_LDO_CAP        | DDR                | 0.7~0.9V                           | External LDO output ball.<br/>Connect to a 100nF capacitor on PCB board.    |
-| DDR_LP23_VREFCA    | DDR                | lp3: 0.6V<br/>lp4: high-z          | CA VREF for lpddr23.<br/>LP4/4x, Keep the pin NC.                           |
-| DDR_LP23_VREFDQ    | DDR                | lp3: 0.6V<br/>lp4: high-z          | DQ VREF for lpddr23.<br/>LP4/4x, keep the pin NC.                           |
-| VDDQ_V1P2          | DDR                | lp3: 1.2V<br/>lp4x: 0.6V           | LPDDR3 IO power                                                             |
-| AVDD09_DSI1        | DSI                | 0.9V                               | DSI digital power                                                           |
-| AVDD12_DSI1        | DSI                | 1.2V                               | DSI driver power                                                            |
-| AVDD18_DSI1        | DSI                | 1.8V                               | DSI analog power                                                            |
-| AVDD18_EFUSE       | EFUSE              | 1.8V                               | ANAGRP                                                                      |
-| AVDD09_EMMC        | EMMC               | 0.9V                               | eMMC digital power                                                          |
-| AVDD18_EMMC        | EMMC               | 1.8V                               | eMMC analog power                                                           |
-| VCC18_GPIO         | GPIO1/4/5/PMIC     | 1.8V                               | GPIO1/4/5/PMIC I/O power                                                    |
-| VCC1833_GPIO2      | GPIO2              | 1.8V/3.3V                          | GPIO2 IO power                                                              |
-| VCC1833_GPIO3      | GPIO3              | 1.8V/3.3V                          | GPIO3 IO power                                                              |
-| AVDD09_HDMI        | HDMI               | 0.9V                               | HDMI digital power                                                          |
-| AVDD18_HDMI        | HDMI               | 1.8V                               | HDMI 1.8V power                                                             |
-| AVDD33_HDMI        | HDMI               | 3.3V                               | HDMI 3.3V power                                                             |
-| AVDD09_PCIEA       | PCIEA              | 0.9V                               | PCIEA digital power                                                         |
-| AVDD18_PCIEA       | PCIEA              | 1.8V                               | PCIEA analog power                                                          |
-| AVDD09_PCIEB       | PCIEB              | 0.9V                               | PCIEB digital power                                                         |
-| AVDD18_PCIEB       | PCIEB              | 1.8V                               | PCIEB analog power                                                          |
-| AVDD09_PCIEC       | PCIEC              | 0.9V                               | PCIEC digital power                                                         |
-| AVDD18_PCIEC       | PCIEC              | 1.8V                               | PCIEC analog power                                                          |
-| AVDD09_PLL         | PLL                | 0.9V                               | System PLL power supply                                                     |
-| AVDD18_PLL         | PLL                | 1.8V                               | System PLL power supply                                                     |
-| VCC1833_QSPI       | QSPI               | 1.8V/3.3V                          | QSPI IO power                                                               |
-| VCC1833_MMC1       | SD card            | 1.8V/3.3V                          | SD card IO power                                                            |
-| AVDD09_USB         | USB2.0             | 0.9V                               | USB2.0 digital power                                                        |
-| AVDD18_USB         | USB2.0             | 1.8V                               | USB2.0 1.8V power                                                           |
-| AVDD33_USB         | USB2.0             | 3.3V                               | USB2.0 3.3V power                                                           |
+### 4.6 多功能引脚寄存器（MFPR）
 
-### 4.6 Multi-Function Pin Registers
+K1 芯片中定义并实现了多功能引脚寄存器（Multi-Function Pin Registers, MFPR）。  
+具体而言，共有 129 个 MFPR，起始基地址为 `0xD401E000`，寄存器间距（stride）为 `0x4`，如下表所示。
 
-In K1 are defined and implemented Multi-Function Pin Registers (MFPRs). In particular, there are 129 MFPR in total, starting from the base address 0xD401E000 with a stride of 0x4, as tabled below.
-
-| MFPR ID      | Address       | Offset |
+| MFPR ID | 地址（Address） | 偏移量（Offset） |
 |--------------|---------------|--------|
 | GPIO_00      | 0xD401E004    | 0x4    |
 | GPIO_01      | 0xD401E008    | 0x8    |
@@ -3889,123 +3903,123 @@ In K1 are defined and implemented Multi-Function Pin Registers (MFPRs). In parti
 | GPIO_126     | 0xD401E248    | 0x248  |
 | GPIO_127     | 0xD401E24C    | 0x24C  |
 
-#### MFPR Functional Description
+#### MFPR 功能描述
 
-##### I/O PAD Parameter Definition
+##### I/O PAD 参数定义
 
-The input thresholds of Buffer Mode of I/O PADs are tabled below.
+I/O PAD 的缓冲模式输入阈值如下表所示。
 
-**ST1:ST0 == 2'b00**
+**当 ST1:ST0 == 2'b00**
 
-| Input Threshold | Min  | Typ  | Max  | Unit |
-|-----------------|------|------|------|------|
-| VT              | 0.75 | 0.91 | 1.09 | V    |
-| VT PU           | 0.74 | 0.90 | 1.08 | V    |
-|                 |      |      |      |      |
-| VT PD           | 0.76 | 0.92 | 1.10 | V    |
+| 输入阈值       | 最小值（Min） | 典型值（Typ） | 最大值（Max） | 单位（Unit） |
+|----------------|---------------|---------------|---------------|--------------|
+| VT             | 0.75          | 0.91          | 1.09          | V            |
+| VT PU          | 0.74          | 0.90          | 1.08          | V            |
+|                |               |               |               |              |
+| VT PD          | 0.76          | 0.92          | 1.10          | V            |
 
-Instead, the input thresholds of Schmitt Trigger Mode of I/O PADs are tabled below.
+而 I/O PAD 的施密特触发器模式输入阈值如下表所示。
 
-**ST1:ST0 == 2'b01**
+**当 ST1:ST0 == 2'b01**
 
-| Input Threshold | Min  | Typ  | Max  | Unit |
-|-----------------|------|------|------|------|
-| VT+             | 0.82 | 0.97 | 1.13 | V    |
-| VT-             | 0.72 | 0.85 | 1.02 | V    |
-| VT+PU           | 0.81 | 0.96 | 1.12 | V    |
-| VT-PU           | 0.71 | 0.84 | 1.01 | V    |
-| VT+PD           | 0.82 | 0.98 | 1.14 | V    |
-| VT-PD           | 0.73 | 0.86 | 1.03 | V    |
+| 输入阈值       | 最小值（Min） | 典型值（Typ） | 最大值（Max） | 单位（Unit） |
+|----------------|---------------|---------------|---------------|--------------|
+| VT+            | 0.82          | 0.97          | 1.13          | V            |
+| VT-            | 0.72          | 0.85          | 1.02          | V            |
+| VT+PU          | 0.81          | 0.96          | 1.12          | V            |
+| VT-PU          | 0.71          | 0.84          | 1.01          | V            |
+| VT+PD          | 0.82          | 0.98          | 1.14          | V            |
+| VT-PD          | 0.73          | 0.86          | 1.03          | V            |
 
-**ST1:ST0 == 2'b10 / 2'b11**
+**当 ST1:ST0 == 2'b10 / 2'b11**
 
-| Input Threshold | Min  | Typ  | Max  | Unit |
-|-----------------|------|------|------|------|
-| VT+             | 0.87 | 1.04 | 1.19 | V    |
-| VT-             | 0.69 | 0.80 | 0.95 | V    |
-| VT+PU           | 0.86 | 1.03 | 1.18 | V    |
-| VT-PU           | 0.68 | 0.79 | 0.94 | V    |
-| VT+PD           | 0.88 | 1.05 | 1.20 | V    |
-| VT-PD           | 0.69 | 0.81 | 0.96 | V    |
+| 输入阈值       | 最小值（Min） | 典型值（Typ） | 最大值（Max） | 单位（Unit） |
+|----------------|---------------|---------------|---------------|--------------|
+| VT+            | 0.87          | 1.04          | 1.19          | V            |
+| VT-            | 0.69          | 0.80          | 0.95          | V            |
+| VT+PU          | 0.86          | 1.03          | 1.18          | V            |
+| VT-PU          | 0.68          | 0.79          | 0.94          | V            |
+| VT+PD          | 0.88          | 1.05          | 1.20          | V            |
+| VT-PD          | 0.69          | 0.81          | 0.96          | V            |
 
-##### MFPR Field Description
+##### MFPR 字段说明
 
-| Bit(s)   | Field         | Type | Reset | Description |
-|----------|---------------|------|-------|-------------|
-| 31:16    | RSVD          | RO   | 0     | This field is reserved for future use |
-| 15       | PULL SEL      | RW   | 0x1   | This field selects between two sets of controls for the pull-up and pull-down functionality as follows:<br/>- 0: The pull-up and pull-down resistors are controlled by the selected alternate function for the pin<br/>- 1: The pull-up and pull-down resistors are controlled by the &lt;PULLUP EN&gt; and &lt;PULLDN EN&gt; fields in this register, overriding the function indicated by the selected alternate function.<br/>During low-power states, this field is overridden to 1 and controlled by the &lt;PULLUP EN&gt; and &lt;PULLDN EN&gt; fields.<br/>In these low-power states, this field is effectively 1, although the register value is not changed (refer to low-power (sleep) mode operation for more information). |
-| 14       | PULLUP EN     | RW   | 0x0   | This field controls the output function while the &lt;PULL SEL&gt; field is set to 1 (or is effectively 1) as follows:<br/>- 0: The internal pull-up resistor of the pin is disabled<br/>- 1: The internal pull-up resistor of the pin is enabled<br/>The address and reset value is on a pin-by-pin basis. Do not rely on the reset value of this field. It must be configured by software to the desired settings. |
-| 13       | PULLDN EN     | RW   | 0x0   | This field controls the output function while &lt;PULL SEL&gt; is set to 1 (or is effectively 1) as follows:<br/>- 0: The internal pull-down resistor of the pin is disabled<br/>- 1: The internal pull-down resistor of the pin is enabled<br/>The address and reset value is on a pin-by-pin basis. Do not rely on the reset value of this field. It must be configured by software to the desired settings. |
-| 12:11    | DRIVE[1:0]    | RW   | 0x2   | This field defines the drive strength and slew rate for this pin (in functional mode when the pin is driving HIGH or LOW value) as follows:<br/>- 2'b00: SLOW<br/>- 2'b01: SLOW<br/>- 2'b10: MEDIUM<br/>- 2'b11: FAST<br/>They are the DS1 and DS0 bit of the drive strength in the current table. |
-| 10       | DRIVE[2]      | RW   | 0x0   | This is the DS2 bit to program for higher level of driving strength in the current table.<br/>The address and reset value is on a pin-by-pin basis. Do not rely on the reset value of this field. It must be configured by software to the desired settings.<br/>For Medium (all GPIOs except for SD card), it is 010.<br/>For Fast (SD card I/O), it is 110. |
-| 9:8      | ST[1:0]       | RW   | 0x0   | This field controls the Schmitt trigger input threshold as follows:<br/>- 2'b00: buffer input, threshold is 0.9v<br/>- 2'b01/10/11: enabled the Schmitt trigger with larger hysteresis for VT- and VT+ threshold (refer to <strong>Section 4.7</strong>) |
-| 7        | SLE           | RW   | 0x0   | This field enables/disables the slew rate output control as follows:<br/>- 1'b1: Enabled<br/>- 1'b0: Disabled<br/>Enabling the slew rate output control will slow down the output ramp for EMI considerations. |
-| 6        | EDGE_CLEAR    | RW   | 0x1   | This field enable/disable the edge-detection logic as follows:<br/>- 1'b0: Enabled and ready to detect an edge<br/>- 1'b1: Disabled and no edge is detected<br/>This is an enable for the &lt;EDGE_FALL_EN&gt; and &lt;EDGE_RISE_EN&gt; control fields.<br/>This field is only present when a pin has been defined as potentially waking up on an edge.<br/>If the device is not configured in this manner, this field is not present (i.e. reserved) and writing to it has no effect (refer to <strong>Section 4.5</strong> for more information about which MFPRs include or not include these bits). |
-| 5        | EDGE_FALL_EN  | RW   | 0x0   | This field enables/disable to detect a falling edge as follows:<br/>- 1'b0: Disabled<br/>- 1'b1: Enable<br/>To detect a falling edge on this pin,<br/>- The pin needs not be an output<br/>- This field must be set to 1<br/>- The &lt;EDGE_CLEAR&gt; field must be set to 0<br/>This field is only present when a pin has been defined as potentially waking up on an edge.<br/>If the device is not configured in this manner, this field is not present (i.e. reserved) and writing to it has no effect (refer to <strong>Section 4.5</strong> for more information about which MFPRs include or not include these bits). |
-| 4        | EDGE_RISE_EN  | RW   | 0x0   | This field enables/disable to detect a rising edge as follows:<br/>- 1'b0: Disables<br/>- 1'b1: Enabled<br/>To detect a rising edge on this pin,<br/>- The pin need not be an output<br/>- This field must be set to 1<br/>- The &lt;EDGE_CLEAR&gt; field must be set to 0<br/>This field is only present when a pin has been defined as potentially waking up on an edge.<br/>If the device is not configured in this manner, this field is not present (i.e. reserved) and writing to it has no effect (refer to <strong>Section 4.5</strong> for more information about which MFPRs include or not include these bits). |
-| 3        | SPU           | RW   | 0x0   | This field enables/disables a strong pull resistor as follows:<br/>- 1'b0: Disabled<br/>- 1'b1: Enabled<br/>This field is used for I2C or SD card PADs which require a strong pull resistor. |
-| 2:0      | AF SEL        | RW   | 0x0   | This field is used for the selection of an alternate function for a pin between eight possible options as follows:<br/>- 0x0: Alternate function 0 (always as the primary at reset)<br/>- 0x1: Alternate function 1<br/>- 0x2: Alternate function 2<br/>- 0x3: Alternate function 3<br/>- 0x4: Alternate function 4<br/>- 0x5: Alternate function 5<br/>- 0x6: Alternate function 6<br/>- 0x7: Alternate function 7 |
+| 位（Bit(s)） | 字段名（Field）     | 类型（Type） | 复位值（Reset） | 描述（Description） |
+|--------------|---------------------|--------------|------------------|----------------------|
+| 31:16        | RSVD                | RO           | 0                | 保留字段，供将来使用。 |
+| 15           | PULL SEL            | RW           | 0x1              | 该字段用于在两种上拉/下拉控制模式之间进行选择：<br/>- **0**：上拉和下拉电阻由该引脚所选的复用功能控制。<br/>- **1**：上拉和下拉电阻由本寄存器中的 `<PULLUP EN>` 和 `<PULLDN EN>` 字段控制，覆盖复用功能的默认设置。<br/>在低功耗状态下，此字段被强制为 **1**，并由 `<PULLUP EN>` 和 `<PULLDN EN>` 控制（尽管寄存器值本身不会改变）。具体行为请参考低功耗（睡眠）模式相关说明。 |
+| 14           | PULLUP EN           | RW           | 0x0              | 当 `<PULL SEL>` 为 1（或在低功耗状态下等效为 1）时，该字段控制内部上拉电阻：<br/>- **0**：禁用内部上拉电阻<br/>- **1**：启用内部上拉电阻<br/>注意：该字段的地址和复位值因引脚而异，请勿依赖其复位值，必须通过软件显式配置为所需状态。 |
+| 13           | PULLDN EN           | RW           | 0x0              | 当 `<PULL SEL>` 为 1（或在低功耗状态下等效为 1）时，该字段控制内部下拉电阻：<br/>- **0**：禁用内部下拉电阻<br/>- **1**：启用内部下拉电阻<br/>注意：该字段的地址和复位值因引脚而异，请勿依赖其复位值，必须通过软件显式配置为所需状态。 |
+| 12:11        | DRIVE[1:0]          | RW           | 0x2              | 该字段定义引脚在功能模式下输出高/低电平时的驱动强度和压摆率（slew rate）：<br/>- **2'b00**：SLOW（慢速）<br/>- **2'b01**：SLOW（慢速）<br/>- **2'b10**：MEDIUM（中速）<br/>- **2'b11**：FAST（快速）<br/>对应当前驱动强度表中的 DS1 和 DS0 位。 |
+| 10           | DRIVE[2]            | RW           | 0x0              | 该位为 DS2，用于编程更高驱动强度等级。<br/>注意：该字段的地址和复位值因引脚而异，请勿依赖其复位值，必须通过软件显式配置为所需状态。<br/>- 对于普通 GPIO（除 SD 卡外）的 **Medium** 模式，应设为 **010**。<br/>- 对于 SD 卡 I/O 的 **Fast** 模式，应设为 **110**。 |
+| 9:8          | ST[1:0]             | RW           | 0x0              | 该字段控制施密特触发器输入阈值：<br/>- **2'b00**：缓冲器输入模式，阈值约为 0.9V<br/>- **2'b01 / 10 / 11**：启用具有更大迟滞（hysteresis）的施密特触发器，具体 VT- 和 VT+ 阈值参见 **第 4.7 节**。 |
+| 7            | SLE                 | RW           | 0x0              | 该字段用于启用/禁用压摆率（slew rate）输出控制：<br/>- **1**：启用（减缓输出边沿斜率，用于降低 EMI）<br/>- **0**：禁用 |
+| 6            | EDGE_CLEAR          | RW           | 0x1              | 该字段用于启用/禁用边沿检测逻辑：<br/>- **0**：启用，可检测边沿<br/>- **1**：禁用，不检测边沿<br/>此字段是 `<EDGE_FALL_EN>` 和 `<EDGE_RISE_EN>` 的使能开关。<br/>仅当该引脚被定义为支持边沿唤醒功能时，此字段才存在；否则为保留位，写入无效。详见 **第 4.5 节** 中关于哪些 MFPR 包含此字段的说明。 |
+| 5            | EDGE_FALL_EN        | RW           | 0x0              | 该字段用于启用/禁用下降沿检测：<br/>- **0**：禁用<br/>- **1**：启用<br/>要使能下降沿检测，需满足：<br/>- 引脚不能配置为输出<br/>- 本字段设为 **1**<br/>- `<EDGE_CLEAR>` 设为 **0**<br/>仅当该引脚支持边沿唤醒时，此字段才有效；否则为保留位，写入无效。详见 **第 4.5 节**。 |
+| 4            | EDGE_RISE_EN        | RW           | 0x0              | 该字段用于启用/禁用上升沿检测：<br/>- **0**：禁用<br/>- **1**：启用<br/>要使能上升沿检测，需满足：<br/>- 引脚不能配置为输出<br/>- 本字段设为 **1**<br/>- `<EDGE_CLEAR>` 设为 **0**<br/>仅当该引脚支持边沿唤醒时，此字段才有效；否则为保留位，写入无效。详见 **第 4.5 节**。 |
+| 3            | SPU                 | RW           | 0x0              | 该字段用于启用/禁用强上拉电阻：<br/>- **0**：禁用<br/>- **1**：启用<br/>主要用于 I²C 或 SD 卡 PAD，这些接口需要较强的上拉能力。 |
+| 2:0          | AF SEL              | RW           | 0x0              | 该字段用于在 8 种复用功能中选择一种：<br/>- **0x0**：复用功能 0（复位后默认）<br/>- **0x1**：复用功能 1<br/>- **0x2**：复用功能 2<br/>- **0x3**：复用功能 3<br/>- **0x4**：复用功能 4<br/>- **0x5**：复用功能 5<br/>- **0x6**：复用功能 6<br/>- **0x7**：复用功能 7 |
 
-## 5. Electrical Characteristics
+## 5. 电气特性
 
-### 5.1 Pin AC/DC Operating Conditions
+### 5.1 引脚交流/直流工作条件
 
-| Item             | Symbol/Pin        | Min    | Typ   | Max    | Unit | Note               |
-|------------------|-------------------|--------|-------|--------|------|--------------------|
-| Digital Power    | VCC_M1            | 0.85   | 0.9   | 1.0    | V    |                    |
-| PLL              | AVDD09_PLL        | 0.855  | 0.9   | 0.945  | V    |                    |
-| PLL              | AVDD18_PLL        | 1.71   | 1.8   | 1.89   | V    |                    |
-| OSC              | AVDD09_AFEAP      | 0.855  | 0.9   | 0.945  | V    |                    |
-| OSC              | AVDD18_AFEAP      | 1.71   | 1.8   | 1.89   | V    |                    |
-| PCIeC            | AVDD18_PCIEC      | 1.71   | 1.8   | 1.89   | V    |                    |
-| PCIeC            | AVDD09_PCIEC      | 0.855  | 0.9   | 0.945  | V    |                    |
-| PCIeB            | AVDD18_PCIEB      | 1.71   | 1.8   | 1.89   | V    |                    |
-| PCIeB            | AVDD09_PCIEB      | 0.855  | 0.9   | 0.945  | V    |                    |
-| PCIeA            | AVDD18_PCIEA      | 1.71   | 1.8   | 1.89   | V    |                    |
-| PCIeA            | AVDD09_PCIEA      | 0.855  | 0.9   | 0.945  | V    |                    |
-| USB IO           | AVDD33_USB        | 3.135  | 3.3   | 3.465  | V    |                    |
-| USB PHY          | AVDD18_USB        | 1.71   | 1.8   | 1.89   | V    |                    |
-| USB PHY          | AVDD09_USB        | 0.855  | 0.9   | 0.945  | V    |                    |
-| MIPI DSI PHY     | AVDD09_DSI1       | 0.855  | 0.9   | 0.945  | V    |                    |
-| MIPI DSI PHY     | AVDD18_DSI1       | 1.71   | 1.8   | 1.89   | V    |                    |
-| MIPI DSI IO      | AVDD12_DSI1       | 1.14   | 1.2   | 1.26   | V    |                    |
-| MIPI CSI PHY     | AVDD09_CSI        | 0.855  | 0.9   | 0.945  | V    |                    |
-| MIPI CSI PHY     | AVDD18_CSI        | 1.71   | 1.8   | 1.89   | V    |                    |
-| HDMI             | AVDD09_HDMI       | 0.855  | 0.9   | 0.945  | V    |                    |
-| HDMI             | AVDD18_HDMI       | 1.71   | 1.8   | 1.89   | V    |                    |
-| HDMI             | AVDD33_HDMI       | 3.135  | 3.3   | 3.465  | V    |                    |
-| eMMC             | VDD09_EMMC        | 0.855  | 0.9   | 0.945  | V    |                    |
-| eMMC             | V18_EMMC          | 1.71   | 1.8   | 1.89   | V    |                    |
-| QSPI             | VCC1833_QSPI      | 1.71   | 1.8   | 1.89   | V    | Dual power domain  |
-| QSPI             | VCC1833_QSPI      | 3.135  | 3.3   | 3.465  | V    | Dual power domain  |
-| SD               | VCC1833_MMC1      | 1.71   | 1.8   | 1.89   | V    | Dual power domain  |
-| SD               | VCC1833_MMC1      | 3.135  | 3.3   | 3.465  | V    | Dual power domain  |
-| DDR PHY          | AVDD18_PHY        | 1.71   | 1.8   | 1.89   | V    |                    |
-| DDR PHY          | AVDD18_DDR        | 1.71   | 1.8   | 1.89   | V    |                    |
-| DDR PHY          | AVDD11_DDR        | 1.045  | 1.1   | 1.155  | V    | LP4/4X             |
-| DDR PHY          | AVDD11_DDR        | 1.14   | 1.2   | 1.26   | V    | LP3                |
-| DDR PHY          | AVDDU_PHY         | 0.855  | 0.9   | 0.945  | V    |                    |
-| DDR PHY          | AVDDU_DDR         | 0.855  | 0.9   | 0.945  | V    |                    |
-| DDR IO           | AVDD06_DDR        | 0.57   | 0.6   | 0.63   | V    |                    |
-| DDR IO           | VDDQ_V1P2         | 1.14   | 1.2   | 1.26   | V    |                    |
-| eFuse            | AVDD18_EFUSE      | 1.71   | 1.8   | 1.89   | V    |                    |
-| Audio Logic      | AUD_VDDU09        | 0.855  | 0.9   | 0.945  | V    |                    |
-| Audio Power NEG  | AUD_VNEG          | -1.71  | -1.8  | -1.89  | V    |                    |
-| Audio Power POS  | AUD_VPOS          | 1.71   | 1.8   | 1.89   | V    |                    |
-| Audio Analog     | AVDD18_AUD        | 1.71   | 1.8   | 1.89   | V    |                    |
-| Audio Analog     | AVDD3V3_AUD       | 3.135  | 3.3   | 3.465  | V    |                    |
-| GPIO             | VCC18_GPIO        | 1.71   | 1.8   | 1.89   | V    |                    |
-| GIOP3            | VCC1833_GPIO3     | 1.71   | 1.8   | 1.89   | V    | Dual power domain  |
-| GIOP3            | VCC1833_GPIO3     | 3.135  | 3.3   | 3.465  | V    | Dual power domain  |
-| GIOP2            | VCC1833_GPIO2     | 1.71   | 1.8   | 1.89   | V    | Dual power domain  |
-| GIOP2            | VCC1833_GPIO2     | 3.135  | 3.3   | 3.465  | V    | Dual power domain  |
+| 项目（Item）           | 符号/引脚（Symbol/Pin） | 最小值（Min） | 典型值（Typ） | 最大值（Max） | 单位（Unit） | 备注（Note）             |
+|------------------------|--------------------------|---------------|---------------|---------------|--------------|--------------------------|
+| 数字核心电源           | VCC_M1                   | 0.85          | 0.9           | 1.0           | V            |                          |
+| PLL 电源               | AVDD09_PLL               | 0.855         | 0.9           | 0.945         | V            |                          |
+| PLL 电源               | AVDD18_PLL               | 1.71          | 1.8           | 1.89          | V            |                          |
+| 振荡器（OSC）电源      | AVDD09_AFEAP             | 0.855         | 0.9           | 0.945         | V            |                          |
+| 振荡器（OSC）电源      | AVDD18_AFEAP             | 1.71          | 1.8           | 1.89          | V            |                          |
+| PCIeC 电源             | AVDD18_PCIEC             | 1.71          | 1.8           | 1.89          | V            |                          |
+| PCIeC 电源             | AVDD09_PCIEC             | 0.855         | 0.9           | 0.945         | V            |                          |
+| PCIeB 电源             | AVDD18_PCIEB             | 1.71          | 1.8           | 1.89          | V            |                          |
+| PCIeB 电源             | AVDD09_PCIEB             | 0.855         | 0.9           | 0.945         | V            |                          |
+| PCIeA 电源             | AVDD18_PCIEA             | 1.71          | 1.8           | 1.89          | V            |                          |
+| PCIeA 电源             | AVDD09_PCIEA             | 0.855         | 0.9           | 0.945         | V            |                          |
+| USB I/O 电源           | AVDD33_USB               | 3.135         | 3.3           | 3.465         | V            |                          |
+| USB PHY 电源           | AVDD18_USB               | 1.71          | 1.8           | 1.89          | V            |                          |
+| USB PHY 电源           | AVDD09_USB               | 0.855         | 0.9           | 0.945         | V            |                          |
+| MIPI DSI PHY 电源      | AVDD09_DSI1              | 0.855         | 0.9           | 0.945         | V            |                          |
+| MIPI DSI PHY 电源      | AVDD18_DSI1              | 1.71          | 1.8           | 1.89          | V            |                          |
+| MIPI DSI I/O 电源      | AVDD12_DSI1              | 1.14          | 1.2           | 1.26          | V            |                          |
+| MIPI CSI PHY 电源      | AVDD09_CSI               | 0.855         | 0.9           | 0.945         | V            |                          |
+| MIPI CSI PHY 电源      | AVDD18_CSI               | 1.71          | 1.8           | 1.89          | V            |                          |
+| HDMI 电源              | AVDD09_HDMI              | 0.855         | 0.9           | 0.945         | V            |                          |
+| HDMI 电源              | AVDD18_HDMI              | 1.71          | 1.8           | 1.89          | V            |                          |
+| HDMI 电源              | AVDD33_HDMI              | 3.135         | 3.3           | 3.465         | V            |                          |
+| eMMC 电源              | VDD09_EMMC               | 0.855         | 0.9           | 0.945         | V            |                          |
+| eMMC 电源              | V18_EMMC                 | 1.71          | 1.8           | 1.89          | V            |                          |
+| QSPI 电源              | VCC1833_QSPI             | 1.71          | 1.8           | 1.89          | V            | 双电源域（Dual power domain） |
+| QSPI 电源              | VCC1833_QSPI             | 3.135         | 3.3           | 3.465         | V            | 双电源域（Dual power domain） |
+| SD 卡电源              | VCC1833_MMC1             | 1.71          | 1.8           | 1.89          | V            | 双电源域（Dual power domain） |
+| SD 卡电源              | VCC1833_MMC1             | 3.135         | 3.3           | 3.465         | V            | 双电源域（Dual power domain） |
+| DDR PHY 电源           | AVDD18_PHY               | 1.71          | 1.8           | 1.89          | V            |                          |
+| DDR PHY 电源           | AVDD18_DDR               | 1.71          | 1.8           | 1.89          | V            |                          |
+| DDR PHY 电源           | AVDD11_DDR               | 1.045         | 1.1           | 1.155         | V            | LPDDR4/4X                |
+| DDR PHY 电源           | AVDD11_DDR               | 1.14          | 1.2           | 1.26          | V            | LPDDR3                   |
+| DDR PHY 逻辑电源       | AVDDU_PHY                | 0.855         | 0.9           | 0.945         | V            |                          |
+| DDR PHY 逻辑电源       | AVDDU_DDR                | 0.855         | 0.9           | 0.945         | V            |                          |
+| DDR I/O 电源           | AVDD06_DDR               | 0.57          | 0.6           | 0.63          | V            |                          |
+| DDR I/O 电源           | VDDQ_V1P2                | 1.14          | 1.2           | 1.26          | V            |                          |
+| eFuse 电源             | AVDD18_EFUSE             | 1.71          | 1.8           | 1.89          | V            |                          |
+| 音频逻辑电源           | AUD_VDDU09               | 0.855         | 0.9           | 0.945         | V            |                          |
+| 音频负电源             | AUD_VNEG                 | -1.71         | -1.8          | -1.89         | V            |                          |
+| 音频正电源             | AUD_VPOS                 | 1.71          | 1.8           | 1.89          | V            |                          |
+| 音频模拟电源           | AVDD18_AUD               | 1.71          | 1.8           | 1.89          | V            |                          |
+| 音频模拟电源           | AVDD3V3_AUD              | 3.135         | 3.3           | 3.465         | V            |                          |
+| GPIO 电源              | VCC18_GPIO               | 1.71          | 1.8           | 1.89          | V            |                          |
+| GPIO3 电源             | VCC1833_GPIO3            | 1.71          | 1.8           | 1.89          | V            | 双电源域（Dual power domain） |
+| GPIO3 电源             | VCC1833_GPIO3            | 3.135         | 3.3           | 3.465         | V            | 双电源域（Dual power domain） |
+| GPIO2 电源             | VCC1833_GPIO2            | 1.71          | 1.8           | 1.89          | V            | 双电源域（Dual power domain） |
+| GPIO2 电源             | VCC1833_GPIO2            | 3.135         | 3.3           | 3.465         | V            | 双电源域（Dual power domain） |
 
-### 5.2 Absolute Max Ratings
+### 5.2 绝对最大额定值
 
-#### For Pins
+#### 引脚参数
 
-| Item             | Symbol/Pin        | Min   | Max    | Unit |
-|------------------|-------------------|-------|--------|------|
+| 项目（Item）           | 符号/引脚（Symbol/Pin） | 最小值（Min） | 最大值（Max） | 单位（Unit） |
+|------------------------|--------------------------|---------------|---------------|--------------|
 | Digital Power    | VCC_M1            | -0.1  | 1.035  | V    |
 | PLL              | AVDD09_PLL        | -0.1  | 1.035  | V    |
 | PLL              | AVDD18_PLL        | -0.1  | 2.07   | V    |
@@ -4054,18 +4068,18 @@ Instead, the input thresholds of Schmitt Trigger Mode of I/O PADs are tabled bel
 | GPIO2            | VCC1833_GPIO2     | -0.1  | 2.07   | V    |
 | GPIO2            | VCC1833_GPIO2     | -0.1  | 3.795  | V    |
 
-#### For Packages
+#### 封装参数
 
-| Item                              | Symbol | Min  | Max  | Unit |
-|-----------------------------------|--------|------|------|------|
-| Operating Temperature<br>(Industrial Standard) | Ta     | -40  | +85  | °C   |
-| Junction Temperature              | Tj     | N/A  | 125  | ℃    |
-| Storage Temperature               | Tstg   | -40  | 125  | ℃    |
+| 项目（Item）                              | 符号（Symbol） | 最小值（Min） | 最大值（Max） | 单位（Unit） |
+|-------------------------------------------|----------------|---------------|---------------|--------------|
+| 工作温度<br>（工业级标准）                | Ta             | -40           | +85           | °C           |
+| 结温                                      | Tj             | N/A           | 125           | °C           |
+| 存储温度                                  | Tstg           | -40           | 125           | °C           |
 
-### 5.3 Pin Max Currents
+### 5.3 引脚最大电流
 
-| Item             | Symbol/Pin       | Max   | Unit |
-|------------------|------------------|-------|------|
+| 项目（Item）           | 符号/引脚（Symbol/Pin） | 最大值（Max） | 单位（Unit） |
+|------------------------|--------------------------|---------------|--------------|
 | Digital Power    | VCC_M1           | 10000 | mA   |
 | PLL              | AVDD09_PLL       | 5     | mA   |
 | PLL              | AVDD18_PLL       | 5     | mA   |
@@ -4106,32 +4120,32 @@ Instead, the input thresholds of Schmitt Trigger Mode of I/O PADs are tabled bel
 | Audio Analog     | AVDD18_AUD       | 10    | mA   |
 | Audio Analog     | AVDD3V3_AUD      | 100   | mA   |
 
-### 5.4 Power On/Off Sequence
+### 5.4 上电/断电时序
 
-#### Power On Sequence
+#### 上电时序
 
-- A short pressure (i.e. 1 second) of the power button will turn on the K1 processor automatically if it was off before (cold start)
-- The Power Management IC (PMIC) will turn on <u>firstly</u> the core logic <u>then</u> the external I/O to ensure proper initialization
-- PMIC will asserts a Power-On-Reset (POR) to initialize the system and ensure a defined starting state
+- 若 K1 处理器处于关机状态（冷启动），短按电源键（例如 1 秒）将自动开启处理器。
+- 电源管理芯片（PMIC）将**首先**开启核心逻辑电源，**随后**再开启外部 I/O 电源，以确保正确的初始化顺序。
+- PMIC 会发出上电复位信号（Power-On-Reset, POR），用于初始化系统并确保其进入确定的初始状态。
 
-The order of the involved pins with state change during the power on sequence is depicted below.
+下图展示了上电过程中相关引脚的状态变化顺序：
 
-<img src="static/power_on.png" alt="" width="600">
+<img src="static/power_on.png" alt="上电时序图" width="600">
 
-#### Power Off Sequence
+#### 断电时序
 
-- A long pressure (i.e. 6 seconds) of the power button will turn off the K1 processor.
+- 长按电源键（例如 6 秒）将关闭 K1 处理器。
 
-The order of the involved pins with state change during the power off sequence is depicted below.
+下图展示了断电过程中相关引脚的状态变化顺序：
 
-<img src="static/power_off.png" alt="" width="600">
+<img src="static/power_off.png" alt="断电时序图" width="600">
 
-### 5.5 Power Consumption
+### 5.5 功耗特性
 
-#### In Typical Application Scenarios
+#### 典型应用场景下
 
-> TBD
+> 待定（TBD）
 
-#### In Particular Application Scenarios
+#### 特定应用场景下
 
-> TBD
+> 待定（TBD）
