@@ -1425,7 +1425,7 @@ The architecture of the HDMI interface is depicted below.
 
 <img src="static/HDMI_interface.png" alt="" width="600">
 
-### MIPI DSI Interface
+#### MIPI DSI Interface
 
 ##### Introduction
 
@@ -1738,7 +1738,7 @@ All ports support Gen2 with a data transfer speed of 5GT/s per lane. However, on
 - Support for Embedded DMA with Hardware Flow Control which includes 4 write channels and 4 read channels
 - Support for ECRC generation and check
 - Support for max payload size up to 256 bytes
-- Support forAutomatic Lane Flip and Reversal
+- Support for Automatic Lane Flip and Reversal
 - Support for L0 and L1 Power State of Active State Link PM
 - Support for Latency Tolerance Reporting (LTR)
 - Support for only Virtual Channel 0
@@ -2188,45 +2188,12 @@ Peripheral devices do not directly supply addresses or commands to the memory co
 
 The DMA controller can manage different data transfer types in DMA Flow-Through Mode through 16 configurable DMA channels as tabled below.
 
-<table>
-<tbody>
-<tr>
-<td></td>
-<td><strong>Internal Mem</strong><strong>ory</strong></td>
-<td><strong>External Mem</strong><strong>ory</strong></td>
-<td><strong>Internal Peri</strong><strong>pheral</strong></td>
-<td><strong>External Peri</strong><strong>pheral</strong></td>
-</tr>
-<tr>
-<td><strong>Internal Mem</strong><strong>ory</strong></td>
-<td>Flow-Through Mode</td>
-<td> ___</td>
-<td> ___</td>
-<td> ___</td>
-</tr>
-<tr>
-<td><strong>External Mem</strong><strong>ory</strong></td>
-<td>Flow-Through Mode</td>
-<td>Flow-Through Mode</td>
-<td> ___</td>
-<td> ___</td>
-</tr>
-<tr>
-<td><strong>Internal Peri</strong><strong>pheral</strong></td>
-<td>Flow-Through Mode</td>
-<td>Flow-Through Mode</td>
-<td>___</td>
-<td>___ </td>
-</tr>
-<tr>
-<td><strong>External Peri</strong><strong>pheral</strong></td>
-<td>Flow-Through Mode</td>
-<td>Flow-Through Mode</td>
-<td>___</td>
-<td>___</td>
-</tr>
-</tbody>
-</table>
+|               | Internal Memory | External Memory | Internal Peripheral | External Peripheral |
+|---------------|-----------------|-----------------|---------------------|---------------------|
+| Internal Memory | Flow-Through Mode | ___             | ___                 | ___                 |
+| External Memory | Flow-Through Mode | Flow-Through Mode | ___                 | ___                 |
+| Internal Peripheral | Flow-Through Mode | Flow-Through Mode | ___                 | ___                 |
+| External Peripheral | Flow-Through Mode | Flow-Through Mode | ___                 | ___                 |
 
 ##### Features
 
@@ -2343,7 +2310,7 @@ The architecture of the Mailbox is depicted below.
 
 <img src="static/Mailbox.png" alt="" width="600">
 
-#### GPI
+#### GPIO
 
 ##### Introduction
 
@@ -2419,31 +2386,24 @@ VCXO_OUT is driven with the OSC frequency if either of the following occurs:
 
 There are three Phase-Locked Loop (PLL) designed to accept a wide range of input frequencies, and generate a broad range of output frequencies to all modules for functioning properly in different application scenario. Details for each PLL are provided in the following subsections.
 
-###### PLL
+##### PLL
 
-PLL1 is designed to generate fixed frequency points for the CPU cores and other peripherals, where
+- **PLL1** is designed to generate fixed frequency points for the CPU cores and other peripherals, where
+  - Changes of the run-time frequency in the PLL1 output are only available for debugging purposes and should not be used in production systems
+  - PLL1 is enabled by default at system reset and shutdown only when the entire chip entered sleep mode with VCXO shutdown enabled
+  - The settings configured in the PLL1 and oscillator control registers of the Main PMU control the delay required for the PLL1 output clocks to stabilize after system reset or shutdown
+  - Updating the PLL1 configuration registers to change frequency during normal operations is not recommended
 
-- Changes of the run-time frequency in the PLL1 output are only available for debugging purposes and should not be used in production systems
-- PLL1 is enabled by default at system reset and shutdown only when the entire chip entered sleep mode with VCXO shutdown enabled
-- The settings configured in the PLL1 and oscillator control registers of the Main PMU control the delay required for the PLL1 output clocks to stabilize after system reset or shutdown
-- Updating the PLL1 configuration registers to change frequency during normal operations is not recommended
+- **PLL2** is designed to generate various fixed frequencies, working alongside PLL1 to provide a full range of frequencies required for different modules, where
+  - Changes of run-time frequency in the PLL2 output are only available for debugging purposes and should not be used in production systems
+  - PLL2 is disabled at system reset and must be enabled through software when required
+  - The settings configured in the PLL2 and oscillator control registers of the Main PMU control the delay required for the PLL2 output clocks to stabilize after system reset or shutdown
+  - Updating the PLL2 configuration registers to change frequency during normal operations is not recommended
 
-###### PLL2
-
-PLL2 is designed to generate various fixed frequencies, working alongside PLL1 to provide a full range of frequencies required for different modules, where
-
-- Changes of run-time frequency in the PLL2 output are only available for debugging purposes and should not be used in production systems
-- PLL2 is disabled at system reset and must be enabled through software when required
-- The settings configured in the PLL2 and oscillator control registers of the Main PMU control the delay required for the PLL2 output clocks to stabilize after system reset or shutdown
-- Updating the PLL2 configuration registers to change frequency during normal operations is not recommended
-
-###### PLL3
-
-PLL3 is designed to provide frequencies for CPU frequency scaling and switching, where
-
-- PLL3 is disabled at system reset and must be enabled through software when required
-- The settings configured in the PLL3 and oscillator control register of the Main PMU control the delay required for the PLL3 output clocks to stabilize after system reset or shutdown
-- Updating the PLL3 configuration registers to change frequency during normal operations is not recommended
+- **PLL3** is designed to provide frequencies for CPU frequency scaling and switching, where
+  - PLL3 is disabled at system reset and must be enabled through software when required
+  - The settings configured in the PLL3 and oscillator control register of the Main PMU control the delay required for the PLL3 output clocks to stabilize after system reset or shutdown
+  - Updating the PLL3 configuration registers to change frequency during normal operations is not recommended
 
 ##### Resource Reset Scheme
 
@@ -3374,7 +3334,7 @@ Most I/O pins of K1 are multi-function allowing them to be configured for one of
 
 The assigned signals are organized by their functions (e.g. power supply, clock, etc.) which are arranged in groups according to their interfaces (e.g. JTAG, SPIx, etc.) as per description in the following subsections (sorted alphabetically for user convenience).
 
-> **Note.**Definition of symbols used for signal/pin type:
+> **Note.** Definition of symbols used for signal/pin type:
 >
 > - I = Input
 > - O = Output
