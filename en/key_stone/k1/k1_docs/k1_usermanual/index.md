@@ -1,8 +1,6 @@
-sidebar_position: 2
+sidebar_position: 3
 
 # K1 User Manual
-
-## Contents
 
 - [1. Overview](1.Overview.md)
 - [2. Package](2.Package.md)
@@ -21,8 +19,4 @@ sidebar_position: 2
 - [15. RCPU Subsystem](15.RCPU_Subsystem.md)
 - [16. High-Speed Interface System](16.High-Speed_Interface_System.md)
 - [17. Low-Speed Interface System](17.Low-Speed_Interface_System.md)
-
-## Complete version in PDF
-
-Please click to download the complete version in PDF: **[K1 User Manual (PDF)](#)**
 
