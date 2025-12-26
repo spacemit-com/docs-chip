@@ -1,7 +1,7 @@
 sidebar_position: 1
 
-# K1 芯片规格文档
+# K1 芯片手册
 
-![K1 Brief 01](./static/K1_brief_01.png)
-![K1 Brief 02](./static/K1_brief_02.png)
-![K1 Brief 03](./static/K1_brief_03.png)
+- [简介](k1_brief.md)
+- [数据手册](k1_ds.md)
+- [用户手册](./k1_usermanual/index.md)
