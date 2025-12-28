@@ -1,6 +1,6 @@
 sidebar_position: 1
 
-# P1 简介
+# P1 产品简介
 
 ## 概述
 

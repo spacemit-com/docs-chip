@@ -1,6 +1,6 @@
 sidebar_position: 2
 
-# P1 数据手册
+# P1 产品规格书
 
 ## PDF 版本下载
 

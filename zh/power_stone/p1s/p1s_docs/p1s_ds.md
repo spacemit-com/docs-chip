@@ -1,6 +1,6 @@
 sidebar_position: 2
 
-# P1S 数据手册
+# P1S 产品规格书
 
 ## PDF 版本下载
 
