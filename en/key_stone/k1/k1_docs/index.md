@@ -1,8 +1,8 @@
 sidebar_position: 1
 
-# SoC Documentation
+# Chip Product Documentation
 
-- [Brief](k1_brief.md)
-- [Data Sheet](k1_ds.md)
+- [Product Brief](k1_brief.md)
+- [Datasheet](k1_ds.md)
 - [User Manual](./k1_usermanual/index.md)
 

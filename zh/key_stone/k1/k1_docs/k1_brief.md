@@ -1,6 +1,6 @@
 sidebar_position: 1
 
-# K1 简介
+# K1 产品简介
 
 ## 概述
 

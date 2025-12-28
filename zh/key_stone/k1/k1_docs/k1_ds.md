@@ -1,6 +1,6 @@
 sidebar_position: 2
 
-# K1 数据手册
+# K1 产品规格书
 
 ## PDF 版本下载
 

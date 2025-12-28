@@ -1,6 +1,6 @@
 sidebar_position: 1
 
-# SoC Documentation
+# Chip Product Documentation
 
 - [Brief](p1_brief.md)
 - [Datasheet](p1_ds.md)

@@ -1,7 +1,7 @@
 sidebar_position: 1
 
-# 芯片手册
+# 芯片产品文档
 
-- [简介](p1_brief.md)
-- [数据手册](p1_ds.md)
+- [产品简介](p1_brief.md)
+- [产品规格书](p1_ds.md)
 
