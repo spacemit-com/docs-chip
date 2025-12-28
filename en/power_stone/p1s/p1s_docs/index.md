@@ -1,9 +1,6 @@
 sidebar_position: 1
 
-# P1S Specification & Documentation
+# SoC Documentation
 
-[P1S Datasheet](p1s_ds.md)
-
-![](./static/p1s_en_01.png)
-![](./static/p1s_en_02.png)
-![](./static/p1s_en_03.png)
+- [P1S Brief](p1s_brief.md)
+- [P1S Datasheet](p1s_ds.md)

@@ -1,6 +1,6 @@
 sidebar_position: 3
 
-# K1 User Manual
+# User Manual
 
 - [1. Overview](1.Overview.md)
 - [2. Package](2.Package.md)

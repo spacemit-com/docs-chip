@@ -28,7 +28,7 @@ Integrated with multiple PCIe, USB, GMAC and SPI interfaces, offering comprehens
 - **Industrial standards compliance**
 The CPU delivers stable and reliable computing power from -40°C to 85°C, complying  the demanding requirements of industrial applications.
 
-## Features
+## Key Features
 
 - **Processor**
   - Latest RVA22 profile architecture

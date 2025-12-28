@@ -2,5 +2,5 @@ sidebar_position: 1
 
 # P1
 
-- [P1 芯片规格文档](./p1_docs/index.md)
-- [P1 硬件文档](./p1_hw/index.md)
+- [芯片手册](./p1_docs/index.md)
+- [硬件设计指南](./p1_hw/index.md)
