@@ -1,6 +1,6 @@
 sidebar_position: 1
 
-# P1 PCB Layout 指南
+# P1 PCB 布局布线指南
 
 ## PCB 叠层与基础布线
 
