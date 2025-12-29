@@ -2,4 +2,4 @@ sidebar_position: 2
 
 # Hardware Design Guide
 
-- [PCB Layout Guide](p1_pcb_guide.md)
+- [PCB Layout Guidelines](p1_pcb_guide.md)
