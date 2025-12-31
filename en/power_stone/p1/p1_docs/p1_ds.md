@@ -2,7483 +2,2979 @@ sidebar_position: 2
 
 # P1 Datasheet
 
-> English Version is coming soon ...
+## PDF Version
 
+Clik to download [P1 Datasheet (PDF)](https://cdn-resource.spacemit.com/file/%E8%8A%AF%E7%89%87/P1/P1%20Datasheet_CN_V1.3_20251111.pdf)
 
-## PDF 版本下载
+## 1. Product Overview
 
-点击下载 PDF 版本 [P1 Datasheet (PDF)](https://cdn-resource.spacemit.com/file/%E8%8A%AF%E7%89%87/P1/P1%20Datasheet_CN_V1.3_20251111.pdf)
+### 1.1 General Description
 
-## 1. 产品介绍
+**SpacemiT® Power Stone™ P1** is a highly integrated **multi-channel Power Management IC (PMIC)** designed to meet diverse power requirements across a wide range of applications, providing customers with a complete power solution.  
+It integrates **six Constant On-Time (COT) controlled buck converters**, **twelve Low Dropout Regulators (LDOs)**, an **I²C interface**, and **multi-time programmable non-volatile memory (MTP)**, enabling highly flexible and programmable power management for mobile devices and embedded systems.
 
-### 1.1 概述
+The six fully integrated buck converters provide stable power for multiple target voltage rails. The **COT control architecture** delivers fast load transient response. Operating in **Continuous Conduction Mode (CCM)**, the default **1.5 MHz fixed switching frequency** significantly reduces the required external inductance and capacitance. Comprehensive protection features include **Undervoltage Lockout (UVLO)**, **Overcurrent Protection (OCP)**, **Overvoltage Protection (OVP)**, and **Thermal Shutdown**.  
+**Dynamic Voltage Control (DVC)** enables real-time voltage adjustment to match application requirements.
 
-SpacemiT® Power Stone™ P1 是一款多通道电源管理芯片（PMIC），旨在满足各种应用的不同电源需求，为客户提供完整的电源解决方案。它具有 6 个恒定导通时间（COT）控制模式降压转换器，12 个低压差稳压器（LDO），一个 I²C 接口，以及多次可编程非易失性存储器（MTP），为各种移动设备和嵌入式系统提供高度灵活的电源管理功能。
+All output voltages as well as power-up and power-down sequencing can be preconfigured via the **MTP interface** and controlled through the **I²C bus**. The P1 requires only a minimal number of external components and is available in a compact **QFN-60 (7 mm × 7 mm)** package.
 
-六个全集成的降压转换器为各种目标电压轨道提供稳定电源。恒定导通时间（COT）控制能够提供快速的负载瞬态性能。在连续导通模式（CCM）下，1.5 MHz 的默认固定切换频率大大减少了外部电感和电容值。全面的保护功能包括欠压锁定（UVLO）、过电流保护（OCP）、过压保护（OVP）和热关断。动态电压控制（DVC）允许根据应用需求对电源电压进行实时控制。
+### 1.2 Key Features
 
-各输出电压和启动/关闭顺序可以通过多次可编程非易失性存储器（MTP）接口进行预设，并通过 I²C 总线进行控制。P1 仅需要最少数量的外部元件，并提供紧凑的 QFN-60（7 mm × 7 mm）封装。
+- **Input Supply Voltage (VIN)**: 2.7 V to 5.5 V  
 
-### 1.2 关键特性
+- **6 High-Efficiency Buck Converters**
+  - Buck1 / Buck2: 0.5 V to 3.4 V, up to 4 A, supports dual-phase operation  
+  - Buck3 / Buck4: 0.5 V to 3.4 V, up to 3 A, supports dual-phase operation  
+  - Buck5 / Buck6: 0.5 V to 3.4 V, up to 2.5 A  
+  - Selectable output voltage ranges for all buck converters:  
+    - 0.5 V to 1.35 V, 5 mV steps  
+    - 1.375 V to 3.4 V, 25 mV steps  
+  - Adjustable current limit thresholds to optimize for different load requirements  
+  - Dedicated pins for selecting VDDQ voltages for different DDR memory devices  
 
-- **供电电压（VIN）**：2.7 V ～ 5.5 V  
-- **6 个高效降压转换器**  
-  - Buck1/2：0.5 V ～ 3.4 V，4 A，支持双相操作  
-  - Buck3/4：0.5 V ～ 3.4 V，3 A，支持双相操作  
-  - Buck5/6：0.5 V ～ 3.4 V，2.5 A  
-  - 所有降压转换器可选择的输出电压范围：  
-    - 0.5 V ～ 1.35 V，5 mV/step  
-    - 1.375 V ～ 3.4 V，25 mV/step  
-  - 电流限制阈值可调，允许根据不同应用的不同负载电流进行优化  
-  - 专用引脚用于选择不同 DDR 颗粒的 VDDQ 电压  
-- **12 个可编程的 LDO 稳压器**  
-  - 1 个专用常开 LDO  
-  - 11 个低噪声 LDO  
-  - 输出电压：0.5 V ～ 3.4 V，25 mV/step  
-  - 输出电流：0.3 ～ 0.5 A  
-- **1 个负载开关**，最大输出电流 1 A  
-- **I²C 通信接口**  
-- **用户可编程 MTP**  
-- **带有看门狗定时器的系统监视器**  
-- **纽扣电池支持**  
-- **2 µA 超低功耗 RTC**，带警报功能  
-- **12 位 ADC**，具有 8 个通道和可配置的警报阈值  
-- **输出电压和启动/关闭顺序可由 MTP 预设**  
-- **6 个用于外围控制的 GPIO 引脚**  
-- **芯片结温**：-40 ℃ 至 125 ℃  
-- **封装**：QFN-60，7 mm × 7 mm，0.4 mm 间距  
+- **12 Programmable LDO Regulators**
+  - 1 dedicated always-on LDO  
+  - 11 low-noise LDOs  
+  - Output voltage: 0.5 V to 3.4 V, 25 mV steps  
+  - Output current: 0.3 A to 0.5 A  
 
-### 1.3 应用
+- **1 Load Switch** with up to 1 A output current  
 
-- 超级本  
-- 平板电脑  
-- 电子书  
-- 虚拟现实 / 增强现实设备  
-- 工业设备  
-- 导航设备  
-- 无人机
+- **I²C Communication Interface**
 
-### 2. 模块框图
+- **User-Programmable MTP (Multi-Time Programmable Memory)**
+
+- **System Monitor with Watchdog Timer**
+
+- **Coin-Cell Battery Support**
+
+- **Ultra-Low-Power RTC**
+  - 2 µA typical current consumption  
+  - Alarm function supported  
+
+- **12-bit ADC**
+  - 8 channels  
+  - Configurable alarm thresholds  
+
+- **Output Voltage Levels and Power-Up / Power-Down Sequences**
+  - Preconfigured via MTP  
+
+- **6 GPIO Pins** for peripheral control  
+
+- **Junction Temperature Range**: –40 °C to +125 °C  
+
+- **Package**
+  - QFN-60  
+  - 7 mm × 7 mm  
+  - 0.4 mm pitch  
+
+### 1.3 Applications
+
+- Ultrabooks  
+- Tablets  
+- E-books 
+- Virtual Reality (VR) / Augmented Reality (AR) devices  
+- Industrial equipment  
+- Navigation devices  
+- Drones  
+
+## 2. Block Diagram
 
 ![](static/CVgqbZypMo36kHx5vpEcOhPAnMg.png)
 
-## 3. 引脚封装图
+## 3. Pin Configuration Diagram
 
-P1 引脚封装图如下
+The pin configuration of the **P1** device is shown below:
 
 ![](static/LF0fbF5vZoXL6Mx8XdAcTghIncS.png)
 
-P1 引脚类型定义如下表描述
+**Pin Type Definitions** are defined in the table below:
 
-| 引脚类型 | 描述         | 引脚类型 | 描述         |
-|----------|--------------|----------|--------------|
-| DI       | 数字输入     | AI       | 模拟输入     |
-| DO       | 数字输出     | AO       | 模拟输出     |
-| DIO      | 数字输入/输出| AIO      | 模拟输入/输出|
-| PWR      | 电源         | GND      | 地           |
+| Pin Type | Description            | Pin Type | Description            |
+|---------:|------------------------|---------:|------------------------|
+| DI       | Digital Input          | AI       | Analog Input           |
+| DO       | Digital Output         | AO       | Analog Output          |
+| DIO      | Digital Input / Output | AIO      | Analog Input / Output  |
+| PWR      | Power Supply           | GND      | Ground                 |
 
-P1 引脚描述如下表描述
+**Pin Descriptions**
 
-| 引脚 | 引脚名称   | 类型      | 描述                     | 复用功能                                      |
-|------|------------|-----------|--------------------------|-----------------------------------------------|
-| 1    | ALDO3      | AO        | ALDO3电压输出            | -                                             |
-| 2    | ALDOIN     | PWR       | ALDO1~4电源输入          | -                                             |
-| 3    | ALDO1      | AO        | ALDO1电压输出            | -                                             |
-| 4    | ALDO2      | AO        | ALDO2电压输出            | -                                             |
-| 5    | FB3GND     | GND       | Buck3输出电压地端反馈    | -                                             |
-| 6    | FB3        | AIN       | Buck3输出电压反馈        | -                                             |
-| 7    | SW3        | AIO       | Buck3的开关节点          | -                                             |
-| 8    | VIN3       | PWR       | Buck3的电源输入          | -                                             |
-| 9    | VIN4       | PWR       | Buck4的电源输入          | -                                             |
-| 10   | SW4        | AIO       | Buck4的开关节点          | -                                             |
-| 11   | FB4        | AIN       | Buck4输出电压反馈        | -                                             |
-| 12   | SWIN       | AIN       | 负载开关输入端           | -                                             |
-| 13   | SWOUT      | AO        | 负载开关输出端           | -                                             |
-| 14   | DLDO2      | AO        | DLDO2电压输出            | -                                             |
-| 15   | DLDO1      | AO        | DLDO1电压输出            | -                                             |
-| 16   | DLDO3      | AO        | DLDO3电压输出            | -                                             |
-| 17   | DLDOIN1    | PWR       | DLDO1~4电源输入          | -                                             |
-| 18   | DLDO4      | AO        | DLDO4电压输出            | -                                             |
-| 19   | VSET6      | AIN       | Buck6默认输出电压设定    | -                                             |
-| 20   | FB6        | AIN       | Buck6输出电压反馈        | -                                             |
-| 21   | SW6        | AIN       | Buck6的开关节点          | -                                             |
-| 22   | VIN6       | PWR       | Buck6的电源输入          | -                                             |
-| 23   | VIN5       | PWR       | Buck5的电源输入          | -                                             |
-| 24   | SW5        | AIO       | Buck5的开关节点          | -                                             |
-| 25   | FB5        | AIN       | Buck5输出电压反馈        | -                                             |
-| 26   | VSET5      | AIN       | Buck5默认输出电压设定    | -                                             |
-| 27   | DLDO5      | AO        | DLDO5电压输出            | -                                             |
-| 28   | DLDO6      | AO        | DLDO6电压输出            | -                                             |
-| 29   | DLDOIN2    | PWR       | DLDO5~7电源输入          | -                                             |
-| 30   | DLDO7      | AO        | DLDO7电压输出            | -                                             |
-| 31   | TEST2      | DIO       | 测试引脚                 | -                                             |
-| 32   | TEST1      | DIO       | 测试引脚                 | -                                             |
-| 33   | AGND       | GND       | 模拟地                   | -                                             |
-| 34   | FB2        | AIN       | Buck2输出电压反馈        | -                                             |
-| 35   | SW2        | AIO       | Buck2的开关节点          | -                                             |
-| 36   | VIN2       | PWR       | Buck2的电源输入          | -                                             |
-| 37   | VIN1       | PWR       | Buck1的电源输入          | -                                             |
-| 38   | SW1        | AIO       | Buck1的开关节点          | -                                             |
-| 39   | FB1        | AIN       | Buck1输出电压反馈        | -                                             |
-| 40   | FB1GND     | GND       | Buck1输出电压地端反馈    | -                                             |
-| 41   | VSYS       | PWR       | 内部电路电源输入         | -                                             |
-| 42   | GPIO5      | DIO/AIN   | 多功能复用GPIO           | EXT_EN/SLEEP_WKUP/PWRCTRL/nRESET/ADC input    |
-| 43   | GPIO4      | DIO/AIN   | 多功能复用GPIO           | EXT_EN/SLEEP_WKUP/PWRCTRL/nRESET/ADC input    |
-| 44   | SDA        | DIO       | I²C通信接口数据信号      | -                                             |
-| 45   | SCL        | DIN       | I²C通信接口时钟信号      | -                                             |
-| 46   | VCELL      | AIN       | 纽扣电池电压输入端口     | -                                             |
-| 47   | XTALOUT    | AIN       | 外部晶振                 | -                                             |
-| 48   | XTALIN     | AIN       | 外部晶振                 | -                                             |
-| 49   | GPIO3      | DIO/AIN   | 多功能复用GPIO           | EXT_EN/SLEEP_WKUP/PWRCTRL/nRESET/ADC input    |
-| 50   | 32KOUT     | DO        | 时钟输出                 | -                                             |
-| 51   | GPIO2      | DIO/AIN   | 多功能复用GPIO           | EXT_EN/SLEEP_WKUP/PWRCTRL/nRESET/ADC input    |
-| 52   | GPIO1      | DIO/AIN   | 多功能复用GPIO           | EXT_EN/SLEEP_WKUP/PWRCTRL/nRESET/ADC input    |
-| 53   | GPIO0      | DIO/AIN   | 多功能复用GPIO           | EXT_EN/SLEEP_WKUP/PWRCTRL/nRESET/ADC input    |
-| 54   | INT        | DIO       | 中断输出                 | -                                             |
-| 55   | PWRKY      | AIN       | 开机/关机/复位按键       | -                                             |
-| 56   | PGOOD      | DIO       | Power good指示位/复位源  | -                                             |
-| 57   | AGND       | GND       | 模拟地                   | -                                             |
-| 58   | VREF       | AO        | 芯片内部参考电压         | -                                             |
-| 59   | AONLDO     | AO        | AONLDO电压输出           | -                                             |
-| 60   | ALDO4      | AO        | ALDO4电压输出            | -                                             |
+| Pin No. | Pin Name | Type      | Description   | Multiplexed Function   |
+|-------:|----------|-----------|-----------------|-----------|
+| 1  | ALDO3   | AO        | ALDO3 voltage output                     | – |
+| 2  | ALDOIN  | PWR       | Power input for ALDO1–4                  | – |
+| 3  | ALDO1   | AO        | ALDO1 voltage output                     | – |
+| 4  | ALDO2   | AO        | ALDO2 voltage output                     | – |
+| 5  | FB3GND  | GND       | Buck3 output voltage ground feedback     | – |
+| 6  | FB3     | AI        | Buck3 output voltage feedback            | – |
+| 7  | SW3     | AIO       | Buck3 switching node                     | – |
+| 8  | VIN3    | PWR       | Buck3 power input                        | – |
+| 9  | VIN4    | PWR       | Buck4 power input                        | – |
+| 10 | SW4     | AIO       | Buck4 switching node                     | – |
+| 11 | FB4     | AI        | Buck4 output voltage feedback            | – |
+| 12 | SWIN    | AI        | Load switch input                        | – |
+| 13 | SWOUT   | AO        | Load switch output                       | – |
+| 14 | DLDO2   | AO        | DLDO2 voltage output                     | – |
+| 15 | DLDO1   | AO        | DLDO1 voltage output                     | – |
+| 16 | DLDO3   | AO        | DLDO3 voltage output                     | – |
+| 17 | DLDOIN1 | PWR       | Power input for DLDO1–4                  | – |
+| 18 | DLDO4   | AO        | DLDO4 voltage output                     | – |
+| 19 | VSET6   | AI        | Buck6 default output voltage setting     | – |
+| 20 | FB6     | AI        | Buck6 output voltage feedback            | – |
+| 21 | SW6     | AI        | Buck6 switching node                     | – |
+| 22 | VIN6    | PWR       | Buck6 power input                        | – |
+| 23 | VIN5    | PWR       | Buck5 power input                        | – |
+| 24 | SW5     | AIO       | Buck5 switching node                     | – |
+| 25 | FB5     | AI        | Buck5 output voltage feedback            | – |
+| 26 | VSET5   | AI        | Buck5 default output voltage setting     | – |
+| 27 | DLDO5   | AO        | DLDO5 voltage output                     | – |
+| 28 | DLDO6   | AO        | DLDO6 voltage output                     | – |
+| 29 | DLDOIN2 | PWR       | Power input for DLDO5–7                  | – |
+| 30 | DLDO7   | AO        | DLDO7 voltage output                     | – |
+| 31 | TEST2   | DIO       | Test pin                                | – |
+| 32 | TEST1   | DIO       | Test pin                                | – |
+| 33 | AGND    | GND       | Analog ground                            | – |
+| 34 | FB2     | AI        | Buck2 output voltage feedback            | – |
+| 35 | SW2     | AIO       | Buck2 switching node                     | – |
+| 36 | VIN2    | PWR       | Buck2 power input                        | – |
+| 37 | VIN1    | PWR       | Buck1 power input                        | – |
+| 38 | SW1     | AIO       | Buck1 switching node                     | – |
+| 39 | FB1     | AI        | Buck1 output voltage feedback            | – |
+| 40 | FB1GND  | GND       | Buck1 output voltage ground feedback     | – |
+| 41 | VSYS    | PWR       | Internal circuit power input             | – |
+| 42 | GPIO5   | DIO / AI  | Multifunction GPIO                      | EXT_EN / SLEEP_WKUP / PWRCTRL / nRESET / ADC input |
+| 43 | GPIO4   | DIO / AI  | Multifunction GPIO                      | EXT_EN / SLEEP_WKUP / PWRCTRL / nRESET / ADC input |
+| 44 | SDA     | DIO       | I²C data line                            | – |
+| 45 | SCL     | DI        | I²C clock line                           | – |
+| 46 | VCELL   | AI        | Coin-cell battery voltage input          | – |
+| 47 | XTALOUT | AI        | External crystal output                 | – |
+| 48 | XTALIN  | AI        | External crystal input                  | – |
+| 49 | GPIO3   | DIO / AI  | Multifunction GPIO                      | EXT_EN / SLEEP_WKUP / PWRCTRL / nRESET / ADC input |
+| 50 | 32KOUT  | DO        | Clock output                             | – |
+| 51 | GPIO2   | DIO / AI  | Multifunction GPIO                      | EXT_EN / SLEEP_WKUP / PWRCTRL / nRESET / ADC input |
+| 52 | GPIO1   | DIO / AI  | Multifunction GPIO                      | EXT_EN / SLEEP_WKUP / PWRCTRL / nRESET / ADC input |
+| 53 | GPIO0   | DIO / AI  | Multifunction GPIO                      | EXT_EN / SLEEP_WKUP / PWRCTRL / nRESET / ADC input |
+| 54 | INT     | DIO       | Interrupt output                        | – |
+| 55 | PWRKY   | AI        | Power-on / Power-off / Reset key input  | – |
+| 56 | PGOOD   | DIO       | Power-good indicator / Reset source     | – |
+| 57 | AGND    | GND       | Analog ground                            | – |
+| 58 | VREF    | AO        | Internal reference voltage               | – |
+| 59 | AONLDO  | AO        | AON LDO voltage output                  | – |
+| 60 | ALDO4   | AO        | ALDO4 voltage output                    | – |
 
-## 4. 绝对最大额定值
+## 4. Absolute Maximum Ratings
 
-绝对最大额定值如下表描述
+The absolute maximum ratings are listed in the table below.  
 
-| 参数         | 描述               | 条件 | 最小值 | 典型值 | 最大值 | 单位 |
-|--------------|--------------------|------|--------|--------|--------|------|
-| T(STG)       | 存储温度           | -    | -40    | -      | 150    | °C   |
-| T(J)         | 结温               | -    | -40    | -      | 125    | °C   |
-| V(SYS)       | 系统供电电压       | -    | -0.3   | -      | 7.0    | V    |
-| V(CELL)      | 纽扣电池供电电压   | -    | -0.3   | -      | 7.0    | V    |
-| V(ESD_HBM)   | ESD保护-HBM        | -    | 2      | -      | -      | kV   |
-| V(ESD_CDM)   | ESD保护-CDM        | -    | 500    | -      | -      | V    |
+| Parameter     | Description                     | Conditions | Min   | Typ | Max   | Unit |
+|---------------|----------------------------------|------------|-------|-----|-------|------|
+| T<sub>STG</sub> | Storage temperature              | –          | -40   | –   | 150   | °C   |
+| T<sub>J</sub>   | Junction temperature             | –          | -40   | –   | 125   | °C   |
+| V<sub>SYS</sub> | System supply voltage            | –          | -0.3  | –   | 7.0   | V    |
+| V<sub>CELL</sub>| Coin-cell battery supply voltage | –          | -0.3  | –   | 7.0   | V    |
+| V<sub>ESD_HBM</sub> | ESD protection (HBM)         | –          | 2     | –   | –     | kV   |
+| V<sub>ESD_CDM</sub> | ESD protection (CDM)         | –          | 500   | –   | –     | V    |
 
-## 5. 电气特性参数
+## 5. Electrical Characteristics
 
-### 5.1 推荐工作条件
+### 5.1 Recommended Operating Conditions
 
-推荐工作条件如下表描述
+The recommended operating conditions are listed in the table below.
 
-| 参数     | 描述                     | 条件 | 最小值 | 典型值 | 最大值 | 单位   |
-|----------|--------------------------|------|--------|--------|--------|--------|
-| T(J)     | 结温                     | -    | -40    | -      | 125    | ℃      |
-| V(SYS)   | 系统供电电压             | -    | 2.7    | -      | 5.5    | V      |
-| P(DIS)   | 芯片最大功耗             | -    | -      | -      | 2      | W      |
-| R(JA)    | Junction到环境热阻       | -    | -      | 38     | -      | ℃/W    |
-| R(JC)    | Junction到芯片表面热阻   | -    | -      | 12     | -      | ℃/W    |
-| R(JB)    | Junction到PCB板热阻      | -    | -      | 9      | -      | ℃/W    |
+| Parameter | Description                              | Conditions | Min  | Typ | Max | Unit |
+|----------|------------------------------------------|------------|------|-----|-----|------|
+| T<sub>J</sub> | Junction temperature                   | –          | -40  | –   | 125 | °C   |
+| V<sub>SYS</sub> | System supply voltage                | –          | 2.7  | –   | 5.5 | V    |
+| P<sub>DIS</sub> | Maximum chip power dissipation       | –          | –    | –   | 2   | W    |
+| R<sub>JA</sub> | Junction-to-ambient thermal resistance | –        | –    | 38  | –   | °C/W |
+| R<sub>JC</sub> | Junction-to-case thermal resistance    | –        | –    | 12  | –   | °C/W |
+| R<sub>JB</sub> | Junction-to-board thermal resistance   | –        | –    | 9   | –   | °C/W |
 
-### 5.2 各模式功耗情况
+### 5.2 Power Consumption in Different Modes
 
-各模式**功耗**情况如下表描述
+The power consumption in different operating modes is shown below.
 
-| 描述                 | 条件                | 最小值 | 典型值 | 最大值 | 单位 |
-|----------------------|---------------------|--------|--------|--------|------|
-| RESET模式            | -                   | -      | -      | -      | μA   |
-| RTC模式              | V(IN)=5V, Ta=25℃    | -      | 2    | -      | μA   |
-| 关机模式-SHUTDOWN    | V(IN)=5V, Ta=25℃    | -      | 40     | -      | μA   |
-| 开机模式-ACTIVE      | -                   | -      | -      | -      | μA   |
-| 睡眠模式-SLEEP       | -                   | -      | -      | -      | μA   |
+| Description        | Conditions             | Min | Typ | Max | Unit |
+|--------------------|------------------------|-----|-----|-----|------|
+| RESET mode         | –                      | –   | –   | –   | μA   |
+| RTC mode           | V(IN)=5 V, T<sub>A</sub>=25 °C | – | 2 | – | μA |
+| Shutdown mode      | V(IN)=5 V, T<sub>A</sub>=25 °C | – | 40 | – | μA |
+| Active mode        | –                      | –   | –   | –   | μA   |
+| Sleep mode         | –                      | –   | –   | –   | μA   |
 
-### 5.3 数字引脚电气特性
+### 5.3 Digital I/O Electrical Characteristics
 
-数字引脚电气特性如下表描述
+The digital I/O electrical characteristics are listed below.
 
-| 参数      | 描述           | 条件                                      | 最小值 | 典型值          | 最大值        | 单位 |
-|-----------|----------------|-------------------------------------------|--------|-----------------|---------------|------|
-| V(IH)     | 高电平输入     | 2.7 ～ 5.5 V，-40 ~ 105 ℃                | -      | -               | 0.3 * AONLDO  | V    |
-| V(IL)     | 低电平输入     | 2.7 ～ 5.5 V，-40 ~ 105 ℃                | 0.7 * AONLDO | -         | -             | V    |
-| V(OH)     | 高电平输出     | 5 V，25 ℃<br/>AONLDO = 1.8 V，I(LOAD)=1 mA | -      | AONLDO - 0.1    | -             | V    |
-| V(OL)     | 低电平输出     | 5 V，25 ℃<br/>AONLDO = 1.8 V，I(LOAD)=1 mA | -      | 0.1             | -             | V    |
-| I(DRIVE)  | 源电流驱动     | 5 V，25 ℃<br/>AONLDO = 1.8 V，PAD = 1.3 V  | -      | 10              | -             | mA   |
-| I(SINK)   | 灌电流驱动     | 5 V，25 ℃<br/>AONLDO = 1.8 V，PAD = 0.5 V  | -      | 25              | -             | mA   |
-| R(PU)     | 弱上拉电阻     | -                                         | -      | 20 k            | -             | Ω    |
-| R(PD)     | 弱下拉电阻     | -                                         | -      | 20 k            | -             | Ω    |
+| Parameter | Description          | Conditions                                                                 | Min              | Typ              | Max             | Unit |
+|----------|----------------------|----------------------------------------------------------------------------|------------------|------------------|------------------|------|
+| V<sub>IH</sub> | Input high voltage | 2.7–5.5 V, -40 to 105 °C                                                    | –                | –                | 0.3 × AONLDO     | V    |
+| V<sub>IL</sub> | Input low voltage  | 2.7–5.5 V, -40 to 105 °C                                                    | 0.7 × AONLDO     | –                | –                | V    |
+| V<sub>OH</sub> | Output high voltage | 5 V, 25 °C<br/>AONLDO = 1.8 V, I<sub>LOAD</sub> = 1 mA                      | –                | AONLDO − 0.1     | –                | V    |
+| V<sub>OL</sub> | Output low voltage  | 5 V, 25 °C<br/>AONLDO = 1.8 V, I<sub>LOAD</sub> = 1 mA                      | –                | 0.1              | –                | V    |
+| I<sub>DRIVE</sub> | Source drive current | 5 V, 25 °C<br/>AONLDO = 1.8 V, PAD = 1.3 V                                | –                | 10               | –                | mA   |
+| I<sub>SINK</sub>  | Sink drive current   | 5 V, 25 °C<br/>AONLDO = 1.8 V, PAD = 0.5 V                                | –                | 25               | –                | mA   |
+| R<sub>PU</sub> | Weak pull-up resistor   | –                                                                          | –                | 20 k             | –                | Ω    |
+| R<sub>PD</sub> | Weak pull-down resistor | –                                                                          | –                | 20 k             | –                | Ω    |
 
-### 5.4 看门狗
+### 5.4 Watchdog Timer
 
-看门狗数字引脚电气特性如下表描述
+The watchdog timer characteristics are listed below.
 
-| 参数         | 描述             | 条件 | 最小值 | 典型值 | 最大值 | 单位 |
-|--------------|------------------|------|--------|--------|--------|------|
-| T(WD_MIN)    | 最小看门狗时间   | -    | -      | 1      | -      | s    |
-| T(WD_MAX)    | 最大看门狗时间   | -    | -      | 16     | -      | s    |
+| Parameter | Description                   | Conditions | Min | Typ | Max | Unit |
+|----------|-------------------------------|------------|-----|-----|-----|------|
+| T<sub>WD_MIN</sub> | Minimum watchdog timeout | –          | –   | 1   | –   | s    |
+| T<sub>WD_MAX</sub> | Maximum watchdog timeout | –          | –   | 16  | –   | s    |
 
-### 5.5 LDO
+### 5.5 LDO Characteristics
 
 #### 5.5.1 AONLDO
 
-AONLDO 电气特性如下表描述
+The electrical characteristics of the **AONLDO** are listed in the table below.
 
-| 参数         | 描述               | 条件                                      | 最小值 | 典型值 | 最大值 | 单位    |
-|--------------|--------------------|-------------------------------------------|--------|--------|--------|---------|
-| V(DD)        | 输入电压范围       | V(IN) = V(SYS)                            | 2.7    | -      | 5.5    | V       |
-| V(LDO)       | 输出电压范围       | -                                         | 0.5    | -      | 3.4    | V       |
-| V(LDO_ACC)   | 输出电压精度 (V(OUT) > 1.2V) | -                                         | -      | -      | ±1     | %       |
-| V(LDO_ACC)   | 输出电压精度 (V(OUT) < 1.2V) | -                                         | -      | -      | ±12    | mV      |
-| I(OUT_MAX)   | 输出电流           | -                                         | -      | -      | 0.2    | A       |
-| I(OCP)       | 过流保护           | -                                         | -      | 0.3    | -      | A       |
-| I(SHORT)     | 短路电流           | -                                         | -      | 0.15   | -      | A       |
-| V(DROPOUT)   | 电压降             | V(OUT) = 1.8 V, I(OUT_MAX)                | -      | 0.3    | -      | V       |
-| V(S_LINE)    | 静态线性调整       | V(IN) = 3 ~ 5 V                           | -      | 10     | -      | mV      |
-| V(S_LOAD)    | 静态负载调整       | I(LOAD) = 10 ~ 100 mA                     | -      | 15     | -      | mV      |
-| PSRR         | PSRR               | I(OUT) = I(MAX) / 2, V(IN) - V(OUT) > 1 V | -      | 60     | -      | dB      |
-| Noise        | 输出噪声 (V(OUT) = 1.8 V) | V(OUT) = 1.8 V, I(OUT) = 5 mA - I(MAX)    | -      | 35     | -      | μVrms   |
-| Noise        | 输出噪声 (V(OUT) = 2.5 V) | V(OUT) = 2.5 V, I(OUT) = 5 mA - I(MAX)    | -      | 35     | -      | μVrms   |
-| I(Q_ON)      | 开机模式静态电流   | -                                         | -      | 15     | -      | μA      |
-| R(OFF)       | 关机模式下拉电阻   | -                                         | -      | 160    | -      | ohm     |
-| OV           | 过压               | V(OUT)/V(OUT_TARGET)-1                    | -      | 20     | -      | %       |
-| UV           | 欠压               | 1- V(OUT)/V(OUT_TARGET)                   | -      | 15     | -      | %       |
+| Parameter | Description | Conditions | Min | Typ | Max | Unit |
+|----------|-------------|------------|-----|-----|-----|------|
+| V<sub>DD</sub> | Input voltage range | V<sub>IN</sub> = V<sub>SYS</sub> | 2.7 | – | 5.5 | V |
+| V<sub>LDO</sub> | Output voltage range | – | 0.5 | – | 3.4 | V |
+| V<sub>LDO_ACC</sub> | Output voltage accuracy (V<sub>OUT</sub> > 1.2 V) | – | – | – | ±1 | % |
+| V<sub>LDO_ACC</sub> | Output voltage accuracy (V<sub>OUT</sub> < 1.2 V) | – | – | – | ±12 | mV |
+| I<sub>OUT_MAX</sub> | Output current | – | – | – | 0.2 | A |
+| I<sub>OCP</sub> | Overcurrent protection | – | – | 0.3 | – | A |
+| I<sub>SHORT</sub> | Short-circuit current | – | – | 0.15 | – | A |
+| V<sub>DROPOUT</sub> | Dropout voltage | V<sub>OUT</sub> = 1.8 V, I<sub>OUT</sub> = I<sub>OUT_MAX</sub> | – | 0.3 | – | V |
+| V<sub>S_LINE</sub> | Line regulation | V<sub>IN</sub> = 3 to 5 V | – | 10 | – | mV |
+| V<sub>S_LOAD</sub> | Load regulation | I<sub>LOAD</sub> = 10 to 100 mA | – | 15 | – | mV |
+| PSRR | Power supply rejection ratio | I<sub>OUT</sub> = I<sub>MAX</sub>/2, V<sub>IN</sub> − V<sub>OUT</sub> > 1 V | – | 60 | – | dB |
+| Noise | Output noise (V<sub>OUT</sub> = 1.8 V) | V<sub>OUT</sub> = 1.8 V, I<sub>OUT</sub> = 5 mA to I<sub>MAX</sub> | – | 35 | – | µV<sub>RMS</sub> |
+| Noise | Output noise (V<sub>OUT</sub> = 2.5 V) | V<sub>OUT</sub> = 2.5 V, I<sub>OUT</sub> = 5 mA to I<sub>MAX</sub> | – | 35 | – | µV<sub>RMS</sub> |
+| I<sub>Q_ON</sub> | Quiescent current (ON mode) | – | – | 15 | – | µA |
+| R<sub>OFF</sub> | Pull-down resistance (OFF mode) | – | – | 160 | – | Ω |
+| OV | Overvoltage threshold | V<sub>OUT</sub>/V<sub>OUT_TARGET</sub> − 1 | – | 20 | – | % |
+| UV | Undervoltage threshold | 1 − V<sub>OUT</sub>/V<sub>OUT_TARGET</sub> | – | 15 | – | % |
 
-#### 5.5.2 ALDO1~4
+#### 5.5.2 ALDO1–ALDO4
 
-ALDO1~4 电气特性如下表描述
+The electrical characteristics of **ALDO1–ALDO4** are listed below.
 
-| 参数         | 描述               | 条件                                               | 最小值 | 典型值 | 最大值 | 单位    |
-|--------------|--------------------|----------------------------------------------------|--------|--------|--------|---------|
-| V(DD)        | 输入电压范围       | V(IN) = V(SYS)                                     | 2.7    | -      | 5.5    | V       |
-| V(LDO)       | 输出电压范围       | -                                                  | 0.5    | -      | 3.4    | V       |
-| V(LDO_ACC)   | 输出电压精度 (V(OUT) > 1.2V) | V(OUT) > 1.2 V                                      | -      | -      | ±1     | %       |
-| V(LDO_ACC)   | 输出电压精度 (V(OUT) < 1.2V) | V(OUT) < 1.2 V                                      | -      | -      | ±12    | mV      |
-| I(OUT_MAX)   | 输出电流           | -                                                  | -      | -      | 0.3    | A       |
-| I(OCP)       | 过流保护           | -                                                  | -      | 0.5    | -      | A       |
-| I(SHORT)     | 短路电流           | -                                                  | -      | 0.25   | -      | A       |
-| V(DROPOUT)   | 电压降             | V(IN)=2.0 V, I(OUT_MAX)                            | -      | 0.3    | -      | V       |
-| V(S_LINE)    | 静态线性调整       | V(IN)= 3 ~ 5 V                                     | -      | 10     | -      | mV      |
-| V(S_LOAD)    | 静态负载调整       | I(LOAD) = 10 ~ 100 mA                              | -      | 15     | -      | mV      |
-| PSRR         | PSRR               | I(OUT)= I(MAX) / 2, V(IN ) - V(OUT ) > 1 V         | -      | 70     | -      | dB      |
-| Noise        | 输出噪声 (V(OUT) = 1.8 V) | V(OUT) = 1.8 V, I(OUT) = 5 mA - I(MAX)              | -      | 30     | -      | μVrms   |
-| Noise        | 输出噪声 (V(OUT) = 2.5 V) | V(OUT) = 2.5 V, I(OUT) = 5 mA - I(MAX)              | -      | 30     | -      | μVrms   |
-| I(Q_ON)      | 开机模式静态电流   | -                                                  | -      | 15     | -      | μA      |
-| R(OFF)       | 关机模式下拉电阻   | -                                                  | -      | 160    | -      | Ω       |
-| OV           | 过压               | V(OUT)/V(OUT_TARGET)-1                             | -      | 20     | -      | %       |
-| UV           | 欠压               | 1- V(OUT)/V(OUT_TARGET)                            | -      | 15     | -      | %       |
+| Parameter | Description | Conditions | Min | Typ | Max | Unit |
+|----------|-------------|------------|-----|-----|-----|------|
+| V<sub>DD</sub> | Input voltage range | V<sub>IN</sub> = V<sub>SYS</sub> | 2.7 | – | 5.5 | V |
+| V<sub>LDO</sub> | Output voltage range | – | 0.5 | – | 3.4 | V |
+| V<sub>LDO_ACC</sub> | Output voltage accuracy (V<sub>OUT</sub> > 1.2 V) | V<sub>OUT</sub> > 1.2 V | – | – | ±1 | % |
+| V<sub>LDO_ACC</sub> | Output voltage accuracy (V<sub>OUT</sub> < 1.2 V) | V<sub>OUT</sub> < 1.2 V | – | – | ±12 | mV |
+| I<sub>OUT_MAX</sub> | Output current | – | – | – | 0.3 | A |
+| I<sub>OCP</sub> | Overcurrent protection | – | – | 0.5 | – | A |
+| I<sub>SHORT</sub> | Short-circuit current | – | – | 0.25 | – | A |
+| V<sub>DROPOUT</sub> | Dropout voltage | V<sub>IN</sub> = 2.0 V, I<sub>OUT</sub> = I<sub>OUT_MAX</sub> | – | 0.3 | – | V |
+| V<sub>S_LINE</sub> | Line regulation | V<sub>IN</sub> = 3 to 5 V | – | 10 | – | mV |
+| V<sub>S_LOAD</sub> | Load regulation | I<sub>LOAD</sub> = 10 to 100 mA | – | 15 | – | mV |
+| PSRR | Power supply rejection ratio | I<sub>OUT</sub> = I<sub>MAX</sub>/2, V<sub>IN</sub> − V<sub>OUT</sub> > 1 V | – | 70 | – | dB |
+| Noise | Output noise (V<sub>OUT</sub> = 1.8 V) | V<sub>OUT</sub> = 1.8 V, I<sub>OUT</sub> = 5 mA to I<sub>MAX</sub> | – | 30 | – | µV<sub>RMS</sub> |
+| Noise | Output noise (V<sub>OUT</sub> = 2.5 V) | V<sub>OUT</sub> = 2.5 V, I<sub>OUT</sub> = 5 mA to I<sub>MAX</sub> | – | 30 | – | µV<sub>RMS</sub> |
+| I<sub>Q_ON</sub> | Quiescent current (ON mode) | – | – | 15 | – | µA |
+| R<sub>OFF</sub> | Pull-down resistance (OFF mode) | – | – | 160 | – | Ω |
+| OV | Overvoltage threshold | V<sub>OUT</sub>/V<sub>OUT_TARGET</sub> − 1 | – | 20 | – | % |
+| UV | Undervoltage threshold | 1 − V<sub>OUT</sub>/V<sub>OUT_TARGET</sub> | – | 15 | – | % |
 
-#### 5.5.3 DLDO1/2/3/5/6
+#### 5.5.3 DLDO1 / DLDO2 / DLDO3 / DLDO5 / DLDO6
 
-DLDO1/2/3/5/6 电气特性如下表描述
+The electrical characteristics of **DLDO1, DLDO2, DLDO3, DLDO5, and DLDO6** are shown below.
 
-| 参数         | 描述               | 条件                                               | 最小值 | 典型值 | 最大值 | 单位    |
-|--------------|--------------------|----------------------------------------------------|--------|--------|--------|---------|
-| V(DD)        | 输入电压范围 (V(IN) = V(SYS))  | V(IN) = V(SYS)                                     | 2.7    | -      | 5.5    | V       |
-| V(DD)        | 输入电压范围 (来自Buck的输入电压V(IN)) | 来自Buck的输入电压V(IN)                           | 2.1    | -      | -      | V       |
-| V(LDO)       | 输出电压范围       | -                                                  | 0.5    | -      | 3.4    | V       |
-| V(LDO_ACC)   | 输出电压精度 (V(OUT) > 1.2V)     | V(OUT) > 1.2 V                                      | -      | -      | ±1     | %       |
-| V(LDO_ACC)   | 输出电压精度 (V(OUT) < 1.2V)     | V(OUT) < 1.2 V                                      | -      | -      | ±12    | %       |
-| I(OUT_MAX)   | 输出电流           | -                                                  | -      | -      | 0.3    | A       |
-| I(OCP)       | 过流保护           | -                                                  | -      | 0.5    | -      | A       |
-| I(SHORT)     | 短路电流           | -                                                  | -      | 0.25   | -      | A       |
-| V(DROPOUT)   | 电压降             | V(IN) = 2.1 V, I(OUT_MAX)                          | -      | 0.3    | -      | V       |
-| V(S_LINE)    | 静态线性调整       | V(IN) = 3 ~ 5 V                                     | -      | 10     | -      | mV      |
-| V(S_LOAD)    | 静态负载调整       | I(LOAD) = 10 ~ 100 mA                              | -      | 15     | -      | mV      |
-| PSRR         | PSRR               | I(OUT) = I(MAX) / 2, V(IN) - V(OUT) > 1 V          | -      | 60     | -      | dB      |
-| Noise        | 输出噪声 (V(OUT) = 1.8 V) | V(OUT) = 1.8 V, I(OUT) = 5 mA - I(MAX)              | -      | 35     | -      | μVrms   |
-| Noise        | 输出噪声 (V(OUT) = 2.5 V) | V(OUT) = 2.5 V, I(OUT) = 5 mA - I(MAX)              | -      | 35     | -      | μVrms   |
-| I(Q_ON)      | 开机模式静态电流   | -                                                  | -      | 15     | -      | μA      |
-| R(OFF)       | 关机模式下拉电阻   | -                                                  | -      | 160    | -      | Ω       |
-| OV           | 过压               | V(OUT)/V(OUT_TARGET)-1                             | -      | 20     | -      | %       |
-| UV           | 欠压               | 1- V(OUT)/V(OUT_TARGET)                            | -      | 15     | -      | %       |
+| Parameter | Description | Conditions | Min | Typ | Max | Unit |
+|----------|-------------|------------|-----|-----|-----|------|
+| V<sub>DD</sub> | Input voltage range (V<sub>IN</sub> = V<sub>SYS</sub>) | V<sub>IN</sub> = V<sub>SYS</sub> | 2.7 | – | 5.5 | V |
+| V<sub>DD</sub> | Input voltage range (buck-supplied) | Buck output used as V<sub>IN</sub> | 2.1 | – | – | V |
+| V<sub>LDO</sub> | Output voltage range | – | 0.5 | – | 3.4 | V |
+| V<sub>LDO_ACC</sub> | Output voltage accuracy (V<sub>OUT</sub> > 1.2 V) | V<sub>OUT</sub> > 1.2 V | – | – | ±1 | % |
+| V<sub>LDO_ACC</sub> | Output voltage accuracy (V<sub>OUT</sub> < 1.2 V) | V<sub>OUT</sub> < 1.2 V | – | – | ±12 | % |
+| I<sub>OUT_MAX</sub> | Output current | – | – | – | 0.3 | A |
+| I<sub>OCP</sub> | Overcurrent protection | – | – | 0.5 | – | A |
+| I<sub>SHORT</sub> | Short-circuit current | – | – | 0.25 | – | A |
+| V<sub>DROPOUT</sub> | Dropout voltage | V<sub>IN</sub> = 2.1 V, I<sub>OUT</sub> = I<sub>OUT_MAX</sub> | – | 0.3 | – | V |
+| V<sub>S_LINE</sub> | Line regulation | V<sub>IN</sub> = 3 to 5 V | – | 10 | – | mV |
+| V<sub>S_LOAD</sub> | Load regulation | I<sub>LOAD</sub> = 10 to 100 mA | – | 15 | – | mV |
+| PSRR | Power supply rejection ratio | I<sub>OUT</sub> = I<sub>MAX</sub>/2, V<sub>IN</sub> − V<sub>OUT</sub> > 1 V | – | 60 | – | dB |
+| Noise | Output noise (V<sub>OUT</sub> = 1.8 V) | V<sub>OUT</sub> = 1.8 V, I<sub>OUT</sub> = 5 mA to I<sub>MAX</sub> | – | 35 | – | µV<sub>RMS</sub> |
+| Noise | Output noise (V<sub>OUT</sub> = 2.5 V) | V<sub>OUT</sub> = 2.5 V, I<sub>OUT</sub> = 5 mA to I<sub>MAX</sub> | – | 35 | – | µV<sub>RMS</sub> |
+| I<sub>Q_ON</sub> | Quiescent current (ON mode) | – | – | 15 | – | µA |
+| R<sub>OFF</sub> | Pull-down resistance (OFF mode) | – | – | 160 | – | Ω |
+| OV | Overvoltage threshold | V<sub>OUT</sub>/V<sub>OUT_TARGET</sub> − 1 | – | 20 | – | % |
+| UV | Undervoltage threshold | 1 − V<sub>OUT</sub>/V<sub>OUT_TARGET</sub> | – | 15 | – | % |
 
-#### 5.5.4 DLDO4/7
+#### 5.5.4 DLDO4 / DLDO7
 
-DLDO4/7 电气特性如下表描述
+The electrical characteristics of **DLDO4 and DLDO7** are listed below.
 
-| 参数         | 描述               | 条件                                               | 最小值 | 典型值 | 最大值 | 单位    |
-|--------------|--------------------|----------------------------------------------------|--------|--------|--------|---------|
-| V(DD)        | 输入电压范围 (V(IN) = V(SYS))  | V(IN) = V(SYS)                                     | 2.7    | -      | 5.5    | V       |
-| V(DD)        | 输入电压范围 (来自Buck的输入电压V(IN)) | 来自Buck的输入电压V(IN)                           | 2.1    | -      | -      | V       |
-| V(LDO)       | 输出电压范围       | -                                                  | 0.5    | -      | 3.4    | V       |
-| V(LDO_ACC)   | 输出电压精度 (V(OUT) > 1.2V)     | V(OUT) > 1.2 V                                      | -      | -      | ±1     | %       |
-| V(LDO_ACC)   | 输出电压精度 (V(OUT) < 1.2V)     | V(OUT) < 1.2 V                                      | -      | -      | ±12    | %       |
-| I(OUT_MAX)   | 输出电流           | -                                                  | -      | -      | 0.5    | A       |
-| I(OCP)       | 过流保护           | -                                                  | -      | 0.8    | -      | A       |
-| I(SHORT)     | 短路电流           | -                                                  | -      | 0.4    | -      | A       |
-| V(DROPOUT)   | 电压降             | V(IN) = 2.1 V, I(OUT_MAX)                          | -      | 0.4    | -      | V       |
-| V(S_LINE)    | 静态线性调整       | V(IN) = 3 ~ 5 V                                     | -      | 10     | -      | mV      |
-| V(S_LOAD)    | 静态负载调整       | I(LOAD) = 10 ~ 100 mA                              | -      | 15     | -      | mV      |
-| PSRR         | PSRR               | I(OUT) = I(MAX) / 2, V(IN) - V(OUT) > 1 V          | -      | 60     | -      | dB      |
-| Noise        | 输出噪声 (V(OUT) = 1.8 V) | V(OUT) = 1.8 V, I(OUT) = 5 mA - I(MAX)              | -      | 35     | -      | μVrms   |
-| Noise        | 输出噪声 (V(OUT) = 2.5 V) | V(OUT) = 2.5 V, I(OUT) = 5 mA - I(MAX)              | -      | 35     | -      | μVrms   |
-| I(Q_ON)      | 开机模式静态电流   | -                                                  | -      | 15     | -      | μA      |
-| R(OFF)       | 关机模式下拉电阻   | -                                                  | -      | 160    | -      | Ω       |
-| OV           | 过压               | V(OUT)/V(OUT_TARGET)-1                             | -      | 20     | -      | %       |
-| UV           | 欠压               | 1 - V(OUT)/V(OUT_TARGET)                           | -      | 15     | -      | %       |
+| Parameter | Description | Conditions | Min | Typ | Max | Unit |
+|----------|-------------|------------|-----|-----|-----|------|
+| V<sub>DD</sub> | Input voltage range (V<sub>IN</sub> = V<sub>SYS</sub>) | V<sub>IN</sub> = V<sub>SYS</sub> | 2.7 | – | 5.5 | V |
+| V<sub>DD</sub> | Input voltage range (buck-supplied) | Buck output used as V<sub>IN</sub> | 2.1 | – | – | V |
+| V<sub>LDO</sub> | Output voltage range | – | 0.5 | – | 3.4 | V |
+| V<sub>LDO_ACC</sub> | Output voltage accuracy (V<sub>OUT</sub> > 1.2 V) | V<sub>OUT</sub> > 1.2 V | – | – | ±1 | % |
+| V<sub>LDO_ACC</sub> | Output voltage accuracy (V<sub>OUT</sub> < 1.2 V) | V<sub>OUT</sub> < 1.2 V | – | – | ±12 | % |
+| I<sub>OUT_MAX</sub> | Output current | – | – | – | 0.5 | A |
+| I<sub>OCP</sub> | Overcurrent protection | – | – | 0.8 | – | A |
+| I<sub>SHORT</sub> | Short-circuit current | – | – | 0.4 | – | A |
+| V<sub>DROPOUT</sub> | Dropout voltage | V<sub>IN</sub> = 2.1 V, I<sub>OUT</sub> = I<sub>OUT_MAX</sub> | – | 0.4 | – | V |
+| V<sub>S_LINE</sub> | Line regulation | V<sub>IN</sub> = 3 to 5 V | – | 10 | – | mV |
+| V<sub>S_LOAD</sub> | Load regulation | I<sub>LOAD</sub> = 10 to 100 mA | – | 15 | – | mV |
+| PSRR | Power supply rejection ratio | I<sub>OUT</sub> = I<sub>MAX</sub>/2, V<sub>IN</sub> − V<sub>OUT</sub> > 1 V | – | 60 | – | dB |
+| Noise | Output noise (V<sub>OUT</sub> = 1.8 V) | V<sub>OUT</sub> = 1.8 V, I<sub>OUT</sub> = 5 mA to I<sub>MAX</sub> | – | 35 | – | µV<sub>RMS</sub> |
+| Noise | Output noise (V<sub>OUT</sub> = 2.5 V) | V<sub>OUT</sub> = 2.5 V, I<sub>OUT</sub> = 5 mA to I<sub>MAX</sub> | – | 35 | – | µV<sub>RMS</sub> |
+| I<sub>Q_ON</sub> | Quiescent current (ON mode) | – | – | 15 | – | µA |
+| R<sub>OFF</sub> | Pull-down resistance (OFF mode) | – | – | 160 | – | Ω |
+| OV | Overvoltage threshold | V<sub>OUT</sub>/V<sub>OUT_TARGET</sub> − 1 | – | 20 | – | % |
+| UV | Undervoltage threshold | 1 − V<sub>OUT</sub>/V<sub>OUT_TARGET</sub> | – | 15 | – | % |
 
-### 5.6 BUCK1~6
+### 5.6 BUCK1–BUCK6
 
-BUCK1~6 电气特性如下表描述
+The electrical characteristics of BUCK1–BUCK6 are listed in the tables below.
 
-#### Buck 的整体参数
+#### General Buck Parameters
 
-| 参数         | 描述               | 条件                                               | 最小值 | 典型值 | 最大值 | 单位    |
-|--------------|--------------------|----------------------------------------------------|--------|--------|--------|---------|
-| V(IN_MIN)    | 最小输入电压       | -                                                  | -      | 2.7    | -      | V       |
-| V(IN_MAX)    | 最大输入电压       | -                                                  | -      | 5.5    | -      | V       |
-| V(OUT_MIN)   | 最小输出电压       | -                                                  | -      | 0.5    | -      | V       |
-| V(OUT_MAX)   | 最大输出电压       | -                                                  | -      | 3.4    | -      | V       |
-| V(OUT_STEPS) | 调压步幅  | V(OUT) = 0.5 ~ 1.35 V                                                  | -      | 5      | -      | mV      |
-| V(OUT_STEPS) | 调压步幅  | V(OUT) = 1.35 ~ 3.4 V                                                 | -      | 25     | -      | mV      |
-| V(SLEW)      | DVS档位            | -                                                  | -      | 5/10/25/50 | -    | mV/us   |
-| T(SFST)      | 软启动时间         | -                                                  | -      | 1      | -      | ms      |
-| T(SFST_SET)  | 软启动档位设置     | -                                                  | -      | 0.78/0.9/1.12 | - | ms      |
-| R(DIDCHG)    | 泄放电阻           | -                                                  | -      | 45     | -      | Ω       |
-| fsw          | 工作频率           | CCM                                                | -      | 1.5    | -      | MHz     |
-| OV           | 过压               | V(OUT)/V(OUT_TARGET)-1                             | -      | 20     | -      | %       |
-| UV           | 欠压               | 1- V(OUT)/V(OUT_TARGET)                            | -      | 15     | -      | %       |
-| V(BUCK_ACC)  | 输出电压精度  | (不含线性/负载调整) (V(OUT) > 1 V)                                                  | -      | -      | ±1     | %       |
-| V(BUCK_ACC)  | 输出电压精度  | (不含线性/负载调整) (V(OUT) < 1 V)                                                  | -      | -      | ±10    | mV      |
-| V(S_LOAD)    | 静态负载调整       | I(OUT) = 0.1 ~ 2 A, V(OUT)= 1 V                    | -      | -      | ±1     | %       |
-| V(S_LINE)    | 静态线性调整       | V(IN) = 3 ~ 5 V, V(OUT) = 1 V                      | -      | -      | ±1     | %       |
-| V(TR_LD)     | 负载瞬态响应 <br />C(OUT)=44uF, I(OUT)=0.02 ~ 2.7 A  |  (undershoot，V(OUT)< 1.2 V)                  | -      | 30     | 60     | mV      |
-|     |   | (undershoot，V(OUT)> 1.2 V)                   | -      | 3      | 5      | %       |
-|      |   | (overshoot，V(OUT) < 1.6 V)                   | -      | 72     | 80     | mV      |
-|      |   | (overshoot，V(OUT) > 1.6 V)                  | -      | -      | 5      | %       |
-| V(RIPPLE)    | 输出纹波 (I(OUT) = 0.1 A, V(OUT) = 1.1 V) | -                                                  | -      | 13     | 25     | mV      |
-| V(RIPPLE)    | 输出纹波 (I(OUT) > 1 A, V(OUT) = 1.1 V) | -                                                  | -      | 7      | 20     | mV      |
+| Parameter        | Description                         | Conditions                                              | Min | Typ             | Max | Unit  |
+|------------------|-------------------------------------|----------------------------------------------------------|-----|------------------|-----|-------|
+| V<sub>IN_MIN</sub>  | Minimum input voltage               | –                                                        | –   | 2.7              | –   | V     |
+| V<sub>IN_MAX</sub>  | Maximum input voltage               | –                                                        | –   | 5.5              | –   | V     |
+| V<sub>OUT_MIN</sub> | Minimum output voltage              | –                                                        | –   | 0.5              | –   | V     |
+| V<sub>OUT_MAX</sub> | Maximum output voltage              | –                                                        | –   | 3.4              | –   | V     |
+| V<sub>OUT_STEPS</sub> | Output voltage step size           | V<sub>OUT</sub> = 0.5 ~ 1.35 V                            | –   | 5                | –   | mV    |
+| V<sub>OUT_STEPS</sub> | Output voltage step size           | V<sub>OUT</sub> = 1.35 ~ 3.4 V                            | –   | 25               | –   | mV    |
+| V<sub>SLEW</sub>     | DVS slew rate options               | –                                                        | –   | 5 / 10 / 25 / 50 | –   | mV/µs |
+| T<sub>SFST</sub>     | Soft-start time                     | –                                                        | –   | 1                | –   | ms    |
+| T<sub>SFST_SET</sub> | Soft-start time setting options     | –                                                        | –   | 0.78 / 0.9 / 1.12| –   | ms    |
+| R<sub>DIDCHG</sub>   | Discharge resistor                  | –                                                        | –   | 45               | –   | Ω     |
+| f<sub>SW</sub>       | Switching frequency                 | CCM                                                      | –   | 1.5              | –   | MHz   |
+| OV               | Over-voltage threshold               | V<sub>OUT</sub>/V<sub>OUT_TARGET</sub> − 1               | –   | 20               | –   | %     |
+| UV               | Under-voltage threshold              | 1 − V<sub>OUT</sub>/V<sub>OUT_TARGET</sub>               | –   | 15               | –   | %     |
+| V<sub>BUCK_ACC</sub> | Output voltage accuracy             | Excluding line/load regulation, V<sub>OUT</sub> > 1 V   | –   | –                | ±1  | %     |
+| V<sub>BUCK_ACC</sub> | Output voltage accuracy             | Excluding line/load regulation, V<sub>OUT</sub> < 1 V   | –   | –                | ±10 | mV    |
+| V<sub>S_LOAD</sub>   | Static load regulation              | I<sub>OUT</sub> = 0.1 ~ 2 A, V<sub>OUT</sub> = 1 V       | –   | –                | ±1  | %     |
+| V<sub>S_LINE</sub>   | Static line regulation              | V<sub>IN</sub> = 3 ~ 5 V, V<sub>OUT</sub> = 1 V         | –   | –                | ±1  | %     |
+| V<sub>TR_LD</sub>    | Load transient response             | C<sub>OUT</sub> = 44 µF, I<sub>OUT</sub> = 0.02 ~ 2.7 A | –   | –                | –   | –     |
+|                  | Undershoot                           | V<sub>OUT</sub> < 1.2 V                                  | –   | 30               | 60  | mV    |
+|                  | Undershoot                           | V<sub>OUT</sub> > 1.2 V                                  | –   | 3                | 5   | %     |
+|                  | Overshoot                            | V<sub>OUT</sub> < 1.6 V                                  | –   | 72               | 80  | mV    |
+|                  | Overshoot                            | V<sub>OUT</sub> > 1.6 V                                  | –   | –                | 5   | %     |
+| V<sub>RIPPLE</sub>   | Output ripple                       | I<sub>OUT</sub> = 0.1 A, V<sub>OUT</sub> = 1.1 V        | –   | 13               | 25  | mV    |
+| V<sub>RIPPLE</sub>   | Output ripple                       | I<sub>OUT</sub> > 1 A, V<sub>OUT</sub> = 1.1 V          | –   | 7                | 20  | mV    |
 
-#### Buck 1 ~ 2 Single Buck
+#### Buck 1–2 (Single Buck)
 
-| 参数         | 描述               | 条件                                               | 最小值 | 典型值 | 最大值 | 单位    |
-|--------------|--------------------|----------------------------------------------------|--------|--------|--------|---------|
-| I(OUT_MAX)   | 输出电流           | OCP large=1                                       | -    | 4.0      | -      | A       |
-| Efficiency   | 效率  | V(IN) = 4 V, V(OUT) = 0.9 V, I(OUT) = 0.5 A      | -      | 86.3   | -      | %       |
-| Efficiency   | 效率  | V(IN) = 4 V, V(OUT) = 0.9 V, I(OUT) = 2.5 A        | -      | 78.2   | -      | %       |
-| D(ACC)       | 双相精度           | I(OUT) = 6A                                       | -      | 10.0   | 20.0   | %       |
-| R(PU)        | 弱上拉电阻         | V(IN) = 4 V                                        | -      | 80     | -      | mΩ      |
-| R(PD)        | 弱下拉电阻         | V(IN) = 4 V                                        | -      | 40     | -      | mΩ      |
+| Parameter      | Description              | Conditions                                           | Min | Typ  | Max  | Unit |
+|----------------|--------------------------|------------------------------------------------------|-----|------|------|------|
+| I<sub>OUT_MAX</sub> | Output current          | OCP large = 1                                       | –   | 4.0  | –    | A    |
+| Efficiency     | Efficiency               | V<sub>IN</sub> = 4 V, V<sub>OUT</sub> = 0.9 V, I<sub>OUT</sub> = 0.5 A | – | 86.3 | – | % |
+| Efficiency     | Efficiency               | V<sub>IN</sub> = 4 V, V<sub>OUT</sub> = 0.9 V, I<sub>OUT</sub> = 2.5 A | – | 78.2 | – | % |
+| D<sub>ACC</sub>     | Dual-phase current accuracy | I<sub>OUT</sub> = 6 A                               | –   | 10.0 | 20.0 | %    |
+| R<sub>PU</sub>      | Pull-up resistance      | V<sub>IN</sub> = 4 V                                 | –   | 80   | –    | mΩ   |
+| R<sub>PD</sub>      | Pull-down resistance    | V<sub>IN</sub> = 4 V                                 | –   | 40   | –    | mΩ   |
 
-#### Buck 3 ~ 4
+#### Buck 3–4
 
-| 参数  | 描述  | 条件  | 最小值 | 典型值 | 最大值 | 单位    |
-|-------|------|----|-----|----|---|---|
-| I(OUT_MAX)   | 输出电流           | -                                                  | 2.5    | 3.5    | -      | A       |
-| I(VALLEY_LIMIT) | 正常电平           | -                                                  | 3.0    | -      | -      | A       |
-| Efficiency   | 效率  | V(IN) = 4 V, V(OUT) = 1.8 V, I(OUT) = 0.5 A  | -      | 90.6   | -      | %       |
-| Efficiency   | 效率  | V(IN) = 4 V, V(OUT) = 1.8 V, I(OUT) = 2.5 A | -      | 83.4   | -      | %       |
-| D(ACC)       | 双相精度           | I(OUT) = 5A                                       | -      | -      | 20.0   | %       |
-| R(PU)        | 弱上拉电阻         | V(IN) = 4 V                                        | -      | 100    | -      | mΩ      |
-| R(PD)        | 弱下拉电阻         | V(IN) = 4 V                                        | -      | 50     | -      | mΩ      |
+| Parameter           | Description              | Conditions                                           | Min | Typ  | Max  | Unit |
+|---------------------|--------------------------|------------------------------------------------------|-----|------|------|------|
+| I<sub>OUT_MAX</sub> | Output current           | –                                                    | 2.5 | 3.5  | –    | A    |
+| I<sub>VALLEY_LIMIT</sub> | Valley current limit     | –                                                    | 3.0 | –    | –    | A    |
+| Efficiency          | Efficiency               | V<sub>IN</sub> = 4 V, V<sub>OUT</sub> = 1.8 V, I<sub>OUT</sub> = 0.5 A | – | 90.6 | – | % |
+| Efficiency          | Efficiency               | V<sub>IN</sub> = 4 V, V<sub>OUT</sub> = 1.8 V, I<sub>OUT</sub> = 2.5 A | – | 83.4 | – | % |
+| D<sub>ACC</sub>          | Dual-phase current accuracy | I<sub>OUT</sub> = 5 A                               | –   | –    | 20.0 | %    |
+| R<sub>PU</sub>           | Pull-up resistance      | V<sub>IN</sub> = 4 V                                 | –   | 100  | –    | mΩ   |
+| R<sub>PD</sub>           | Pull-down resistance    | V<sub>IN</sub> = 4 V                                 | –   | 50   | –    | mΩ   |
 
-#### Buck 5 ~ 6
+#### Buck 5–6
 
-| 参数         | 描述               | 条件                                               | 最小值 | 典型值 | 最大值 | 单位    |
-|--------------|--------------------|----------------------------------------------------|--------|--------|--------|---------|
-| I(OUT_MAX)   | 输出电流           | -                                                  | 2.5    | -      | -      | A       |
-| I(VALLEY_LIMIT) | 正常电平           | -                                                  | 3.0    | -      | -      | A       |
-| Efficiency   | 效率  | V(IN) = 4 V, V(OUT) = 1.1 V, I(OUT) = 0.5 A | -      | 87.7   | -      | %       |
-| Efficiency   | 效率  | V(IN) = 4 V, V(OUT) = 1.1 V, I(OUT) = 2.5 A | -      | 79.9   | -      | %       |
-| Efficiency   | 效率  | V(IN) = 4 V, V(OUT) = 2.1 V, I(OUT) = 0.5 A | -      | 91.6   | -      | %       |
-| Efficiency   | 效率  | V(IN) = 4 V, V(OUT) = 2.1 V, I(OUT) = 2.5 A | -      | 86.8   | -      | %       |
-| R(PU)        | 弱上拉电阻         | V(IN) = 4 V                                        | -      | 100    | -      | mΩ      |
-| R(PD)        | 弱下拉电阻         | V(IN) = 4 V                                        | -      | 50     | -      | mΩ      |
+| Parameter           | Description              | Conditions                                           | Min | Typ  | Max | Unit |
+|---------------------|--------------------------|------------------------------------------------------|-----|------|-----|------|
+| I<sub>OUT_MAX</sub> | Output current           | –                                                    | 2.5 | –    | –   | A    |
+| I<sub>VALLEY_LIMIT</sub> | Valley current limit     | –                                                    | 3.0 | –    | –   | A    |
+| Efficiency          | Efficiency               | V<sub>IN</sub> = 4 V, V<sub>OUT</sub> = 1.1 V, I<sub>OUT</sub> = 0.5 A | – | 87.7 | – | % |
+| Efficiency          | Efficiency               | V<sub>IN</sub> = 4 V, V<sub>OUT</sub> = 1.1 V, I<sub>OUT</sub> = 2.5 A | – | 79.9 | – | % |
+| Efficiency          | Efficiency               | V<sub>IN</sub> = 4 V, V<sub>OUT</sub> = 2.1 V, I<sub>OUT</sub> = 0.5 A | – | 91.6 | – | % |
+| Efficiency          | Efficiency               | V<sub>IN</sub> = 4 V, V<sub>OUT</sub> = 2.1 V, I<sub>OUT</sub> = 2.5 A | – | 86.8 | – | % |
+| R<sub>PU</sub>           | Pull-up resistance      | V<sub>IN</sub> = 4 V                                 | –   | 100  | –   | mΩ   |
+| R<sub>PD</sub>           | Pull-down resistance    | V<sub>IN</sub> = 4 V                                 | –   | 50   | –   | mΩ   |
 
-### 5.7 负载开关
+### 5.7 Load Switch
 
-负载开关电气特性如下表描述
+The electrical characteristics of the load switch are listed in the table below.
 
-| 参数       | 描述         | 条件           | 最小值 | 典型值 | 最大值 | 单位   |
-|------------|--------------|----------------|--------|--------|--------|--------|
-| SW(IN-MIN) | 最小输入电压 | V(SYS) = 4V    | -      | 2.7    | -      | V      |
-| SW(IN-MAX) | 最大输入电压 | V(SYS) = 4V    | -      | 5.5    | -      | V      |
-| R(ON)      | 导通电阻     | SWIN = 5V      | -      | 140    | -      | mΩ     |
-| I_SC       | 短路电流     | -              | -      | 0.5    | -      | A      |
-| I_MAX      | 最大电流     | -              | -      | 1.6    | -      | A      |
+| Parameter      | Description               | Conditions        | Min | Typ | Max | Unit |
+|----------------|---------------------------|-------------------|-----|-----|-----|------|
+| SW<sub>IN_MIN</sub> | Minimum input voltage    | V<sub>SYS</sub> = 4 V | –   | 2.7 | –   | V    |
+| SW<sub>IN_MAX</sub> | Maximum input voltage    | V<sub>SYS</sub> = 4 V | –   | 5.5 | –   | V    |
+| R<sub>ON</sub>      | On-resistance            | SWIN = 5 V        | –   | 140 | –   | mΩ   |
+| I<sub>SC</sub>      | Short-circuit current    | –                 | –   | 0.5 | –   | A    |
+| I<sub>MAX</sub>     | Maximum output current   | –                 | –   | 1.6 | –   | A    |
 
 ### 5.8 ADC
 
-#### ADC 电气特性
+#### ADC Electrical Characteristics
 
-| 参数          | 描述         | 条件                        | 最小值 | 典型值 | 最大值 | 单位   |
-|---------------|--------------|-----------------------------|--------|--------|--------|--------|
-| Resolution    | 分辨率       | -                           | -      | 12     | -      | Bits   |
-| VDD           | 供电电压     | -                           | 2.7    | -      | 5.5    | V      |
-| DNL           | 微分非线性   | 2.7 ~ 5.5 V, -40 ~ 105 ℃    | -3     | -      | 3      | LSB    |
-| INL           | 积分非线性   | 2.7 ~ 5.5 V, -40 ~ 105 ℃    | -4     | -      | 4      | LSB    |
-| Offset error  | 偏移误差     | 2.7 ~ 5.5 V, -40 ~ 105 ℃    | -4     | -      | 4      | LSB    |
-| Gain error    | 增益误差     | 2.7 ~ 5.5 V, -40 ~ 105 ℃    | -4     | -      | 4      | LSB    |
-| Sample rate   | 采样率       | 25 ℃                       | 0.1    | -      | 25     | Ksps   |
-| I(WORK)       | 工作电流     | 5V, 25 ℃                   | -      | 190    | -      | μA     |
+| Parameter        | Description            | Conditions                     | Min | Typ | Max | Unit |
+|------------------|------------------------|--------------------------------|-----|-----|-----|------|
+| Resolution       | Resolution             | –                              | –   | 12  | –   | Bits |
+| V<sub>DD</sub>   | Supply voltage         | –                              | 2.7 | –   | 5.5 | V    |
+| DNL              | Differential nonlinearity | 2.7 ~ 5.5 V, −40 ~ 105 °C     | −3  | –   | 3   | LSB  |
+| INL              | Integral nonlinearity   | 2.7 ~ 5.5 V, −40 ~ 105 °C     | −4  | –   | 4   | LSB  |
+| Offset error     | Offset error            | 2.7 ~ 5.5 V, −40 ~ 105 °C     | −4  | –   | 4   | LSB  |
+| Gain error       | Gain error              | 2.7 ~ 5.5 V, −40 ~ 105 °C     | −4  | –   | 4   | LSB  |
+| Sample rate      | Sampling rate           | 25 °C                          | 0.1 | –   | 25  | kSPS |
+| I<sub>WORK</sub> | Operating current       | 5 V, 25 °C                    | –   | 190 | –   | µA   |
 
-#### ADC内部基准电气特性
-
-| 参数         | 描述         | 条件                  | 最小值 | 典型值 | 最大值 | 单位 |
-|--------------|--------------|-----------------------|--------|--------|--------|------|
-| V(REF_2V)    | 2V基准电压   | 2.7 ~ 5.5 V, 25 ℃     | 1.995  | 2      | 2.005  | V    |
-| V(REF_3V)    | 3V基准电压   | 3.5 ~ 5.5 V, 25 ℃     | 2.995  | 3      | 3.005  | V    |
-| I(WORK)      | 工作电流     | 5.0 V, -40 ~ 105 ℃    | -      | 400    | -      | μA   |
-
-### 5.9 内部时钟
-
-#### 内部LSI电气特性
-
-| 参数      | 描述         | 条件                     | 最小值 | 典型值 | 最大值 | 单位 |
-|-----------|--------------|--------------------------|--------|--------|--------|------|
-| F(ACC)    | 频率精度     | 5 V, 25 ℃                | 30     | 32     | 34     | kHz  |
-| V(C)      | 电压系数     | 2.0 ~ 5.5 V, 25 ℃        | -5     | -      | 2      | %    |
-| T(C)      | 温度系数     | 5 V, -40 ~ 105 ℃         | 0    | -      | 5     | %    |
-| I(WORK)   | 工作电流     | 2.0 ~ 5.5 V, -40 ~ 105 ℃ | 0.4    | 0.9    | 1.5    | μA   |
-
-#### 内部HSI电气特性
-
-| 参数      | 描述         | 条件                     | 最小值 | 典型值 | 最大值 | 单位 |
-|-----------|--------------|--------------------------|--------|--------|--------|------|
-| F(ACC)    | 频率精度     | 5 V, 25 ℃                | 1.98   | 2      | 2.02   | MHz  |
-| V(C)      | 电压系数     | 2.0 ~ 5.5 V, 25 ℃        | -0.2   | -      | 0.2    | %    |
-| T(C)      | 温度系数     | 5 V, -40 ~ 105 ℃         | -2     | -      | 2      | %    |
-| I(WORK)   | 工作电流     | 2.0 ~ 5.5 V, -40 ~ 105 ℃ | 45     | 80     | 120    | μA   |
-
-### 5.10 32 kHz 晶振
-
-晶体振荡器电气特性如下表描述
-
-| 参数       | 描述         | 条件                              | 最小值 | 典型值 | 最大值 | 单位 |
-|------------|--------------|-----------------------------------|--------|--------|--------|------|
-| C(LOAD)    | 外挂负载电容 | 2.7 ~ 5.5 V, -40 ~ 105 ℃          | 7      | 22.5   | 30     | pF   |
-| I(WORK)    | 工作电流     | 5 V, 25 ℃, C(LOAD) = 12.5 pF      | -      | 1      | -      | μA   |
-| T(SETUP)   | 起振时间     | 5 V, 25 ℃                         | -      | 0.6    | -      | s    |
-
-### 5.11 POR/PDR
+#### ADC Internal Reference Electrical Characteristics
 
-上电掉电复位电气特性如下表描述
+| Parameter        | Description              | Conditions                 | Min   | Typ | Max   | Unit |
+|------------------|--------------------------|----------------------------|-------|-----|-------|------|
+| V<sub>REF_2V</sub> | 2 V reference voltage    | 2.7 ~ 5.5 V, 25 °C         | 1.995 | 2.0 | 2.005 | V    |
+| V<sub>REF_3V</sub> | 3 V reference voltage    | 3.5 ~ 5.5 V, 25 °C         | 2.995 | 3.0 | 3.005 | V    |
+| I<sub>WORK</sub>   | Operating current        | 5.0 V, −40 ~ 105 °C       | –     | 400 | –     | µA   |
 
-| 参数         | 描述             | 条件                        | 最小值 | 典型值 | 最大值 | 单位 |
-|--------------|------------------|-----------------------------|--------|--------|--------|------|
-| POR          | 上电复位电压     | -40 ~ 105 ℃                | 1.75   | 2.0    | 2.25   | V    |
-| PDR          | 掉电复位电压     | -40 ~ 105 ℃                | 1.75   | 2.0    | 2.25   | V    |
-| T(FILTER)    | POR脉冲干扰滤波长度 | 25 ℃, 3 V ~ 1.5 V          | -      | 2.0    | -      | us   |
-| I(WORK)      | 工作电流         | 2.0 ~ 5.5 V, -40 ~ 105 ℃    | 0.1    | 0.3    | 1      | μA   |
+### 5.9 Internal Clocks
 
-### 5.12 RTC 模块 POR/PDR
+#### Internal LSI Electrical Characteristics
 
-RTC 上电掉电复位电气特性如下表描述
+| Parameter     | Description              | Conditions                    | Min | Typ | Max | Unit |
+|---------------|--------------------------|-------------------------------|-----|-----|-----|------|
+| F<sub>ACC</sub> | Frequency accuracy       | 5 V, 25 °C                   | 30  | 32  | 34  | kHz  |
+| V<sub>C</sub>   | Voltage coefficient      | 2.0 ~ 5.5 V, 25 °C           | −5  | –   | 2   | %    |
+| T<sub>C</sub>   | Temperature coefficient  | 5 V, −40 ~ 105 °C            | 0   | –   | 5   | %    |
+| I<sub>WORK</sub> | Operating current        | 2.0 ~ 5.5 V, −40 ~ 105 °C    | 0.4 | 0.9 | 1.5 | µA   |
 
-| 参数     | 描述         | 条件                        | 最小值 | 典型值 | 最大值 | 单位 |
-|----------|--------------|-----------------------------|--------|--------|--------|------|
-| POR      | 上电复位电压 | -40 ~ 105 ℃                | 1.55   | 1.7    | 1.85   | V    |
-| PDR      | 掉电复位电压 | -40 ~ 105 ℃                | 1.55   | 1.7    | 1.85   | V    |
-| I(WORK)  | 工作电流     | 2.0 ~ 5.5 V, -40 ~ 105 ℃    | 0.1    | 0.3    | 1      | μA   |
+#### Internal HSI Electrical Characteristics
 
-## 6. 功能描述
+| Parameter     | Description              | Conditions                    | Min | Typ | Max | Unit |
+|---------------|--------------------------|-------------------------------|-----|-----|-----|------|
+| F<sub>ACC</sub> | Frequency accuracy       | 5 V, 25 °C                   | 1.98 | 2.00 | 2.02 | MHz  |
+| V<sub>C</sub>   | Voltage coefficient      | 2.0 ~ 5.5 V, 25 °C           | −0.2 | –   | 0.2 | %    |
+| T<sub>C</sub>   | Temperature coefficient  | 5 V, −40 ~ 105 °C            | −2  | –   | 2   | %    |
+| I<sub>WORK</sub> | Operating current        | 2.0 ~ 5.5 V, −40 ~ 105 °C    | 45  | 80  | 120 | µA   |
 
-P1是一款低压多通道电源管理芯片（PMIC），内部集成6路快速瞬态响应BUCK，12路低噪声LDO；同时内部集成MTP，可根据不同使用场景，灵活定制各路输出默认电压和开关机时序，以满足不同SoC平台对电源时序的要求。
+### 5.10 32 kHz Crystal Oscillator
 
-### 6.1 电源管理引脚
+The electrical characteristics of the 32 kHz crystal oscillator are listed in the table below.
 
-电源管理引脚说明如下表描述
+| Parameter     | Description                | Conditions                         | Min | Typ  | Max | Unit |
+|---------------|----------------------------|------------------------------------|-----|------|-----|------|
+| C<sub>LOAD</sub> | External load capacitance | 2.7 ~ 5.5 V, −40 ~ 105 °C          | 7   | 22.5 | 30  | pF   |
+| I<sub>WORK</sub> | Operating current         | 5 V, 25 °C, C<sub>LOAD</sub> = 12.5 pF | –   | 1    | –   | µA   |
+| T<sub>SETUP</sub> | Startup time             | 5 V, 25 °C                         | –   | 0.6  | –   | s    |
 
-| 引脚           | 电源       | 描述                                                                 |
-|----------------|------------|----------------------------------------------------------------------|
-| **PWRKY**      | VSYS       | 开关机控制引脚，同时作为 PMIC 复位按键；支持关机、短按、长按、上升沿、下降沿中断功能。 |
-| **INT**        | OPEN DRAIN | 中断引脚，支持 INT 下拉以开机。                                      |
-| **PGOOD**      | OPEN DRAIN | - Input：检测 PGOOD 引脚释放，可作为复位源。<br>- Output：PMIC 关机或复位时下拉 PGOOD，用于复位 SoC。 |
-| **PWRCTRL**    | AONLDO     | GPIO 复用输入功能，用于控制上下电、睡眠和唤醒流程。                  |
-| **SLEEP/WKUP** | AONLDO     | GPIO 复用输入功能，用于控制睡眠或唤醒操作。                          |
-| **nRESET**     | AONLDO     | GPIO 复用输入功能，作为复位源（先关机再重启）。                      |
-| **EXT_EN**     | AONLDO     | GPIO 复用输出功能，可与其他 PMIC 配合使用。                          |
-| **VSET5**      | VSYS       | 用于 BUCK5 电压控制档位选择。                                        |
-| **VSET6**      | VSYS       | 用于 BUCK6 电压控制档位选择。                                        |
-| **OUT_32K**    | AONLDO     | 内部慢时钟或晶振时钟输出引脚。                                       |
+### 5.11 POR / PDR
 
-#### 6.1.1 PWRKY 引脚
+The electrical characteristics of the Power-On Reset (POR) and Power-Down Reset (PDR) are listed below.
 
-PWRKY 引脚内部上拉至 VSYS 电压，具备以下多功能性：
+| Parameter        | Description                         | Conditions                   | Min  | Typ | Max  | Unit |
+|------------------|-------------------------------------|------------------------------|------|-----|------|------|
+| POR              | Power-on reset voltage              | −40 ~ 105 °C                 | 1.75 | 2.0 | 2.25 | V    |
+| PDR              | Power-down reset voltage            | −40 ~ 105 °C                 | 1.75 | 2.0 | 2.25 | V    |
+| T<sub>FILTER</sub> | POR glitch filter duration          | 25 °C, 3 V → 1.5 V           | –    | 2.0 | –    | µs   |
+| I<sub>WORK</sub>   | Operating current                   | 2.0 ~ 5.5 V, −40 ~ 105 °C    | 0.1  | 0.3 | 1.0  | µA   |
 
-- **作为开机源、关机源、复位源**
-- **生成多种中断事件**（包括关机、短按、长按、上升沿、下降沿中断）
+### 5.12 RTC Module POR / PDR
 
-1. **关机模式**下的 PWRKY 引脚行为
+The electrical characteristics of the RTC power-on and power-down reset are listed below.
 
-   - **开机功能**
-     - PWRKY 引脚拉低一定时间后触发开机流程
-     - 时间可配置为 **0.5s/1s/2s/3s**（参见表 7-91 PWR_KEY_TIME[1:0]）
-   - **长按关机功能**
-     - 若启用长按关机功能（表 7-126 SYS_CFG1[0]=1），在关机模式下，PWRKY 引脚需持续拉低直至退出关机模式。
-     - 如果退出关机模式后，PWRKY 引脚仍保持拉低状态，并且拉低时间超过 **4s/6s/8s/10s**（由表 7-91 PWR_KEY_TIME[3:2] 配置），则触发关机。
-2. **非关机模式**下的 PWRKY 引脚行为
+| Parameter     | Description                | Conditions                   | Min  | Typ | Max  | Unit |
+|---------------|----------------------------|------------------------------|------|-----|------|------|
+| POR           | Power-on reset voltage     | −40 ~ 105 °C                 | 1.55 | 1.7 | 1.85 | V    |
+| PDR           | Power-down reset voltage   | −40 ~ 105 °C                 | 1.55 | 1.7 | 1.85 | V    |
+| I<sub>WORK</sub> | Operating current          | 2.0 ~ 5.5 V, −40 ~ 105 °C    | 0.1  | 0.3 | 1.0  | µA   |
 
-   - **关机功能**
-     - PWRKY 引脚可作为关机源（表 7-88 PWR_CTRL2[6]=0）
-     - PWRKY 引脚拉低一定时间后触发关机，时间可配置为 **4s/6s/8s/10s**（参见表 7-91 PWR_KEY_TIME[3:2]）
-   - **长按复位功能**
-     - 若 PWRKY 引脚作为长按复位源（表 7-88 PWR_CTRL2[6]=1），拉低 **12s** 将触发 PMIC 冷复位
-     - 此复位操作会重置所有逻辑，包括所有模块的使能和配置（包括 RTC 模块），等效于冷启动
-   - **长按复位结合关机模式**
-     - 若启用长按复位功能（表 7-126 SYS_CFG1[1]=1），在关机模式下 PWRKY 引脚持续拉低至退出关机模式
-     - 如果退出关机模式后，PWRKY 引脚仍保持拉低状态，并且拉低时间超过 **12s**，将触发冷复位
-3. **开机模式或睡眠模式**下的中断事件
+## 6. Functional Description
 
-   - **下降沿事件**
-     - PWRKY 引脚拉低时产生下降沿事件
-     - 若使能中断（表 7-120 IRQ_PWRKY_EN[4]），将触发 **下降沿中断**
-   - **上升沿事件**
-     - PWRKY 引脚拉低后释放时产生上升沿事件
-     - 若使能中断（表 7-120 IRQ_PWRKY_EN[0]），将触发 **上升沿中断**
-   - **短按事件**
-     - PWRKY 引脚拉低再释放，且持续时间在短按时间范围内，产生短按事件
-     - 若使能中断（表 7-120 IRQ_PWRKY_EN[2]），将触发 **短按中断**
-     - 短按时间可配置为 **0.5s/1s/1.5s/2s**（表 7-91 PWR_KEY_TIME[5:4]）
-   - **长按事件**
-     - PWRKY 引脚拉低再释放，且持续时间介于短按和关机时间之间，产生长按事件
-     - 若使能中断（表 7-120 IRQ_PWRKY_EN[3]），将触发 **长按中断**
+P1 is a low-voltage, multi-channel Power Management IC (PMIC). It integrates six fast transient-response BUCK converters and twelve low-noise LDO regulators. An internal MTP (Multi-Time Programmable) memory is provided, allowing flexible configuration of default output voltages and power-up/power-down sequencing for each rail. This enables the PMIC to meet the power sequencing requirements of different SoC platforms and application scenarios.
 
-PWRKY 按键开机模式相关事件触发示意图如下图所示
+### 6.1 Power Management Pins
 
-![](static/YA21bY2dBoZiMmx6lAhc69klnNc.png)
+The power management pins are described in the table below.
 
-PWRKY 按键关机模式相关事件触发示意图如下图所示
+| Pin            | Power Domain | Description |
+|----------------|--------------|-------------|
+| **PWRKY**      | VSYS         | Power key control pin. Also functions as a PMIC reset button. Supports shutdown, short-press, long-press, rising-edge, and falling-edge interrupt functions. |
+| **INT**        | Open-Drain   | Interrupt output pin. Supports pull-down on INT to power on the PMIC. |
+| **PGOOD**      | Open-Drain   | - **Input**: Detects release of the PGOOD pin and can be used as a reset source.<br>- **Output**: Pulled low during PMIC shutdown or reset to reset the SoC. |
+| **PWRCTRL**    | AONLDO       | GPIO-multiplexed input used to control power-on/power-off, sleep, and wake-up sequences. |
+| **SLEEP/WKUP** | AONLDO       | GPIO-multiplexed input used to control sleep or wake-up operations. |
+| **nRESET**     | AONLDO       | GPIO-multiplexed input used as a reset source (power-off followed by restart). |
+| **EXT_EN**     | AONLDO       | GPIO-multiplexed output used for coordination with external PMICs or power devices. |
+| **VSET5**      | VSYS         | Voltage selection control pin for BUCK5 output levels. |
+| **VSET6**      | VSYS         | Voltage selection control pin for BUCK6 output levels. |
+| **OUT_32K**    | AONLDO       | Output pin for the internal low-speed clock or external crystal clock. |
 
-![](static/ZpJkbaNCmorgpVxLrEScWBmznNf.png)
+#### 6.1.1 PWRKY Pin
 
-图 6-2 PWRKY 按键关机模式相关事件触发示意图
+The PWRKY pin is internally pulled up to **VSYS** and provides multiple functions:
 
-#### 6.1.2 INT 引脚
+- **Acts as power-on, power-off, and reset source**
+- **Generates multiple interrupt events** including shutdown, short press, long press, rising edge, and falling edge interrupts
 
-INT 引脚为开漏输出，内部施密特输入电路工作在 AONLDO 电压。
+1. **PWRKY Behavior in Shutdown Mode**
 
-- **关机模式**
+   - **Power-on Function**
+     - Pulling the PWRKY pin low for a specified time triggers the power-on sequence.
+     - Duration is configurable to **0.5s / 1s / 2s / 3s** (see Table 7-91 `PWR_KEY_TIME[1:0]`).
 
-  - 若设置 INT 引脚作为开机源（表 7-86 PWR_CTRL0[2]=1），当 INT 引脚拉低持续 16 ms 后，将触发开机流程。
-- **开机模式**
+   - **Long-Press Shutdown Function**
+     - If long-press shutdown is enabled (`SYS_CFG1[0]=1`, Table 7-126), PWRKY must be held low until exiting shutdown mode.
+     - After exiting shutdown mode, if PWRKY remains low longer than **4s / 6s / 8s / 10s** (configured via `PWR_KEY_TIME[3:2]` in Table 7-91), a shutdown is triggered.
 
-  - 在开机状态下，当芯片内部事件触发且相应中断已使能时（例如按键中断事件），INT 引脚将被拉低，输出中断信号。
+2. **PWRKY Behavior in Non-Shutdown Mode**
 
-#### 6.1.3 PGOOD 引脚
+   - **Power-off Function**
+     - PWRKY can act as a shutdown source (`PWR_CTRL2[6]=0`, Table 7-88).
+     - Pulling low for a configured duration triggers shutdown. Time configurable to **4s / 6s / 8s / 10s** (Table 7-91 `PWR_KEY_TIME[3:2]`).
 
-PGOOD 引脚为开漏输出，内部施密特输入电路工作在 AONLDO 电压。
+   - **Long-Press Reset Function**
+     - When configured as a long-press reset source (`PWR_CTRL2[6]=1`), holding PWRKY low for **12s** triggers a PMIC cold reset.
+     - Cold reset clears all logic and module configurations (including RTC), equivalent to a power-on reset.
 
-- **关机流程或关机模式**
+   - **Long-Press Reset Combined with Shutdown**
+     - If long-press reset is enabled (`SYS_CFG1[1]=1`, Table 7-126), PWRKY held low in shutdown mode continues until exit.
+     - After exiting shutdown, if still low for over **12s**, a cold reset is triggered.
 
-  - 在关机流程或关机模式下，PMIC 将 PGOOD 引脚拉低以复位外部模块，且在关机模式中 PGOOD 引脚始终保持低电平。
-- **开机流程结束**
+3. **Interrupt Events in Power-On or Sleep Mode**
 
-  - 开机流程完成后，PMIC 立即释放 PGOOD 引脚。
-  - 如果 PWR_CTRL1[3]=0（表 7-87），芯片直接进入开机模式；
-  - 如果 PWR_CTRL1[3]=1，需等待 PGOOD 引脚变为高电平后才能进入开机模式。
-  - 若等待时间超时，芯片将立即进入关机模式，已开启的电源轨也会随之关闭。
-- **开机模式**
+   - **Falling Edge Event**
+     - Pulling PWRKY low generates a falling edge event.
+     - If enabled (`IRQ_PWRKY_EN[4]`, Table 7-120), triggers a **falling edge interrupt**.
 
-  - 在开机模式下，若 PGOOD 引脚被拉低超过 200 µs，且 PGOOD 下拉复位 已使能（PG_RST_EN），将触发复位流程（先关机再开机）。
-- **睡眠模式和睡眠流程**
+   - **Rising Edge Event**
+      - Releasing PWRKY after a low pulse generates a rising edge event.
+         - If enabled (`IRQ_PWRKY_EN[0]`), triggers a **rising edge interrupt**.
 
-  - PGOOD 引脚状态可通过 PWR_CTRL1[5]（表 7-87）进行配置，默认情况下，PGOOD 引脚保持高电平。
-- **唤醒流程结束**
+   - **Short Press Event**
+     - Pulling low then releasing within the short-press time generates a short press event.
+     - If enabled (`IRQ_PWRKY_EN[2]`), triggers a **short-press interrupt**.
+     - Duration configurable to **0.5s / 1s / 1.5s / 2s** (Table 7-91 `PWR_KEY_TIME[5:4]`).
 
-  - 唤醒流程完成后，PMIC 立即释放 PGOOD 引脚并进入开机模式。
+   - **Long Press Event**
+     - Pulling low then releasing with duration between short-press and shutdown triggers a long press event.
+     - If enabled (`IRQ_PWRKY_EN[3]`), triggers a **long-press interrupt**.
 
-#### 6.1.4 PWRCTRL 引脚
+**PWRKY Event Timing Diagrams**
 
-PWRCTRL 引脚具有 GPIO 复用输入功能，内部施密特触发器工作在 AONLDO 电压下。
+   - **Power-On Mode Events**
+   ![](static/YA21bY2dBoZiMmx6lAhc69klnNc.png)
 
-PWRCTRL 引脚主要用于控制 **开机**、**关机**、**睡眠** 和 **唤醒** 流程：
+   - **Shutdown Mode Events**
+   ![](static/ZpJkbaNCmorgpVxLrEScWBmznNf.png)
 
-- **开机事件**
-  在关机模式下，若满足以下条件，则 PWRCTRL 引脚有效时触发开机流程：
 
-  - 除 AONLDO 外，其他所有 BUCK 和 LDO 均绑定至 PWRCTRL 引脚；
-  - PWRCTRL 全绑定开机 功能已使能（表 7-86 PWR_CTRL0[4]=1）。
-- **关机事件**
-  在非关机模式下，若满足以下条件，则 PWRCTRL 引脚无效时触发关机流程：
+#### 6.1.2 INT Pin
 
-  - 所有 BUCK 和 LDO 均绑定至 PWRCTRL 引脚；
-  - PWRCTRL 全绑定关机 功能已使能（表 7-86 PWR_CTRL0[5]=1）。
-- **开机和唤醒流程**
-  当某个 BUCK 或 LDO 绑定到 PWRCTRL 引脚时，以下规则适用：
+The **INT** pin is an open-drain output with an internal Schmitt-trigger input operating at **AONLDO** voltage.
 
-  - PWRCTRL 引脚有效 时，开机和唤醒流程可继续执行对应 BUCK 或 LDO 的开启操作；
-  - 若 PWRCTRL 引脚无效，流程将暂停并持续等待该引脚有效。
-- **睡眠流程**
-  当某个 BUCK 或 LDO 绑定到 PWRCTRL 引脚，且符合以下条件时，执行睡眠操作需等待 PWRCTRL 引脚无效：
+- **Shutdown Mode**
+  - When configured as a power-on source (`PWR_CTRL0[2]=1`, Table 7-86), pulling the INT pin low for **16 ms** triggers the power-on sequence.
 
-  - 反序睡眠 已配置（表 7-87 PWR_CTRL1[1]=1）；
-  - 等待 PWRCTRL 引脚 已使能（表 7-88 PWR_CTRL2[4]=1）。
-    如果等待时间超过表 7-88 PWR_CTRL2[5]，则强制执行对应 BUCK 和 LDO 的睡眠操作，并继续流程进入睡眠模式。
-- **关机流程**
-  当某个 BUCK 或 LDO 绑定到 PWRCTRL 引脚，且符合以下条件时，执行关机操作需等待 PWRCTRL 引脚无效：
+- **Power-On Mode**
+  - During normal operation, when an internal event occurs and the corresponding interrupt is enabled (e.g., key press event), the INT pin is pulled low to output the interrupt signal.
 
-  - 反序关机 已配置（表 7-87 PWR_CTRL1[0]=0）；
-  - 等待 PWRCTRL 引脚 已使能（表 7-88 PWR_CTRL2[4]=1）。
-    若等待时间超过表 7-88 PWR_CTRL2[5]，则强制执行对应 BUCK 和 LDO 的关闭操作，并继续关机流程。
-- **开机模式**
+### 6.1.3 PGOOD Pin
 
-在开机模式下，若某个 BUCK 或 LDO 绑定到 PWRCTRL 引脚，遵循以下规则：
+The **PGOOD** pin is an open-drain output with an internal Schmitt-trigger input operating at **AONLDO** voltage.
 
-- PWRCTRL 引脚无效 时，相关 BUCK 和 LDO 将直接关闭；
-- PWRCTRL 引脚有效 且对应 BUCK 和 LDO 的使能位有效时，相关 BUCK 和 LDO 将直接开启。
+- **Shutdown Process or Shutdown Mode**
+  - During shutdown or shutdown mode, the PMIC pulls the PGOOD pin low to reset external modules.
+  - In shutdown mode, PGOOD remains low at all times.
 
-PWRCTRL 引脚的有效极性 可通过 GPIOx_ODR 寄存器进行配置。
+- **End of Power-On Sequence**
+  - Once the power-on sequence completes, the PMIC immediately releases the PGOOD pin.
+  - If `PWR_CTRL1[3]=0` (Table 7-87), the chip enters power-on mode directly.
+  - If `PWR_CTRL1[3]=1`, the chip waits until PGOOD goes high before entering power-on mode.
+  - If this wait times out, the chip immediately enters shutdown, and all powered rails are turned off.
 
-#### 6.1.5 SLEEP/WKUP 引脚
+- **Power-On Mode**
+  - In normal operation, if PGOOD is pulled low for more than **200 µs** and PGOOD pull-down reset is enabled (`PG_RST_EN`), a reset sequence is triggered (shutdown followed by power-on).
 
-SLEEP/WKUP 引脚为 GPIO 复用输入功能，其内部施密特触发器电路工作在 **AONLDO 电压域**。
+- **Sleep Mode and Sleep Sequence**
+  - The PGOOD state during sleep can be configured via `PWR_CTRL1[5]` (Table 7-87). By default, PGOOD remains high.
 
-该引脚用于控制设备进入和退出 **睡眠模式**，具体行为如下：
+- **End of Wake-Up Sequence**
+  - After wake-up, the PMIC immediately releases PGOOD and enters power-on mode.
 
-1. 开机模式：SLEEP/WKUP 引脚有效时，执行睡眠流程并进入睡眠模式。
-2. 睡眠模式：SLEEP/WKUP 引脚无效时，执行唤醒流程并进入开机模式。
+#### 6.1.4 PWRCTRL Pin
 
-SLEEP/WKUP 引脚有效极性可通过**表 7-5 **GPIO_ODR 寄存器配置。
+The **PWRCTRL** pin features a GPIO-multiplexed input function with an internal Schmitt-trigger operating at **AONLDO** voltage.
 
-#### 6.1.6 nRESET 引脚
+The PWRCTRL pin is primarily used to control **power-on**, **power-off**, **sleep**, and **wake-up** sequences:
 
-nRESET 引脚为 GPIO 复用输入功能，其内部施密特输入电路工作在 **AONLDO 电压****域**。
+- **Power-On Event**
+  - In shutdown mode, the power-on sequence is triggered by the PWRCTRL pin when the following conditions are met:
+    - All BUCKs and LDOs, except **AONLDO**, are bound to the PWRCTRL pin.
+    - Full binding power-on functionality is enabled (`PWR_CTRL0[4]=1`, Table 7-86).
 
-1. **非关机模式下**：
+- **Power-Off Event**
+  - In non-shutdown mode, the power-off sequence is triggered when the PWRCTRL pin is **inactive**, if the following conditions are met:
+    - All BUCKs and LDOs are bound to the PWRCTRL pin.
+    - Full binding power-off functionality is enabled (`PWR_CTRL0[5]=1`, Table 7-86).
 
-   - 若 **nRESET 引脚复位使能**（PWR_CTRL0[6] = 1，见表 7-86），当 **nRESET 引脚从无效状态变为有效状态并持续超过 250 μs** 时，系统将触发复位流程（**先关机再开机**）。
-   - 若 **GPIO 滤波使能开启**，则 nRESET 引脚的复位触发时间需额外增加滤波延迟，计算公式为：
-     **250 μs +（表 7-8 **GPIO_DEB_EN[7:6]** 配置值）**。
-2. **复位流程触发后**：
+- **Power-On and Wake-Up Sequences**
+  - When a BUCK or LDO is bound to the PWRCTRL pin:
+    - If the PWRCTRL pin is **active**, the power-on or wake-up sequence proceeds to enable the corresponding BUCK or LDO.
+    - If the PWRCTRL pin is **inactive**, the sequence pauses until the pin becomes active.
 
-   - 若 **nRESET 引脚保持有效状态**，系统不会重复触发复位。
-   - 仅当 **nRESET 引脚释放（恢复无效状态）** 后，才能响应下一次复位操作。
+- **Sleep Sequence**
+  - When a BUCK or LDO is bound to PWRCTRL:
+    - If **reverse sleep** is configured (`PWR_CTRL1[1]=1`, Table 7-87) and **wait-for-PWRCTRL** is enabled (`PWR_CTRL2[4]=1`, Table 7-88), the sleep operation waits until PWRCTRL is inactive.
+    - If the wait time exceeds `PWR_CTRL2[5]` (Table 7-88), the BUCK or LDO is forced into sleep, and the sequence continues into sleep mode.
 
-**nRESET 引脚的有效极性** 可通过 **GPIO_ODR 寄存器**（见表 7-5）配置。
+- **Power-Off Sequence**
+  - When a BUCK or LDO is bound to PWRCTRL:
+    - If **reverse power-off** is configured (`PWR_CTRL1[0]=0`, Table 7-87) and **wait-for-PWRCTRL** is enabled (`PWR_CTRL2[4]=1`, Table 7-88), the shutdown waits for the PWRCTRL pin to become inactive.
+    - If the wait time exceeds `PWR_CTRL2[5]`, the BUCK or LDO is forced off, and the shutdown sequence continues.
 
-#### 6.1.7 EXT_EN 引脚
+- **Power-On Mode**
+  - If a BUCK or LDO is bound to PWRCTRL:
+    - When PWRCTRL is **inactive**, the associated BUCK or LDO is turned off.
+    - When PWRCTRL is **active** and the BUCK or LDO enable bit is set, the corresponding BUCK or LDO is turned on.
 
-**EXT_EN** 引脚为复用的 **GPIO 输出功能**，其内部施密特触发器电路工作在 **AONLDO 电压域**。
+The **active polarity** of the PWRCTRL pin can be configured via the `GPIOx_ODR` register.
 
-该引脚的行为受 **开机、关机、睡眠、唤醒流程** 控制，（结合相关寄存器描述和上下电流程章节）具体逻辑如下：
+#### 6.1.5 SLEEP/WKUP Pin
 
-1. **开机和唤醒流程**
+The **SLEEP/WKUP** pin features a GPIO-multiplexed input function with an internal Schmitt-trigger operating in the **AONLDO voltage domain**.
 
-- 当 **EXT_EN** 通过 **PWR_SLOT9 ~ PWR_SLOT11**（表 7-102 ~ 表 7-104）绑定至某一 **时序槽（SLOT）** 时：
-  - 仅当流程执行到该 SLOT 时，才会对 **EXT_EN** 执行相应操作。
+This pin is used to control entering and exiting **sleep mode** with the following behavior:
 
-1. **睡眠流程**
+1. **Power-On Mode**: When the SLEEP/WKUP pin is **active**, the sleep sequence is executed, and the device enters sleep mode.
+2. **Sleep Mode**: When the SLEEP/WKUP pin is **inactive**, the wake-up sequence is executed, and the device returns to power-on mode.
 
-- 当 **EXT_EN** 绑定至某一 SLOT 时：
-  - 仅当流程执行到该 SLOT **且** 配置为 **受睡眠时序控制**（PWR_EXT_CTRL[5:0]，表 7-106）时，才会关闭相应的 **EXT_EN** 输出。
+The **active polarity** of the SLEEP/WKUP pin can be configured via the **GPIO_ODR register** (Table 7-5).
 
-1. **关机流程**
+#### 6.1.6 nRESET Pin
 
-- 当 **EXT_EN** 通过 **PWR_SLOT9 ~ PWR_SLOT11**（表 7-102 ~ 表 7-104）绑定至某一 **时序槽（SLOT）** 时：
-  - 仅当流程执行到该 SLOT 时，才会关闭相应的 **EXT_EN** 输出。
+The **nRESET** pin is a GPIO-multiplexed input with an internal Schmitt-trigger operating in the **AONLDO voltage domain**.
 
-1. **开机模式**
+1. **In Non-Shutdown Mode**:
 
-- 由 **表 7-104** PWR_EXT_EN 控制。
+   - If **nRESET reset is enabled** (`PWR_CTRL0[6]=1`, Table 7-86), a transition of the nRESET pin from inactive to active lasting **longer than 250 μs** triggers the reset sequence (**power-off followed by power-on**).
+   - If **GPIO filtering** is enabled, the nRESET reset trigger time is extended by the filter delay as follows:  
+     **250 μs + (filter configuration value from Table 7-8 `GPIO_DEB_EN[7:6]`)**.
 
-1. 睡眠模式
+2. **After Reset Sequence Triggered**:
 
-- EXT_EN 受**表 7-104** PWR_EXT_EN 和 **表 7-106** PWR_EXT_CTRL 共同控制。
+   - If the nRESET pin remains active, the system will **not re-trigger a reset**.
+   - A new reset can only be triggered after the nRESET pin is **released (returns to inactive)**.
 
-EXT_EN 引脚有效极性可通过**表 7-5 **GPIO_ODR 寄存器配置。
+The **active polarity** of the nRESET pin can be configured via the **GPIO_ODR register** (Table 7-5).
 
-下表展示了 EXT_EN 各模式状态控制
+#### 6.1.7 EXT_EN Pin
 
-<table>
-<tbody>
-<tr>
-<td>(x = 0 ~ 5)</td>
-<td>开机流程</td>
-<td>开机模式</td>
-<td>睡眠流程</td>
-<td>睡眠模式</td>
-<td>唤醒流程</td>
-<td>关机流程</td>
-<td>关机模式</td>
-</tr>
-<tr>
-<td>EXTx_EN</td>
-<td>x</td>
-<td>x</td>
-<td>-</td>
-<td>x</td>
-<td>x</td>
-<td>-</td>
-<td>-</td>
-</tr>
-<tr>
-<td>EXTx_EN_SLOT</td>
-<td>x</td>
-<td>-</td>
-<td>x</td>
-<td>-</td>
-<td>x</td>
-<td>x</td>
-<td>-</td>
-</tr>
-<tr>
-<td>EXTx_SLP_SD</td>
-<td>-</td>
-<td>-</td>
-<td>x</td>
-<td>x</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-</tbody>
-</table>
+The **EXT_EN** pin is a multiplexed **GPIO output** with an internal Schmitt-trigger operating in the **AONLDO voltage domain**.
 
-#### 5.1.8 VSET5/VSET6 引脚
+Its behavior is controlled by the **power-on, power-off, sleep, and wake-up sequences**, as described in the corresponding registers and power sequence sections. The detailed logic is as follows:
 
-**VSET5/VSET6** 引脚通过其状态（**GND、VSYS 或 FLOAT**）配置 **BUCK5/BUCK6 的输出电压**，以满足不同应用场景需求。
+1. **Power-On and Wake-Up Sequences**
 
-**VSET 电压控制逻辑**
+   - When **EXT_EN** is bound to a specific **timing slot (SLOT)** via **PWR_SLOT9 ~ PWR_SLOT11** (Tables 7-102 ~ 7-104):  
+     - The corresponding **EXT_EN** output operates only when the sequence reaches that SLOT.
 
-<table>
-<tbody>
-<tr>
-<td>表 7-74 BUCK_LDO_CFG[2]</td>
-<td>VDD</td>
-<td>FLOAT</td>
-<td>GND</td>
-</tr>
-<tr>
-<td>0</td>
-<td>1.1 V</td>
-<td>VBUCKx_VOLT(x=5/6)</td>
-<td>1.2 V</td>
-</tr>
-<tr>
-<td>1</td>
-<td>0.6 V</td>
-<td>VBUCKx_VOLT(x=5/6)</td>
-<td>1.5 V</td>
-</tr>
-</tbody>
-</table>
+2. **Sleep Sequence**
 
-#### 5.1.9 OUT_32K 引脚
+   - When **EXT_EN** is bound to a SLOT:  
+     - The output is disabled only when the sequence reaches that SLOT **and** it is configured as **controlled by sleep timing** (`PWR_EXT_CTRL[5:0]`, Table 7-106).
 
-**OUT_32K** 引脚可输出 **内部慢时钟** 或 **晶振时钟**，通过 **RTC_CTRL[3]**（表 7-33）寄存器配置。
+3. **Power-Off Sequence**
 
-1. **时钟输出控制**：
+   - When **EXT_EN** is bound to a SLOT via **PWR_SLOT9 ~ PWR_SLOT11** (Tables 7-102 ~ 7-104):  
+     - The output is disabled only when the sequence reaches that SLOT.
 
-   - 可通过 **MTP** 预先配置为时钟输出模式
-   - 在开机流程前即可为外部模块提供时钟源
-2. **电源状态影响**：
+4. **Power-On Mode**
 
-   - **正常工作模式**：保持时钟输出
-   - **关机模式**：关闭时钟输出
+   - Controlled by **PWR_EXT_EN** (Table 7-104).
 
-### 6.2 工作模式
+5. **Sleep Mode**
 
-系统工作模式总共有 5 种：RESET 模式，RTC 模式，关机模式，开机模式和睡眠模式，会根据不同的事件进行模式切换，下图为**模式切换状态图**。对应的切换事件主要有：开机事件、关机事件、复位事件、睡眠事件、唤醒事件。
+   - Controlled jointly by **PWR_EXT_EN** (Table 7-104) and **PWR_EXT_CTRL** (Table 7-106).
+
+The **active polarity** of the EXT_EN pin can be configured via the **GPIO_ODR register** (Table 7-5).
+
+The table below summarizes EXT_EN output control across different modes:
+
+| (x = 0 ~ 5)     | Power-On Sequence | Power-On Mode | Sleep Sequence | Sleep Mode | Wake-Up Sequence | Power-Off Sequence | Power-Off Mode |
+|-----------------|-----------------|---------------|----------------|------------|-----------------|------------------|----------------|
+| EXTx_EN         | x               | x             | -              | x          | x               | -                | -              |
+| EXTx_EN_SLOT    | x               | -             | x              | -          | x               | x                | -              |
+| EXTx_SLP_SD     | -               | -             | x              | x          | -               | -                | -              |
+
+#### 6.1.8 VSET5 / VSET6 Pins
+
+The **VSET5** and **VSET6** pins configure the **output voltage of BUCK5 and BUCK6**, respectively, based on their state (**GND, VSYS, or FLOAT**) to support different application scenarios.
+
+**VSET Voltage Control Logic**
+
+| BUCK_LDO_CFG[2] (Table 7-74) | VDD   | FLOAT                     | GND   |
+|-------------------------------|-------|---------------------------|-------|
+| 0                             | 1.1 V | VBUCKx_VOLT (x=5/6)       | 1.2 V |
+| 1                             | 0.6 V | VBUCKx_VOLT (x=5/6)       | 1.5 V |
+
+#### 6.1.9 OUT_32K Pin
+
+The **OUT_32K** pin provides an output of the **internal slow clock** or **crystal oscillator clock**, configurable via the **RTC_CTRL[3]** register (Table 7-33).
+
+1. **Clock Output Control**:
+
+   - Can be pre-configured via **MTP** to operate in clock output mode.
+   - Provides a clock source to external modules even before the power-on sequence begins.
+
+2. **Impact of Power States**:
+
+   - **Normal Operating Mode**: Clock output remains active.
+   - **Power-Off Mode**: Clock output is disabled.
+
+
+### 6.2 Operating Modes
+
+The system supports five operating modes: **RESET**, **RTC**, **Shutdown**, **Active**, and **Sleep**. Mode transitions are triggered by various events including power-on, power-off, reset, sleep, and wake-up events. The following diagram illustrates the **mode transition states**:
 
 ![](static/VZFIbb6v7oKNUhx7IwZcN8PTnig.png)
 
-#### 6.2.1 复位模式
+#### 6.2.1 Reset Mode
 
-- 当 **VSYS \< 2.7V** 时，PMIC 处于复位模式，所有功能停止工作
-- 仅当 **VSYS ≥ 2.7V** 后，系统才退出复位模式并开始正常工作
-- 若运行中 **VSYS 跌落至 \< 2.55V**，系统立即重新进入复位模式
+- When **VSYS < 2.7V**, the PMIC enters **Reset Mode** and all functions are halted.
+- The system exits Reset Mode and starts normal operation only when **VSYS ≥ 2.7V**.
+- If **VSYS drops below 2.55V** during operation, the system immediately returns to Reset Mode.
 
-#### 6.2.2 RTC 模式
+#### 6.2.2 RTC Mode
 
-- PMIC 的超低功耗工作模式
-- 仅维持 **RTC 模块**和**晶振电路**运行（保持计时功能）
+Ultra-low power mode, maintaining only the **RTC module** and **oscillator** to preserve timekeeping.
 
-**进入条件**：
+**Entry Conditions**:
 
-- **VSYS \< 2.0V**（无主电源供电）
-- **VBAT \> 2.0V**（电池供电正常）
+- **VSYS < 2.0V** (no main power)
+- **VBAT > 2.0V** (battery supply available)
 
-**退出条件**：
+**Exit Conditions**:
 
-- 与复位模式相同：**VSYS ≥ 2.7V**（上电复位释放）
+- Same as Reset Mode: **VSYS ≥ 2.7V** (power-on reset released)
 
-#### 6.2.3 关机模式
+#### 6.2.3 Shutdown Mode
 
-该模式下大部分模块不工作，保持工作的模块有：AONLDO，Bandgap，VSYS 电压检测，RTC，晶振电路，按键检测等。
+Most modules are powered down. Active modules include: AONLDO, Bandgap, VSYS voltage detection, RTC, oscillator, and key detection.
 
-**关机模式下可进一步降低功耗（SHUTDOWN_LP）：**
+**Low-Power Shutdown (SHUTDOWN_LP):**
 
-- 当**表 7-87 **PWR_CTRL1[7] = 1，则进入关机模式时还会额外关闭 AONLDO 和 Bandgap。
+- If **PWR_CTRL1[7] = 1** (Table 7-87), AONLDO and Bandgap are additionally disabled in Shutdown Mode.
 
-**进入该模式：**
+**Entry Conditions**:
 
-- PMIC 上电复位释放后（VSYS \> 2.7 V）。
-- 开机流程过程中：所有的关机和复位事件会直接进入。
-- 其他情况：所有的关机和复位事件会触发关机流程，才会回到关机模式。
+- After PMIC power-on reset release (**VSYS > 2.7V**)
+- During power-on sequence: all shutdown and reset events directly trigger this mode
+- Other scenarios: shutdown or reset events trigger the shutdown sequence
 
-**退出该模式：**
+**Exit Conditions**:
 
-- **表 7-87** PWR_CTRL1[7] = 0 时：所有开机事件。
-- **表 7-87** PWR_CTRL1[7] = 1 时：PWRKY 按键开机事件，RTC 闹钟和 TICK 事件。
+- **PWR_CTRL1[7] = 0**: any power-on event
+- **PWR_CTRL1[7] = 1**: PWRKY key power-on, RTC alarm, or TICK events
 
-**复位事件进入该模式时会停留一段时间（****表 7-88 **PWR_CTRL2[7]**），在这段时间内所有开机源无效：**
+**Reset events entering Shutdown Mode**:
 
-- 当 PWRKY 引脚拉低 12s 强制复位时，PMIC 会从当前状态立即切换到关机模式，等待**表 7-88 **PWR_CTRL2[7]时间后再进入复位模式。
-- 其余复位事件进入关机模式后，等待**表 7-88 **PWR_CTRL2[7]时间后并且此时 VSYS 电压高于设定开机阈值，则自动再执行开机流程。
+- When a **PWRKY forced reset** occurs (>12s), PMIC switches immediately to Shutdown Mode, waits **PWR_CTRL2[7]**, then enters Reset Mode.
+- For other reset events, PMIC waits **PWR_CTRL2[7]**; if **VSYS** exceeds the power-on threshold, it automatically executes the power-on sequence.
 
-#### 6.2.4 开机模式
+#### 6.2.4 Active Mode
 
-该模式下所有模块都可正常工作，包括所有电源轨，负载开关，电池充电，电压检测，内部参考，电源轨过压/欠压/短路/开路检测，过温检测，内部时钟，晶振电路，ADC，RTC，通信接口，GPIO 模块，按键检测，中断等。
+All modules are operational: power rails, load switches, battery charging, voltage detection, internal references, OV/UV/SC/OL detection, thermal monitoring, internal clocks, oscillators, ADC, RTC, communication interfaces, GPIO, keys, and interrupts.
 
-**进入该模式：**
+**Entry Conditions**:
 
-- 开机流程执行完
-- 睡眠模式下唤醒
+- Completion of power-on sequence
+- Wake-up from Sleep Mode
 
-**退出该模式：**
+**Exit Conditions**:
 
-- 关机、复位、睡眠事件
+- Power-off, reset, or sleep events
 
-#### 6.2.5 睡眠模式
+#### 6.2.5 Sleep Mode
 
-该模式可以将部分电源轨做降压或关闭处理，还可以配置拉低 PGOOD 引脚来复位 SoC。
+- Certain power rails can be reduced or turned off; PGOOD pin can be pulled low to reset SoC.
 
-- 进入该模式：开机模式下睡眠事件。
-- 退出该模式：关机、复位、唤醒事件。
+**Entry Condition**: sleep event from Active Mode  
+**Exit Conditions**: power-off, reset, or wake-up events
 
-#### 6.2.6 各模式工作状态
+#### 6.2.6 Mode Status Overview
 
-表 6-4 PMIC 模式管理
+**Table 6-4: PMIC Mode Management**
 
-<table>
-<tbody>
-<tr>
-<td>电源域</td>
-<td>模块</td>
-<td>RESET</td>
-<td>RTC</td>
-<td>SHUTDOWN-LP</td>
-<td>SHUTDOWN</td>
-<td>ACTIVE</td>
-<td>SLEEP</td>
-</tr>
-<tr>
-<td rowspan=15 colspan=1>VSYS</td>
-<td>BUCK/LDO</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>x(if enable)</td>
-<td>x(if enable)</td>
-</tr>
-<tr>
-<td>SWITCH</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>x(if enable)</td>
-<td>x(if enable)</td>
-</tr>
-<tr>
-<td>BCHG</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>x(if enable)</td>
-<td>x(if enable)</td>
-</tr>
-<tr>
-<td>MTP</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>x</td>
-<td>x</td>
-</tr>
-<tr>
-<td>AONLDO</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>x</td>
-<td>x</td>
-<td>x</td>
-</tr>
-<tr>
-<td>BG</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>x</td>
-<td>x</td>
-<td>x</td>
-</tr>
-<tr>
-<td>VSYS DET</td>
-<td>-</td>
-<td>-</td>
-<td>x</td>
-<td>x</td>
-<td>x</td>
-<td>x</td>
-</tr>
-<tr>
-<td>VREF</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>x</td>
-<td>x</td>
-</tr>
-<tr>
-<td>IREF</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>x</td>
-<td>x</td>
-</tr>
-<tr>
-<td>SOSC</td>
-<td>-</td>
-<td>-</td>
-<td>x</td>
-<td>x</td>
-<td>x</td>
-<td>x</td>
-</tr>
-<tr>
-<td>FOSC</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>x</td>
-<td>x</td>
-</tr>
-<tr>
-<td>ADC</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>x(if enable)</td>
-<td>x(if enable)</td>
-</tr>
-<tr>
-<td>TS</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>x</td>
-<td>x</td>
-</tr>
-<tr>
-<td>OT-P</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>x</td>
-<td>x</td>
-</tr>
-<tr>
-<td>KEY</td>
-<td>-</td>
-<td>-</td>
-<td>x</td>
-<td>x</td>
-<td>x</td>
-<td>x</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>VSYS/<br/>VBAT<br/> </td>
-<td>XTAL</td>
-<td>-</td>
-<td>x(if enable)</td>
-<td>x(if enable)</td>
-<td>x(if enable)</td>
-<td>x(if enable)</td>
-<td>x(if enable)</td>
-</tr>
-<tr>
-<td>RTC</td>
-<td>-</td>
-<td>x(if enable)</td>
-<td>x(if enable)</td>
-<td>x(if enable)</td>
-<td>x(if enable)</td>
-<td>x(if enable)</td>
-</tr>
-<tr>
-<td>VSYS</td>
-<td>DIGITAL</td>
-<td>-</td>
-<td>-</td>
-<td>x</td>
-<td>x</td>
-<td>x</td>
-<td>x</td>
-</tr>
-<tr>
-<td rowspan=3 colspan=1>AONLDO</td>
-<td>GPIO</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>x</td>
-<td>x</td>
-</tr>
-<tr>
-<td>INT</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>x</td>
-<td>x</td>
-</tr>
-<tr>
-<td>IIC</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>x</td>
-<td>x</td>
-</tr>
-</tbody>
-</table>
+| Power Domain    | Module      | RESET | RTC             | SHUTDOWN-LP     | SHUTDOWN        | ACTIVE          | SLEEP           |
+|-----------------|------------|-------|-----------------|-----------------|-----------------|-----------------|-----------------|
+| VSYS            | BUCK/LDO    | -     | -               | -               | -               | x (if enabled)  | x (if enabled)  |
+|                 | SWITCH      | -     | -               | -               | -               | x (if enabled)  | x (if enabled)  |
+|                 | BCHG        | -     | -               | -               | -               | x (if enabled)  | x (if enabled)  |
+|                 | MTP         | -     | -               | -               | -               | x               | x               |
+|                 | AONLDO      | -     | -               | -               | x               | x               | x               |
+|                 | BG          | -     | -               | -               | x               | x               | x               |
+|                 | VSYS DET    | -     | -               | x               | x               | x               | x               |
+|                 | VREF        | -     | -               | -               | -               | x               | x               |
+|                 | IREF        | -     | -               | -               | -               | x               | x               |
+|                 | SOSC        | -     | -               | x               | x               | x               | x               |
+|                 | FOSC        | -     | -               | -               | -               | x               | x               |
+|                 | ADC         | -     | -               | -               | -               | x (if enabled)  | x (if enabled)  |
+|                 | TS          | -     | -               | -               | -               | x               | x               |
+|                 | OT-P        | -     | -               | -               | -               | x               | x               |
+|                 | KEY         | -     | -               | x               | x               | x               | x               |
+| VSYS / VBAT     | XTAL        | -     | x (if enabled)  | x (if enabled)  | x (if enabled)  | x (if enabled)  | x (if enabled)  |
+|                 | RTC         | -     | x (if enabled)  | x (if enabled)  | x (if enabled)  | x (if enabled)  | x (if enabled)  |
+| VSYS            | DIGITAL     | -     | -               | x               | x               | x               | x               |
+| AONLDO          | GPIO        | -     | -               | -               | -               | x               | x               |
+|                 | INT         | -     | -               | -               | -               | x               | x               |
+|                 | IIC         | -     | -               | -               | -               | x               | x               |
 
-### 6.3 PMIC 相关事件及行为
+### 6.3 PMIC Events and Behaviors
 
-表 6-5 为 PMIC 事件汇总，行为中的‘强制’行为是指 PMIC 会从当前状态立即强制切换到关机模式。
+Table 6-5 summarizes the PMIC events and corresponding behaviors. The term **“Forced”** indicates that the PMIC will immediately switch from its current state to **Shutdown Mode**.
 
-表 6-5 PMIC 事件汇总
+| Type        | Event                   | Applicable Mode/Domain                        | Behavior                    |
+|------------|-------------------------|-----------------------------------------------|-----------------------------|
+| Power-On   | VSYS over-threshold     | Shutdown Mode                                 | Power-On / Wake-Up          |
+|            | PWRKY Power-On          |                                               |                             |
+|            | INT Pulldown 16 ms      |                                               |                             |
+|            | ALARM / TICK            |                                               |                             |
+|            | PWRCTRL Fully Bound On  |                                               |                             |
+| Power-Off  | PWRKY Power-Off         | See Section 5.2 diagram (* state, # state)   | Configured Power-Off        |
+|            | VSYS under-threshold    |                                               |                             |
+|            | PWRCTRL Power-Off       |                                               |                             |
+|            | Power Rail Abnormal     |                                               |                             |
+|            | Software Power-Off      | See Section 5.2 diagram (# state)            |                             |
+|            | Chip Over-Temperature / VSYS Over-Voltage | ALL                         | Forced Shutdown             |
+| Sleep      | Software Sleep          | Active Mode                                   | Configured Sleep Entry      |
+|            | GPIO Sleep              | Active Mode                                   |                             |
+| Wake-Up    | Software Wake           | Sleep Mode                                    | Configured Sleep Exit       |
+|            | GPIO Wake               | Sleep Mode                                    |                             |
+|            | PWRKY Interrupt Wake    | Sleep Mode                                    |                             |
+|            | ALARM / TICK            | Sleep Mode                                    |                             |
+| Reset      | PWRKY Reset             | ALL                                           | Forced Cold Reset           |
+|            | Software Reset          | See Section 5.2 diagram (# state)            | Configured Reset            |
+|            | nRESET Inactive         | See Section 5.2 diagram (* state, # state)   |                             |
+|            | PGOOD Pulldown          |                                               |                             |
+|            | Watchdog Timeout        |                                               |                             |
 
-<table>
-<tbody>
-<tr>
-<td>类型</td>
-<td>事件</td>
-<td>作用区间</td>
-<td>行为</td>
-</tr>
-<tr>
-<td rowspan=5 colspan=1>开机事件<br/></td>
-<td>VSYS超阈值</td>
-<td rowspan=5 colspan=1>关机模式</td>
-<td rowspan=5 colspan=1>开机唤醒</td>
-</tr>
-<tr>
-<td>PWRKY开机</td>
-</tr>
-<tr>
-<td>INT下拉16ms</td>
-</tr>
-<tr>
-<td>ALARM/TICK</td>
-</tr>
-<tr>
-<td>PWRCTRL全绑定开机</td>
-</tr>
-<tr>
-<td rowspan=6 colspan=1>关机事件</td>
-<td>PWRKY关机</td>
-<td rowspan=4 colspan=1>小节5.2内图的 * 状态，# 状态</td>
-<td rowspan=5 colspan=1>按配置关机</td>
-</tr>
-<tr>
-<td>VSYS低阈值</td>
-</tr>
-<tr>
-<td>PWRCTRL关机</td>
-</tr>
-<tr>
-<td>电源轨异常</td>
-</tr>
-<tr>
-<td>软件关机</td>
-<td>小节5.2内图的 # 状态</td>
-</tr>
-<tr>
-<td>芯片过温/VSYS过压</td>
-<td>ALL</td>
-<td>强制关机</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>睡眠事件</td>
-<td>软件睡眠</td>
-<td>开机模式</td>
-<td rowspan=2 colspan=1>按配置进入睡眠</td>
-</tr>
-<tr>
-<td>GPIO睡眠</td>
-<td>开机模式</td>
-</tr>
-<tr>
-<td rowspan=4 colspan=1>唤醒事件</td>
-<td>软件唤醒</td>
-<td>睡眠模式</td>
-<td rowspan=4 colspan=1>按配置退出睡眠</td>
-</tr>
-<tr>
-<td>GPIO唤醒</td>
-<td>睡眠模式</td>
-</tr>
-<tr>
-<td>PWRKY中断唤醒</td>
-<td>睡眠模式</td>
-</tr>
-<tr>
-<td>ALARM/TICK</td>
-<td>睡眠模式</td>
-</tr>
-<tr>
-<td rowspan=5 colspan=1>复位事件</td>
-<td>PWRKY复位</td>
-<td>ALL</td>
-<td>强制冷复位</td>
-</tr>
-<tr>
-<td>软件复位</td>
-<td>小节5.2内图的 # 状态</td>
-<td rowspan=4 colspan=1>按配置复位</td>
-</tr>
-<tr>
-<td>nRESET无效</td>
-<td rowspan=3 colspan=1>小节5.2内图的 * 状态，# 状态<br/></td>
-</tr>
-<tr>
-<td>PGOOD拉低</td>
-</tr>
-<tr>
-<td>看门狗超时</td>
-</tr>
-</tbody>
-</table>
+### 6.4 Sequence Controller
 
-### 6.4 序列控制器
+The PMIC's power rails (except AONLDO) are managed by a **programmable sequence controller**, which handles **Power-On, Power-Off, Sleep, and Wake-Up flows**. The controller features **16 programmable SLOTs** with the following characteristics:
 
-PMIC 电源轨（除了 AONLDO）的开机、关机、睡眠、唤醒流程都由一个可编程的序列控制器控制，该序列控制器包含了 **16** 个可编程的 SLOT，特性如下：
+1. **Power Rail Control**
 
-1. **电源轨控制**
+   - Each power rail is assigned a **SLOT ID**, which can point to any of the 16 SLOTs.
+   - Power rail enable/disable is controlled by **PWRCTRL** (register configuration):
+     - BUCK: `BUCKx_CTRL[5:3]` (Table 7-75)
+     - ALDO: `ALDOx_CTRL[3:1]` (Table 7-80)
+     - DLDO: `DLDOx_CTRL[3:1]` (Table 7-83)
+   - During a SLOT, the rail will only enable if **PWRCTRL is valid**; conversely, the rail will disable or adjust voltage when **PWRCTRL becomes invalid**.
 
-   - 每个电源轨绑定一个 **SLOT ID**（可指向 16 个 SLOT 中的任意一个）
-   - 电源轨开关受 **PWRCTRL** 控制（配置寄存器：
-     - BUCK：表 7-75 BUCKx_CTRL[5:3]
-     - ALDO：表 7-80 ALDOx_CTRL[3:1]
-     - DLDO：表 7-83 DLDOx_CTRL[3:1]
-   - 进入 SLOT 后需等待 PWRCTRL 有效才能打开对应 BUCK 和 LDO 使能，或者等到 PWRCTRL 无效才关闭或调整对应 BUCK 和 LDO 电压。
-2. **EXT_EN 控制**
+2. **EXT_EN Control**
 
-   - GPIO0~5 可配置为 **EXT_EN** 输出功能
-   - 每个 EXT_EN 绑定独立 **SLOT ID**（配置寄存器：表 7-102 PWR_SLOT9~表 7-104 PWR_SLOT11）
-3. **SLOT 计时规则**
+   - GPIO0~5 can be configured as **EXT_EN outputs**.
+   - Each EXT_EN is assigned a **SLOT ID** (register configuration: Tables 7-102 to 7-104).
 
-   - 若电源轨受 PWRCTRL 控制，其 SLOT 计时需等待**所有绑定的 PWRCTRL 信号达到目标状态**（全部有效/无效）
+3. **SLOT Timing Rules**
 
-序列控制器的 SLOT0~SLOT14 为有效控制序列，SLOT15 为无效控制序列：
+   - If a power rail is controlled by PWRCTRL, the SLOT timing waits until **all bound PWRCTRL signals reach their target states** (all valid/invalid).
 
-- 在开机流程或唤醒流程中，
+**SLOT Functions**
 
-  - SLOT0~SLOT14 阶段相应的 BUCK 和 LDO 使能打开，并且 EXT_EN 变有效，指向 SLOT15 的电源轨和 EXT_EN 并不使能或变有效。
-- 在睡眠过程中，
+- **SLOT0~SLOT14:** Active control sequence.
+- **SLOT15:** Inactive control sequence.
 
-  - SLOT0~SLOT15 阶段相应的 BUCK 和 LDO 使能保持当前状态不变，但当电源轨的睡眠电压设置成 0，睡眠过程中相应电源轨使能关闭；
-  - 当 EXT_EN 配置为受睡眠时序控制（**表 7-106 **PWR_EXT_CTRL[5:0]），则在睡眠过程中 EXT_EN 变无效，否则保持当前状态不变。
-- 在关机流程中，
+**Behavior by Mode:**
 
-  - SLOT0~SLOT15 各阶段对应的 BUCK 和 LDO 使能关闭，EXT_EN 变无效。
+- **Power-On / Wake-Up Flows**
+  - BUCK and LDO enables are activated according to SLOT0~SLOT14.
+  - EXT_EN becomes active.
+  - Power rails and EXT_EN pointing to SLOT15 remain inactive.
 
-**控制规模**
+- **Sleep Flow**
+  - BUCK and LDO enable states remain unchanged for SLOT0~SLOT15.
+  - Rails with sleep voltage set to 0 are disabled.
+  - EXT_EN controlled by sleep timing (`PWR_EXT_CTRL[5:0]`, Table 7-106) becomes inactive; otherwise, it remains unchanged.
 
-- 最大支持 **23 个 SLOT ID**（6 个 EXT_EN + 6 个 BUCK + 11 个 LDO）
-- 典型应用示例：DLDO1/DLDO4 绑定至特定 PWRCTRL（见下图 序列控制器时序控制示意图）
+- **Power-Off Flow**
+  - BUCK and LDO enables are disabled for SLOT0~SLOT15.
+  - EXT_EN becomes inactive.
+
+**Controller Scale**
+
+- Supports up to **23 SLOT IDs** (6 EXT_EN + 6 BUCK + 11 LDO)
+- Example: DLDO1/DLDO4 bound to a specific PWRCTRL (see sequence controller timing diagram below).
 
 ![](static/B0DdbO3J4o7ua5xe5c9cd4JQnNh.png)
 
-下表罗列各模式和流程下电源轨状态和输出电压表
+**Power Rail State & Output by Mode**
 
-<table>
-<tbody>
-<tr>
-<td>模式</td>
-<td>SLOT_ID</td>
-<td>PWRCTRLx</td>
-<td>软件</td>
-<td>电源轨状态</td>
-<td>电源轨输出电压</td>
-</tr>
-<tr>
-<td>关机模式</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>关闭</td>
-<td>-</td>
-</tr>
-<tr>
-<td>开机流程</td>
-<td>x</td>
-<td>x（option）</td>
-<td>x</td>
-<td>使能</td>
-<td>Normal</td>
-</tr>
-<tr>
-<td>开机模式</td>
-<td>-</td>
-<td>x（option）</td>
-<td>x</td>
-<td>使能</td>
-<td>Normal</td>
-</tr>
-<tr>
-<td>睡眠流程</td>
-<td>x</td>
-<td>x（option）</td>
-<td>x</td>
-<td>使能</td>
-<td>Normal –&gt;Sleep</td>
-</tr>
-<tr>
-<td>睡眠模式</td>
-<td>-</td>
-<td>x（option）</td>
-<td>x</td>
-<td>使能</td>
-<td>Sleep</td>
-</tr>
-<tr>
-<td>唤醒流程</td>
-<td>x</td>
-<td>x（option）</td>
-<td>x</td>
-<td>使能</td>
-<td>Sleep -&gt;Normal</td>
-</tr>
-<tr>
-<td>关机流程</td>
-<td>x</td>
-<td>x（option）</td>
-<td>-</td>
-<td>关闭</td>
-<td>-</td>
-</tr>
-</tbody>
-</table>
+| Mode        | SLOT_ID | PWRCTRLx      | Software | Rail State | Rail Output Voltage    |
+|------------|---------|---------------|----------|------------|-----------------------|
+| Shutdown    | -       | -             | -        | Disabled   | -                     |
+| Power-On Flow | x     | x (optional)  | x        | Enabled    | Normal                |
+| Active Mode | -       | x (optional)  | x        | Enabled    | Normal                |
+| Sleep Flow  | x       | x (optional)  | x        | Enabled    | Normal -> Sleep       |
+| Sleep Mode  | -       | x (optional)  | x        | Enabled    | Sleep                 |
+| Wake-Up Flow| x       | x (optional)  | x        | Enabled    | Sleep -> Normal       |
+| Power-Off Flow | x    | x (optional)  | -        | Disabled   | -                     |
 
-#### 6.4.1 开机事件
+#### 6.4.1 Power-On Events
 
-PMIC 支持以下开机唤醒事件：
+The PMIC supports the following **Power-On / Wake-Up events**:
 
-1. VSYS 超过开机阈值唤醒（可通过 MTP 屏蔽）
-2. PWRKY 长按开机唤醒（常开）
-3. INT 引脚下拉超 16ms 唤醒（可 MTP 屏蔽）
-4. RTC 的 ALARM 和 TICK 事件唤醒（可 MTP 屏蔽）
-5. PWRCTRL 全绑定开机事件唤醒（可 MTP 屏蔽）
-6. 关机后的自动重启事件
+1. VSYS exceeds the Power-On threshold (maskable via MTP)
+2. PWRKY long-press Power-On (normally open)
+3. INT pin pulled low for >16 ms (maskable via MTP)
+4. RTC ALARM or TICK events (maskable via MTP)
+5. PWRCTRL full-bind Power-On event (maskable via MTP)
+6. Auto-restart event after shutdown
 
-> **触发条件**：除 VSYS 阈值事件外，其余事件均需 **VSYS 高于开机阈值**才会生效。
+> **Trigger Condition:** Except for VSYS threshold events, all other events require **VSYS above the Power-On threshold** to be valid.
 
-**唤醒要求**
+**Wake-Up Requirements**
 
-- **VSYS 电压范围**：2.9V ~ 5.5V（需稳定）
-- **开机阈值**：
+- **VSYS Voltage Range:** 2.9V ~ 5.5V (must be stable)
+- **Power-On Threshold:**
+  - Configurable via MTP
 
-  - 可通过 MTP 配置
+In addition to MTP configuration, the PMIC dynamically adjusts the Power-On threshold in hardware to prevent false Power-On/Off events under weak supply conditions. The **Power-On/Off threshold switching diagram** is shown below. Adjustment procedure:
 
-PMIC 的开机阈值除了通过 MTP 配置外，硬件本身也会根据情况调整开机阈值，防止由于较弱供电导致的错误开关机流程，如下**图****（开机和关机阈值切换示意图）**所示。调整过程如下：
+**Dynamic Power-On Threshold Adjustment**
 
-**开机阈值动态调整流程**
+1. **Initial State**
+   - After PMIC reset release, the device enters **Shutdown Mode**.
+   - If VSYS event is not masked, Power-On occurs when VSYS > **default Power-On threshold**.
 
-1. **初始状态**：
+2. **Low-Voltage Protection**
+   - If VSYS < Shutdown threshold within **16 seconds** after Power-On:
+     - Execute Power-Off flow and enter Shutdown Mode.
+     - **Adjust Power-On Threshold:**
+       - If the current threshold < maximum (3.6V), increase in **0.1V or 0.2V steps** (selected via `SYS_CFG2[7]`, Table 7-127)
+       - If already at 3.6V, **mask the VSYS Power-On event**
 
-   - PMIC 复位释放后进入**关机模式**
-   - 若 VSYS 事件未屏蔽，当 VSYS \> **默认开机阈值**时触发开机模式
-2. **低电压保护机制**：
+3. **Threshold Recovery**
+   - If VSYS remains stable above the Shutdown threshold for 16 seconds after Power-On, restore the threshold to default.
 
-   - 若开机后 **16 秒内 VSYS \< 关机阈值**：
-     - 执行关机流程并进入关机模式
-     - **调整开机阈值**：
-       - 若当前阈值未达最大值（3.6V），按 **0.1V/0.2V** 步进提升（由表 7-127 SYS_CFG2[7]选择）
-       - 若已达 3.6V，则**屏蔽 VSYS 开机事件**
-3. **阈值恢复条件**：
-
-   - 若开机后 **16 秒内 VSYS 持续正常**（即未低于关机阈值），阈值恢复为默认值
-4. **功能关闭**：
-
-   - 可通过置位表 7-127 SYS_CFG2[6]禁用阈值调整
+4. **Disable Feature**
+   - Threshold adjustment can be disabled via `SYS_CFG2[6]` (Table 7-127).
 
 ![](static/GNJUbF6SzooXCLxab3oc585PnAP.png)
 
-#### 6.4.2 开机流程
+#### 6.4.2 Power-On Sequence
 
-**关机模式**下检测到**开机事件**时，按以下顺序执行开机流程：
+When a **Power-On event** is detected in **Shutdown Mode**, the PMIC executes the Power-On sequence as follows:
 
-1. 从 MTP **加载所需配置**，如各电源轨电压相关配置
-2. 加载完配置后，PMIC 会启动一系列**开机前检测**，包括：
+1. **Load Configuration from MTP**
+   - Includes voltage settings and other required configurations for all power rails.
 
-   - VSET 引脚状态
-   - 异常事件（电源轨过压，欠压，短路和开路）
-     检测完成并无异常发生时即启动**电源轨开机序列**；否则，立即回到关机模式。
-3. 开机序列完成后，会经过一段**可编程控制的延时**（**表 7-92 **PWR_SEQ_TIME[5:4]），延时结束后，PMIC 主动释放 PGOOD 引脚：
+2. **Pre-Power-On Checks**
+   - Checks VSET pin status.
+   - Monitors abnormal events (OVP/UVP, short-circuit, open-circuit) on all power rails.
+   - If no abnormal events are detected, the **Power Rail On Sequence** is initiated; otherwise, the PMIC immediately returns to Shutdown Mode.
 
-   - 若配置为**无需等待 PGOOD 释放**（表 7-87 PWR_CTRL1[3] = 0），则系统直接进入开机模式。
-   - 若需**等待 PGOOD 释放**，则必须等 PGOOD 释放后才能进入开机模式。
-   - 若 PGOOD 长时间未释放（表 7-87 PWR_CTRL1[4]），PMIC 直接回到关机模式。
+3. **Power-On Sequence Completion**
+   - After the sequence, a **programmable delay** is applied (`PWR_SEQ_TIME[5:4]`, Table 7-92), then the PMIC releases the **PGOOD** pin:
+     - If configured to **not wait for PGOOD release** (`PWR_CTRL1[3]=0`, Table 7-87), the system enters Power-On mode immediately.
+     - If **waiting for PGOOD release**, the system enters Power-On mode only after PGOOD is released.
+     - If PGOOD is not released within the configured timeout (`PWR_CTRL1[4]`, Table 7-87), the PMIC returns to Shutdown Mode.
 
-在进入开机模式前（见 6.2 小节**模式切换示意图**中带 \* 号的状态），若发生异常事件、关机或复位事件，PMIC 会立即终止开机流程并回到关机模式，等待下一次唤醒。
+> **Note:** Before entering Power-On mode (**see 6.2 [Mode Transition Diagram](#62-operating-modes)**, * state), if an abnormal, shutdown, or reset event occurs, the PMIC aborts the Power-On sequence and returns to Shutdown Mode, awaiting the next wake-up event.
 
-**SLOT 机制与电源轨控制**
+**SLOT Mechanism and Power Rail Control**
 
-- **电源轨管理**：所有 BUCK（BUCK1~6）、11 个 LDO 及所有 EXTx_EN 具有各自独立的 SLOT ID，该 ID 由 MTP 配置决定。在关机模式下唤醒后，PMIC 从 MTP 读取相应配置。
-- **SLOT 绑定**：多个电源轨或 EXTx_EN 可绑定至同一 SLOT，即同一 SLOT 内的电源轨可同时打开。
-- **DUMMY SLOT**：若某个 SLOT 未绑定任何电源轨或 EXT_EN，则该 SLOT 被视为 DUMMY SLOT，序列控制器会跳过该 SLOT，仅持续一个内部慢时钟周期（约 32μs）。
+- **Power Rail Management:** All BUCKs (BUCK1~6), 11 LDOs, and all EXTx_EN signals have independent SLOT IDs, configured via MTP. After waking from Shutdown Mode, PMIC reads the configuration from MTP.
+- **SLOT Binding:** Multiple power rails or EXTx_EN signals can be bound to the same SLOT, enabling simultaneous activation.
+- **DUMMY SLOT:** If a SLOT has no bound power rail or EXT_EN, it is treated as a DUMMY SLOT. The sequence controller skips it, holding for one internal slow clock cycle (~32 μs).
 
-**开机序列与 PWRCTRL 绑定情况**
+**Power-On Sequence and PWRCTRL Binding**
 
-开机过程中序列控制器从 SLOT0 开始，所有 SLOT 的计时是统一可编程的，有四个档位选择（**表 7-92 **PWR_SEQ_TIME[1:0]）。根据不同的 PWRCTRL 引脚绑定情况，有如下几种场景：
+The sequence controller starts from **SLOT0**, with programmable timing (four levels available, `PWR_SEQ_TIME[1:0]`, **Table 7-92**). Behavior depends on PWRCTRL bindings:
 
-1. 假如 **SLOT0~14 无 PWRCTRL 绑定**
+1. **SLOT0~14 without PWRCTRL Binding**
+   - Upon entering the SLOT, power rails and EXTx_EN are enabled immediately and timing starts.
+   - After timing completes, the next SLOT is executed.
 
-   - 进入该 SLOT 后，电源轨和 EXTx_EN 会立即使能，并且立即开启并开始计时。
-   - 计时完成后，进入下一个 SLOT。
-2. 假如 **SLOT0~14 绑定了 PWRCTRL**，进入该 SLOT 后：
+2. **SLOT0~14 with PWRCTRL Binding**
+   - Rails/EXT_EN without PWRCTRL are enabled immediately; SLOT timing does not start until all bound PWRCTRL signals are valid.
+   - Rails bound to PWRCTRL are enabled only when the corresponding PWRCTRL signal is valid.
+   - Once all bound PWRCTRL signals are valid, timing begins; after timing completes, the next SLOT executes.
+   - If a PWRCTRL signal becomes invalid during timing, the timer stops and resets, the corresponding rails are disabled, and timing restarts only after PWRCTRL signals are valid again.
+   - Once timing completes and the next SLOT starts, any subsequent PWRCTRL changes do not affect already activated rails. In Power-On mode, rails controlled by PWRCTRL will disable if PWRCTRL becomes invalid and re-enable when PWRCTRL becomes valid.
 
-   - 其它无等待的电源轨和 EXTx_EN 进入该 SLOT 后立即将其使能打开，但 SLOT 的计时不启动。
-   - 对应 PWRCTRL 的电源轨在 PWRCTRL 有效后会直接使能。
-   - 所有电源轨等待的 PWRCTRL 都有效后才开始计时，计时完成后即进入下一 SLOT。
-   - 当计时未完成时，PWRCTRL 变无效，SLOT 计数停止并清零，对应 PWRCTRL 的电源轨关闭，直至所有 PWRCTRL 重新变有效后才开始重新计时并打开。
-   - 当计时已完成并进入下一 SLOT 后，若 PWRCRTL 再变无效，则对应 PWRCTRL 的相关电源轨不再受影响。但进入开机模式时受 PWRCTRL 控制的电源轨会关闭，当 PWRCTRL 重新变有效时，相应电源轨重新打开。
-3. 假如 SLOT15 绑定了 PWRCTRL，则进入该 SLOT 后：
-
-   - 电源轨或 EXTx_EN 使能不打开，即该 SLOT 下无操作。
-   - 若电源轨绑定了 PWRCTRL，SLOT 计时也受 PWRCTRL 控制，即需等到 PWRCTRL 有效后才开始计时。
-
-下图为**开机流程时序图**
+3. **SLOT15 with PWRCTRL Binding**
+   - Rails or EXTx_EN are not enabled; this SLOT performs no action.
+   - If rails are bound to PWRCTRL, SLOT timing waits until PWRCTRL is valid before starting.
 
 ![](static/T5TCbdx84oCR2rxAATncgOzonje.png)
 
-#### 6.4.3 关机事件**类型**
+#### 6.4.3 Shutdown Event Types
 
-PMIC 支持以下关机触发条件：
+The PMIC supports the following conditions for triggering a shutdown:
 
-1. **硬件触发**
+1. **Hardware-Triggered Events**
+   - **PWRKY Long-Press Shutdown** (enabled when `PWR_CTRL2[6]=0`)
+   - **VSYS below threshold** (forces hardware shutdown)
 
-   - **PWRKY 长按关机**（PWR_CTRL2[6]=0 时使能）
-   - **VSYS 电压低于阈值**（硬件强制关机）
-2. **软件触发**
+2. **Software-Triggered Events**
+   - **Software-Initiated Shutdown** via register configuration
 
-   - **软件指令关机**（通过寄存器配置）
-3. **电源管理事件**
+3. **Power Management Events**
+   - **All power rails bound to PWRCTRL are invalid** (can be masked via MTP)
 
-   - **所有电源轨绑定的 PWRCTRL 均无效**（可 MTP 屏蔽）
-4. **异常保护事件**（可软件/MTP 屏蔽）
+4. **Protection and Fault Events** (maskable via software/MTP)
+   - Power rail faults: **Over-Voltage (OV)**, **Under-Voltage (UV)**, **Short-Circuit (SC)**
+   - **Chip Over-Temperature**
+   - **VSYS Over-Voltage**
 
-   - 电源轨故障：**过压（OV）**、**欠压（UV）**、**短路（SC）**
-   - **芯片过温**
-   - **VSYS 过压**
+#### 6.4.4 Shutdown Sequence
 
-#### 6.4.4 关机流程
+**Overview**
 
-**流程概述**
+When the PMIC triggers a **shutdown or reset event** while in **Active Mode**, the system executes a reverse shutdown sequence:
 
-当 PMIC 在**开机模式**下触发**关机/复位事件**时，系统执行反向关机流程：
+1. **Sequence Control**
+   - Starts from **SLOT15** and executes in **reverse order** down to **SLOT0**.
+   - The behavior within each SLOT follows the same logic as the startup sequence, but **trigger conditions and output polarity are inverted** (see Figures 6-4 and 6-7).
 
-1. **时序控制**：
+2. **Fault and Interrupt Handling**
+   - If a shutdown event occurs during **sleep/wake processes** (see Figure 6-3, marked #):
+     - The current sequence is immediately interrupted.
+     - The shutdown sequence corresponding to `PWR_CTRL1[0]` (Table 7-87) is executed.
 
-   - 从 **SLOT15** 开始，**反向执行**至 **SLOT0**
-   - 各 SLOT 内行为逻辑与开机流程相同，但**触发条件及结果极性相反**（见图 6-4、图 6-7）
-2. **异常中断处理**：
+For each SLOT in the reverse sequence:
 
-   - 若在**睡眠/唤醒过程**（图 6-3 标#状态）中触发关机事件：
-     - 立即中断当前流程
-     - 按 **PWR_CTRL1[0]**（表 7-87）配置执行对应关机流程
+- Power rails bound to that SLOT are disabled and EXT_EN outputs are deactivated.
+- If the power rail is configured to wait for PWRCTRL (`PWR_CTRL2[4]=1`, Table 7-88), the SLOT timing and power rail shutdown will wait until PWRCTRL becomes inactive.
+- If the PWRCTRL wait exceeds the configured timeout (`PWR_CTRL2[5]`, Table 7-88), the SLOT timing proceeds and the corresponding power rails are forced to shutdown.
 
-反序走到某个 SLOT 时，与该 SLOT 绑定的电源轨关闭，EXT_EN 变无效；当电源轨配置成等待 PWRCTRL（**表 7-88 **PWR_CTRL2[4] = 1），则该 SLOT 的计时以及电源轨的关闭需等待 PWRCTRL 无效，若等待 PWRCTRL 超时（**表 7-88 **PWR_CTRL2[5]），则启动 SLOT 计时并关闭相应电源轨。
+**Emergency Event Handling**
 
-**紧急事件处理**
+- **Trigger Conditions** (any of the following):
+  - **VSYS Over-Voltage** (`PWRKY_EVENT[5]`, Table 7-113)
+  - **Chip Over-Temperature** (`EVENT2[6]`, Table 7-109)
+- **Response Actions**:
+  - If protection is enabled (`IRQ_PWRKY_EN[7:6]=1`), the system **immediately jumps to Shutdown Mode**.
+  - **All power rails and EXT_EN outputs are forcibly disabled**.
 
-- 触发条件（任一满足）：
+The shutdown sequence timing diagram is shown below:
 
-  - **VSYS 过压**（表 7-113 PWRKY_EVENT[5]）
-  - **芯片过温**（表 7-109 EVENT2[6]）
-- 响应动作：
+![](static/DvpJbqt17o)
 
-  - 若使能保护（IRQ_PWRKY_EN[7:6]=1），**立即跳转至关机模式**
-  - **强制关闭所有电源轨与 EXT_EN**
+#### 6.4.5 Sleep Events
 
-关机流程时序图如下图所示
+The **sleep events** in Figure 6-3 represent the conditions for entering Sleep Mode from Active Mode:
 
-![](static/DvpJbqt17o1b6wxx4qIcpjiCn3e.png)
+1. **Software-Initiated Sleep** (`PWR_CTRL2[0]=1`, Table 7-88)
+2. **GPIO Input Event** via the Sleep/Wake-up (SLEEP/WKUP) pin
 
-#### 6.4.5 睡眠事件
+#### 6.4.6 Sleep Sequence
 
-**图 6-3** 的睡眠事件即开机模式下进入睡眠模式的条件：
+The timing sequence for entering Sleep Mode from Active Mode follows the same SLOT-based structure as the startup sequence, but with different behaviors. Key points of the sleep sequence:
 
-1. 软件进入睡眠（**表 7-88 **PWR_CTRL2[0] = 1）
-2. GPIO 复用输入功能（Sleep/Wake up）引脚有效事件
+1. **Power Rail Adjustment**
+   - The enable state of each power rail remains unchanged.
+   - If the sleep voltage for a rail is set to 0, the rail is disabled.
+   - Otherwise, the rail adjusts to its configured sleep voltage.
 
-#### 6.4.6 睡眠流程
+2. **EXT_EN Control**
+   - The state of EXT_EN outputs is controlled by **Table 7-104 (PWR_EXT_EN)** and **Table 7-106 (PWR_EXT_CTRL)**.
+   - EXT_EN outputs will only be deactivated in their respective SLOT stages if `EXTx_SLP_SD` is set to 1; otherwise, the outputs remain unchanged.
 
-从开机模式进入睡眠模式的时序与开机流程时序一致，但具体行为不同。以下是睡眠流程的关键点：
+3. **Wake-up Event Handling**
+   - Wake-up events do **not interrupt** the sleep sequence.
+   - If wake-up conditions are met after entering Sleep Mode, the wake-up sequence is initiated.
+   - Sleep conditions triggered by software or GPIO are level-sensitive and only valid in Active Mode.
 
-1. **电源轨调节**
-   各电源轨的使能状态保持不变。如果睡眠电压设置为 0，则电源轨会关闭；否则，电源轨会将其电压调节到设定的睡眠电压。
-2. **EXT_EN 控制**
-   EXT_EN 的状态仅受表 7-104（PWR_EXT_EN）和表 7-106（PWR_EXT_CTRL）的控制。只有当 EXTx_SLP_SD 设置为 1 时，EXT_EN 才会在对应的 SLOT 阶段关闭；否则，EXT_EN 保持不变。
-3. **唤醒事件处理**
-   在睡眠流程中，唤醒事件不会中断睡眠过程。如果进入睡眠模式后，唤醒条件仍然成立，则会启动唤醒流程。
+4. **Multiple GPIO Configuration**
+   - When multiple GPIOs are configured as SLEEP/WKUP pins, the system enters Sleep Mode if **any one** of the pins becomes active during Active Mode.
 
-   - 软件和 GPIO 引脚触发的睡眠条件采用电平方式，并仅在开机模式下生效。
-4. **多 GPIO 配置**
-   当多个 GPIO 被配置为 SLEEP/WKUP 引脚时，在开机模式下，只要任一引脚有效，系统就会进入睡眠流程。
+#### 6.4.7 Wake-up Events
 
-#### 6.4.7 唤醒事件
+The **wake-up events** (see Figure in Section 5.2) define the conditions for exiting Sleep Mode:
 
-如小节 5.2 图的唤醒事件即睡眠模式下退出的条件：
+1. Software-initiated wake-up
+2. GPIO input event via Sleep/Wake-up (SLEEP/WKUP) pins becoming inactive
+3. PWRKY interrupt wake-up (short press, long press, rising/falling edge)
+4. RTC ALARM and TICK events (maskable via MTP)
 
-1. 软件唤醒
-2. GPIO 复用输入功能（Sleep/Wake up）引脚无效事件
-3. PWRKY 中断唤醒（短按/长按/上升/下降沿中断）
-4. RTC ALARM 和 TICK（可 MTP 屏蔽）
+#### 6.4.8 Wake-up Sequence
 
-#### 6.4.8 唤醒流程
+The wake-up behavior from Sleep Mode follows the same SLOT-based sequence as the power-on sequence, with the following distinctions:
 
-从睡眠模式唤醒的行为与开机流程一致，但存在以下区别：
+1. **Power Rail Voltage Adjustment**
+   - During wake-up, the voltage of each power rail is adjusted from its sleep voltage to the normal operating voltage.
 
-1. **电源轨电压调节**
-   在唤醒流程中，电源轨的电压会从睡眠电压调节到正常电压。
-2. **软件关闭的电源轨状态**
-   如果在睡眠模式下，用户通过软件关闭了某电源轨，则进入唤醒流程时，该电源轨保持关闭状态。
-3. **睡眠事件处理**
-   在唤醒流程中，若遇到睡眠事件，不会中断当前流程。若进入开机模式后睡眠条件仍成立，则启动睡眠流程。
-4. **软件触发条件清除**
-   若通过软件进入睡眠，但通过其他方式退出睡眠，则其他唤醒源会清除软件触发条件，即清零相关寄存器。
-5. **多 GPIO 配置要求**
-   当多个 GPIO 被配置为 SLEEP/WKUP 引脚时，在睡眠模式下需所有 SLEEP/WKUP 引脚均无效，才能进入唤醒流程。
-6. **特定唤醒源限制**
-   若任一 SLEEP/WKUP 引脚有效，则 PWRKY 中断唤醒相关事件，RTC ALARM 和 TICK 事件无法唤醒 PMIC。
+2. **Software-Disabled Power Rails**
+   - Any power rail disabled via software during Sleep Mode remains off during the wake-up sequence.
 
-#### 6.4.9 复位事件
-
-复位事件如下：
-
-1. PWRKY 长按 12s 冷复位事件（**表 7-88 **`PWR_CTRL2[6]` = 1）
-2. PWRKY 长按关机后自动重启（**表 7-88 **`PWR_CTRL2[6]` = 0 且**表 7-87 **`PWR_CTRL1[2]` = 1）
-3. 软件复位事件
-4. nRESET（GPIO 复用输入功能）无效事件（可软件屏蔽）
-5. PGOOD 拉低（可软件或 MTP 屏蔽）
-6. 看门狗超时复位事件（可软件屏蔽）
-
-#### 6.4.10 复位流程
-
-在开机模式和睡眠模式下，复位事件的行为一致，并根据配置执行下一步操作。所有复位流程均需经过关机流程。
-
-1. **关机模式停留时间**
-   经过关机流程进入关机模式后，PMIC 会在关机模式下停留一段时间（由表 7-88 PWR_CTRL2[7] 配置），以确保足够的复位时间。计时完成后有两种可能的结果：
-   - **进入 RESET 模式**
-     当 PWRKY 按键配置为长按 12 秒复位且发生按键长按事件时，PMIC 将复位所有逻辑并进入 RESET 模式（如下图 **图复位流程** 所示）。
-
-![](static/Kn0rb2ftHoLXCix6icrcFvAQnQe.png)
-
-- **进入 MTP READ2 模式**
-  对于其他复位事件，PMIC 将退出关机模式并进入 MTP READ2 模式（如下图 **冷复位流程** 所示）。
-
-![](static/TT2rbFovKoUyN3xeGYhcEcH4nsh.png)
-
-1. **复位源屏蔽行为**
-   在复位源触发进入关机模式的 SD_RST_TIME 期间，所有开机源将被屏蔽，即开机源无效。
-
-### 6.5 LDO
-
-PMIC 内部集成了三种 LDO：**AONLDO**，**ALDO1~4** 和 **DLDO1~7**，其相关控制如下表所示：
-
-表 6-7 LDO 控制参数
-
-<table>
-<tbody>
-<tr>
-<td>电源轨</td>
-<td>Sequencer</td>
-<td>PWRCTRL</td>
-<td>软件</td>
-<td>DVS</td>
-<td>STEP</td>
-<td>SLEEP Voltage</td>
-</tr>
-<tr>
-<td>AONLDO</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>25 mV</td>
-<td>-</td>
-</tr>
-<tr>
-<td>ALDO1~4</td>
-<td>x</td>
-<td>x</td>
-<td>x</td>
-<td>-</td>
-<td>25 mV</td>
-<td>x</td>
-</tr>
-<tr>
-<td>DLDO1~7</td>
-<td>x</td>
-<td>x</td>
-<td>x</td>
-<td>-</td>
-<td>25 mV</td>
-<td>x</td>
-</tr>
-</tbody>
-</table>
-
-- **LDO 使能与电压调节**
-
-  - **AONLDO**
-    - 在 VSYS 上电（VSYS \> 2.7 V）后保持常开。
-    - 无睡眠电压设置。
-  - **ALDO1~4 和 DLDO1~7**
-    - 使能和电压调节可通过软件修改（主机通过 IIC 访问 PMIC 内部寄存器）。
-    - 所有 LDO 的电压调节步幅为 25 mV。
-    - 支持两种电压配置：开机模式和睡眠模式下的电压。
-- **硬件控制**
-  ALDO1~4 和 DLDO1~7 可受以下硬件控制：
-
-  - **序列控制器（Sequencer）**
-    - 通过表 7-96（PWR_SLOT3）至表 7-101（PWR_SLOT8）配置 LDO 在 Sequencer 中的位置，以控制 LDO 的开启或关闭时序。
-  - **PWRCTRL（GPIO 复用输入功能）**
-    - 通过表 7-80（ALDOx_CTRL[3:1]）和表 7-83（DLDOx_CTRL[3:1]）配置，决定 LDO 是否受 PWRCTRL 信号控制。
-    - 当 Sequencer 到达对应 SLOT 且绑定的 PWRCTRL 信号有效或无效时，对应 LDO 使能或关闭
-- **下拉电阻控制**
-  所有 LDO 输出端均有一个下拉电阻。
-
-  - 当 LDO 使能打开时，下拉电阻关闭。
-  - 当 LDO 关闭时，下拉电阻是否打开取决于 LDO_PD_DIS（详见寄存器描述）。
-
-### 6.6 BUCK
-
-PMIC 内部有 6 个 BUCK，其相关控制如下表所示：
-
-表 6-8 BUCK 控制参数
-
-<table>
-<tbody>
-<tr>
-<td>电源轨</td>
-<td>Sequencer</td>
-<td>PWRCTRL</td>
-<td>软件</td>
-<td>DVS</td>
-<td>STEP</td>
-<td>SLEEP Voltage</td>
-<td>软启</td>
-<td>VSET</td>
-<td>DUAL</td>
-</tr>
-<tr>
-<td>BUCK1~2</td>
-<td>x</td>
-<td>x</td>
-<td>x</td>
-<td>x</td>
-<td>5/25 mV</td>
-<td>x</td>
-<td>x</td>
-<td>-</td>
-<td>x</td>
-</tr>
-<tr>
-<td>BUCK3~4</td>
-<td>x</td>
-<td>x</td>
-<td>x</td>
-<td>x</td>
-<td>5/25 mV</td>
-<td>x</td>
-<td>x</td>
-<td>-</td>
-<td>x</td>
-</tr>
-<tr>
-<td>BUCK5</td>
-<td>x</td>
-<td>x</td>
-<td>x</td>
-<td>x</td>
-<td>5/25 mV</td>
-<td>x</td>
-<td>x</td>
-<td>x</td>
-<td>-</td>
-</tr>
-<tr>
-<td>BUCK6</td>
-<td>x</td>
-<td>x</td>
-<td>x</td>
-<td>x</td>
-<td>5/25 mV</td>
-<td>x</td>
-<td>x</td>
-<td>x</td>
-<td>-</td>
-</tr>
-</tbody>
-</table>
-
-- **软启动特性**
-  所有 BUCK 在启动时均具备软启动功能，软启动时间为 1ms。
-- **动态电压调节（DVS）**
-
-  - 当 BUCK 使能且启用了 DVS 功能时，电压会按照设定的步幅（表 7-74 BUCK_LDO_CFG[4:3]）动态调节，直至达到目标电压。
-  - **触发 DVS 的情况**：
-    - 在开机模式下修改表 7-76（BUCKx_VOLT）。
-    - 在睡眠模式下修改表 7-77（BUCKx_SLP_VOLT）。
-    - 在睡眠流程和唤醒流程中，由序列控制器切换电压。
-- **双相模式配置**
-  BUCK1 和 BUCK2、BUCK3 和 BUCK4 可配置为双相模式，以满足不同应用场景的需求。
-- **下拉电阻控制**
-  所有 BUCK 输出端均有一个下拉电阻。
-
-  - 当 BUCK 使能打开时，下拉电阻关闭。
-  - 当 BUCK 关闭时，下拉电阻是否打开取决于表 7-74（BUCK_LDO_CFG[6]）的配置
-- **BUCK5 和 BUCK6 的特殊配置**
-
-  - BUCK5 和 BUCK6 分别具有 VSET5 和 VSET6 引脚。
-  - VSET5 和 VSET6 引脚的状态与 BUCK_VSET_CTRL 寄存器共同决定了这两个 BUCK 的输出电压状态。具体细节请参见相关寄存器描述和 VSET5/VSET6 引脚说明。
-
-### 6.7 关机保护
-
-PMIC 有以下保护操作：
-
-1. 所有电源轨（BUCK 和 LDO）的过压，欠压，短路和开路保护。
-2. 芯片过温保护；VSYS 过压保护；Switch 短路保护。
-
-#### 6.7.1 电源轨异常保护
-
-当使能电源轨的关机保护操作（表 7-121 PROT_EN[5:0]）时，若任一电源轨发生异常，将触发关机流程。以下是电源轨异常保护的详细配置：
-
-1. **欠压和过压检测事件**
-
-   - **滤波时间配置**
-     滤波时间通过 OVUV_DELAY 配置，可选择以下选项：
+3. **Sleep Event Handling**
+   - Sleep events do **not interrupt** the wake-up sequence.
+   - If Sleep conditions are still met after entering Active Mode, the system will initiate a sleep sequence.
+
+4. **Clearing Software Triggered Sleep Conditions**
+   - If sleep was entered via software but exited through another wake-up source, other wake-up sources will clear the software-triggered sleep conditions by resetting the corresponding registers.
+
+5. **Multiple GPIO Configuration**
+   - When multiple GPIOs are configured as SLEEP/WKUP pins, **all SLEEP/WKUP pins must be inactive** to initiate the wake-up sequence.
+
+6. **Specific Wake-up Source Restrictions**
+   - If any SLEEP/WKUP pin is active, wake-up via PWRKY interrupts, RTC ALARM, or TICK events is inhibited.
+
+#### 6.4.9 Reset Events
+
+The PMIC supports the following **reset events**:
+
+1. PWRKY long-press 12s cold reset event (**Table 7-88** `PWR_CTRL2[6]` = 1)
+2. PWRKY long-press shutdown followed by automatic restart (**Table 7-88** `PWR_CTRL2[6]` = 0 and **Table 7-87** `PWR_CTRL1[2]` = 1)
+3. Software-initiated reset
+4. nRESET (GPIO input multiplexed function) invalid event (maskable via software)
+5. PGOOD pull-down (maskable via software or MTP)
+6. Watchdog timeout reset (maskable via software)
+
+#### 6.4.10 Reset Sequence
+
+Reset events behave identically in **Active Mode** and **Sleep Mode**. All reset sequences execute through the **shutdown sequence** before completing.
+
+1. **Shutdown Mode Hold Time**
+   - After executing the shutdown sequence, the PMIC remains in **Shutdown Mode** for a configurable duration (**Table 7-88 `PWR_CTRL2[7]`**) to ensure sufficient reset timing.
+   - Upon completion of this period, two outcomes are possible:
+     - **Enter RESET Mode**
+       - If PWRKY is configured for 12s long-press reset and the key event occurs, the PMIC resets all logic and enters **RESET Mode** (see **Reset Sequence Diagram**).
+
+       ![](static/Kn0rb2ftHoLXCix6icrcFvAQnQe.png)
+
+     - **Enter MTP READ2 Mode**
+       - For other reset events, the PMIC exits Shutdown Mode and enters **MTP READ2 Mode** (see **Cold Reset Sequence Diagram**).
+
+       ![](static/TT2rbFovKoUyN3xeGYhcEcH4nsh.png)
+
+2. **Reset Source Masking**
+   - During the SD_RST_TIME period while in Shutdown Mode triggered by a reset source, all power-on sources are masked and remain inactive.
+
+### 6.5 Watchdog
+
+In **Active Mode** and **Sleep Mode**, the host can enable the watchdog and configure its timeout via the I²C interface (**Table 7-72 WDT_CTRL[2:1]**).
+
+- If the host fails to feed the watchdog within the configured timeout period (**WDT_CTRL[0]=1**), a **watchdog timeout event** is generated and the corresponding flag is set (**Table 7-108 EVENT1[3]**).
+- If **watchdog reset** is enabled (**Table 7-86 PWR_CTRL0[7]**), the PMIC will initiate the **reset sequence** upon timeout.
+- If **watchdog interrupt** is enabled (**Table 7-115 IRQ_EN1[3]**), a **watchdog interrupt** is triggered and the **INT** pin is pulled low.
+
+The watchdog is automatically disabled and stops functioning when the PMIC enters **Shutdown Mode**. To re-enable it, configuration must be performed again after returning to **Active Mode**.
+
+### 6.6 GPIO
+
+The PMIC provides **6 GPIOs**, which can function as general-purpose IO or be configured for multiplexed input/output. Configuration details are available in **Table 7-12 GPIO_MODE0 ~ Table 7-13 GPIO_MODE1** and **Table 7-14 GPIO_AF01 ~ Table 7-16 GPIO_AF45**. Additional GPIO features include:
+
+1. All GPIOs support **polarity control, pull-up/down, open-drain, and filtering**, except when used as multiplexed ADC inputs.
+2. GPIO **debounce/filter time** ranges from **100 μs to 1.5 ms** (**Table 7-8 GPIO_DEB_EN[7:6]**), and the **GPIOx_IDR** reflects the current port state.
+3. When configured as GPIO inputs, **GPIO_IDR** (**Table 7-4**) together with **GPIO_ITYPE0** (**Table 7-10**) and **GPIO_ITYPE1** (**Table 7-11**) can generate **EVENT0[5:0]** (**Table 7-107**).
+
+The **GPIOx_ODR** register serves dual purposes:
+
+1. When configured as GPIO output (**GPIOx_MODE=2’b01**), **GPIOx_ODR** reflects the GPIO output state.
+2. When configured for multiplexed functionality (**GPIOx_MODE=2’b1x**), **GPIOx_ODR** represents the active state configuration of the associated multiplexed function.
+
+### 6.7 I²C Communication Interface
+
+The PMIC supports an **I²C interface** with a maximum speed of **1 MHz** and operates **only as a slave** device.
+
+- In **Shutdown Mode**, the **SCL** and **SDA** lines are inactive.  
+- The host can access PMIC registers via I²C only in **Active Mode** or **Sleep Mode**.  
+- The **I²C slave address** is configurable via **MTP**: **Table 7-125 SYS_CFG0[6:0]**.
+
+### 6.8 LDO
+
+The PMIC integrates three types of LDOs: **AONLDO**, **ALDO1~4**, and **DLDO1~7**. Their control parameters are summarized below:
+
+| Power Rail  | Sequencer | PWRCTRL | Software | DVS | STEP | SLEEP Voltage |
+|------------|-----------|---------|---------|-----|------|---------------|
+| AONLDO     | -         | -       | -       | -   | 25 mV| -             |
+| ALDO1~4    | x         | x       | x       | -   | 25 mV| x             |
+| DLDO1~7    | x         | x       | x       | -   | 25 mV| x             |
+
+**LDO Enable and Voltage Control**
+
+- **AONLDO**
+  - Always enabled after VSYS powers up (VSYS > 2.7 V).  
+  - No sleep voltage configuration.
+- **ALDO1~4 and DLDO1~7**
+  - Enable and voltage can be configured via **software** (host I²C access to PMIC registers).  
+  - Voltage step size is **25 mV**.  
+  - Supports two voltage settings: **Active Mode** and **Sleep Mode**.
+
+**Hardware Control**
+
+- **Sequencer**
+  - LDOs can be assigned to sequencer slots via **Table 7-96 (PWR_SLOT3) to Table 7-101 (PWR_SLOT8)**, controlling on/off timing.  
+- **PWRCTRL (GPIO Multiplexed Input Function)**
+  - Configured via **ALDOx_CTRL[3:1]** (Table 7-80) and **DLDOx_CTRL[3:1]** (Table 7-83).  
+  - LDO is enabled or disabled when the sequencer reaches the corresponding slot and the bound PWRCTRL signal is valid or invalid.
+
+**Pull-Down Control**
+
+- All LDO outputs include a **pull-down resistor**.  
+- When LDO is **enabled**, the pull-down is **disabled**.  
+- When LDO is **disabled**, the pull-down status is controlled by **LDO_PD_DIS** (see register description).
+
+### 6.9 BUCK
+
+The PMIC integrates **6 BUCK regulators** with the following control parameters:
+
+| Power Rail | Sequencer | PWRCTRL | Software | DVS | STEP     | SLEEP Voltage | Soft-Start | VSET | DUAL |
+|------------|-----------|---------|---------|-----|----------|---------------|------------|------|------|
+| BUCK1~2    | x         | x       | x       | x   | 5/25 mV | x             | x          | -    | x    |
+| BUCK3~4    | x         | x       | x       | x   | 5/25 mV | x             | x          | -    | x    |
+| BUCK5      | x         | x       | x       | x   | 5/25 mV | x             | x          | x    | -    |
+| BUCK6      | x         | x       | x       | x   | 5/25 mV | x             | x          | x    | -    |
+
+**Soft-Start Feature**
+
+- All BUCK regulators support **soft-start** with a typical start-up time of **1 ms**.
+
+**Dynamic Voltage Scaling (DVS)**
+
+- When a BUCK is enabled and DVS is active, the output voltage **ramps dynamically** in steps (configured in **Table 7-74 BUCK_LDO_CFG[4:3]**) until the target voltage is reached.
+- **DVS triggers**:
+  - Modifying **BUCKx_VOLT** (Table 7-76) in Active Mode.
+  - Modifying **BUCKx_SLP_VOLT** (Table 7-77) in Sleep Mode.
+  - Voltage switching by the **sequencer** during Sleep and Wake-Up sequences.
+
+**Dual-Phase Mode**
+
+- BUCK1 & BUCK2 and BUCK3 & BUCK4 can be configured in **dual-phase mode** to support higher current or improved efficiency.
+
+**Pull-Down Control**
+
+- All BUCK outputs include a **pull-down resistor**.
+- **Enabled BUCK:** pull-down disabled.
+- **Disabled BUCK:** pull-down status is determined by **BUCK_LDO_CFG[6]** (Table 7-74).
+
+**Special Configuration for BUCK5 and BUCK6**
+
+- BUCK5 and BUCK6 have dedicated **VSET5** and **VSET6 pins**.
+- The output voltage is determined by the pin state **and** the **BUCK_VSET_CTRL register**.  
+- Refer to the corresponding register descriptions and VSET5/VSET6 pin details for full configuration information.
+
+### 6.10 Shutdown Protection
+
+The PMIC implements the following protection mechanisms:
+
+1. **Power Rail Protection:** Over-voltage (OV), under-voltage (UV), short-circuit (SC), and open-circuit (OC) protection for all BUCK and LDO regulators.
+2. **Chip-Level Protection:** Over-temperature, VSYS over-voltage, and switch short-circuit protection.
+
+#### 6.10.1 Power Rail Fault Protection
+
+When the shutdown protection for a power rail is enabled (**PROT_EN[5:0], Table 7-121**), any detected abnormality on the rail triggers the **shutdown sequence**. Configuration details are as follows:
+
+1. **Under-Voltage and Over-Voltage Detection**
+
+   - **Filter Time Configuration**  
+     Filter time is configurable via **OVUV_DELAY** and supports:
      - 100 μs
      - 375 μs
      - 750 μs
-     - 屏蔽滤波（表 7-127 SYS_CFG2[4:3]）
-   - **屏蔽时间配置**
-     在某些特定时间范围内，PMIC 内部检测电路可能会产生异常的过压或欠压事件。如果不希望这些异常事件导致关机或中断，可通过设置屏蔽时间来屏蔽这些事件：
-     - **特定时间范围**：
-       - 电源轨开启后至其稳定阶段。
-       - 电源轨电压改变阶段。
-     - **屏蔽时间设置**：通过表 7-127 SYS_CFG2[2:0] 配置。
-2. **异常保护机制**
+     - Filter bypass (Table 7-127 SYS_CFG2[4:3])
+     
+   - **Mask Time Configuration**  
+     Certain intervals may generate spurious OV/UV events. To avoid false shutdown or interrupts, mask time can be configured:
+     - **Applicable Intervals**:
+       - During power rail startup until stabilization
+       - During voltage transition phases
+     - **Configuration:** Table 7-127 SYS_CFG2[2:0]
 
-- 当检测到电源轨异常时，PMIC 会根据配置执行关机流程。
-- 滤波时间和屏蔽时间的设置可以帮助用户根据实际需求灵活调整异常保护机制，以确保系统的稳定性和可靠性。
+2. **Fault Response Mechanism**
 
-#### 6.7.2 其它异常保护
+   - When a rail fault is detected, the PMIC executes the shutdown sequence according to the configured settings.
+   - Filter and mask times allow flexible adjustment of protection behavior to ensure system stability and reliability.
 
-VSYS 过压保护，芯片过温保护和 Switch 短路保护分别有单独的使能位：**表 7-120 **IRQ_PWRKY_EN[7:6]，**表 7-121 **PROT_EN[7:6]。
+#### 6.10.2 Other Fault Protection
 
-上述所有事件可通过寄存器**表 7-127 **SYS_CFG2[5]设置滤波时间：100 us/屏蔽滤波功能。
+- **VSYS Over-Voltage**, **Chip Over-Temperature**, and **Switch Short-Circuit** protections have separate enable bits:  
+  - **IRQ_PWRKY_EN[7:6], Table 7-120**  
+  - **PROT_EN[7:6], Table 7-121**
+- All events support filter configuration via **SYS_CFG2[5], Table 7-127** (100 μs or filter bypass).
 
-过温保护的档位如下：
+**Over-Temperature Protection Levels**
 
-**表 6-9 过温保护档位及其行为**
+| SYS_CFG0[7] (Table 7-125) | Warning Temp (℃) | Severe Temp (℃) | Critical Temp (℃) |
+|----------------------------|-----------------|----------------|------------------|
+| 0                          | 95              | 115            | 135              |
+| 1                          | 110             | 130            | 150              |
+| Event                      | EVENT2[4], Table 7-109 | EVENT2[5], Table 7-109 | EVENT2[6], Table 7-109 |
+| Enable                     | -               | PROT_EN[6], Table 7-121 | IRQ_PWRKY_EN[6], Table 7-120 |
+| Action                     | Interrupt       | Shutdown       | Shutdown          |
 
-<table>
-<tbody>
-<tr>
-<td>表 7125 SYS_CFG0[7]</td>
-<td>温度报警（warning）/ ℃</td>
-<td>严重过温（severe）/ ℃</td>
-<td>关机过温（critical）/ ℃</td>
-</tr>
-<tr>
-<td>0</td>
-<td>95</td>
-<td>115</td>
-<td>135</td>
-</tr>
-<tr>
-<td>1</td>
-<td>110</td>
-<td>130</td>
-<td>150</td>
-</tr>
-<tr>
-<td>事件</td>
-<td>表 7109 EVENT2[4]</td>
-<td>表 7109 EVENT2[5]</td>
-<td>表 7109 EVENT2[6]</td>
-</tr>
-<tr>
-<td>使能</td>
-<td>-</td>
-<td>表 7121 PROT_EN[6]</td>
-<td>表 7120 IRQ_PWRKY_EN[6]</td>
-</tr>
-<tr>
-<td>行为</td>
-<td>中断</td>
-<td>关机</td>
-<td>关机</td>
-</tr>
-</tbody>
-</table>
+### 6.11 Load Switch
 
-### 6.8 负载开关
+The PMIC integrates a software-controlled **load switch (SWITCH)** with the following behavior:
 
-PMIC 内部的负载开关（SWITCH）受软件控制，其行为如下：
+1. **Pull-Down Resistor Control**  
 
-1. **下拉电阻控制**
-   SWITCH 输出端有一个下拉电阻。
+   - The SWITCH output has an internal pull-down resistor.
+   - When the SWITCH is enabled, the pull-down resistor is **disabled**.
+   - When the SWITCH is disabled, the pull-down resistor state is determined by **SWITCH_CTRL[1], Table 7-78**.
 
-- 当 SWITCH 使能打开时，下拉电阻关闭。
-- 当 SWITCH 关闭时，下拉电阻是否打开取决于表 7-78（SWITCH_CTRL[1]）的配置。
+2. **Behavior in Shutdown Mode**  
 
-2. **关机模式行为**
+   - The SWITCH is inactive in shutdown mode.
 
-- 在关机模式下，SWITCH 不工作。
+### 6.12 Battery Charging
 
-### 6.9 电池充电
+The host can configure the charging voltage and current, and enable charging via **BBAT_CTRL[0] = 1, Table 7-73**. Charging behavior is as follows:
 
-主机配置好充电电压和充电电流，并打开使能（**表 7-73 **BBAT_CTRL[0]=1）后，可给电池充电，行为如下：
+1. **Full Charge Detection**  
+   - Once the battery reaches full charge, the PMIC waits **20 ms** internally before stopping the charge.
+2. **Recharge on Voltage Drop**  
+   - If the battery voltage drops below the configured threshold, the PMIC resumes charging until full, repeating step 1.
+3. **Charging Disable**  
+   - Disabling charging (**BCHG_EN = 0**) stops the charging process immediately.
 
-1. 当电池充满电后，PMIC 内部计时 20 ms 后停止充电。
-2. 当电池电压低于设定值时，PMIC 重新开始给电池充电，直至充满，重复步骤 1。
-3. 充电使能关闭后（BCHG_EN=0），充电即停止。
+- In **shutdown mode**, the battery charging circuit is disabled. After re-entering **power-on mode**, charging must be re-enabled by the host.
 
-在关机模式下，电池充电电路关闭使能，重新进入开机模式后需重新配置使能。
+### 6.13 ADC Control Circuit
 
-## 6. 系统控制与接口功能
+**Overview**
 
-本章介绍 P1 PMIC 的系统级功能，涵盖通信接口（I²C/GPIO）、安全监控（看门狗/ADC）和实时时钟（RTC）等模块，实现与外部系统的无缝协同。
+The PMIC integrates a 12-bit ADC with the following features:
 
-### 6.1 看门狗
+1. **Sampling Rate:** Configurable from 100 Hz to 50 kHz via registers.
+2. **Channels:** 6 external scan channels and 20 internal scan channels selectable.
+3. **Reference Voltage:** Configurable via ADC reference voltage register.
+4. **Scan Modes:** Supports manual and automatic scan modes.
+5. **Manual Mode:** Measurement channels are configurable; supports up to 6 external channels and 20 internal channels.
+6. **Automatic Mode:** Measurement channels are configurable; supports 1 internal channel (chip junction temperature Tj) and 6 external scan channels (6 GPIOs configured as ADC scan input mode), totaling 7 automatic scan channels.
+7. **Result Registers:** 7 independent automatic channel result registers and 1 multiplexed manual channel result register.
+8. **Threshold Monitoring:** Each of the 7 automatic scan channels supports high and low threshold monitoring.
+9. **Threshold Flags with Filtering:** Each high/low threshold flag is filtered and triggered after **ADC_DEB_NUM** consecutive events.
+10. **Interrupts:** Supports maskable single conversion complete interrupt, sequence conversion complete interrupt, and threshold comparison interrupt.
 
-在开机模式和睡眠模式下，主机可通过 IIC 通信接口使能看门狗并配置超时时间（**表 7-72 **WDT_CTRL[2:1]）。
+#### 6.13.1 Channel Selection
 
-如果在设定超时时间内主机未进行喂狗操作（**表 7-72 **WDT_CTRL[0]=1），则产生看门狗超时事件并置起相关标志位（**表 7-108 **EVENT1[3]）。
-
-假如看门狗超时复位使能（**表 7-86 **PWR_CTRL0[7]），则触发 PMIC 的复位流程。
-
-假如看门狗中断使能打开（**表 7-115 **IRQ_EN1[3]），则产生看门狗中断并拉低 INT 引脚。
-
-看门狗进入关机模式后关闭使能并停止工作，重新进入开机模式需再次配置看门狗使能。
-
-### 6.2 GPIO
-
-PMIC 总共有 6 个 GPIO，既可作为通用 IO，也可配置成复用输入或输出功能，详见寄存器**表 7-12 **GPIO_MODE0 ~ **表 7-13 **GPIO_MODE1 和** 表 7-14 **GPIO_AF01 ~ **表 7-16 **GPIO_AF45。GPIO 其它特性如下：
-
-1. 除了作为复用 ADC 输入功能外，GPIO 的极性、上下拉、开漏和滤波功能都有效。
-2. 其中 GPIO 滤波时间为 100 us ~ 1.5 ms（**表 7-8 **GPIO_DEB_EN[7:6]），并且 GPIOx_IDR 都可反映当前端口状态。
-3. 作为 GPIO 输入功能时，**表 7-4 **GPIO_IDR 和** 表 7-10 **GPIO_ITYPE0，**表 7-11 **GPIO_ITYPE1 相互配合可产生** 表 7-107 **EVENT0[5:0]事件。
-
-GPIOx_ODR 复用两种功能：
-
-1. 作为 GPIO 输出时（GPIOx_MODE=2’b01），GPIOx_ODR 即为 GPIO 输出状态。
-2. 作为复用功能时（GPIOx_MODE=2’b1x），GPIOx_ODR 即为相关复用功能的有效状态配置位。
-
-### 6.3 IIC 通信接口
-
-PMIC 的通信接口为 IIC，最大支持速度为 1MHz，此 PMIC 只作为从机使用。
-
-在关机模式下 SCL 和 SDA 接口不工作，只有进入开机模式和睡眠模式后主机才能通过 IIC 接口操作 PMIC 寄存器。该 IIC 从机地址可通过 MTP 配置：**表 7-125 **SYS_CFG0[6:0]。
-
-### 6.13 ADC 控制电路
-
-功能简介：
-
-1. 12bit ADC，采样速率 100 Hz ~ 50 KHz，寄存器可配
-2. 6 路外部扫描通道和 20 路内部扫描通道选择
-3. ADC 参考电压寄存器可配置
-4. 支持手动和自动扫描模式
-5. 手动模式测量通道寄存器可配置，最多可测量 6 路外部扫描通道和 20 路内部扫描通道
-6. 自动模式测量通道寄存器可配置，最多可测量 1 路内部通道（芯片结温 Tj）和 6 路外部扫描通道（6 路 GPIO 配置成 ADC 扫描输入模式），即 7 路自动扫描通道
-7. 7 路独立的自动通道结果寄存器和一路复用手动通道结果寄存器
-8. 7 路独立的自动扫描通道监控，高阈值和低阈值分别可配
-9. 7 路自动扫描通道的高/低阈值标志位各自具备滤波功能（连续触发 ADC_DEB_NUM 次数后即置起）
-10. 可屏蔽的 ADC 单次转换完成中断、序列转换完成中断、阈值比较中断
-
-#### 6.13.1 通道选择
-
-ADC 模块工作示意图如下图所示
+The ADC module operation is illustrated below:
 
 ![](static/ASrNbFEj9o2VABx3wLhc9ptmnMG.png)
 
-ADC 各测量通道如下：
+**ADC Measurement Channels**
 
-1. 通道 0：可选择测量 VSYS 电压，所有 BUCK 的电压和所有 LDO 电压；每路寄存器单独可配置；VSYS 电压是把 VSYS/4 作为 ADC 的输入并选用内部基准来测量
-2. 通道 1：V(TJ)，芯片内部 Junction 温度
-3. 通道 2：ADCIN0，GPIO0 配置成 ADC 模拟输入复用功能
-4. 通道 3：ADCIN1，GPIO1 配置成 ADC 模拟输入复用功能
-5. 通道 4：ADCIN2，GPIO2 配置成 ADC 模拟输入复用功能
-6. 通道 5：ADCIN3，GPIO3 配置成 ADC 模拟输入复用功能
-7. 通道 6：ADCIN4，GPIO4 配置成 ADC 模拟输入复用功能
-8. 通道 7：ADCIN5，GPIO5 配置成 ADC 模拟输入复用功能
+| Channel | Description |
+|---------|-------------|
+| 0       | Measures VSYS voltage, all BUCK voltages, and all LDO voltages. Each channel is individually configurable. VSYS input is divided by 4 and measured using the internal reference. |
+| 1       | V(TJ), internal junction temperature of the chip. |
+| 2       | ADCIN0, GPIO0 configured as ADC analog input multiplexed function. |
+| 3       | ADCIN1, GPIO1 configured as ADC analog input multiplexed function. |
+| 4       | ADCIN2, GPIO2 configured as ADC analog input multiplexed function. |
+| 5       | ADCIN3, GPIO3 configured as ADC analog input multiplexed function. |
+| 6       | ADCIN4, GPIO4 configured as ADC analog input multiplexed function. |
+| 7       | ADCIN5, GPIO5 configured as ADC analog input multiplexed function. |
 
-#### 6.13.2 手动模式
+#### 6.13.2 Manual Mode
 
-手动模式配置流程：
+The manual mode configuration procedure is as follows:
 
-1. 复位 ADC_AUTO 寄存器，禁止所有自动扫描通道使能，并使能 ADC（**表 7-34 **ADC_CTRL[0]=1）。
-2. 选择 ADC 转换通道，即配置**表 7-36 **ADC_CFG1 [5:3]。
-3. 若选择通道 0，则需选择通道 0 的手动通道，即**表 7-39 **ADC_MAN_EN0 ~ **表 7-41 **ADC_MAN_EN2。
-4. 配置其它所需配置，如 ADC 结果滤波，采样频率，CHOP 功能，参考电压，和 ADC 各通道阈值等。
-5. 置位 ADC_GO 启动一次转换。
+1. Reset the ADC_AUTO registers, disable all automatic scan channels, and enable the ADC (**Table 7-34** ADC_CTRL[0]=1).
+2. Select the ADC conversion channel by configuring **Table 7-36** ADC_CFG1[5:3].
+3. If channel 0 is selected, select the manual sub-channels for channel 0 via **Table 7-39** ADC_MAN_EN0 ~ **Table 7-41** ADC_MAN_EN2.
+4. Configure other required settings, including ADC result filtering, sampling frequency, CHOP function, reference voltage, and per-channel threshold values.
+5. Set ADC_GO to start a single conversion.
 
-首次使能 ADC，其需要约\> 30 us 的稳定时间，ADC 稳定后 ADC 内部才真正开始工作。
+When the ADC is first enabled, it requires approximately >30 μs to stabilize. The ADC only begins normal operation after this stabilization period.
 
-手动模式下每完成一次转换：
+For each conversion in manual mode:
 
-1. 扫描通道 0 时 12 bit 结果存放在**表 7-42** ADC_MAN_RES_H 和**表 7-43** ADC_MAN_RES_L 里面；
-2. 扫描其它通道时，12bit 结果放在对应的结果寄存器里（**表** **7-44** ADC_TJ_RES_H ~ **表 7-57 **ADC_IN5_RES_L）
-3. ADC_GO 被硬件清零
-4. ADC 单次转换完成事件**表 7-108 **EVENT1[1]会被置位
-5. 如果使能了中断（**表 7-115 **IRQ_EN1[1]），会产生一个中断事件（拉低 INT 引脚）直至软件清除该事件或清零中断使能位。
+1. When scanning channel 0, the 12-bit result is stored in **Table 7-42** ADC_MAN_RES_H and **Table 7-43** ADC_MAN_RES_L.
+2. When scanning other channels, the 12-bit results are stored in the corresponding result registers (**Table 7-44** ADC_TJ_RES_H ~ **Table 7-57** ADC_IN5_RES_L).
+3. ADC_GO is automatically cleared by hardware.
+4. The single conversion complete event (**Table 7-108** EVENT1[1]) is set.
+5. If interrupts are enabled (**Table 7-115** IRQ_EN1[1]), an interrupt is triggered (INT pin pulled low) until cleared by software or the interrupt enable bit is reset.
 
-手动模式下如果选择了通道 0：
+Behavior when channel 0 is selected:
 
-1. 在配置完对应的通道使能后，每完成一次转换，ADC 内部通道选择自动切换到通道 0 下一次使能的通道，完成一轮扫描后，切换到最开始使能的通道，如下图** ADC 通道 0 扫描示意图 **所示。
-2. 当需要切换扫描顺序，在下一次转换启动前配置好对应的通道使能即可
-3. 如需要从头开始扫描，有两种方法：
+1. After configuring the enabled channels, each completed conversion automatically switches to the next enabled sub-channel of channel 0. After completing a full scan cycle, it returns to the first enabled channel, as illustrated in the **ADC Channel 0 Scan Diagram** below.
+2. To change the scan sequence, configure the enabled channels before starting the next conversion.
+3. To restart scanning from the beginning, use one of the following methods:
+   - Disable and then re-enable ADC_EN.
+   - Switch to automatic mode and back to manual mode: set any register in ADC_AUTO to 1, then clear all registers.
+4. After all channels enabled via **Table 7-39** ADC_MAN_EN0 ~ **Table 7-41** ADC_MAN_EN2 are scanned and converted, the event **Table 7-108** EVENT1[2] is set. If interrupts are enabled (**Table 7-115** IRQ_EN1[2]), an interrupt is generated (INT pin pulled low) until cleared by software or the interrupt enable bit is reset.
 
-   - ADC_EN 关闭再打开；
-   - 先切换自动模式，再切回手动模式：ADC_AUTO 内任意寄存器配置成 1，然后再将其全清零。
-4. **表 7-39 **ADC_MAN_EN0 ~ **表 7-41 **ADC_MAN_EN2 使能的通道全被扫描并转换完成后，会产生事件** 表 7-108 **EVENT1[2]，如果使能了中断（**表 7-115 **IRQ_EN1[2]），会产生一个中断事件（拉低 INT 引脚）直至软件清除该事件或清零中断使能位。
-
-> **注意****:** 通道转换过程中不可随意更改配置，如改变通道选择，采样频率和 ADC_AUTO 等，否则不保证转换结果的正确性；若转换过程中软件清零 ADC_GO，将会打断当前转换，结果不保存和更新，通道扫描从头开始。
+> **Note:** Do not modify configuration (e.g., channel selection, sampling frequency, ADC_AUTO) during conversion. Doing so may invalidate conversion results. Clearing ADC_GO during conversion interrupts the current conversion; results are not saved, and channel scanning restarts from the beginning.
 
 ![](static/EaBCbpxDKoe0YFx1T5wcebDXnad.png)
 
-#### 6.13.3 自动模式
+#### 6.13.3 Automatic Mode
 
-自动模式配置流程：
+The automatic mode configuration procedure is as follows:
 
-1. 配置所需自动扫描通道，ADC_AUTO 对应的通道使能，并使能 ADC（**表 7-34 **ADC_CTRL[0]=1）。
-2. 配置好其它所需配置，如 ADC 结果滤波，采样频率，CHOP 功能，参考电压，高速模式和 ADC 各通道阈值等。
-3. 置位 ADC_GO 启动转换。
+1. Configure the desired automatic scan channels by enabling the corresponding ADC_AUTO channels, and enable the ADC (**Table 7-34** ADC_CTRL[0]=1).
+2. Configure other required settings, including ADC result filtering, sampling frequency, CHOP function, reference voltage, high-speed mode, and per-channel thresholds.
+3. Set ADC_GO to start conversion.
 
-首次使能 ADC，其需要约\> 30 us 的稳定时间，ADC 稳定后 ADC 内部才真正开始工作。
+When the ADC is first enabled, it requires approximately >30 μs to stabilize. Normal operation begins only after stabilization.
 
-自动模式下每完成一次转换：
+For each conversion in automatic mode:
 
-1. 12bit 结果会存放在对应的结果寄存器里。
-2. ADC_GO 在自动扫描模式下不被清零。
-3. ADC 单次转换完成事件**表 7-108 **EVENT1[1]会被置位。
-4. 如果使能了中断（**表 7-115 **IRQ_EN1[1]），会产生一个中断事件（拉低 INT 引脚）直至软件清除该事件或清零中断使能位。
+1. The 12-bit result is stored in the corresponding result register.
+2. ADC_GO is not cleared in automatic scan mode.
+3. The single conversion complete event (**Table 7-108** EVENT1[1]) is set.
+4. If interrupts are enabled (**Table 7-115** IRQ_EN1[1]), an interrupt is triggered (INT pin pulled low) until cleared by software or the interrupt enable bit is reset.
 
-每完成一个序列的扫描（ADC_AUTO 使能的通道都被扫描完成），序列转换完成事件**表 7-108 **EVENT1[2]会被置位，如果使能了中断（**表 7-115 **IRQ_EN1[2]），会产生一个中断事件（拉低 INT 引脚）直至软件清除该事件或清零中断使能位。
+After completing a full scan sequence (all channels enabled in ADC_AUTO are scanned):
 
-在配置完对应的通道使能后，每完成一次转换，ADC 内部通道选择自动切换到下一次使能的通道，完成一轮扫描后，切换到最开始使能的通道，如下图 **ADC 自动扫描示意图** 所示。
+1. The sequence conversion complete event (**Table 7-108** EVENT1[2]) is set.
+2. If interrupts are enabled (**Table 7-115** IRQ_EN1[2]), an interrupt is generated (INT pin pulled low) until cleared by software or the interrupt enable bit is reset.
+
+Behavior of channel selection:
+
+- After configuring the enabled channels, each completed conversion automatically switches to the next enabled channel. After a full scan cycle, it returns to the first enabled channel, as illustrated in the **ADC Automatic Scan Diagram** below.
 
 ![](static/SVmFbhfUEoKnR1xVm5Zcy3LQnQu.png)
 
-当需要切换扫描顺序或从头开始扫描，有两种方法：
+To change the scan sequence or restart scanning from the beginning:
 
-1. ADC_EN 关闭后重新按照自动模式配置流程重新配置，
-2. 软件清零 ADC_GO，当前转换将被打断，结果不保存和更新，下一次置位 ADC_GO 后通道扫描从头开始。
+1. Disable ADC_EN and reconfigure according to the automatic mode procedure.
+2. Clear ADC_GO in software. The current conversion is interrupted, results are not saved, and scanning restarts from the beginning upon the next ADC_GO set.
 
-注意，通道转换过程中不可随意更改配置，如改变通道选择，采样频率和 ADC_AUTO 等，否则不保证转换结果的正确性。
+> **Note:** Do not modify configuration during conversions (e.g., channel selection, sampling frequency, ADC_AUTO), as doing so may invalidate conversion results.
 
-#### 6.13.4 ADC 结果滤波
+#### 6.13.4 ADC Result Filtering
 
-如果配置了通道 1~7 的阈值：
+For channels 1–7 with configured thresholds:
 
-1. 在未开启结果滤波时（**表 7-35 **ADC_CFG0 对应 bit 为 0），当本次转换结果超过或低于所设阈值，相应通道的事件（**表 7-107 **EVENT0[5:0]，**表 7-108 **EVENT1[0]）标志位将被置起。
-2. 当开启了结果滤波时，只有连续遇到超阈值事件或低阈值事件达到**表 7-37 **ADC_CFG2[6:4]设置的次数后才会置起相应标志位。
+1. **Without result filtering** (ADC_CFG0 corresponding bits in **Table 7-35** = 0):  
+   If the conversion result exceeds or falls below the configured threshold, the corresponding channel event flags (**Table 7-107** EVENT0[5:0], **Table 7-108** EVENT1[0]) are set immediately.
+2. **With result filtering enabled**:  
+   The event flags are set only after consecutive over-threshold or under-threshold events reach the count configured in **Table 7-37** ADC_CFG2[6:4].
 
-如果使能了对应的中断，会产生一个中断事件（拉低 INT 引脚）直至软件清除该事件或清零中断使能位。
+If the corresponding interrupt is enabled, an interrupt event is generated (INT pin pulled low) until cleared by software or the interrupt enable bit is reset.
 
-下图为 **ADC 结果滤波示意图**
+The figure below illustrates **ADC result filtering**:
 
 ![](static/P1kvbSkWNof1hLx61SocDgBNn5d.png)
 
-### 6.14 RTC 模块
+### 6.14 RTC Module
 
-RTC 模块有三个功能：
+The RTC module provides three main functions:
 
-- 日历
-- 闹钟
-- 秒计数
+- Calendar
+- Alarm
+- Second counting
 
-RTC 供电由 2 个来源：VSYS 和 备用纽扣电池
+RTC power is supplied from two sources: VSYS and a backup coin cell battery.
 
-- 当 VSYS 接入时，RTC 供电为 VSYS
-- 当 VSYS 低于 2.0 V 时内部电路才会切换到纽扣电池供电
+- When VSYS is present, RTC is powered by VSYS.
+- When VSYS drops below 2.0 V, the internal circuit switches to coin cell battery power.
 
-RTC 时钟源可选择内部慢时钟（LSI）或外部晶振，详见寄存器**表 7-33 **RTC_CTRL[3]。
+The RTC clock source can be selected from the internal slow clock (LSI) or an external crystal, as configured in **Table 7-33** RTC_CTRL[3].
 
-在开启上电流程前，可通过 MTP 使能寄存器**表 7-33 **RTC_CTRL[1]输出内部慢时钟或者晶振时钟。
+Before starting the power-on sequence, the internal slow clock or crystal clock output can be enabled via the MTP register **Table 7-33** RTC_CTRL[1].
 
-#### 6.14.1 RTC 日历
+#### 6.14.1 RTC Calendar
 
-RTC 模块内部计时逻辑通过计数 32 kHz 时钟，分别提供秒，分，时，日，月和年，见寄存器**表 7-17 **RTC_COUNT_S ~ **表 7-22 **RTC_COUNT_Y。RTC_COUNT_Y=0 对应 2000 年，因此可计时的日历时间最高可至 2063 年。如需读取当前 PMIC 内部记录的日历值，则需先读 RTC_COUNT_S，与此同时该操作会锁存当前所有日历值分别至寄存器 RTC_COUNT_S ~ RTC_COUNT_Y。
+The RTC internal timing logic counts the 32 kHz clock to provide seconds, minutes, hours, day, month, and year, stored in **Table 7-17** RTC_COUNT_S through **Table 7-22** RTC_COUNT_Y.  
+RTC_COUNT_Y = 0 corresponds to the year 2000, allowing calendar time up to 2063.  
 
-如需要重新设置当前日历值，则需按顺序配置好各日历值（RTC_COUNT_S ~ RTC_COUNT_Y），最后写完寄存器 RTC_COUNT_Y 后，PMIC 会将当前用户配置好的日历值更新到 RTC 模块内部计时器当中，依此为基础开始新的计时。
-
-#### 6.14.2 RTC 闹钟
-
-RTC 模块提供**表 7-23 **RTC_ALARM_S ~ **表 7-28 **RTC_ALARM_Y 的闹钟值，当 RTC 内部当前日历值与 RTC_ALARM_S ~ RTC_ALARM_Y 都匹配时：
-
-1. 若**表 7-33 **RTC_CTRL[5]=1，此时产生一个闹钟事件** 表 7-108 **EVENT1[4]，如果**表 7-115 **IRQ_EN1[4]=1，则也会产生一个中断，拉低 INT 引脚，直至主机清零 E_ALARM 或 IRQ_EN_ALARM。
-2. 若**表 7-33 **RTC_CTRL[6]=1，此时产生一个 TICK 事件** 表 7-108 **EVENT1[5]，如果**表 7-115 **IRQ_EN1[5] =1，则也会产生一个中断，拉低 INT 引脚，直至主机清零 E_TICK 或 IRQ_EN_TICK。
-
-TICK 的产生是周期性的，触发后可配置成 1s 或 1min（**表 7-33 **RTC_CTRL[4]）周期内触发一次，因此当 TICK 事件触发后，主机只清零标志位（E_TICK）并不会关闭周期性的触发事件，只有 TICK_EN=0 才能关闭此周期性触发的事件。
-
-当前日历值和设定闹钟值匹配还可以屏蔽对应的日历单位，以实现固定时间段产生闹钟和 TICK 事件：
-
-1. MASK_ALARM_Y ~ MASK_ALARM_S 分别对应年月日时分秒屏蔽位。
-2. 对应 bit 置 1 则屏蔽相应 RTC_ALARM_Y ~ RTC_ALARM_S 与当前日历值的匹配。
-
-在关机模式下，RTC 闹钟和 TICK 事件都可作为开机源。
-
-在睡眠模式下，RTC 闹钟和 TICK 事件都可作为唤醒源。
-
-#### 6.14.3 秒计数
-
-**表 7-29 **RTC_SECOND_A ~ **表 7-32 **RTC_SECOND_D 组成一个 32bit 秒计数器，RTC_EN=1 后，秒计数开始计时，否则秒计数清零。
-
-## 7. 寄存器
-
-### 7.1 寄存器参数定义
-
-寄存器基本参数定义如表格 [表 7-1](#表-7-1-register-base-attributes) 所示。部分寄存器特殊的参数定义如表表 [7-2](#表-7-2-register-attribute-modifier) 所示。
-
-#### 表 7-1 Register Base Attributes
-
-| 参数           | 简称 | 描述                             |
-|----------------|------|----------------------------------|
-| Read Only      | R    | 该 bit 可通过软件读，写无效。     |
-| Read/Write     | RW   | 该 bit 可通过软件读写。           |
-| Write Only     | W    | 该 bit 只能软件写。               |
-| Reserved       | RV   | 该 bit 为保留位，软件不可修改。   |
-
-### 表 7-2 Register Attribute Modifier
-
-| 参数            | 简称 | 描述            |
-|-----------------|------|---------------------------|
-| Write 1 Only    | IO   | 该 bit 只能通过软件写 1，写 0 无效。          |
-| Protected       | P    | 该 bit 受解锁寄存器表 7128 MTP_KEY 保护。<br>当未向解锁寄存器写解锁序列时，该 bit 不能通过软件修改。 |
-| MTP Loaded      | E    | 该 bit 可通过 MTP 修改。       |
-
-### 7.2 寄存器映射表
-
-### 7.2.1 寄存器映射表
-
-#### 表 7-3 Register Map
-
-| Module             | Table Name   | Register Address (hex) | Attribute | Description    |
-|--------------------|--------------|-------------------------|-----------|---------------------|
-| **GPIO**           | [表 7-4](#表-7-4-gpio_idr)       | 0x00                    | R         | GPIO端口输入值                                            |
-| **GPIO**           | [表 7-5](#表-7-5-gpio_odr)       | 0x01                    | RW        | GPIO数据输出；<br>有效电平配置                            |
-| **GPIO**           | [表 7-6](#表-7-6-gpio_pupd0)       | 0x02                    | RWE       | GPIO0 ~ 2上下拉配置                                       |
-| **GPIO**           | [表 7-7](#表-7-7-gpio_pupd1)       | 0x03                    | RWE       | GPIO3 ~ 5上下拉配置                                       |
-| **GPIO**           | [表 7-8](#表-7-8-gpio_deb_en)       | 0x04                    | RW        | GPIO滤波使能及滤波时间配置                                |
-| **GPIO**           | [表 7-9](#表-7-9-gpio_od)       | 0x05                    | RW        | GPIO输出开漏配置                                          |
-| **GPIO**           | [表 7-10](#表-7-10-gpio_itype0)      | 0x06                    | RWE       | GPIO0 ~ 2中断类型配置                                     |
-| **GPIO**           | [表 7-11](#表-7-11-gpio_itype1)      | 0x07                    | RWE       | GPIO3 ~ 5中断类型配置                                     |
-| **GPIO**           | [表 7-12](#表-7-12-gpio_mode0)      | 0x08                    | RWE       | GPIO0 ~ 2模式配置                                         |
-| **GPIO**           | [表 7-13](#表-7-13-gpio_mode1)      | 0x09                    | RWE       | GPIO3 ~ 5模式配置                                         |
-| **GPIO**           | [表 7-14](#表-7-14-gpio_af01)      | 0x0A                    | RWE       | GPIO0 ~ 1复用功能选择                                     |
-| **GPIO**           | [表 7-15](#表-7-15-gpio_af23)      | 0x0B                    | RWE       | GPIO2 ~ 3复用功能选择                                     |
-| **GPIO**           | [表 7-16](#表-7-16-gpio_af45)      | 0x0C                    | RWE       | GPIO4 ~ 5复用功能选择                                     |
-| **RTC**            | [表 7-17](#表-7-17-rtc_count_s)      | 0x0D                    | RW        | RTC seconds 读出寄存器                                    |
-| **RTC**            | [表 7-18](#表-7-18-rtc_count_mi)      | 0x0E                    | RW        | RTC minutes 读出寄存器                                    |
-| **RTC**            | [表 7-19](#表-7-19-rtc_count_h)      | 0x0F                    | RW        | RTC hours 读出寄存器                                      |
-| **RTC**            | [表 7-20](#表-7-20-rtc_count_d)      | 0x10                    | RW        | RTC days 读出寄存器                                       |
-| **RTC**            | [表 7-21](#表-7-21-rtc_count_mo)      | 0x11                    | RW        | RTC months 读出寄存器                                     |
-| **RTC**            | [表 7-22](#表-7-22-rtc_count_y)      | 0x12                    | RW        | RTC years 读出寄存器                                      |
-| **RTC**            | [表 7-23](#表-7-23-rtc_alarm_s)      | 0x13                    | RW        | RTC_ALARM seconds 设置                                    |
-| **RTC**            | [表 7-24](#表-7-24-rtc_alarm_mi)      | 0x14                    | RW        | RTC_ALARM minutes 设置                                    |
-| **RTC**            | [表 7-25](#表-7-25-rtc_alarm_h)      | 0x15                    | RW        | RTC_ALARM hours 设置                                      |
-| **RTC**            | [表 7-26](#表-7-26-rtc_alarm_d)      | 0x16                    | RW        | RTC_ALARM days 设置                                       |
-| **RTC**            | [表 7-27](#表-7-27-rtc_alarm_mo)      | 0x17                    | RW        | RTC_ALARM months 设置                                     |
-| **RTC**            | [表 7-28](#表-7-28-rtc_alarm_y)      | 0x18                    | RW        | RTC_ALARM years 设置                                      |
-| **RTC**            | [表 7-29](#表-7-29-rtc_second_a)      | 0x19                    | R         | RTC 秒计数[7:0]                                           |
-| **RTC**            | [表 7-30](#表-7-30-rtc_second_b)      | 0x1A                    | R         | RTC 秒计数[15:8]                                          |
-| **RTC**            | [表 7-31](#表-7-31-rtc_second_c)      | 0x1B                    | R         | RTC 秒计数[23:16]                                         |
-| **RTC**            | [表 7-32](#表-7-32-rtc_second_d)      | 0x1C                    | R         | RTC 秒计数[31:24]                                         |
-| **RTC**            | [表 7-33](#表-7-33-rtc_ctrl)      | 0x1D                    | RWE       | RTC 控制寄存器                                            |
-| **ADC**            | [表 7-34](#表-7-34-adc_ctrl1)      | 0x1E                    | RW        | ADC控制寄存器                                             |
-| **ADC**            | [表 7-35](#表-7-35-adc_cfg01)      | 0x1F                    | RW        | ADC配置寄存器0                                            |
-| **ADC**            | [表 7-36](#表-7-36-adc_cfg11)      | 0x20                    | RW        | ADC配置寄存器1                                            |
-| **ADC**            | [表 7-37](#表-7-37-adc_cfg21)      | 0x21                    | RW        | ADC配置寄存器2                                            |
-| **ADC**            | [表 7-38](#表-7-38-adc_auto1)      | 0x22                    | RW        | ADC自动模式扫描通道选择                                   |
-| **ADC**            | [表 7-39](#表-7-39-adc_man_en01)      | 0x23                    | RW        | ADC通道0手动扫描通道选择                                  |
-| **ADC**            | [表 7-40](#表-7-40-adc_man_en11)      | 0x24                    | RW        | ADC通道0手动扫描通道选择                                  |
-| **ADC**            | [表 7-41](#表-7-41-adc_man_en21)      | 0x25                    | RW        | ADC通道0手动扫描通道选择                                  |
-| **ADC**            | [表 7-42](#表-7-42-adc_man_res_h1)      | 0x26                    | R         | ADC通道0转换结果高8位                                     |
-| **ADC**            | [表 7-43](#表-7-43-adc_man_res_l1)      | 0x27                    | R         | ADC通道0转换结果低4位                                     |
-| **ADC**            | [表 7-44](#表-7-44-adc_tj_res_h1)      | 0x28                    | R         | Junction温度监控自动转换结果（8 MSBs）                    |
-| **ADC**            | [表 7-45](#表-7-45-adc_tj_res_l1)      | 0x29                    | R         | Junction温度监控自动转换结果（4 LSBs）                    |
-| **ADC**            | [表 7-46](#表-7-46-adc_in0_res_h1)      | 0x2A                    | R         | ADCIN0监控自动转换结果（8 MSBs）                          |
-| **ADC**            | [表 7-47](#表-7-47-adc_in0_res_l1)      | 0x2B                    | R         | ADCIN0监控自动转换结果（4 LSBs）                          |
-| **ADC**            | [表 7-48](#表-7-48-adc_in1_res_l1)      | 0x2C                    | R         | ADCIN1监控自动转换结果（8 MSBs）                          |
-| **ADC**            | [表 7-49](#表-7-49-adc_in1_res_l1)      | 0x2D                    | R         | ADCIN1监控自动转换结果（4 LSBs）                          |
-| **ADC**            | [表 7-50](#表-7-50-adc_in2_res_h1)      | 0x2E                    | R         | ADCIN2监控自动转换结果（8 MSBs）                          |
-| **ADC**            | [表 7-51](#表-7-51-adc_in2_res_l1)      | 0x2F                    | R         | ADCIN2监控自动转换结果（4 LSBs）                          |
-| **ADC**            | [表 7-52](#表-7-52-adc_in3_res_h1)      | 0x30                    | R         | ADCIN3监控自动转换结果（8 MSBs）                          |
-| **ADC**            | [表 7-53](#表-7-53-adc_in3_res_l1)      | 0x31                    | R         | ADCIN3监控自动转换结果（4 LSBs）                          |
-| **ADC**            | [表 7-54](#表-7-54-adc_in4_res_h1)      | 0x32                    | R         | ADCIN4监控自动转换结果（8 MSBs）                          |
-| **ADC**            | [表 7-55](#表-7-55-adc_in4_res_l1)      | 0x33                    | R         | ADCIN4监控自动转换结果（4 LSBs）                          |
-| **ADC**            | [表 7-56](#表-7-56-adc_in5_res_h1)      | 0x34                    | R         | ADCIN5监控自动转换结果（8 MSBs）                          |
-| **ADC**            | [表 7-57](#表-7-57-adc_in5_res_l1)      | 0x35                    | R         | ADCIN5监控自动转换结果（4 LSBs）                          |
-| **ADC**            | [表 7-58](#表-7-58-adc_vth_tj_h1)      | 0x36                    | RW        | Junction温度监控上限阈值设置（8 MSBs）                    |
-| **ADC**            | [表 7-59](#表-7-59-adc_vth_tj_l1)      | 0x37                    | RW        | Junction温度监控下限阈值设置（8 MSBs）                    |
-| **ADC**            | [表 7-60](#表-7-60-adc_in0_vth_h1)      | 0x38                    | RW        | ADCIN0监控上限阈值设置（8 MSBs）                          |
-| **ADC**            | [表 7-61](#表-7-61-adc_in0_vth_l1)      | 0x39                    | RW        | ADCIN0监控下限阈值设置（8 MSBs）                          |
-| **ADC**            | [表 7-62](#表-7-62-adc_in1_vth_h1)      | 0x3A                    | RW        | ADCIN1监控上限阈值设置（8 MSBs）                          |
-| **ADC**            | [表 7-63](#表-7-63-adc_in1_vth_l1)      | 0x3B                    | RW        | ADCIN1监控下限阈值设置（8 MSBs）                          |
-| **ADC**            | [表 7-64](#表-7-64-adc_in2_vth_h1)      | 0x3C                    | RW        | ADCIN2监控上限阈值设置（8 MSBs）                          |
-| **ADC**            | [表 7-65](#表-7-65-adc_in2_vth_l1)     | 0x3D                    | RW        | ADCIN2监控下限阈值设置（8 MSBs）                          |
-| **ADC**            | [表 7-66](#表-7-66-adc_in3_vth_h1)      | 0x3E                    | RW        | ADCIN3监控上限阈值设置（8 MSBs）                          |
-| **ADC**            | [表 7-67](#表-7-67-adc_in3_vth_l1)      | 0x3F                    | RW        | ADCIN3监控下限阈值设置（8 MSBs）                          |
-| **ADC**            | [表 7-68](#表-7-68-adc_in4_vth_h1)      | 0x40                    | RW        | ADCIN4监控上限阈值设置（8 MSBs）                          |
-| **ADC**            | [表 7-69](#表-7-69-adc_in4_vth_l1)      | 0x44                    | RW        | ADCIN4监控下限阈值设置（8 MSBs）                          |
-| **ADC**            | [表 7-70](#表-7-70-adc_in5_vth_h1)      | 0x42                    | RW        | ADCIN5监控上限阈值设置（8 MSBs）                          |
-| **ADC**            | [表 7-71](#表-7-71-adc_in5_vth_l1)      | 0x43                    | RW        | ADCIN5监控下限阈值设置（8 MSBs）                          |
-| **WDT**            | [表 7-72](#表-7-72-wdt_ctrl1)      | 0x44                    | RW        | 看门狗控制寄存器                                          |
-| **Battery Charge** | [表 7-73](#表-7-73-bbat_ctrl1)      | 0x45                    | RW        | 电池充电控制寄存器                                        |
-| **上下电控制**     | [表 7-74](#表-7-74-buck_ldo_cfg1)      | 0x46                    | RWE       | 电源轨配置寄存器                                          |
-| **上下电控制**     | [表 7-75](#表-7-75-buckx_ctrl1)      | 0x47 + 3xn              | RWE       | BUCKn控制寄存器，n=0 ~ 5                                  |
-| **上下电控制**     | [表 7-76](#表-7-76-buckx_volt1)      | 0x48 + 3xn              | RWE       | BUCK电压设置                                              |
-| **上下电控制**     | [表 7-77](#表-7-77-buckx_slp_volt1)      | 0x49 + 3xn              | RWE       | BUCK睡眠电压设置                                          |
-| **上下电控制**     | [表 7-78](#表-7-78-switch_ctrl1)      | 0x59                    | RW        | Switch控制寄存器                                          |
-| **上下电控制**     | [表 7-79](#表-7-79-aonldo_ctrl1)      | 0x5A                    | RE        | AONLDO控制寄存器                                          |
-| **上下电控制**     | [表 7-80](#表-7-80-aldox_ctrl1)      | 0x5B                    | RWE       | ALDO控制寄存器                                            |
-| **上下电控制**     | [表 7-81](#表-7-81-aldox_volt1)      | 0x5C                    | RWE       | ALDO电压设置                                              |
-| **上下电控制**     | [表 7-82](#表-7-82-aldox_slp_volt1)      | 0x5D                    | RWE       | ALDO睡眠电压设置                                          |
-| **上下电控制**     | [表 7-83](#表-7-83-dldox_ctrl)      | 0x67                    | RWE       | DLDO控制寄存器                                            |
-| **上下电控制**     | [表 7-84](#表-7-84-dldox_volt)      | 0x68                    | RWE       | DLDO电压设置                                              |
-| **上下电控制**     | [表 7-85](#表-7-85-dldox_slp_volt)      | 0x69                    | RWE       | DLDO睡眠电压设置                                          |
-| **上下电控制**     | [表 7-86](#表-7-86-pwr_ctrl0)      | 0x7C                    | RWE       | 上下电控制寄存器0                                         |
-| **上下电控制**     | [表 7-87](#表-7-87-pwr_ctrl1)      | 0x7D                    | RWE       | 上下电控制寄存器1                                         |
-| **上下电控制**     | [表 7-88](#表-7-88-pwr_ctrl2)      | 0x7E                    | RWE       | 上下电控制寄存器2                                         |
-| **上下电控制**     | [表 7-89](#表-7-89-pwr_sts0)      | 0x7F                    | R         | 上下电状态寄存器0                                         |
-| **上下电控制**     | [表 7-90](#表-7-90-pwr_sts1)      | 0x80                    | R         | 上下电状态寄存器1                                         |
-| **上下电控制**     | [表 7-91](#表-7-91-pwr_key_time)      | 0x81                    | RWE       | 按键时间配置寄存器                                        |
-| **上下电控制**     | [表 7-92](#表-7-92-pwr_seq_time)      | 0x82                    | RWE       | 上下电控制时间配置                                        |
-| **上下电控制**     | [表 7-93](#表-7-93-pwr_slot0)      | 0x88                    | RE        | 电源轨SLOT ID配置                                         |
-| **上下电控制**     | [表 7-94](#表-7-94-pwr_slot1)      | 0x84                    | RE        | 电源轨SLOT ID配置                                         |
-| **上下电控制**     | [表 7-95](#表-7-95-pwr_slot2)      | 0x85                    | RE        | 电源轨SLOT ID配置                                         |
-| **上下电控制**     | [表 7-96](#表-7-96-pwr_slot3)      | 0x86                    | RE        | 电源轨SLOT ID配置                                         |
-| **上下电控制**     | [表 7-97](#表-7-97-pwr_slot4)      | 0x87                    | RE        | 电源轨SLOT ID配置                                         |
-| **上下电控制**     | [表 7-98](#表-7-98-pwr_slot5)      | 0x88                    | RE        | 电源轨SLOT ID配置                                         |
-| **上下电控制**     | [表 7-99](#表-7-99-pwr_slot6)      | 0x89                    | RE        | 电源轨SLOT ID配置                                         |
-| **上下电控制**     | [表 7-100](#表-7-110-buck_evnet0)     | 0x8A                    | RE        | 电源轨SLOT ID配置                                         |
-| **上下电控制**     | [表 7-101](#表-7-101-pwr_slot8)     | 0x8B                    | RE        | 电源轨SLOT ID配置                                         |
-| **上下电控制**     | [表 7-102](#表-7-102-pwr_slot9)     | 0x8C                    | RE        | EXT_EN SLOT ID配置                                        |
-| **上下电控制**     | [表 7-103](#表-7-103-pwr_slot10)     | 0x8D                    | RE        | EXT_EN SLOT ID配置                                        |
-| **上下电控制**     | [表 7-104](#表-7-104-pwr_slot11)     | 0x8E                    | RE        | EXT_EN SLOT ID配置                                        |
-| **上下电控制**     | [表 7-105](#表-7-105-pwr_ext_en)     | 0x8F                    | RWE       | EXT_EN软件使能控制                                        |
-| **上下电控制**     | [表 7-106](#表-7-106-pwr_ext_ctrl)     | 0x90                    | RWE       | EXT_EN睡眠流程控制                                        |
-| **事件**           | [表 7-107](#表-7-107-event0)     | 0x91                    | RIO       | PMIC系统事件                                              |
-| **事件**           | [表 7-108](#表-7-108-event1)     | 0x92                    | RIO       | PMIC系统事件                                              |
-| **事件**           | [表 7-109](#表-7-109-event2)     | 0x99                    | RIO       | PMIC系统事件                                              |
-| **事件**           | [表 7-110](#表-7-110-buck_evnet0)     | 0x94                    | RIO       | BUCK过压事件                                              |
-| **事件**           | [表 7-111](#表-7-111-buck_evnet1)     | 0x95                    | RIO       | BUCK欠压事件                                              |
-| **事件**           | [表 7-112](#表-7-112-buck_evnet2)     | 0x96                    | RIO       | BUCK短路/开路事件                                         |
-| **事件**           | [表 7-113](#表-7-113-pwrky_evnet)     | 0x97                    | RIO       | PWRKY按键事件                                             |
-| **中断使能**       | [表 7-114](#表-7-114-irq_en0)     | 0x98                    | RW        | PMIC系统事件中断使能                                      |
-| **中断使能**       | [表 7-115](#表-7-115-irq_en1)     | 0x99                    | RW        | PMIC系统事件中断使能                                      |
-| **中断使能**       | [表 7-116](#表-7-116-irq_en2)     | 0x9A                    | RW        | PMIC系统事件中断使能                                      |
-| **中断使能**       | [表 7-117](#表-7-117-irq_buck_en0)     | 0x9B                    | RW        | BUCK过压事件中断使能                                      |
-| **中断使能**       | [表 7-118](#表-7-118-irq_buck_en1)     | 0x9C                    | RW        | BUCK欠压事件中断使能                                      |
-| **中断使能**       | [表 7-119](#表-7-119-irq_buck_en1)     | 0x9D                    | RW        | BUCK短路/开路事件中断使能                                 |
-| **中断使能**       | [表 7-120](#表-7-120-irq_pwrky_en)     | 0x9E                    | RWE       | PWRKY按键事件中断使能                                     |
-| **保护使能**       | [表 7-121](#表-7-121-prot_en)     | 0x9F                    | RWE       | 系统异常事件保护使能                                      |
-| **ID**             | [表 7-122](#表-7-122-device_id)     | 0xA0                    | RE        | 设备ID                                                    |
-| **ID**             | [表 7-123](#表-7-123-version_id)     | 0xA1                    | RE        | 版本ID                                                    |
-| **ID**             | [表 7-124](#表-7-124-customer_id)     | 0xA2                    | RE        | 用户ID                                                    |
-| **系统配置**       | [表 7-125](#表-7-125-sys_cfg0)     | 0xAA                    | RE        | 系统配置寄存器0                                           |
-| **系统配置**       | [表 7-126](#表-7-126-sys_cfg1)     | 0xA4                    | RE        | 系统配置寄存器1                                           |
-| **系统配置**       | [表 7-127](#表-7-127-sys_cfg2)     | 0xA5                    | RE        | 系统配置寄存器2                                           |
-| **MTP**            | [表 7-128](#表-7-128-mtp_key)     | 0xA6                    | RW        | MTP解锁寄存器                                             |
-| **MTP**            | [表 7-129](#表-7-129-mtp_addr)     | 0xA7                    | RWP       | MTP地址寄存器                                             |
-| **MTP**            | [表 7-130](#表-7-130-mtp_data)     | 0xA8                    | RWP       | MTP读写数据寄存器                                         |
-| **MTP**            | [表 7-131](#表-7-131-mtp_cfg)     | 0xA9                    | RWP       | MTP配置寄存器                                             |
-| **MTP**            | [表 7-132](#表-7-132-mtp_ctrl)     | 0xAA                    | RWP       | MTP控制寄存器                                             |
-
-### 7.2.2 寄存器描述
-
-#### 表 7-4 GPIO_IDR
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=7 colspan=1>0x0</td>
-<td>7:6</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>5</td>
-<td>GPIO5_IDR</td>
-<td>R</td>
-<td>0x0</td>
-<td>GPIO5输入值</td>
-</tr>
-<tr>
-<td>4</td>
-<td>GPIO4_IDR</td>
-<td>R</td>
-<td>0x0</td>
-<td>GPIO4输入值</td>
-</tr>
-<tr>
-<td>3</td>
-<td>GPIO3_IDR</td>
-<td>R</td>
-<td>0x0</td>
-<td>GPIO3输入值</td>
-</tr>
-<tr>
-<td>2</td>
-<td>GPIO2_IDR</td>
-<td>R</td>
-<td>0x0</td>
-<td>GPIO2输入值</td>
-</tr>
-<tr>
-<td>1</td>
-<td>GPIO1_IDR</td>
-<td>R</td>
-<td>0x0</td>
-<td>GPIO1输入值</td>
-</tr>
-<tr>
-<td>0</td>
-<td>GPIO0_IDR</td>
-<td>R</td>
-<td>0x0</td>
-<td>GPIO0输入值</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-5 GPIO_ODR
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=7 colspan=1>0x1<br/></td>
-<td>7:6</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>5</td>
-<td>GPIO5_ODR</td>
-<td>RWE</td>
-<td>0x0</td>
-<td rowspan=6 colspan=1>作为GPIO输出时，为数据输出配置；<br/>作为复用功能时，为有效极性配置。<br/>- 0：输出低电平 / 有效极性为低电平<br/>- 1：输出高电平 / 有效极性为高电平<br/></td>
-</tr>
-<tr>
-<td>4</td>
-<td>GPIO4_ODR</td>
-<td>RWE</td>
-<td>0x0</td>
-</tr>
-<tr>
-<td>3</td>
-<td>GPIO3_ODR</td>
-<td>RWE</td>
-<td>0x0</td>
-</tr>
-<tr>
-<td>2</td>
-<td>GPIO2_ODR</td>
-<td>RWE</td>
-<td>0x0</td>
-</tr>
-<tr>
-<td>1</td>
-<td>GPIO1_ODR</td>
-<td>RWE</td>
-<td>0x0</td>
-</tr>
-<tr>
-<td>0</td>
-<td>GPIO0_ODR</td>
-<td>RWE</td>
-<td>0x0</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-6 GPIO_PUPD0
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=4 colspan=1>0x2</td>
-<td>7:6</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>5:4</td>
-<td>GPIO2_PUPD</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>GPIO2上下拉配置：<br/>00：无效操作<br/>01：上拉电阻使能<br/>10：下拉电阻使能<br/>1x：无效操作</td>
-</tr>
-<tr>
-<td>3:2</td>
-<td>GPIO1_PUPD</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>GPIO1上下拉配置：<br/>00：无效操作<br/>01：上拉电阻使能<br/>10：下拉电阻使能<br/>1x：无效操作</td>
-</tr>
-<tr>
-<td>1:0</td>
-<td>GPIO0_PUPD</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>GPIO0上下拉配置：<br/>00：无效操作<br/>01：上拉电阻使能<br/>10：下拉电阻使能<br/>1x：无效操作</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-7 GPIO_PUPD1
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=4 colspan=1>0x3</td>
-<td>7:6</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>5:4</td>
-<td>GPIO5_PUPD</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>GPIO5上下拉配置：<br/>00：无效操作<br/>01：上拉电阻使能<br/>10：下拉电阻使能<br/>1x：无效操作</td>
-</tr>
-<tr>
-<td>3:2</td>
-<td>GPIO4_PUPD</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>GPIO4上下拉配置：<br/>00：无效操作<br/>01：上拉电阻使能<br/>10：下拉电阻使能<br/>1x：无效操作</td>
-</tr>
-<tr>
-<td>1:0</td>
-<td>GPIO3_PUPD</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>GPIO3上下拉配置：<br/>00：无效操作<br/>01：上拉电阻使能<br/>10：下拉电阻使能<br/>1x：无效操作</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-8 GPIO_DEB_EN
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=7 colspan=1>0x4</td>
-<td>7:6<br/></td>
-<td>GPIO_DEB_TIME<br/></td>
-<td>RW</td>
-<td>0x0</td>
-<td>GPIO0 ~ 5滤波时间选择<br/>00：100 us<br/>01：375 us<br/>10：750 us<br/>11：1.5 ms</td>
-</tr>
-<tr>
-<td>5</td>
-<td>GPIO5_DEB_EN</td>
-<td>RW</td>
-<td>0x0</td>
-<td>GPIO5滤波使能：<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>4</td>
-<td>GPIO4_DEB_EN</td>
-<td>RW</td>
-<td>0x0</td>
-<td>GPIO4滤波使能：<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>3</td>
-<td>GPIO3_DEB_EN</td>
-<td>RW</td>
-<td>0x0</td>
-<td>GPIO3滤波使能：<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>2</td>
-<td>GPIO2_DEB_EN</td>
-<td>RW</td>
-<td>0x0</td>
-<td>GPIO2滤波使能：<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>1</td>
-<td>GPIO1_DEB_EN</td>
-<td>RW</td>
-<td>0x0</td>
-<td>GPIO1滤波使能：<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>0</td>
-<td>GPIO0_DEB_EN</td>
-<td>RW</td>
-<td>0x0</td>
-<td>GPIO0滤波使能：<br/>0：禁止<br/>1：使能</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-9 GPIO_OD
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=7 colspan=1>0x5 <br/> <br/></td>
-<td>7:6</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>5</td>
-<td>GPIO5_OD</td>
-<td>RW</td>
-<td>0x0</td>
-<td>GPIO5输出开漏配置<br/>0：推挽输出<br/>1：开漏输出</td>
-</tr>
-<tr>
-<td>4<br/></td>
-<td>GPIO4_OD</td>
-<td>RW</td>
-<td>0x0</td>
-<td>GPIO4输出开漏配置<br/>0：推挽输出<br/>1：开漏输出</td>
-</tr>
-<tr>
-<td>3</td>
-<td>GPIO3_OD</td>
-<td>RW</td>
-<td>0x0</td>
-<td>GPIO3输出开漏配置<br/>0：推挽输出<br/>1：开漏输出</td>
-</tr>
-<tr>
-<td>2</td>
-<td>GPIO2_OD</td>
-<td>RW</td>
-<td>0x0</td>
-<td>GPIO2输出开漏配置<br/>0：推挽输出<br/>1：开漏输出</td>
-</tr>
-<tr>
-<td>1</td>
-<td>GPIO1_OD</td>
-<td>RW</td>
-<td>0x0</td>
-<td>GPIO1输出开漏配置<br/>0：推挽输出<br/>1：开漏输出</td>
-</tr>
-<tr>
-<td>0</td>
-<td>GPIO0_OD</td>
-<td>RW</td>
-<td>0x0</td>
-<td>GPIO0输出开漏配置<br/>0：推挽输出<br/>1：开漏输出</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-10 GPIO_ITYPE0
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=4 colspan=1>0x6</td>
-<td>7:6</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>5:4</td>
-<td>GPIO2_ITYPE</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>GPIO2中断类型<br/>00：上升沿中断<br/>01：下降沿中断<br/>10：高电平中断<br/>11：低电平中断</td>
-</tr>
-<tr>
-<td>3:2</td>
-<td>GPIO1_ITYPE</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>GPIO1中断类型<br/>00：上升沿中断<br/>01：下降沿中断<br/>10：高电平中断<br/>11：低电平中断</td>
-</tr>
-<tr>
-<td>1:0</td>
-<td>GPIO0_ITYPE</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>GPIO0中断类型<br/>00：上升沿中断<br/>01：下降沿中断<br/>10：高电平中断<br/>11：低电平中断</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-11 GPIO_ITYPE1
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=4 colspan=1>0x7</td>
-<td>7:6</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>5:4</td>
-<td>GPIO5_ITYPE</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>GPIO5中断类型<br/>00：上升沿中断<br/>01：下降沿中断<br/>10：高电平中断<br/>11：低电平中断</td>
-</tr>
-<tr>
-<td>3:2</td>
-<td>GPIO4_ITYPE</td>
-<td>RWE</td>
-<td>0x0<br/></td>
-<td>GPIO4中断类型<br/>00：上升沿中断<br/>01：下降沿中断<br/>10：高电平中断<br/>11：低电平中断</td>
-</tr>
-<tr>
-<td>1:0</td>
-<td>GPIO3_ITYPE</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>GPIO3中断类型<br/>00：上升沿中断<br/>01：下降沿中断<br/>10：高电平中断<br/>11：低电平中断</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-12 GPIO_MODE0
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=4 colspan=1>0x8</td>
-<td>7:6</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>5:4</td>
-<td>GPIO2_MODE</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>GPIO2模式选择<br/>00：输入模式<br/>01：输出模式<br/>1x：复用模式</td>
-</tr>
-<tr>
-<td>3:2</td>
-<td>GPIO1_MODE</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>GPIO1模式选择<br/>00：输入模式<br/>01：输出模式<br/>1x：复用模式</td>
-</tr>
-<tr>
-<td>1:0</td>
-<td>GPIO0_MODE</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>GPIO0模式选择<br/>00：输入模式<br/>01：输出模式<br/>1x：复用模式</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-13 GPIO_MODE1
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=4 colspan=1>0x9</td>
-<td>7:6</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>5:4</td>
-<td>GPIO5_MODE</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>GPIO5模式选择<br/>00：输入模式<br/>01：输出模式<br/>1x：复用模式</td>
-</tr>
-<tr>
-<td>3:2</td>
-<td>GPIO4_MODE</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>GPIO4模式选择<br/>00：输入模式<br/>01：输出模式<br/>1x：复用模式</td>
-</tr>
-<tr>
-<td>1:0</td>
-<td>GPIO3_MODE</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>GPIO3模式选择<br/>00：输入模式<br/>01：输出模式<br/>1x：复用模式</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-14 GPIO_AF01
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=3 colspan=1>0xA</td>
-<td>7:6</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>5:3</td>
-<td>GPIO1_AFR</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>GPIO1复用功能选择<br/>000：外部电源使能输出信号（EXT_EN）<br/>001：外部上电时序控制输入信号（PWRCTRL）<br/>010：外部休眠、唤醒控制输入信号（Sleep/Wakeup）<br/>011：外部复位控制输入信号（nReset）<br/>1xx：ADC输入信号（ADCIN）</td>
-</tr>
-<tr>
-<td>2:0</td>
-<td>GPIO0_AFR</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>GPIO0复用功能选择<br/>000：外部电源使能输出信号（EXT_EN）<br/>001：外部上电时序控制输入信号（PWRCTRL）<br/>010：外部休眠、唤醒控制输入信号（Sleep/Wakeup）<br/>011：外部复位控制输入信号（nReset）<br/>1xx：ADC输入信号（ADCIN）</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-15 GPIO_AF23
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=3 colspan=1>0xB<br/> <br/> </td>
-<td>7:6</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>5:3</td>
-<td>GPIO3_AFR</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>GPIO3复用功能选择<br/>000：外部电源使能输出信号（EXT_EN）<br/>001：外部上电时序控制输入信号（PWRCTRL）<br/>010：外部休眠、唤醒控制输入信号（Sleep/Wakeup）<br/>011：外部复位控制输入信号（nReset）<br/>1xx：ADC输入信号（ADCIN）</td>
-</tr>
-<tr>
-<td>2:0</td>
-<td>GPIO2_AFR</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>GPIO2复用功能选择<br/>000：外部电源使能输出信号（EXT_EN）<br/>001：外部上电时序控制输入信号（PWRCTRL）<br/>010：外部休眠、唤醒控制输入信号（Sleep/Wakeup）<br/>011：外部复位控制输入信号（nReset）<br/>1xx：ADC输入信号（ADCIN）</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-16 GPIO_AF45
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=3 colspan=1>0xC<br/> <br/> </td>
-<td>7:6</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>5:3</td>
-<td>GPIO5_AFR</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>GPIO5复用功能选择<br/>000：外部电源使能输出信号（EXT_EN）<br/>001：外部上电时序控制输入信号（PWRCTRL）<br/>010：外部休眠、唤醒控制输入信号（Sleep/Wakeup）<br/>011：外部复位控制输入信号（nReset）<br/>1xx：ADC输入信号（ADCIN）</td>
-</tr>
-<tr>
-<td>2:0</td>
-<td>GPIO4_AFR</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>GPIO4复用功能选择<br/>000：外部电源使能输出信号（EXT_EN）<br/>001：外部上电时序控制输入信号（PWRCTRL）<br/>010：外部休眠、唤醒控制输入信号（Sleep/Wakeup）<br/>011：外部复位控制输入信号（nReset）<br/>1xx：ADC输入信号（ADCIN）</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-17 RTC_COUNT_S
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>0xD </td>
-<td>7:6</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>5:0</td>
-<td>COUNT_S</td>
-<td>RW</td>
-<td>0x00</td>
-<td>RTC seconds 读出寄存器。<br/>读此寄存器会将当前日历数据更新到COUNT_S ~ COUNT_Y</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-18 RTC_COUNT_MI
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>0xE</td>
-<td>7:6</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>5:0</td>
-<td>COUNT_MI</td>
-<td>RW</td>
-<td>0x00</td>
-<td>RTC minutes 读出寄存器</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-19 RTC_COUNT_H
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>0xF</td>
-<td>7:5</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>4:0</td>
-<td>COUNT_H</td>
-<td>RW</td>
-<td>0x00</td>
-<td>RTC hours 读出寄存器</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-20 RTC_COUNT_D
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>0x10 </td>
-<td>7:5</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>4:0</td>
-<td>COUNT_D</td>
-<td>RW</td>
-<td>0x00</td>
-<td>RTC days 读出寄存器</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-21 RTC_COUNT_MO
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>0x11</td>
-<td>7:4</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>3:0</td>
-<td>COUNT_MO</td>
-<td>RW</td>
-<td>0x00</td>
-<td>RTC months 读出寄存器</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-22 RTC_COUNT_Y
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>0x12</td>
-<td>7:6</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>5:0</td>
-<td>COUNT_Y</td>
-<td>RW</td>
-<td>0x00</td>
-<td>RTC years 读出寄存器。<br/>写此寄存器，会将当前COUNT_S ~ COUNT_Y更新到日历计数器；<br/>并且RTC_SECOND_A ~ RTC_SECOND_D复位。</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-23 RTC_ALARM_S
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=3 colspan=1>0x13</td>
-<td>7</td>
-<td>MASK_ALARM_S</td>
-<td>RW</td>
-<td>0x0</td>
-<td>ALARM_S匹配屏蔽<br/>0：不屏蔽<br/>1：屏蔽</td>
-</tr>
-<tr>
-<td>6</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>5:0</td>
-<td>ALARM_S</td>
-<td>RW</td>
-<td>0x00</td>
-<td>RTC_ALARM seconds 设置，设置范围0x00 ~ 0x3B</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-24 RTC_ALARM_MI
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=3 colspan=1>0x14 </td>
-<td>7</td>
-<td>MASK_ALARM_MI</td>
-<td>RW</td>
-<td>0x0</td>
-<td>ALARM_MI匹配屏蔽<br/>0：不屏蔽<br/>1：屏蔽</td>
-</tr>
-<tr>
-<td>6</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>5:0</td>
-<td>ALARM_MI</td>
-<td>RW</td>
-<td>0x00</td>
-<td>RTC_ALARM minutes 设置<br/>设置范围0x00 ~ 0x3B</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-25 RTC_ALARM_H
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=3 colspan=1>0x15</td>
-<td>7</td>
-<td>MASK_ALARM_H</td>
-<td>RW</td>
-<td>0x0</td>
-<td>ALARM_H匹配屏蔽<br/>0：不屏蔽<br/>1：屏蔽</td>
-</tr>
-<tr>
-<td>6:5</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>4:0</td>
-<td>ALARM_H</td>
-<td>RW</td>
-<td>0x00</td>
-<td>RTC_ALARM hours 设置<br/>设置范围0x00 ~ 0x17</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-26 RTC_ALARM_D
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=3 colspan=1>0x16</td>
-<td>7</td>
-<td>MASK_ALARM_D</td>
-<td>RW</td>
-<td>0x0</td>
-<td>ALARM_D匹配屏蔽<br/>0：不屏蔽<br/>1：屏蔽</td>
-</tr>
-<tr>
-<td>6:5</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>4:0</td>
-<td>ALARM_D</td>
-<td>RW</td>
-<td>0x00</td>
-<td>RTC_ALARM days 设置<br/>设置范围0x00 ~ 0x1F</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-27 RTC_ALARM_MO
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=3 colspan=1>0x17<br/> <br/> </td>
-<td>7</td>
-<td>MASK_ALARM_MO</td>
-<td>RW</td>
-<td>0x0</td>
-<td>ALARM_MO匹配屏蔽<br/>0：不屏蔽<br/>1：屏蔽</td>
-</tr>
-<tr>
-<td>6:4</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>3:0</td>
-<td>ALARM_MO</td>
-<td>RW</td>
-<td>0x00</td>
-<td>RTC_ALARM months 设置<br/>设置范围0x00 ~ 0x0C</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-28 RTC_ALARM_Y
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=3 colspan=1>0x18</td>
-<td>7</td>
-<td>MASK_ALARM_Y</td>
-<td>RW</td>
-<td>0x0</td>
-<td>ALARM_Y匹配屏蔽<br/>0：不屏蔽<br/>1：屏蔽</td>
-</tr>
-<tr>
-<td>6</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>5:0</td>
-<td>ALARM_Y</td>
-<td>RW</td>
-<td>0x00</td>
-<td>RTC_ALARM years 设置<br/>设置范围0x00 ~ 0x3F</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-29 RTC_SECOND_A
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td>0x19</td>
-<td>7:0</td>
-<td>SECOND_A</td>
-<td>R</td>
-<td>0x00</td>
-<td>RTC 秒计数[7:0]。<br/>读此寄存器会将当前32bit秒计数器数值更新到SECOND_A ~ SECOND_D</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-30 RTC_SECOND_B
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td>0x1A</td>
-<td>7:0</td>
-<td>SECOND_B</td>
-<td>R</td>
-<td>0x00</td>
-<td>RTC 秒计数[15:8]</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-31 RTC_SECOND_C
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td>0x1B</td>
-<td>7:0</td>
-<td>SECOND_C</td>
-<td>R</td>
-<td>0x00</td>
-<td>RTC 秒计数[23:16]</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-32 RTC_SECOND_D
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td>0x1C</td>
-<td>7:0</td>
-<td>SECOND_D</td>
-<td>R</td>
-<td>0x00</td>
-<td>RTC 秒计数[31:24]</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-33 RTC_CTRL
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=8 colspan=1>0x1D<br/> <br/> <br/> <br/> <br/> <br/> <br/> </td>
-<td>7</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>6</td>
-<td>TICK_EN(*1)</td>
-<td>RW</td>
-<td>0x0</td>
-<td>TICK使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>5</td>
-<td>ALARM_EN(*1)</td>
-<td>RW</td>
-<td>0x0</td>
-<td>ALARM使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>4<br/></td>
-<td>TICK_TYPE(*1)</td>
-<td>RW</td>
-<td>0x0</td>
-<td>TICK周期选择：<br/>0：1s<br/>1：1min</td>
-</tr>
-<tr>
-<td>3</td>
-<td>RTC_CLK_SEL(*1)</td>
-<td>RW</td>
-<td>0x0</td>
-<td>RTC时钟选择<br/>0：内部时钟（32 kHz）<br/>1：外部晶振时钟</td>
-</tr>
-<tr>
-<td>2</td>
-<td>RTC_EN(*1)</td>
-<td>RW</td>
-<td>0x0</td>
-<td>RTC使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>1</td>
-<td>OUT_32K_EN(*2)</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>RTC时钟输出使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>0</td>
-<td>CRYSTAL_EN(*3)</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>外部晶振使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：关机模式保持不变
-> 2：进入关机模式=0，遇到开机事件后恢复为MTP内的数值
-> 3：关机模式保持不变，遇到开机事件后恢复为MTP内的数值
-
-#### 表 7-34 ADC_CTRL(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=3 colspan=1>0x1E<br/> <br/> </td>
-<td>7:2</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>1</td>
-<td>ADC_GO(*2)</td>
-<td>RW</td>
-<td>0</td>
-<td>ADC转换启动位<br/>0：AD转换完成/未进行<br/>1：AD转换正在进行</td>
-</tr>
-<tr>
-<td>0</td>
-<td>ADC_EN</td>
-<td>RW</td>
-<td>0</td>
-<td>ADC使能位<br/>0：禁止ADC<br/>1：使能ADC</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式恢复默认值
-> 2：手动模式下，该 bit 软件置 1 后，转换每完成一次即硬件清零；自动模式下，该 bit 软件置 1 后，由软件清零停止自动转换；任何模式下，转换过程中清零该 bit，都会停止并打断转换过程。
-
-#### 表 7-35 ADC_CFG0(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=8 colspan=1>0x1F<br/> </td>
-<td>7</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>6</td>
-<td>ADCTJ_DEB_EN(*1)</td>
-<td>RW</td>
-<td>0x0</td>
-<td>ADC结温超阈值中断标志滤波<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>5<br/></td>
-<td>ADCIN5_DEB_EN(*1)<br/></td>
-<td>RW</td>
-<td>0x0</td>
-<td>ADCIN5中断标志滤波<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>4</td>
-<td>ADCIN4_DEB_EN(*1)</td>
-<td>RW</td>
-<td>0x0</td>
-<td>ADCIN4中断标志滤波<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>3</td>
-<td>ADCIN3_DEB_EN(*1)</td>
-<td>RW</td>
-<td>0x0</td>
-<td>ADCIN3中断标志滤波<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>2</td>
-<td>ADCIN2_DEB_EN(*1)</td>
-<td>RW</td>
-<td>0x0</td>
-<td>ADCIN2中断标志滤波<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>1</td>
-<td>ADCIN1_DEB_EN(*1)</td>
-<td>RW</td>
-<td>0x0</td>
-<td>ADCIN1中断标志滤波<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>0</td>
-<td>ADCIN0_DEB_EN(*1)</td>
-<td>RW</td>
-<td>0x0</td>
-<td>ADCIN0中断标志滤波<br/>0：禁止<br/>1：使能</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式恢复默认值
-> 2：连续ADC_DEB_NUM次ADC转换结果超阈值或低阈值即置起相应标志位。
-
-#### 表 7-36 ADC_CFG1(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=4 colspan=1>0x20<br/> <br/> <br/> </td>
-<td>7</td>
-<td>ADC_CHOP_SEL</td>
-<td>RW</td>
-<td>0x0</td>
-<td>ADC chop时钟选择<br/>0：31.25 kHz<br/>1：62.5 kHz</td>
-</tr>
-<tr>
-<td>6</td>
-<td>ADC_CHOP_EN</td>
-<td>RW</td>
-<td>0x0</td>
-<td>ADC chop使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>5:3</td>
-<td>ADC_CHNL_SEL</td>
-<td>RW</td>
-<td>0x0</td>
-<td>ADC手动模式扫描通道选择<br/>000：通道0 – Vsys、BUCK、LDO电压<br/>001：通道1 - Tj，芯片内部Junction温度<br/>010：通道2 - GPIO0作为ADC输入（ADCIN0）<br/>011：通道3 - GPIO1作为ADC输入（ADCIN1）<br/>100：通道4 - GPIO2作为ADC输入（ADCIN2）<br/>101：通道5 - GPIO3作为ADC输入（ADCIN3）<br/>110：通道6 - GPIO4作为ADC输入（ADCIN4）<br/>111：通道7 - GPIO5作为ADC输入（ADCIN5）</td>
-</tr>
-<tr>
-<td>2:0</td>
-<td>ADC_SAMP_FREQ</td>
-<td>RW</td>
-<td>0x0</td>
-<td>自动扫描的采样频率选择<br/>000：采样频率为100 Hz<br/>001：采样频率为781.25 Hz<br/>010：采样频率为1.5625 kHz<br/>011：采样频率为3.125 kHz<br/>100：采样频率为6.25 kHz<br/>101：采样频率为12.5 kHz<br/>110：采样频率为25 kHz<br/>111：采样频率为50 kHz</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式恢复默认值
-
-#### 表 7-37 ADC_CFG2(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=4 colspan=1>0x21</td>
-<td>7</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>6:4</td>
-<td>ADC_DEB_NUM<br/></td>
-<td>RW</td>
-<td>0x0</td>
-<td>ADC结果滤波档位选择<br/>000：连续2次触发<br/>001：连续3次触发<br/>010：连续4次触发<br/>011：连续5次触发<br/>100：连续6次触发<br/>其它：连续7次触发</td>
-</tr>
-<tr>
-<td>3:2</td>
-<td>ADC_VREFH_SEL</td>
-<td>RW</td>
-<td>0x0</td>
-<td>ADC正端参考电压选择<br/>00：Int<br/>01：VCC<br/>10：Ext<br/>11：Int + Cap</td>
-</tr>
-<tr>
-<td>1:0</td>
-<td>ADC_REF_SEL</td>
-<td>RW</td>
-<td>0x0</td>
-<td>ADC参考电压选择<br/>01：2V内部参考电压<br/>10：3V内部参考电压<br/>其它：disalbe</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式恢复默认值
-
-#### 表 7-38 ADC_AUTO(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=8 colspan=1>0x22<br/></td>
-<td>7</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>6</td>
-<td>AUTO_IN5_EN(*2)</td>
-<td>RW</td>
-<td>0x0</td>
-<td>ADCIN5自动采样使能<br/>0：禁止自动采样<br/>1：使能自动采样</td>
-</tr>
-<tr>
-<td>5</td>
-<td>AUTO_IN4_EN(*2)</td>
-<td>RW</td>
-<td>0x0</td>
-<td>ADCIN4自动采样使能<br/>0：禁止自动采样<br/>1：使能自动采样</td>
-</tr>
-<tr>
-<td>4</td>
-<td>AUTO_IN3_EN(*2)</td>
-<td>RW</td>
-<td>0x0</td>
-<td>ADCIN3自动采样使能<br/>0：禁止自动采样<br/>1：使能自动采样</td>
-</tr>
-<tr>
-<td>3</td>
-<td>AUTO_IN2_EN(*2)</td>
-<td>RW</td>
-<td>0x0</td>
-<td>ADCIN2自动采样使能<br/>0：禁止自动采样<br/>1：使能自动采样</td>
-</tr>
-<tr>
-<td>2</td>
-<td>AUTO_IN1_EN(*2)</td>
-<td>RW</td>
-<td>0x0</td>
-<td>ADCIN1自动采样使能<br/>0：禁止自动采样<br/>1：使能自动采样</td>
-</tr>
-<tr>
-<td>1</td>
-<td>AUTO_IN0_EN(*2)</td>
-<td>RW</td>
-<td>0x0</td>
-<td>ADCIN0自动采样使能<br/>0：禁止自动采样<br/>1：使能自动采样</td>
-</tr>
-<tr>
-<td>0</td>
-<td>AUTO_TJ_EN(*2)</td>
-<td>RW</td>
-<td>0x0</td>
-<td>Junction温度通道自动采样使能<br/>0：禁止自动采样<br/>1：使能自动采样</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式恢复默认值
-> 2：连 ADC_AUTO[6:0]只要有任 1bit 使能，启动转换之后即进入自动扫描模式。
-
-#### 表 7-39 ADC_MAN_EN0(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=8 colspan=1>0x23<br/></td>
-<td>7</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>6</td>
-<td>ADC_VSYS_EN</td>
-<td>RW<br/></td>
-<td>0x0</td>
-<td>VSYS电压监控使能<br/>0： 禁止监控<br/>1： 使能监控</td>
-</tr>
-<tr>
-<td>5</td>
-<td>ADC_BUCK6_EN</td>
-<td>RW</td>
-<td>0x0</td>
-<td>BUCK6输出电压监控使能<br/>0： 禁止监控<br/>1： 使能监控</td>
-</tr>
-<tr>
-<td>4</td>
-<td>ADC_BUCK5_EN</td>
-<td>RW</td>
-<td>0x0</td>
-<td>BUCK5输出电压监控使能<br/>0： 禁止监控<br/>1： 使能监控</td>
-</tr>
-<tr>
-<td>3</td>
-<td>ADC_BUCK4_EN</td>
-<td>RW</td>
-<td>0x0</td>
-<td>BUCK4输出电压监控使能<br/>0： 禁止监控<br/>1： 使能监控</td>
-</tr>
-<tr>
-<td>2</td>
-<td>ADC_BUCK3_EN</td>
-<td>RW</td>
-<td>0x0</td>
-<td>BUCK3输出电压监控使能<br/>0： 禁止监控<br/>1： 使能监控</td>
-</tr>
-<tr>
-<td>1</td>
-<td>ADC_BUCK2_EN</td>
-<td>RW</td>
-<td>0x0</td>
-<td>BUCK2输出电压监控使能<br/>0： 禁止监控<br/>1： 使能监控</td>
-</tr>
-<tr>
-<td>0</td>
-<td>ADC_BUCK1_EN</td>
-<td>RW</td>
-<td>0x0</td>
-<td>BUCK1输出电压监控使能<br/>0： 禁止监控<br/>1： 使能监控</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式恢复默认值
-
-#### 表 7-40 ADC_MAN_EN1(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=8 colspan=1>0x24</td>
-<td>7</td>
-<td>ADC_DLDO3_EN(*2)</td>
-<td>RW</td>
-<td>0x0</td>
-<td>DLDO3输出电压监控使能<br/>0： 禁止<br/>1： 使能</td>
-</tr>
-<tr>
-<td>6</td>
-<td>ADC_DLDO2_EN(*2)</td>
-<td>RW</td>
-<td>0x0</td>
-<td>DLDO2输出电压监控使能<br/>0： 禁止<br/>1： 使能</td>
-</tr>
-<tr>
-<td>5</td>
-<td>ADC_DLDO1_EN(*2)</td>
-<td>RW</td>
-<td>0x0</td>
-<td>DLDO1输出电压监控使能<br/>0： 禁止<br/>1： 使能</td>
-</tr>
-<tr>
-<td>4</td>
-<td>ADC_ALDO4_EN(*2)</td>
-<td>RW</td>
-<td>0x0</td>
-<td>ALDO4输出电压监控使能<br/>0： 禁止<br/>1： 使能</td>
-</tr>
-<tr>
-<td>3</td>
-<td>ADC_ALDO3_EN(*2)</td>
-<td>RW</td>
-<td>0x0</td>
-<td>ALDO3输出电压监控使能<br/>0： 禁止<br/>1： 使能</td>
-</tr>
-<tr>
-<td>2</td>
-<td>ADC_ALDO2_EN(*2)</td>
-<td>RW</td>
-<td>0x0</td>
-<td>ALDO2输出电压监控使能<br/>0： 禁止<br/>1： 使能</td>
-</tr>
-<tr>
-<td>1</td>
-<td>ADC_ALDO1_EN(*2)</td>
-<td>RW</td>
-<td>0x0</td>
-<td>ALDO1输出电压监控使能<br/>0： 禁止<br/>1： 使能</td>
-</tr>
-<tr>
-<td>0</td>
-<td>ADC_AONLDO_EN(*2)</td>
-<td>RW</td>
-<td>0x0</td>
-<td>AONLDO输出电压监控使能<br/>0： 禁止<br/>1： 使能</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式恢复默认值
-> 2：ADC_AUTO 无自动通道使能时，只要 ADC_MAN_EN0 ~ ADC_MAN_EN2 中任意手动通道使能后，启动转换之后即进入手动模式。
-
-#### 表 7-41 ADC_MAN_EN2(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=5 colspan=1>0x25</td>
-<td>7:4</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>3</td>
-<td>ADC_DLDO_7_EN(*2)</td>
-<td>RW</td>
-<td>0x0</td>
-<td>DLDO7输出电压监控使能<br/>0： 禁止<br/>1： 使能</td>
-</tr>
-<tr>
-<td>2</td>
-<td>ADC_DLDO_6_EN(*2)<br/></td>
-<td>RW</td>
-<td>0x0</td>
-<td>DLDO6输出电压监控使能<br/>0： 禁止<br/>1： 使能</td>
-</tr>
-<tr>
-<td>1</td>
-<td>ADC_DLDO_5_EN(*2)</td>
-<td>RW</td>
-<td>0x0</td>
-<td>DLDO5输出电压监控使能<br/>0： 禁止<br/>1： 使能</td>
-</tr>
-<tr>
-<td>0</td>
-<td>ADC_DLDO_4_EN(*2)</td>
-<td>RW</td>
-<td>0x0</td>
-<td>DLDO4输出电压监控使能<br/>0： 禁止<br/>1： 使能</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式恢复默认值
-> 2：ADC_AUTO 无自动通道使能时，只要 ADC_MAN_EN0 ~ ADC_MAN_EN2 中任意手动通道使能后，启动转换之后即进入手动模式。
-
-#### 表 7-42 ADC_MAN_RES_H(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td>0x26</td>
-<td>7:0</td>
-<td>ADC_RES_H</td>
-<td>R</td>
-<td>0x00</td>
-<td>12-bit ADC手动转换结果（8 MSBs）。<br/>读该寄存器，会将当前手动转换通道的12bit结果锁存到ADC_MAN_RES_H和DC_MAN_RES_L，防止后续读取低位结果时被新的转换结果给覆盖，导致数据的不一致性。</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式恢复默认值
-
-#### 表 7-43 ADC_MAN_RES_L(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>0x27</td>
-<td>7:4</td>
-<td>ADC_RES_L</td>
-<td>R</td>
-<td>0x0</td>
-<td>12-bit ADC手动转换结果（4 LSBs）</td>
-</tr>
-<tr>
-<td>3:0</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式恢复默认值
-
-#### 表 7-44 ADC_TJ_RES_H(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td>0x28</td>
-<td>7:0</td>
-<td>TJ_RES_H</td>
-<td>R</td>
-<td>0x00</td>
-<td>Junction温度监控自动转换结果（8 MSBs）。<br/>读该寄存器，会将当前Junction寄存器结果锁存到ADC_TJ_RES_H和ADC_TJ_RES_L，防止后续读取低位结果时被新的转换结果覆盖，导致数据的不一致性。</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式恢复默认值
-
-#### 表 7-45 ADC_TJ_RES_L(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>0x29</td>
-<td>7:4</td>
-<td>TJ_RES_L</td>
-<td>R</td>
-<td>0x0</td>
-<td>Junction温度监控自动转换结果（4 LSBs）</td>
-</tr>
-<tr>
-<td>3:0</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式恢复默认值
-
-#### 表 7-46 ADC_IN0_RES_H(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td>0x2A</td>
-<td>7:0</td>
-<td>ADCIN0_RES_H</td>
-<td>R</td>
-<td>0x00</td>
-<td>ADCIN0监控自动转换结果（8 MSBs）<br/>读该寄存器，会将当前通道0结果锁存到ADC_IN0_RES_H和ADC_IN0_RES_L，防止后续读取低位结果时被新的转换结果覆盖，导致数据的不一致性。</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式恢复默认值
-
-#### 表 7-47 ADC_IN0_RES_L(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>0x2B</td>
-<td>7:4</td>
-<td>ADCIN0_RES_L</td>
-<td>R</td>
-<td>0x0</td>
-<td>ADCIN0监控自动转换结果（4 LSBs）</td>
-</tr>
-<tr>
-<td>3:0</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式恢复默认值
-
-#### 表 7-48 ADC_IN1_RES_L(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td>0x2C</td>
-<td>7:0</td>
-<td>ADCIN1_RES_H</td>
-<td>R</td>
-<td>0x0</td>
-<td>ADCIN2监控自动转换结果（8 MSBs）<br/>读该寄存器，会将当前通道2结果锁存到ADC_IN2_RES_H和ADC_IN2_RES_L，防止后续读取低位结果时被新的转换结果覆盖，导致数据的不一致性。</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式恢复默认值
-
-#### 表 7-49 ADC_IN1_RES_L(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>0x2D</td>
-<td>7:4</td>
-<td>ADCIN1_RES_L</td>
-<td>R</td>
-<td>0x0</td>
-<td>ADCIN1监控自动转换结果（4 LSBs）</td>
-</tr>
-<tr>
-<td>3:0</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式恢复默认值
-
-#### 表 7-50 ADC_IN2_RES_H(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td>0x2E</td>
-<td>7:0</td>
-<td>ADCIN2_RES_H</td>
-<td>R</td>
-<td>0x00</td>
-<td>ADCIN2监控自动转换结果（8 MSBs）<br/>读该寄存器，会将当前通道2结果锁存到ADC_IN2_RES_H和ADC_IN2_RES_L，防止后续读取低位结果时被新的转换结果覆盖，导致数据的不一致性。</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式恢复默认值
-
-#### 表 7-51 ADC_IN2_RES_L(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>0x2F</td>
-<td>7:4</td>
-<td>ADCIN2_RES_L</td>
-<td>R</td>
-<td>0x0</td>
-<td>ADCIN2监控自动转换结果（4 LSBs）</td>
-</tr>
-<tr>
-<td>3:0</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式恢复默认值
-
-#### 表 7-52 ADC_IN3_RES_H(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td>0x30</td>
-<td>7:0</td>
-<td>ADCIN3_RES_H</td>
-<td>R</td>
-<td>0x00</td>
-<td>ADCIN3监控自动转换结果（8 MSBs）<br/>读该寄存器，会将当前通道3结果锁存到ADC_IN3_RES_H和ADC_IN3_RES_L，防止后续读取低位结果时被新的转换结果覆盖，导致数据的不一致性。</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式恢复默认值
-
-#### 表 7-53 ADC_IN3_RES_L(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>0x31</td>
-<td>7:4</td>
-<td>ADCIN3_RES_L</td>
-<td>R</td>
-<td>0x0</td>
-<td>ADCIN3监控自动转换结果（4 LSBs）</td>
-</tr>
-<tr>
-<td>3:0</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式恢复默认值
-
-#### 表 7-54 ADC_IN4_RES_H(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td>0x32</td>
-<td>7:0</td>
-<td>ADCIN4_RES_H</td>
-<td>R</td>
-<td>0x00</td>
-<td>ADCIN4监控自动转换结果（8 MSBs）<br/>读该寄存器，会将当前通道4结果锁存到ADC_IN4_RES_H和ADC_IN4_RES_L，防止后续读取低位结果时被新的转换结果覆盖，导致数据的不一致性。</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式恢复默认值
-
-#### 表 7-55 ADC_IN4_RES_L(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>0x33</td>
-<td>7:4</td>
-<td>ADCIN4_RES_L</td>
-<td>R</td>
-<td>0x0</td>
-<td>ADCIN4监控自动转换结果（4 LSBs）</td>
-</tr>
-<tr>
-<td>3:0</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式恢复默认值
-
-#### 表 7-56 ADC_IN5_RES_H(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td>0x34</td>
-<td>7:0</td>
-<td>ADCIN5_RES_H</td>
-<td>R</td>
-<td>0x00</td>
-<td>ADCIN5监控自动转换结果（8 MSBs）<br/>读该寄存器，会将当前通道5结果锁存到ADC_IN5_RES_H和ADC_IN5_RES_L，防止后续读取低位结果时被新的转换结果覆盖，导致数据的不一致性。</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式恢复默认值
-
-#### 表 7-57 ADC_IN5_RES_L(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>0x35</td>
-<td>7:4</td>
-<td>ADCIN5_RES_L</td>
-<td>R</td>
-<td>0x0</td>
-<td>ADCIN5监控自动转换结果（5 LSBs）</td>
-</tr>
-<tr>
-<td>3:0</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式恢复默认值
-
-#### 表 7-58 ADC_VTH_TJ_H(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td>0x36</td>
-<td>7:0</td>
-<td>VTH_TJ_H</td>
-<td>RW</td>
-<td>0x00</td>
-<td>Junction温度监控上限阈值设置（8 MSBs）</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式恢复默认值
-
-#### 表 7-59 ADC_VTH_TJ_L(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td>0x37</td>
-<td>7:0</td>
-<td>VTH_TJ_L</td>
-<td>RW</td>
-<td>0x00</td>
-<td>Junction温度监控下限阈值设置（8 MSBs）</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式恢复默认值
-
-#### 表 7-60 ADC_IN0_VTH_H(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td>0x38</td>
-<td>7:0</td>
-<td>ADCIN0_VTH_H</td>
-<td>RW</td>
-<td>0x00</td>
-<td>ADCIN0监控上限阈值设置（8 MSBs）</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式恢复默认值
-
-#### 表 7-61 ADC_IN0_VTH_L(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td>0x39</td>
-<td>7:0</td>
-<td>ADCIN0_VTH_L</td>
-<td>RW</td>
-<td>0x00</td>
-<td>ADCIN0监控下限阈值设置（8 MSBs）</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式恢复默认值
-
-#### 表 7-62 ADC_IN1_VTH_H(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td>0x3A</td>
-<td>7:0</td>
-<td>ADCIN1_VTH_H</td>
-<td>RW</td>
-<td>0x00</td>
-<td>ADCIN1监控上限阈值设置（8 MSBs）</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式恢复默认值
-
-#### 表 7-63 ADC_IN1_VTH_L(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td>0x3B</td>
-<td>7:0</td>
-<td>ADCIN1_VTH_L</td>
-<td>RW</td>
-<td>0x00</td>
-<td>ADCIN1监控下限阈值设置（8 MSBs）</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式恢复默认值
-
-#### 表 7-64 ADC_IN2_VTH_H(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td>0x3C</td>
-<td>7:0</td>
-<td>ADCIN2_VTH_H</td>
-<td>RW</td>
-<td>0x00</td>
-<td>ADCIN2监控上限阈值设置（8 MSBs）</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式恢复默认值
-
-#### 表 7-65 ADC_IN2_VTH_L(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td>0x3D</td>
-<td>7:0</td>
-<td>ADCIN2_VTH_L</td>
-<td>RW</td>
-<td>0x00</td>
-<td>ADCIN2监控下限阈值设置（8 MSBs）</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式恢复默认值
-
-#### 表 7-66 ADC_IN3_VTH_H(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td>0x3E</td>
-<td>7:0</td>
-<td>ADCIN3_VTH_H</td>
-<td>RW</td>
-<td>0x00</td>
-<td>ADCIN3监控上限阈值设置（8 MSBs）</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式恢复默认值
-
-#### 表 7-67 ADC_IN3_VTH_L(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td>0x3F</td>
-<td>7:0</td>
-<td>ADCIN3_VTH_L</td>
-<td>RW</td>
-<td>0x00</td>
-<td>ADCIN3监控下限阈值设置（8 MSBs）</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式恢复默认值
-
-#### 表 7-68 ADC_IN4_VTH_H(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td>0x40</td>
-<td>7:0</td>
-<td>ADCIN4_VTH_H</td>
-<td>RW</td>
-<td>0x00</td>
-<td>ADCIN4监控上限阈值设置（8 MSBs）</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式恢复默认值
-
-#### 表 7-69 ADC_IN4_VTH_L(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td>0x41</td>
-<td>7:0</td>
-<td>ADCIN4_VTH_L</td>
-<td>RW</td>
-<td>0x00</td>
-<td>ADCIN4监控下限阈值设置（8 MSBs）</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式恢复默认值
-
-#### 表 7-70 ADC_IN5_VTH_H(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td>0x42</td>
-<td>7:0</td>
-<td>ADCIN5_VTH_H</td>
-<td>RW</td>
-<td>0x00</td>
-<td>ADCIN5监控上限阈值设置（8 MSBs）</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式恢复默认值
-
-#### 表 7-71 ADC_IN5_VTH_L(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td>0x43</td>
-<td>7:0</td>
-<td>ADCIN5_VTH_L</td>
-<td>RW</td>
-<td>0x00</td>
-<td>ADCIN5监控下限阈值设置（8 MSBs）</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式恢复默认值
-
-#### 表 7-72 WDT_CTRL(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=4 colspan=1>0x44</td>
-<td>7:4</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>3</td>
-<td>WDT_EN</td>
-<td>RW</td>
-<td>0x0</td>
-<td>看门狗使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>2:1</td>
-<td>WDT_SCALE</td>
-<td>RW</td>
-<td>0x0</td>
-<td>看门狗超时时间配置<br/>00：1 s<br/>01：4 s<br/>10：8 s<br/>11：16 s</td>
-</tr>
-<tr>
-<td>0</td>
-<td>WDT_FEED</td>
-<td>RW</td>
-<td>0x0</td>
-<td>看门狗计数清除<br/>置1，清零WDT计数器。硬件自动清0</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式恢复默认值
-
-#### 表 7-73 BBAT_CTRL(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=4 colspan=1>0x45</td>
-<td>7:5</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>4:3</td>
-<td>BCHG_ISET</td>
-<td>RW</td>
-<td>0x0</td>
-<td>纽扣电池充电电流档位<br/>100：500uA<br/>101：1mA<br/>110：2mA<br/>111：4A</td>
-</tr>
-<tr>
-<td>2:1</td>
-<td>BCHG_VSET</td>
-<td>RW</td>
-<td>0x0</td>
-<td>纽扣电池充电电压<br/>100：2.8 V<br/>101：2.9 V<br/>110：3 V<br/>111：3.1 V</td>
-</tr>
-<tr>
-<td>0</td>
-<td>BCHG_EN</td>
-<td>RW</td>
-<td>0x0</td>
-<td>纽扣电池充电使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式恢复默认值
-
-#### 表 7-74 BUCK_LDO_CFG(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=7 colspan=1>0x46</td>
-<td>7</td>
-<td>LDO_PD_EN</td>
-<td>RWE</td>
-<td>0</td>
-<td>LDO下拉电阻使能<br/>0：禁止<br/>1：使能<br/>LDO使能时，该bit不起作用，即关闭下拉电阻；<br/>LDO关闭时，下拉电阻受此bit影响。</td>
-</tr>
-<tr>
-<td>6</td>
-<td>BUCK_PD_EN</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>BUCK下拉电阻使能<br/>0：禁止<br/>1：使能<br/>BUCK使能时，该bit不起作用，即关闭下拉电阻；<br/>BUCK关闭时，下拉电阻受此bit影响。</td>
-</tr>
-<tr>
-<td>5</td>
-<td>BUCK_DVS_EN</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>BUCK DVS使能<br/>0：禁止<br/>1：使能<br/>上电过程中，BUCK无DVS功能；在开机/关机模式，睡眠/唤醒流程中才有DVS。</td>
-</tr>
-<tr>
-<td>4:3</td>
-<td>BUCK_DVS_SEL</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>BUCK DVS斜率档位<br/>00：5 mV/us<br/>01：10 mV/us<br/>10：25 mV/us<br/>11：50 mV/us</td>
-</tr>
-<tr>
-<td>2</td>
-<td>BUCK_VSET_CTRL</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>BUCK5/6 VSET引脚的电压档位选择<br/>VSET     VDD       FLOATING        GND<br/>   <strong>0</strong>      1.1 V       BUCKx_VOLT    1.2 V<br/>   <strong>1</strong>      0.6 V       BUCKx_VOLT    1.5 V</td>
-</tr>
-<tr>
-<td>1</td>
-<td>BUCK_34_DUAL</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>BUCK3和BUCK4双相模式使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>0</td>
-<td>BUCK_12_DUAL</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>BUCK1和BUCK2双相模式使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式保持不变，遇到开机事件后恢复为MTP内的数值
-
-#### 表 7-75 BUCKx_CTRL(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=5 colspan=1>0x47+3xN(*2)</td>
-<td>7:6</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>5:3</td>
-<td>BUCKx_GPIO_SEL</td>
-<td>RE</td>
-<td>0x0</td>
-<td>GPIO（PWRCTRL）控制BUCK使能<br/>000：不由GPIO控制<br/>001：GPIO0控制<br/>010： GPIO1控制<br/>011： GPIO2控制<br/>100： GPIO3控制<br/>101： GPIO4控制<br/>110： GPIO5控制<br/>111： 不由GPIO控制</td>
-</tr>
-<tr>
-<td>2</td>
-<td>BUCKx_MODE</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>BUCK工作模式<br/>0：PFM/PWM自动切换模式<br/>1：强制PWM模式</td>
-</tr>
-<tr>
-<td>1</td>
-<td>BUCKx_ILIM</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>BUCK限流档位<br/>0：BUCK1 ~ 2，5000 mA； BUCK3 ~ 6，3500 mA<br/>1：BUCK1 ~ 2，7500 mA； BUCK3 ~ 6，5000 mA</td>
-</tr>
-<tr>
-<td>0</td>
-<td>BUCKx_EN</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>BUCK使能<br/>0：关闭<br/>1：使能</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式保持不变，遇到开机事件后恢复为MTP内的数值
-> 2：N=0 ~ 5，x=1 ~ 6，依次对应 BUCK1 ~ BUCK6。
-
-#### 表 7-76 BUCKx_VOLT(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td>0x48+3xN(*2)</td>
-<td>7:0</td>
-<td>BUCKx_VOLT</td>
-<td>RWE</td>
-<td>0x00</td>
-<td>BUCK电压输出档位（8 MSBs）<br/>0.5V ~ 1.35V 5mV/step，1.375V ~ 3.45V 25mV/step<br/>00000000：0.500V<br/>00000001：0.505V<br/>00000010：0.510V<br/>...<br/>11111110：3.450V<br/>11111111：不允许写该档位</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式保持不变，遇到开机事件后恢复为MTP内的数值
-> 2： N=0 ~ 5，x=1 ~ 6，依次对应 BUCK1 ~ BUCK6。
-
-#### 表 7-77 BUCKx_SLP_VOLT(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td>0x49+3xN(*2)</td>
-<td>7:0</td>
-<td>BUCKx_SLP_VOLT</td>
-<td>RWE</td>
-<td>0x00</td>
-<td>BUCK睡眠电压输出档位（8 MSBs）<br/>0.5V ~ 1.35V 5mV/step，1.375V ~ 3.45V 25mV/step<br/>00000000： 0.500V<br/>00000001： 0.505V<br/>00000010： 0.510V<br/>...<br/>11111110： 3.450V<br/>11111111： 0V（关闭BUCKx）</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式保持不变，遇到开机事件后恢复为MTP内的数值
-> 2：N=0 ~ 5，x=1 ~ 6，依次对应 BUCK1 ~ BUCK6。
-
-#### 表 7-78 SWITCH_CTRL(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=3 colspan=1>0x59</td>
-<td>7:2</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>1<br/></td>
-<td>SWITCH_PD_EN</td>
-<td>RW</td>
-<td>0x0</td>
-<td>SWITCH下拉电阻使能<br/>0：禁止<br/>1：使能<br/>SWITCH_EN使能时，下拉电阻禁止，即该bit无效；仅当SWITCH_EN为0时下拉电阻才受该bit控制。</td>
-</tr>
-<tr>
-<td>0</td>
-<td>SWITCH_EN</td>
-<td>RW</td>
-<td>0x0</td>
-<td>SWITCH使能<br/>0：关闭<br/>1：使能</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式恢复默认值
-
-#### 表 7-79 AONLDO_CTRL(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>0x5A</td>
-<td>7:1</td>
-<td>AONLDO_VOLT</td>
-<td>RE</td>
-<td>0x00</td>
-<td>AONLDO电压输出档位（7 MSBs）<br/>0.5V ~ 3.4V 25mV/step<br/>0001011：0.500 V<br/>0001100：0.525 V<br/>0001101：0.550 V<br/>...<br/>1111111：3.400 V<br/>others：0.5V</td>
-</tr>
-<tr>
-<td>0</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>1</td>
-<td>Reserved</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式保持不变，遇到开机事件后恢复为MTP内的数值
-
-#### 表 7-80 ALDOx_CTRL(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=3 colspan=1>0x5B+3xN(*2)</td>
-<td>7:4</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>3:1</td>
-<td>ALDOx_GPIO_SEL</td>
-<td>RE</td>
-<td>0x0</td>
-<td>GPIO（PWRCTRL）控制ALDOx使能<br/>000： 不由GPIO控制<br/>001： GPIO0控制<br/>010： GPIO1控制<br/>011： GPIO2控制<br/>100： GPIO3控制<br/>101： GPIO4控制<br/>110： GPIO5控制<br/>111： 不由GPIO控制</td>
-</tr>
-<tr>
-<td>0</td>
-<td>ALDOx_EN</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>ALDOx使能<br/>0：关闭<br/>1：使能</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式保持不变，遇到开机事件后恢复为MTP内的数值
-> 2：N=0 ~ 3，x=1 ~ 4，依次对应 ALDO1 ~ ALDO4。
-
-#### 表 7-81 ALDOx_VOLT(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>0x5C+3xN(*2)</td>
-<td>7</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>6:0</td>
-<td>ALDOx_VOLT</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>ALDOx电压输出档位（7 MSBs）<br/>0.5V～3.4V 25mV/step<br/>0001011：0.500 V<br/>0001100：0.525 V<br/>0001101：0.550 V<br/>...<br/>1111111：3.400 V<br/>others：0.5 V</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式保持不变，遇到开机事件后恢复为MTP内的数值
-> 2：N=0 ~ 3，x=1 ~ 4，依次对应 ALDO1 ~ ALDO4。
-
-#### 表 7-82 ALDOx_SLP_VOLT(*1)
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>0x5D+3xN(*2)</td>
-<td>7</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>6:0</td>
-<td>ALDOx_SLP_VOLT</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>ALDOx睡眠电压输出档位（7 MSBs）<br/>0.5V ~ 3.4V 25mV/step<br/>0001011：0.500 V<br/>0001100：0.525 V<br/>0001101：0.550 V<br/>...<br/>1111111：3.400 V<br/>others：0.5 V</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：进入关机模式保持不变，遇到开机事件后恢复为MTP内的数值
-> 2：N=0 ~ 3，x=1 ~ 4，依次对应 ALDO1 ~ ALDO4。
-
-#### 表 7-83 DLDOx_CTRL
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=3 colspan=1>0x67+3xN(*1)</td>
-<td>7:4</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>3:1</td>
-<td>DLDOx_GPIO_SEL</td>
-<td>RE</td>
-<td>0x0</td>
-<td>GPIO（PWRCTRL）控制DLDOx使能<br/>000： 不由GPIO控制<br/>001： GPIO0控制<br/>010： GPIO1控制<br/>011： GPIO2控制<br/>100： GPIO3控制<br/>101： GPIO4控制<br/>110： GPIO5控制<br/>111： 不由GPIO控制</td>
-</tr>
-<tr>
-<td>0</td>
-<td>DLDOx_EN</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>DLDOx使能<br/>0：关闭<br/>1：使能</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：N=0 ~ 6，x=1 ~ 7，依次对应 DLDO1 ~ DLDO7。
-
-#### 表 7-84 DLDOx_VOLT
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>0x68+3xN(*1)</td>
-<td>7</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>6:0</td>
-<td>DLDOx_VOLT</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>DLDOx电压输出档位（7 MSBs）<br/>0.5V～3.4V 25mV/step<br/>0001011：0.500 V<br/>0001100：0.525 V<br/>0001101：0.550 V<br/>...<br/>1111111：3.400 V<br/>others：0.5 V</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：N=0 ~ 6，x=1 ~ 7，依次对应 DLDO1 ~ DLDO7。
-
-#### 表 7-85 DLDOx_SLP_VOLT
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>0x69+3xN(*1)</td>
-<td>7</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>6:0</td>
-<td>DLDOx_SLP_VOLT</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>DLDOx睡眠电压输出档位（7 MSBs）<br/>0.5V ~ 3.4V 25mV/step<br/>0001011：0.500 V<br/>0001100：0.525 V<br/>0001101：0.550 V<br/>...<br/>1111111：3.400 V<br/>others：0.5 V</td>
-</tr>
-</tbody>
-</table>
-
-> **注：**
-> 1：N=0 ~ 6，x=1 ~ 7，依次对应 DLDO1 ~ DLDO7。
-
-#### 表 7-86 PWR_CTRL0
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=8 colspan=1>0x7C</td>
-<td>7</td>
-<td>WDT_RST_EN</td>
-<td>RW</td>
-<td>0x0</td>
-<td>WDT超时触发复位使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>6</td>
-<td>NRESET_RST_EN</td>
-<td>RW</td>
-<td>0x0</td>
-<td>nRESET引脚下拉触发复位功能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>5</td>
-<td>PWRCTRL_SHUT_EN</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>PWRCTRL全绑定无效关机使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>4</td>
-<td>PWRCTRL_STA_EN</td>
-<td>RE</td>
-<td>0x0</td>
-<td>PWRCTRL全绑定有效开机使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>3</td>
-<td>RTC_STA_EN</td>
-<td>RE</td>
-<td>0x0</td>
-<td>RTC TICK、ALARM触发开机使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>2</td>
-<td>INT_STA_EN</td>
-<td>RE</td>
-<td>0x0</td>
-<td>INT引脚触发开机使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>1</td>
-<td>VSYS_STA_EN</td>
-<td>RE</td>
-<td>0x0</td>
-<td>Vsys上升沿触发开机使能<br/>0：禁止<br/>1：使能<br/>该bit使能后，初次上电后，VSYS电压超过设定阈值即开机</td>
-</tr>
-<tr>
-<td>0</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>1</td>
-<td>Reserved</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-87 PWR_CTRL1
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=8 colspan=1>0x7D</td>
-<td>7</td>
-<td>SD_LOW_POWER</td>
-<td>RW</td>
-<td>0x0</td>
-<td>关机模式下（SHUTDOWN）是否进入standby模式：<br/>0：不进入<br/>1：进入<br/>standby模式下，PMIC内部Bangap和AONLDO关闭，此时只有PWRKY按键和RTC唤醒</td>
-</tr>
-<tr>
-<td>6</td>
-<td>PG_RST_EN</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>PGOOD引脚下拉触发复位功能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>5</td>
-<td>PG_PD_EN</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>进入睡眠时，PGOOD引脚下拉使能<br/>0：睡眠事件触发时，PGOOD引脚不下拉<br/>1：睡眠事件触发时，PGOOD引脚下拉</td>
-</tr>
-<tr>
-<td>4</td>
-<td>PG_WAIT_TO</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>上电等待PGOOD外部释放超时档位选择<br/>0：128 ms<br/>1：1 s</td>
-</tr>
-<tr>
-<td>3</td>
-<td>PG_WAIT_EN</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>PMIC上电流程完成并释放PGOOD后，是否等待PGOOD被外部释放<br/>0：不等待<br/>1：等待</td>
-</tr>
-<tr>
-<td>2</td>
-<td>AUTO_BOOT_EN</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>关机事件触发关机后重启使能位<br/>0：关机后不重启<br/>1：关机后重启</td>
-</tr>
-<tr>
-<td>1</td>
-<td>SLP_WKUP_SEQ</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>睡眠/唤醒时序<br/>0：直接进入/退出睡眠<br/>1：按照关机/开机的时序进入/退出睡眠</td>
-</tr>
-<tr>
-<td>0</td>
-<td>SD_SEQ</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>关机时序<br/>0：反序关机<br/>1：快速关机</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-88 PWR_CTRL2
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=8 colspan=1>0x7E</td>
-<td>7</td>
-<td>SD_RST_TIME</td>
-<td>RE</td>
-<td>0x0</td>
-<td>复位进入关机模式时停留时间选择<br/>0：200 ms<br/>1：1 s</td>
-</tr>
-<tr>
-<td>6</td>
-<td>PWRKY_SD_DIS</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>PWRKY按键关机功能屏蔽位<br/>0：开启PWRKY按键关机功能（此时PWRKY按键12s长按复位失效）<br/>1：禁止PWRKY按键关机功能（此时PWRKY按键12s长按复位使能）</td>
-</tr>
-<tr>
-<td>5</td>
-<td>PWRCTRL_SDTO_TIME</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>关机和睡眠时序等待PWRCTRL超时档位选择<br/>0：128 ms<br/>1：1 s</td>
-</tr>
-<tr>
-<td>4</td>
-<td>PWRCTRL_WAIT_EN</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>关机和睡眠时序等待是否等待PWRCTRL<br/>0：不等待<br/>1：等待</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>2</td>
-<td>SW_SD</td>
-<td>RW</td>
-<td>0x0</td>
-<td>软件关机<br/>0：无操作<br/>1：触发软件关机（软件触发，硬件清零）</td>
-</tr>
-<tr>
-<td>1</td>
-<td>SW_RST</td>
-<td>RW</td>
-<td>0x0</td>
-<td>软件复位<br/>0：无操作<br/>1：触发软件复位（软件触发，硬件清零）</td>
-</tr>
-<tr>
-<td>0</td>
-<td>SW_SLP_WKUP</td>
-<td>RW</td>
-<td>0x0</td>
-<td>软件睡眠/唤醒<br/>开机模式下：<br/>0：无操作<br/>1：触发软件睡眠（软件触发，硬件清零）<br/>关机模式下：<br/>0：触发软件唤醒（软件触发，硬件清零）<br/>1：无操作</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-89 PWR_STS0
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=6 colspan=1>0x7F</td>
-<td>7:5</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>4</td>
-<td>FLAG_PWRCTRL_WKUP</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>开机源指示位（软件写1清零）<br/>0：非PWRCTRL全绑定开机唤醒<br/>1：PWRCTRL全绑定开机唤醒</td>
-</tr>
-<tr>
-<td>3</td>
-<td>FLAG_PWRKY_WKUP</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>开机源指示位（软件写1清零）<br/>0：非PWRKY长按唤醒<br/>1：PWRKY长按开机唤醒</td>
-</tr>
-<tr>
-<td>2</td>
-<td>FLAG_VSYS_WKUP</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>开机源指示位（软件写1清零）<br/>0：非VSYS超阈值唤醒<br/>1：VSYS超阈值开机唤醒</td>
-</tr>
-<tr>
-<td>1</td>
-<td>FLAG_INT_WKUP</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>开机源指示位（软件写1清零）<br/>0：非INT引脚唤醒<br/>1：INT引脚开机唤醒</td>
-</tr>
-<tr>
-<td>0</td>
-<td>FLAG_RTC_WKUP</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>开机源指示位（软件写1清零）<br/>0：非RTC唤醒<br/>1：RTC开机唤醒</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-90 PWR_STS1
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=7 colspan=1>0x80</td>
-<td>7:6</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>5</td>
-<td>WORK_STS</td>
-<td>R</td>
-<td>0x0</td>
-<td>工作模式状态指示位<br/>0：开机模式<br/>1：关机模式</td>
-</tr>
-<tr>
-<td>4</td>
-<td>FLAG_PWRCTRL_SHUT</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>关机源指示位（软件写1清零）<br/>0：非PWRCTRL无效关机<br/>1：PWRCTRL无效关机</td>
-</tr>
-<tr>
-<td>3</td>
-<td>FLAG_PWRKY_SHUT</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>关机源指示位（软件写1清零）<br/>0：非PWRKY长按关机 <br/>1：PWRKY长按关机</td>
-</tr>
-<tr>
-<td>2</td>
-<td>FLAG_VSYS_SHUT</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>关机源指示位（软件写1清零）<br/>0：非VSYS低阈值<br/>1：VSYS低阈值关机</td>
-</tr>
-<tr>
-<td>1</td>
-<td>FLAG_ERR_SHUT</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>关机源指示位（软件写1清零）<br/>0：非异常关机 <br/>1：异常关机<br/>异常事件包括：VSYS过压，芯片过温，所有buck的过压/欠压/短路，所有LDO的过压/欠压/短路。</td>
-</tr>
-<tr>
-<td>0</td>
-<td>FLAG_SW_SHUT</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>关机源指示位（软件写1清零）<br/>0：非软件挂机 <br/>1：软件关机</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-91 PWR_KEY_TIME
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=4 colspan=1>0x81</td>
-<td>7:6</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>5:4</td>
-<td>PWRKY_INT_TIME</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>PWRKY按键短按中断时间<br/>00： 0.5 s<br/>01： 1 s<br/>10： 1.5 s<br/>11： 2 s</td>
-</tr>
-<tr>
-<td>3:2</td>
-<td>PWRKY_SD_TIME</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>PWRKY按键关机时间<br/>00： 4 s<br/>01： 6 s<br/>10： 8 s<br/>11： 10 s</td>
-</tr>
-<tr>
-<td>1:0</td>
-<td>PWRKY_STA_TIME</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>PWRKY按键开机时间<br/>00： 0.5 s<br/>01： 1 s<br/>10： 2 s<br/>11： 3 s</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-92 PWR_SEQ_TIME
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=4 colspan=1>0x82</td>
-<td>7:6</td>
-<td>PDN_SEQ_PG_DLY</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>PGOOD下拉到各路电源轨开始掉电的时间间隔<br/>00：4 ms<br/>01：16 ms<br/>10：64 ms<br/>11：128 ms</td>
-</tr>
-<tr>
-<td>5:4</td>
-<td>PUP_SEQ_PG_DLY</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>所有电源轨启动完成后与PGOOD信号释放的间隔时间<br/>00：4 ms<br/>01：16 ms<br/>10：64 ms<br/>11：128 ms</td>
-</tr>
-<tr>
-<td>3:2</td>
-<td>PDN_SEQ_SLOT_TIME</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>各路电源轨掉电间隔时间<br/>00：1 ms<br/>01：4 ms<br/>10：8 ms<br/>11：16 ms</td>
-</tr>
-<tr>
-<td>1:0</td>
-<td>PUP_SEQ_SLOT_TIME</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>各路电源轨上电间隔时间<br/>00：1 ms<br/>01：4 ms<br/>10：8 ms<br/>11：16 ms</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-93 PWR_SLOT0
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>0x83</td>
-<td>7:4</td>
-<td>BUCK2_SLOT</td>
-<td>RE</td>
-<td>0x0</td>
-<td>BUCK2上电掉电时序槽<br/>0000： 第1个时序槽<br/>0001： 第2个时序槽<br/>. . .<br/>1101： 第14个时序槽<br/>1110： 第15个时序槽<br/>1111： 不参与上下电流程</td>
-</tr>
-<tr>
-<td>3:0</td>
-<td>BUCK1_SLOT</td>
-<td>RE</td>
-<td>0x0</td>
-<td>BUCK1上电掉电时序槽<br/>0000： 第1个时序槽<br/>0001： 第2个时序槽<br/>. . .<br/>1101： 第14个时序槽<br/>1110： 第15个时序槽<br/>1111： 不参与上下电流程</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-94 PWR_SLOT1
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>0x84</td>
-<td>7:4</td>
-<td>BUCK4_SLOT</td>
-<td>RE</td>
-<td>0x0</td>
-<td>BUCK4上电掉电时序槽<br/>0000： 第1个时序槽<br/>0001： 第2个时序槽<br/>. . .<br/>1101： 第14个时序槽<br/>1110： 第15个时序槽<br/>1111： 不参与上下电流程</td>
-</tr>
-<tr>
-<td>3:0</td>
-<td>BUCK3_SLOT</td>
-<td>RE</td>
-<td>0x0</td>
-<td>BUCK3上电掉电时序槽<br/>0000： 第1个时序槽<br/>0001： 第2个时序槽<br/>. . .<br/>1101： 第14个时序槽<br/>1110： 第15个时序槽<br/>1111： 不参与上下电流程</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-95 PWR_SLOT2
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>0x85</td>
-<td>7:4</td>
-<td>BUCK6_SLOT<br/></td>
-<td>RE</td>
-<td>0x0</td>
-<td>BUCK6上电掉电时序槽<br/>0000： 第1个时序槽<br/>0001： 第2个时序槽<br/>. . .<br/>1101： 第14个时序槽<br/>1110： 第15个时序槽<br/>1111： 不参与上下电流程</td>
-</tr>
-<tr>
-<td>3:0</td>
-<td>BUCK5_SLOT</td>
-<td>RE</td>
-<td>0x0</td>
-<td>BUCK5上电掉电时序槽<br/>0000： 第1个时序槽<br/>0001： 第2个时序槽<br/>. . .<br/>1101： 第14个时序槽<br/>1110： 第15个时序槽<br/>1111： 不参与上下电流程</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-96 PWR_SLOT3
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>0x86</td>
-<td>7:4</td>
-<td>ALDO2_SLOT</td>
-<td>RE</td>
-<td>0x0</td>
-<td>ALDO2上电掉电时序槽<br/>0000： 第1个时序槽<br/>0001： 第2个时序槽<br/>. . .<br/>1101： 第14个时序槽<br/>1110： 第15个时序槽<br/>1111： 不参与上下电流程</td>
-</tr>
-<tr>
-<td>3:0</td>
-<td>ALDO1_SLOT</td>
-<td>RE</td>
-<td>0x0</td>
-<td>ALDO1上电掉电时序槽<br/>0000： 第1个时序槽<br/>0001： 第2个时序槽<br/>. . .<br/>1101： 第14个时序槽<br/>1110： 第15个时序槽<br/>1111： 不参与上下电流程</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-97 PWR_SLOT4
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>0x87</td>
-<td>7:4</td>
-<td>ALDO4_SLOT</td>
-<td>RE</td>
-<td>0x0</td>
-<td>ALDO4上电掉电时序槽<br/>0000： 第1个时序槽<br/>0001： 第2个时序槽<br/>. . .<br/>1101： 第14个时序槽<br/>1110： 第15个时序槽<br/>1111： 不参与上下电流程</td>
-</tr>
-<tr>
-<td>3:0</td>
-<td>ALDO3_SLOT</td>
-<td>RE</td>
-<td>0x0</td>
-<td>ALDO3上电掉电时序槽<br/>0000： 第1个时序槽<br/>0001： 第2个时序槽<br/>. . .<br/>1101： 第14个时序槽<br/>1110： 第15个时序槽<br/>1111： 不参与上下电流程</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-98 PWR_SLOT5
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>0x88</td>
-<td>7:4</td>
-<td>DLDO2_SLOT</td>
-<td>RE</td>
-<td>0x0</td>
-<td>DLDO2上电掉电时序槽<br/>0000： 第1个时序槽<br/>0001： 第2个时序槽<br/>. . .<br/>1101： 第14个时序槽<br/>1110： 第15个时序槽<br/>1111： 不参与上下电流程</td>
-</tr>
-<tr>
-<td>3:0</td>
-<td>DLDO1_SLOT</td>
-<td>RE</td>
-<td>0x0</td>
-<td>DLDO1上电掉电时序槽<br/>0000： 第1个时序槽<br/>0001： 第2个时序槽<br/>. . .<br/>1101： 第14个时序槽<br/>1110： 第15个时序槽<br/>1111： 不参与上下电流程</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-99 PWR_SLOT6
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>0x89</td>
-<td>7:4</td>
-<td>DLDO4_SLOT</td>
-<td>RE</td>
-<td>0x0</td>
-<td>DLDO4上电掉电时序槽<br/>0000： 第1个时序槽<br/>0001： 第2个时序槽<br/>. . .<br/>1101： 第14个时序槽<br/>1110： 第15个时序槽<br/>1111： 不参与上下电流程</td>
-</tr>
-<tr>
-<td>3:0</td>
-<td>DLDO3_SLOT</td>
-<td>RE</td>
-<td>0x0</td>
-<td>DLDO3上电掉电时序槽<br/>0000： 第1个时序槽<br/>0001： 第2个时序槽<br/>. . .<br/>1101： 第14个时序槽<br/>1110： 第15个时序槽<br/>1111： 不参与上下电流程</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-100 PWR_SLOT7
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>0x8A</td>
-<td>7:4<br/></td>
-<td>DLDO6_SLOT<br/></td>
-<td>RE</td>
-<td>0x0</td>
-<td>DLDO6上电掉电时序槽<br/>0000： 第1个时序槽<br/>0001： 第2个时序槽<br/>. . .<br/>1101： 第14个时序槽<br/>1110： 第15个时序槽<br/>1111： 不参与上下电流程</td>
-</tr>
-<tr>
-<td>3:0</td>
-<td>DLDO5_SLOT<br/></td>
-<td>RE</td>
-<td>0x0</td>
-<td>DLDO5上电掉电时序槽<br/>0000： 第1个时序槽<br/>0001： 第2个时序槽<br/>. . .<br/>1101： 第14个时序槽<br/>1110： 第15个时序槽<br/>1111： 不参与上下电流程</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-101 PWR_SLOT8
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>0x8B</td>
-<td>7:4</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>3:0</td>
-<td>DLDO7_SLOT</td>
-<td>RE</td>
-<td>0x0</td>
-<td>DLDO7上电掉电时序槽<br/>0000： 第1个时序槽<br/>0001： 第2个时序槽<br/>. . .<br/>1101： 第14个时序槽<br/>1110： 第15个时序槽<br/>1111： 不参与上下电流程</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-102 PWR_SLOT9
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>0x8C</td>
-<td>7:4</td>
-<td>EXT1_EN_SLOT</td>
-<td>RE</td>
-<td>0x0</td>
-<td>EXT1上电掉电时序槽<br/>0000： 第1个时序槽<br/>0001： 第2个时序槽<br/>. . .<br/>1101： 第14个时序槽<br/>1110： 第15个时序槽<br/>1111： 不参与上下电流程</td>
-</tr>
-<tr>
-<td>3:0</td>
-<td>EXT0_EN_SLOT</td>
-<td>RE</td>
-<td>0x0</td>
-<td>EXT0上电掉电时序槽<br/>0000： 第1个时序槽<br/>0001： 第2个时序槽<br/>. . .<br/>1101： 第14个时序槽<br/>1110： 第15个时序槽<br/>1111： 不参与上下电流程</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-103 PWR_SLOT10
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>0x8D</td>
-<td>7:4</td>
-<td>EXT3_EN_SLOT</td>
-<td>RE</td>
-<td>0x0</td>
-<td>EXT3上电掉电时序槽<br/>0000： 第1个时序槽<br/>0001： 第2个时序槽<br/>. . .<br/>1101： 第14个时序槽<br/>1110： 第15个时序槽<br/>1111： 不参与上下电流程</td>
-</tr>
-<tr>
-<td>3:0</td>
-<td>EXT2_EN_SLOT</td>
-<td>RE</td>
-<td>0x0</td>
-<td>EXT2上电掉电时序槽<br/>0000： 第1个时序槽<br/>0001： 第2个时序槽<br/>. . .<br/>1101： 第14个时序槽<br/>1110： 第15个时序槽<br/>1111： 不参与上下电流程</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-104 PWR_SLOT11
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>0x8E</td>
-<td>7:4</td>
-<td>EXT5_EN_SLOT<br/></td>
-<td>RE</td>
-<td>0x0</td>
-<td>EXT5上电掉电时序槽<br/>0000： 第1个时序槽<br/>0001： 第2个时序槽<br/>. . .<br/>1101： 第14个时序槽<br/>1110： 第15个时序槽<br/>1111： 不参与上下电流程</td>
-</tr>
-<tr>
-<td>3:0</td>
-<td>EXT4_EN_SLOT</td>
-<td>RE</td>
-<td>0x0</td>
-<td>EXT4上电掉电时序槽<br/>0000： 第1个时序槽<br/>0001： 第2个时序槽<br/>. . .<br/>1101： 第14个时序槽<br/>1110： 第15个时序槽<br/>1111： 不参与上下电流程</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-105 PWR_EXT_EN
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=7 colspan=1>0x8F</td>
-<td>7:6</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>5</td>
-<td>EXT5_EN</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>EXT_EN5软件使能位<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>4</td>
-<td>EXT4_EN</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>EXT_EN4软件使能位<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>3</td>
-<td>EXT3_EN</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>EXT_EN3软件使能位<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>2</td>
-<td>EXT2_EN</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>EXT_EN2软件使能位<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>1</td>
-<td>EXT1_EN</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>EXT_EN1软件使能位<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>0</td>
-<td>EXT0_EN</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>EXT_EN0软件使能位<br/>0：禁止<br/>1：使能</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-106 PWR_EXT_CTRL
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=7 colspan=1>0x90</td>
-<td>7:6</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>5</td>
-<td>EXT5_SLP_SD</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>EXT_EN5是否在睡眠模式和睡眠流程关闭<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>4</td>
-<td>EXT4_SLP_SD</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>EXT_EN4是否在睡眠模式和睡眠流程关闭<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>3</td>
-<td>EXT3_SLP_SD</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>EXT_EN3是否在睡眠模式和睡眠流程关闭<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>2</td>
-<td>EXT2_SLP_SD</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>EXT_EN2是否在睡眠模式和睡眠流程关闭<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>1</td>
-<td>EXT1_SLP_SD</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>EXT_EN1是否在睡眠模式和睡眠流程关闭<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>0</td>
-<td>EXT0_SLP_SD</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>EXT_EN0是否在睡眠模式和睡眠流程关闭<br/>0：禁止<br/>1：使能</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-107 EVENT0
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=7 colspan=1>0x91</td>
-<td>7:6</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>5</td>
-<td>E_GPI5</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>根据有效电平设置，产生GPI5输入有效事件或ADCIN5超/低阈值事件<br/>0：无事件发生<br/>1：有事件发生（软件写1清零）</td>
-</tr>
-<tr>
-<td>4</td>
-<td>E_GPI4</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>根据有效电平设置，产生GPI4输入有效事件或ADCIN4超/低阈值事件<br/>0：无事件发生<br/>1：有事件发生（软件写1清零）</td>
-</tr>
-<tr>
-<td>3</td>
-<td>E_GPI3</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>根据有效电平设置，产生GPI3输入有效事件或ADCIN3超/低阈值事件<br/>0：无事件发生<br/>1：有事件发生（软件写1清零）</td>
-</tr>
-<tr>
-<td>2</td>
-<td>E_GPI2</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>根据有效电平设置，产生GPI2输入有效事件或ADCIN2超/低阈值事件<br/>0：无事件发生<br/>1：有事件发生（软件写1清零）</td>
-</tr>
-<tr>
-<td>1</td>
-<td>E_GPI1</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>根据有效电平设置，产生GPI1输入有效事件或ADCIN1超/低阈值事件<br/>0：无事件发生<br/>1：有事件发生（软件写1清零）</td>
-</tr>
-<tr>
-<td>0</td>
-<td>E_GPI0</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>根据有效电平设置，产生GPI0输入有效事件或ADCIN0超/低阈值事件<br/>0：无事件发生<br/>1：有事件发生（软件写1清零）</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-108 EVENT1
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=7 colspan=1>0x92<br/></td>
-<td>7:6</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>5</td>
-<td>E_TICK</td>
-<td>R，IO<br/></td>
-<td>0x0</td>
-<td>RTC TICK事件<br/>0：RTC闹钟未达设定值<br/>1：RTC闹钟已达设定值，并按照设定周期触发该事件<br/>软件写1清零，但下一周期tick事件仍会置起该bit，关闭周期tick事件需清零TICK_EN。</td>
-</tr>
-<tr>
-<td>4</td>
-<td>E_ALARM</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>RTC闹钟事件<br/>0：RTC闹钟未达设定值<br/>1：RTC闹钟已达设定值（软件写1清零）</td>
-</tr>
-<tr>
-<td>3</td>
-<td>E_WDT_TO</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>看门狗超时事件<br/>0：看门狗未超时<br/>1：看门狗超时（软件写1清零）</td>
-</tr>
-<tr>
-<td>2</td>
-<td>E_ADC_EOS</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>ADC自动模式序列转换完成事件<br/>0：未完成一次序列转换<br/>1：已完成一次序列转换（软件写1清零）</td>
-</tr>
-<tr>
-<td>1</td>
-<td>E_ADC_EOC</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>ADC转换完成事件<br/>0：未转换完成<br/>1：已转换完成一次（软件写1清零）</td>
-</tr>
-<tr>
-<td>0</td>
-<td>E_ADC_TEMP</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>ADC通道1（Junction结温）超/低阈值事件<br/>0：无过温事件发生<br/>1：ADC通道1超/低阈值事件（软件写1清零）</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-109 EVENT2
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=8 colspan=1>0x93</td>
-<td>7</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>6</td>
-<td>E_TEMP_CRIT</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>芯片触发关机过温报警事件<br/>0：未发生关机过温报警<br/>1：已发生关机过温报警（软件写1清零）</td>
-</tr>
-<tr>
-<td>5</td>
-<td>E_TEMP_SEVERE</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>芯片严重过温报警事件<br/>0：未发生严重过温报警<br/>1：已发生严重过温报警（软件写1清零）</td>
-</tr>
-<tr>
-<td>4</td>
-<td>E_TEMP_WARN</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>芯片过温报警事件<br/>0：未发生过温报警<br/>1：已发生过温报警（软件写1清零）</td>
-</tr>
-<tr>
-<td>3</td>
-<td>E_SW_SC</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>SWITCH短路事件<br/>0：未发生短路/开路<br/>1：SWITCH发生了短路（软件写1清零）</td>
-</tr>
-<tr>
-<td>2</td>
-<td>E_LDO_SC</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>LDO短路/开路事件<br/>0：未发生短路/开路<br/>1：任意一个LDO发生了短路/开路（软件写1清零）</td>
-</tr>
-<tr>
-<td>1</td>
-<td>E_LDO_UV</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>LDO欠压事件<br/>0：未发生欠压<br/>1：任意一个LDO发生了欠压（软件写1清零）</td>
-</tr>
-<tr>
-<td>0</td>
-<td>E_LDO_OV</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>LDO过压事件<br/>0：未发生过压<br/>1：任意一个LDO发生了过压（软件写1清零）</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-110 BUCK_EVNET0
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=7 colspan=1>0x94</td>
-<td>7:6</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>5</td>
-<td>E_BUCK6_OV</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>BUCK6过压事件<br/>0：BUCK6未发生过压<br/>1：BUCK6发生过压</td>
-</tr>
-<tr>
-<td>4</td>
-<td>E_BUCK5_OV</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>BUCK5过压事件<br/>0：BUCK5未发生过压<br/>1：BUCK5发生过压</td>
-</tr>
-<tr>
-<td>3</td>
-<td>E_BUCK4_OV</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>BUCK4过压事件<br/>0：BUCK4未发生过压<br/>1：BUCK4发生过压</td>
-</tr>
-<tr>
-<td>2</td>
-<td>E_BUCK3_OV</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>BUCK3过压事件<br/>0：BUCK3未发生过压<br/>1：BUCK3发生过压</td>
-</tr>
-<tr>
-<td>1</td>
-<td>E_BUCK2_OV</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>BUCK2过压事件<br/>0：BUCK2未发生过压<br/>1：BUCK2发生过压</td>
-</tr>
-<tr>
-<td>0</td>
-<td>E_BUCK1_OV</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>BUCK1过压事件<br/>0：BUCK1未发生过压<br/>1：BUCK1发生过压</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-111 BUCK_EVNET1
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=7 colspan=1>0x95</td>
-<td>7:6</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>5</td>
-<td>E_BUCK6_UV<br/></td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>BUCK6欠压事件<br/>0：BUCK6未发生欠压<br/>1：BUCK6发生欠压</td>
-</tr>
-<tr>
-<td>4</td>
-<td>E_BUCK5_UV</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>BUCK5欠压事件<br/>0：BUCK5未发生欠压<br/>1：BUCK5发生欠压</td>
-</tr>
-<tr>
-<td>3</td>
-<td>E_BUCK4_UV</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>BUCK4欠压事件<br/>0：BUCK4未发生欠压<br/>1：BUCK4发生欠压</td>
-</tr>
-<tr>
-<td>2</td>
-<td>E_BUCK3_UV</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>BUCK3欠压事件<br/>0：BUCK3未发生欠压<br/>1：BUCK3发生欠压</td>
-</tr>
-<tr>
-<td>1</td>
-<td>E_BUCK2_UV</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>BUCK2欠压事件<br/>0：BUCK2未发生欠压<br/>1：BUCK2发生欠压</td>
-</tr>
-<tr>
-<td>0</td>
-<td>E_BUCK1_UV</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>BUCK1欠压事件<br/>0：BUCK1未发生欠压<br/>1：BUCK1发生欠压</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-112 BUCK_EVNET2
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=7 colspan=1>0x96</td>
-<td>7:6</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>5</td>
-<td>E_BUCK6_SC</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>BUCK6短路/开路事件<br/>0：BUCK6未发生短路/开路<br/>1：BUCK6发生短路/开路</td>
-</tr>
-<tr>
-<td>4</td>
-<td>E_BUCK5_SC</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>BUCK5短路/开路事件<br/>0：BUCK5未发生短路/开路<br/>1：BUCK5发生短路/开路</td>
-</tr>
-<tr>
-<td>3</td>
-<td>E_BUCK4_SC</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>BUCK4短路/开路事件<br/>0：BUCK4未发生短路/开路<br/>1：BUCK4发生短路/开路</td>
-</tr>
-<tr>
-<td>2</td>
-<td>E_BUCK3_SC</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>BUCK3短路/开路事件<br/>0：BUCK3未发生短路/开路<br/>1：BUCK3发生短路/开路</td>
-</tr>
-<tr>
-<td>1</td>
-<td>E_BUCK2_SC</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>BUCK2短路/开路事件<br/>0：BUCK2未发生短路/开路<br/>1：BUCK2发生短路/开路</td>
-</tr>
-<tr>
-<td>0</td>
-<td>E_BUCK1_SC</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>BUCK1短路/开路事件<br/>0：BUCK1未发生短路/开路<br/>1：BUCK1发生短路/开路</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-113 PWRKY_EVNET
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=7 colspan=1>0x97</td>
-<td>7:6</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>5</td>
-<td>E_VSYS_OV</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>VSYS过压事件<br/>0：VSYS未过压<br/>1：VSYS过压（VSYS &gt; 5.9 V）</td>
-</tr>
-<tr>
-<td>4</td>
-<td>E_PWRKY_SDINTR</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>PRWKY关机事件<br/>0：按键未检测到关机事件<br/>1：按键检测到关机事件</td>
-</tr>
-<tr>
-<td>3</td>
-<td>E_PWRKY_LINTR</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>PRWKY按键长按事件<br/>0：按键未检测到长按<br/>1：按键检测到长按</td>
-</tr>
-<tr>
-<td>2</td>
-<td>E_PWRKY_SINTR</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>PRWKY按键短按事件<br/>0：按键未检测到短按<br/>1：按键检测到短按</td>
-</tr>
-<tr>
-<td>1</td>
-<td>E_PWRKY_FINTR</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>PRWKY按键下降沿事件<br/>0：按键未检测到下降沿<br/>1：按键检测到下降沿</td>
-</tr>
-<tr>
-<td>0</td>
-<td>E_PWRKY_RINTR</td>
-<td>R，IO</td>
-<td>0x0</td>
-<td>PRWKY按键上升沿事件<br/>0：按键未检测到上升沿<br/>1：按键检测到上升沿</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-114 IRQ_EN0
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=7 colspan=1>0x98</td>
-<td>7:6</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>5</td>
-<td>IRQ_EN_GPI5</td>
-<td>RW</td>
-<td>0x0</td>
-<td>E_GPI5事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>4</td>
-<td>IRQ_EN_GPI4</td>
-<td>RW</td>
-<td>0x0</td>
-<td>E_GPI4事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>3</td>
-<td>IRQ_EN_GPI3</td>
-<td>RW</td>
-<td>0x0</td>
-<td>E_GPI3事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>2</td>
-<td>IRQ_EN_GPI2</td>
-<td>RW</td>
-<td>0x0</td>
-<td>E_GPI2事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>1</td>
-<td>IRQ_EN_GPI1</td>
-<td>RW</td>
-<td>0x0</td>
-<td>E_GPI1事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>0</td>
-<td>IRQ_EN_GPI0</td>
-<td>RW</td>
-<td>0x0</td>
-<td>E_GPI0事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-115 IRQ_EN1
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=7 colspan=1>0x99</td>
-<td>7:6</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>5</td>
-<td>IRQ_EN_TICK</td>
-<td>RW</td>
-<td>0x0</td>
-<td>E_TICK事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>4</td>
-<td>IRQ_EN_ALARM</td>
-<td>RW</td>
-<td>0x0</td>
-<td>E_ALARM事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>3</td>
-<td>IRQ_EN_WDT_TO</td>
-<td>RW</td>
-<td>0x0</td>
-<td>E_WDT_TO事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>2</td>
-<td>IRQ_EN_ADC_EOS</td>
-<td>RW</td>
-<td>0x0</td>
-<td>E_ADC_EOS事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>1</td>
-<td>IRQ_EN_ADC_EOC</td>
-<td>RW</td>
-<td>0x0</td>
-<td>E_ADC_EOC事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>0</td>
-<td>IRQ_EN_ADC_TEMP</td>
-<td>RW</td>
-<td>0x0</td>
-<td>E_ADC_TEMP事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-116 IRQ_EN2
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=8 colspan=1>0x9A</td>
-<td>7</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>6</td>
-<td>IRQ_EN_TEMP_CRIT<br/></td>
-<td>RW</td>
-<td>0x0</td>
-<td>E_TEMP_CRIT事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>5</td>
-<td>IRQ_EN_TEMP_SEVERE</td>
-<td>RW</td>
-<td>0x0</td>
-<td>E_TEMP_SEVERE事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>4</td>
-<td>IRQ_EN_TEMP_WARN</td>
-<td>RW</td>
-<td>0x0</td>
-<td>E_TEMP_WARN事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>3</td>
-<td>IRQ_EN_SW_SC</td>
-<td>RW</td>
-<td>0x0</td>
-<td>E_SW_SC事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>2</td>
-<td>IRQ_EN_LDO_SC</td>
-<td>RW</td>
-<td>0x0</td>
-<td>E_LDO_SC事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>1</td>
-<td>IRQ_EN_LDO_UV</td>
-<td>RW</td>
-<td>0x0</td>
-<td>E_LDO_UV事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>0</td>
-<td>IRQ_EN_LDO_OV</td>
-<td>RW</td>
-<td>0x0</td>
-<td>E_LDO_OV事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-117 IRQ_BUCK_EN0
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=7 colspan=1>0x9B</td>
-<td>7:6</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>5</td>
-<td>IRQ_EN_BUCK6_OV</td>
-<td>RW</td>
-<td>0x0</td>
-<td>E_BUCK6_OV事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>4</td>
-<td>IRQ_EN_BUCK5_OV</td>
-<td>RW</td>
-<td>0x0<br/></td>
-<td>E_BUCK5_OV事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>3</td>
-<td>IRQ_EN_BUCK4_OV</td>
-<td>RW</td>
-<td>0x0</td>
-<td>E_BUCK4_OV事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>2</td>
-<td>IRQ_EN_BUCK3_OV</td>
-<td>RW</td>
-<td>0x0</td>
-<td>E_BUCK3_OV事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>1</td>
-<td>IRQ_EN_BUCK2_OV</td>
-<td>RW</td>
-<td>0x0</td>
-<td>E_BUCK2_OV事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>0</td>
-<td>IRQ_EN_BUCK1_OV</td>
-<td>RW</td>
-<td>0x0</td>
-<td>E_BUCK1_OV事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-118 IRQ_BUCK_EN1
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=7 colspan=1>0x9C</td>
-<td>7:6</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>5</td>
-<td>IRQ_EN_BUCK6_UV</td>
-<td>RW</td>
-<td>0x0</td>
-<td>E_BUCK6_UV事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>4</td>
-<td>IRQ_EN_BUCK5_UV</td>
-<td>RW</td>
-<td>0x0<br/></td>
-<td>E_BUCK5_UV事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>3</td>
-<td>IRQ_EN_BUCK4_UV</td>
-<td>RW</td>
-<td>0x0</td>
-<td>E_BUCK4_UV事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>2</td>
-<td>IRQ_EN_BUCK3_UV</td>
-<td>RW</td>
-<td>0x0</td>
-<td>E_BUCK3_UV事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>1</td>
-<td>IRQ_EN_BUCK2_UV</td>
-<td>RW</td>
-<td>0x0</td>
-<td>E_BUCK2_UV事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>0</td>
-<td>IRQ_EN_BUCK1_UV</td>
-<td>RW</td>
-<td>0x0</td>
-<td>E_BUCK1_UV事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-119 IRQ_BUCK_EN1
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=7 colspan=1>0x9D</td>
-<td>7:6</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>5</td>
-<td>IRQ_EN_BUCK6_SC</td>
-<td>RW</td>
-<td>0x0</td>
-<td>E_BUCK6_SC事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>4</td>
-<td>IRQ_EN_BUCK5_SC</td>
-<td>RW</td>
-<td>0x0</td>
-<td>E_BUCK5_SC事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>3</td>
-<td>IRQ_EN_BUCK4_SC</td>
-<td>RW</td>
-<td>0x0</td>
-<td>E_BUCK4_SC事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>2</td>
-<td>IRQ_EN_BUCK3_SC</td>
-<td>RW</td>
-<td>0x0</td>
-<td>E_BUCK3_SC事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>1</td>
-<td>IRQ_EN_BUCK2_SC</td>
-<td>RW</td>
-<td>0x0</td>
-<td>E_BUCK2_SC事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>0</td>
-<td>IRQ_EN_BUCK1_SC</td>
-<td>RW</td>
-<td>0x0</td>
-<td>E_BUCK1_SC事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-120 IRQ_PWRKY_EN
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=8 colspan=1>0x9E</td>
-<td>7</td>
-<td>VSYS_OVP_EN</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>VSYS过压（5.9V）关机保护使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>6</td>
-<td>TEMP_CRIT_PROT</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>过温（135℃/150℃）关机保护使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>5</td>
-<td>IRQ_EN_VSYS_OV</td>
-<td>RW</td>
-<td>0x0</td>
-<td>VSYS过压事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>4</td>
-<td>IRQ_EN_PWRKY_SDINTR</td>
-<td>RW</td>
-<td>0x0</td>
-<td>E_PWRKY_SDINTR事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>3</td>
-<td>IRQ_EN_PWRKY_LINTR</td>
-<td>RW</td>
-<td>0x0</td>
-<td>E_PWRKY_LINTR事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>2</td>
-<td>IRQ_EN_PWRKY_SINTR</td>
-<td>RW</td>
-<td>0x0</td>
-<td>E_PWRKY_SINTR事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>1</td>
-<td>IRQ_EN_PWRKY_FINTR</td>
-<td>RW</td>
-<td>0x0</td>
-<td>E_PWRKY_FINTR事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>0</td>
-<td>IRQ_EN_PWRKY_RINTR</td>
-<td>RW</td>
-<td>0x0</td>
-<td>E_PWRKY_RINTR事件中断使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-121 PROT_EN
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=8 colspan=1>0x9F</td>
-<td>7</td>
-<td>SW_SCP_DIS<br/></td>
-<td>RWE<br/></td>
-<td>0x0</td>
-<td>Switch短路保护禁止<br/>0： 使能<br/>1： 禁止</td>
-</tr>
-<tr>
-<td>6</td>
-<td>TEMP_SEVERE_PROT</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>严重过温保护功能（进行关机保护）<br/>0： 禁止严重过温保护<br/>1： 使能严重过温保护</td>
-</tr>
-<tr>
-<td>5</td>
-<td>BUCK_SCP_EN</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>任一BUCK短路/开路保护（进行关机保护）<br/>0： 禁止保护<br/>1： 使能保护</td>
-</tr>
-<tr>
-<td>4</td>
-<td>BUCK_UVP_EN</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>任一BUCK输出欠压保护（进行关机保护）<br/>0： 禁止保护<br/>1： 使能保护</td>
-</tr>
-<tr>
-<td>3</td>
-<td>BUCK_OVP_EN</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>任一BUCK输出过压保护（进行关机保护）<br/>0： 禁止保护<br/>1： 使能保护</td>
-</tr>
-<tr>
-<td>2</td>
-<td>LDO_SCP_EN</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>任一LDO输出短路/开路保护（进行关机保护）<br/>0： 禁止保护<br/>1： 使能保护</td>
-</tr>
-<tr>
-<td>1</td>
-<td>LDO_UVP_EN</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>任一LDO输出过压保护（进行关机保护）<br/>0： 禁止保护<br/>1： 使能保护</td>
-</tr>
-<tr>
-<td>0</td>
-<td>LDO_OVP_EN</td>
-<td>RWE</td>
-<td>0x0</td>
-<td>任一LDO过流、短路保护（进行关机保护）<br/>0： 禁止保护<br/>1： 使能保护</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-122 DEVICE_ID
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td>0xA0</td>
-<td>7:0</td>
-<td>DEVICE_ID</td>
-<td>RE</td>
-<td>0x00</td>
-<td>设备ID号</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-123 VERSION_ID
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td>0xA1</td>
-<td>7:0</td>
-<td>VERSION_ID</td>
-<td>RE</td>
-<td>0x00</td>
-<td>版本ID号</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-124 CUSTOMER_ID
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td>0xA2</td>
-<td>7:0</td>
-<td>CUSTOMER_ID</td>
-<td>RE</td>
-<td>0x00</td>
-<td>用户ID号</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-125 SYS_CFG0
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>0xA3</td>
-<td>7</td>
-<td>TEMP_LEVEL</td>
-<td>RE</td>
-<td>0x0</td>
-<td>温度档位选择<br/>温度报警（warn） 严重过温（severe）   关机过温（critical）<br/>0：   95 ℃            115 ℃                    135℃<br/>1：  110 ℃            130 ℃                    150℃</td>
-</tr>
-<tr>
-<td>6:0</td>
-<td>IF_ADDR</td>
-<td>RE</td>
-<td>0x55</td>
-<td>IIC从机地址配置</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-126 SYS_CFG1
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=4 colspan=1>0xA4</td>
-<td>7:5</td>
-<td>VSYS_STA_VTH</td>
-<td>RE</td>
-<td>0x0</td>
-<td>开机阈值<br/>000：Vsys&gt;2.9V，启动开机流程<br/>001：Vsys&gt;3.0V，启动开机流程<br/>010：Vsys&gt;3.1V，启动开机流程<br/>011：Vsys&gt;3.2V，启动开机流程<br/>100：Vsys&gt;3.3V，启动开机流程<br/>101：Vsys&gt;3.4V，启动开机流程<br/>110：Vsys&gt;3.5V，启动开机流程<br/>111：Vsys&gt;3.6V，启动开机流程</td>
-</tr>
-<tr>
-<td>4:2</td>
-<td>VSYS_SHUT_VTH</td>
-<td>RE</td>
-<td>0x0</td>
-<td>关机阈值<br/>000：Vsys&lt;2.6V，启动关机流程<br/>001：Vsys&lt;2.7V，启动关机流程<br/>010：Vsys&lt;2.8V，启动关机流程<br/>011：Vsys&lt;2.9V，启动关机流程<br/>100：Vsys&lt;3.0V，启动关机流程<br/>101：Vsys&lt;3.1V，启动关机流程<br/>110：Vsys&lt;3.2V，启动关机流程<br/>111：Vsys&lt;3.3V，启动关机流程</td>
-</tr>
-<tr>
-<td>1</td>
-<td>KEY_RST_EN</td>
-<td>RE</td>
-<td>0x0</td>
-<td>关机模式下长按PWRKY按键触发开机后，继续长按是否触发复位<br/>0：不触发<br/>1：触发（当PWRKY_SD_DIS=1）</td>
-</tr>
-<tr>
-<td>0</td>
-<td>KEY_SD_EN</td>
-<td>RE</td>
-<td>0x0</td>
-<td>关机模式下长按PWRKY按键触发开机后，继续长按是否触发关机<br/>0：不触发<br/>1：触发（当PWRKY_SD_DIS=0）</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-127 SYS_CFG2
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=5 colspan=1>0xA5</td>
-<td>7</td>
-<td>VSYS_STEP</td>
-<td>RE<br/></td>
-<td>0x0</td>
-<td>热插拔开机阈值提升步幅<br/>0：0.1 V<br/>1：0.2 V</td>
-</tr>
-<tr>
-<td>6</td>
-<td>HOT_SWAP_DIS</td>
-<td>RE</td>
-<td>0x0</td>
-<td>热插拔抬高开机阈值控制<br/>0：使能<br/>1：禁止<br/>禁止后，当发生热插拔后，开机阈值不会提高</td>
-</tr>
-<tr>
-<td>5</td>
-<td>EVENT_DELAY</td>
-<td>RE</td>
-<td>0x0</td>
-<td>过温，vsys过压，buck和ldo短路事件滤波<br/>0：100 us<br/>1：disable</td>
-</tr>
-<tr>
-<td>4:3</td>
-<td>OVUV_DELAY</td>
-<td>RE</td>
-<td>0x0</td>
-<td>异常事件（buck和ldo的uv，ov）滤波时间<br/>00：100 us<br/>01：375 us<br/>10：750 us<br/>11: disable this function</td>
-</tr>
-<tr>
-<td>2:0</td>
-<td>OVUV_MASK_DELAY</td>
-<td>RE</td>
-<td>0x0</td>
-<td>BUCK和LDO的过压欠压事件屏蔽时间<br/>000：125 us<br/>001：250 us<br/>010：1 ms<br/>011：8 ms<br/>100：64 ms<br/>101：256 ms<br/>110：512 ms<br/>111: disable this function<br/>BUCK和LDO开启时，或者BUCK和LDO电压发生改变时，在UVOV_MASK_DELAY的时间内，将屏蔽BUCK和LDO的过压欠压事件</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-128 MTP_KEY
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td>0xA6</td>
-<td>7:0</td>
-<td>MTP_KEY</td>
-<td>RW</td>
-<td>0x00</td>
-<td>MTP寄存器（MTP_ADDR，MTP_DATA，MTP_CFG，MTP_CTRL）解锁。<br/>解锁操作为：向该寄存器写0xAA。<br/>解锁后该寄存器读出为0x1。</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-129 MTP_ADDR
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=2 colspan=1>0xA7</td>
-<td>7</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>6:0</td>
-<td>MTP_ADDR</td>
-<td>RW，P</td>
-<td>0x0</td>
-<td>MTP地址寄存器（读，编程，擦除）</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-130 MTP_DATA
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td>0xA8</td>
-<td>7:0</td>
-<td>MTP_DATA</td>
-<td>RW，P</td>
-<td>0x0</td>
-<td>MTP数据寄存器（读取数据存放在此寄存器，编程前将数据提前准备在此寄存器）</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-131 MTP_CFG
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=5 colspan=1>0xA9</td>
-<td>7:6</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>5:4</td>
-<td>MTP_PG_TIME_SEL</td>
-<td>RW，P</td>
-<td>0x0</td>
-<td>MTP编程时间选择<br/>00：30 us<br/>01：20 us<br/>1x：40 us</td>
-</tr>
-<tr>
-<td>3</td>
-<td>MTP_PDN</td>
-<td>RW，P</td>
-<td>0x0</td>
-<td>MTP低功耗模式选择<br/>0：关闭MTP<br/>1：打开MTP<br/>MTP的读操作，编程和擦除操作都需将此位置1</td>
-</tr>
-<tr>
-<td>2:1</td>
-<td>MTP_TRIM</td>
-<td>RW，P</td>
-<td>0x2</td>
-<td>配置MTP内部的电源模块的输出电压值<br/>01： 用于编程和擦除<br/>10：用于MTP读</td>
-</tr>
-<tr>
-<td>0</td>
-<td>MTP_VRFCG_SEL</td>
-<td>RW，P</td>
-<td>0x1</td>
-<td>配置MTP内部CG电压<br/>0：CG = 0<br/>1：CG = 1.2 V</td>
-</tr>
-</tbody>
-</table>
-
-#### 表 7-132 MTP_CTRL
-
-<table>
-<tbody>
-<tr>
-<td>Addr</td>
-<td>Bits</td>
-<td>Field Name</td>
-<td>Attr</td>
-<td>Default</td>
-<td>Description</td>
-</tr>
-<tr>
-<td rowspan=4 colspan=1>0xAA</td>
-<td>7:3</td>
-<td>Reserved</td>
-<td>RV</td>
-<td>0</td>
-<td>Reserved</td>
-</tr>
-<tr>
-<td>2</td>
-<td>MTP_ER</td>
-<td>RW，P</td>
-<td>0x0</td>
-<td>MTP擦除使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>1</td>
-<td>MTP_PG</td>
-<td>RW，P</td>
-<td>0x0</td>
-<td>MTP编程使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-<tr>
-<td>0</td>
-<td>MTP_RD</td>
-<td>RW，P</td>
-<td>0x0</td>
-<td>MTP读使能<br/>0：禁止<br/>1：使能</td>
-</tr>
-</tbody>
-</table>
-
-## 8. 封装信息
+To read the current internal calendar value, read RTC_COUNT_S first. This operation latches all calendar values into RTC_COUNT_S through RTC_COUNT_Y.
+
+To update the calendar, configure all calendar registers in order (RTC_COUNT_S through RTC_COUNT_Y). After writing RTC_COUNT_Y, the PMIC updates the internal RTC timer with the new user-defined calendar value and starts counting from this point.
+
+#### 6.14.2 RTC Alarm
+
+The RTC module provides alarm registers **Table 7-23** RTC_ALARM_S through **Table 7-28** RTC_ALARM_Y. When the current RTC calendar value matches all RTC_ALARM_S through RTC_ALARM_Y:
+
+1. If **Table 7-33** RTC_CTRL[5]=1, an alarm event (**Table 7-108** EVENT1[4]) is generated. If **Table 7-115** IRQ_EN1[4]=1, an interrupt is also triggered (INT pin pulled low) until the host clears E_ALARM or IRQ_EN_ALARM.
+2. If **Table 7-33** RTC_CTRL[6]=1, a TICK event (**Table 7-108** EVENT1[5]) is generated. If **Table 7-115** IRQ_EN1[5]=1, an interrupt is also triggered (INT pin pulled low) until the host clears E_TICK or IRQ_EN_TICK.
+
+TICK events are periodic and can be configured to trigger every 1 s or 1 min (**Table 7-33** RTC_CTRL[4]). Clearing E_TICK does not stop the periodic trigger; only setting TICK_EN=0 disables the periodic event.
+
+Alarm and TICK events can be masked for specific calendar units to generate events only during selected time periods:
+
+1. MASK_ALARM_Y through MASK_ALARM_S correspond to year, month, day, hour, minute, and second mask bits.
+2. Setting a mask bit to 1 disables matching of the corresponding RTC_ALARM_Y through RTC_ALARM_S unit.
+
+In shutdown mode, RTC alarm and TICK events can serve as power-on sources.
+
+In sleep mode, RTC alarm and TICK events can serve as wake-up sources.
+
+#### 6.14.3 Second Counting
+
+Registers **Table 7-29** RTC_SECOND_A through **Table 7-32** RTC_SECOND_D form a 32-bit second counter. When RTC_EN=1, the counter starts; otherwise, the second counter is cleared.
+
+## 7. Registers
+
+### 7.1 Register Attribute Definitions
+
+The basic attributes of registers are defined in [Table 7-1](#table-7-1-register-base-attributes). Special attribute modifiers for certain registers are defined in [Table 7-2](#table-7-2-register-attribute-modifier).
+
+#### Table 7-1 Register Base Attributes
+
+| Attribute      | Abbreviation | Description                                         |
+|----------------|-------------|-----------------------------------------------------|
+| Read Only      | R           | Bit can be read by software, write has no effect. |
+| Read/Write     | RW          | Bit can be read and written by software.          |
+| Write Only     | W           | Bit can only be written by software.              |
+| Reserved       | RV          | Bit is reserved and cannot be modified by software.|
+
+#### Table 7-2 Register Attribute Modifiers
+
+| Attribute        | Abbreviation | Description                                                                                     |
+|-----------------|-------------|-------------------------------------------------------------------------------------------------|
+| Write 1 Only     | IO          | Bit can only be written with 1 by software; writing 0 has no effect.                           |
+| Protected        | P           | Bit is protected by the unlock register **Table 7-128** MTP_KEY. Without writing the unlock sequence to the register, this bit cannot be modified by software. |
+| MTP Loaded       | E           | Bit can be modified through MTP.                                                               |
+
+### 7.2 Register Map
+
+#### 7.2.1 Register Map Overview
+
+##### Table 7-3 Register Map
+
+| Module              | Table Name | Register Address (hex) | Attribute | Description |
+|---------------------|------------|-------------------------|-----------|-------------|
+| **GPIO** | [Table 7-4](#table-7-4-gpio_idr) | 0x00 | R | GPIO input data register |
+| **GPIO** | [Table 7-5](#table-7-5-gpio_odr) | 0x01 | RW | GPIO output data register; active level configuration |
+| **GPIO** | [Table 7-6](#table-7-6-gpio_pupd0) | 0x02 | RWE | GPIO0–GPIO2 pull-up / pull-down configuration |
+| **GPIO** | [Table 7-7](#table-7-7-gpio_pupd1) | 0x03 | RWE | GPIO3–GPIO5 pull-up / pull-down configuration |
+| **GPIO** | [Table 7-8](#table-7-8-gpio_deb_en) | 0x04 | RW | GPIO debounce enable and debounce time configuration |
+| **GPIO** | [Table 7-9](#table-7-9-gpio_od) | 0x05 | RW | GPIO open-drain configuration |
+| **GPIO** | [Table 7-10](#table-7-10-gpio_itype0) | 0x06 | RWE | GPIO0–GPIO2 interrupt type configuration |
+| **GPIO** | [Table 7-11](#table-7-11-gpio_itype1) | 0x07 | RWE | GPIO3–GPIO5 interrupt type configuration |
+| **GPIO** | [Table 7-12](#table-7-12-gpio_mode0) | 0x08 | RWE | GPIO0–GPIO2 mode configuration |
+| **GPIO** | [Table 7-13](#table-7-13-gpio_mode1) | 0x09 | RWE | GPIO3–GPIO5 mode configuration |
+| **GPIO** | [Table 7-14](#table-7-14-gpio_af01) | 0x0A | RWE | GPIO0–GPIO1 alternate function selection |
+| **GPIO** | [Table 7-15](#table-7-15-gpio_af23) | 0x0B | RWE | GPIO2–GPIO3 alternate function selection |
+| **GPIO** | [Table 7-16](#table-7-16-gpio_af45) | 0x0C | RWE | GPIO4–GPIO5 alternate function selection |
+| **RTC** | [Table 7-17](#table-7-17-rtc_count_s) | 0x0D | RW | RTC seconds counter register |
+| **RTC** | [Table 7-18](#table-7-18-rtc_count_mi) | 0x0E | RW | RTC minutes counter register |
+| **RTC** | [Table 7-19](#table-7-19-rtc_count_h) | 0x0F | RW | RTC hours counter register |
+| **RTC** | [Table 7-20](#table-7-20-rtc_count_d) | 0x10 | RW | RTC days counter register |
+| **RTC** | [Table 7-21](#table-7-21-rtc_count_mo) | 0x11 | RW | RTC months counter register |
+| **RTC** | [Table 7-22](#table-7-22-rtc_count_y) | 0x12 | RW | RTC years counter register |
+| **RTC** | [Table 7-23](#table-7-23-rtc_alarm_s) | 0x13 | RW | RTC alarm seconds setting |
+| **RTC** | [Table 7-24](#table-7-24-rtc_alarm_mi) | 0x14 | RW | RTC alarm minutes setting |
+| **RTC** | [Table 7-25](#table-7-25-rtc_alarm_h) | 0x15 | RW | RTC alarm hours setting |
+| **RTC** | [Table 7-26](#table-7-26-rtc_alarm_d) | 0x16 | RW | RTC alarm days setting |
+| **RTC** | [Table 7-27](#table-7-27-rtc_alarm_mo) | 0x17 | RW | RTC alarm months setting |
+| **RTC** | [Table 7-28](#table-7-28-rtc_alarm_y) | 0x18 | RW | RTC alarm years setting |
+| **RTC** | [Table 7-29](#table-7-29-rtc_second_a) | 0x19 | R | RTC second counter [7:0] |
+| **RTC** | [Table 7-30](#table-7-30-rtc_second_b) | 0x1A | R | RTC second counter [15:8] |
+| **RTC** | [Table 7-31](#table-7-31-rtc_second_c) | 0x1B | R | RTC second counter [23:16] |
+| **RTC** | [Table 7-32](#table-7-32-rtc_second_d) | 0x1C | R | RTC second counter [31:24] |
+| **RTC** | [Table 7-33](#table-7-33-rtc_ctrl) | 0x1D | RWE | RTC control register |
+| **ADC** | [Table 7-34](#table-7-34-adc_ctrl1) | 0x1E | RW | ADC control register |
+| **ADC** | [Table 7-35](#table-7-35-adc_cfg01) | 0x1F | RW | ADC configuration register 0 |
+| **ADC** | [Table 7-36](#table-7-36-adc_cfg11) | 0x20 | RW | ADC configuration register 1 |
+| **ADC** | [Table 7-37](#table-7-37-adc_cfg21) | 0x21 | RW | ADC configuration register 2 |
+| **ADC** | [Table 7-38](#table-7-38-adc_auto1) | 0x22 | RW | ADC automatic scan channel selection |
+| **ADC** | [Table 7-39](#table-7-39-adc_man_en01) | 0x23 | RW | Manual scan channel selection for ADC channel 0 |
+| **ADC** | [Table 7-40](#table-7-40-adc_man_en11) | 0x24 | RW | Manual scan channel selection for ADC channel 0 |
+| **ADC** | [Table 7-41](#table-7-41-adc_man_en21) | 0x25 | RW | Manual scan channel selection for ADC channel 0 |
+| **ADC** | [Table 7-42](#table-7-42-adc_man_res_h1) | 0x26 | R | ADC channel 0 manual conversion result [11:4] |
+| **ADC** | [Table 7-43](#table-7-43-adc_man_res_l1) | 0x27 | R | ADC channel 0 manual conversion result [3:0] |
+| **ADC** | [Table 7-44](#table-7-44-adc_tj_res_h1) | 0x28 | R | Junction temperature auto conversion result (8 MSBs) |
+| **ADC** | [Table 7-45](#table-7-45-adc_tj_res_l1) | 0x29 | R | Junction temperature auto conversion result (4 LSBs) |
+| **ADC** | [Table 7-46](#table-7-46-adc_in0_res_h1) | 0x2A | R | ADCIN0 auto conversion result (8 MSBs) |
+| **ADC** | [Table 7-47](#table-7-47-adc_in0_res_l1) | 0x2B | R | ADCIN0 auto conversion result (4 LSBs) |
+| **ADC** | [Table 7-48](#table-7-48-adc_in1_res_h1) | 0x2C | R | ADCIN1 auto conversion result (8 MSBs) |
+| **ADC** | [Table 7-49](#table-7-49-adc_in1_res_l1) | 0x2D | R | ADCIN1 auto conversion result (4 LSBs) |
+| **ADC** | [Table 7-50](#table-7-50-adc_in2_res_h1) | 0x2E | R | ADCIN2 auto conversion result (8 MSBs) |
+| **ADC** | [Table 7-51](#table-7-51-adc_in2_res_l1) | 0x2F | R | ADCIN2 auto conversion result (4 LSBs) |
+| **ADC** | [Table 7-52](#table-7-52-adc_in3_res_h1) | 0x30 | R | ADCIN3 auto conversion result (8 MSBs) |
+| **ADC** | [Table 7-53](#table-7-53-adc_in3_res_l1) | 0x31 | R | ADCIN3 auto conversion result (4 LSBs) |
+| **ADC** | [Table 7-54](#table-7-54-adc_in4_res_h1) | 0x32 | R | ADCIN4 auto conversion result (8 MSBs) |
+| **ADC** | [Table 7-55](#table-7-55-adc_in4_res_l1) | 0x33 | R | ADCIN4 auto conversion result (4 LSBs) |
+| **ADC** | [Table 7-56](#table-7-56-adc_in5_res_h1) | 0x34 | R | ADCIN5 auto conversion result (8 MSBs) |
+| **ADC** | [Table 7-57](#table-7-57-adc_in5_res_l1) | 0x35 | R | ADCIN5 auto conversion result (4 LSBs) |
+| **ADC** | [Table 7-58](#table-7-58-adc_vth_tj_h1) | 0x36 | RW | Junction temperature high threshold (8 MSBs) |
+| **ADC** | [Table 7-59](#table-7-59-adc_vth_tj_l1) | 0x37 | RW | Junction temperature low threshold (8 MSBs) |
+| **ADC** | [Table 7-60](#table-7-60-adc_in0_vth_h1) | 0x38 | RW | ADCIN0 high threshold (8 MSBs) |
+| **ADC** | [Table 7-61](#table-7-61-adc_in0_vth_l1) | 0x39 | RW | ADCIN0 low threshold (8 MSBs) |
+| **ADC** | [Table 7-62](#table-7-62-adc_in1_vth_h1) | 0x3A | RW | ADCIN1 high threshold (8 MSBs) |
+| **ADC** | [Table 7-63](#table-7-63-adc_in1_vth_l1) | 0x3B | RW | ADCIN1 low threshold (8 MSBs) |
+| **ADC** | [Table 7-64](#table-7-64-adc_in2_vth_h1) | 0x3C | RW | ADCIN2 high threshold (8 MSBs) |
+| **ADC** | [Table 7-65](#table-7-65-adc_in2_vth_l1) | 0x3D | RW | ADCIN2 low threshold (8 MSBs) |
+| **ADC** | [Table 7-66](#table-7-66-adc_in3_vth_h1) | 0x3E | RW | ADCIN3 high threshold (8 MSBs) |
+| **ADC** | [Table 7-67](#table-7-67-adc_in3_vth_l1) | 0x3F | RW | ADCIN3 low threshold (8 MSBs) |
+| **ADC** | [Table 7-68](#table-7-68-adc_in4_vth_h1) | 0x40 | RW | ADCIN4 high threshold (8 MSBs) |
+| **ADC** | [Table 7-69](#table-7-69-adc_in4_vth_l1) | 0x44 | RW | ADCIN4 low threshold (8 MSBs) |
+| **ADC** | [Table 7-70](#table-7-70-adc_in5_vth_h1) | 0x42 | RW | ADCIN5 high threshold (8 MSBs) |
+| **ADC** | [Table 7-71](#table-7-71-adc_in5_vth_l1) | 0x43 | RW | ADCIN5 low threshold (8 MSBs) |
+| **WDT** | [Table 7-72](#table-7-72-wdt_ctrl1) | 0x44 | RW | Watchdog control register |
+| **Battery Charge** | [Table 7-73](#table-7-73-bbat_ctrl1) | 0x45 | RW | Battery charging control register |
+| **Power Control** | [Table 7-74](#table-7-74-buck_ldo_cfg1) | 0x46 | RWE | Power rail configuration register |
+| **Power Control** | [Table 7-75](#table-7-75-buckx_ctrl1) | 0x47 + 3×n | RWE | BUCKn control register, n = 0–5 |
+| **Power Control** | [Table 7-76](#table-7-76-buckx_volt1) | 0x48 + 3×n | RWE | BUCK output voltage setting |
+| **Power Control** | [Table 7-77](#table-7-77-buckx_slp_volt1) | 0x49 + 3×n | RWE | BUCK sleep voltage setting |
+| **Power Control** | [Table 7-78](#table-7-78-switch_ctrl1) | 0x59 | RW | Load switch control register |
+| **Power Control** | [Table 7-79](#table-7-79-aonldo_ctrl1) | 0x5A | RE | AON LDO control register |
+| **Power Control** | [Table 7-80](#table-7-80-aldox_ctrl1) | 0x5B | RWE | ALDO control register |
+| **Power Control** | [Table 7-81](#table-7-81-aldox_volt1) | 0x5C | RWE | ALDO voltage setting |
+| **Power Control** | [Table 7-82](#table-7-82-aldox_slp_volt1) | 0x5D | RWE | ALDO sleep voltage setting |
+| **Power Control** | [Table 7-83](#table-7-83-dldox_ctrl) | 0x67 | RWE | DLDO control register |
+| **Power Control** | [Table 7-84](#table-7-84-dldox_volt) | 0x68 | RWE | DLDO voltage setting |
+| **Power Control** | [Table 7-85](#table-7-85-dldox_slp_volt) | 0x69 | RWE | DLDO sleep voltage setting |
+| **Power Control** | [Table 7-86](#table-7-86-pwr_ctrl0) | 0x7C | RWE | Power control register 0 |
+| **Power Control** | [Table 7-87](#table-7-87-pwr_ctrl1) | 0x7D | RWE | Power control register 1 |
+| **Power Control** | [Table 7-88](#table-7-88-pwr_ctrl2) | 0x7E | RWE | Power control register 2 |
+| **Power Control** | [Table 7-89](#table-7-89-pwr_sts0) | 0x7F | R | Power status register 0 |
+| **Power Control** | [Table 7-90](#table-7-90-pwr_sts1) | 0x80 | R | Power status register 1 |
+| **Power Control** | [Table 7-91](#table-7-91-pwr_key_time) | 0x81 | RWE | Power key timing configuration |
+| **Power Control** | [Table 7-92](#table-7-92-pwr_seq_time) | 0x82 | RWE | Power sequencing timing configuration |
+| **Power Control** | [Table 7-93](#table-7-93-pwr_slot0) | 0x83 | RE | Power rail SLOT ID configuration |
+| **Power Control** | [Table 7-94](#table-7-94-pwr_slot1) | 0x84 | RE | Power rail SLOT ID configuration |
+| **Power Control** | [Table 7-95](#table-7-95-pwr_slot2) | 0x85 | RE | Power rail SLOT ID configuration |
+| **Power Control** | [Table 7-96](#table-7-96-pwr_slot3) | 0x86 | RE | Power rail SLOT ID configuration |
+| **Power Control** | [Table 7-97](#table-7-97-pwr_slot4) | 0x87 | RE | Power rail SLOT ID configuration |
+| **Power Control** | [Table 7-98](#table-7-98-pwr_slot5) | 0x88 | RE | Power rail SLOT ID configuration |
+| **Power Control** | [Table 7-99](#table-7-99-pwr_slot6) | 0x89 | RE | Power rail SLOT ID configuration |
+| **Power Control** | [Table 7-100](#table-7-100-buck_event0) | 0x8A | RIO | BUCK over-voltage event |
+| **Power Control** | [Table 7-101](#table-7-101-pwr_slot8) | 0x8B | RE | Power rail SLOT ID configuration |
+| **Power Control** | [Table 7-102](#table-7-102-pwr_slot9) | 0x8C | RE | EXT_EN SLOT ID configuration |
+| **Power Control** | [Table 7-103](#table-7-103-pwr_slot10) | 0x8D | RE | EXT_EN SLOT ID configuration |
+| **Power Control** | [Table 7-104](#table-7-104-pwr_slot11) | 0x8E | RE | EXT_EN SLOT ID configuration |
+| **Power Control** | [Table 7-105](#table-7-105-pwr_ext_en) | 0x8F | RWE | EXT_EN software enable control |
+| **Power Control** | [Table 7-106](#table-7-106-pwr_ext_ctrl) | 0x90 | RWE | EXT_EN sleep sequence control |
+| **Event** | [Table 7-107](#table-7-107-event0) | 0x91 | RIO | PMIC system events |
+| **Event** | [Table 7-108](#table-7-108-event1) | 0x92 | RIO | PMIC system events |
+| **Event** | [Table 7-109](#table-7-109-event2) | 0x93 | RIO | PMIC system events |
+| **Event** | [Table 7-110](#table-7-110-buck_event0) | 0x94 | RIO | BUCK over-voltage event |
+| **Event** | [Table 7-111](#table-7-111-buck_event1) | 0x95 | RIO | BUCK under-voltage event |
+| **Event** | [Table 7-112](#table-7-112-buck_event2) | 0x96 | RIO | BUCK short/open-circuit event |
+| **Event** | [Table 7-113](#table-7-113-pwrky_event) | 0x97 | RIO | Power key event |
+| **Interrupt Enable** | [Table 7-114](#table-7-114-irq_en0) | 0x98 | RW | PMIC system interrupt enable |
+| **Interrupt Enable** | [Table 7-115](#table-7-115-irq_en1) | 0x99 | RW | PMIC system interrupt enable |
+| **Interrupt Enable** | [Table 7-116](#table-7-116-irq_en2) | 0x9A | RW | PMIC system interrupt enable |
+| **Interrupt Enable** | [Table 7-117](#table-7-117-irq_buck_en0) | 0x9B | RW | BUCK over-voltage interrupt enable |
+| **Interrupt Enable** | [Table 7-118](#table-7-118-irq_buck_en1) | 0x9C | RW | BUCK under-voltage interrupt enable |
+| **Interrupt Enable** | [Table 7-119](#table-7-119-irq_buck_en2) | 0x9D | RW | BUCK short/open-circuit interrupt enable |
+| **Interrupt Enable** | [Table 7-120](#table-7-120-irq_pwrky_en) | 0x9E | RWE | Power key interrupt enable |
+| **Protection Enable** | [Table 7-121](#table-7-121-prot_en) | 0x9F | RWE | System fault protection enable |
+| **ID** | [Table 7-122](#table-7-122-device_id) | 0xA0 | RE | Device ID |
+| **ID** | [Table 7-123](#table-7-123-version_id) | 0xA1 | RE | Version ID |
+| **ID** | [Table 7-124](#table-7-124-customer_id) | 0xA2 | RE | Customer ID |
+| **System Configuration** | [Table 7-125](#table-7-125-sys_cfg0) | 0xA3 | RE | System configuration register 0 |
+| **System Configuration** | [Table 7-126](#table-7-126-sys_cfg1) | 0xA4 | RE | System configuration register 1 |
+| **System Configuration** | [Table 7-127](#table-7-127-sys_cfg2) | 0xA5 | RE | System configuration register 2 |
+| **MTP** | [Table 7-128](#table-7-128-mtp_key) | 0xA6 | RW | MTP unlock register |
+| **MTP** | [Table 7-129](#table-7-129-mtp_addr) | 0xA7 | RWP | MTP address register |
+| **MTP** | [Table 7-130](#table-7-130-mtp_data) | 0xA8 | RWP | MTP read/write data register |
+| **MTP** | [Table 7-131](#table-7-131-mtp_cfg) | 0xA9 | RWP | MTP configuration register |
+| **MTP** | [Table 7-132](#table-7-132-mtp_ctrl) | 0xAA | RWP | MTP control register |
+
+#### 7.2.2 Register Description
+
+##### Table 7-4 GPIO_IDR
+
+| Addr | Bits | Field Name | Attr | Default | Description       |
+| ---- | ---- | ---------- | ---- | ------- | ----------------- |
+| 0x00 | 7:6  | Reserved   | RV   | 0       | Reserved          |
+| 0x00 | 5    | GPIO5_IDR  | R    | 0x0     | GPIO5 input value |
+| 0x00 | 4    | GPIO4_IDR  | R    | 0x0     | GPIO4 input value |
+| 0x00 | 3    | GPIO3_IDR  | R    | 0x0     | GPIO3 input value |
+| 0x00 | 2    | GPIO2_IDR  | R    | 0x0     | GPIO2 input value |
+| 0x00 | 1    | GPIO1_IDR  | R    | 0x0     | GPIO1 input value |
+| 0x00 | 0    | GPIO0_IDR  | R    | 0x0     | GPIO0 input value |
+
+##### Table 7-5 GPIO_ODR
+
+| Addr | Bits | Field Name | Attr | Default | Description   |
+| ---- | ---- | ---------- | ---- | ------- | ------------------- |
+| 0x01 | 7:6  | Reserved   | RV   | 0       | Reserved   |
+| 0x01 | 5    | GPIO5_ODR  | RWE  | 0x0     | When configured as GPIO output, this bit defines the output data.<br>When configured for an alternate function, this bit defines the active polarity.<br>- 0: Output low level / Active polarity is low<br>- 1: Output high level / Active polarity is high |
+| 0x01 | 4    | GPIO4_ODR  | RWE  | 0x0     | Same as GPIO5_ODR  |
+| 0x01 | 3    | GPIO3_ODR  | RWE  | 0x0     | Same as GPIO5_ODR |
+| 0x01 | 2    | GPIO2_ODR  | RWE  | 0x0     | Same as GPIO5_ODR |
+| 0x01 | 1    | GPIO1_ODR  | RWE  | 0x0     | Same as GPIO5_ODR  |
+| 0x01 | 0    | GPIO0_ODR  | RWE  | 0x0     | Same as GPIO5_ODR  |
+
+##### Table 7-6 GPIO_PUPD0
+
+| Addr | Bits | Field Name | Attr | Default | Description   |
+| ---- | ---- | ---------- | ---- | ------- | ----- |
+| 0x02 | 7:6  | Reserved   | RV   | 0       | Reserved   |
+| 0x02 | 5:4  | GPIO2_PUPD | RWE  | 0x0     | GPIO2 pull-up / pull-down configuration:<br>- `00`: No operation<br>- `01`: Pull-up enabled<br>- `10`: Pull-down enabled<br>- `1x`: Invalid |
+| 0x02 | 3:2  | GPIO1_PUPD | RWE  | 0x0     | GPIO1 pull-up / pull-down configuration:<br>- `00`: No operation<br>- `01`: Pull-up enabled<br>- `10`: Pull-down enabled<br>- `1x`: Invalid |
+| 0x02 | 1:0  | GPIO0_PUPD | RWE  | 0x0     | GPIO0 pull-up / pull-down configuration:<br>- `00`: No operation<br>- `01`: Pull-up enabled<br>- `10`: Pull-down enabled<br>- `1x`: Invalid |
+
+##### Table 7-7 GPIO_PUPD1
+
+| Addr | Bits | Field Name | Attr | Default | Description   |
+| ---- | ---- | ---------- | ---- | ------- | ----------- |
+| 0x03 | 7:6  | Reserved   | RV   | 0       | Reserved     |
+| 0x03 | 5:4  | GPIO5_PUPD | RWE  | 0x0     | GPIO5 pull-up / pull-down configuration:<br>- `00`: No operation<br>- `01`: Pull-up enabled<br>- `10`: Pull-down enabled<br>- `1x`: Invalid |
+| 0x03 | 3:2  | GPIO4_PUPD | RWE  | 0x0     | GPIO4 pull-up / pull-down configuration:<br>- `00`: No operation<br>- `01`: Pull-up enabled<br>- `10`: Pull-down enabled<br>- `1x`: Invalid |
+| 0x03 | 1:0  | GPIO3_PUPD | RWE  | 0x0     | GPIO3 pull-up / pull-down configuration:<br>- `00`: No operation<br>- `01`: Pull-up enabled<br>- `10`: Pull-down enabled<br>- `1x`: Invalid |
+
+##### Table 7-8 GPIO_DEB_EN
+
+| Addr | Bits | Field Name    | Attr | Default | Description     |
+| ---- | ---- | ------------- | ---- | ------- | --------------- |
+| 0x04 | 7:6  | GPIO_DEB_TIME | RW   | 0x0     | GPIO0–GPIO5 debounce time selection:<br>- `00`: 100 µs<br>- `01`: 375 µs<br>- `10`: 750 µs<br>- `11`: 1.5 ms |
+| 0x04 | 5    | GPIO5_DEB_EN  | RW   | 0x0     | GPIO5 debounce enable:<br>- `0`: Disabled<br>- `1`: Enabled  |
+| 0x04 | 4    | GPIO4_DEB_EN  | RW   | 0x0     | GPIO4 debounce enable:<br>- `0`: Disabled<br>- `1`: Enabled   |
+| 0x04 | 3    | GPIO3_DEB_EN  | RW   | 0x0     | GPIO3 debounce enable:<br>- `0`: Disabled<br>- `1`: Enabled  |
+| 0x04 | 2    | GPIO2_DEB_EN  | RW   | 0x0     | GPIO2 debounce enable:<br>- `0`: Disabled<br>- `1`: Enabled   |
+| 0x04 | 1    | GPIO1_DEB_EN  | RW   | 0x0     | GPIO1 debounce enable:<br>- `0`: Disabled<br>- `1`: Enabled  |
+| 0x04 | 0    | GPIO0_DEB_EN  | RW   | 0x0     | GPIO0 debounce enable:<br>- `0`: Disabled<br>- `1`: Enabled   |
+
+##### Table 7-9 GPIO_OD
+
+| Addr | Bits | Field Name | Attr | Default | Description    |
+| ---- | ---- | ---------- | ---- | ------- | --------|
+| 0x05 | 7:6  | Reserved   | RV   | 0       | Reserved                                                                                      |
+| 0x05 | 5    | GPIO5_OD   | RW   | 0x0     | GPIO5 open-drain output configuration:<br>- `0`: Push-pull output<br>- `1`: Open-drain output |
+| 0x05 | 4    | GPIO4_OD   | RW   | 0x0     | GPIO4 open-drain output configuration:<br>- `0`: Push-pull output<br>- `1`: Open-drain output |
+| 0x05 | 3    | GPIO3_OD   | RW   | 0x0     | GPIO3 open-drain output configuration:<br>- `0`: Push-pull output<br>- `1`: Open-drain output |
+| 0x05 | 2    | GPIO2_OD   | RW   | 0x0     | GPIO2 open-drain output configuration:<br>- `0`: Push-pull output<br>- `1`: Open-drain output |
+| 0x05 | 1    | GPIO1_OD   | RW   | 0x0     | GPIO1 open-drain output configuration:<br>- `0`: Push-pull output<br>- `1`: Open-drain output |
+| 0x05 | 0    | GPIO0_OD   | RW   | 0x0     | GPIO0 open-drain output configuration:<br>- `0`: Push-pull output<br>- `1`: Open-drain output |
+
+##### Table 7-10 GPIO_ITYPE0
+
+| Addr | Bits | Field Name  | Attr | Default | Description    |
+| ---- | ---- | ----------- | ---- | ------- | --------------|
+| 0x06 | 7:6  | Reserved    | RV   | 0       | Reserved    |
+| 0x06 | 5:4  | GPIO2_ITYPE | RWE  | 0x0     | GPIO2 interrupt type:<br>`00`: Rising-edge triggered<br>`01`: Falling-edge triggered<br>`10`: High-level triggered<br>`11`: Low-level triggered |
+| 0x06 | 3:2  | GPIO1_ITYPE | RWE  | 0x0     | GPIO1 interrupt type:<br>`00`: Rising-edge triggered<br>`01`: Falling-edge triggered<br>`10`: High-level triggered<br>`11`: Low-level triggered |
+| 0x06 | 1:0  | GPIO0_ITYPE | RWE  | 0x0     | GPIO0 interrupt type:<br>`00`: Rising-edge triggered<br>`01`: Falling-edge triggered<br>`10`: High-level triggered<br>`11`: Low-level triggered |
+
+##### Table 7-11 GPIO_ITYPE1
+
+| Addr | Bits | Field Name  | Attr | Default | Description   |
+| ---- | ---- | ----------- | ---- | ------- | ------- |
+| 0x07 | 7:6  | Reserved    | RV   | 0       | Reserved                                                                                                                                        |
+| 0x07 | 5:4  | GPIO5_ITYPE | RWE  | 0x0     | GPIO5 interrupt type:<br>`00`: Rising-edge triggered<br>`01`: Falling-edge triggered<br>`10`: High-level triggered<br>`11`: Low-level triggered |
+| 0x07 | 3:2  | GPIO4_ITYPE | RWE  | 0x0     | GPIO4 interrupt type:<br>`00`: Rising-edge triggered<br>`01`: Falling-edge triggered<br>`10`: High-level triggered<br>`11`: Low-level triggered |
+| 0x07 | 1:0  | GPIO3_ITYPE | RWE  | 0x0     | GPIO3 interrupt type:<br>`00`: Rising-edge triggered<br>`01`: Falling-edge triggered<br>`10`: High-level triggered<br>`11`: Low-level triggered |
+
+##### Table 7-12 GPIO_MODE0
+
+| Addr | Bits | Field Name | Attr | Default | Description    |
+| ---- | ---- | ---------- | ---- | ------- | --------- |
+| 0x08 | 7:6  | Reserved   | RV   | 0       | Reserved                                                                                                      |
+| 0x08 | 5:4  | GPIO2_MODE | RWE  | 0x0     | GPIO2 mode selection:<br>`00`: Input mode<br>`01`: Output mode<br>`1x`: Alternate (multiplexed) function mode |
+| 0x08 | 3:2  | GPIO1_MODE | RWE  | 0x0     | GPIO1 mode selection:<br>`00`: Input mode<br>`01`: Output mode<br>`1x`: Alternate (multiplexed) function mode |
+| 0x08 | 1:0  | GPIO0_MODE | RWE  | 0x0     | GPIO0 mode selection:<br>`00`: Input mode<br>`01`: Output mode<br>`1x`: Alternate (multiplexed) function mode |
+
+##### Table 7-13 GPIO_MODE1
+
+| Addr | Bits | Field Name | Attr | Default | Description  |
+| ---- | ---- | ---------- | ---- | ------- | ---------|
+| 0x09 | 7:6  | Reserved   | RV   | 0       | Reserved                                                                                                      |
+| 0x09 | 5:4  | GPIO5_MODE | RWE  | 0x0     | GPIO5 mode selection:<br>`00`: Input mode<br>`01`: Output mode<br>`1x`: Alternate (multiplexed) function mode |
+| 0x09 | 3:2  | GPIO4_MODE | RWE  | 0x0     | GPIO4 mode selection:<br>`00`: Input mode<br>`01`: Output mode<br>`1x`: Alternate (multiplexed) function mode |
+| 0x09 | 1:0  | GPIO3_MODE | RWE  | 0x0     | GPIO3 mode selection:<br>`00`: Input mode<br>`01`: Output mode<br>`1x`: Alternate (multiplexed) function mode |
+
+##### Table 7-14 GPIO_AF01
+
+| Addr | Bits | Field Name | Attr | Default | Description   |
+| ---- | ---- | ---------- | ---- | ------- | -------------- |
+| 0x0A | 7:6  | Reserved   | RV   | 0       | Reserved |
+| 0x0A | 5:3  | GPIO1_AFR  | RWE  | 0x0     | GPIO1 alternate function selection:<br>`000`: External power enable output (EXT_EN)<br>`001`: External power-up sequence control input (PWRCTRL)<br>`010`: External sleep / wake-up control input (Sleep/Wakeup)<br>`011`: External reset control input (nReset)<br>`1xx`: ADC input (ADCIN) |
+| 0x0A | 2:0  | GPIO0_AFR  | RWE  | 0x0     | GPIO0 alternate function selection:<br>`000`: External power enable output (EXT_EN)<br>`001`: External power-up sequence control input (PWRCTRL)<br>`010`: External sleep / wake-up control input (Sleep/Wakeup)<br>`011`: External reset control input (nReset)<br>`1xx`: ADC input (ADCIN) |
+
+##### Table 7-15 GPIO_AF23
+
+| Addr | Bits | Field Name | Attr | Default | Description                                                                                                                                                                                                                                                                                  |
+| ---- | ---- | ---------- | ---- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0x0B | 7:6  | Reserved   | RV   | 0       | Reserved                                                                                                                                                                                                                                                                                     |
+| 0x0B | 5:3  | GPIO3_AFR  | RWE  | 0x0     | GPIO3 alternate function selection:<br>`000`: External power enable output (EXT_EN)<br>`001`: External power-up sequence control input (PWRCTRL)<br>`010`: External sleep / wake-up control input (Sleep/Wakeup)<br>`011`: External reset control input (nReset)<br>`1xx`: ADC input (ADCIN) |
+| 0x0B | 2:0  | GPIO2_AFR  | RWE  | 0x0     | GPIO2 alternate function selection:<br>`000`: External power enable output (EXT_EN)<br>`001`: External power-up sequence control input (PWRCTRL)<br>`010`: External sleep / wake-up control input (Sleep/Wakeup)<br>`011`: External reset control input (nReset)<br>`1xx`: ADC input (ADCIN) |
+
+
+##### Table 7-16 GPIO_AF45
+
+| Addr | Bits | Field Name | Attr | Default | Description                                                                                                                                                                                                                                                                                  |
+| ---- | ---- | ---------- | ---- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0x0C | 7:6  | Reserved   | RV   | 0       | Reserved                                                                                                                                                                                                                                                                                     |
+| 0x0C | 5:3  | GPIO5_AFR  | RWE  | 0x0     | GPIO5 alternate function selection:<br>`000`: External power enable output (EXT_EN)<br>`001`: External power-up sequence control input (PWRCTRL)<br>`010`: External sleep / wake-up control input (Sleep/Wakeup)<br>`011`: External reset control input (nReset)<br>`1xx`: ADC input (ADCIN) |
+| 0x0C | 2:0  | GPIO4_AFR  | RWE  | 0x0     | GPIO4 alternate function selection:<br>`000`: External power enable output (EXT_EN)<br>`001`: External power-up sequence control input (PWRCTRL)<br>`010`: External sleep / wake-up control input (Sleep/Wakeup)<br>`011`: External reset control input (nReset)<br>`1xx`: ADC input (ADCIN) |
+
+
+##### Table 7-17 RTC_COUNT_S
+
+| Addr | Bits | Field Name | Attr | Default | Description                                                                                                               |
+| ---- | ---- | ---------- | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------- |
+| 0x0D | 7:6  | Reserved   | RV   | 0       | Reserved                                                                                                                  |
+| 0x0D | 5:0  | COUNT_S    | RW   | 0x00    | RTC seconds read register.<br>Reading this register latches the current calendar values into `COUNT_S` through `COUNT_Y`. |
+
+
+##### Table 7-18 RTC_COUNT_MI
+
+| Addr | Bits | Field Name | Attr | Default | Description                                                                         |
+| ---- | ---- | ---------- | ---- | ------- | ----------------------------------------------------------------------------------- |
+| 0x0E | 7:6  | Reserved   | RV   | 0       | Reserved                                                                            |
+| 0x0E | 5:0  | COUNT_MI   | RW   | 0x00    | RTC minutes read register. Reading this register returns the current minutes value. |
+
+##### Table 7-19 RTC_COUNT_H
+
+| Addr | Bits | Field Name | Attr | Default | Description                                                                    |
+| ---- | ---- | ---------- | ---- | ------- | ------------------------------------------------------------------------------ |
+| 0xF  | 7:5  | Reserved   | RV   | 0       | Reserved                                                                       |
+| 0xF  | 4:0  | COUNT_H    | RW   | 0x00    | RTC hours read register. Reading this register returns the current hour value. |
+
+
+##### Table 7-20 RTC_COUNT_D
+
+| Addr | Bits | Field Name | Attr | Default | Description                                                                  |
+| ---- | ---- | ---------- | ---- | ------- | ---------------------------------------------------------------------------- |
+| 0x10 | 7:5  | Reserved   | RV   | 0       | Reserved                                                                     |
+| 0x10 | 4:0  | COUNT_D    | RW   | 0x00    | RTC days read register. Reading this register returns the current day value. |
+
+
+##### Table 7-21 RTC_COUNT_MO
+
+| Addr | Bits | Field Name | Attr | Default | Description                                                                      |
+| ---- | ---- | ---------- | ---- | ------- | -------------------------------------------------------------------------------- |
+| 0x11 | 7:4  | Reserved   | RV   | 0       | Reserved                                                                         |
+| 0x11 | 3:0  | COUNT_MO   | RW   | 0x00    | RTC months read register. Reading this register returns the current month value. |
+
+
+##### Table 7-22 RTC_COUNT_Y
+
+| Addr | Bits | Field Name | Attr | Default | Description                                                                                                                                                             |
+| ---- | ---- | ---------- | ---- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0x12 | 7:6  | Reserved   | RV   | 0       | Reserved                                                                                                                                                                |
+| 0x12 | 5:0  | COUNT_Y    | RW   | 0x00    | RTC years read/write register. Writing to this register updates the calendar counter with the current COUNT_S ~ COUNT_Y values, and resets RTC_SECOND_A ~ RTC_SECOND_D. |
+
+##### Table 7-23 RTC_ALARM_S
+
+| Addr | Bits | Field Name   | Attr | Default | Description                                    |
+| ---- | ---- | ------------ | ---- | ------- | ---------------------------------------------- |
+| 0x13 | 7    | MASK_ALARM_S | RW   | 0x0     | ALARM_S match mask: <br>`0`: not masked <br> `1`: masked |
+| 0x13 | 6    | Reserved     | RV   | 0       | Reserved                                       |
+| 0x13 | 5:0  | ALARM_S      | RW   | 0x00    | RTC_ALARM seconds setting, range 0x00 ~ 0x3B   |
+
+##### Table 7-24 RTC_ALARM_MI
+
+| Addr | Bits | Field Name    | Attr | Default | Description                                     |
+| ---- | ---- | ------------- | ---- | ------- | ----------------------------------------------- |
+| 0x14 | 7    | MASK_ALARM_MI | RW   | 0x0     | ALARM_MI match mask: <br>`0`:not masked <br>`1`: masked |
+| 0x14 | 6    | Reserved      | RV   | 0       | Reserved                                        |
+| 0x14 | 5:0  | ALARM_MI      | RW   | 0x00    | RTC_ALARM minutes setting, range 0x00 ~ 0x3B    |
+
+
+##### Table 7-25 RTC_ALARM_H
+
+| Addr | Bits | Field Name   | Attr | Default | Description                                    |
+| ---- | ---- | ------------ | ---- | ------- | ---------------------------------------------- |
+| 0x15 | 7    | MASK_ALARM_H | RW   | 0x0     | ALARM_H match mask: <br>`0`: not masked <br>`1`: masked |
+| 0x15 | 6:5  | Reserved     | RV   | 0       | Reserved                                       |
+| 0x15 | 4:0  | ALARM_H      | RW   | 0x00    | RTC_ALARM hours setting, range 0x00 ~ 0x17     |
+
+##### Table 7-26 RTC_ALARM_D
+
+| Addr | Bits | Field Name   | Attr | Default | Description                                    |
+| ---- | ---- | ------------ | ---- | ------- | ---------------------------------------------- |
+| 0x16 | 7    | MASK_ALARM_D | RW   | 0x0     | ALARM_D match mask: <br>`0`: not masked <br>``1`: masked |
+| 0x16 | 6:5  | Reserved     | RV   | 0       | Reserved                                       |
+| 0x16 | 4:0  | ALARM_D      | RW   | 0x00    | RTC_ALARM days setting, range 0x00 ~ 0x1F      |
+
+
+##### Table 7-27 RTC_ALARM_MO
+
+| Addr | Bits | Field Name    | Attr | Default | Description                                     |
+| ---- | ---- | ------------- | ---- | ------- | ----------------------------------------------- |
+| 0x17 | 7    | MASK_ALARM_MO | RW   | 0x0     | ALARM_MO match mask: <br>`0`: not masked <br>`1`: masked |
+| 0x17 | 6:4  | Reserved      | RV   | 0       | Reserved                                        |
+| 0x17 | 3:0  | ALARM_MO      | RW   | 0x00    | RTC_ALARM months setting, range 0x00 ~ 0x0C     |
+
+
+##### Table 7-28 RTC_ALARM_Y
+
+| Addr | Bits | Field Name   | Attr | Default | Description                                    |
+| ---- | ---- | ------------ | ---- | ------- | ---------------------------------------------- |
+| 0x18 | 7    | MASK_ALARM_Y | RW   | 0x0     | ALARM_Y match mask: <br>`0`: not masked <br> `1`: masked |
+| 0x18 | 6    | Reserved     | RV   | 0       | Reserved                                       |
+| 0x18 | 5:0  | ALARM_Y      | RW   | 0x00    | RTC_ALARM years setting, range 0x00 ~ 0x3F     |
+
+##### Table 7-29 RTC_SECOND_A
+
+| Addr | Bits | Field Name | Attr | Default | Description                                                                                                                 |
+| ---- | ---- | ---------- | ---- | ------- | --------------------------------------------------------------------------------------------------------------------------- |
+| 0x19 | 7:0  | SECOND_A   | R    | 0x00    | RTC seconds counter [7:0]. Reading this register updates the current 32-bit seconds counter value into SECOND_A ~ SECOND_D. |
+
+
+##### Table 7-30 RTC_SECOND_B
+
+| Addr | Bits | Field Name | Attr | Default | Description                 |
+| ---- | ---- | ---------- | ---- | ------- | --------------------------- |
+| 0x1A | 7:0  | SECOND_B   | R    | 0x00    | RTC seconds counter [15:8]. |
+
+
+##### Table 7-31 RTC_SECOND_C
+
+| Addr | Bits | Field Name | Attr | Default | Description                  |
+| ---- | ---- | ---------- | ---- | ------- | ---------------------------- |
+| 0x1B | 7:0  | SECOND_C   | R    | 0x00    | RTC seconds counter [23:16]. |
+
+
+##### Table 7-32 RTC_SECOND_D
+
+| Addr | Bits | Field Name | Attr | Default | Description                  |
+| ---- | ---- | ---------- | ---- | ------- | ---------------------------- |
+| 0x1C | 7:0  | SECOND_D   | R    | 0x00    | RTC seconds counter [31:24]. |
+
+##### Table 7-33 RTC_CTRL
+
+| Addr | Bits | Field Name      | Attr | Default | Description                                                |
+| ---- | ---- | --------------- | ---- | ------- | ---------------------------------------------------------- |
+| 0x1D | 7    | Reserved        | RV   | 0       | Reserved                                                   |
+|      | 6    | TICK_EN(*1)     | RW   | 0x0     | TICK enable: <br>`0`: disable <br>`1z: enable                       |
+|      | 5    | ALARM_EN(*1)    | RW   | 0x0     | ALARM enable: <br>`0`: disable <br>`1`: enable                      |
+|      | 4    | TICK_TYPE(*1)   | RW   | 0x0     | TICK period select: <br>`0`: 1s <br>`1`: 1min                       |
+|      | 3    | RTC_CLK_SEL(*1) | RW   | 0x0     | RTC clock select: <br>`0`: internal 32kHz <br>`1`: external crystal |
+|      | 2    | RTC_EN(*1)      | RW   | 0x0     | RTC enable: <br>`0`: disable, <br>`1`: enable                        |
+|      | 1    | OUT_32K_EN(*2)  | RWE  | 0x0     | RTC clock output enable: <br>`0`: disable <br>`1`: enable           |
+|      | 0    | CRYSTAL_EN(*3)  | RWE  | 0x0     | External crystal enable: <br>`0`: disable <br>`1`: enable           |
+
+> Notes:
+> (*1) Values remain unchanged in shutdown mode
+> (*2) On entering shutdown mode = 0, restored from MTP on boot event
+> (*3) On entering shutdown mode, restored from MTP on boot event
+
+##### Table 7-34 ADC_CTRL(*1)
+
+| Addr | Bits | Field Name | Attr | Default | Description    |
+| ---- | ---- | ---------- | ---- | ------- | ---------------------- |
+| 0x1E | 7:2  | Reserved   | RV   | 0       | Reserved  |
+|      | 1    | ADC_GO(*2) | RW   | 0       | ADC conversion start bit: <br>0 = conversion done/not started <br>1 = conversion in progress. <br>In manual mode, set to 1 and cleared by hardware after each conversion; in auto mode, software clears to stop conversions; clearing during conversion stops it immediately. |
+|      | 0    | ADC_EN     | RW   | 0       | ADC enable: 0 = disable, 1 = enable       |
+> Notes:
+> (*1) Default restored on entering shutdown mode
+> (*2) Behavior of ADC_GO as described above
+
+##### Table 7-35 ADC_CFG0(*1)
+
+| Addr | Bits | Field Name        | Attr | Default | Description  |
+| ---- | ---- | ----------------- | ---- | ------- | --- |
+| 0x1F | 7    | Reserved          | RV   | 0       | Reserved     |
+|      | 6    | ADCTJ_DEB_EN(*1)  | RW   | 0x0     | ADC junction temperature threshold interrupt debounce: <br>`0` = disable <br>`1` = enable |
+|      | 5    | ADCIN5_DEB_EN(*1) | RW   | 0x0     | ADCIN5 interrupt debounce: <br>`0`: disable <br>`1`: enable                             |
+|      | 4    | ADCIN4_DEB_EN(*1) | RW   | 0x0     | ADCIN4 interrupt debounce: <br>`0`: disable <br>`1`: enable                             |
+|      | 3    | ADCIN3_DEB_EN(*1) | RW   | 0x0     | ADCIN3 interrupt debounce: <br>`0`: disable <br>`1`: enable                             |
+|      | 2    | ADCIN2_DEB_EN(*1) | RW   | 0x0     | ADCIN2 interrupt debounce: <br>`0`: disable <br>`1`: enable                             |
+|      | 1    | ADCIN1_DEB_EN(*1) | RW   | 0x0     | ADCIN1 interrupt debounce: <br>`0`: disable <br>`1`: enable                             |
+|      | 0    | ADCIN0_DEB_EN(*1) | RW   | 0x0     | ADCIN0 interrupt debounce: <br>`0`: disable <br>`1`: enable                             |
+
+> Notes:
+> (*1) Defaults restored on entering shutdown mode
+> (*2) After `ADC_DEB_NUM` consecutive conversions exceed or fall below threshold, corresponding flag is set
+
+##### Table 7-36 ADC_CFG1 (*1)
+
+| Addr | Bits | Field Name    | Attr | Default | Description   |
+| ---- | ---- | ------------- | ---- | ------- | ----------- |
+| 0x20 | 7    | ADC_CHOP_SEL  | RW   | 0x0     | ADC chop clock selection:<br>`0`: 31.25 kHz<br>`1`: 62.5 kHz    |
+|      | 6    | ADC_CHOP_EN   | RW   | 0x0     | ADC chop enable:<br>`0`: disable<br>`1`: enable   |
+|      | 5:3  | ADC_CHNL_SEL  | RW   | 0x0     | ADC manual mode channel select:<br>`000`: Channel 0 – Vsys / BUCK / LDO voltage<br>`001`: Channel 1 – Tj (internal junction temperature)<br>`010`: Channel 2 – GPIO0 as ADC input (ADCIN0)<br>`011`: Channel 3 – GPIO1 as ADC input (ADCIN1)<br>`100`: Channel 4 – GPIO2 as ADC input (ADCIN2)<br>`101`: Channel 5 – GPIO3 as ADC input (ADCIN3)<br>`110`: Channel 6 – GPIO4 as ADC input (ADCIN4)<br>`111`: Channel 7 – GPIO5 as ADC input (ADCIN5) |
+|      | 2:0  | ADC_SAMP_FREQ | RW   | 0x0     | Auto-scan sampling frequency selection:<br>`000`: 100 Hz<br>`001`: 781.25 Hz<br>`010`: 1.5625 kHz<br>`011`: 3.125 kHz<br>`100`: 6.25 kHz<br>`101`: 12.5 kHz<br>`110`: 25 kHz<br>`111`: 50 kHz  |
+
+**Notes:**
+(*1) Restored to default value when entering shutdown mode.
+
+##### Table 7-37 ADC_CFG2 (*1)
+
+| Addr | Bits | Field Name    | Attr | Default | Description    |
+| ---- | ---- | ------------- | ---- | ------- | ------------- |
+| 0x21 | 7    | Reserved      | RV   | 0       | Reserved     |
+|      | 6:4  | ADC_DEB_NUM   | RW   | 0x0     | ADC debounce count selection:<br>`000`: 2 consecutive triggers<br>`001`: 3 consecutive triggers<br>`010`: 4 consecutive triggers<br>`011`: 5 consecutive triggers<br>`100`: 6 consecutive triggers<br>Others: 7 consecutive triggers |
+|      | 3:2  | ADC_VREFH_SEL | RW   | 0x0     | ADC positive reference selection:<br>`00`: Internal<br>`01`: VCC<br>`10`: External<br>`11`: Internal + capacitor     |
+|      | 1:0  | ADC_REF_SEL   | RW   | 0x0     | ADC reference voltage selection:<br>`01`: 2 V internal reference<br>`10`: 3 V internal reference<br>Others: disable       |
+
+**Notes:**
+(*1) Restored to default value when entering shutdown mode.
+
+
+##### Table 7-38 ADC_AUTO (*1)
+
+| Addr | Bits | Field Name       | Attr | Default | Description        |
+| ---- | ---- | ---------------- | ---- | ------- | ---- |
+| 0x22 | 7    | Reserved         | RV   | 0       | Reserved   |
+|      | 6    | AUTO_IN5_EN (*2) | RW   | 0x0     | ADCIN5 auto-sampling enable:<br>`0`: disable<br>`1`: enable                       |
+|      | 5    | AUTO_IN4_EN (*2) | RW   | 0x0     | ADCIN4 auto-sampling enable:<br>`0`: disable<br>`1`: enable                       |
+|      | 4    | AUTO_IN3_EN (*2) | RW   | 0x0     | ADCIN3 auto-sampling enable:<br>`0`: disable<br>`1`: enable                       |
+|      | 3    | AUTO_IN2_EN (*2) | RW   | 0x0     | ADCIN2 auto-sampling enable:<br>`0`: disable<br>`1`: enable                       |
+|      | 2    | AUTO_IN1_EN (*2) | RW   | 0x0     | ADCIN1 auto-sampling enable:<br>`0`: disable<br>`1`: enable                       |
+|      | 1    | AUTO_IN0_EN (*2) | RW   | 0x0     | ADCIN0 auto-sampling enable:<br>`0`: disable<br>`1`: enable                       |
+|      | 0    | AUTO_TJ_EN (*2)  | RW   | 0x0     | Junction temperature channel auto-sampling enable:<br>`0`: disable<br>`1`: enable |
+
+**Notes:**
+(*1) Restored to default value when entering shutdown mode.
+(*2) If any bit in `ADC_AUTO[6:0]` is set, the ADC enters **automatic scan mode** after conversion is started.
+
+
+##### Table 7-39 ADC_MAN_EN0 (*1)
+
+| Addr | Bits | Field Name   | Attr | Default | Description  |
+| ---- | ---- | ------------ | ---- | ------- | --------|
+| 0x23 | 7    | Reserved     | RV   | 0       | Reserved   |
+| 0x23 | 6    | ADC_VSYS_EN  | RW   | 0x0     | VSYS voltage monitoring enable:<br>`0`: Monitoring disabled<br>`1`: Monitoring enabled |
+| 0x23 | 5    | ADC_BUCK6_EN | RW   | 0x0     | BUCK6 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled               |
+| 0x23 | 4    | ADC_BUCK5_EN | RW   | 0x0     | BUCK5 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled               |
+| 0x23 | 3    | ADC_BUCK4_EN | RW   | 0x0     | BUCK4 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled               |
+| 0x23 | 2    | ADC_BUCK3_EN | RW   | 0x0     | BUCK3 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled               |
+| 0x23 | 1    | ADC_BUCK2_EN | RW   | 0x0     | BUCK2 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled               |
+| 0x23 | 0    | ADC_BUCK1_EN | RW   | 0x0     | BUCK1 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled               |
+
+**Note:**
+(*1) Restored to default value when entering shutdown mode.
+
+##### Table 7-40 ADC_MAN_EN1 (*1)
+
+| Addr | Bits | Field Name         | Attr | Default | Description                                                               |
+| ---- | ---- | ------------------ | ---- | ------- | ------------------------------------------------------------------------- |
+| 0x24 | 7    | ADC_DLDO3_EN (*2)  | RW   | 0x0     | DLDO3 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled  |
+| 0x24 | 6    | ADC_DLDO2_EN (*2)  | RW   | 0x0     | DLDO2 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled  |
+| 0x24 | 5    | ADC_DLDO1_EN (*2)  | RW   | 0x0     | DLDO1 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled  |
+| 0x24 | 4    | ADC_ALDO4_EN (*2)  | RW   | 0x0     | ALDO4 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled  |
+| 0x24 | 3    | ADC_ALDO3_EN (*2)  | RW   | 0x0     | ALDO3 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled  |
+| 0x24 | 2    | ADC_ALDO2_EN (*2)  | RW   | 0x0     | ALDO2 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled  |
+| 0x24 | 1    | ADC_ALDO1_EN (*2)  | RW   | 0x0     | ALDO1 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled  |
+| 0x24 | 0    | ADC_AONLDO_EN (*2) | RW   | 0x0     | AONLDO output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled |
+
+**Notes:**
+(*1) Restored to default value when entering shutdown mode.
+(*2) When no automatic channel is enabled in `ADC_AUTO`, enabling any channel in `ADC_MAN_EN0`–`ADC_MAN_EN2` causes the ADC to enter **manual mode** after conversion is started.
+
+##### Table 7-41 ADC_MAN_EN2 (*1)
+
+| Addr | Bits | Field Name        | Attr | Default | Description                                                              |
+| ---- | ---- | ----------------- | ---- | ------- | ------------------------------------------------------------------------ |
+| 0x25 | 7:4  | Reserved          | RV   | 0       | Reserved                                                                 |
+| 0x25 | 3    | ADC_DLDO7_EN (*2) | RW   | 0x0     | DLDO7 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled |
+| 0x25 | 2    | ADC_DLDO6_EN (*2) | RW   | 0x0     | DLDO6 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled |
+| 0x25 | 1    | ADC_DLDO5_EN (*2) | RW   | 0x0     | DLDO5 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled |
+| 0x25 | 0    | ADC_DLDO4_EN (*2) | RW   | 0x0     | DLDO4 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled |
+
+**Notes:**
+(*1) Restored to default value when entering shutdown mode.
+(*2) When no automatic channel is enabled in `ADC_AUTO`, enabling any channel in `ADC_MAN_EN0`–`ADC_MAN_EN2` causes the ADC to enter **manual mode** after conversion is started.
+
+
+##### Table 7-42 ADC_MAN_RES_H (*1)
+
+| Addr | Bits | Field Name | Attr | Default | Description        |
+| ---- | ---- | ---------- | ---- | ------- | ----------------- |
+| 0x26 | 7:0  | ADC_RES_H  | R    | 0x00    | 12-bit ADC manual conversion result (8 MSBs).<br>Reading this register latches the current 12-bit result of the selected manual conversion channel into `ADC_MAN_RES_H` and `ADC_MAN_RES_L`, preventing the lower bits from being overwritten by a new conversion and ensuring data consistency. |
+
+**Notes:**
+(*1) Restored to default value when entering shutdown mode.
+
+##### Table 7-43 ADC_MAN_RES_L (*1)
+
+| Addr | Bits | Field Name | Attr | Default | Description                                   |
+| ---- | ---- | ---------- | ---- | ------- | --------------------------------------------- |
+| 0x27 | 7:4  | ADC_RES_L  | R    | 0x0     | 12-bit ADC manual conversion result (4 LSBs). |
+| 0x27 | 3:0  | Reserved   | RV   | 0       | Reserved.                                     |
+
+**Notes:**
+(*1) Restored to default value when entering shutdown mode.
+
+##### Table 7-44 ADC_TJ_RES_H (*1)
+
+| Addr | Bits | Field Name | Attr | Default | Description   |
+| ---- | ---- | ---------- | ---- | ------- | ------------------- |
+| 0x28 | 7:0  | TJ_RES_H   | R    | 0x00    | Junction temperature automatic conversion result (8 MSBs).<br>Reading this register latches the current junction temperature result into `ADC_TJ_RES_H` and `ADC_TJ_RES_L`, preventing the lower bits from being overwritten by a new conversion and ensuring data consistency. |
+
+**Notes:**
+(*1) Restored to default value when entering shutdown mode.
+
+##### Table 7-42 ADC_MAN_RES_H (*1)
+
+| Addr | Bits | Field Name  | Attr | Default | Description |
+| ---- | ---- | ----------- | ---- | ------- | ----------- |
+| 0x26 | 7:0  | ADC_RES_H   | R    | 0x00    | 12-bit ADC manual conversion result (8 MSBs).<br>Reading this register latches the current manual conversion result into `ADC_MAN_RES_H` and `ADC_MAN_RES_L`, preventing the lower bits from being overwritten by a new conversion and ensuring data consistency. |
+
+**Notes:**  
+(*1) Restored to default value when entering shutdown mode.
+
+##### Table 7-43 ADC_MAN_RES_L (*1)
+
+| Addr | Bits | Field Name  | Attr | Default | Description |
+| ---- | ---- | ----------- | ---- | ------- | ----------- |
+| 0x27 | 7:4  | ADC_RES_L   | R    | 0x0     | 12-bit ADC manual conversion result (4 LSBs). |
+| 0x27 | 3:0  | Reserved    | RV   | 0       | Reserved. |
+
+**Notes:**  
+(*1) Restored to default value when entering shutdown mode.
+
+##### Table 7-44 ADC_TJ_RES_H (*1)
+
+| Addr | Bits | Field Name | Attr | Default | Description |
+| ---- | ---- | ---------- | ---- | ------- | ----------- |
+| 0x28 | 7:0  | TJ_RES_H   | R    | 0x00    | Junction temperature automatic conversion result (8 MSBs).<br>Reading this register latches the current junction temperature result into `ADC_TJ_RES_H` and `ADC_TJ_RES_L`, preventing the lower bits from being overwritten by a new conversion and ensuring data consistency. |
+
+**Notes:**  
+(*1) Restored to default value when entering shutdown mode.
+
+##### Table 7-45 ADC_TJ_RES_L (*1)
+
+| Addr | Bits | Field Name | Attr | Default | Description |
+| ---- | ---- | ---------- | ---- | ------- | ----------- |
+| 0x29 | 7:4  | TJ_RES_L   | R    | 0x0     | Junction temperature automatic conversion result (4 LSBs). |
+| 0x29 | 3:0  | Reserved   | RV   | 0       | Reserved. |
+
+**Notes:**  
+(*1) Restored to default value when entering shutdown mode.
+
+##### Table 7-46 ADC_IN0_RES_H (*1)
+
+| Addr | Bits | Field Name   | Attr | Default | Description |
+| ---- | ---- | ------------ | ---- | ------- | ----------- |
+| 0x2A | 7:0  | ADCIN0_RES_H | R    | 0x00    | ADCIN0 automatic conversion result (8 MSBs).<br>Reading this register latches the current Channel 0 result into `ADC_IN0_RES_H` and `ADC_IN0_RES_L`, preventing the lower bits from being overwritten by a new conversion and ensuring data consistency. |
+
+**Notes:**  
+(*1) Restored to default value when entering shutdown mode.
+
+##### Table 7-47 ADC_IN0_RES_L (*1)
+
+| Addr | Bits | Field Name   | Attr | Default | Description |
+| ---- | ---- | ------------ | ---- | ------- | ----------- |
+| 0x2B | 7:4  | ADCIN0_RES_L | R    | 0x0     | ADCIN0 automatic conversion result (4 LSBs). |
+| 0x2B | 3:0  | Reserved     | RV   | 0       | Reserved. |
+
+**Notes:**  
+(*1) Restored to default value when entering shutdown mode.
+
+
+##### Table 7-48 ADC_IN1_RES_H (*1)
+
+| Addr | Bits | Field Name   | Attr | Default | Description |
+| ---- | ---- | ------------ | ---- | ------- | ----------- |
+| 0x2C | 7:0  | ADCIN1_RES_H | R    | 0x0     | ADCIN1 automatic conversion result (8 MSBs).<br>Reading this register latches the current Channel 1 result into `ADC_IN1_RES_H` and `ADC_IN1_RES_L`, preventing the lower bits from being overwritten by a new conversion and ensuring data consistency. |
+
+**Notes:**  
+(*1) Restored to default value when entering shutdown mode.
+
+##### Table 7-49 ADC_IN1_RES_L (*1)
+
+| Addr | Bits | Field Name   | Attr | Default | Description |
+| ---- | ---- | ------------ | ---- | ------- | ----------- |
+| 0x2D | 7:4  | ADCIN1_RES_L | R    | 0x0     | ADCIN1 automatic conversion result (4 LSBs). |
+| 0x2D | 3:0  | Reserved     | RV   | 0       | Reserved. |
+
+**Notes:**  
+(*1) Restored to default value when entering shutdown mode.
+
+##### Table 7-50 ADC_IN2_RES_H (*1)
+
+| Addr | Bits | Field Name     | Attr | Default | Description |
+| ---- | ---- | -------------- | ---- | ------- | ----------- |
+| 0x2E | 7:0  | ADCIN2_RES_H   | R    | 0x00    | ADCIN2 automatic conversion result (8 MSBs).<br>Reading this register latches the current Channel 2 result into `ADC_IN2_RES_H` and `ADC_IN2_RES_L`, preventing the lower bits from being overwritten by a new conversion and ensuring data consistency. |
+
+**Notes:**  
+(*1) Restored to default value when entering shutdown mode.
+
+##### Table 7-51 ADC_IN2_RES_L (*1)
+
+| Addr | Bits | Field Name     | Attr | Default | Description |
+| ---- | ---- | -------------- | ---- | ------- | ----------- |
+| 0x2F | 7:4  | ADCIN2_RES_L   | R    | 0x0     | ADCIN2 automatic conversion result (4 LSBs). |
+| 0x2F | 3:0  | Reserved       | RV   | 0       | Reserved. |
+
+**Notes:**  
+(*1) Restored to default value when entering shutdown mode.
+
+##### Table 7-52 ADC_IN3_RES_H (*1)
+
+| Addr | Bits | Field Name     | Attr | Default | Description |
+| ---- | ---- | -------------- | ---- | ------- | ----------- |
+| 0x30 | 7:0  | ADCIN3_RES_H   | R    | 0x00    | ADCIN3 automatic conversion result (8 MSBs).<br>Reading this register latches the current Channel 3 result into `ADC_IN3_RES_H` and `ADC_IN3_RES_L`, preventing the lower bits from being overwritten by a new conversion and ensuring data consistency. |
+
+**Notes:**  
+(*1) Restored to default value when entering shutdown mode.
+
+##### Table 7-53 ADC_IN3_RES_L (*1)
+
+| Addr | Bits | Field Name     | Attr | Default | Description |
+| ---- | ---- | -------------- | ---- | ------- | ----------- |
+| 0x31 | 7:4  | ADCIN3_RES_L   | R    | 0x0     | ADCIN3 automatic conversion result (4 LSBs). |
+| 0x31 | 3:0  | Reserved       | RV   | 0       | Reserved. |
+
+**Notes:**  
+(*1) Restored to default value when entering shutdown mode.
+
+##### Table 7-54 ADC_IN4_RES_H (*1)
+
+| Addr | Bits | Field Name     | Attr | Default | Description |
+| ---- | ---- | -------------- | ---- | ------- | ----------- |
+| 0x32 | 7:0  | ADCIN4_RES_H   | R    | 0x00    | ADCIN4 automatic conversion result (8 MSBs).<br>Reading this register latches the current Channel 4 result into `ADC_IN4_RES_H` and `ADC_IN4_RES_L`, preventing the lower bits from being overwritten by a new conversion and ensuring data consistency. |
+
+**Notes:**  
+(*1) Restored to default value when entering shutdown mode.
+
+##### Table 7-55 ADC_IN4_RES_L (*1)
+
+| Addr | Bits | Field Name     | Attr | Default | Description |
+| ---- | ---- | -------------- | ---- | ------- | ----------- |
+| 0x33 | 7:4  | ADCIN4_RES_L   | R    | 0x0     | ADCIN4 automatic conversion result (4 LSBs). |
+| 0x33 | 3:0  | Reserved       | RV   | 0       | Reserved. |
+
+**Notes:**  
+(*1) Restored to default value when entering shutdown mode.
+
+##### Table 7-56 ADC_IN5_RES_H (*1)
+
+| Addr | Bits | Field Name     | Attr | Default | Description |
+| ---- | ---- | -------------- | ---- | ------- | ----------- |
+| 0x34 | 7:0  | ADCIN5_RES_H   | R    | 0x00    | ADCIN5 automatic conversion result (8 MSBs).<br>Reading this register latches the current Channel 5 result into `ADC_IN5_RES_H` and `ADC_IN5_RES_L`, preventing the lower bits from being overwritten by a new conversion and ensuring data consistency. |
+
+**Notes:**  
+(*1) Restored to default value when entering shutdown mode.
+
+##### Table 7-57 ADC_IN5_RES_L (*1)
+
+| Addr | Bits | Field Name     | Attr | Default | Description |
+| ---- | ---- | -------------- | ---- | ------- | ----------- |
+| 0x35 | 7:4  | ADCIN5_RES_L   | R    | 0x0     | ADCIN5 automatic conversion result (4 LSBs). |
+| 0x35 | 3:0  | Reserved       | RV   | 0       | Reserved. |
+
+**Notes:**  
+(*1) Restored to default value when entering shutdown mode.
+
+##### Table 7-58 ADC_VTH_TJ_H (*1)
+
+| Addr | Bits | Field Name | Attr | Default | Description |
+| ---- | ---- | ---------- | ---- | ------- | ----------- |
+| 0x36 | 7:0  | VTH_TJ_H   | RW   | 0x00    | Junction temperature monitoring upper threshold setting (8 MSBs). |
+
+**Notes:**  
+(*1) Restored to default value when entering shutdown mode.
+
+##### Table 7-59 ADC_VTH_TJ_L (*1)
+
+| Addr | Bits | Field Name | Attr | Default | Description |
+| ---- | ---- | ---------- | ---- | ------- | ----------- |
+| 0x37 | 7:0  | VTH_TJ_L   | RW   | 0x00    | Junction temperature monitoring lower threshold setting (8 MSBs). |
+
+**Notes:**  
+(*1) Restored to default value when entering shutdown mode.
+
+##### Table 7-60 ADC_IN0_VTH_H (*1)
+
+| Addr | Bits | Field Name     | Attr | Default | Description |
+| ---- | ---- | -------------- | ---- | ------- | ----------- |
+| 0x38 | 7:0  | ADCIN0_VTH_H   | RW   | 0x00    | ADCIN0 monitoring upper threshold setting (8 MSBs). |
+
+**Notes:**  
+(*1) Restored to default value when entering shutdown mode.
+
+##### Table 7-61 ADC_IN0_VTH_L (*1)
+
+| Addr | Bits | Field Name   | Attr | Default | Description                             |
+| ---- | ---- | ------------ | ---- | ------- | --------------------------------------- |
+| 0x39 | 7:0  | ADCIN0_VTH_L | RW   | 0x00    | ADCIN0 lower threshold setting (8 MSBs) |
+
+> **Note:**
+> (*1) Default value is restored when entering power-down mode.
+
+##### Table 7-62 ADC_IN1_VTH_H (*1)
+
+| Addr | Bits | Field Name   | Attr | Default | Description                             |
+| ---- | ---- | ------------ | ---- | ------- | --------------------------------------- |
+| 0x3A | 7:0  | ADCIN1_VTH_H | RW   | 0x00    | ADCIN1 upper threshold setting (8 MSBs) |
+
+> **Note:**
+> (*1) Default value is restored when entering power-down mode.
+
+##### Table 7-63 ADC_IN1_VTH_L (*1)
+
+| Addr | Bits | Field Name   | Attr | Default | Description                             |
+| ---- | ---- | ------------ | ---- | ------- | --------------------------------------- |
+| 0x3B | 7:0  | ADCIN1_VTH_L | RW   | 0x00    | ADCIN1 lower threshold setting (8 MSBs) |
+
+> **Note:**
+> (*1) Default value is restored when entering power-down mode.
+
+##### Table 7-64 ADC_IN2_VTH_H (*1)
+
+| Addr | Bits | Field Name   | Attr | Default | Description                             |
+| ---- | ---- | ------------ | ---- | ------- | --------------------------------------- |
+| 0x3C | 7:0  | ADCIN2_VTH_H | RW   | 0x00    | ADCIN2 upper threshold setting (8 MSBs) |
+
+> **Note:**
+> (*1) Default value is restored when entering power-down mode.
+
+##### Table 7-65 ADC_IN2_VTH_L (*1)
+
+| Addr | Bits | Field Name   | Attr | Default | Description                             |
+| ---- | ---- | ------------ | ---- | ------- | --------------------------------------- |
+| 0x3D | 7:0  | ADCIN2_VTH_L | RW   | 0x00    | ADCIN2 lower threshold setting (8 MSBs) |
+
+> **Note:**
+> (*1) Default value is restored when entering power-down mode.
+
+##### Table 7-66 ADC_IN3_VTH_H (*1)
+
+| Addr | Bits | Field Name   | Attr | Default | Description                             |
+| ---- | ---- | ------------ | ---- | ------- | --------------------------------------- |
+| 0x3E | 7:0  | ADCIN3_VTH_H | RW   | 0x00    | ADCIN3 upper threshold setting (8 MSBs) |
+
+> **Note:**
+> (*1) Default value is restored when entering power-down mode.
+
+##### Table 7-67 ADC_IN3_VTH_L (*1)
+
+| Addr | Bits | Field Name   | Attr | Default | Description                             |
+| ---- | ---- | ------------ | ---- | ------- | --------------------------------------- |
+| 0x3F | 7:0  | ADCIN3_VTH_L | RW   | 0x00    | ADCIN3 lower threshold setting (8 MSBs) |
+
+> **Note:**
+> (*1) Default value is restored when entering power-down mode.
+
+##### Table 7-68 ADC_IN4_VTH_H (*1)
+
+| Addr | Bits | Field Name   | Attr | Default | Description                             |
+| ---- | ---- | ------------ | ---- | ------- | --------------------------------------- |
+| 0x40 | 7:0  | ADCIN4_VTH_H | RW   | 0x00    | ADCIN4 upper threshold setting (8 MSBs) |
+
+> **Note:**
+> (*1) Default value is restored when entering power-down mode.
+
+##### Table 7-69 ADC_IN4_VTH_L (*1)
+
+| Addr | Bits | Field Name   | Attr | Default | Description                             |
+| ---- | ---- | ------------ | ---- | ------- | --------------------------------------- |
+| 0x41 | 7:0  | ADCIN4_VTH_L | RW   | 0x00    | ADCIN4 lower threshold setting (8 MSBs) |
+
+> **Note:**
+> (*1) Default value is restored when entering power-down mode.
+
+##### Table 7-70 ADC_IN5_VTH_H (*1)
+
+| Addr | Bits | Field Name   | Attr | Default | Description                             |
+| ---- | ---- | ------------ | ---- | ------- | --------------------------------------- |
+| 0x42 | 7:0  | ADCIN5_VTH_H | RW   | 0x00    | ADCIN5 upper threshold setting (8 MSBs) |
+
+> **Note:**
+> (*1) Default value is restored when entering power-down mode.
+
+##### Table 7-71 ADC_IN5_VTH_L (*1)
+
+| Addr | Bits | Field Name   | Attr | Default | Description                             |
+| ---- | ---- | ------------ | ---- | ------- | --------------------------------------- |
+| 0x43 | 7:0  | ADCIN5_VTH_L | RW   | 0x00    | ADCIN5 lower threshold setting (8 MSBs) |
+
+> **Note:**
+> (*1) Default value is restored when entering power-down mode.
+
+##### Table 7-72 WDT_CTRL (*1)
+
+| Addr | Bits | Field Name | Attr | Default | Description                                                                                     |
+| ---- | ---- | ---------- | ---- | ------- | ----------------------------------------------------------------------------------------------- |
+| 0x44 | 7:4  | Reserved   | RV   | 0       | Reserved                                                                                        |
+| 0x44 | 3    | WDT_EN     | RW   | 0x0     | Watchdog enable:<br>`0`: Disabled<br>`1`: Enabled                                               |
+| 0x44 | 2:1  | WDT_SCALE  | RW   | 0x0     | Watchdog timeout configuration:<br>`00`: 1 s<br>`01`: 4 s<br>`10`: 8 s<br>`11`: 16 s            |
+| 0x44 | 0    | WDT_FEED   | RW   | 0x0     | Watchdog counter clear:<br>Write `1`: Clear WDT counter<br>Hardware automatically clears to `0` |
+
+> **Note:**
+> (*1) Default value is restored when entering power-down mode.
+
+##### Table 7-73 BBAT_CTRL (*1)
+
+| Addr | Bits | Field Name | Attr | Default | Description                                                                                         |
+| ---- | ---- | ---------- | ---- | ------- | --------------------------------------------------------------------------------------------------- |
+| 0x45 | 7:5  | Reserved   | RV   | 0       | Reserved                                                                                            |
+| 0x45 | 4:3  | BCHG_ISET  | RW   | 0x0     | Coin-cell charging current setting:<br>`100`: 500 µA<br>`101`: 1 mA<br>`110`: 2 mA<br>`111`: 4 mA   |
+| 0x45 | 2:1  | BCHG_VSET  | RW   | 0x0     | Coin-cell charging voltage setting:<br>`100`: 2.8 V<br>`101`: 2.9 V<br>`110`: 3.0 V<br>`111`: 3.1 V |
+| 0x45 | 0    | BCHG_EN    | RW   | 0x0     | Coin-cell charging enable:<br>`0`: Disabled<br>`1`: Enabled                                         |
+
+> **Note:**
+> (*1) Default value is restored when entering power-down mode.
+
+##### Table 7-74 BUCK_LDO_CFG (*1)
+
+| Addr | Bits | Field Name     | Attr | Default | Description                                                                                                                                                                                                  |
+| ---- | ---- | -------------- | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 0x46 | 7    | LDO_PD_EN      | RWE  | 0       | LDO pull-down resistor enable:<br>`0`: Disabled<br>`1`: Enabled<br>When LDO is enabled, this bit has no effect (pull-down disabled); when LDO is disabled, the pull-down resistor is controlled by this bit. |
+| 0x46 | 6    | BUCK_PD_EN     | RWE  | 0x0     | BUCK pull-down resistor enable:<br>`0`: Disabled<br>`1`: Enabled<br>When BUCK is enabled, this bit has no effect; when BUCK is disabled, the pull-down resistor is controlled by this bit.                   |
+| 0x46 | 5    | BUCK_DVS_EN    | RWE  | 0x0     | BUCK DVS enable:<br>`0`: Disabled<br>`1`: Enabled<br>DVS is not active during power-up; DVS is applied only during power-on/off and sleep/wake transitions.                                                  |
+| 0x46 | 4:3  | BUCK_DVS_SEL   | RWE  | 0x0     | BUCK DVS slew rate selection:<br>`00`: 5 mV/µs<br>`01`: 10 mV/µs<br>`10`: 25 mV/µs<br>`11`: 50 mV/µs                                                                                                         |
+| 0x46 | 2    | BUCK_VSET_CTRL | RWE  | 0x0     | BUCK5/6 VSET pin voltage selection:<br>`0`: VSET=VDD: 1.1 V, FLOATING: BUCKx_VOLT, GND: 1.2 V<br>`1`: VSET=VDD: 0.6 V, FLOATING: BUCKx_VOLT, GND: 1.5 V                                                      |
+| 0x46 | 1    | BUCK_34_DUAL   | RWE  | 0x0     | BUCK3 and BUCK4 dual-phase mode enable:<br>`0`: Disabled<br>`1`: Enabled                                                                                                                                     |
+| 0x46 | 0    | BUCK_12_DUAL   | RWE  | 0x0     | BUCK1 and BUCK2 dual-phase mode enable:<br>`0`: Disabled<br>`1`: Enabled                                                                                                                                     |
+
+> **Note:**
+> (*1) Value is retained in power-down mode and restored from MTP after a power-on event.
+
+##### Table 7-75 BUCKx_CTRL (*1)
+
+| Addr          | Bits | Field Name     | Attr | Default | Description                                                                                                                                                                                        |
+| ------------- | ---- | -------------- | ---- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0x47+3xN (*2) | 7:6  | Reserved       | RV   | 0       | Reserved                                                                                                                                                                                           |
+| 0x47+3xN (*2) | 5:3  | BUCKx_GPIO_SEL | RE   | 0x0     | GPIO (PWRCTRL) control of BUCK enable:<br>`000`: Not GPIO-controlled<br>`001`: GPIO0<br>`010`: GPIO1<br>`011`: GPIO2<br>`100`: GPIO3<br>`101`: GPIO4<br>`110`: GPIO5<br>`111`: Not GPIO-controlled |
+| 0x47+3xN (*2) | 2    | BUCKx_MODE     | RWE  | 0x0     | BUCK operating mode:<br>`0`: PFM/PWM auto-switch<br>`1`: Forced PWM                                                                                                                                |
+| 0x47+3xN (*2) | 1    | BUCKx_ILIM     | RWE  | 0x0     | BUCK current limit selection:<br>`0`: BUCK1–2: 5000 mA; BUCK3–6: 3500 mA<br>`1`: BUCK1–2: 7500 mA; BUCK3–6: 5000 mA                                                                                |
+| 0x47+3xN (*2) | 0    | BUCKx_EN       | RWE  | 0x0     | BUCK enable:<br>`0`: Disabled<br>`1`: Enabled                                                                                                                                                      |
+
+> **Note:**
+> (*1) Value is retained in power-down mode and restored from MTP after a power-on event.
+> (*2) N = 0–5, x = 1–6, corresponding to BUCK1–BUCK6.
+
+##### Table 7-76 BUCKx_VOLT (*1)
+
+| Addr          | Bits | Field Name | Attr | Default | Description                                                                                                                                                                                                                        |
+| ------------- | ---- | ---------- | ---- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0x48+3xN (*2) | 7:0  | BUCKx_VOLT | RWE  | 0x00    | BUCK output voltage setting (8 MSBs):<br>0.5 V–1.35 V: 5 mV/step<br>1.375 V–3.45 V: 25 mV/step<br>`00000000`: 0.500 V<br>`00000001`: 0.505 V<br>`00000010`: 0.510 V<br>...<br>`11111110`: 3.450 V<br>`11111111`: Write not allowed |
+
+> **Note:**
+> (*1) Value is retained in power-down mode and restored from MTP after a power-on event.
+> (*2) N = 0–5, x = 1–6, corresponding to BUCK1–BUCK6.
+
+##### Table 7-77 BUCKx_SLP_VOLT (*1)
+
+| Addr          | Bits | Field Name     | Attr | Default | Description                                                                                                                                                                                                                                 |
+| ------------- | ---- | -------------- | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0x49+3xN (*2) | 7:0  | BUCKx_SLP_VOLT | RWE  | 0x00    | BUCK sleep-mode output voltage setting (8 MSBs):<br>0.5 V–1.35 V: 5 mV/step<br>1.375 V–3.45 V: 25 mV/step<br>`00000000`: 0.500 V<br>`00000001`: 0.505 V<br>`00000010`: 0.510 V<br>...<br>`11111110`: 3.450 V<br>`11111111`: 0 V (BUCKx off) |
+
+> **Note:**
+> (*1) Value is retained in power-down mode and restored from MTP after a power-on event.
+> (*2) N = 0–5, x = 1–6, corresponding to BUCK1–BUCK6.
+
+##### Table 7-78 SWITCH_CTRL (*1)
+
+| Addr | Bits | Field Name   | Attr | Default | Description                                                                                                                                                                                                                               |
+| ---- | ---- | ------------ | ---- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0x59 | 7:2  | Reserved     | RV   | 0       | Reserved                                                                                                                                                                                                                                  |
+| 0x59 | 1    | SWITCH_PD_EN | RW   | 0x0     | SWITCH pull-down resistor enable:<br>`0`: Disabled<br>`1`: Enabled<br>When SWITCH_EN is enabled, the pull-down resistor is disabled and this bit has no effect; the pull-down resistor is controlled by this bit only when SWITCH_EN = 0. |
+| 0x59 | 0    | SWITCH_EN    | RW   | 0x0     | SWITCH enable:<br>`0`: Disabled<br>`1`: Enabled                                                                                                                                                                                           |
+
+> **Note:**
+> (*1) Default value is restored when entering power-down mode.
+
+##### Table 7-79 AONLDO_CTRL (*1)
+
+| Addr | Bits | Field Name  | Attr | Default | Description                                                                                                                                                                        |
+| ---- | ---- | ----------- | ---- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0x5A | 7:1  | AONLDO_VOLT | RE   | 0x00    | AONLDO output voltage setting (7 MSBs):<br>0.5 V–3.4 V: 25 mV/step<br>`0001011`: 0.500 V<br>`0001100`: 0.525 V<br>`0001101`: 0.550 V<br>...<br>`1111111`: 3.400 V<br>Others: 0.5 V |
+| 0x5A | 0    | Reserved    | RV   | 1       | Reserved                                                                                                                                                                           |
+
+> **Note:**
+> (*1) Value is retained in power-down mode and restored from MTP after a power-on event.
+
+##### Table 7-80 ALDOx_CTRL (*1)
+
+| Addr          | Bits | Field Name     | Attr | Default | Description                                                                                                                                                                                         |
+| ------------- | ---- | -------------- | ---- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0x5B+3xN (*2) | 7:4  | Reserved       | RV   | 0       | Reserved                                                                                                                                                                                            |
+| 0x5B+3xN (*2) | 3:1  | ALDOx_GPIO_SEL | RE   | 0x0     | GPIO (PWRCTRL) control of ALDOx enable:<br>`000`: Not GPIO-controlled<br>`001`: GPIO0<br>`010`: GPIO1<br>`011`: GPIO2<br>`100`: GPIO3<br>`101`: GPIO4<br>`110`: GPIO5<br>`111`: Not GPIO-controlled |
+| 0x5B+3xN (*2) | 0    | ALDOx_EN       | RWE  | 0x0     | ALDOx enable:<br>`0`: Disabled<br>`1`: Enabled                                                                                                                                                      |
+
+> **Note:**
+> (*1) Value is retained in power-down mode and restored from MTP after a power-on event.
+> (*2) N = 0–3, x = 1–4, corresponding to ALDO1–ALDO4.
+
+##### Table 7-81 ALDOx_VOLT (*1)
+
+| Addr          | Bits | Field Name | Attr | Default | Description                                                                                                                                                              |
+| ------------- | ---- | ---------- | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 0x5C+3xN (*2) | 7    | Reserved   | RV   | 0       | Reserved                                                                                                                                                                 |
+| 0x5C+3xN (*2) | 6:0  | ALDOx_VOLT | RWE  | 0x0     | ALDOx voltage output level (7 MSBs)<br>0.5 V ~ 3.4 V, 25 mV/step<br>0001011: 0.500 V<br>0001100: 0.525 V<br>0001101: 0.550 V<br>...<br>1111111: 3.400 V<br>others: 0.5 V |
+
+> **Note:**
+> (*1) Value remains unchanged when entering shutdown mode and is restored to the value stored in MTP after a power-on event.
+> (*2) N: 0 ~ 3, x: 1 ~ 4, corresponding to ALDO1 ~ ALDO4.
+
+##### Table 7-82 ALDOx_SLP_VOLT (*1)
+
+| Addr          | Bits | Field Name     | Attr | Default | Description                                                                                                                                                                         |
+| ------------- | ---- | -------------- | ---- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0x5D+3xN (*2) | 7    | Reserved       | RV   | 0       | Reserved                                                                                                                                                                            |
+| 0x5D+3xN (*2) | 6:0  | ALDOx_SLP_VOLT | RWE  | 0x0     | ALDOx sleep-mode voltage output level (7 MSBs)<br>0.5 V ~ 3.4 V, 25 mV/step<br>0001011: 0.500 V<br>0001100: 0.525 V<br>0001101: 0.550 V<br>...<br>1111111: 3.400 V<br>others: 0.5 V |
+
+> **Note:**
+> (*1) Value remains unchanged when entering shutdown mode and is restored to the value stored in MTP after a power-on event.
+> (*2) N: 0 ~ 3, x: 1 ~ 4, corresponding to ALDO1 ~ ALDO4.
+
+##### Table 7-83 DLDOx_CTRL
+
+| Addr          | Bits | Field Name     | Attr | Default | Description                                                                                                                                                                                                                                                                  |
+| ------------- | ---- | -------------- | ---- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0x67+3xN (*1) | 7:4  | Reserved       | RV   | 0       | Reserved                                                                                                                                                                                                                                                                     |
+| 0x67+3xN (*1) | 3:1  | DLDOx_GPIO_SEL | RE   | 0x0     | GPIO (PWRCTRL) control of DLDOx enable<br>000: Not controlled by GPIO<br>001: Controlled by GPIO0<br>010: Controlled by GPIO1<br>011: Controlled by GPIO2<br>100: Controlled by GPIO3<br>101: Controlled by GPIO4<br>110: Controlled by GPIO5<br>111: Not controlled by GPIO |
+| 0x67+3xN (*1) | 0    | DLDOx_EN       | RWE  | 0x0     | DLDOx enable<br>0: Disable<br>1: Enable                                                                                                                                                                                                                                      |
+
+> **Note:**
+> (*1) N: 0 ~ 6, x: 1 ~ 7, corresponding to DLDO1 ~ DLDO7.
+
+##### Table 7-84 DLDOx_VOLT
+
+| Addr          | Bits | Field Name | Attr | Default | Description                                                                                                                                                              |
+| ------------- | ---- | ---------- | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 0x68+3xN (*1) | 7    | Reserved   | RV   | 0       | Reserved                                                                                                                                                                 |
+| 0x68+3xN (*1) | 6:0  | DLDOx_VOLT | RWE  | 0x0     | DLDOx voltage output level (7 MSBs)<br>0.5 V ~ 3.4 V, 25 mV/step<br>0001011: 0.500 V<br>0001100: 0.525 V<br>0001101: 0.550 V<br>...<br>1111111: 3.400 V<br>others: 0.5 V |
+
+> **Note:**
+> (*1) N: 0 ~ 6, x: 1 ~ 7, corresponding to DLDO1 ~ DLDO7.
+
+##### Table 7-85 DLDOx_SLP_VOLT
+
+| Addr          | Bits | Field Name     | Attr | Default | Description                                                                                                                                                                         |
+| ------------- | ---- | -------------- | ---- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0x69+3xN (*1) | 7    | Reserved       | RV   | 0       | Reserved                                                                                                                                                                            |
+| 0x69+3xN (*1) | 6:0  | DLDOx_SLP_VOLT | RWE  | 0x0     | DLDOx sleep-mode voltage output level (7 MSBs)<br>0.5 V ~ 3.4 V, 25 mV/step<br>0001011: 0.500 V<br>0001100: 0.525 V<br>0001101: 0.550 V<br>...<br>1111111: 3.400 V<br>others: 0.5 V |
+
+> **Note:**
+> (*1) N: 0 ~ 6, x: 1 ~ 7, corresponding to DLDO1 ~ DLDO7.
+
+##### Table 7-86 PWR_CTRL0
+
+| Addr | Bits | Field Name      | Attr | Default | Description                                                                                                                                                                   |
+| ---- | ---- | --------------- | ---- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0x7C | 7    | WDT_RST_EN      | RW   | 0x0     | WDT timeout reset enable<br>0: Disable<br>1: Enable                                                                                                                           |
+| 0x7C | 6    | NRESET_RST_EN   | RW   | 0x0     | nRESET pin pull-down triggered reset enable<br>0: Disable<br>1: Enable                                                                                                        |
+| 0x7C | 5    | PWRCTRL_SHUT_EN | RWE  | 0x0     | PWRCTRL all-bound invalid shutdown enable<br>0: Disable<br>1: Enable                                                                                                          |
+| 0x7C | 4    | PWRCTRL_STA_EN  | RE   | 0x0     | PWRCTRL all-bound valid power-on enable<br>0: Disable<br>1: Enable                                                                                                            |
+| 0x7C | 3    | RTC_STA_EN      | RE   | 0x0     | RTC TICK / ALARM triggered power-on enable<br>0: Disable<br>1: Enable                                                                                                         |
+| 0x7C | 2    | INT_STA_EN      | RE   | 0x0     | INT pin triggered power-on enable<br>0: Disable<br>1: Enable                                                                                                                  |
+| 0x7C | 1    | VSYS_STA_EN     | RE   | 0x0     | VSYS rising-edge triggered power-on enable<br>0: Disable<br>1: Enable<br>When enabled, the device powers on once VSYS exceeds the configured threshold after initial power-up |
+| 0x7C | 0    | Reserved        | RV   | 1       | Reserved                                                                                                                                                                      |
+
+##### Table 7-87 PWR_CTRL1
+
+| Addr | Bits | Field Name   | Attr | Default | Description                                                                                                                                                                 |
+| ---- | ---- | ------------ | ---- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0x7D | 7    | SD_LOW_POWER | RW   | 0x0     | Enter standby mode in shutdown state<br>0: Do not enter<br>1: Enter<br>In standby mode, internal bandgap and AON LDO are disabled; only PWRKY and RTC wake-up are available |
+| 0x7D | 6    | PG_RST_EN    | RWE  | 0x0     | PGOOD pin pull-down triggered reset enable<br>0: Disable<br>1: Enable                                                                                                       |
+| 0x7D | 5    | PG_PD_EN     | RWE  | 0x0     | PGOOD pin pull-down enable during sleep<br>0: PGOOD not pulled down on sleep event<br>1: PGOOD pulled down on sleep event                                                   |
+| 0x7D | 4    | PG_WAIT_TO   | RWE  | 0x0     | Timeout selection for waiting external PGOOD release after power-on<br>0: 128 ms<br>1: 1 s                                                                                  |
+| 0x7D | 3    | PG_WAIT_EN   | RWE  | 0x0     | Wait for external PGOOD release after PMIC power-on sequence completes<br>0: Do not wait<br>1: Wait                                                                         |
+| 0x7D | 2    | AUTO_BOOT_EN | RWE  | 0x0     | Auto reboot enable after shutdown event<br>0: No reboot after shutdown<br>1: Reboot after shutdown                                                                          |
+| 0x7D | 1    | SLP_WKUP_SEQ | RWE  | 0x0     | Sleep / wake-up sequence selection<br>0: Direct enter / exit sleep<br>1: Follow shutdown / power-on sequence                                                                |
+| 0x7D | 0    | SD_SEQ       | RWE  | 0x0     | Shutdown sequence selection<br>0: Reverse-order shutdown<br>1: Fast shutdown                                                                                                |
+
+##### Table 7-88 PWR_CTRL2
+
+| Addr | Bits | Field Name        | Attr | Default | Description                                                                                                                                                                                                                                  |
+| ---- | ---- | ----------------- | ---- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0x7E | 7    | SD_RST_TIME       | RE   | 0x0     | Dwell time selection when reset enters shutdown mode<br>0: 200 ms<br>1: 1 s                                                                                                                                                                  |
+| 0x7E | 6    | PWRKY_SD_DIS      | RWE  | 0x0     | PWRKY shutdown function mask<br>0: Enable PWRKY shutdown (12 s long-press reset disabled)<br>1: Disable PWRKY shutdown (12 s long-press reset enabled)                                                                                       |
+| 0x7E | 5    | PWRCTRL_SDTO_TIME | RWE  | 0x0     | PWRCTRL timeout selection for shutdown and sleep sequences<br>0: 128 ms<br>1: 1 s                                                                                                                                                            |
+| 0x7E | 4    | PWRCTRL_WAIT_EN   | RWE  | 0x0     | Wait for PWRCTRL during shutdown and sleep sequences<br>0: Do not wait<br>1: Wait                                                                                                                                                            |
+| 0x7E | 3    | Reserved          | RV   | 0       | Reserved                                                                                                                                                                                                                                     |
+| 0x7E | 2    | SW_SD             | RW   | 0x0     | Software shutdown<br>0: No operation<br>1: Trigger software shutdown (software-triggered, hardware-cleared)                                                                                                                                  |
+| 0x7E | 1    | SW_RST            | RW   | 0x0     | Software reset<br>0: No operation<br>1: Trigger software reset (software-triggered, hardware-cleared)                                                                                                                                        |
+| 0x7E | 0    | SW_SLP_WKUP       | RW   | 0x0     | Software sleep / wake-up<br>Power-on mode:<br>0: No operation<br>1: Trigger software sleep (software-triggered, hardware-cleared)<br>Shutdown mode:<br>0: Trigger software wake-up (software-triggered, hardware-cleared)<br>1: No operation |
+
+##### Table 7-89 PWR_STS0
+
+| Addr | Bits | Field Name        | Attr  | Default | Description                                                                                                                       |
+| ---- | ---- | ----------------- | ----- | ------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| 0x7F | 7:5  | Reserved          | RV    | 0       | Reserved                                                                                                                          |
+| 0x7F | 4    | FLAG_PWRCTRL_WKUP | R, IO | 0x0     | Power-on source indicator (cleared by writing 1)<br>0: Not PWRCTRL all-bound wake-up<br>1: PWRCTRL all-bound wake-up              |
+| 0x7F | 3    | FLAG_PWRKY_WKUP   | R, IO | 0x0     | Power-on source indicator (cleared by writing 1)<br>0: Not PWRKY long-press wake-up<br>1: PWRKY long-press power-on wake-up       |
+| 0x7F | 2    | FLAG_VSYS_WKUP    | R, IO | 0x0     | Power-on source indicator (cleared by writing 1)<br>0: Not VSYS over-threshold wake-up<br>1: VSYS over-threshold power-on wake-up |
+| 0x7F | 1    | FLAG_INT_WKUP     | R, IO | 0x0     | Power-on source indicator (cleared by writing 1)<br>0: Not INT pin wake-up<br>1: INT pin power-on wake-up                         |
+| 0x7F | 0    | FLAG_RTC_WKUP     | R, IO | 0x0     | Power-on source indicator (cleared by writing 1)<br>0: Not RTC wake-up<br>1: RTC power-on wake-up                                 |
+
+##### Table 7-90 PWR_STS1
+
+| Addr | Bits | Field Name        | Attr  | Default | Description                                                                                                                                                                                                                                                                            |
+| ---- | ---- | ----------------- | ----- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0x80 | 7:6  | Reserved          | RV    | 0       | Reserved                                                                                                                                                                                                                                                                               |
+| 0x80 | 5    | WORK_STS          | R     | 0x0     | Operating mode status<br>0: Power-on mode<br>1: Shutdown mode                                                                                                                                                                                                                          |
+| 0x80 | 4    | FLAG_PWRCTRL_SHUT | R, IO | 0x0     | Shutdown source indicator (cleared by writing 1)<br>0: Not PWRCTRL invalid shutdown<br>1: PWRCTRL invalid shutdown                                                                                                                                                                     |
+| 0x80 | 3    | FLAG_PWRKY_SHUT   | R, IO | 0x0     | Shutdown source indicator (cleared by writing 1)<br>0: Not PWRKY long-press shutdown<br>1: PWRKY long-press shutdown                                                                                                                                                                   |
+| 0x80 | 2    | FLAG_VSYS_SHUT    | R, IO | 0x0     | Shutdown source indicator (cleared by writing 1)<br>0: Not VSYS low-threshold shutdown<br>1: VSYS low-threshold shutdown                                                                                                                                                               |
+| 0x80 | 1    | FLAG_ERR_SHUT     | R, IO | 0x0     | Shutdown source indicator (cleared by writing 1)<br>0: Not abnormal shutdown<br>1: Abnormal shutdown<br>Abnormal events include: VSYS over-voltage, chip over-temperature, all buck over-voltage / under-voltage / short-circuit, all LDO over-voltage / under-voltage / short-circuit |
+| 0x80 | 0    | FLAG_SW_SHUT      | R, IO | 0x0     | Shutdown source indicator (cleared by writing 1)<br>0: Not software shutdown<br>1: Software shutdown                                                                                                                                                                                   |
+
+
+##### Table 7-91 PWR_KEY_TIME
+
+| Addr | Bits | Field Name     | Attr | Default | Description                                                                                 |
+| ---- | ---- | -------------- | ---- | ------- | ------------------------------------------------------------------------------------------- |
+| 0x81 | 7:6  | Reserved       | RV   | 0       | Reserved                                                                                    |
+| 0x81 | 5:4  | PWRKY_INT_TIME | RWE  | 0x0     | PWR key short-press interrupt time:<br>`00`: 0.5 s<br>`01`: 1 s<br>`10`: 1.5 s<br>`11`: 2 s |
+| 0x81 | 3:2  | PWRKY_SD_TIME  | RWE  | 0x0     | PWR key shutdown time:<br>`00`: 4 s<br>`01`: 6 s<br>`10`: 8 s<br>`11`: 10 s                 |
+| 0x81 | 1:0  | PWRKY_STA_TIME | RWE  | 0x0     | PWR key power-on time:<br>`00`: 0.5 s<br>`01`: 1 s<br>`10`: 2 s<br>`11`: 3 s                |
+
+##### Table 7-92 PWR_SEQ_TIME
+
+| Addr | Bits | Field Name        | Attr | Default | Description                                                                                                                           |
+| ---- | ---- | ----------------- | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| 0x82 | 7:6  | PDN_SEQ_PG_DLY    | RWE  | 0x0     | Delay from PGOOD deassertion to start of power rail power-down:<br>`00`: 4 ms<br>`01`: 16 ms<br>`10`: 64 ms<br>`11`: 128 ms           |
+| 0x82 | 5:4  | PUP_SEQ_PG_DLY    | RWE  | 0x0     | Delay between completion of all power rails power-up and PGOOD assertion:<br>`00`: 4 ms<br>`01`: 16 ms<br>`10`: 64 ms<br>`11`: 128 ms |
+| 0x82 | 3:2  | PDN_SEQ_SLOT_TIME | RWE  | 0x0     | Power-down interval between power rails:<br>`00`: 1 ms<br>`01`: 4 ms<br>`10`: 8 ms<br>`11`: 16 ms                                     |
+| 0x82 | 1:0  | PUP_SEQ_SLOT_TIME | RWE  | 0x0     | Power-up interval between power rails:<br>`00`: 1 ms<br>`01`: 4 ms<br>`10`: 8 ms<br>`11`: 16 ms                                       |
+
+##### Table 7-93 PWR_SLOT0
+
+| Addr | Bits | Field Name | Attr | Default | Description                                                                                                                                                         |
+| ---- | ---- | ---------- | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0x83 | 7:4  | BUCK2_SLOT | RE   | 0x0     | BUCK2 power-up/power-down sequence slot:<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not included in power sequence |
+| 0x83 | 3:0  | BUCK1_SLOT | RE   | 0x0     | BUCK1 power-up/power-down sequence slot:<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not included in power sequence |
+
+##### Table 7-94 PWR_SLOT1
+
+| Addr | Bits | Field Name | Attr | Default | Description                                                                                                                                                         |
+| ---- | ---- | ---------- | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0x84 | 7:4  | BUCK4_SLOT | RE   | 0x0     | BUCK4 power-up/power-down sequence slot:<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not included in power sequence |
+| 0x84 | 3:0  | BUCK3_SLOT | RE   | 0x0     | BUCK3 power-up/power-down sequence slot:<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not included in power sequence |
+
+##### Table 7-95 PWR_SLOT2
+
+| Addr | Bits | Field Name | Attr | Default | Description                                                                                                                                                         |
+| ---- | ---- | ---------- | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0x85 | 7:4  | BUCK6_SLOT | RE   | 0x0     | BUCK6 power-up/power-down sequence slot:<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not included in power sequence |
+| 0x85 | 3:0  | BUCK5_SLOT | RE   | 0x0     | BUCK5 power-up/power-down sequence slot:<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not included in power sequence |
+
+##### Table 7-96 PWR_SLOT3
+
+| Addr | Bits | Field Name | Attr | Default | Description                                                                                                                                                         |
+| ---- | ---- | ---------- | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0x86 | 7:4  | ALDO2_SLOT | RE   | 0x0     | ALDO2 power-up/power-down sequence slot:<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not included in power sequence |
+| 0x86 | 3:0  | ALDO1_SLOT | RE   | 0x0     | ALDO1 power-up/power-down sequence slot:<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not included in power sequence |
+
+##### Table 7-97 PWR_SLOT4
+
+| Addr | Bits | Field Name | Attr | Default | Description                                                                                                                                                         |
+| ---- | ---- | ---------- | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0x87 | 7:4  | ALDO4_SLOT | RE   | 0x0     | ALDO4 power-up/power-down sequence slot:<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not included in power sequence |
+| 0x87 | 3:0  | ALDO3_SLOT | RE   | 0x0     | ALDO3 power-up/power-down sequence slot:<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not included in power sequence |
+
+##### Table 7-98 PWR_SLOT5
+
+| Addr | Bits | Field Name | Attr | Default | Description                                                                                                                                                         |
+| ---- | ---- | ---------- | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0x88 | 7:4  | DLDO2_SLOT | RE   | 0x0     | DLDO2 power-up/power-down sequence slot:<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not included in power sequence |
+| 0x88 | 3:0  | DLDO1_SLOT | RE   | 0x0     | DLDO1 power-up/power-down sequence slot:<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not included in power sequence |
+
+##### Table 7-99 PWR_SLOT6
+
+| Addr | Bits | Field Name | Attr | Default | Description                                                                                                                                                         |
+| ---- | ---- | ---------- | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0x89 | 7:4  | DLDO4_SLOT | RE   | 0x0     | DLDO4 power-up/power-down sequence slot:<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not included in power sequence |
+| 0x89 | 3:0  | DLDO3_SLOT | RE   | 0x0     | DLDO3 power-up/power-down sequence slot:<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not included in power sequence |
+
+##### Table 7-100 PWR_SLOT7
+
+| Addr | Bits | Field Name | Attr | Default | Description                                                                                                                                                         |
+| ---- | ---- | ---------- | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0x8A | 7:4  | DLDO6_SLOT | RE   | 0x0     | DLDO6 power-up/power-down sequence slot:<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not included in power sequence |
+| 0x8A | 3:0  | DLDO5_SLOT | RE   | 0x0     | DLDO5 power-up/power-down sequence slot:<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not included in power sequence |
+
+
+##### Table 7-101 PWR_SLOT8
+
+| Addr | Bits | Field Name | Attr | Default | Description                                                                                                                                                                            |
+| ---- | ---- | ---------- | ---- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0x8B | 7:4  | Reserved   | RV   | 0       | Reserved                                                                                                                                                                               |
+| 0x8B | 3:0  | DLDO7_SLOT | RE   | 0x0     | DLDO7 power-on and power-off sequence slot<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not involved in power-up or power-down sequence |
+
+##### Table 7-102 PWR_SLOT9
+
+| Addr | Bits | Field Name   | Attr | Default | Description                                                                                                                                                                           |
+| ---- | ---- | ------------ | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0x8C | 7:4  | EXT1_EN_SLOT | RE   | 0x0     | EXT1 power-on and power-off sequence slot<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not involved in power-up or power-down sequence |
+| 0x8C | 3:0  | EXT0_EN_SLOT | RE   | 0x0     | EXT0 power-on and power-off sequence slot<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not involved in power-up or power-down sequence |
+
+##### Table 7-103 PWR_SLOT10
+
+| Addr | Bits | Field Name   | Attr | Default | Description                                                                                                                                                                           |
+| ---- | ---- | ------------ | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0x8D | 7:4  | EXT3_EN_SLOT | RE   | 0x0     | EXT3 power-on and power-off sequence slot<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not involved in power-up or power-down sequence |
+| 0x8D | 3:0  | EXT2_EN_SLOT | RE   | 0x0     | EXT2 power-on and power-off sequence slot<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not involved in power-up or power-down sequence |
+
+##### Table 7-104 PWR_SLOT11
+
+| Addr | Bits | Field Name   | Attr | Default | Description                                                                                                                                                                           |
+| ---- | ---- | ------------ | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0x8E | 7:4  | EXT5_EN_SLOT | RE   | 0x0     | EXT5 power-on and power-off sequence slot<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not involved in power-up or power-down sequence |
+| 0x8E | 3:0  | EXT4_EN_SLOT | RE   | 0x0     | EXT4 power-on and power-off sequence slot<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not involved in power-up or power-down sequence |
+
+##### Table 7-105 PWR_EXT_EN
+
+| Addr | Bits | Field Name | Attr | Default | Description                                             |
+| ---- | ---- | ---------- | ---- | ------- | ------------------------------------------------------- |
+| 0x8F | 7:6  | Reserved   | RV   | 0       | Reserved                                                |
+| 0x8F | 5    | EXT5_EN    | RWE  | 0x0     | EXT5 software enable bit<br>`0`: disable<br>`1`: enable |
+| 0x8F | 4    | EXT4_EN    | RWE  | 0x0     | EXT4 software enable bit<br>`0`: disable<br>`1`: enable |
+| 0x8F | 3    | EXT3_EN    | RWE  | 0x0     | EXT3 software enable bit<br>`0`: disable<br>`1`: enable |
+| 0x8F | 2    | EXT2_EN    | RWE  | 0x0     | EXT2 software enable bit<br>`0`: disable<br>`1`: enable |
+| 0x8F | 1    | EXT1_EN    | RWE  | 0x0     | EXT1 software enable bit<br>`0`: disable<br>`1`: enable |
+| 0x8F | 0    | EXT0_EN    | RWE  | 0x0     | EXT0 software enable bit<br>`0`: disable<br>`1`: enable |
+
+##### Table 7-106 PWR_EXT_CTRL
+
+| Addr | Bits | Field Name  | Attr | Default | Description                                                                               |
+| ---- | ---- | ----------- | ---- | ------- | ----------------------------------------------------------------------------------------- |
+| 0x90 | 7:6  | Reserved    | RV   | 0       | Reserved                                                                                  |
+| 0x90 | 5    | EXT5_SLP_SD | RWE  | 0x0     | EXT5 shutdown control during sleep mode and sleep sequence<br>`0`: disable<br>`1`: enable |
+| 0x90 | 4    | EXT4_SLP_SD | RWE  | 0x0     | EXT4 shutdown control during sleep mode and sleep sequence<br>`0`: disable<br>`1`: enable |
+| 0x90 | 3    | EXT3_SLP_SD | RWE  | 0x0     | EXT3 shutdown control during sleep mode and sleep sequence<br>`0`: disable<br>`1`: enable |
+| 0x90 | 2    | EXT2_SLP_SD | RWE  | 0x0     | EXT2 shutdown control during sleep mode and sleep sequence<br>`0`: disable<br>`1`: enable |
+| 0x90 | 1    | EXT1_SLP_SD | RWE  | 0x0     | EXT1 shutdown control during sleep mode and sleep sequence<br>`0`: disable<br>`1`: enable |
+| 0x90 | 0    | EXT0_SLP_SD | RWE  | 0x0     | EXT0 shutdown control during sleep mode and sleep sequence<br>`0`: disable<br>`1`: enable |
+
+##### Table 7-107 EVENT0
+
+| Addr | Bits | Field Name | Attr  | Default | Description                                                                                                                    |
+| ---- | ---- | ---------- | ----- | ------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| 0x91 | 7:6  | Reserved   | RV    | 0       | Reserved                                                                                                                       |
+| 0x91 | 5    | E_GPI5     | R, IO | 0x0     | GPI5 valid-level input event or ADCIN5 over/under-threshold event<br>`0`: no event<br>`1`: event occurred (write `1` to clear) |
+| 0x91 | 4    | E_GPI4     | R, IO | 0x0     | GPI4 valid-level input event or ADCIN4 over/under-threshold event<br>`0`: no event<br>`1`: event occurred (write `1` to clear) |
+| 0x91 | 3    | E_GPI3     | R, IO | 0x0     | GPI3 valid-level input event or ADCIN3 over/under-threshold event<br>`0`: no event<br>`1`: event occurred (write `1` to clear) |
+| 0x91 | 2    | E_GPI2     | R, IO | 0x0     | GPI2 valid-level input event or ADCIN2 over/under-threshold event<br>`0`: no event<br>`1`: event occurred (write `1` to clear) |
+| 0x91 | 1    | E_GPI1     | R, IO | 0x0     | GPI1 valid-level input event or ADCIN1 over/under-threshold event<br>`0`: no event<br>`1`: event occurred (write `1` to clear) |
+| 0x91 | 0    | E_GPI0     | R, IO | 0x0     | GPI0 valid-level input event or ADCIN0 over/under-threshold event<br>`0`: no event<br>`1`: event occurred (write `1` to clear) |
+
+##### Table 7-108 EVENT1
+
+| Addr | Bits | Field Name | Attr  | Default | Description                                                                                                                                                                                   |
+| ---- | ---- | ---------- | ----- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0x92 | 7:6  | Reserved   | RV    | 0       | Reserved                                                                                                                                                                                      |
+| 0x92 | 5    | E_TICK     | R, IO | 0x0     | RTC tick event<br>`0`: RTC alarm not reached<br>`1`: RTC alarm reached and triggers periodically<br>Write `1` to clear; the next tick event will set this bit again unless TICK_EN is cleared |
+| 0x92 | 4    | E_ALARM    | R, IO | 0x0     | RTC alarm event<br>`0`: alarm not reached<br>`1`: alarm reached (write `1` to clear)                                                                                                          |
+| 0x92 | 3    | E_WDT_TO   | R, IO | 0x0     | Watchdog timeout event<br>`0`: no timeout<br>`1`: timeout occurred (write `1` to clear)                                                                                                       |
+| 0x92 | 2    | E_ADC_EOS  | R, IO | 0x0     | ADC auto-sampling sequence complete event<br>`0`: sequence not complete<br>`1`: sequence completed (write `1` to clear)                                                                       |
+| 0x92 | 1    | E_ADC_EOC  | R, IO | 0x0     | ADC conversion complete event<br>`0`: conversion not complete<br>`1`: conversion completed (write `1` to clear)                                                                               |
+| 0x92 | 0    | E_ADC_TEMP | R, IO | 0x0     | ADC channel 1 (junction temperature) over/under-threshold event<br>`0`: no event<br>`1`: event occurred (write `1` to clear)                                                                  |
+
+##### Table 7-109 EVENT2
+
+| Addr | Bits | Field Name    | Attr  | Default | Description                                                                                                                           |
+| ---- | ---- | ------------- | ----- | ------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| 0x93 | 7    | Reserved      | RV    | 0       | Reserved                                                                                                                              |
+| 0x93 | 6    | E_TEMP_CRIT   | R, IO | 0x0     | Chip critical over-temperature shutdown event<br>`0`: no critical event<br>`1`: critical shutdown event occurred (write `1` to clear) |
+| 0x93 | 5    | E_TEMP_SEVERE | R, IO | 0x0     | Chip severe over-temperature warning event<br>`0`: no severe warning<br>`1`: severe warning occurred (write `1` to clear)             |
+| 0x93 | 4    | E_TEMP_WARN   | R, IO | 0x0     | Chip over-temperature warning event<br>`0`: no warning<br>`1`: warning occurred (write `1` to clear)                                  |
+| 0x93 | 3    | E_SW_SC       | R, IO | 0x0     | SWITCH short-circuit event<br>`0`: no short/open circuit<br>`1`: short circuit detected (write `1` to clear)                          |
+| 0x93 | 2    | E_LDO_SC      | R, IO | 0x0     | LDO short/open-circuit event<br>`0`: no fault<br>`1`: at least one LDO fault occurred (write `1` to clear)                            |
+| 0x93 | 1    | E_LDO_UV      | R, IO | 0x0     | LDO undervoltage event<br>`0`: no undervoltage<br>`1`: undervoltage occurred (write `1` to clear)                                     |
+| 0x93 | 0    | E_LDO_OV      | R, IO | 0x0     | LDO overvoltage event<br>`0`: no overvoltage<br>`1`: overvoltage occurred (write `1` to clear)                                        |
+
+##### Table 7-110 BUCK_EVENT0
+
+| Addr | Bits | Field Name | Attr  | Default | Description                                                                 |
+| ---- | ---- | ---------- | ----- | ------- | --------------------------------------------------------------------------- |
+| 0x94 | 7:6  | Reserved   | RV    | 0       | Reserved                                                                    |
+| 0x94 | 5    | E_BUCK6_OV | R, IO | 0x0     | BUCK6 overvoltage event<br>`0`: no overvoltage<br>`1`: overvoltage occurred |
+| 0x94 | 4    | E_BUCK5_OV | R, IO | 0x0     | BUCK5 overvoltage event<br>`0`: no overvoltage<br>`1`: overvoltage occurred |
+| 0x94 | 3    | E_BUCK4_OV | R, IO | 0x0     | BUCK4 overvoltage event<br>`0`: no overvoltage<br>`1`: overvoltage occurred |
+| 0x94 | 2    | E_BUCK3_OV | R, IO | 0x0     | BUCK3 overvoltage event<br>`0`: no overvoltage<br>`1`: overvoltage occurred |
+| 0x94 | 1    | E_BUCK2_OV | R, IO | 0x0     | BUCK2 overvoltage event<br>`0`: no overvoltage<br>`1`: overvoltage occurred |
+| 0x94 | 0    | E_BUCK1_OV | R, IO | 0x0     | BUCK1 overvoltage event<br>`0`: no overvoltage<br>`1`: overvoltage occurred |
+
+##### Table 7-111 BUCK_EVNET1
+
+| Addr | Bits | Field Name | Attr | Default | Description                                                                                          |
+| ---- | ---- | ---------- | ---- | ------- | ---------------------------------------------------------------------------------------------------- |
+| 0x95 | 7:6  | Reserved   | RV   | 0       | Reserved                                                                                             |
+| 0x95 | 5    | E_BUCK6_UV | R，IO | 0x0     | BUCK6 undervoltage event<br>`0`: BUCK6 undervoltage not detected<br>`1`: BUCK6 undervoltage detected |
+| 0x95 | 4    | E_BUCK5_UV | R，IO | 0x0     | BUCK5 undervoltage event<br>`0`: BUCK5 undervoltage not detected<br>`1`: BUCK5 undervoltage detected |
+| 0x95 | 3    | E_BUCK4_UV | R，IO | 0x0     | BUCK4 undervoltage event<br>`0`: BUCK4 undervoltage not detected<br>`1`: BUCK4 undervoltage detected |
+| 0x95 | 2    | E_BUCK3_UV | R，IO | 0x0     | BUCK3 undervoltage event<br>`0`: BUCK3 undervoltage not detected<br>`1`: BUCK3 undervoltage detected |
+| 0x95 | 1    | E_BUCK2_UV | R，IO | 0x0     | BUCK2 undervoltage event<br>`0`: BUCK2 undervoltage not detected<br>`1`: BUCK2 undervoltage detected |
+| 0x95 | 0    | E_BUCK1_UV | R，IO | 0x0     | BUCK1 undervoltage event<br>`0`: BUCK1 undervoltage not detected<br>`1`: BUCK1 undervoltage detected |
+
+##### Table 7-112 BUCK_EVNET2
+
+| Addr | Bits | Field Name | Attr | Default | Description                                                                                            |
+| ---- | ---- | ---------- | ---- | ------- | ------------------------------------------------------------------------------------------------------ |
+| 0x96 | 7:6  | Reserved   | RV   | 0       | Reserved                                                                                               |
+| 0x96 | 5    | E_BUCK6_SC | R，IO | 0x0     | BUCK6 short/open circuit event<br>`0`: BUCK6 short/open not detected<br>`1`: BUCK6 short/open detected |
+| 0x96 | 4    | E_BUCK5_SC | R，IO | 0x0     | BUCK5 short/open circuit event<br>`0`: BUCK5 short/open not detected<br>`1`: BUCK5 short/open detected |
+| 0x96 | 3    | E_BUCK4_SC | R，IO | 0x0     | BUCK4 short/open circuit event<br>`0`: BUCK4 short/open not detected<br>`1`: BUCK4 short/open detected |
+| 0x96 | 2    | E_BUCK3_SC | R，IO | 0x0     | BUCK3 short/open circuit event<br>`0`: BUCK3 short/open not detected<br>`1`: BUCK3 short/open detected |
+| 0x96 | 1    | E_BUCK2_SC | R，IO | 0x0     | BUCK2 short/open circuit event<br>`0`: BUCK2 short/open not detected<br>`1`: BUCK2 short/open detected |
+| 0x96 | 0    | E_BUCK1_SC | R，IO | 0x0     | BUCK1 short/open circuit event<br>`0`: BUCK1 short/open not detected<br>`1`: BUCK1 short/open detected |
+
+##### Table 7-113 PWRKY_EVNET
+
+| Addr | Bits | Field Name     | Attr | Default | Description                                                                                                   |
+| ---- | ---- | -------------- | ---- | ------- | ------------------------------------------------------------------------------------------------------------- |
+| 0x97 | 7:6  | Reserved       | RV   | 0       | Reserved                                                                                                      |
+| 0x97 | 5    | E_VSYS_OV      | R，IO | 0x0     | VSYS overvoltage event<br>`0`: VSYS overvoltage not detected<br>`1`: VSYS overvoltage detected (VSYS > 5.9 V) |
+| 0x97 | 4    | E_PWRKY_SDINTR | R，IO | 0x0     | PWRKY shutdown event<br>`0`: Shutdown event not detected<br>`1`: Shutdown event detected                      |
+| 0x97 | 3    | E_PWRKY_LINTR  | R，IO | 0x0     | PWRKY long-press event<br>`0`: Long press not detected<br>`1`: Long press detected                            |
+| 0x97 | 2    | E_PWRKY_SINTR  | R，IO | 0x0     | PWRKY short-press event<br>`0`: Short press not detected<br>`1`: Short press detected                         |
+| 0x97 | 1    | E_PWRKY_FINTR  | R，IO | 0x0     | PWRKY falling-edge event<br>`0`: Falling edge not detected<br>`1`: Falling edge detected                      |
+| 0x97 | 0    | E_PWRKY_RINTR  | R，IO | 0x0     | PWRKY rising-edge event<br>`0`: Rising edge not detected<br>`1`: Rising edge detected                         |
+
+##### Table 7-114 IRQ_EN0
+
+| Addr | Bits | Field Name  | Attr | Default | Description                                                  |
+| ---- | ---- | ----------- | ---- | ------- | ------------------------------------------------------------ |
+| 0x98 | 7:6  | Reserved    | RV   | 0       | Reserved                                                     |
+| 0x98 | 5    | IRQ_EN_GPI5 | RW   | 0x0     | E_GPI5 event interrupt enable<br>`0`: disable<br>`1`: enable |
+| 0x98 | 4    | IRQ_EN_GPI4 | RW   | 0x0     | E_GPI4 event interrupt enable<br>`0`: disable<br>`1`: enable |
+| 0x98 | 3    | IRQ_EN_GPI3 | RW   | 0x0     | E_GPI3 event interrupt enable<br>`0`: disable<br>`1`: enable |
+| 0x98 | 2    | IRQ_EN_GPI2 | RW   | 0x0     | E_GPI2 event interrupt enable<br>`0`: disable<br>`1`: enable |
+| 0x98 | 1    | IRQ_EN_GPI1 | RW   | 0x0     | E_GPI1 event interrupt enable<br>`0`: disable<br>`1`: enable |
+| 0x98 | 0    | IRQ_EN_GPI0 | RW   | 0x0     | E_GPI0 event interrupt enable<br>`0`: disable<br>`1`: enable |
+
+##### Table 7-115 IRQ_EN1
+
+| Addr | Bits | Field Name      | Attr | Default | Description                                                      |
+| ---- | ---- | --------------- | ---- | ------- | ---------------------------------------------------------------- |
+| 0x99 | 7:6  | Reserved        | RV   | 0       | Reserved                                                         |
+| 0x99 | 5    | IRQ_EN_TICK     | RW   | 0x0     | E_TICK event interrupt enable<br>`0`: disable<br>`1`: enable     |
+| 0x99 | 4    | IRQ_EN_ALARM    | RW   | 0x0     | E_ALARM event interrupt enable<br>`0`: disable<br>`1`: enable    |
+| 0x99 | 3    | IRQ_EN_WDT_TO   | RW   | 0x0     | E_WDT_TO event interrupt enable<br>`0`: disable<br>`1`: enable   |
+| 0x99 | 2    | IRQ_EN_ADC_EOS  | RW   | 0x0     | E_ADC_EOS event interrupt enable<br>`0`: disable<br>`1`: enable  |
+| 0x99 | 1    | IRQ_EN_ADC_EOC  | RW   | 0x0     | E_ADC_EOC event interrupt enable<br>`0`: disable<br>`1`: enable  |
+| 0x99 | 0    | IRQ_EN_ADC_TEMP | RW   | 0x0     | E_ADC_TEMP event interrupt enable<br>`0`: disable<br>`1`: enable |
+
+##### Table 7-116 IRQ_EN2
+
+| Addr | Bits | Field Name         | Attr | Default | Description                                                         |
+| ---- | ---- | ------------------ | ---- | ------- | ------------------------------------------------------------------- |
+| 0x9A | 7    | Reserved           | RV   | 0       | Reserved                                                            |
+| 0x9A | 6    | IRQ_EN_TEMP_CRIT   | RW   | 0x0     | E_TEMP_CRIT event interrupt enable<br>`0`: disable<br>`1`: enable   |
+| 0x9A | 5    | IRQ_EN_TEMP_SEVERE | RW   | 0x0     | E_TEMP_SEVERE event interrupt enable<br>`0`: disable<br>`1`: enable |
+| 0x9A | 4    | IRQ_EN_TEMP_WARN   | RW   | 0x0     | E_TEMP_WARN event interrupt enable<br>`0`: disable<br>`1`: enable   |
+| 0x9A | 3    | IRQ_EN_SW_SC       | RW   | 0x0     | E_SW_SC event interrupt enable<br>`0`: disable<br>`1`: enable       |
+| 0x9A | 2    | IRQ_EN_LDO_SC      | RW   | 0x0     | E_LDO_SC event interrupt enable<br>`0`: disable<br>`1`: enable      |
+| 0x9A | 1    | IRQ_EN_LDO_UV      | RW   | 0x0     | E_LDO_UV event interrupt enable<br>`0`: disable<br>`1`: enable      |
+| 0x9A | 0    | IRQ_EN_LDO_OV      | RW   | 0x0     | E_LDO_OV event interrupt enable<br>`0`: disable<br>`1`: enable      |
+
+##### Table 7-117 IRQ_BUCK_EN0
+
+| Addr | Bits | Field Name      | Attr | Default | Description                                                      |
+| ---- | ---- | --------------- | ---- | ------- | ---------------------------------------------------------------- |
+| 0x9B | 7:6  | Reserved        | RV   | 0       | Reserved                                                         |
+| 0x9B | 5    | IRQ_EN_BUCK6_OV | RW   | 0x0     | E_BUCK6_OV event interrupt enable<br>`0`: disable<br>`1`: enable |
+| 0x9B | 4    | IRQ_EN_BUCK5_OV | RW   | 0x0     | E_BUCK5_OV event interrupt enable<br>`0`: disable<br>`1`: enable |
+| 0x9B | 3    | IRQ_EN_BUCK4_OV | RW   | 0x0     | E_BUCK4_OV event interrupt enable<br>`0`: disable<br>`1`: enable |
+| 0x9B | 2    | IRQ_EN_BUCK3_OV | RW   | 0x0     | E_BUCK3_OV event interrupt enable<br>`0`: disable<br>`1`: enable |
+| 0x9B | 1    | IRQ_EN_BUCK2_OV | RW   | 0x0     | E_BUCK2_OV event interrupt enable<br>`0`: disable<br>`1`: enable |
+| 0x9B | 0    | IRQ_EN_BUCK1_OV | RW   | 0x0     | E_BUCK1_OV event interrupt enable<br>`0`: disable<br>`1`: enable |
+
+##### Table 7-118 IRQ_BUCK_EN1
+
+| Addr | Bits | Field Name      | Attr | Default | Description                                                      |
+| ---- | ---- | --------------- | ---- | ------- | ---------------------------------------------------------------- |
+| 0x9C | 7:6  | Reserved        | RV   | 0       | Reserved                                                         |
+| 0x9C | 5    | IRQ_EN_BUCK6_UV | RW   | 0x0     | E_BUCK6_UV event interrupt enable<br>`0`: disable<br>`1`: enable |
+| 0x9C | 4    | IRQ_EN_BUCK5_UV | RW   | 0x0     | E_BUCK5_UV event interrupt enable<br>`0`: disable<br>`1`: enable |
+| 0x9C | 3    | IRQ_EN_BUCK4_UV | RW   | 0x0     | E_BUCK4_UV event interrupt enable<br>`0`: disable<br>`1`: enable |
+| 0x9C | 2    | IRQ_EN_BUCK3_UV | RW   | 0x0     | E_BUCK3_UV event interrupt enable<br>`0`: disable<br>`1`: enable |
+| 0x9C | 1    | IRQ_EN_BUCK2_UV | RW   | 0x0     | E_BUCK2_UV event interrupt enable<br>`0`: disable<br>`1`: enable |
+| 0x9C | 0    | IRQ_EN_BUCK1_UV | RW   | 0x0     | E_BUCK1_UV event interrupt enable<br>`0`: disable<br>`1`: enable |
+
+##### Table 7-119 IRQ_BUCK_EN2
+
+| Addr | Bits | Field Name      | Attr | Default | Description                                                      |
+| ---- | ---- | --------------- | ---- | ------- | ---------------------------------------------------------------- |
+| 0x9D | 7:6  | Reserved        | RV   | 0       | Reserved                                                         |
+| 0x9D | 5    | IRQ_EN_BUCK6_SC | RW   | 0x0     | E_BUCK6_SC event interrupt enable<br>`0`: disable<br>`1`: enable |
+| 0x9D | 4    | IRQ_EN_BUCK5_SC | RW   | 0x0     | E_BUCK5_SC event interrupt enable<br>`0`: disable<br>`1`: enable |
+| 0x9D | 3    | IRQ_EN_BUCK4_SC | RW   | 0x0     | E_BUCK4_SC event interrupt enable<br>`0`: disable<br>`1`: enable |
+| 0x9D | 2    | IRQ_EN_BUCK3_SC | RW   | 0x0     | E_BUCK3_SC event interrupt enable<br>`0`: disable<br>`1`: enable |
+| 0x9D | 1    | IRQ_EN_BUCK2_SC | RW   | 0x0     | E_BUCK2_SC event interrupt enable<br>`0`: disable<br>`1`: enable |
+| 0x9D | 0    | IRQ_EN_BUCK1_SC | RW   | 0x0     | E_BUCK1_SC event interrupt enable<br>`0`: disable<br>`1`: enable |
+
+##### Table 7-120 IRQ_PWRKY_EN
+
+| Addr | Bits | Field Name          | Attr | Default | Description                                                                                  |
+| ---- | ---- | ------------------- | ---- | ------- | -------------------------------------------------------------------------------------------- |
+| 0x9E | 7    | VSYS_OVP_EN         | RWE  | 0x0     | VSYS overvoltage (5.9 V) shutdown protection enable<br>`0`: disable<br>`1`: enable           |
+| 0x9E | 6    | TEMP_CRIT_PROT      | RWE  | 0x0     | Over-temperature (135 °C / 150 °C) shutdown protection enable<br>`0`: disable<br>`1`: enable |
+| 0x9E | 5    | IRQ_EN_VSYS_OV      | RW   | 0x0     | VSYS overvoltage event interrupt enable<br>`0`: disable<br>`1`: enable                       |
+| 0x9E | 4    | IRQ_EN_PWRKY_SDINTR | RW   | 0x0     | E_PWRKY_SDINTR event interrupt enable<br>`0`: disable<br>`1`: enable                         |
+| 0x9E | 3    | IRQ_EN_PWRKY_LINTR  | RW   | 0x0     | E_PWRKY_LINTR event interrupt enable<br>`0`: disable<br>`1`: enable                          |
+| 0x9E | 2    | IRQ_EN_PWRKY_SINTR  | RW   | 0x0     | E_PWRKY_SINTR event interrupt enable<br>`0`: disable<br>`1`: enable                          |
+| 0x9E | 1    | IRQ_EN_PWRKY_FINTR  | RW   | 0x0     | E_PWRKY_FINTR event interrupt enable<br>`0`: disable<br>`1`: enable                          |
+| 0x9E | 0    | IRQ_EN_PWRKY_RINTR  | RW   | 0x0     | E_PWRKY_RINTR event interrupt enable<br>`0`: disable<br>`1`: enable                          |
+
+##### Table 7-121 PROT_EN
+
+| Addr | Bits | Field Name       | Attr | Default | Description                                                                                                                                                   |
+| ---- | ---- | ---------------- | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0x9F | 7    | SW_SCP_DIS       | RWE  | 0x0     | Switch short-circuit protection disable<br>`0`: enable<br>`1`: disable                                                                                        |
+| 0x9F | 6    | TEMP_SEVERE_PROT | RWE  | 0x0     | Severe over-temperature protection (shutdown protection)<br>`0`: disable severe over-temperature protection<br>`1`: enable severe over-temperature protection |
+| 0x9F | 5    | BUCK_SCP_EN      | RWE  | 0x0     | Any BUCK short-circuit / open-circuit protection (shutdown protection)<br>`0`: disable protection<br>`1`: enable protection                                   |
+| 0x9F | 4    | BUCK_UVP_EN      | RWE  | 0x0     | Any BUCK output undervoltage protection (shutdown protection)<br>`0`: disable protection<br>`1`: enable protection                                            |
+| 0x9F | 3    | BUCK_OVP_EN      | RWE  | 0x0     | Any BUCK output overvoltage protection (shutdown protection)<br>`0`: disable protection<br>`1`: enable protection                                             |
+| 0x9F | 2    | LDO_SCP_EN       | RWE  | 0x0     | Any LDO output short-circuit / open-circuit protection (shutdown protection)<br>`0`: disable protection<br>`1`: enable protection                             |
+| 0x9F | 1    | LDO_UVP_EN       | RWE  | 0x0     | Any LDO output undervoltage protection (shutdown protection)<br>`0`: disable protection<br>`1`: enable protection                                             |
+| 0x9F | 0    | LDO_OVP_EN       | RWE  | 0x0     | Any LDO overcurrent / short-circuit protection (shutdown protection)<br>`0`: disable protection<br>`1`: enable protection                                     |
+
+##### Table 7-122 DEVICE_ID
+
+| Addr | Bits | Field Name | Attr | Default | Description |
+| ---- | ---- | ---------- | ---- | ------- | ----------- |
+| 0xA0 | 7:0  | DEVICE_ID  | RE   | 0x00    | Device ID   |
+
+##### Table 7-123 VERSION_ID
+
+| Addr | Bits | Field Name | Attr | Default | Description |
+| ---- | ---- | ---------- | ---- | ------- | ----------- |
+| 0xA1 | 7:0  | VERSION_ID | RE   | 0x00    | Version ID  |
+
+##### Table 7-124 CUSTOMER_ID
+
+| Addr | Bits | Field Name  | Attr | Default | Description |
+| ---- | ---- | ----------- | ---- | ------- | ----------- |
+| 0xA2 | 7:0  | CUSTOMER_ID | RE   | 0x00    | Customer ID |
+
+##### Table 7-125 SYS_CFG0
+
+| Addr | Bits | Field Name | Attr | Default | Description                                                                                                                             |
+| ---- | ---- | ---------- | ---- | ------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| 0xA3 | 7    | TEMP_LEVEL | RE   | 0x0     | Temperature level selection<br>Temperature warning / severe / critical<br>`0`: 95 °C / 115 °C / 135 °C<br>`1`: 110 °C / 130 °C / 150 °C |
+| 0xA3 | 6:0  | IF_ADDR    | RE   | 0x55    | I²C slave address configuration                                                                                                         |
+
+##### Table 7-126 SYS_CFG1
+
+| Addr | Bits | Field Name    | Attr | Default | Description                                                                                                                                                                                                                                                                                                                                                                                                        |
+| ---- | ---- | ------------- | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 0xA4 | 7:5  | VSYS_STA_VTH  | RE   | 0x0     | Power-on threshold<br>`000`: Vsys > 2.9 V, start power-on sequence<br>`001`: Vsys > 3.0 V, start power-on sequence<br>`010`: Vsys > 3.1 V, start power-on sequence<br>`011`: Vsys > 3.2 V, start power-on sequence<br>`100`: Vsys > 3.3 V, start power-on sequence<br>`101`: Vsys > 3.4 V, start power-on sequence<br>`110`: Vsys > 3.5 V, start power-on sequence<br>`111`: Vsys > 3.6 V, start power-on sequence |
+| 0xA4 | 4:2  | VSYS_SHUT_VTH | RE   | 0x0     | Shutdown threshold<br>`000`: Vsys < 2.6 V, start shutdown sequence<br>`001`: Vsys < 2.7 V, start shutdown sequence<br>`010`: Vsys < 2.8 V, start shutdown sequence<br>`011`: Vsys < 2.9 V, start shutdown sequence<br>`100`: Vsys < 3.0 V, start shutdown sequence<br>`101`: Vsys < 3.1 V, start shutdown sequence<br>`110`: Vsys < 3.2 V, start shutdown sequence<br>`111`: Vsys < 3.3 V, start shutdown sequence |
+| 0xA4 | 1    | KEY_RST_EN    | RE   | 0x0     | In shutdown mode, after long-press PWRKY triggers power-on, continue pressing to trigger reset<br>`0`: do not trigger<br>`1`: trigger (when PWRKY_SD_DIS = `1`)                                                                                                                                                                                                                                                    |
+| 0xA4 | 0    | KEY_SD_EN     | RE   | 0x0     | In shutdown mode, after long-press PWRKY triggers power-on, continue pressing to trigger shutdown<br>`0`: do not trigger<br>`1`: trigger (when PWRKY_SD_DIS = `0`)                                                                                                                                                                                                                                                 |
+
+##### Table 7-127 SYS_CFG2
+
+| Addr | Bits | Field Name      | Attr | Default | Description                                                                                                                                                                                                                                                                          |
+| ---- | ---- | --------------- | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 0xA5 | 7    | VSYS_STEP       | RE   | 0x0     | Hot-swap power-on threshold step<br>`0`: 0.1 V<br>`1`: 0.2 V                                                                                                                                                                                                                         |
+| 0xA5 | 6    | HOT_SWAP_DIS    | RE   | 0x0     | Hot-swap power-on threshold increase control<br>`0`: enable<br>`1`: disable<br>When disabled, the power-on threshold is not increased after hot-swap                                                                                                                                 |
+| 0xA5 | 5    | EVENT_DELAY     | RE   | 0x0     | Event filtering for over-temperature, VSYS overvoltage, BUCK and LDO short-circuit events<br>`0`: 100 µs<br>`1`: disable                                                                                                                                                             |
+| 0xA5 | 4:3  | OVUV_DELAY      | RE   | 0x0     | Abnormal event (BUCK and LDO UV/OV) filtering time<br>`00`: 100 µs<br>`01`: 375 µs<br>`10`: 750 µs<br>`11`: disable                                                                                                                                                                  |
+| 0xA5 | 2:0  | OVUV_MASK_DELAY | RE   | 0x0     | BUCK and LDO overvoltage/undervoltage event mask duration<br>`000`: 125 µs<br>`001`: 250 µs<br>`010`: 1 ms<br>`011`: 8 ms<br>`100`: 64 ms<br>`101`: 256 ms<br>`110`: 512 ms<br>`111`: disable<br>During BUCK/LDO enable or voltage change, OV/UV events are masked for this duration |
+
+##### Table 7-128 MTP_KEY
+
+| Addr | Bits | Field Name | Attr | Default | Description                                                                                                                                                 |
+| ---- | ---- | ---------- | ---- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0xA6 | 7:0  | MTP_KEY    | RW   | 0x00    | MTP register unlock key (MTP_ADDR, MTP_DATA, MTP_CFG, MTP_CTRL)<br>Unlock operation: write `0xAA` to this register<br>After unlock, readback value is `0x1` |
+
+##### Table 7-129 MTP_ADDR
+
+| Addr | Bits | Field Name | Attr | Default | Description                                 |
+| ---- | ---- | ---------- | ---- | ------- | ------------------------------------------- |
+| 0xA7 | 7    | Reserved   | RV   | 0       | Reserved                                    |
+| 0xA7 | 6:0  | MTP_ADDR   | RW，P | 0x0     | MTP address register (read, program, erase) |
+
+
+##### Table 7-130 MTP_DATA
+
+| Addr | Bits | Field Name | Attr | Default | Description                                                                                                                  |
+| ---- | ---- | ---------- | ---- | ------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| 0xA8 | 7:0  | MTP_DATA   | RW，P | 0x0     | MTP data register<br>Read data is stored in this register<br>Write data must be prepared in this register before programming |
+
+##### Table 7-131 MTP_CFG
+
+| Addr | Bits | Field Name      | Attr | Default | Description                                                                                                             |
+| ---- | ---- | --------------- | ---- | ------- | ----------------------------------------------------------------------------------------------------------------------- |
+| 0xA9 | 7:6  | Reserved        | RV   | 0       | Reserved                                                                                                                |
+| 0xA9 | 5:4  | MTP_PG_TIME_SEL | RW，P | 0x0     | MTP programming time selection<br>`00`: 30 µs<br>`01`: 20 µs<br>`1x`: 40 µs                                             |
+| 0xA9 | 3    | MTP_PDN         | RW，P | 0x0     | MTP power control<br>`0`: MTP off<br>`1`: MTP on<br>MTP read, program, and erase operations require this bit set to `1` |
+| 0xA9 | 2:1  | MTP_TRIM        | RW，P | 0x2     | Internal MTP power module output voltage selection<br>`01`: for program and erase<br>`10`: for MTP read                 |
+| 0xA9 | 0    | MTP_VRFCG_SEL   | RW，P | 0x1     | MTP internal CG voltage selection<br>`0`: CG = 0<br>`1`: CG = 1.2 V                                                     |
+
+##### Table 7-132 MTP_CTRL
+
+| Addr | Bits | Field Name | Attr | Default | Description                                       |
+| ---- | ---- | ---------- | ---- | ------- | ------------------------------------------------- |
+| 0xAA | 7:3  | Reserved   | RV   | 0       | Reserved                                          |
+| 0xAA | 2    | MTP_ER     | RW，P | 0x0     | MTP erase enable<br>`0`: disable<br>`1`: enable   |
+| 0xAA | 1    | MTP_PG     | RW，P | 0x0     | MTP program enable<br>`0`: disable<br>`1`: enable |
+| 0xAA | 0    | MTP_RD     | RW，P | 0x0     | MTP read enable<br>`0`: disable<br>`1`: enable    |
+
+
+## 8. Package Information
 
 ![](./static/YNjYbwpqRoi8CGxVRm2clLZQnRN.png)
 ![](./static/QleTbkKomo7UoSxLulfcTeOtnAY.png)
 
-## 9. Tray 盘
+## 9. Tray Information
 
 ![](./static/IQgfbtLlToY6CExeW0ncN709nK4.png)
 ![](./static/EvxzbOvUgoYLonxfLBFcbGYOnlf.png)
