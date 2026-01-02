@@ -6,6 +6,24 @@ sidebar_position: 2
 
 Please click to download the complete version in PDF: **[K1 Datasheet (PDF)](https://cdn-resource.spacemit.com/file/%E8%8A%AF%E7%89%87/K1/K1_Datasheet_%28V7.5_2025.08.06%29.pdf)**
 
+## Revision History
+
+| Version | Date       | Notes    |
+|---------|------------|----------|
+| V7.0    | 2025.05.20 | Updated K1 architecture block diagram:<br>- DDR clock rate change<br>- RCPU modules change<br>Updated K1 general features:<br>- RCPU modules related |
+| V6.0    | 2025.05.09 | Updated pinout                                                                                    |
+| V5.1    | 2025.05.08 | Fixed typos in several sections                                                                   |
+| V5.0    | 2025.04.28 | Edited PDF from on-line version                                                                   |
+| V4.0    | 2025.04.16 | Removed the Audio Subsystem then performed related updates                                        |
+| V3.0    | 2025.03.19 | Restructured and improved the quality of all content of the whole document                         |
+| V2.0    | 2025.02.25 | Updated security algorithms, in particular removed SM2, SM3, SM4                                   |
+| V1.6    | 2025.01.20 | Reviewed and updated the whole document for grammar, clarity and consistency                       |
+| V1.5    | 2024.07.24 | Added V2D content                                                                                 |
+| V1.4    | 2024.06.07 | Updated data                                                                                      |
+| V1.3    | 2024.05.09 | Added supplementary packaging information                                                         |
+| V1.2    | 2024.03.08 | Updated data                                                                                      |
+| V1.1    | 2024.02.08 | Added supplementary packaging information                                                         |
+
 ## 1. Overview
 
 ### 1.1 Introduction
