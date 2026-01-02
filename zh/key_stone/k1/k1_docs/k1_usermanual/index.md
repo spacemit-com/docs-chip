@@ -2,14 +2,14 @@ sidebar_position: 3
 
 # 用户手册
 
-- [1. Overview](1.Overview.md)
-- [2. Package](2.Package.md)
-- [3. Pinout](3.Pinout.md)
-- [4. Electrical Characteristics](4.Electrical_Characteristics.md)
-- [5. Boot Modes](5.Boot_Modes.md)
-- [6. Address Mapping](6.Address_Mapping.md)
-- [7. Interrupt Assignments](7.Interrupt_Assignments.md)
-- [8. CPU System](8.CPU_System.md)
+- [1. 概述](1.Overview.md)
+- [2. 芯片封装](2.Package.md)
+- [3. 引脚定义](3.Pinout.md)
+- [4. 电气特性](4.Electrical_Characteristics.md)
+- [5. 启动模式](5.Boot_Modes.md)
+- [6. 地址映射](6.Address_Mapping.md)
+- [7. 中断分配](7.Interrupt_Assignments.md)
+- [8. CPU 系统](8.CPU_System.md)
 - [9. Top System (Part 1-2)](9.Top_System_(Part_1-2).md)
 - [10. Top System (Part 2-2)](10.Top_System_(Part_2-2).md)
 - [11. Memory & Storage](11.Memory_&_Storage.md)
