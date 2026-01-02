@@ -6,6 +6,16 @@ sidebar_position: 2
 
 Clik to download [P1 Datasheet (PDF)](https://cdn-resource.spacemit.com/file/%E8%8A%AF%E7%89%87/P1/P1%20Datasheet_CN_V1.3_20251111.pdf)
 
+## Revision History
+
+| Version | Date       | Notes                                                                                              |
+|---------|------------|----------------------------------------------------------------------------------------------------|
+| V2.0    | 2025.03.31 | Restructured and improved the quality of all content of the whole document                         |
+| V1.3    | 2025.03.28 | Quick revision of all content of the whole document                                                |
+| V1.2    | 2024.09.11 | Update parameters                                                                                |
+| V1.1    | 2024.05.04 | Update parameters                                                                                |
+| V1.0    | 2024.02.08 | Initial version                                                                                  |
+
 ## 1. Product Overview
 
 ### 1.1 General Description

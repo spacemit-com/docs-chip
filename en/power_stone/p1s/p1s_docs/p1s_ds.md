@@ -6,40 +6,13 @@ sidebar_position: 2
 
 Please click to download the complete version in PDF: **[P1S Datasheet (PDF)](#)**
 
-## Reading guide
+## Revision History
 
-This document mainly introduces the basic specifications and hardware features of the SpacemiT® Power Stone™ P1S. It is designed to help developers quickly become familiar with the P1 specifications and complete P1S applications and product development more accurately and efficiently.
-
-## Applicable objects
-
-Product manager, hardware engineer, driver development engineer, etc.
-
-## Revision history
-
-<table>
-<tbody>
-<tr>
-<td>Revisions</td>
-<td>Revision Date</td>
-<td>Revision Notes</td>
-</tr>
-<tr>
-<td>001</td>
-<td>2024-02-08</td>
-<td>Initial version</td>
-</tr>
-<tr>
-<td>002</td>
-<td>/</td>
-<td>Update parameters</td>
-</tr>
-<tr>
-<td>003</td>
-<td>2024-09-11</td>
-<td>Update parameters</td>
-</tr>
-</tbody>
-</table>
+| Visions | Date | Notes     |
+|-----------|---------------|--------------------|
+| V1.2      | 2024.09.11    | Update parameters  |
+| V1.1      | 2024.05.14    | Update parameters  |
+| V1.0      | 2024.02.08    | Initial version    |
 
 ## 1. Product introduction
 
