@@ -339,7 +339,7 @@ K1 集成了以下两类中断控制器，用于管理两个处理器簇的中�
 
 调试接口的微架构如下图所示：
 
-![调试接口架构](static/debugging_interface.png)
+<img src="static/debugging_interface.png" alt="" width="600">
 
 如图所示，调试系统由以下组件构成：
 
@@ -369,8 +369,6 @@ K1 集成以下片上存储器资源：
 
 - **128 KB Boot ROM**：用于存放一级引导代码，支持从多种外部介质启动；
 - **256 KB SRAM**：由主应用处理器（Main CPU）与实时处理器（RCPU）共享使用。
-
-### 2.2 内存与存储
 
 #### DDR 控制器
 
@@ -417,7 +415,7 @@ DDR 控制器采用前沿架构设计，通过 **重排序缓冲区（Re-orderin
 
 DDR 控制器接口架构如下图所示：
 
-![DDR 控制器架构](static/DDR_controller.png)
+<img src="static/DDR_controller.png" alt="" width="600">
 
 #### Quad-SPI 控制器
 
@@ -735,11 +733,11 @@ GPU 核通过 **AXI 128 位总线** 访问 SOC 的 DDR 内存，核频率最高�
 
 V2D 子系统的微架构如下图所示：
 
-![V2D 子系统架构](static/V2D_subsystem.png)
+<img src="static/V2D_subsystem.png" alt="" width="600">
 
 典型的 V2D 工作场景如下图所示：
 
-![V2D 典型工作场景](static/V2D_work_scenario.png)
+<img src="static/V2D_work_scenario.png" alt="" width="400">
 
 ##### 功能
 
@@ -750,7 +748,7 @@ V2D 子系统的微架构如下图所示：
 - **AFBC**：获取矩形区域的左、上、宽度、高度需为 4 的倍数对齐；
 - **非 AFBC**：获取矩形区域的左、上、宽度、高度需为 1 的倍数对齐；
 
-![获取数据](static/Fetch_Data.png)
+<img src="static/Fetch_Data.png" alt="" width="400">
 
 用于显示的数据获取代码如下所示，具体涉及的变量和寄存器详情紧接在表格后列出。
 
@@ -901,7 +899,7 @@ if LayerX_solid_enable = 1
 
 支持 **0°、90°、180°、270°**（顺时针方向）的图像旋转，以及 **镜像（Mirror）** 和 **翻转（Flip）** 操作，如下图所示（示例）：
 
-![旋转示意图](static/Rotation.png)
+<img src="static/Rotation.png" alt="" width="200">
 
 用于执行图形内容旋转、镜像和翻转的代码逻辑如下所示，具体涉及的变量与寄存器定义紧随其后。
 
@@ -1518,7 +1516,7 @@ VPU 支持以下并发工作模式：
 
 显示子系统的微架构如下图所示：
 
-<img src="static/display_subsystem.png" alt="显示子系统架构" width="600">
+<img src="static/display_subsystem.png" alt="" width="600">
 
 #### HDMI 接口
 
@@ -1540,7 +1538,7 @@ VPU 支持以下并发工作模式：
 
 HDMI 接口的架构如下图所示：
 
-![HDMI 接口架构](static/HDMI_interface.png){: width="600" }
+<img src="static/HDMI_interface.png" alt="" width="600">
 
 #### MIPI DSI 接口
 
@@ -1597,23 +1595,23 @@ SPI LCD 显示接口用于：
 
 **[RGB565 的打包传输模式]**
 
-![RGB565 打包传输模式](static/packet_transfer_mode_RGB565.png){: width="700" }
+<img src="static/packet_transfer_mode_RGB565.png" alt="" width="700">
 
 **[RGB666 的打包传输模式]**
 
-![RGB666 打包传输模式](static/packet_transfer_mode_RGB666.png){: width="700" }
+<img src="static/packet_transfer_mode_RGB666.png" alt="" width="700">
 
 **[RGB888 的打包传输模式]**
 
-![RGB888 打包传输模式](static/packet_transfer_mode_RGB888.png){: width="700" }
+<img src="static/packet_transfer_mode_RGB888.png" alt="" width="700">
 
 **[RGB666 的非打包传输模式]**
 
-![RGB666 非打包传输模式](static/unpacked_transfer_mode_RGB666.png){: width="700" }
+<img src="static/unpacked_transfer_mode_RGB666.png" alt="" width="700">
 
 **[RGB888 的非打包传输模式]**
 
-![RGB888 非打包传输模式](static/unpacked_transfer_mode_RGB888.png){: width="700" }
+<img src="static/unpacked_transfer_mode_RGB888.png" alt="" width="700">
 
 ##### 特性
 
@@ -1673,7 +1671,7 @@ DSI 控制器的混合功能用于结合多个具有不同透明度（alpha 值�
 - **L1**：中间层，alpha 值为 **a1**；
 - **L2**：顶层，alpha 值为 **a2**；
 
-![混合功能示例](static/blending_function.png){: width="400"}
+<img src="static/blending_function.png" alt="" width="400">
 
 支持以下几种混合模式：
 
@@ -1783,7 +1781,7 @@ L' = L1 + L0 × a1/256;
 
 抖动功能的处理流程如下图所示：
 
-![抖动功能](static/Dither_function.png){: width="600" }
+<img src="static/Dither_function.png" alt="" width="600">
 
 该功能可通过软件**启用或禁用**。
 
@@ -1818,7 +1816,7 @@ Fmark 功能用于控制显示输出的起始时机。具体行为如下：
 
 图像捕获功能的处理流程如下图所示：
 
-![图像捕获功能](static/image_capture.png){: width="800" }
+<img src="static/image_capture.png" alt="" width="800">
 
 ### 2.6 音频子系统
 
@@ -1885,7 +1883,7 @@ K1 实现了 **三个 PCIe 双模端口**，每个端口均可配置为 **根联
 
 PCIe 双模端口组的架构如下图所示：
 
-![PCIe 双模端口架构](static/PCIe_Dual-Mode_port.png){: width="700" }
+<img src="static/PCIe_Dual-Mode_port.png" alt="" width="700">
 
 如图所示，包含以下组件：
 
@@ -2023,7 +2021,7 @@ USB 端口组的架构如下图所示，其中：
 - **USB#1 端口 = USB 2.0 仅主机端口**  
 - **USB#2 端口 = 带 USB 2.0 DRD 接口的 USB 3.0 端口**
 
-![USB 端口架构](static/USB_port.png){: width="700" }
+<img src="static/USB_port.png" alt="" width="700">
 
 #### 以太网 GMAC
 
@@ -2060,7 +2058,7 @@ GMAC IP 核支持以下速率：
 
 以太网 GMAC 单元的微架构如下图所示：
 
-![以太网 GMAC 架构](static/Ethernet_GMAC.png){: width="600" }
+<img src="static/Ethernet_GMAC.png" alt="" width="600">
 
 #### SDIO 接口
 
@@ -2246,7 +2244,7 @@ I2C 总线允许 I2C 单元与其它 I2C 外设及微控制器进行通信。其
 
 I2C 总线接口的架构如下图所示：
 
-![I2C 总线接口架构](static/I2C_bus_interface.png){: width="500" }
+<img src="static/I2C_bus_interface.png" alt="" width="500">
 
 #### 红外接收接口（IR-RX Interface）
 
@@ -2279,7 +2277,7 @@ I2C 总线接口的架构如下图所示：
 
 单总线主控接口的架构如下图所示：
 
-![单总线主控接口架构](static/One-Wire_Bus_Master_Interface.png){: width="500" }
+<img src="static/One-Wire_Bus_Master_Interface.png" alt="" width="500">
 
 #### I2S 接口
 
@@ -2383,7 +2381,7 @@ DMA 控制器通过 **16 个可配置的 DMA 通道**，在 **DMA 直通模式�
 
 DMA 控制器的架构如下图所示：
 
-![DMA 控制器架构](static/DMA_controller.png){: width="500" }
+<img src="static/DMA_controller.png" alt="" width="500">
 
 #### 定时器（Timer）
 
@@ -2430,7 +2428,7 @@ TSEN 具备 **报警功能**：当芯片温度超过设定的告警阈值时，�
 
 温度传感器模块的架构如下图所示：
 
-![温度传感器模块架构](static/Temperature_Sensor.png){: width="400" }
+<img src="static/Temperature_Sensor.png" alt="" width="400">
 
 #### PWM（脉宽调制）
 
@@ -2468,7 +2466,7 @@ K1 集成了 **20 个独立的脉宽调制（PWM）通道**，编号为 **PWMx�
 
 邮箱模块的架构如下图所示：
 
-![邮箱模块架构](static/Mailbox.png){: width="600" }
+<img src="static/Mailbox.png" alt="" width="600">
 
 #### GPIO（通用输入/输出）
 
@@ -2541,7 +2539,7 @@ K1 提供以下基础时钟源：
 
 此外，下图展示了时钟系统的 **高层架构**：
 
-![时钟系统高层架构](static/clock_system.png){: width="600" }
+<img src="static/clock_system.png" alt="" width="600">
 
 当满足以下任一条件时，**VCXO_OUT** 将输出 OSC 频率：
 
@@ -2672,13 +2670,13 @@ K1 提供以下两种封装形式：
 ![FCCSP 封装外形图 1](static/POD_1.png)  
 ![FCCSP 封装外形图 2](static/POD_2.png)  
 
-![FCCSP 俯视与结构示意图](static/fccsp00.png){: width="600" }
+<img src="static/fccsp00.png" alt="" width="600">
 
 ### 3.3 FCBGA 封装
 
 ![FCBGA 封装外形图](static/POD_3.png)  
 
-![FCBGA 俯视与结构示意图](static/fcbga00.png){: width="600" }
+<img src="static/fcbga00.png" alt="" width="600">
 
 ## 4 引脚定义（Pinout）
 
