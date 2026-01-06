@@ -687,7 +687,7 @@ The micro-architecture of the V2D subsystem is depicted below.
 
 Instead, the typical V2D work scenario is depicted below.
 
-<img src="static/V2D_work_scenario.png" alt="" width="600">
+<img src="static/V2D_work_scenario.png" alt="" width="400">
 
 ##### Functions
 
@@ -2263,7 +2263,7 @@ K1 includes one 16bit WatchDog Timer (WDT).
 ##### Features
 
 - Programmable count mode as follows:
-  - Fast count mode by input clock frequency of 12.8 MHz, 6.4 MHz, 3 MHz or 1 MHz)
+  - Fast count mode by input clock frequency of 12.8 MHz, 6.4 MHz, 3 MHz or 1 MHz
   - Slow count mode by input clock frequency of 32.768 KHz
 
 #### Temperature Sensor
