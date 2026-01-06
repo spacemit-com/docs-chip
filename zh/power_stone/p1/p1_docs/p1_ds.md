@@ -4,7 +4,7 @@ sidebar_position: 2
 
 ## PDF 版本下载
 
-点击下载 PDF 版本 [P1 Datasheet (PDF)](https://cdn-resource.spacemit.com/file/%E8%8A%AF%E7%89%87/P1/P1%20Datasheet_CN_V1.3_20251111.pdf)
+点击下载 [P1 产品规格书 (PDF)](https://cdn-resource.spacemit.com/file/%E8%8A%AF%E7%89%87/P1/P1%20Datasheet_CN_V1.3_20251111.pdf)
 
 ## 版本
 
@@ -455,7 +455,7 @@ BUCK1~6 电气特性如下表描述
 | POR          | 上电复位电压     | -40 ~ 105 ℃                | 1.75   | 2.0    | 2.25   | V    |
 | PDR          | 掉电复位电压     | -40 ~ 105 ℃                | 1.75   | 2.0    | 2.25   | V    |
 | T(FILTER)    | POR脉冲干扰滤波长度 | 25 ℃, 3 V ~ 1.5 V          | -      | 2.0    | -      | us   |
-| I(WORK)      | 工作电流         | 2.0 ~ 5.5 V, -40 ~ 105 ℃    | 0.1    | 0.3    | 1      | μA   |
+| I(WORK)      | 工作电流         | 2.0 ~ 5.5 V, -40 ~ 105 ℃    | 0.1    | 0.3    | 1.0      | μA   |
 
 ### 5.12 RTC 模块 POR/PDR
 
@@ -626,7 +626,7 @@ SLEEP/WKUP 引脚有效极性可通过**表 7-5**GPIO_ODR 寄存器配置。
 
 #### 6.1.6 nRESET 引脚
 
-nRESET 引脚为 GPIO 复用输入功能，其内部施密特输入电路工作在 **AONLDO 电压****域**。
+nRESET 引脚为 GPIO 复用输入功能，其内部施密特输入电路工作在 **AONLDO 电压域**。
 
 1. **非关机模式下**：
 
@@ -679,7 +679,7 @@ EXT_EN 引脚有效极性可通过**表 7-5**GPIO_ODR 寄存器配置。
 | EXTx_EN_SLOT    | x        | -        | x        | -        | x        | x        | -        |
 | EXTx_SLP_SD     | -        | -        | x        | x        | -        | -        | -        |
 
-#### 5.1.8 VSET5/VSET6 引脚
+#### 6.1.8 VSET5/VSET6 引脚
 
 **VSET5/VSET6** 引脚通过其状态（**GND、VSYS 或 FLOAT**）配置 **BUCK5/BUCK6 的输出电压**，以满足不同应用场景需求。
 

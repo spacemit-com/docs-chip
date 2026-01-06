@@ -178,12 +178,12 @@ The absolute maximum ratings are listed in the table below.
 
 | Parameter     | Description                     | Conditions | Min   | Typ | Max   | Unit |
 |---------------|----------------------------------|------------|-------|-----|-------|------|
-| T<sub>STG</sub> | Storage temperature              | –          | -40   | –   | 150   | °C   |
-| T<sub>J</sub>   | Junction temperature             | –          | -40   | –   | 125   | °C   |
-| V<sub>SYS</sub> | System supply voltage            | –          | -0.3  | –   | 7.0   | V    |
-| V<sub>CELL</sub>| Coin-cell battery supply voltage | –          | -0.3  | –   | 7.0   | V    |
-| V<sub>ESD_HBM</sub> | ESD protection (HBM)         | –          | 2     | –   | –     | kV   |
-| V<sub>ESD_CDM</sub> | ESD protection (CDM)         | –          | 500   | –   | –     | V    |
+| T(STG) | Storage temperature              | –          | -40   | –   | 150   | °C   |
+| T(J)   | Junction temperature             | –          | -40   | –   | 125   | °C   |
+| V(SYS) | System supply voltage            | –          | -0.3  | –   | 7.0   | V    |
+| V(CELL)| Coin-cell battery supply voltage | –          | -0.3  | –   | 7.0   | V    |
+| V(ESD_HBM) | ESD protection (HBM)         | –          | 2     | –   | –     | kV   |
+| V(ESD_CDM) | ESD protection (CDM)         | –          | 500   | –   | –     | V    |
 
 ## 5. Electrical Characteristics
 
@@ -193,12 +193,12 @@ The recommended operating conditions are listed in the table below.
 
 | Parameter | Description                              | Conditions | Min  | Typ | Max | Unit |
 |----------|------------------------------------------|------------|------|-----|-----|------|
-| T<sub>J</sub> | Junction temperature                   | –          | -40  | –   | 125 | °C   |
-| V<sub>SYS</sub> | System supply voltage                | –          | 2.7  | –   | 5.5 | V    |
-| P<sub>DIS</sub> | Maximum chip power dissipation       | –          | –    | –   | 2   | W    |
-| R<sub>JA</sub> | Junction-to-ambient thermal resistance | –        | –    | 38  | –   | °C/W |
-| R<sub>JC</sub> | Junction-to-case thermal resistance    | –        | –    | 12  | –   | °C/W |
-| R<sub>JB</sub> | Junction-to-board thermal resistance   | –        | –    | 9   | –   | °C/W |
+| T(J) | Junction temperature                   | –          | -40  | –   | 125 | °C   |
+| V(SYS) | System supply voltage                | –          | 2.7  | –   | 5.5 | V    |
+| P(DIS) | Maximum chip power dissipation       | –          | –    | –   | 2   | W    |
+| R(JA) | Junction-to-ambient thermal resistance | –        | –    | 38  | –   | °C/W |
+| R(JC) | Junction-to-case thermal resistance    | –        | –    | 12  | –   | °C/W |
+| R(JB) | Junction-to-board thermal resistance   | –        | –    | 9   | –   | °C/W |
 
 ### 5.2 Power Consumption in Different Modes
 
@@ -207,8 +207,8 @@ The power consumption in different operating modes is shown below.
 | Description        | Conditions             | Min | Typ | Max | Unit |
 |--------------------|------------------------|-----|-----|-----|------|
 | RESET mode         | –                      | –   | –   | –   | μA   |
-| RTC mode           | V(IN)=5 V, T<sub>A</sub>=25 °C | – | 2 | – | μA |
-| Shutdown mode      | V(IN)=5 V, T<sub>A</sub>=25 °C | – | 40 | – | μA |
+| RTC mode           | V(IN)=5 V, T(A)=25 °C | – | 2 | – | μA |
+| Shutdown mode      | V(IN)=5 V, T(A)=25 °C | – | 40 | – | μA |
 | Active mode        | –                      | –   | –   | –   | μA   |
 | Sleep mode         | –                      | –   | –   | –   | μA   |
 
@@ -218,14 +218,14 @@ The digital I/O electrical characteristics are listed below.
 
 | Parameter | Description          | Conditions                                                                 | Min              | Typ              | Max             | Unit |
 |----------|----------------------|----------------------------------------------------------------------------|------------------|------------------|------------------|------|
-| V<sub>IH</sub> | Input high voltage | 2.7–5.5 V, -40 to 105 °C                                                    | –                | –                | 0.3 × AONLDO     | V    |
-| V<sub>IL</sub> | Input low voltage  | 2.7–5.5 V, -40 to 105 °C                                                    | 0.7 × AONLDO     | –                | –                | V    |
-| V<sub>OH</sub> | Output high voltage | 5 V, 25 °C<br/>AONLDO = 1.8 V, I<sub>LOAD</sub> = 1 mA                      | –                | AONLDO − 0.1     | –                | V    |
-| V<sub>OL</sub> | Output low voltage  | 5 V, 25 °C<br/>AONLDO = 1.8 V, I<sub>LOAD</sub> = 1 mA                      | –                | 0.1              | –                | V    |
-| I<sub>DRIVE</sub> | Source drive current | 5 V, 25 °C<br/>AONLDO = 1.8 V, PAD = 1.3 V                                | –                | 10               | –                | mA   |
-| I<sub>SINK</sub>  | Sink drive current   | 5 V, 25 °C<br/>AONLDO = 1.8 V, PAD = 0.5 V                                | –                | 25               | –                | mA   |
-| R<sub>PU</sub> | Weak pull-up resistor   | –                                                                          | –                | 20 k             | –                | Ω    |
-| R<sub>PD</sub> | Weak pull-down resistor | –                                                                          | –                | 20 k             | –                | Ω    |
+| V(IH) | Input high voltage | 2.7–5.5 V, -40 to 105 °C                                                    | –                | –                | 0.3 × AONLDO     | V    |
+| V(IL) | Input low voltage  | 2.7–5.5 V, -40 to 105 °C                                                    | 0.7 × AONLDO     | –                | –                | V    |
+| V(OH) | Output high voltage | 5 V, 25 °C<br/>AONLDO = 1.8 V, I(LOAD) = 1 mA                      | –                | AONLDO − 0.1     | –                | V    |
+| V(OL) | Output low voltage  | 5 V, 25 °C<br/>AONLDO = 1.8 V, I(LOAD) = 1 mA                      | –                | 0.1              | –                | V    |
+| I(DRIVE) | Source drive current | 5 V, 25 °C<br/>AONLDO = 1.8 V, PAD = 1.3 V                                | –                | 10               | –                | mA   |
+| I(SINK)  | Sink drive current   | 5 V, 25 °C<br/>AONLDO = 1.8 V, PAD = 0.5 V                                | –                | 25               | –                | mA   |
+| R(PU) | Weak pull-up resistor   | –                                                                          | –                | 20 k             | –                | Ω    |
+| R(PD) | Weak pull-down resistor | –                                                                          | –                | 20 k             | –                | Ω    |
 
 ### 5.4 Watchdog Timer
 
@@ -233,8 +233,8 @@ The watchdog timer characteristics are listed below.
 
 | Parameter | Description                   | Conditions | Min | Typ | Max | Unit |
 |----------|-------------------------------|------------|-----|-----|-----|------|
-| T<sub>WD_MIN</sub> | Minimum watchdog timeout | –          | –   | 1   | –   | s    |
-| T<sub>WD_MAX</sub> | Maximum watchdog timeout | –          | –   | 16  | –   | s    |
+| T(WD_MIN) | Minimum watchdog timeout | –          | –   | 1   | –   | s    |
+| T(WD_MAX) | Maximum watchdog timeout | –          | –   | 16  | –   | s    |
 
 ### 5.5 LDO Characteristics
 
@@ -244,72 +244,72 @@ The electrical characteristics of the **AONLDO** are listed in the table below.
 
 | Parameter | Description | Conditions | Min | Typ | Max | Unit |
 |----------|-------------|------------|-----|-----|-----|------|
-| V<sub>DD</sub> | Input voltage range | V<sub>IN</sub> = V<sub>SYS</sub> | 2.7 | – | 5.5 | V |
-| V<sub>LDO</sub> | Output voltage range | – | 0.5 | – | 3.4 | V |
-| V<sub>LDO_ACC</sub> | Output voltage accuracy (V<sub>OUT</sub> > 1.2 V) | – | – | – | ±1 | % |
-| V<sub>LDO_ACC</sub> | Output voltage accuracy (V<sub>OUT</sub> < 1.2 V) | – | – | – | ±12 | mV |
-| I<sub>OUT_MAX</sub> | Output current | – | – | – | 0.2 | A |
-| I<sub>OCP</sub> | Overcurrent protection | – | – | 0.3 | – | A |
-| I<sub>SHORT</sub> | Short-circuit current | – | – | 0.15 | – | A |
-| V<sub>DROPOUT</sub> | Dropout voltage | V<sub>OUT</sub> = 1.8 V, I<sub>OUT</sub> = I<sub>OUT_MAX</sub> | – | 0.3 | – | V |
-| V<sub>S_LINE</sub> | Line regulation | V<sub>IN</sub> = 3 to 5 V | – | 10 | – | mV |
-| V<sub>S_LOAD</sub> | Load regulation | I<sub>LOAD</sub> = 10 to 100 mA | – | 15 | – | mV |
-| PSRR | Power supply rejection ratio | I<sub>OUT</sub> = I<sub>MAX</sub>/2, V<sub>IN</sub> − V<sub>OUT</sub> > 1 V | – | 60 | – | dB |
-| Noise | Output noise (V<sub>OUT</sub> = 1.8 V) | V<sub>OUT</sub> = 1.8 V, I<sub>OUT</sub> = 5 mA to I<sub>MAX</sub> | – | 35 | – | µV<sub>RMS</sub> |
-| Noise | Output noise (V<sub>OUT</sub> = 2.5 V) | V<sub>OUT</sub> = 2.5 V, I<sub>OUT</sub> = 5 mA to I<sub>MAX</sub> | – | 35 | – | µV<sub>RMS</sub> |
-| I<sub>Q_ON</sub> | Quiescent current (ON mode) | – | – | 15 | – | µA |
-| R<sub>OFF</sub> | Pull-down resistance (OFF mode) | – | – | 160 | – | Ω |
-| OV | Overvoltage threshold | V<sub>OUT</sub>/V<sub>OUT_TARGET</sub> − 1 | – | 20 | – | % |
-| UV | Undervoltage threshold | 1 − V<sub>OUT</sub>/V<sub>OUT_TARGET</sub> | – | 15 | – | % |
+| V(DD) | Input voltage range | V(IN) = V(SYS) | 2.7 | – | 5.5 | V |
+| V(LDO) | Output voltage range | – | 0.5 | – | 3.4 | V |
+| V(LDO_ACC) | Output voltage accuracy (V(OUT) > 1.2 V) | – | – | – | ±1 | % |
+| V(LDO_ACC) | Output voltage accuracy (V(OUT) < 1.2 V) | – | – | – | ±12 | mV |
+| I(OUT_MAX) | Output current | – | – | – | 0.2 | A |
+| I(OCP) | Overcurrent protection | – | – | 0.3 | – | A |
+| I(SHORT) | Short-circuit current | – | – | 0.15 | – | A |
+| V(DROPOUT) | Dropout voltage | V(OUT) = 1.8 V, I(OUT) = I(OUT_MAX) | – | 0.3 | – | V |
+| V(S_LINE) | Line regulation | V(IN) = 3 to 5 V | – | 10 | – | mV |
+| V(S_LOAD) | Load regulation | I(LOAD) = 10 to 100 mA | – | 15 | – | mV |
+| PSRR | Power supply rejection ratio | I(OUT) = I(MAX)/2, V(IN) − V(OUT) > 1 V | – | 60 | – | dB |
+| Noise | Output noise (V(OUT) = 1.8 V) | V(OUT) = 1.8 V, I(OUT) = 5 mA to I(MAX) | – | 35 | – | µV(RMS) |
+| Noise | Output noise (V(OUT) = 2.5 V) | V(OUT) = 2.5 V, I(OUT) = 5 mA to I(MAX) | – | 35 | – | µV(RMS) |
+| I(Q_ON) | Quiescent current (ON mode) | – | – | 15 | – | µA |
+| R(OFF) | Pull-down resistance (OFF mode) | – | – | 160 | – | Ω |
+| OV | Overvoltage threshold | V(OUT)/V(OUT_TARGET) − 1 | – | 20 | – | % |
+| UV | Undervoltage threshold | 1 − V(OUT)/V(OUT_TARGET) | – | 15 | – | % |
 
-#### 5.5.2 ALDO1–ALDO4
+#### 5.5.2 ALDO1 ~ ALDO4
 
-The electrical characteristics of **ALDO1–ALDO4** are listed below.
-
-| Parameter | Description | Conditions | Min | Typ | Max | Unit |
-|----------|-------------|------------|-----|-----|-----|------|
-| V<sub>DD</sub> | Input voltage range | V<sub>IN</sub> = V<sub>SYS</sub> | 2.7 | – | 5.5 | V |
-| V<sub>LDO</sub> | Output voltage range | – | 0.5 | – | 3.4 | V |
-| V<sub>LDO_ACC</sub> | Output voltage accuracy (V<sub>OUT</sub> > 1.2 V) | V<sub>OUT</sub> > 1.2 V | – | – | ±1 | % |
-| V<sub>LDO_ACC</sub> | Output voltage accuracy (V<sub>OUT</sub> < 1.2 V) | V<sub>OUT</sub> < 1.2 V | – | – | ±12 | mV |
-| I<sub>OUT_MAX</sub> | Output current | – | – | – | 0.3 | A |
-| I<sub>OCP</sub> | Overcurrent protection | – | – | 0.5 | – | A |
-| I<sub>SHORT</sub> | Short-circuit current | – | – | 0.25 | – | A |
-| V<sub>DROPOUT</sub> | Dropout voltage | V<sub>IN</sub> = 2.0 V, I<sub>OUT</sub> = I<sub>OUT_MAX</sub> | – | 0.3 | – | V |
-| V<sub>S_LINE</sub> | Line regulation | V<sub>IN</sub> = 3 to 5 V | – | 10 | – | mV |
-| V<sub>S_LOAD</sub> | Load regulation | I<sub>LOAD</sub> = 10 to 100 mA | – | 15 | – | mV |
-| PSRR | Power supply rejection ratio | I<sub>OUT</sub> = I<sub>MAX</sub>/2, V<sub>IN</sub> − V<sub>OUT</sub> > 1 V | – | 70 | – | dB |
-| Noise | Output noise (V<sub>OUT</sub> = 1.8 V) | V<sub>OUT</sub> = 1.8 V, I<sub>OUT</sub> = 5 mA to I<sub>MAX</sub> | – | 30 | – | µV<sub>RMS</sub> |
-| Noise | Output noise (V<sub>OUT</sub> = 2.5 V) | V<sub>OUT</sub> = 2.5 V, I<sub>OUT</sub> = 5 mA to I<sub>MAX</sub> | – | 30 | – | µV<sub>RMS</sub> |
-| I<sub>Q_ON</sub> | Quiescent current (ON mode) | – | – | 15 | – | µA |
-| R<sub>OFF</sub> | Pull-down resistance (OFF mode) | – | – | 160 | – | Ω |
-| OV | Overvoltage threshold | V<sub>OUT</sub>/V<sub>OUT_TARGET</sub> − 1 | – | 20 | – | % |
-| UV | Undervoltage threshold | 1 − V<sub>OUT</sub>/V<sub>OUT_TARGET</sub> | – | 15 | – | % |
-
-#### 5.5.3 DLDO1 / DLDO2 / DLDO3 / DLDO5 / DLDO6
-
-The electrical characteristics of **DLDO1, DLDO2, DLDO3, DLDO5, and DLDO6** are shown below.
+The electrical characteristics of **ALDO1 ~ ALDO4** are listed below.
 
 | Parameter | Description | Conditions | Min | Typ | Max | Unit |
 |----------|-------------|------------|-----|-----|-----|------|
-| V<sub>DD</sub> | Input voltage range (V<sub>IN</sub> = V<sub>SYS</sub>) | V<sub>IN</sub> = V<sub>SYS</sub> | 2.7 | – | 5.5 | V |
-| V<sub>DD</sub> | Input voltage range (buck-supplied) | Buck output used as V<sub>IN</sub> | 2.1 | – | – | V |
-| V<sub>LDO</sub> | Output voltage range | – | 0.5 | – | 3.4 | V |
-| V<sub>LDO_ACC</sub> | Output voltage accuracy (V<sub>OUT</sub> > 1.2 V) | V<sub>OUT</sub> > 1.2 V | – | – | ±1 | % |
-| V<sub>LDO_ACC</sub> | Output voltage accuracy (V<sub>OUT</sub> < 1.2 V) | V<sub>OUT</sub> < 1.2 V | – | – | ±12 | % |
-| I<sub>OUT_MAX</sub> | Output current | – | – | – | 0.3 | A |
-| I<sub>OCP</sub> | Overcurrent protection | – | – | 0.5 | – | A |
-| I<sub>SHORT</sub> | Short-circuit current | – | – | 0.25 | – | A |
-| V<sub>DROPOUT</sub> | Dropout voltage | V<sub>IN</sub> = 2.1 V, I<sub>OUT</sub> = I<sub>OUT_MAX</sub> | – | 0.3 | – | V |
-| V<sub>S_LINE</sub> | Line regulation | V<sub>IN</sub> = 3 to 5 V | – | 10 | – | mV |
-| V<sub>S_LOAD</sub> | Load regulation | I<sub>LOAD</sub> = 10 to 100 mA | – | 15 | – | mV |
-| PSRR | Power supply rejection ratio | I<sub>OUT</sub> = I<sub>MAX</sub>/2, V<sub>IN</sub> − V<sub>OUT</sub> > 1 V | – | 60 | – | dB |
-| Noise | Output noise (V<sub>OUT</sub> = 1.8 V) | V<sub>OUT</sub> = 1.8 V, I<sub>OUT</sub> = 5 mA to I<sub>MAX</sub> | – | 35 | – | µV<sub>RMS</sub> |
-| Noise | Output noise (V<sub>OUT</sub> = 2.5 V) | V<sub>OUT</sub> = 2.5 V, I<sub>OUT</sub> = 5 mA to I<sub>MAX</sub> | – | 35 | – | µV<sub>RMS</sub> |
-| I<sub>Q_ON</sub> | Quiescent current (ON mode) | – | – | 15 | – | µA |
-| R<sub>OFF</sub> | Pull-down resistance (OFF mode) | – | – | 160 | – | Ω |
-| OV | Overvoltage threshold | V<sub>OUT</sub>/V<sub>OUT_TARGET</sub> − 1 | – | 20 | – | % |
-| UV | Undervoltage threshold | 1 − V<sub>OUT</sub>/V<sub>OUT_TARGET</sub> | – | 15 | – | % |
+| V(DD) | Input voltage range | V(IN) = V(SYS) | 2.7 | – | 5.5 | V |
+| V(LDO) | Output voltage range | – | 0.5 | – | 3.4 | V |
+| V(LDO_ACC) | Output voltage accuracy (V(OUT) > 1.2 V) | V(OUT) > 1.2 V | – | – | ±1 | % |
+| V(LDO_ACC) | Output voltage accuracy (V(OUT) < 1.2 V) | V(OUT) < 1.2 V | – | – | ±12 | mV |
+| I(OUT_MAX) | Output current | – | – | – | 0.3 | A |
+| I(OCP) | Overcurrent protection | – | – | 0.5 | – | A |
+| I(SHORT) | Short-circuit current | – | – | 0.25 | – | A |
+| V(DROPOUT) | Dropout voltage | V(IN) = 2.0 V, I(OUT) = I(OUT_MAX) | – | 0.3 | – | V |
+| V(S_LINE) | Line regulation | V(IN) = 3 to 5 V | – | 10 | – | mV |
+| V(S_LOAD) | Load regulation | I(LOAD) = 10 to 100 mA | – | 15 | – | mV |
+| PSRR | Power supply rejection ratio | I(OUT) = I(MAX)/2, V(IN) − V(OUT) > 1 V | – | 70 | – | dB |
+| Noise | Output noise (V(OUT) = 1.8 V) | V(OUT) = 1.8 V, I(OUT) = 5 mA to I(MAX) | – | 30 | – | µV(RMS) |
+| Noise | Output noise (V(OUT) = 2.5 V) | V(OUT) = 2.5 V, I(OUT) = 5 mA to I(MAX) | – | 30 | – | µV(RMS) |
+| I(Q_ON) | Quiescent current (ON mode) | – | – | 15 | – | µA |
+| R(OFF) | Pull-down resistance (OFF mode) | – | – | 160 | – | Ω |
+| OV | Overvoltage threshold | V(OUT)/V(OUT_TARGET) − 1 | – | 20 | – | % |
+| UV | Undervoltage threshold | 1 − V(OUT)/V(OUT_TARGET) | – | 15 | – | % |
+
+#### 5.5.3 DLDO1/2/3/5/6
+
+The electrical characteristics of **DLDO1/2/3/5/6** (i.e., DLDO1, DLDO2, DLDO3, DLDO5, and DLDO6) are shown below.
+
+| Parameter | Description | Conditions | Min | Typ | Max | Unit |
+|----------|-------------|------------|-----|-----|-----|------|
+| V(DD) | Input voltage range (V(IN) = V(SYS)) | V(IN) = V(SYS) | 2.7 | – | 5.5 | V |
+| V(DD) | Input voltage range (buck-supplied) | Buck output used as V(IN) | 2.1 | – | – | V |
+| V(LDO) | Output voltage range | – | 0.5 | – | 3.4 | V |
+| V(LDO_ACC) | Output voltage accuracy (V(OUT) > 1.2 V) | V(OUT) > 1.2 V | – | – | ±1 | % |
+| V(LDO_ACC) | Output voltage accuracy (V(OUT) < 1.2 V) | V(OUT) < 1.2 V | – | – | ±12 | % |
+| I(OUT_MAX) | Output current | – | – | – | 0.3 | A |
+| I(OCP) | Overcurrent protection | – | – | 0.5 | – | A |
+| I(SHORT) | Short-circuit current | – | – | 0.25 | – | A |
+| V(DROPOUT) | Dropout voltage | V(IN) = 2.1 V, I(OUT) = I(OUT_MAX) | – | 0.3 | – | V |
+| V(S_LINE) | Line regulation | V(IN) = 3 to 5 V | – | 10 | – | mV |
+| V(S_LOAD) | Load regulation | I(LOAD) = 10 to 100 mA | – | 15 | – | mV |
+| PSRR | Power supply rejection ratio | I(OUT) = I(MAX)/2, V(IN) − V(OUT) > 1 V | – | 60 | – | dB |
+| Noise | Output noise (V(OUT) = 1.8 V) | V(OUT) = 1.8 V, I(OUT) = 5 mA to I(MAX) | – | 35 | – | µV(RMS) |
+| Noise | Output noise (V(OUT) = 2.5 V) | V(OUT) = 2.5 V, I(OUT) = 5 mA to I(MAX) | – | 35 | – | µV(RMS) |
+| I(Q_ON) | Quiescent current (ON mode) | – | – | 15 | – | µA |
+| R(OFF) | Pull-down resistance (OFF mode) | – | – | 160 | – | Ω |
+| OV | Overvoltage threshold | V(OUT)/V(OUT_TARGET) − 1 | – | 20 | – | % |
+| UV | Undervoltage threshold | 1 − V(OUT)/V(OUT_TARGET) | – | 15 | – | % |
 
 #### 5.5.4 DLDO4 / DLDO7
 
@@ -317,26 +317,26 @@ The electrical characteristics of **DLDO4 and DLDO7** are listed below.
 
 | Parameter | Description | Conditions | Min | Typ | Max | Unit |
 |----------|-------------|------------|-----|-----|-----|------|
-| V<sub>DD</sub> | Input voltage range (V<sub>IN</sub> = V<sub>SYS</sub>) | V<sub>IN</sub> = V<sub>SYS</sub> | 2.7 | – | 5.5 | V |
-| V<sub>DD</sub> | Input voltage range (buck-supplied) | Buck output used as V<sub>IN</sub> | 2.1 | – | – | V |
-| V<sub>LDO</sub> | Output voltage range | – | 0.5 | – | 3.4 | V |
-| V<sub>LDO_ACC</sub> | Output voltage accuracy (V<sub>OUT</sub> > 1.2 V) | V<sub>OUT</sub> > 1.2 V | – | – | ±1 | % |
-| V<sub>LDO_ACC</sub> | Output voltage accuracy (V<sub>OUT</sub> < 1.2 V) | V<sub>OUT</sub> < 1.2 V | – | – | ±12 | % |
-| I<sub>OUT_MAX</sub> | Output current | – | – | – | 0.5 | A |
-| I<sub>OCP</sub> | Overcurrent protection | – | – | 0.8 | – | A |
-| I<sub>SHORT</sub> | Short-circuit current | – | – | 0.4 | – | A |
-| V<sub>DROPOUT</sub> | Dropout voltage | V<sub>IN</sub> = 2.1 V, I<sub>OUT</sub> = I<sub>OUT_MAX</sub> | – | 0.4 | – | V |
-| V<sub>S_LINE</sub> | Line regulation | V<sub>IN</sub> = 3 to 5 V | – | 10 | – | mV |
-| V<sub>S_LOAD</sub> | Load regulation | I<sub>LOAD</sub> = 10 to 100 mA | – | 15 | – | mV |
-| PSRR | Power supply rejection ratio | I<sub>OUT</sub> = I<sub>MAX</sub>/2, V<sub>IN</sub> − V<sub>OUT</sub> > 1 V | – | 60 | – | dB |
-| Noise | Output noise (V<sub>OUT</sub> = 1.8 V) | V<sub>OUT</sub> = 1.8 V, I<sub>OUT</sub> = 5 mA to I<sub>MAX</sub> | – | 35 | – | µV<sub>RMS</sub> |
-| Noise | Output noise (V<sub>OUT</sub> = 2.5 V) | V<sub>OUT</sub> = 2.5 V, I<sub>OUT</sub> = 5 mA to I<sub>MAX</sub> | – | 35 | – | µV<sub>RMS</sub> |
-| I<sub>Q_ON</sub> | Quiescent current (ON mode) | – | – | 15 | – | µA |
-| R<sub>OFF</sub> | Pull-down resistance (OFF mode) | – | – | 160 | – | Ω |
-| OV | Overvoltage threshold | V<sub>OUT</sub>/V<sub>OUT_TARGET</sub> − 1 | – | 20 | – | % |
-| UV | Undervoltage threshold | 1 − V<sub>OUT</sub>/V<sub>OUT_TARGET</sub> | – | 15 | – | % |
+| V(DD) | Input voltage range (V(IN) = V(SYS)) | V(IN) = V(SYS) | 2.7 | – | 5.5 | V |
+| V(DD) | Input Voltage Range (from Buck input voltage V(IN)) | Buck output used as V(IN) | 2.1 | – | – | V |
+| V(LDO) | Output voltage range | – | 0.5 | – | 3.4 | V |
+| V(LDO_ACC) | Output voltage accuracy (V(OUT) > 1.2 V) | V(OUT) > 1.2 V | – | – | ±1 | % |
+| V(LDO_ACC) | Output voltage accuracy (V(OUT) < 1.2 V) | V(OUT) < 1.2 V | – | – | ±12 | % |
+| I(OUT_MAX) | Output current | – | – | – | 0.5 | A |
+| I(OCP) | Overcurrent protection | – | – | 0.8 | – | A |
+| I(SHORT) | Short-circuit current | – | – | 0.4 | – | A |
+| V(DROPOUT) | Dropout voltage | V(IN) = 2.1 V, I(OUT) = I(OUT_MAX) | – | 0.4 | – | V |
+| V(S_LINE) | Line regulation | V(IN) = 3 to 5 V | – | 10 | – | mV |
+| V(S_LOAD) | Load regulation | I(LOAD) = 10 to 100 mA | – | 15 | – | mV |
+| PSRR | Power supply rejection ratio | I(OUT) = I(MAX)/2, V(IN) − V(OUT) > 1 V | – | 60 | – | dB |
+| Noise | Output noise (V(OUT) = 1.8 V) | V(OUT) = 1.8 V, I(OUT) = 5 mA to I(MAX) | – | 35 | – | µV(RMS) |
+| Noise | Output noise (V(OUT) = 2.5 V) | V(OUT) = 2.5 V, I(OUT) = 5 mA to I(MAX) | – | 35 | – | µV(RMS) |
+| I(Q_ON) | Quiescent current (ON mode) | – | – | 15 | – | µA |
+| R(OFF) | Pull-down resistance (OFF mode) | – | – | 160 | – | Ω |
+| OV | Overvoltage threshold | V(OUT)/V(OUT_TARGET) − 1 | – | 20 | – | % |
+| UV | Undervoltage threshold | 1 − V(OUT)/V(OUT_TARGET) | – | 15 | – | % |
 
-### 5.6 BUCK1–BUCK6
+### 5.6 BUCK 1 ~ 6
 
 The electrical characteristics of BUCK1–BUCK6 are listed in the tables below.
 
@@ -344,66 +344,65 @@ The electrical characteristics of BUCK1–BUCK6 are listed in the tables below.
 
 | Parameter        | Description                         | Conditions                                              | Min | Typ             | Max | Unit  |
 |------------------|-------------------------------------|----------------------------------------------------------|-----|------------------|-----|-------|
-| V<sub>IN_MIN</sub>  | Minimum input voltage               | –                                                        | –   | 2.7              | –   | V     |
-| V<sub>IN_MAX</sub>  | Maximum input voltage               | –                                                        | –   | 5.5              | –   | V     |
-| V<sub>OUT_MIN</sub> | Minimum output voltage              | –                                                        | –   | 0.5              | –   | V     |
-| V<sub>OUT_MAX</sub> | Maximum output voltage              | –                                                        | –   | 3.4              | –   | V     |
-| V<sub>OUT_STEPS</sub> | Output voltage step size           | V<sub>OUT</sub> = 0.5 ~ 1.35 V                            | –   | 5                | –   | mV    |
-| V<sub>OUT_STEPS</sub> | Output voltage step size           | V<sub>OUT</sub> = 1.35 ~ 3.4 V                            | –   | 25               | –   | mV    |
-| V<sub>SLEW</sub>     | DVS slew rate options               | –                                                        | –   | 5 / 10 / 25 / 50 | –   | mV/µs |
-| T<sub>SFST</sub>     | Soft-start time                     | –                                                        | –   | 1                | –   | ms    |
-| T<sub>SFST_SET</sub> | Soft-start time setting options     | –                                                        | –   | 0.78 / 0.9 / 1.12| –   | ms    |
-| R<sub>DIDCHG</sub>   | Discharge resistor                  | –                                                        | –   | 45               | –   | Ω     |
-| f<sub>SW</sub>       | Switching frequency                 | CCM                                                      | –   | 1.5              | –   | MHz   |
-| OV               | Over-voltage threshold               | V<sub>OUT</sub>/V<sub>OUT_TARGET</sub> − 1               | –   | 20               | –   | %     |
-| UV               | Under-voltage threshold              | 1 − V<sub>OUT</sub>/V<sub>OUT_TARGET</sub>               | –   | 15               | –   | %     |
-| V<sub>BUCK_ACC</sub> | Output voltage accuracy             | Excluding line/load regulation, V<sub>OUT</sub> > 1 V   | –   | –                | ±1  | %     |
-| V<sub>BUCK_ACC</sub> | Output voltage accuracy             | Excluding line/load regulation, V<sub>OUT</sub> < 1 V   | –   | –                | ±10 | mV    |
-| V<sub>S_LOAD</sub>   | Static load regulation              | I<sub>OUT</sub> = 0.1 ~ 2 A, V<sub>OUT</sub> = 1 V       | –   | –                | ±1  | %     |
-| V<sub>S_LINE</sub>   | Static line regulation              | V<sub>IN</sub> = 3 ~ 5 V, V<sub>OUT</sub> = 1 V         | –   | –                | ±1  | %     |
-| V<sub>TR_LD</sub>    | Load transient response             | C<sub>OUT</sub> = 44 µF, I<sub>OUT</sub> = 0.02 ~ 2.7 A | –   | –                | –   | –     |
-|                  | Undershoot                           | V<sub>OUT</sub> < 1.2 V                                  | –   | 30               | 60  | mV    |
-|                  | Undershoot                           | V<sub>OUT</sub> > 1.2 V                                  | –   | 3                | 5   | %     |
-|                  | Overshoot                            | V<sub>OUT</sub> < 1.6 V                                  | –   | 72               | 80  | mV    |
-|                  | Overshoot                            | V<sub>OUT</sub> > 1.6 V                                  | –   | –                | 5   | %     |
-| V<sub>RIPPLE</sub>   | Output ripple                       | I<sub>OUT</sub> = 0.1 A, V<sub>OUT</sub> = 1.1 V        | –   | 13               | 25  | mV    |
-| V<sub>RIPPLE</sub>   | Output ripple                       | I<sub>OUT</sub> > 1 A, V<sub>OUT</sub> = 1.1 V          | –   | 7                | 20  | mV    |
+| V(IN_MIN)  | Minimum input voltage               | –                                                        | –   | 2.7              | –   | V     |
+| V(IN_MAX)  | Maximum input voltage               | –                                                        | –   | 5.5              | –   | V     |
+| V(OUT_MIN) | Minimum output voltage              | –                                                        | –   | 0.5              | –   | V     |
+| V(OUT_MAX) | Maximum output voltage              | –                                                        | –   | 3.4              | –   | V     |
+| V(OUT_STEPS) | Output voltage step size           | V(OUT) = 0.5 ~ 1.35 V                            | –   | 5                | –   | mV    |
+| V(OUT_STEPS) | Output voltage step size           | V(OUT) = 1.35 ~ 3.4 V                            | –   | 25               | –   | mV    |
+| V(SLEW)     | DVS slew rate options               | –                                                        | –   | 5 / 10 / 25 / 50 | –   | mV/µs |
+| T(SFST)     | Soft-start time                     | –                                                        | –   | 1                | –   | ms    |
+| T(SFST_SET) | Soft-start time setting options     | –                                                        | –   | 0.78 / 0.9 / 1.12| –   | ms    |
+| R(DIDCHG)   | Discharge resistor                  | –                                                        | –   | 45               | –   | Ω     |
+| f(SW)       | Switching frequency                 | CCM                                                      | –   | 1.5              | –   | MHz   |
+| OV               | Over-voltage threshold               | V(OUT)/V(OUT_TARGET) − 1               | –   | 20               | –   | %     |
+| UV               | Under-voltage threshold              | 1 − V(OUT)/V(OUT_TARGET)               | –   | 15               | –   | %     |
+| V(BUCK_ACC) | Output voltage accuracy             | Excluding line/load regulation, V(OUT) > 1 V   | –   | –                | ±1  | %     |
+| V(BUCK_ACC) | Output voltage accuracy             | Excluding line/load regulation, V(OUT) < 1 V   | –   | –                | ±10 | mV    |
+| V(S_LOAD)   | Static load regulation              | I(OUT) = 0.1 ~ 2 A, V(OUT) = 1 V       | –   | –                | ±1  | %     |
+| V(S_LINE)   | Static line regulation              | V(IN) = 3 ~ 5 V, V(OUT) = 1 V         | –   | –                | ±1  | %     |
+| V(TR_LD)    | Load transient response; C(OUT)=44uF, I(OUT)=0.02 ~ 2.7 A | (undershoot，V(OUT)< 1.2 V) | –   | 30               | 60  | mV    |
+|             | Undershoot                           | (undershoot，V(OUT)< 1.2 V) V                                  | –   | 3                | 5   | %     |
+|             | Overshoot                            | (overshoot，V(OUT) < 1.6 V)                                  | –   | 72               | 80  | mV    |
+|             | Overshoot                            | (overshoot，V(OUT) < 1.6 V)                                  | –   | –                | 5   | %     |
+| V(RIPPLE)   | Output ripple; I(OUT) = 0.1 A, V(OUT) = 1.1 V |   –     | –   | 13               | 25  | mV    |
+| V(RIPPLE)   | Output ripple; I(OUT) = 0.1 A, V(OUT) = 1.1 V |   –    | –   | 7                | 20  | mV    |
 
-#### Buck 1–2 (Single Buck)
+#### Buck 1 ~ 2 (Single Buck)
 
 | Parameter      | Description              | Conditions                                           | Min | Typ  | Max  | Unit |
 |----------------|--------------------------|------------------------------------------------------|-----|------|------|------|
-| I<sub>OUT_MAX</sub> | Output current          | OCP large = 1                                       | –   | 4.0  | –    | A    |
-| Efficiency     | Efficiency               | V<sub>IN</sub> = 4 V, V<sub>OUT</sub> = 0.9 V, I<sub>OUT</sub> = 0.5 A | – | 86.3 | – | % |
-| Efficiency     | Efficiency               | V<sub>IN</sub> = 4 V, V<sub>OUT</sub> = 0.9 V, I<sub>OUT</sub> = 2.5 A | – | 78.2 | – | % |
-| D<sub>ACC</sub>     | Dual-phase current accuracy | I<sub>OUT</sub> = 6 A                               | –   | 10.0 | 20.0 | %    |
-| R<sub>PU</sub>      | Pull-up resistance      | V<sub>IN</sub> = 4 V                                 | –   | 80   | –    | mΩ   |
-| R<sub>PD</sub>      | Pull-down resistance    | V<sub>IN</sub> = 4 V                                 | –   | 40   | –    | mΩ   |
+| I(OUT_MAX) | Output current          | OCP large = 1                                       | –   | 4.0  | –    | A    |
+| Efficiency     | Efficiency               | V(IN) = 4 V, V(OUT) = 0.9 V, I(OUT) = 0.5 A | – | 86.3 | – | % |
+| Efficiency     | Efficiency               | V(IN) = 4 V, V(OUT) = 0.9 V, I(OUT) = 2.5 A | – | 78.2 | – | % |
+| D(ACC)     | Dual-phase current accuracy | I(OUT) = 6 A                               | –   | 10.0 | 20.0 | %    |
+| R(PU)      | Pull-up resistance      | V(IN) = 4 V                                 | –   | 80   | –    | mΩ   |
+| R(PD)      | Pull-down resistance    | V(IN) = 4 V                                 | –   | 40   | –    | mΩ   |
 
-#### Buck 3–4
+#### Buck 3 ~ 4
 
 | Parameter           | Description              | Conditions                                           | Min | Typ  | Max  | Unit |
 |---------------------|--------------------------|------------------------------------------------------|-----|------|------|------|
-| I<sub>OUT_MAX</sub> | Output current           | –                                                    | 2.5 | 3.5  | –    | A    |
-| I<sub>VALLEY_LIMIT</sub> | Valley current limit     | –                                                    | 3.0 | –    | –    | A    |
-| Efficiency          | Efficiency               | V<sub>IN</sub> = 4 V, V<sub>OUT</sub> = 1.8 V, I<sub>OUT</sub> = 0.5 A | – | 90.6 | – | % |
-| Efficiency          | Efficiency               | V<sub>IN</sub> = 4 V, V<sub>OUT</sub> = 1.8 V, I<sub>OUT</sub> = 2.5 A | – | 83.4 | – | % |
-| D<sub>ACC</sub>          | Dual-phase current accuracy | I<sub>OUT</sub> = 5 A                               | –   | –    | 20.0 | %    |
-| R<sub>PU</sub>           | Pull-up resistance      | V<sub>IN</sub> = 4 V                                 | –   | 100  | –    | mΩ   |
-| R<sub>PD</sub>           | Pull-down resistance    | V<sub>IN</sub> = 4 V                                 | –   | 50   | –    | mΩ   |
+| I(OUT_MAX)| Output current           | –                                                    | 2.5 | 3.5  | –    | A    |
+| I(VALLEY_LIMIT) | Valley current limit     | –                                                    | 3.0 | –    | –    | A    |
+| Efficiency          | Efficiency               | V(IN) = 4 V, V(OUT) = 1.8 V, I(OUT) = 0.5 A | – | 90.6 | – | % |
+| Efficiency          | Efficiency               | V(IN) = 4 V, V(OUT) = 1.8 V, I(OUT) = 2.5 A | – | 83.4 | – | % |
+| D(ACC)          | Dual-phase current accuracy | I(OUT) = 5 A                               | –   | –    | 20.0 | %    |
+| R(PU)           | Pull-up resistance      | V(IN) = 4 V                                 | –   | 100  | –    | mΩ   |
+| R(PD)           | Pull-down resistance    | V(IN) = 4 V                                 | –   | 50   | –    | mΩ   |
 
-#### Buck 5–6
+#### Buck 5 ~ 6
 
 | Parameter           | Description              | Conditions                                           | Min | Typ  | Max | Unit |
 |---------------------|--------------------------|------------------------------------------------------|-----|------|-----|------|
-| I<sub>OUT_MAX</sub> | Output current           | –                                                    | 2.5 | –    | –   | A    |
-| I<sub>VALLEY_LIMIT</sub> | Valley current limit     | –                                                    | 3.0 | –    | –   | A    |
-| Efficiency          | Efficiency               | V<sub>IN</sub> = 4 V, V<sub>OUT</sub> = 1.1 V, I<sub>OUT</sub> = 0.5 A | – | 87.7 | – | % |
-| Efficiency          | Efficiency               | V<sub>IN</sub> = 4 V, V<sub>OUT</sub> = 1.1 V, I<sub>OUT</sub> = 2.5 A | – | 79.9 | – | % |
-| Efficiency          | Efficiency               | V<sub>IN</sub> = 4 V, V<sub>OUT</sub> = 2.1 V, I<sub>OUT</sub> = 0.5 A | – | 91.6 | – | % |
-| Efficiency          | Efficiency               | V<sub>IN</sub> = 4 V, V<sub>OUT</sub> = 2.1 V, I<sub>OUT</sub> = 2.5 A | – | 86.8 | – | % |
-| R<sub>PU</sub>           | Pull-up resistance      | V<sub>IN</sub> = 4 V                                 | –   | 100  | –   | mΩ   |
-| R<sub>PD</sub>           | Pull-down resistance    | V<sub>IN</sub> = 4 V                                 | –   | 50   | –   | mΩ   |
+| I(OUT_MAX)| Output current           | –                                                    | 2.5 | –    | –   | A    |
+| I(VALLEY_LIMIT) | Valley current limit     | –                                                    | 3.0 | –    | –   | A    |
+| Efficiency          | Efficiency               | V(IN) = 4 V, V(OUT) = 1.1 V, I(OUT) = 0.5 A | – | 87.7 | – | % |
+| Efficiency          | Efficiency               | V(IN) = 4 V, V(OUT) = 1.1 V, I(OUT) = 2.5 A | – | 79.9 | – | % |
+| Efficiency          | Efficiency               | V(IN) = 4 V, V(OUT) = 2.1 V, I(OUT) = 0.5 A | – | 91.6 | – | % |
+| Efficiency          | Efficiency               | V(IN) = 4 V, V(OUT) = 2.1 V, I(OUT) = 2.5 A | – | 86.8 | – | % |
+| R(PU)           | Pull-up resistance      | V(IN) = 4 V                                 | –   | 100  | –   | mΩ   |
+| R(PD)           | Pull-down resistance    | V(IN) = 4 V                                 | –   | 50   | –   | mΩ   |
 
 ### 5.7 Load Switch
 
@@ -411,11 +410,11 @@ The electrical characteristics of the load switch are listed in the table below.
 
 | Parameter      | Description               | Conditions        | Min | Typ | Max | Unit |
 |----------------|---------------------------|-------------------|-----|-----|-----|------|
-| SW<sub>IN_MIN</sub> | Minimum input voltage    | V<sub>SYS</sub> = 4 V | –   | 2.7 | –   | V    |
-| SW<sub>IN_MAX</sub> | Maximum input voltage    | V<sub>SYS</sub> = 4 V | –   | 5.5 | –   | V    |
-| R<sub>ON</sub>      | On-resistance            | SWIN = 5 V        | –   | 140 | –   | mΩ   |
-| I<sub>SC</sub>      | Short-circuit current    | –                 | –   | 0.5 | –   | A    |
-| I<sub>MAX</sub>     | Maximum output current   | –                 | –   | 1.6 | –   | A    |
+| SW(IN_MIN) | Minimum input voltage    | V(SYS) = 4 V | –   | 2.7 | –   | V    |
+| SW(IN_MAX) | Maximum input voltage    | V(SYS) = 4 V | –   | 5.5 | –   | V    |
+| R(ON)      | On-resistance            | SWIN = 5 V        | –   | 140 | –   | mΩ   |
+| I(SC)      | Short-circuit current    | –                 | –   | 0.5 | –   | A    |
+| I(MAX)     | Maximum output current   | –                 | –   | 1.6 | –   | A    |
 
 ### 5.8 ADC
 
@@ -424,21 +423,21 @@ The electrical characteristics of the load switch are listed in the table below.
 | Parameter        | Description            | Conditions                     | Min | Typ | Max | Unit |
 |------------------|------------------------|--------------------------------|-----|-----|-----|------|
 | Resolution       | Resolution             | –                              | –   | 12  | –   | Bits |
-| V<sub>DD</sub>   | Supply voltage         | –                              | 2.7 | –   | 5.5 | V    |
+| V(DD)   | Supply voltage         | –                              | 2.7 | –   | 5.5 | V    |
 | DNL              | Differential nonlinearity | 2.7 ~ 5.5 V, −40 ~ 105 °C     | −3  | –   | 3   | LSB  |
 | INL              | Integral nonlinearity   | 2.7 ~ 5.5 V, −40 ~ 105 °C     | −4  | –   | 4   | LSB  |
 | Offset error     | Offset error            | 2.7 ~ 5.5 V, −40 ~ 105 °C     | −4  | –   | 4   | LSB  |
 | Gain error       | Gain error              | 2.7 ~ 5.5 V, −40 ~ 105 °C     | −4  | –   | 4   | LSB  |
 | Sample rate      | Sampling rate           | 25 °C                          | 0.1 | –   | 25  | kSPS |
-| I<sub>WORK</sub> | Operating current       | 5 V, 25 °C                    | –   | 190 | –   | µA   |
+| I(WORK) | Operating current       | 5 V, 25 °C                    | –   | 190 | –   | µA   |
 
 #### ADC Internal Reference Electrical Characteristics
 
 | Parameter        | Description              | Conditions                 | Min   | Typ | Max   | Unit |
 |------------------|--------------------------|----------------------------|-------|-----|-------|------|
-| V<sub>REF_2V</sub> | 2 V reference voltage    | 2.7 ~ 5.5 V, 25 °C         | 1.995 | 2.0 | 2.005 | V    |
-| V<sub>REF_3V</sub> | 3 V reference voltage    | 3.5 ~ 5.5 V, 25 °C         | 2.995 | 3.0 | 3.005 | V    |
-| I<sub>WORK</sub>   | Operating current        | 5.0 V, −40 ~ 105 °C       | –     | 400 | –     | µA   |
+| V(REF_2V) | 2 V reference voltage    | 2.7 ~ 5.5 V, 25 °C         | 1.995 | 2.0 | 2.005 | V    |
+| V(REF_3V) | 3 V reference voltage    | 3.5 ~ 5.5 V, 25 °C         | 2.995 | 3.0 | 3.005 | V    |
+| I(WORK)   | Operating current        | 5.0 V, −40 ~ 105 °C       | –     | 400 | –     | µA   |
 
 ### 5.9 Internal Clocks
 
@@ -446,19 +445,19 @@ The electrical characteristics of the load switch are listed in the table below.
 
 | Parameter     | Description              | Conditions                    | Min | Typ | Max | Unit |
 |---------------|--------------------------|-------------------------------|-----|-----|-----|------|
-| F<sub>ACC</sub> | Frequency accuracy       | 5 V, 25 °C                   | 30  | 32  | 34  | kHz  |
-| V<sub>C</sub>   | Voltage coefficient      | 2.0 ~ 5.5 V, 25 °C           | −5  | –   | 2   | %    |
-| T<sub>C</sub>   | Temperature coefficient  | 5 V, −40 ~ 105 °C            | 0   | –   | 5   | %    |
-| I<sub>WORK</sub> | Operating current        | 2.0 ~ 5.5 V, −40 ~ 105 °C    | 0.4 | 0.9 | 1.5 | µA   |
+| F(ACC) | Frequency accuracy       | 5 V, 25 °C                   | 30  | 32  | 34  | kHz  |
+| V(C)   | Voltage coefficient      | 2.0 ~ 5.5 V, 25 °C           | −5  | –   | 2   | %    |
+| T(C)   | Temperature coefficient  | 5 V, −40 ~ 105 °C            | 0   | –   | 5   | %    |
+| I(WORK) | Operating current        | 2.0 ~ 5.5 V, −40 ~ 105 °C    | 0.4 | 0.9 | 1.5 | µA   |
 
 #### Internal HSI Electrical Characteristics
 
 | Parameter     | Description              | Conditions                    | Min | Typ | Max | Unit |
 |---------------|--------------------------|-------------------------------|-----|-----|-----|------|
-| F<sub>ACC</sub> | Frequency accuracy       | 5 V, 25 °C                   | 1.98 | 2.00 | 2.02 | MHz  |
-| V<sub>C</sub>   | Voltage coefficient      | 2.0 ~ 5.5 V, 25 °C           | −0.2 | –   | 0.2 | %    |
-| T<sub>C</sub>   | Temperature coefficient  | 5 V, −40 ~ 105 °C            | −2  | –   | 2   | %    |
-| I<sub>WORK</sub> | Operating current        | 2.0 ~ 5.5 V, −40 ~ 105 °C    | 45  | 80  | 120 | µA   |
+| F(ACC) | Frequency accuracy       | 5 V, 25 °C                   | 1.98 | 2.00 | 2.02 | MHz  |
+| V(C)   | Voltage coefficient      | 2.0 ~ 5.5 V, 25 °C           | −0.2 | –   | 0.2 | %    |
+| T(C)   | Temperature coefficient  | 5 V, −40 ~ 105 °C            | −2  | –   | 2   | %    |
+| I(WORK) | Operating current        | 2.0 ~ 5.5 V, −40 ~ 105 °C    | 45  | 80  | 120 | µA   |
 
 ### 5.10 32 kHz Crystal Oscillator
 
@@ -466,9 +465,9 @@ The electrical characteristics of the 32 kHz crystal oscillator are listed in th
 
 | Parameter     | Description                | Conditions                         | Min | Typ  | Max | Unit |
 |---------------|----------------------------|------------------------------------|-----|------|-----|------|
-| C<sub>LOAD</sub> | External load capacitance | 2.7 ~ 5.5 V, −40 ~ 105 °C          | 7   | 22.5 | 30  | pF   |
-| I<sub>WORK</sub> | Operating current         | 5 V, 25 °C, C<sub>LOAD</sub> = 12.5 pF | –   | 1    | –   | µA   |
-| T<sub>SETUP</sub> | Startup time             | 5 V, 25 °C                         | –   | 0.6  | –   | s    |
+| C(LOAD) | External load capacitance | 2.7 ~ 5.5 V, −40 ~ 105 °C          | 7   | 22.5 | 30  | pF   |
+| I(WORK) | Operating current         | 5 V, 25 °C, C(LOAD) = 12.5 pF | –   | 1    | –   | µA   |
+| T(SETUP) | Startup time             | 5 V, 25 °C                         | –   | 0.6  | –   | s    |
 
 ### 5.11 POR / PDR
 
@@ -478,8 +477,8 @@ The electrical characteristics of the Power-On Reset (POR) and Power-Down Reset 
 |------------------|-------------------------------------|------------------------------|------|-----|------|------|
 | POR              | Power-on reset voltage              | −40 ~ 105 °C                 | 1.75 | 2.0 | 2.25 | V    |
 | PDR              | Power-down reset voltage            | −40 ~ 105 °C                 | 1.75 | 2.0 | 2.25 | V    |
-| T<sub>FILTER</sub> | POR glitch filter duration          | 25 °C, 3 V → 1.5 V           | –    | 2.0 | –    | µs   |
-| I<sub>WORK</sub>   | Operating current                   | 2.0 ~ 5.5 V, −40 ~ 105 °C    | 0.1  | 0.3 | 1.0  | µA   |
+| T(FILTER) | POR glitch filter duration          | 25 °C, 3 V → 1.5 V           | –    | 2.0 | –    | µs   |
+| I(WORK)   | Operating current                   | 2.0 ~ 5.5 V, −40 ~ 105 °C    | 0.1  | 0.3 | 1.0  | µA   |
 
 ### 5.12 RTC Module POR / PDR
 
@@ -489,7 +488,7 @@ The electrical characteristics of the RTC power-on and power-down reset are list
 |---------------|----------------------------|------------------------------|------|-----|------|------|
 | POR           | Power-on reset voltage     | −40 ~ 105 °C                 | 1.55 | 1.7 | 1.85 | V    |
 | PDR           | Power-down reset voltage   | −40 ~ 105 °C                 | 1.55 | 1.7 | 1.85 | V    |
-| I<sub>WORK</sub> | Operating current          | 2.0 ~ 5.5 V, −40 ~ 105 °C    | 0.1  | 0.3 | 1.0  | µA   |
+| I(WORK) | Operating current          | 2.0 ~ 5.5 V, −40 ~ 105 °C    | 0.1  | 0.3 | 1.0  | µA   |
 
 ## 6. Functional Description
 
@@ -523,44 +522,44 @@ The PWRKY pin is internally pulled up to **VSYS** and provides multiple function
 
    - **Power-on Function**
      - Pulling the PWRKY pin low for a specified time triggers the power-on sequence.
-     - Duration is configurable to **0.5s / 1s / 2s / 3s** (see Table 7-91 `PWR_KEY_TIME[1:0]`).
+     - Duration is configurable to **0.5s / 1s / 2s / 3s** (see Table 7-91 PWR_KEY_TIME[1:0]).
 
    - **Long-Press Shutdown Function**
-     - If long-press shutdown is enabled (`SYS_CFG1[0]=1`, Table 7-126), PWRKY must be held low until exiting shutdown mode.
-     - After exiting shutdown mode, if PWRKY remains low longer than **4s / 6s / 8s / 10s** (configured via `PWR_KEY_TIME[3:2]` in Table 7-91), a shutdown is triggered.
+     - If long-press shutdown is enabled (SYS_CFG1[0]=1, Table 7-126), PWRKY must be held low until exiting shutdown mode.
+     - After exiting shutdown mode, if PWRKY remains low longer than **4s / 6s / 8s / 10s** (configured via PWR_KEY_TIME[3:2] in Table 7-91), a shutdown is triggered.
 
 2. **PWRKY Behavior in Non-Shutdown Mode**
 
    - **Power-off Function**
-     - PWRKY can act as a shutdown source (`PWR_CTRL2[6]=0`, Table 7-88).
-     - Pulling low for a configured duration triggers shutdown. Time configurable to **4s / 6s / 8s / 10s** (Table 7-91 `PWR_KEY_TIME[3:2]`).
+     - PWRKY can act as a shutdown source (PWR_CTRL2[6]=0, Table 7-88).
+     - Pulling low for a configured duration triggers shutdown. Time configurable to **4s / 6s / 8s / 10s** (Table 7-91 PWR_KEY_TIME[3:2]).
 
    - **Long-Press Reset Function**
-     - When configured as a long-press reset source (`PWR_CTRL2[6]=1`), holding PWRKY low for **12s** triggers a PMIC cold reset.
+     - When configured as a long-press reset source (PWR_CTRL2[6]=1), holding PWRKY low for **12s** triggers a PMIC cold reset.
      - Cold reset clears all logic and module configurations (including RTC), equivalent to a power-on reset.
 
    - **Long-Press Reset Combined with Shutdown**
-     - If long-press reset is enabled (`SYS_CFG1[1]=1`, Table 7-126), PWRKY held low in shutdown mode continues until exit.
+     - If long-press reset is enabled (SYS_CFG1[1]=1, Table 7-126), PWRKY held low in shutdown mode continues until exit.
      - After exiting shutdown, if still low for over **12s**, a cold reset is triggered.
 
 3. **Interrupt Events in Power-On or Sleep Mode**
 
    - **Falling Edge Event**
      - Pulling PWRKY low generates a falling edge event.
-     - If enabled (`IRQ_PWRKY_EN[4]`, Table 7-120), triggers a **falling edge interrupt**.
+     - If enabled (IRQ_PWRKY_EN[4], Table 7-120), triggers a **falling edge interrupt**.
 
    - **Rising Edge Event**
       - Releasing PWRKY after a low pulse generates a rising edge event.
-         - If enabled (`IRQ_PWRKY_EN[0]`), triggers a **rising edge interrupt**.
+         - If enabled (IRQ_PWRKY_EN[0]), triggers a **rising edge interrupt**.
 
    - **Short Press Event**
      - Pulling low then releasing within the short-press time generates a short press event.
-     - If enabled (`IRQ_PWRKY_EN[2]`), triggers a **short-press interrupt**.
-     - Duration configurable to **0.5s / 1s / 1.5s / 2s** (Table 7-91 `PWR_KEY_TIME[5:4]`).
+     - If enabled (IRQ_PWRKY_EN[2]), triggers a **short-press interrupt**.
+     - Duration configurable to **0.5s / 1s / 1.5s / 2s** (Table 7-91 PWR_KEY_TIME[5:4]).
 
    - **Long Press Event**
      - Pulling low then releasing with duration between short-press and shutdown triggers a long press event.
-     - If enabled (`IRQ_PWRKY_EN[3]`), triggers a **long-press interrupt**.
+     - If enabled (IRQ_PWRKY_EN[3]), triggers a **long-press interrupt**.
 
 **PWRKY Event Timing Diagrams**
 
@@ -576,12 +575,12 @@ The PWRKY pin is internally pulled up to **VSYS** and provides multiple function
 The **INT** pin is an open-drain output with an internal Schmitt-trigger input operating at **AONLDO** voltage.
 
 - **Shutdown Mode**
-  - When configured as a power-on source (`PWR_CTRL0[2]=1`, Table 7-86), pulling the INT pin low for **16 ms** triggers the power-on sequence.
+  - When configured as a power-on source (PWR_CTRL0[2]=1, Table 7-86), pulling the INT pin low for **16 ms** triggers the power-on sequence.
 
 - **Power-On Mode**
   - During normal operation, when an internal event occurs and the corresponding interrupt is enabled (e.g., key press event), the INT pin is pulled low to output the interrupt signal.
 
-### 6.1.3 PGOOD Pin
+#### 6.1.3 PGOOD Pin
 
 The **PGOOD** pin is an open-drain output with an internal Schmitt-trigger input operating at **AONLDO** voltage.
 
@@ -591,15 +590,15 @@ The **PGOOD** pin is an open-drain output with an internal Schmitt-trigger input
 
 - **End of Power-On Sequence**
   - Once the power-on sequence completes, the PMIC immediately releases the PGOOD pin.
-  - If `PWR_CTRL1[3]=0` (Table 7-87), the chip enters power-on mode directly.
-  - If `PWR_CTRL1[3]=1`, the chip waits until PGOOD goes high before entering power-on mode.
+  - If PWR_CTRL1[3]=0 (Table 7-87), the chip enters power-on mode directly.
+  - If PWR_CTRL1[3]=1, the chip waits until PGOOD goes high before entering power-on mode.
   - If this wait times out, the chip immediately enters shutdown, and all powered rails are turned off.
 
 - **Power-On Mode**
   - In normal operation, if PGOOD is pulled low for more than **200 µs** and PGOOD pull-down reset is enabled (`PG_RST_EN`), a reset sequence is triggered (shutdown followed by power-on).
 
 - **Sleep Mode and Sleep Sequence**
-  - The PGOOD state during sleep can be configured via `PWR_CTRL1[5]` (Table 7-87). By default, PGOOD remains high.
+  - The PGOOD state during sleep can be configured via PWR_CTRL1[5] (Table 7-87). By default, PGOOD remains high.
 
 - **End of Wake-Up Sequence**
   - After wake-up, the PMIC immediately releases PGOOD and enters power-on mode.
@@ -613,12 +612,12 @@ The PWRCTRL pin is primarily used to control **power-on**, **power-off**, **slee
 - **Power-On Event**
   - In shutdown mode, the power-on sequence is triggered by the PWRCTRL pin when the following conditions are met:
     - All BUCKs and LDOs, except **AONLDO**, are bound to the PWRCTRL pin.
-    - Full binding power-on functionality is enabled (`PWR_CTRL0[4]=1`, Table 7-86).
+    - Full binding power-on functionality is enabled (PWR_CTRL0[4]=1, Table 7-86).
 
 - **Power-Off Event**
   - In non-shutdown mode, the power-off sequence is triggered when the PWRCTRL pin is **inactive**, if the following conditions are met:
     - All BUCKs and LDOs are bound to the PWRCTRL pin.
-    - Full binding power-off functionality is enabled (`PWR_CTRL0[5]=1`, Table 7-86).
+    - Full binding power-off functionality is enabled (PWR_CTRL0[5]=1, Table 7-86).
 
 - **Power-On and Wake-Up Sequences**
   - When a BUCK or LDO is bound to the PWRCTRL pin:
@@ -627,13 +626,13 @@ The PWRCTRL pin is primarily used to control **power-on**, **power-off**, **slee
 
 - **Sleep Sequence**
   - When a BUCK or LDO is bound to PWRCTRL:
-    - If **reverse sleep** is configured (`PWR_CTRL1[1]=1`, Table 7-87) and **wait-for-PWRCTRL** is enabled (`PWR_CTRL2[4]=1`, Table 7-88), the sleep operation waits until PWRCTRL is inactive.
-    - If the wait time exceeds `PWR_CTRL2[5]` (Table 7-88), the BUCK or LDO is forced into sleep, and the sequence continues into sleep mode.
+    - If **reverse sleep** is configured (PWR_CTRL1[1]=1, Table 7-87) and **wait-for-PWRCTRL** is enabled (PWR_CTRL2[4]=1, Table 7-88), the sleep operation waits until PWRCTRL is inactive.
+    - If the wait time exceeds PWR_CTRL2[5] (Table 7-88), the BUCK or LDO is forced into sleep, and the sequence continues into sleep mode.
 
 - **Power-Off Sequence**
   - When a BUCK or LDO is bound to PWRCTRL:
-    - If **reverse power-off** is configured (`PWR_CTRL1[0]=0`, Table 7-87) and **wait-for-PWRCTRL** is enabled (`PWR_CTRL2[4]=1`, Table 7-88), the shutdown waits for the PWRCTRL pin to become inactive.
-    - If the wait time exceeds `PWR_CTRL2[5]`, the BUCK or LDO is forced off, and the shutdown sequence continues.
+    - If **reverse power-off** is configured (PWR_CTRL1[0]=0, Table 7-87) and **wait-for-PWRCTRL** is enabled (PWR_CTRL2[4]=1, Table 7-88), the shutdown waits for the PWRCTRL pin to become inactive.
+    - If the wait time exceeds PWR_CTRL2[5], the BUCK or LDO is forced off, and the shutdown sequence continues.
 
 - **Power-On Mode**
   - If a BUCK or LDO is bound to PWRCTRL:
@@ -659,9 +658,9 @@ The **nRESET** pin is a GPIO-multiplexed input with an internal Schmitt-trigger 
 
 1. **In Non-Shutdown Mode**:
 
-   - If **nRESET reset is enabled** (`PWR_CTRL0[6]=1`, Table 7-86), a transition of the nRESET pin from inactive to active lasting **longer than 250 μs** triggers the reset sequence (**power-off followed by power-on**).
+   - If **nRESET reset is enabled** (PWR_CTRL0[6]=1, Table 7-86), a transition of the nRESET pin from inactive to active lasting **longer than 250 μs** triggers the reset sequence (**power-off followed by power-on**).
    - If **GPIO filtering** is enabled, the nRESET reset trigger time is extended by the filter delay as follows:  
-     **250 μs + (filter configuration value from Table 7-8 `GPIO_DEB_EN[7:6]`)**.
+     **250 μs + (filter configuration value from Table 7-8 GPIO_DEB_EN[7:6])**.
 
 2. **After Reset Sequence Triggered**:
 
@@ -684,7 +683,7 @@ Its behavior is controlled by the **power-on, power-off, sleep, and wake-up sequ
 2. **Sleep Sequence**
 
    - When **EXT_EN** is bound to a SLOT:  
-     - The output is disabled only when the sequence reaches that SLOT **and** it is configured as **controlled by sleep timing** (`PWR_EXT_CTRL[5:0]`, Table 7-106).
+     - The output is disabled only when the sequence reaches that SLOT **and** it is configured as **controlled by sleep timing** (PWR_EXT_CTRL[5:0], Table 7-106).
 
 3. **Power-Off Sequence**
 
@@ -869,9 +868,9 @@ The PMIC's power rails (except AONLDO) are managed by a **programmable sequence 
 
    - Each power rail is assigned a **SLOT ID**, which can point to any of the 16 SLOTs.
    - Power rail enable/disable is controlled by **PWRCTRL** (register configuration):
-     - BUCK: `BUCKx_CTRL[5:3]` (Table 7-75)
-     - ALDO: `ALDOx_CTRL[3:1]` (Table 7-80)
-     - DLDO: `DLDOx_CTRL[3:1]` (Table 7-83)
+     - BUCK: BUCKx_CTRL[5:3] (Table 7-75)
+     - ALDO: ALDOx_CTRL[3:1] (Table 7-80)
+     - DLDO: DLDOx_CTRL[3:1] (Table 7-83)
    - During a SLOT, the rail will only enable if **PWRCTRL is valid**; conversely, the rail will disable or adjust voltage when **PWRCTRL becomes invalid**.
 
 2. **EXT_EN Control**
@@ -898,7 +897,7 @@ The PMIC's power rails (except AONLDO) are managed by a **programmable sequence 
 - **Sleep Flow**
   - BUCK and LDO enable states remain unchanged for SLOT0~SLOT15.
   - Rails with sleep voltage set to 0 are disabled.
-  - EXT_EN controlled by sleep timing (`PWR_EXT_CTRL[5:0]`, Table 7-106) becomes inactive; otherwise, it remains unchanged.
+  - EXT_EN controlled by sleep timing (PWR_EXT_CTRL[5:0], Table 7-106) becomes inactive; otherwise, it remains unchanged.
 
 - **Power-Off Flow**
   - BUCK and LDO enables are disabled for SLOT0~SLOT15.
@@ -954,14 +953,14 @@ In addition to MTP configuration, the PMIC dynamically adjusts the Power-On thre
    - If VSYS < Shutdown threshold within **16 seconds** after Power-On:
      - Execute Power-Off flow and enter Shutdown Mode.
      - **Adjust Power-On Threshold:**
-       - If the current threshold < maximum (3.6V), increase in **0.1V or 0.2V steps** (selected via `SYS_CFG2[7]`, Table 7-127)
+       - If the current threshold < maximum (3.6V), increase in **0.1V or 0.2V steps** (selected via SYS_CFG2[7], Table 7-127)
        - If already at 3.6V, **mask the VSYS Power-On event**
 
 3. **Threshold Recovery**
    - If VSYS remains stable above the Shutdown threshold for 16 seconds after Power-On, restore the threshold to default.
 
 4. **Disable Feature**
-   - Threshold adjustment can be disabled via `SYS_CFG2[6]` (Table 7-127).
+   - Threshold adjustment can be disabled via SYS_CFG2[6] (Table 7-127).
 
 ![](static/GNJUbF6SzooXCLxab3oc585PnAP.png)
 
@@ -978,10 +977,10 @@ When a **Power-On event** is detected in **Shutdown Mode**, the PMIC executes th
    - If no abnormal events are detected, the **Power Rail On Sequence** is initiated; otherwise, the PMIC immediately returns to Shutdown Mode.
 
 3. **Power-On Sequence Completion**
-   - After the sequence, a **programmable delay** is applied (`PWR_SEQ_TIME[5:4]`, Table 7-92), then the PMIC releases the **PGOOD** pin:
-     - If configured to **not wait for PGOOD release** (`PWR_CTRL1[3]=0`, Table 7-87), the system enters Power-On mode immediately.
+   - After the sequence, a **programmable delay** is applied (PWR_SEQ_TIME[5:4], Table 7-92), then the PMIC releases the **PGOOD** pin:
+     - If configured to **not wait for PGOOD release** (PWR_CTRL1[3]=0, Table 7-87), the system enters Power-On mode immediately.
      - If **waiting for PGOOD release**, the system enters Power-On mode only after PGOOD is released.
-     - If PGOOD is not released within the configured timeout (`PWR_CTRL1[4]`, Table 7-87), the PMIC returns to Shutdown Mode.
+     - If PGOOD is not released within the configured timeout (PWR_CTRL1[4], Table 7-87), the PMIC returns to Shutdown Mode.
 
 > **Note:** Before entering Power-On mode (**see 6.2 [Mode Transition Diagram](#62-operating-modes)**, * state), if an abnormal, shutdown, or reset event occurs, the PMIC aborts the Power-On sequence and returns to Shutdown Mode, awaiting the next wake-up event.
 
@@ -993,7 +992,7 @@ When a **Power-On event** is detected in **Shutdown Mode**, the PMIC executes th
 
 **Power-On Sequence and PWRCTRL Binding**
 
-The sequence controller starts from **SLOT0**, with programmable timing (four levels available, `PWR_SEQ_TIME[1:0]`, **Table 7-92**). Behavior depends on PWRCTRL bindings:
+The sequence controller starts from **SLOT0**, with programmable timing (four levels available, PWR_SEQ_TIME[1:0], **Table 7-92**). Behavior depends on PWRCTRL bindings:
 
 1. **SLOT0~14 without PWRCTRL Binding**
    - Upon entering the SLOT, power rails and EXTx_EN are enabled immediately and timing starts.
@@ -1017,7 +1016,7 @@ The sequence controller starts from **SLOT0**, with programmable timing (four le
 The PMIC supports the following conditions for triggering a shutdown:
 
 1. **Hardware-Triggered Events**
-   - **PWRKY Long-Press Shutdown** (enabled when `PWR_CTRL2[6]=0`)
+   - **PWRKY Long-Press Shutdown** (enabled when PWR_CTRL2[6]=0)
    - **VSYS below threshold** (forces hardware shutdown)
 
 2. **Software-Triggered Events**
@@ -1044,32 +1043,32 @@ When the PMIC triggers a **shutdown or reset event** while in **Active Mode**, t
 2. **Fault and Interrupt Handling**
    - If a shutdown event occurs during **sleep/wake processes** (see Figure 6-3, marked #):
      - The current sequence is immediately interrupted.
-     - The shutdown sequence corresponding to `PWR_CTRL1[0]` (Table 7-87) is executed.
+     - The shutdown sequence corresponding to PWR_CTRL1[0] (Table 7-87) is executed.
 
 For each SLOT in the reverse sequence:
 
 - Power rails bound to that SLOT are disabled and EXT_EN outputs are deactivated.
-- If the power rail is configured to wait for PWRCTRL (`PWR_CTRL2[4]=1`, Table 7-88), the SLOT timing and power rail shutdown will wait until PWRCTRL becomes inactive.
-- If the PWRCTRL wait exceeds the configured timeout (`PWR_CTRL2[5]`, Table 7-88), the SLOT timing proceeds and the corresponding power rails are forced to shutdown.
+- If the power rail is configured to wait for PWRCTRL (PWR_CTRL2[4]=1, Table 7-88), the SLOT timing and power rail shutdown will wait until PWRCTRL becomes inactive.
+- If the PWRCTRL wait exceeds the configured timeout (PWR_CTRL2[5], Table 7-88), the SLOT timing proceeds and the corresponding power rails are forced to shutdown.
 
 **Emergency Event Handling**
 
 - **Trigger Conditions** (any of the following):
-  - **VSYS Over-Voltage** (`PWRKY_EVENT[5]`, Table 7-113)
-  - **Chip Over-Temperature** (`EVENT2[6]`, Table 7-109)
+  - **VSYS Over-Voltage** (PWRKY_EVENT[5], Table 7-113)
+  - **Chip Over-Temperature** (EVENT2[6], Table 7-109)
 - **Response Actions**:
-  - If protection is enabled (`IRQ_PWRKY_EN[7:6]=1`), the system **immediately jumps to Shutdown Mode**.
+  - If protection is enabled (IRQ_PWRKY_EN[7:6]=1), the system **immediately jumps to Shutdown Mode**.
   - **All power rails and EXT_EN outputs are forcibly disabled**.
 
 The shutdown sequence timing diagram is shown below:
 
-![](static/DvpJbqt17o)
+![](static/DvpJbqt17o1b6wxx4qIcpjiCn3e.png)
 
 #### 6.4.5 Sleep Events
 
 The **sleep events** in Figure 6-3 represent the conditions for entering Sleep Mode from Active Mode:
 
-1. **Software-Initiated Sleep** (`PWR_CTRL2[0]=1`, Table 7-88)
+1. **Software-Initiated Sleep** (PWR_CTRL2[0]=1, Table 7-88)
 2. **GPIO Input Event** via the Sleep/Wake-up (SLEEP/WKUP) pin
 
 #### 6.4.6 Sleep Sequence
@@ -1083,7 +1082,7 @@ The timing sequence for entering Sleep Mode from Active Mode follows the same SL
 
 2. **EXT_EN Control**
    - The state of EXT_EN outputs is controlled by **Table 7-104 (PWR_EXT_EN)** and **Table 7-106 (PWR_EXT_CTRL)**.
-   - EXT_EN outputs will only be deactivated in their respective SLOT stages if `EXTx_SLP_SD` is set to 1; otherwise, the outputs remain unchanged.
+   - EXT_EN outputs will only be deactivated in their respective SLOT stages if EXTx_SLP_SD is set to 1; otherwise, the outputs remain unchanged.
 
 3. **Wake-up Event Handling**
    - Wake-up events do **not interrupt** the sleep sequence.
@@ -1129,8 +1128,8 @@ The wake-up behavior from Sleep Mode follows the same SLOT-based sequence as the
 
 The PMIC supports the following **reset events**:
 
-1. PWRKY long-press 12s cold reset event (**Table 7-88** `PWR_CTRL2[6]` = 1)
-2. PWRKY long-press shutdown followed by automatic restart (**Table 7-88** `PWR_CTRL2[6]` = 0 and **Table 7-87** `PWR_CTRL1[2]` = 1)
+1. PWRKY long-press 12s cold reset event (**Table 7-88** PWR_CTRL2[6] = 1)
+2. PWRKY long-press shutdown followed by automatic restart (**Table 7-88** PWR_CTRL2[6] = 0 and **Table 7-87** PWR_CTRL1[2] = 1)
 3. Software-initiated reset
 4. nRESET (GPIO input multiplexed function) invalid event (maskable via software)
 5. PGOOD pull-down (maskable via software or MTP)
@@ -1141,7 +1140,7 @@ The PMIC supports the following **reset events**:
 Reset events behave identically in **Active Mode** and **Sleep Mode**. All reset sequences execute through the **shutdown sequence** before completing.
 
 1. **Shutdown Mode Hold Time**
-   - After executing the shutdown sequence, the PMIC remains in **Shutdown Mode** for a configurable duration (**Table 7-88 `PWR_CTRL2[7]`**) to ensure sufficient reset timing.
+   - After executing the shutdown sequence, the PMIC remains in **Shutdown Mode** for a configurable duration (**Table 7-88 PWR_CTRL2[7]**) to ensure sufficient reset timing.
    - Upon completion of this period, two outcomes are possible:
      - **Enter RESET Mode**
        - If PWRKY is configured for 12s long-press reset and the key event occurs, the PMIC resets all logic and enters **RESET Mode** (see **Reset Sequence Diagram**).
@@ -1792,7 +1791,6 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | 0x0C | 7:6  | Reserved   | RV   | 0       | Reserved                                                                                                                                                                                                                                                                                     |
 | 0x0C | 5:3  | GPIO5_AFR  | RWE  | 0x0     | GPIO5 alternate function selection:<br>`000`: External power enable output (EXT_EN)<br>`001`: External power-up sequence control input (PWRCTRL)<br>`010`: External sleep / wake-up control input (Sleep/Wakeup)<br>`011`: External reset control input (nReset)<br>`1xx`: ADC input (ADCIN) |
 | 0x0C | 2:0  | GPIO4_AFR  | RWE  | 0x0     | GPIO4 alternate function selection:<br>`000`: External power enable output (EXT_EN)<br>`001`: External power-up sequence control input (PWRCTRL)<br>`010`: External sleep / wake-up control input (Sleep/Wakeup)<br>`011`: External reset control input (nReset)<br>`1xx`: ADC input (ADCIN) |
-
 
 ##### Table 7-17 RTC_COUNT_S
 

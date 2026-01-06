@@ -8,14 +8,17 @@ P1 is a high-performance multi-channel power management chip (PMIC), designed to
 
 P1 is mainly used for AR/VR, industrial devices, AI Robots and drone.
 
-- **Highly Flexible Power Management Capabilities**
-It features 6 channels of COT (Constant On-Time) control buck converters, 12 Low Drop-Out (LDO) regulators, and an I2C interface, providing highly flexible power management capabilities for a range of mobile devices and embedded systems.
+- **Highly Integrated Power Management Solution**
+   Integrates 6 constant on-time (COT) buck converters, 12 low-dropout regulators (LDOs), an I²C interface, and multiple-time programmable (MTP) non-volatile memory, providing highly flexible power management for a wide range of mobile and embedded systems.
 
-- **Provide Safe and Stable Power**
-Six integrated buck converters power a variety of target rails. Constant-on-time (COT) control offers fast transient performance. The 1.5MHz, default, fixed switching frequency during continuous conduction mode (CCM) reduces the external inductor and capacitor values greatly. Full protection features include UVLO, OCP, OVP and thermal shutdown. Dynamic voltage control (DVC) enables supply voltage controllability based on the application requirements. The output voltage and start up/shutdown sequence can be  preset by the multiple-time programmable (MTP) interface and controlled via the I2C bus.
+- **Comprehensive and Reliable Protection Mechanisms**
+   Includes a full set of protection features such as undervoltage lockout (UVLO), overvoltage protection (OVP), overcurrent protection (OCP), and thermal shutdown.
+
+- **Industrial-Grade Operating Range**
+   Operates stably and reliably over an ambient temperature range of –40°C to +85°C, meeting the demanding requirements of industrial applications.
 
 - **Compact Package**
-The P1 requires a minimal number of external components, and is available in a compact QFN-60 (7mmx7mm) package.
+   Requires only a minimal number of external components and is offered in a compact QFN-60 (7 mm × 7 mm) package.
 
 ## Key Features
 
