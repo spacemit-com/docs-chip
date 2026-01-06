@@ -12,7 +12,7 @@ sidebar_position: 2
   - [K1_minimum_system_layout (BRD) – V3.1 (2024-06-05)](https://cdn-resource.spacemit.com/file/%E8%8A%AF%E7%89%87/K1/K1_minimum_system_layout-V3.1-20240605.brd) – PCB Layout 工程源文件
 
 - **设计检查项（Checklists）**
-  - [K1_Schematic_Checklist (xlsx) – V1.2 (2025-07-09)](https://cdn-resource.spacemit.com/file/%E8%8A%AF%E7%89%87/K1/K1_Schematic_checklist-V1.2-20250709.xlsx) – 原理图设计检查项
+  - [K1_Schematic_Checklist (xlsx) – V1.2 (2025-07-09)](https://cdn-resource.spacemit.com/file/%E8%8A%AF%E7%89%87/K1/K1_Schematic_checklist-V1.2-20250709.xlsx) – 原理图设计检查清单
   - [K1_Layout_Design_Checklist (xlsx) – V1.1 (2025-07-09)](https://cdn-resource.spacemit.com/file/%E8%8A%AF%E7%89%87/K1/K1_Layout_Design_Checklist-V1.1-20250709.xlsx) – PCB Layout 设计检查项
 
 ## 封装、引脚与电气资源

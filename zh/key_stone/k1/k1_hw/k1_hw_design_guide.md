@@ -102,7 +102,7 @@ sidebar_position: 1
 
 **注意：选用的电容需要跟晶振的负载电容匹配，材质建议采用 NPO。建议选用 4pin 贴片晶振，其中 2 个 GND 管脚与单板地充分连接，增强系统时钟抗 ESD 干扰能力。**
 
-### 1.1.7 FLASH 原理图设计
+#### 1.1.7 FLASH 原理图设计
 
 - Quad - SPI 充当外部串行闪存设备的接口，具有多达四根双向数据线。
 - FLASH 控制器支持 SPI NOR FLASH、SPI NAND FLASH。
@@ -113,7 +113,7 @@ sidebar_position: 1
 
 **注意：Flash Data 外围设计无需专门上拉，内部已经配置。Date 复用了 Boot 相关功能，使用需要根据系统配置做上拉/下拉处理。详见本章 “硬件初始化系统配置电路”**
 
-### 1.1.8 eMMC
+#### 1.1.8 eMMC
 
 - 兼容 8 位 eMMC 5.1 协议规范。
 - eMMC 卡支持 SPI 模式。
@@ -144,7 +144,7 @@ K1 支持 LPDDR4/LPDDR4x，典型电压 1.1V/0.6V。DDR 颗粒的电源要求与
 
 **注意：GPIO 不使用时，GPIO pin 可悬空，但各组 GPIO 电源都需要供电；HDMI，PCIEA/USB3.0，PCIEB，PCIEC，MIPI CSI，EMMC，USB2.0，MIPI DSI 等模块，不使用时，电源仍需供电。**
 
-### 1.2.4 PLL 电源设计
+#### 1.2.4 PLL 电源设计
 
 K1 的 PLL 电源有 2 个，分别是：
 
@@ -351,17 +351,17 @@ K1 目前使用 6 层叠层，以下为参考叠层设计。如果使用其它�
 
 4. 走线时尽量减少换层，需要换层时，考虑 Via Stub，尽量减小 Via Stub 长度；
 5. 差分过孔建议：如果接口的速率=8GT/s，那么这些接口差分对的过孔建议增加 Dog-Bone，根据实际叠层进行仿真优化 Dog-Bone 大小，以下基于 EVB 一阶 HDI 的过孔参考尺寸
-   R Drill=4mil (钻孔半径)
-   R Pad=16mil(过孔焊盘半径)
-   D1=30mil 差分过孔中心间距
-   D2=15mil 表层到底层的反焊盘尺寸
-   D3=30mil 信号过孔与回流地过孔的中心间距
+   - R Drill = 4mil (钻孔半径)
+   - R Pad = 16mil(过孔焊盘半径)
+   - D1 = 30mil 差分过孔中心间距
+   - D2 = 15mil 表层到底层的反焊盘尺寸
+   - D3 = 30mil 信号过孔与回流地过孔的中心间距
 
-![](static/K5Qebfo2qoTAgJx3tmscDPgGnXf.png)
+   ![](static/K5Qebfo2qoTAgJx3tmscDPgGnXf.png)
 
 6. 差分对 P/N 之间等长建议\<=5mil ，等 P/N 之间需要绕线补偿时，绕线尺寸需要特别注意，应满足如下图所示要求，以降低阻抗突变带来的影响：
 
-![](static/Qq2kba5vSo149txneDBclEKMnkd.png)
+   ![](static/Qq2kba5vSo149txneDBclEKMnkd.png)
 
 ### 2.3 电源与滤波电容设计
 
@@ -744,8 +744,6 @@ PCIE 信号注意挖空焊盘，挖空焊盘后，注意走线不要跨参考，
 **FCCSP  17*17**
 回流焊接温度曲线
 ![](static/ZncAbqXkbo8xEzxj9Elce6AKnGh.png)
-
-
 
 **FCBGA  19*19**
 回流焊接温度曲线

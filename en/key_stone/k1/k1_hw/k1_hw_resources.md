@@ -12,7 +12,7 @@ Validated, production-ready reference designs and checklists for K1-based hardwa
   - [K1_minimum_system_layout (BRD) – V3.1 (2024-06-05)](https://cdn-resource.spacemit.com/file/%E8%8A%AF%E7%89%87/K1/K1_minimum_system_layout-V3.1-20240605.brd) – PCB layout project source files
 
 - **Design Checklists**
-  - [K1_Schematic_Checklist (xlsx) – V1.2 (2025-07-09)](https://cdn-resource.spacemit.com/file/%E8%8A%AF%E7%89%87/K1/K1_Schematic_checklist-V1.2-20250709.xlsx) – Schematic design review checklist
+  - [K1_Schematic_Checklist (xlsx) – V1.2 (2025-07-09)](https://cdn-resource.spacemit.com/file/%E8%8A%AF%E7%89%87/K1/K1_Schematic_checklist-V1.2-20250709.xlsx) – Schematic design checklist
   - [K1_Layout_Design_Checklist (xlsx) – V1.1 (2025-07-09)](https://cdn-resource.spacemit.com/file/%E8%8A%AF%E7%89%87/K1/K1_Layout_Design_Checklist-V1.1-20250709.xlsx) – PCB layout design review checklist
 
 ## Package, Pinout, and Electrical Resources
