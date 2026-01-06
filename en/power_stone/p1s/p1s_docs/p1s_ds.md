@@ -2719,7 +2719,7 @@ Table 6-6 Power rail status and output voltage table in each mode and process
 <tr>
 <td>Boot process</td>
 <td>x</td>
-<td>x（option）</td>
+<td>x(option)</td>
 <td>x</td>
 <td>enable</td>
 <td>Normal</td>
@@ -2727,7 +2727,7 @@ Table 6-6 Power rail status and output voltage table in each mode and process
 <tr>
 <td>Boot mode</td>
 <td>-</td>
-<td>x（option）</td>
+<td>x(option)</td>
 <td>x</td>
 <td>enable</td>
 <td>Normal</td>
@@ -2735,7 +2735,7 @@ Table 6-6 Power rail status and output voltage table in each mode and process
 <tr>
 <td>Sleep routine</td>
 <td>x</td>
-<td>x（option）</td>
+<td>x(option)</td>
 <td>x</td>
 <td>enable</td>
 <td>Normal –&gt;Sleep</td>
@@ -2743,7 +2743,7 @@ Table 6-6 Power rail status and output voltage table in each mode and process
 <tr>
 <td>  Sleep mode</td>
 <td>-</td>
-<td>x（option）</td>
+<td>x(option)</td>
 <td>x</td>
 <td>enable</td>
 <td>Sleep</td>
@@ -2751,7 +2751,7 @@ Table 6-6 Power rail status and output voltage table in each mode and process
 <tr>
 <td>Wake-up process</td>
 <td>x</td>
-<td>x（option）</td>
+<td>x(option)</td>
 <td>x</td>
 <td>enable</td>
 <td>Sleep -&gt;Normal</td>
@@ -2759,7 +2759,7 @@ Table 6-6 Power rail status and output voltage table in each mode and process
 <tr>
 <td>Shutdown process</td>
 <td>x</td>
-<td>x（option）</td>
+<td>x(option)</td>
 <td>-</td>
 <td>closure</td>
 <td>-</td>
@@ -3004,7 +3004,7 @@ The enablement of all LDOs (except AONLDO) and voltage adjustment can be modifie
 
 ALDO1~4 and DLDO1~7 can also be controlled by hardware:
 
-1. Sequencer）
+1. Sequencer)
 
 **Table 7-96** PWR\_SLOT3 ~ Table 7-101 PWR\_SLOT8 can be used to configure the LDO in the Sequencer position to control the LDO opening or closing sequence.
 
@@ -3134,9 +3134,9 @@ The over-temperature protection gears are as follows:
 <tbody>
 <tr>
 <td>Table 7125 SYS_CFG0[7]</td>
-<td>Temperature alarm（warning）/ ℃</td>
-<td>Severe overheating（severe）/ ℃</td>
-<td>Shut down and overheat（critical）/ ℃</td>
+<td>Temperature alarm(warning)/ ℃</td>
+<td>Severe overheating(severe)/ ℃</td>
+<td>Shut down and overheat(critical)/ ℃</td>
 </tr>
 <tr>
 <td>0</td>
@@ -3681,133 +3681,133 @@ Table 7-3 Register Map
 <td>Table 7-46</td>
 <td>0x2A</td>
 <td>R</td>
-<td>ADCIN0 monitors automatic conversion results（8 MSBs）</td>
+<td>ADCIN0 monitors automatic conversion results(8 MSBs)</td>
 </tr>
 <tr>
 <td>Table 7-47</td>
 <td>0x2B</td>
 <td>R</td>
-<td>ADCIN0 monitors automatic conversion results（4 LSBs）</td>
+<td>ADCIN0 monitors automatic conversion results(4 LSBs)</td>
 </tr>
 <tr>
 <td>Table 7-48</td>
 <td>0X2C</td>
 <td>R</td>
-<td>ADCIN1 monitors automatic conversion results（8 MSBs）</td>
+<td>ADCIN1 monitors automatic conversion results(8 MSBs)</td>
 </tr>
 <tr>
 <td>Table 7-49</td>
 <td>0x2D</td>
 <td>R</td>
-<td>ADCIN1 monitors automatic conversion results（4 LSBs）</td>
+<td>ADCIN1 monitors automatic conversion results(4 LSBs)</td>
 </tr>
 <tr>
 <td>Table 7-50</td>
 <td>0x2E</td>
 <td>R</td>
-<td>ADCIN2 monitors automatic conversion results（8 MSBs）</td>
+<td>ADCIN2 monitors automatic conversion results(8 MSBs)</td>
 </tr>
 <tr>
 <td>Table 7-51</td>
 <td>0x2F</td>
 <td>R</td>
-<td>ADCIN2 monitors automatic conversion results（4 LSBs）</td>
+<td>ADCIN2 monitors automatic conversion results(4 LSBs)</td>
 </tr>
 <tr>
 <td>Table 7-52</td>
 <td>0x30</td>
 <td>R</td>
-<td>ADCIN3 monitors automatic conversion results（8 MSBs）</td>
+<td>ADCIN3 monitors automatic conversion results(8 MSBs)</td>
 </tr>
 <tr>
 <td>Table 7-53</td>
 <td>0x31</td>
 <td>R</td>
-<td>ADCIN3 monitors automatic conversion results（4 LSBs）</td>
+<td>ADCIN3 monitors automatic conversion results(4 LSBs)</td>
 </tr>
 <tr>
 <td>Table 7-54</td>
 <td>0x32</td>
 <td>R</td>
-<td>ADCIN4 monitors automatic conversion results（8 MSBs）</td>
+<td>ADCIN4 monitors automatic conversion results(8 MSBs)</td>
 </tr>
 <tr>
 <td>Table 7-55</td>
 <td>0x33</td>
 <td>R</td>
-<td>ADCIN4 monitors automatic conversion results（4 LSBs）</td>
+<td>ADCIN4 monitors automatic conversion results(4 LSBs)</td>
 </tr>
 <tr>
 <td>Table 7-56</td>
 <td>0x34</td>
 <td>R</td>
-<td>ADCIN5 monitors automatic conversion results（8 MSBs）</td>
+<td>ADCIN5 monitors automatic conversion results(8 MSBs)</td>
 </tr>
 <tr>
 <td>Table 7-57</td>
 <td>0x35</td>
 <td>R</td>
-<td>ADCIN5 monitors automatic conversion results（4 LSBs）</td>
+<td>ADCIN5 monitors automatic conversion results(4 LSBs)</td>
 </tr>
 <tr>
 <td>Table 7-58</td>
 <td>0x36</td>
 <td>RW</td>
-<td>Junction temperature monitoring upper limit threshold setting（8 MSBs）</td>
+<td>Junction temperature monitoring upper limit threshold setting(8 MSBs)</td>
 </tr>
 <tr>
 <td>Table 7-59</td>
 <td>0x37</td>
 <td>RW</td>
-<td>Junction temperature monitoring upper limit threshold setting（8 MSBs）</td>
+<td>Junction temperature monitoring upper limit threshold setting(8 MSBs)</td>
 </tr>
 <tr>
 <td>Table 7-60</td>
 <td>0x38</td>
 <td>RW</td>
-<td>ADCIN0 monitoring upper limit threshold setting（8 MSBs）</td>
+<td>ADCIN0 monitoring upper limit threshold setting(8 MSBs)</td>
 </tr>
 <tr>
 <td>Table 7-61</td>
 <td>0x39</td>
 <td>RW</td>
-<td>ADCIN0 monitoring upper limit threshold setting（8 MSBs）</td>
+<td>ADCIN0 monitoring upper limit threshold setting(8 MSBs)</td>
 </tr>
 <tr>
 <td>Table 7-62</td>
 <td>0x3A</td>
 <td>RW</td>
-<td>ADCIN1 monitoring upper limit threshold setting（8 MSBs）</td>
+<td>ADCIN1 monitoring upper limit threshold setting(8 MSBs)</td>
 </tr>
 <tr>
 <td>Table 7-63</td>
 <td>0x3B</td>
 <td>RW</td>
-<td>ADCIN1 monitoring upper limit threshold setting（8 MSBs）</td>
+<td>ADCIN1 monitoring upper limit threshold setting(8 MSBs)</td>
 </tr>
 <tr>
 <td>Table 7-64</td>
 <td>0X3C</td>
 <td>RW</td>
-<td>ADCIN2 monitoring upper limit threshold setting（8 MSBs）</td>
+<td>ADCIN2 monitoring upper limit threshold setting(8 MSBs)</td>
 </tr>
 <tr>
 <td>Table 7-65</td>
 <td>0x3D</td>
 <td>RW</td>
-<td>ADCIN2 monitoring upper limit threshold setting（8 MSBs）</td>
+<td>ADCIN2 monitoring upper limit threshold setting(8 MSBs)</td>
 </tr>
 <tr>
 <td>Table 7-66</td>
 <td>0x3E</td>
 <td>RW</td>
-<td>ADCIN3 monitoring upper limit threshold setting（8 MSBs）</td>
+<td>ADCIN3 monitoring upper limit threshold setting(8 MSBs)</td>
 </tr>
 <tr>
 <td>Table 7-67</td>
 <td>0x3F</td>
 <td>RW</td>
-<td>ADCIN3 monitoring upper limit threshold setting（8 MSBs）</td>
+<td>ADCIN3 monitoring upper limit threshold setting(8 MSBs)</td>
 </tr>
 <tr>
 <td>Table 7-68</td>
@@ -6438,7 +6438,7 @@ Table 7-63 ADC\_IN1\_VTH\_L
 <td>ADCIN1_VTH_L</td>
 <td>RW</td>
 <td>0x00</td>
-<td>ADCIN1监控下限阈值设置（8 MSBs）</td>
+<td>ADCIN1监控下限阈值设置(8 MSBs)</td>
 </tr>
 </tbody>
 </table>
@@ -6876,7 +6876,7 @@ Table 7-77 BUCKx\_SLP\_VOLT
 <td>BUCKx_SLP_VOLT</td>
 <td>RWE</td>
 <td>0x00</td>
-<td>BUCK Sleep voltage output level (8 MSBs)<br/>0.5V ~ 1.35V 5mV/step，1.375V ~ 3.45V 25mV/step<br/>00000000： 0.500V<br/>00000001： 0.505V<br/>00000010： 0.510V<br/>...<br/>11111110： 3.450V<br/>11111111： 0V（Disable BUCKx）</td>
+<td>BUCK Sleep voltage output level (8 MSBs)<br/>0.5V ~ 1.35V 5mV/step，1.375V ~ 3.45V 25mV/step<br/>00000000： 0.500V<br/>00000001： 0.505V<br/>00000010： 0.510V<br/>...<br/>11111110： 3.450V<br/>11111111： 0V(Disable BUCKx)</td>
 </tr>
 </tbody>
 </table>
@@ -7490,7 +7490,7 @@ Table 7-90 PWR\_STS1
 <td>FLAG_SW_SHUT</td>
 <td>R，IO</td>
 <td>0x0</td>
-<td>Shutdown source indication bit (cleared by software writing 1)<br/>0: Non-software hangup<br/>1: Software shutdown）</td>
+<td>Shutdown source indication bit (cleared by software writing 1)<br/>0: Non-software hangup<br/>1: Software shutdown)</td>
 </tr>
 </tbody>
 </table>
