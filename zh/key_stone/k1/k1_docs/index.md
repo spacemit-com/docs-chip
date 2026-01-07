@@ -2,6 +2,6 @@ sidebar_position: 1
 
 # 芯片产品文档
 
-- [产品简介](k1_brief.md)
+- [产品简介](root_overview.md)
 - [产品规格书](k1_ds.md)
 - [用户手册](./k1_usermanual/index.md)
