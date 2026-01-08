@@ -2,6 +2,8 @@ sidebar_position: 1
 
 # P1 Brief
 
+**[PDF Version](https://cdn-resource.spacemit.com/file/%E8%8A%AF%E7%89%87/P1/P1_brief_en.pdf)**
+
 ## Overview
 
 P1 is a high-performance multi-channel power management chip (PMIC), designed to provide customized power solutions for complex computing systems and meet the differentiated and high-demanding power requirements of customers.
