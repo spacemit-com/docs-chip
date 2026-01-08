@@ -2,6 +2,8 @@ sidebar_position: 1
 
 # P1 简介
 
+**[PDF 版本](https://cdn-resource.spacemit.com/file/%E8%8A%AF%E7%89%87/P1/P1_brief_cn.pdf)**
+
 ## 概述
 
 P1 是一款高性能多通道电源管理芯片（PMIC），旨在为复杂计算系统提供定制化电源解决方案，满足客户差异化、高要求的电源需求。
