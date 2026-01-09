@@ -3444,6 +3444,8 @@ The assigned signals are organized by their functions (e.g. power supply, clock,
 
 All functions that are assigned to a pin as its primary functions are tabled below.
 
+![Pin Function](./static/pin_func_en.png)
+
 | Group     | Pad Name           | Default Pulling | Pad Edge Detected | Function 0                     | Function 1                        | Function 2                   | Function 3                    | Function 4            | Function 5        | Function 6        |
 |-----------|--------------------|------------------|--------------------|--------------------------------|-----------------------------------|------------------------------|-------------------------------|-----------------------|-------------------|-------------------|
 | **QSPI**      | QSPI_DAT3          | DOWN             | ENABLE             | QSPI_DAT[3]/strap[3]           | GPIO[98]                          |                              | UART1_TXD <secure domain>     |                       |                   |                   |
@@ -3837,6 +3839,8 @@ Instead, the input thresholds of Schmitt Trigger Mode of I/O PADs are tabled bel
 ## 5. Electrical Characteristics
 
 ### 5.1 Pin AC/DC Operating Conditions
+
+![](./static/pin_ac_dc_en.png)
 
 | Item             | Symbol/Pin        | Min    | Typ   | Max    | Unit | Note               |
 |------------------|-------------------|--------|-------|--------|------|--------------------|
