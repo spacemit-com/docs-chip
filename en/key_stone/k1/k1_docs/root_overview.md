@@ -2,6 +2,8 @@ sidebar_position: 1
 
 # K1 Brief
 
+**[PDF Version](#)**
+
 ## Overview
 
 K1 Series: 8-Core 64-bit RISC-V AI CPU
