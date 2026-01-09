@@ -2,6 +2,8 @@ sidebar_position: 1
 
 # K1 产品简介
 
+**[PDF 版本](#)**
+
 ## 概述
 
 K1 系列是 8 核 64 位 RISC-V AI CPU。
