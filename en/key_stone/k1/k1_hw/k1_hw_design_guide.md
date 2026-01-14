@@ -2,6 +2,15 @@ sidebar_position: 2
 
 # K1 Hardware Design Guide
 
+**[PDF Version](https://cdn-resource.spacemit.com/file/%E8%8A%AF%E7%89%87/K1/K1_Hardware_Design%20Guide_EN.pdf)**
+
+## Revision History
+
+| Version | Date       | Notes                                      |
+|---------|------------|--------------------------------------------|
+| V1.1    | 2025.08.04 | Added a note regarding GPIO90 when not in use |
+| V1.0    | 2024.03.12 | Initial release                            |
+
 ## 1. Schematic Design
 
 ### 1.1 External Circuit Requirements for the Minimal System
