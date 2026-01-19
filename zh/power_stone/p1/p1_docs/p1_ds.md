@@ -288,9 +288,9 @@ DLDO1/2/3/5/6 电气特性如下表描述
 | OV           | 过压               | V(OUT)/V(OUT_TARGET)-1                             | -      | 20     | -      | %       |
 | UV           | 欠压               | 1- V(OUT)/V(OUT_TARGET)                            | -      | 15     | -      | %       |
 
-#### 5.5.4 DLDO4/7
+#### 5.5.4 DLDO4 / DLDO7
 
-DLDO4/7 电气特性如下表描述
+DLDO4 / DLDO7 电气特性如下表描述
 
 | 参数         | 描述               | 条件                                               | 最小值 | 典型值 | 最大值 | 单位    |
 |--------------|--------------------|----------------------------------------------------|--------|--------|--------|---------|
@@ -779,9 +779,9 @@ EXT_EN 引脚有效极性可通过**表 7-5**GPIO_ODR 寄存器配置。
 
 | 电源域          | 模块        | RESET | RTC             | SHUTDOWN-LP     | SHUTDOWN        | ACTIVE          | SLEEP           |
 |-----------------|-------------|-------|-----------------|-----------------|-----------------|-----------------|-----------------|
-| VSYS            | BUCK/LDO    | -     | -               | -               | -               | x (if enable)   | x (if enable)   |
-|                 | SWITCH      | -     | -               | -               | -               | x (if enable)   | x (if enable)   |
-|                 | BCHG        | -     | -               | -               | -               | x (if enable)   | x (if enable)   |
+| VSYS            | BUCK/LDO    | -     | -               | -               | -               | x <br>（若使能）  | x <br>（若使能）   |
+|                 | SWITCH      | -     | -               | -               | -               | x <br>（若使能）   | x <br>（若使能）   |
+|                 | BCHG        | -     | -               | -               | -               | x <br>（若使能）   | x <br>（若使能）   |
 |                 | MTP         | -     | -               | -               | -               | x               | x               |
 |                 | AONLDO      | -     | -               | -               | x               | x               | x               |
 |                 | BG          | -     | -               | -               | x               | x               | x               |
@@ -790,12 +790,12 @@ EXT_EN 引脚有效极性可通过**表 7-5**GPIO_ODR 寄存器配置。
 |                 | IREF        | -     | -               | -               | -               | x               | x               |
 |                 | SOSC        | -     | -               | x               | x               | x               | x               |
 |                 | FOSC        | -     | -               | -               | -               | x               | x               |
-|                 | ADC         | -     | -               | -               | -               | x (if enable)   | x (if enable)   |
+|                 | ADC         | -     | -               | -               | -               | x <br>（若使能）  | x <br>（若使能）   |
 |                 | TS          | -     | -               | -               | -               | x               | x               |
 |                 | OT-P        | -     | -               | -               | -               | x               | x               |
 |                 | KEY         | -     | -               | x               | x               | x               | x               |
-| VSYS / VBAT     | XTAL        | -     | x (if enable)   | x (if enable)   | x (if enable)   | x (if enable)   | x (if enable)   |
-|                 | RTC         | -     | x (if enable)   | x (if enable)   | x (if enable)   | x (if enable)   | x (if enable)   |
+| VSYS / VBAT     | XTAL        | -     | x <br>（若使能）   | x <br>（若使能）   | x <br>（若使能）
+|                 | RTC         | -     | x <br>（若使能）   | x <br>（若使能）   | x <br>（若使能）   | x <br>（若使能）   | x <br>（若使能）   |
 | VSYS            | DIGITAL     | -     | -               | x               | x               | x               | x               |
 | AONLDO          | GPIO        | -     | -               | -               | -               | x               | x               |
 |                 | INT         | -     | -               | -               | -               | x               | x               |
@@ -1278,8 +1278,6 @@ PMIC 内部的负载开关（SWITCH）受软件控制，其行为如下：
 在关机模式下，电池充电电路关闭使能，重新进入开机模式后需重新配置使能。
 
 ### 6.13 ADC 控制电路
-
-**概述**
 
 PMIC 内部集成了 12 位 ADC，其功能如下：
 
