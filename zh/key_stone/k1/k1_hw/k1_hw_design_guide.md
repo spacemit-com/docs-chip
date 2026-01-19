@@ -57,49 +57,16 @@ sidebar_position: 1
 
 #### 1.1.5 硬件初始化系统配置电路
 
-<table>
-<tbody>
-<tr>
-<td>信号名</td>
-<td>方向</td>
-<td>说明</td>
-</tr>
-<tr>
-<td>QSPI_DATA3/Strap3 FDL</td>
-<td>I</td>
-<td>Boot/Download 选择<br/>0：启动<br/>1：下载</td>
-</tr>
-<tr>
-<td>QSPI_DATA2/Strap2<br/></td>
-<td>I</td>
-<td>Download 选择<br/>0：USB （USB0）<br/>1：UART (UART0)</td>
-</tr>
-<tr>
-<td>QSPI_DATA1/Strap1<br/>QSPI_DATA0/Strap0</td>
-<td>I</td>
-<td>Boot 选择<br/>Strap1 & Strap0<br/>00：EMMC<br/>01:  SPI NOR<br/>10:  SPI NAND<br/>11:  SD CARD</td>
-</tr>
-<tr>
-<td>GPIO_90/Strap4<br/></td>
-<td>I</td>
-<td>Flash 电压选择<br/>0：1.8V供电<br/>1：3.3V供电</td>
-</tr>
-<tr>
-<td>JTAG_SEL</td>
-<td>I</td>
-<td>Sec JTAG 选择<br/>0： other functions<br/>1：SEC JTAG </td>
-</tr>
-<tr>
-<td>MMC1_SD_CMD</td>
-<td>I</td>
-<td>JTAG ROUTE<br/>0：X60<br/>1:   N308</td>
-</tr>
-</tbody>
-</table>
+| 信号名                         | 方向 | 说明                                             |
+|--------------------------------|------|--------------------------------------------------|
+| QSPI_DATA3/Strap3 FDL          | I    | Boot/Download 选择<br>0：启动<br>1：下载         |
+| QSPI_DATA2/Strap2              | I    | Download 选择<br>0：USB （USB0）<br>1：UART (UART0) |
+| QSPI_DATA1/Strap1<br>QSPI_DATA0/Strap0 | I    | Boot 选择<br>Strap1 & Strap0<br>00：EMMC<br>01: SPI NOR<br>10: SPI NAND<br>11: SD CARD |
+| GPIO_90/Strap4                 | I    | Flash 电压选择<br>0：1.8V供电<br>1：3.3V供电     |
+| JTAG_SEL                       | I    | Sec JTAG 选择<br>0：其他功能<br>1：SEC JTAG      |
+| MMC1_SD_CMD                    | I    | JTAG ROUTE<br>0：X60<br>1: N308                  |
 
 #### 1.1.6 Clocking 电路
-
-**系统时钟**
 
 通过芯片内部的反馈电路与外部的 24MHz 晶体振荡电路一起构成系统时钟电路。
 
@@ -185,7 +152,9 @@ Core 电源、DDR 电源和 IO 电源有上下电时序的要求由 PMIC P1 控�
 
 #### 1.3.2 I2S 接口
 
-- K1 支持 4 个 I2S 接口，I2S0，I2S1 由主 CPU（X60）控制。R_I2S2,R_I2S3 由 RCPU （N308）控制。
+- K1 支持 4 个 I2S 接口
+  - I2S0，I2S1 由主 CPU（X60）控制
+  - R_I2S2,R_I2S3 由 RCPU （N308）控制
 - 每组 I2S 都可以配置主从模式。
 
 #### 1.3.3 MIPI CSI RX 配置接口设计
@@ -194,21 +163,21 @@ Core 电源、DDR 电源和 IO 电源有上下电时序的要求由 PMIC P1 控�
 
 - **MIPI CSI1**
 
-四对差分数据参考 MIPI_CSI0_CK1XP/N 差分时钟采样；
+   四对差分数据参考 MIPI_CSI0_CK1XP/N 差分时钟采样；
 
 - **MIPI_CSI2**
 
-**[2 Lane 模式]：**MIPI_CSI3_D2P/N、MIPI_CSI3_D3P/N 两对差分数据参考 MIPI_CSI2_CKP/N 差分时钟采样
+   **[2 Lane 模式]：** MIPI_CSI3_D2P/N、MIPI_CSI3_D3P/N 两对差分数据参考 MIPI_CSI2_CKP/N 差分时钟采样
 
 - **MIPI_CSI3**
 
-**[2 Lane 模式]：**MIPI_CSI3_D0P/N、MIPI_CSI3_D1P/N  参考 MIPI_CSI3_CKP/N 时钟采样。
+   **[2 Lane 模式]：** MIPI_CSI3_D0P/N、MIPI_CSI3_D1P/N  参考 MIPI_CSI3_CKP/N 时钟采样。
 
-**[4 Lane 模式]：**MIPI_CSI3_D0P/N、MIPI_CSI3_D1P/N ,MIPI_CSI3_D2P/N、MIPI_CSI3_D3P/N 参考 MIPI_CSI3_CKP/N 差分时钟采样。
+   **[4 Lane 模式]：** MIPI_CSI3_D0P/N、MIPI_CSI3_D1P/N ,MIPI_CSI3_D2P/N、MIPI_CSI3_D3P/N 参考 MIPI_CSI3_CKP/N 差分时钟采样。
 
-AVDD09_CSI 电源管脚需要与数字电源用磁珠隔离并在芯片管脚端放置 2 个 1uF 滤波电容。
-
-AVDD18_CSI 电源管脚需要与数字电源用磁珠隔离并在芯片管脚放置 1 个 1uF 滤波电容。
+电源要求：
+- AVDD09_CSI 电源管脚需要与数字电源用磁珠隔离并在芯片管脚端放置 2 个 1uF 滤波电容。
+- AVDD18_CSI 电源管脚需要与数字电源用磁珠隔离并在芯片管脚放置 1 个 1uF 滤波电容。
 
 #### 1.3.4 MIPI DSI TX 接口设计
 
@@ -330,21 +299,21 @@ K1 目前使用 6 层叠层，以下为参考叠层设计。如果使用其它�
 3. 走线应有完整且连续的参考平面；
 4. 在 BGA 区域的平面断开处用走线连接，如下图所示;
 
-![](static/QnCRbOxf5okUxTxkrDzcKCvXnPd.png)
+   ![](static/QnCRbOxf5okUxTxkrDzcKCvXnPd.png)
 
 5. 尽量减少残桩长度，建议残桩长度为 0；
 
-![](static/WUJgbwo3HoRyjbxxEMicxpxUneg.png)
+   ![](static/WUJgbwo3HoRyjbxxEMicxpxUneg.png)
 
 高速信号布线建议：
 
 1. 高速信号换层时，需在换层 VIA 处添加 GND 伴随过孔，以保证回流路径的连续性；
 
-![](static/H87TbNwt6o3R66xOBw9cUpYynsc.png)
+   ![](static/H87TbNwt6o3R66xOBw9cUpYynsc.png)
 
 2. 由于表贴器件的焊盘会导致阻抗降低，为减小阻抗突变的影响，建议在表贴焊盘的正下方按焊盘大小挖去一层参考层。常用的表贴器件有：ESD、电容、共模抑制电感、连接器等；
 
-![](static/LQHQbrOjroTt0Nxcc9EcSRJwn4f.png)
+   ![](static/LQHQbrOjroTt0Nxcc9EcSRJwn4f.png)
 
 3. 避免玻纤编织效应；
 
@@ -387,23 +356,23 @@ K1 目前使用 6 层叠层，以下为参考叠层设计。如果使用其它�
 
 1. 中间的散热焊盘均匀的打上地孔阵列:
 
-![](static/Pg4IbOPYIoX9VBxJHkYcYkYqnxc.png)
+   ![](static/Pg4IbOPYIoX9VBxJHkYcYkYqnxc.png)
 
 2. BUCK3/BUCK4/BUCK5/BUCK6 的 Vin 需要分开，不可合并铺铜，BUCK1/2 可以合并铺铜，每个 pin 三个过孔：
 
-![](static/DbYsbagaxoSuQMx2KP8cFkdunMh.png)
+   ![](static/DbYsbagaxoSuQMx2KP8cFkdunMh.png)
 
 3. FB 走线换层走内层，不要和 SW 同层太长：
 
-![](static/A7i3bNlXpotZ9xx96WwcUM89njb.png)
+   ![](static/A7i3bNlXpotZ9xx96WwcUM89njb.png)
 
 4. 滤波电容靠近主芯片，且走线尽量加粗：
 
-![](static/D6mCbGz4Vo6RPyxyIBgcFFevnyf.png)
+   ![](static/D6mCbGz4Vo6RPyxyIBgcFFevnyf.png)
 
 5. SW 铺铜处理，且路径尽量短，其它信号远离 SW 信号：
 
-![](static/CrzFbMBy9oZol9xvGP2c8aqynJg.png)
+   ![](static/CrzFbMBy9oZol9xvGP2c8aqynJg.png)
 
 ### 2.5 小系统设计
 
@@ -413,27 +382,27 @@ K1 目前使用 6 层叠层，以下为参考叠层设计。如果使用其它�
 
 1. CPU 最外圈 ball 可以从表层走 5mil 线宽直接扇出，第二排 ball 可用 5mil 线宽从第一排 ball 中间穿出：
 
-![](static/PR1Cbv7n9o5KRMx8mO6caAgin9c.png)
+   ![](static/PR1Cbv7n9o5KRMx8mO6caAgin9c.png)
 
 2. CPU 内圈 ball 设计：如果第一、二圈信号都有使用，那么第三圈开始，需要换层到内层，CPU 处过孔需规则放置，给地平面以及电源平面留出尽量大的通道。如下图地层平面铺铜，有多条通道和外面的地连接，有利于 SI/PI 以及散热。
 
-![](static/VTmsbjlAToxHRGxic8ZcS3yjnSc.png)
+   ![](static/VTmsbjlAToxHRGxic8ZcS3yjnSc.png)
 
 3. 如下图电源层平面铺铜情况，有规则放置过孔，使各种电源有尽量大的铺铜通道，有效提高电源质量。
 
-![](static/OIPvbm5dooddZWxMKyZccErOnIb.png)
+   ![](static/OIPvbm5dooddZWxMKyZccErOnIb.png)
 
 4. CPU 背面参考我司设计，在相应 pin 位置放置电容，有空间的区域，可以尽量多的摆放电容，提高电源 PI。
 
-![](static/UrMbbAjMSotBZzxjjhVciqqWntf.png)
+   ![](static/UrMbbAjMSotBZzxjjhVciqqWntf.png)
 
 5. 在 CPU 侧有出线困难的，可适当减小线宽，用 neck 值走线；出 CPU 区域后，需按照正常线宽走线。
 
-![](static/MaLGbIxYloUVwAxMcK7ckqDTnEd.png)
+   ![](static/MaLGbIxYloUVwAxMcK7ckqDTnEd.png)
 
 6. 表层的地和电源，用粗短线将它们连接起来，如下图所示。
 
-![](static/EGIibAEYUo8xNhxXCERcMZaTnl7.png)
+   ![](static/EGIibAEYUo8xNhxXCERcMZaTnl7.png)
 
 7. Core 电的反馈线，需从电源的最远端拉出，且尽量少换层。
 
@@ -441,59 +410,35 @@ K1 目前使用 6 层叠层，以下为参考叠层设计。如果使用其它�
 
 对于 6 层 PCB，建议 DDR 信号走在第 1 层、第 4 层，使其主要参考第 2 层、第 5 层完整的地平面。如果 GND 平面不完整，将对信号质量造成很大的影响。DDR 设计中间距要求和等长要求，见下表。绕线时，需导入 pin_delay。
 
-<table>
-<tbody>
-<tr>
-<td>参数</td>
-<td>要求</td>
-</tr>
-<tr>
-<td>DDR单端信号阻抗</td>
-<td>单端50ohm +/-10%</td>
-</tr>
-<tr>
-<td>差分信号阻抗</td>
-<td>90ohm +/-10%</td>
-</tr>
-<tr>
-<td>不同Byte之间的间距</td>
-<td>&gt;= 3倍走线宽度</td>
-</tr>
-<tr>
-<td>通一个Byte之间的间距</td>
-<td>&gt;= 2倍走线宽度</td>
-</tr>
-<tr>
-<td>差分对P/N之间等长要求</td>
-<td>&lt;= 5mil</td>
-</tr>
-<tr>
-<td>同一组Byte之间，以CLK为target</td>
-<td>&lt;= 50mil</td>
-</tr>
-</tbody>
-</table>
+| 参数                         | 要求                |
+|------------------------------|---------------------|
+| DDR单端信号阻抗              | 单端 50Ω ±10%       |
+| 差分信号阻抗                 | 90Ω ±10%            |
+| 不同 Byte 之间的间距         | ≥ 3 倍走线宽度      |
+| 同一个 Byte 之间的间距       | ≥ 2 倍走线宽度      |
+| 差分对 P/N 之间等长要求      | ≤ 5 mil             |
+| 同一组 Byte 之间，以 CLK 为 target | ≤ 50 mil        |
 
 由于 DDR 接口速率快，PCB 设计难度大，请使用我司提供的 DDR 模板和对应的 DDR 固件，DDR 模板以经过严格的仿真和测试验证后发布的。如果自行设计 PCB，请参考如下 PCB 设计建议，仿真无误后再投板。
 
 1. CPU 端和 DDR 端的 GND 过孔请参考模板设计，不可随意删减 GND 过孔。模板管脚 GND 过孔设计如下图：
 
-![](static/JopHbW8dIoUcywxNv62c2dTmnSh.png)
+   ![](static/JopHbW8dIoUcywxNv62c2dTmnSh.png)
 
-![](static/SgEXbHZ4PovjlNxfy9ZccaSJnfg.png)
+   ![](static/SgEXbHZ4PovjlNxfy9ZccaSJnfg.png)
 
 2. 绕线自身的串扰会影响信号时延，走线绕等长时建议 S\>=3W
 
-![](static/KbXZbOQnHoe5Jwxj5q6ckZ08n1c.png)
+   ![](static/KbXZbOQnHoe5Jwxj5q6ckZ08n1c.png)
 
 3. DDR 颗粒区域，一个管脚对应一个 GND 过孔，有空间的区域尽可能增加 GND 过孔
 4. 调整过孔位置，优化平面的裂缝，改善回流路径
 
-![](static/OALKboFmXo9MkrxQemDcu3WQn5e.png)
+   ![](static/OALKboFmXo9MkrxQemDcu3WQn5e.png)
 
 5. 每个电容焊盘建议至少一个过孔，对于 0603/0805 封装的电容建议一个焊盘对应两个过孔，且过孔靠近管脚位置，减少回路电感。
 
-![](static/CH5bbSe7aoeVpHx48Recru9MnJd.png)
+   ![](static/CH5bbSe7aoeVpHx48Recru9MnJd.png)
 
 #### 2.5.3 EMMC - PCB Layout 推荐设计
 
@@ -505,51 +450,23 @@ EMMC 和 CPU 直接的间距，建议按我们给出的参考板设计。如果�
 
 GMAC 信号走线尽量短，且减少换层次数，走线具体要求请参照下面表格：
 
-<table>
-<tbody>
-<tr>
-<td>走线阻抗</td>
-<td>单端50ohm +/-10%</td>
-</tr>
-<tr>
-<td>时钟与数据之间等长</td>
-<td>&lt; 100mil</td>
-</tr>
-<tr>
-<td>走线长度</td>
-<td>&lt; 4000mil</td>
-</tr>
-<tr>
-<td>GMAC信号线之间间距</td>
-<td>3倍GMAC线宽</td>
-</tr>
-</tbody>
-</table>
+| 参数                     | 要求             |
+|--------------------------|------------------|
+| 走线阻抗                 | 单端 50Ω ±10%    |
+| 时钟与数据之间等长       | < 100 mil        |
+| 走线长度                 | < 4000 mil       |
+| GMAC信号线之间间距       | 3 倍 GMAC 线宽   |
 
 #### 2.6.2 SDIO 信号 PCB 设计
 
 SDIO 各走线上勿有残桩（Stub），且必须参考 GND，SDIO 各走线穿层 VIA 需小于 4 个，SDIO 各走线周边必须包 GND 增加信号稳定性。最好方式是 CLK/CMD/DATA0-3 每根信号都单独包地，如果空间受限，可接受 CLK、CMD 单独包地，DATA0-DATA1 放一起包地，DATA2-DATA3 放一起包地。具体请参照下表格和图片示意：
 
-<table>
-<tbody>
-<tr>
-<td>走线阻抗</td>
-<td>单端50ohm +/-10%</td>
-</tr>
-<tr>
-<td>时钟与数据之间等长</td>
-<td>&lt; 100mil</td>
-</tr>
-<tr>
-<td>走线长度</td>
-<td>&lt; 2500mil</td>
-</tr>
-<tr>
-<td>SDIO信号线之间间距</td>
-<td>3倍SDIO线宽</td>
-</tr>
-</tbody>
-</table>
+| 参数                     | 要求             |
+|--------------------------|------------------|
+| 走线阻抗                 | 单端 50Ω ±10%    |
+| 时钟与数据之间等长       | < 100 mil        |
+| 走线长度                 | < 2500 mil       |
+| SDIO信号线之间间距       | 3 倍 SDIO 线宽   |
 
 WiFi 模组的 SDIO 信号需严格参考硬件设计指南 PCB 设计要求进行 layout。同时 PCBA 回板后，需邮寄 PCBA 到进迭时空原厂进行 WiFi TX Delay 参数适配和测试。
 
@@ -557,176 +474,65 @@ WiFi 模组的 SDIO 信号需严格参考硬件设计指南 PCB 设计要求进�
 
 #### 2.6.3 USB2.0 信号 PCB 设计
 
-<table>
-<tbody>
-<tr>
-<td>走线阻抗</td>
-<td>差分90ohm +/-10%</td>
-</tr>
-<tr>
-<td>差分对P/N最大时延差</td>
-<td>&lt;= 5mil</td>
-</tr>
-<tr>
-<td>走线长度</td>
-<td>&lt; 5000mil</td>
-</tr>
-<tr>
-<td>差分对间间距</td>
-<td>大于等于3倍USB线宽</td>
-</tr>
-<tr>
-<td>USB2.0与其它信号间距</td>
-<td>大于等于3倍USB线宽</td>
-</tr>
-<tr>
-<td>换层过孔数量</td>
-<td>不超过3个</td>
-</tr>
-</tbody>
-</table>
+| 参数                         | 要求                     |
+|------------------------------|--------------------------|
+| 走线阻抗                     | 差分 90Ω ±10%            |
+| 差分对 P/N 最大时延差        | ≤ 5 mil                  |
+| 走线长度                     | < 5000 mil               |
+| 差分对间间距                 | ≥ 3 倍 USB 线宽          |
+| USB2.0 与其它信号间距        | ≥ 3 倍 USB 线宽          |
+| 换层过孔数量                 | ≤ 3 个                   |
 
 #### 2.6.4 USB3.0 信号 PCB 设计
 
-<table>
-<tbody>
-<tr>
-<td>走线阻抗</td>
-<td>差分90ohm +/-10%</td>
-</tr>
-<tr>
-<td>差分对P/N最大时延差</td>
-<td>&lt;= 5mil</td>
-</tr>
-<tr>
-<td>走线长度</td>
-<td>&lt; 5000mil</td>
-</tr>
-<tr>
-<td>差分对间间距</td>
-<td>大于等于4倍USB线宽</td>
-</tr>
-<tr>
-<td>USB3.0与其它信号间距</td>
-<td>大于等于4倍USB线宽</td>
-</tr>
-<tr>
-<td>换层过孔数量</td>
-<td>不超过2个</td>
-</tr>
-</tbody>
-</table>
+| 参数                         | 要求                     |
+|------------------------------|--------------------------|
+| 走线阻抗                     | 差分 90Ω ±10%            |
+| 差分对 P/N 最大时延差        | ≤ 5 mil                  |
+| 走线长度                     | < 5000 mil               |
+| 差分对间间距                 | ≥ 4 倍 USB 线宽          |
+| USB3.0 与其它信号间距        | ≥ 4 倍 USB 线宽          |
+| 换层过孔数量                 | ≤ 2 个                   |
 
 #### 2.6.5 PCIE 信号 PCB 设计
 
 PCIE 信号注意挖空焊盘，挖空焊盘后，注意走线不要跨参考，GND 隔离 PAD 建议双向都走地线且打孔，具体参数请参照下表格，走线示范如下：
 
-<table>
-<tbody>
-<tr>
-<td>参数</td>
-<td>要求</td>
-</tr>
-<tr>
-<td>走线阻抗</td>
-<td>差分90ohm +/-10%</td>
-</tr>
-<tr>
-<td>差分对P/N最大时延差</td>
-<td>&lt;= 5mil</td>
-</tr>
-<tr>
-<td>走线长度</td>
-<td>&lt; 4000mil</td>
-</tr>
-<tr>
-<td>差分对间间距</td>
-<td>大于等于5倍PCIE线宽</td>
-</tr>
-<tr>
-<td>PCIE与其它信号间距</td>
-<td>大于等于5倍PCIE线宽</td>
-</tr>
-<tr>
-<td>换层过孔数量</td>
-<td>不超过2个</td>
-</tr>
-</tbody>
-</table>
+| 参数                         | 要求                     |
+|------------------------------|--------------------------|
+| 走线阻抗                     | 差分 90Ω ±10%            |
+| 差分对 P/N 最大时延差        | ≤ 5 mil                  |
+| 走线长度                     | < 4000 mil               |
+| 差分对间间距                 | ≥ 5 倍 PCIE 线宽         |
+| PCIE 与其它信号间距          | ≥ 5 倍 PCIE 线宽         |
+| 换层过孔数量                 | ≤ 2 个                   |
 
 ![](static/BK3nb69szopTO6x79lrcLtBinfe.png)
 
 #### 2.6.6 HDMI 信号 PCB 设计
 
-<table>
-<tbody>
-<tr>
-<td>参数</td>
-<td>要求</td>
-</tr>
-<tr>
-<td>走线阻抗</td>
-<td>差分90ohm +/-10%</td>
-</tr>
-<tr>
-<td>差分对P/N最大时延差</td>
-<td>&lt;= 5mil</td>
-</tr>
-<tr>
-<td>走线长度</td>
-<td>&lt; 4000mil</td>
-</tr>
-<tr>
-<td>差分对间间距</td>
-<td>大于等于5倍HDMI线宽</td>
-</tr>
-<tr>
-<td>HDMI与其它信号间距</td>
-<td>大于等于5倍HDMI线宽</td>
-</tr>
-<tr>
-<td>换层过孔数量</td>
-<td>不超过2个</td>
-</tr>
-</tbody>
-</table>
+| 参数                         | 要求                     |
+|------------------------------|--------------------------|
+| 走线阻抗                     | 差分 90Ω ±10%            |
+| 差分对 P/N 最大时延差        | ≤ 5 mil                  |
+| 走线长度                     | < 4000 mil               |
+| 差分对间间距                 | ≥ 5 倍 HDMI 线宽         |
+| HDMI 与其它信号间距          | ≥ 5 倍 HDMI 线宽         |
+| 换层过孔数量                 | ≤ 2 个                   |
 
 ![](static/FdB7bzCVLo6zFmxZBaGc4Qi1nqf.png)
 
 #### 2.6.7 MIPI 信号 PCB 设计
 
-<table>
-<tbody>
-<tr>
-<td>走线阻抗</td>
-<td>差分90ohm +/-10%</td>
-</tr>
-<tr>
-<td>差分对P/N最大时延差</td>
-<td>&lt;= 5mil</td>
-</tr>
-<tr>
-<td>时钟与数据之间等长</td>
-<td>&lt;= 50mil</td>
-</tr>
-<tr>
-<td>走线长度</td>
-<td>&lt; 5000mil</td>
-</tr>
-<tr>
-<td>差分对间间距</td>
-<td>大于等于4倍MIPI线宽，至少要3倍MIPI线宽</td>
-</tr>
-<tr>
-<td>MIPI与其它信号间距</td>
-<td>大于等于4倍MIPI线宽，至少要3倍MIPI线宽</td>
-</tr>
-<tr>
-<td>换层过孔数量</td>
-<td>建议不超过2个</td>
-</tr>
-</tbody>
-</table>
+| 参数                         | 要求                                               |
+|------------------------------|----------------------------------------------------|
+| 走线阻抗                     | 差分 90Ω ±10%                                      |
+| 差分对 P/N 最大时延差        | ≤ 5 mil                                            |
+| 时钟与数据之间等长           | ≤ 50 mil                                           |
+| 走线长度                     | < 5000 mil                                         |
+| 差分对间间距                 | ≥ 4 倍 MIPI 线宽（至少 3 倍）                      |
+| MIPI 与其它信号间距          | ≥ 4 倍 MIPI 线宽（至少 3 倍）                      |
+| 换层过孔数量                 | 建议 ≤ 2 个                                        |
 
 ![](static/QFShbKJhrojACvxfUwicpg6Lnvh.png)
 
