@@ -313,7 +313,7 @@ The electrical characteristics of **DLDO1/2/3/5/6** (i.e., DLDO1, DLDO2, DLDO3, 
 
 #### 5.5.4 DLDO4 / DLDO7
 
-The electrical characteristics of **DLDO4 and DLDO7** are listed below.
+The electrical characteristics of **DLDO4 / DLDO7** are listed below.
 
 | Parameter | Description | Conditions | Min | Typ | Max | Unit |
 |----------|-------------|------------|-----|-----|-----|------|
@@ -809,9 +809,9 @@ All modules are operational: power rails, load switches, battery charging, volta
 
 | Power Domain    | Module      | RESET | RTC             | SHUTDOWN-LP     | SHUTDOWN        | ACTIVE          | SLEEP           |
 |-----------------|------------|-------|-----------------|-----------------|-----------------|-----------------|-----------------|
-| VSYS            | BUCK/LDO    | -     | -               | -               | -               | x (if enabled)  | x (if enabled)  |
-|                 | SWITCH      | -     | -               | -               | -               | x (if enabled)  | x (if enabled)  |
-|                 | BCHG        | -     | -               | -               | -               | x (if enabled)  | x (if enabled)  |
+| VSYS            | BUCK/LDO    | -     | -               | -               | -               | x <br>(if enabled)  | x <br> (if enabled)  |
+|                 | SWITCH      | -     | -               | -               | -               | x <br>(if enabled)  | x <br>(if enabled)  |
+|                 | BCHG        | -     | -               | -               | -               | x <br>(if enabled)  | x <br>(if enabled)  |
 |                 | MTP         | -     | -               | -               | -               | x               | x               |
 |                 | AONLDO      | -     | -               | -               | x               | x               | x               |
 |                 | BG          | -     | -               | -               | x               | x               | x               |
@@ -820,12 +820,12 @@ All modules are operational: power rails, load switches, battery charging, volta
 |                 | IREF        | -     | -               | -               | -               | x               | x               |
 |                 | SOSC        | -     | -               | x               | x               | x               | x               |
 |                 | FOSC        | -     | -               | -               | -               | x               | x               |
-|                 | ADC         | -     | -               | -               | -               | x (if enabled)  | x (if enabled)  |
+|                 | ADC         | -     | -               | -               | -               | x <br>(if enabled)  | x <br>(if enabled)  |
 |                 | TS          | -     | -               | -               | -               | x               | x               |
 |                 | OT-P        | -     | -               | -               | -               | x               | x               |
 |                 | KEY         | -     | -               | x               | x               | x               | x               |
-| VSYS / VBAT     | XTAL        | -     | x (if enabled)  | x (if enabled)  | x (if enabled)  | x (if enabled)  | x (if enabled)  |
-|                 | RTC         | -     | x (if enabled)  | x (if enabled)  | x (if enabled)  | x (if enabled)  | x (if enabled)  |
+| VSYS / VBAT     | XTAL        | -     | x <br>(if enabled)  | x <br>(if enabled)  | x <br>(if enabled)  | x <br>(if enabled)  | x <br>(if enabled)  |
+|                 | RTC         | -     | x <br>(if enabled)  | x <br>(if enabled)  | x <br>(if enabled)  | x <br>(if enabled)  | x <br>(if enabled)  |
 | VSYS            | DIGITAL     | -     | -               | x               | x               | x               | x               |
 | AONLDO          | GPIO        | -     | -               | -               | -               | x               | x               |
 |                 | INT         | -     | -               | -               | -               | x               | x               |
@@ -1336,8 +1336,6 @@ The host can configure the charging voltage and current, and enable charging via
 - In **shutdown mode**, the battery charging circuit is disabled. After re-entering **power-on mode**, charging must be re-enabled by the host.
 
 ### 6.13 ADC Control Circuit
-
-**Overview**
 
 The PMIC integrates a 12-bit ADC with the following features:
 
@@ -2052,7 +2050,6 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 (*1) Restored to default value when entering shutdown mode.
 (*2) When no automatic channel is enabled in `ADC_AUTO`, enabling any channel in `ADC_MAN_EN0`–`ADC_MAN_EN2` causes the ADC to enter **manual mode** after conversion is started.
 
-
 ##### Table 7-42 ADC_MAN_RES_H (*1)
 
 | Addr | Bits | Field Name | Attr | Default | Description        |
@@ -2079,34 +2076,6 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | 0x28 | 7:0  | TJ_RES_H   | R    | 0x00    | Junction temperature automatic conversion result (8 MSBs).<br>Reading this register latches the current junction temperature result into `ADC_TJ_RES_H` and `ADC_TJ_RES_L`, preventing the lower bits from being overwritten by a new conversion and ensuring data consistency. |
 
 **Notes:**
-(*1) Restored to default value when entering shutdown mode.
-
-##### Table 7-42 ADC_MAN_RES_H (*1)
-
-| Addr | Bits | Field Name  | Attr | Default | Description |
-| ---- | ---- | ----------- | ---- | ------- | ----------- |
-| 0x26 | 7:0  | ADC_RES_H   | R    | 0x00    | 12-bit ADC manual conversion result (8 MSBs).<br>Reading this register latches the current manual conversion result into `ADC_MAN_RES_H` and `ADC_MAN_RES_L`, preventing the lower bits from being overwritten by a new conversion and ensuring data consistency. |
-
-**Notes:**  
-(*1) Restored to default value when entering shutdown mode.
-
-##### Table 7-43 ADC_MAN_RES_L (*1)
-
-| Addr | Bits | Field Name  | Attr | Default | Description |
-| ---- | ---- | ----------- | ---- | ------- | ----------- |
-| 0x27 | 7:4  | ADC_RES_L   | R    | 0x0     | 12-bit ADC manual conversion result (4 LSBs). |
-| 0x27 | 3:0  | Reserved    | RV   | 0       | Reserved. |
-
-**Notes:**  
-(*1) Restored to default value when entering shutdown mode.
-
-##### Table 7-44 ADC_TJ_RES_H (*1)
-
-| Addr | Bits | Field Name | Attr | Default | Description |
-| ---- | ---- | ---------- | ---- | ------- | ----------- |
-| 0x28 | 7:0  | TJ_RES_H   | R    | 0x00    | Junction temperature automatic conversion result (8 MSBs).<br>Reading this register latches the current junction temperature result into `ADC_TJ_RES_H` and `ADC_TJ_RES_L`, preventing the lower bits from being overwritten by a new conversion and ensuring data consistency. |
-
-**Notes:**  
 (*1) Restored to default value when entering shutdown mode.
 
 ##### Table 7-45 ADC_TJ_RES_L (*1)
@@ -2926,16 +2895,15 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | 0xA4 | 4:2  | VSYS_SHUT_VTH | RE   | 0x0     | Shutdown threshold<br>`000`: Vsys < 2.6 V, start shutdown sequence<br>`001`: Vsys < 2.7 V, start shutdown sequence<br>`010`: Vsys < 2.8 V, start shutdown sequence<br>`011`: Vsys < 2.9 V, start shutdown sequence<br>`100`: Vsys < 3.0 V, start shutdown sequence<br>`101`: Vsys < 3.1 V, start shutdown sequence<br>`110`: Vsys < 3.2 V, start shutdown sequence<br>`111`: Vsys < 3.3 V, start shutdown sequence |
 | 0xA4 | 1    | KEY_RST_EN    | RE   | 0x0     | In shutdown mode, after long-press PWRKY triggers power-on, continue pressing to trigger reset<br>`0`: do not trigger<br>`1`: trigger (when PWRKY_SD_DIS = `1`)                                                                                                                                                                                                                                                    |
 | 0xA4 | 0    | KEY_SD_EN     | RE   | 0x0     | In shutdown mode, after long-press PWRKY triggers power-on, continue pressing to trigger shutdown<br>`0`: do not trigger<br>`1`: trigger (when PWRKY_SD_DIS = `0`)                                                                                                                                                                                                                                                 |
-
 ##### Table 7-127 SYS_CFG2
 
-| Addr | Bits | Field Name      | Attr | Default | Description                                                                                                                                                                                                                                                                          |
-| ---- | ---- | --------------- | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 0xA5 | 7    | VSYS_STEP       | RE   | 0x0     | Hot-swap power-on threshold step<br>`0`: 0.1 V<br>`1`: 0.2 V                                                                                                                                                                                                                         |
-| 0xA5 | 6    | HOT_SWAP_DIS    | RE   | 0x0     | Hot-swap power-on threshold increase control<br>`0`: enable<br>`1`: disable<br>When disabled, the power-on threshold is not increased after hot-swap                                                                                                                                 |
-| 0xA5 | 5    | EVENT_DELAY     | RE   | 0x0     | Event filtering for over-temperature, VSYS overvoltage, BUCK and LDO short-circuit events<br>`0`: 100 µs<br>`1`: disable                                                                                                                                                             |
-| 0xA5 | 4:3  | OVUV_DELAY      | RE   | 0x0     | Abnormal event (BUCK and LDO UV/OV) filtering time<br>`00`: 100 µs<br>`01`: 375 µs<br>`10`: 750 µs<br>`11`: disable                                                                                                                                                                  |
-| 0xA5 | 2:0  | OVUV_MASK_DELAY | RE   | 0x0     | BUCK and LDO overvoltage/undervoltage event mask duration<br>`000`: 125 µs<br>`001`: 250 µs<br>`010`: 1 ms<br>`011`: 8 ms<br>`100`: 64 ms<br>`101`: 256 ms<br>`110`: 512 ms<br>`111`: disable<br>During BUCK/LDO enable or voltage change, OV/UV events are masked for this duration |
+| Addr | Bits | Field Name      | Attr | Default | Description   |
+| ---- | ---- | --------------- | ---- | ------- | --------------- |
+| 0xA5 | 7    | VSYS_STEP       | RE   | 0x0     | Hot-swap power-on threshold step<br>`0`: 0.1 V<br>`1`: 0.2 V   |
+| 0xA5 | 6    | HOT_SWAP_DIS    | RE   | 0x0     | Hot-swap power-on threshold increase control<br>`0`: enable<br>`1`: disable<br>When disabled, the power-on threshold is not increased after hot-swap    |
+| 0xA5 | 5    | EVENT_DELAY     | RE   | 0x0     | Event filtering for over-temperature, VSYS overvoltage, BUCK and LDO short-circuit events<br>`0`: 100 µs<br>`1`: disable     |
+| 0xA5 | 4:3  | OVUV_DELAY      | RE   | 0x0     | Abnormal event (BUCK and LDO UV/OV) filtering time<br>`00`: 100 µs<br>`01`: 375 µs<br>`10`: 750 µs<br>`11`: disable    |
+| 0xA5 | 2:0  | OVUV_MASK_DELAY | RE   | 0x0     | BUCK and LDO overvoltage/undervoltage event mask duration<br>`000`: 125 µs<br>`001`: 250 µs<br>`010`: 1 ms<br>`011`: 8 ms<br>`100`: 64 ms<br>`101`: 256 ms<br>`110`: 512 ms<br>`111`: disable<br>When the BUCK and LDO are enabled, or when the output voltage of the BUCK or LDO changes, over-voltage and under-voltage events for the BUCK and LDO are masked for the duration defined by UVOV_MASK_DELAY. |
 
 ##### Table 7-128 MTP_KEY
 

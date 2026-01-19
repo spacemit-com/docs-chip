@@ -2,6 +2,8 @@ sidebar_position: 1
 
 # P1 PCB 布局布线指南
 
+**[PDF 版本](https://cdn-resource.spacemit.com/file/%E8%8A%AF%E7%89%87/P1/P1_PCB_Layout_Guide_ZH.pdf)**
+
 ## 版本
 
 | 版本 | 日期     | 修订说明   |
@@ -63,7 +65,7 @@ PCB 的整体间距为 4mil（all-all），在此基础上，将 VIN、SW、Vout
 4. 高亮部分为 Vin 铜箔及走线，两条分支左右分别为：ALDIN-Vin 和 Vsys-Vin。建议从 Vin 铜箔打过孔到表层，然后分别经过各自的滤波电容，最终连接到芯片引脚。
 5. Vin 铜箔不要覆盖芯片的 epad 下方区域，建议走出一个环形，为 Cin 电容负端的 GND 过孔到 pad 增加一层回流路径，以减少 Cin 寄生电感，如下图（电源层 VIN 铺铜走线—2）所示：
 
-![](static/QXeibbEHFoiidpxMzvbcxRBHn8t.png)
+   ![](static/QXeibbEHFoiidpxMzvbcxRBHn8t.png)
 
 ## 双面贴片布局
 
