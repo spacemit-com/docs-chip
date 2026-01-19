@@ -14,7 +14,7 @@ sidebar_position: 3
 - [10. 顶层系统 (2/2)](10.Top_System_02.md)
 - [11. 存储与内存](11.Memory_&_Storage.md)
 - [12. 视频与图形](12.Video_&_Graphics.md)
-- [13. Display Subsystem](13.Display_Subsystem.md)
+- [13. 显示子系统](13.Display_Subsystem.md)
 - [14. Video Capture Subsystem](14.Video_Capture_Subsystem.md)
 - [15. RCPU Subsystem](15.RCPU_Subsystem.md)
 - [16. High-Speed Interface System](16.High-Speed_Interface_System.md)
