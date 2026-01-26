@@ -2,7 +2,7 @@ sidebar_position: 1
 
 # K1 产品简介
 
-**[PDF 版本](https://cdn-resource.spacemit.com/file/%E8%8A%AF%E7%89%87/K1/K1_Datasheet_ZH.pdf)**
+**[PDF 版本](https://cdn-resource.spacemit.com/file/%E8%8A%AF%E7%89%87/K1/k1_brief_cn.pdf)**
 
 ## 概述
 
