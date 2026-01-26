@@ -1,6 +1,6 @@
 sidebar_position: 3
 
-# User Manual
+# 用户手册
 
 - [1. Overview](1.Overview.md)
 - [2. Package](2.Package.md)
