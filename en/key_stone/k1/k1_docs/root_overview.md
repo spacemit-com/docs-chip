@@ -2,7 +2,7 @@ sidebar_position: 1
 
 # K1 Brief
 
-**[PDF Version](https://cdn-resource.spacemit.com/file/%E8%8A%AF%E7%89%87/K1/k1_brief_en.pdf)**
+**[PDF Version](https://cdn-resource.spacemit.com/file/%E8%8A%AF%E7%89%87/K1/K1_breif_EN-V2.4_20260127-01.pdf)**
 
 ## Overview
 
