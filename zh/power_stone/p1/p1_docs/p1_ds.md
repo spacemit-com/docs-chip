@@ -1,10 +1,10 @@
 sidebar_position: 2
 
-# P1 产品规格书
+# P1 数据手册
 
 ## PDF 版本下载
 
-点击下载 [P1 产品规格书 (PDF)](https://cdn-resource.spacemit.com/file/%E8%8A%AF%E7%89%87/P1/P1_Datasheet_ZH.pdf)
+点击下载 [P1 数据手册 (PDF)](https://cdn-resource.spacemit.com/file/%E8%8A%AF%E7%89%87/P1/P1_Datasheet_ZH.pdf)
 
 ## 版本
 

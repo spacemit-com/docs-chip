@@ -1,6 +1,6 @@
 sidebar_position: 2
 
-# K1 产品规格书
+# K1 数据手册
 
 **[PDF 版本](https://cdn-resource.spacemit.com/file/%E8%8A%AF%E7%89%87/K1/K1_Datasheet_ZH.pdf)**
 
