@@ -1,5 +1,5 @@
 sidebar_position: 3
 
-# 软件
+# Software
 
-- [SDK 概览](k3_sdk_user_guide.md)
+- [SDK Overview](k3_sdk_user_guide.md)
