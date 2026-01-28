@@ -4,8 +4,6 @@ sidebar_position: 2
 
 ## Complete Version in PDF
 
-Please click to download the complete version in PDF: **[P1S Datasheet (PDF)](#)**
-
 ## Revision History
 
 | Visions | Date | Notes     |
