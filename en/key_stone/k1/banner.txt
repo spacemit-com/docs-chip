@@ -1,1 +1,1 @@
-K1 is 8-core RISC-V AI CPU
+K1 is World's Most Popular RISC-V AI CPU
