@@ -3693,8 +3693,7 @@ Instead, the input thresholds of Schmitt Trigger Mode of I/O PADs are tabled bel
 
 ### 5.1 Pin AC/DC Operating Conditions
 
-![](./static/pin_ac_dc_en.png)
-
+<img src="static/pin_ac_dc_en.png" alt="" width="500">
 
 ### 5.2 Absolute Max Ratings
 

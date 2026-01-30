@@ -16,7 +16,7 @@ The Buildroot SDK delivers a complete Linux BSP for the SpacemiT Stone-series So
 
 It is optimized for embedded scenarios that require fast, customized system builds. Developers can extend drivers and user applications with ease.
 
-Please refer to [Buildroot User Guide](#) for details.
+Please refer to [Buildroot User Guide](https://www.spacemit.com/community/document/info?lang=en&nodepath=software/SDK/buildroot/root_overview.md) for details.
 
 ## OpenWrt SDK
 
@@ -29,7 +29,7 @@ The OpenWrt SDK is built on **OpenWrt 23.05** (with bl-v2.0.y tracking master) a
 
 It is primarily intended for soft routers, NAS systems, and network-centric embedded devices.
 
-Please refer to [OpenWrt User Guide](#) for details.
+Please refer to [OpenWrt User Guide](https://www.spacemit.com/community/document/info?lang=en&nodepath=software/SDK/openwrt/root_overview.md) for details.
 
 ## Bianbu SDK
 
@@ -40,7 +40,7 @@ It offers excellent compatibility, extensibility, and a stable environment for p
 - Smart terminals  
 - Vertical-industry applications  
 
-Please refer to [Bianbu SDK User Guide](#) for details.
+Please refer to [Bianbu SDK User Guide](https://www.spacemit.com/community/document/info?lang=en&nodepath=software/SDK/bianbu/root_overview.md) for details.
 
 ## OpenHarmony SDK (K1 OH5.0)
 
@@ -53,7 +53,7 @@ It runs on the K1 RISC-V AI CPU and includes:
 - Fully validated system integration  
 - Complete production toolchains and documentation  
 
-Please refer to [K1 OH5.0 User Guide](#) for details.
+Please refer to [K1 OH5.0 User Guide](https://www.spacemit.com/community/document/info?lang=en&nodepath=software/SDK/openharmony/k1/root_overview.md) for details.
 
 ## ROS2 SDK (AI Robot Platform)
 
@@ -78,5 +78,5 @@ Developers can quickly deploy applications for:
 - Robotic arms  
 - Autonomous mobile platforms  
 
-Please refer to [ROS2 SDK User Guide](#) for details.
+Please refer to [ROS2 SDK User Guide](https://www.spacemit.com/community/document/info?lang=en&nodepath=software/SDK/ros/root_overview.md) for details.
 
