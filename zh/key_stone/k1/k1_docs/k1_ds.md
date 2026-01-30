@@ -3835,7 +3835,7 @@ I/O PAD 的缓冲模式输入阈值如下表所示。
 
 ### 5.1 引脚交流/直流工作条件
 
-![](./static/pin_ac_dc_zh.png)
+<img src="static/pin_ac_dc_zh.png" alt="" width="500">
 
 ### 5.2 绝对最大额定值
 
