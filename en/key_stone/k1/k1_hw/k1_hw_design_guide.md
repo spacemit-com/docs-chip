@@ -88,14 +88,14 @@ A **4-pin SMD crystal** is recommended; connect the two GND pins solidly to the 
 - The Flash controller supports **SPI NOR Flash** and **SPI NAND Flash**.
 - Supports **1.8V / 3.3V Flash**; follow configuration based on **VCC1833_QSPI** power domain.
 - Quad-SPI’s four data pins are multiplexed with system configuration straps.
-  Fly-by routing is recommended. See **[Hardware Initialization Configuration](#115-hardware-initialization-and-system-configuration-straps)**.
+  Fly-by routing is recommended. See **Section [1.1.5 Hardware Initialization and System Configuration Straps]**.
 
 ![](static/XAfAbsI1Aom0A4x1SR1cXpbEnjg.jpg)
 
 > **Note:**
 > No extra pull-ups are required for Flash data signals—internal configuration is already provided.
 > Because the data pins are shared with boot straps, apply pull-up or pull-down resistors as required by your system configuration.
-> See **[Hardware Initialization Configuration](#115-hardware-initialization-and-system-configuration-straps)** above.
+> See **Section [1.1.5 Hardware Initialization and System Configuration Straps]** above.
 
 #### 1.1.8 eMMC
 

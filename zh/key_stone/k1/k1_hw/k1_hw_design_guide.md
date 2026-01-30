@@ -1,6 +1,6 @@
 sidebar_position: 1
 
-# K1 芯片硬件设计指导手册
+# K1 硬件设计指南
 
 **[PDF 版本](https://cdn-resource.spacemit.com/file/%E8%8A%AF%E7%89%87/K1/K1_Hardware_Design%20Guide_ZH.pdf)**
 
@@ -83,11 +83,11 @@ sidebar_position: 1
 - Quad - SPI 充当外部串行闪存设备的接口，具有多达四根双向数据线。
 - FLASH 控制器支持 SPI NOR FLASH、SPI NAND FLASH。
 - 支持 1.8V/3.3V Flash，参考芯片 VCC1833_QSPI 电压域配置电平。
-- Quad - SPI 的 4 个 DATE 复用了系统配置功能，在 PCB 设计需要考虑走线 Fly-by 形式，配置信息见 1.1.5 硬件初始化系统配置电路。
+- Quad - SPI 的 4 个 DATE 复用了系统配置功能，在 PCB 设计需要考虑走线 Fly-by 形式，配置信息见**小节 [1.1.5 硬件初始化系统配置电路]**。
 
 ![](static/XAfAbsI1Aom0A4x1SR1cXpbEnjg.jpg)
 
-**注意：Flash Data 外围设计无需专门上拉，内部已经配置。Date 复用了 Boot 相关功能，使用需要根据系统配置做上拉/下拉处理。详见本章 “硬件初始化系统配置电路”**
+**注意：** Flash Data 外围设计无需专门上拉，内部已经配置。Date 复用了 Boot 相关功能，使用需要根据系统配置做上拉/下拉处理。详见**小节 [1.1.5 硬件初始化系统配置电路]**
 
 #### 1.1.8 eMMC
 
