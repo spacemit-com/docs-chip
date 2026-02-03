@@ -2,7 +2,7 @@ sidebar_position: 1
 
 # P1 PCB Layout Guidelines
 
-**[PDF Version](https://cdn-resource.spacemit.com/file/%E8%8A%AF%E7%89%87/P1/P1_PCB_Layout_Guide_EN.pdf)**
+**[PDF Version](https://cdn-resource.spacemit.com/file/chip/P1/P1_PCB_Layout_Guide_en.pdf)**
 
 ## Version History
 

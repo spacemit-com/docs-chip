@@ -1,6 +1,6 @@
 # K3 Brief
 
-**[PDF Version](https://cdn-resource.spacemit.com/file/%E8%8A%AF%E7%89%87/K3/K3_Brief_EN_20260127-01.pdf)**
+**[PDF Version](https://cdn-resource.spacemit.com/file/chip/K3/K3_brief_en.pdf)**
 
 ## Overview
 

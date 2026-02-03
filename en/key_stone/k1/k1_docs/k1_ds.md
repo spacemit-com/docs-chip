@@ -2,7 +2,7 @@ sidebar_position: 2
 
 # K1 Datasheet
 
-**[PDF Version](https://cdn-resource.spacemit.com/file/%E8%8A%AF%E7%89%87/K1/K1_Datasheet_EN.pdf)**
+**[PDF Version](https://cdn-resource.spacemit.com/file/chip/K1/K1_datasheet_en.pdf)**
 
 ## Revision History
 

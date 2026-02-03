@@ -4,7 +4,7 @@ sidebar_position: 2
 
 ## PDF Version
 
-Clik to download [P1 Datasheet (PDF)](https://cdn-resource.spacemit.com/file/%E8%8A%AF%E7%89%87/P1/P1_Datasheet_EN.pdf)
+Clik to download [P1 Datasheet (PDF)](https://cdn-resource.spacemit.com/file/chip/P1/P1_Datasheet_en.pdf)
 
 ## Revision History
 
