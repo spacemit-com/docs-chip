@@ -4,7 +4,7 @@ sidebar_position: 2
 
 ## PDF 版本下载
 
-点击下载 [P1 数据手册 (PDF)](https://cdn-resource.spacemit.com/file/%E8%8A%AF%E7%89%87/P1/P1_Datasheet_ZH_V2.0_20250331.pdf)
+点击下载 [P1 数据手册 (PDF)](https://cdn-resource.spacemit.com/file/chip/P1/P1_Datasheet_zh.pdf)
 
 ## 版本
 

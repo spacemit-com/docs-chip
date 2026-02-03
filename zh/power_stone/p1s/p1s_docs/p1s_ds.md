@@ -4,7 +4,7 @@ sidebar_position: 2
 
 ## PDF 版本下载
 
-点击下载 PDF 版本 [P1S Datasheet (PDF)](https://cdn-resource.spacemit.com/file/%E8%8A%AF%E7%89%87/P1/P1S%20Datasheet_CN-V1.3-20240911.pdf)
+点击下载 PDF 版本 [P1S Datasheet (PDF)](https://cdn-resource.spacemit.com/file/chip/P1/P1S_Datasheet_zh.pdf)
 
 ## 版本
 

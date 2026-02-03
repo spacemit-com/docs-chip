@@ -2,7 +2,7 @@ sidebar_position: 1
 
 # P1 简介
 
-**[PDF 版本](https://cdn-resource.spacemit.com/file/%E8%8A%AF%E7%89%87/P1/P1_brief_cn.pdf)**
+**[PDF 版本](https://cdn-resource.spacemit.com/file/chip/P1/P1_brief_zh.pdf)**
 
 ## 概述
 

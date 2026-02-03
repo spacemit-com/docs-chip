@@ -2,7 +2,7 @@ sidebar_position: 2
 
 # K1 数据手册
 
-**[PDF 版本](https://cdn-resource.spacemit.com/file/%E8%8A%AF%E7%89%87/K1/K1_Datasheet_ZH_V7.0_2025.05.20.pdf)**
+**[PDF 版本](https://cdn-resource.spacemit.com/file/chip/K1/K1_datasheet_zh.pdf)**
 
 ## 版本
 
