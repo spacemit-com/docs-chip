@@ -2,7 +2,7 @@ sidebar_position: 1
 
 # K1 硬件设计指南
 
-**[PDF 版本](https://cdn-resource.spacemit.com/file/%E8%8A%AF%E7%89%87/K1/K1_Hardware_Design%20Guide_ZH.pdf)**
+**[PDF 版本](https://cdn-resource.spacemit.com/file/chip/K1/K1_Hardware_Design_Guide_zh.pdf)**
 
 ## 版本
 
