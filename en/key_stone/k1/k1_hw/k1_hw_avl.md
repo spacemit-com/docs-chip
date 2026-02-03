@@ -17,5 +17,5 @@ The AVL ensures device compatibility, assists with component selection, and supp
 
 Download the complete list:
 
-- **[K1 Key Parts AVL (xlsm) – V2.6 (2025-11-19)](https://cdn-resource.spacemit.com/file/%E8%8A%AF%E7%89%87/K1/K1_Key_Parts_AVL-V2.6-20251119.xlsm)**
+- **[K1 Key Parts AVL (xlsm) – V2.6 (2025-11-19)](https://cdn-resource.spacemit.com/file/chip/K1/K1_Key_Parts_AVL-V2.6-20251119.xlsm)**
 
