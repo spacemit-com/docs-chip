@@ -45,7 +45,7 @@ The K3 series chips are mainly used in AI consumer hardware, such as AI smart ho
   - 8-core A100™ delivers up to 60 TOPS AI performance
   - Model throughput > 10 Tokens/s @ 30B
   - Supports FP16, BF16, FP8, INT8, and INT4 data format
-  - Supports all AI algorithms and large-model deployment
+  - Supports all AI algorithms and model deployment
 - **RISC-V Hardware Virtualization**
   - RVH 1.0 extension for CPU and memory virtualization
   - RV AIA extension for interrupt virtualization
