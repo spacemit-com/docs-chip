@@ -1938,1162 +1938,1162 @@ Let’s consider the division into the quadrants, in order to conveniently provi
   
   <tbody>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">A21</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">PCIE0_TX0N</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">L21</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVDD08_PCIE0</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">A21</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">PCIE0_TX0N</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">L21</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVDD08_PCIE0</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">A22</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVSS_PCIEUSB</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">L22</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVDD08_B_USB20</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">A22</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVSS_PCIEUSB</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">L22</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVDD08_B_USB20</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">A23</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_TXDATA_M0[2]</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">L23</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVSS_PCIEUSB</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">A23</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_TXDATA_M0[2]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">L23</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVSS_PCIEUSB</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">A24</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS_UCIE</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">L24</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVSS_PCIEUSB</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">A24</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS_UCIE</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">L24</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVSS_PCIEUSB</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">A25</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_TXCKN_M0</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">L25</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_VDDBH_0V9</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">A25</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_TXCKN_M0</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">L25</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_VDDBH_0V9</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">A26</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_TXDATA_M0[8]</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">L26</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_VCCPLL_1P2V</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">A26</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_TXDATA_M0[8]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">L26</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_VCCPLL_1P2V</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">A27</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS_UCIE</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">L27</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS_UCIE</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">A27</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS_UCIE</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">L27</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS_UCIE</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">A28</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_RXCKP_M0</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">L28</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_VCCIO_0V8</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">A28</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_RXCKP_M0</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">L28</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_VCCIO_0V8</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">A29</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_RXCKSB_M0</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">L29</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS_UCIE</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">A29</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_RXCKSB_M0</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">L29</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS_UCIE</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">A30</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS_UCIE</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">L30</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS_UCIE</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">A30</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS_UCIE</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">L30</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS_UCIE</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">A31</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_RXDATA_M0[7]</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">L31</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVSS_OSCPLL234567</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">A31</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_RXDATA_M0[7]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">L31</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVSS_OSCPLL234567</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">A32</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_RXDATA_M0[2]</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">L32</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">A32</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_RXDATA_M0[2]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">L32</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">A33</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS_UCIE</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">L33</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">A33</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS_UCIE</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">L33</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">A34</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[2]_21</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">L34</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[3]_45</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">A34</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[2]_21</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">L34</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[3]_45</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">A35</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[2]_25</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">L35</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[3]_50</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">A35</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[2]_25</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">L35</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[3]_50</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">A36</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[2]_29</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">L36</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">A36</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[2]_29</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">L36</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">A37</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[2]_32</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">L37</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[3]_57</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">A37</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[2]_32</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">L37</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[3]_57</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">A38</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[2]_34</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">L38</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[3]_60</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">A38</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[2]_34</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">L38</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[3]_60</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">A39</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">L39</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[3]_66</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">A39</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">L39</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[3]_66</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">B21</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">PCIE0_TX0P</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">L40</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[3]_72</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">B21</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">PCIE0_TX0P</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">L40</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[3]_72</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">B22</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">USB20_HOST_M</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">M21</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVSS_PCIEUSB</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">B22</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">USB20_HOST_M</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">M21</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVSS_PCIEUSB</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">B23</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_TXDATA_M0[5]</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">M22</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVSS_PCIEUSB</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">B23</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_TXDATA_M0[5]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">M22</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVSS_PCIEUSB</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">B24</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_TXDATA_M0[3]</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">M23</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVSS_USB20_HOST</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">B24</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_TXDATA_M0[3]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">M23</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVSS_USB20_HOST</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">B25</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS_UCIE</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">M24</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVSS_PCIEUSB</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">B25</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS_UCIE</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">M24</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVSS_PCIEUSB</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">B26</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_TXCKP_M0</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">M25</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">B26</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_TXCKP_M0</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">M25</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">B27</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_TXDATA_M0[14]</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">M26</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_VDDVPH0_0V9</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">B27</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_TXDATA_M0[14]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">M26</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_VDDVPH0_0V9</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">B28</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS_UCIE</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">M27</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_VDDVPH0_0V9</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">B28</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS_UCIE</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">M27</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_VDDVPH0_0V9</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">B29</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_RXCKN_M0</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">M28</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC_SYS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">B29</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_RXCKN_M0</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">M28</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC_SYS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">B30</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_RXDATA_M0[15]</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">M29</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">B30</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_RXDATA_M0[15]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">M29</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">B31</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS_UCIE</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">M30</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC_SYS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">B31</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS_UCIE</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">M30</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC_SYS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">B32</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_RXDATA_M0[5]</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">M31</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVSS_OSCPLL234567</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">B32</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_RXDATA_M0[5]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">M31</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVSS_OSCPLL234567</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">B33</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">M32</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">B33</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">M32</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">B34</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[2]_22</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">M33</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">B34</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[2]_22</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">M33</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">B35</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[2]_26</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">M34</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[3]_46</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">B35</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[2]_26</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">M34</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[3]_46</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">B36</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[2]_30</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">M35</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[3]_51</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">B36</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[2]_30</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">M35</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[3]_51</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">B37</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">M36</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[3]_58</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">B37</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">M36</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[3]_58</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">B38</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[2]_33</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">M37</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">B38</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[2]_33</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">M37</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">B39</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[2]_38</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">M38</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[3]_61</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">B39</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[2]_38</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">M38</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[3]_61</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">B40</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">M39</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[3]_67</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">B40</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">M39</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[3]_67</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">C21</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVSS_PCIEUSB</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">M40</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[3]_73</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">C21</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVSS_PCIEUSB</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">M40</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[3]_73</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">C22</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">USB20_HOST_P</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">N21</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC_SYS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">C22</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">USB20_HOST_P</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">N21</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC_SYS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">C23</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS_UCIE</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">N22</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">C23</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS_UCIE</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">N22</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">C24</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_TXDATA_M0[4]</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">N23</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC_SYS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">C24</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_TXDATA_M0[4]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">N23</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC_SYS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">C25</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_TXTRK_M0</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">N24</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">C25</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_TXTRK_M0</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">N24</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">C26</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS_UCIE</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">N25</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC_SYS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">C26</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS_UCIE</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">N25</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC_SYS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">C27</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_TXDATA_M0[11]</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">N26</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">C27</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_TXDATA_M0[11]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">N26</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">C28</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_RXDATA_M0[11]</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">N27</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC_SYS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">C28</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_RXDATA_M0[11]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">N27</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC_SYS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">C29</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS_UCIE</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">N28</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">C29</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS_UCIE</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">N28</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">C30</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_RXDATA_M0[12]</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">N29</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC_SYS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">C30</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_RXDATA_M0[12]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">N29</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC_SYS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">C31</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_RXTRK_M0</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">N30</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">C31</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_RXTRK_M0</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">N30</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">C32</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS_UCIE</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">N31</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC_SYS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">C32</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS_UCIE</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">N31</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC_SYS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">C33</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">N32</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">C33</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">N32</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">C34</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[2]_23</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">N33</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">DTEST_PAD</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">C34</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[2]_23</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">N33</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">DTEST_PAD</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">C35</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[2]_27</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">N34</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">ATEST_PAD</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">C35</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[2]_27</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">N34</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">ATEST_PAD</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">C36</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[2]_31</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">N35</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[3]_52</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">C36</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[2]_31</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">N35</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[3]_52</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">C37</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[2]_35</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">N38</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[3]_62</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">C37</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[2]_35</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">N38</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[3]_62</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">C38</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[2]_36</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">N39</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">C38</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[2]_36</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">N39</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">C39</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">N40</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[3]_74</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">C39</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">N40</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[3]_74</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">C40</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[2]_40</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">P21</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">C40</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[2]_40</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">P21</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">D21</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">PCIE0_RX1P</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">P22</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC_SYS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">D21</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">PCIE0_RX1P</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">P22</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC_SYS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">D22</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVSS_PCIEUSB</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">P23</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">D22</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVSS_PCIEUSB</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">P23</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">D23</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_TXDATA_M0[0]</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">P24</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC_SYS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">D23</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_TXDATA_M0[0]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">P24</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC_SYS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">D24</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS_UCIE</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">P25</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">D24</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS_UCIE</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">P25</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">D25</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_TXVLD_M0</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">P26</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC_SYS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">D25</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_TXVLD_M0</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">P26</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC_SYS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">D26</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_TXDATA_M0[12]</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">P27</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">D26</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_TXDATA_M0[12]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">P27</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">D27</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS_UCIE</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">P28</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC_SYS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">D27</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS_UCIE</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">P28</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC_SYS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">D28</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_RXDATA_M0[10]</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">P29</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">D28</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_RXDATA_M0[10]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">P29</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">D29</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_RXDATA_M0[14]</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">P30</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC_SYS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">D29</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_RXDATA_M0[14]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">P30</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC_SYS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">D30</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS_UCIE</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">P31</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">D30</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS_UCIE</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">P31</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">D31</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_RXDATA_M0[6]</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">P32</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">D31</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_RXDATA_M0[6]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">P32</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">D32</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_RXDATA_M0[1]</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">P33</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">D32</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_RXDATA_M0[1]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">P33</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">D33</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">P34</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">D33</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">P34</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">D34</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">P35</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">D34</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">P35</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">D35</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[2]_28</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">P36</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">D35</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[2]_28</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">P36</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">D38</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[2]_37</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">P37</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">EMMC_DS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">D38</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[2]_37</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">P37</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">EMMC_DS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">D39</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[2]_39</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">P38</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[3]_63</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">D39</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[2]_39</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">P38</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[3]_63</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">D40</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[2]_41</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">P39</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[3]_68</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">D40</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[2]_41</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">P39</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[3]_68</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">E21</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">PCIE0_RX1N</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">P40</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[3]_75</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">E21</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">PCIE0_RX1N</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">P40</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[3]_75</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">E22</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVSS_PCIEUSB</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">R21</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC_SYS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">E22</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVSS_PCIEUSB</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">R21</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC_SYS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">E23</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_TXDATASB_M0</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">R22</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVDD08_OSC</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">E23</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_TXDATASB_M0</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">R22</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVDD08_OSC</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">E24</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_O_CKNT</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">R23</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVDD18_OSC</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">E24</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_O_CKNT</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">R23</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVDD18_OSC</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">E25</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS_UCIE</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">R24</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVSS_OSCPLL234567</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">E25</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS_UCIE</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">R24</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVSS_OSCPLL234567</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">E26</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_TXCKSB_M0</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">R25</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC_SYS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">E26</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_TXCKSB_M0</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">R25</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC_SYS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">E27</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_TXDATA_M0[13]</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">R26</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">E27</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_TXDATA_M0[13]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">R26</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">E28</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS_UCIE</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">R27</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC_SYS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">E28</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS_UCIE</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">R27</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC_SYS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">E29</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_RXDATA_M0[8]</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">R28</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">E29</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_RXDATA_M0[8]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">R28</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">E30</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_RXDATA_M0[9]</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">R29</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC_SYS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">E30</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_RXDATA_M0[9]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">R29</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC_SYS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">E31</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS_UCIE</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">R30</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">E31</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS_UCIE</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">R30</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">E32</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_RXDATASB_M0</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">R31</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">E32</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_RXDATASB_M0</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">R31</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">E33</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">R32</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC18_GPIO2</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">E33</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">R32</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC18_GPIO2</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">E34</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[2]_24</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">R33</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC18_GPIO2</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">E34</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[2]_24</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">R33</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC18_GPIO2</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">E35</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">PMIC_INT_N</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">R34</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">E35</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">PMIC_INT_N</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">R34</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">E36</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">PWR_SSP_SCLK</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">R35</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">E36</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">PWR_SSP_SCLK</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">R35</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">E37</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">PMIC_WDT_N</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">R36</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">EMMC_CLK</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">E37</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">PMIC_WDT_N</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">R36</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">EMMC_CLK</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">E38</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">PRI_TDO</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">R37</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">EMMC_CMD</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">E38</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">PRI_TDO</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">R37</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">EMMC_CMD</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">E39</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">PRI_TRST_N</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">R38</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">E39</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">PRI_TRST_N</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">R38</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">E40</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">PWR_SSP_TXD</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">R39</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">EMMC_D5</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">E40</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">PWR_SSP_TXD</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">R39</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">EMMC_D5</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">F21</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVSS_PCIEUSB</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">R40</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">EMMC_D3</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">F21</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVSS_PCIEUSB</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">R40</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">EMMC_D3</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">F22</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">PCIE0_RX0P</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">T21</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">F22</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">PCIE0_RX0P</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">T21</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">F23</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS_UCIE</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">T22</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVDD08_PLL234</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">F23</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS_UCIE</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">T22</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVDD08_PLL234</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">F24</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_O_CKPT</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">T23</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVSS_OSCPLL234567</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">F24</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_O_CKPT</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">T23</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVSS_OSCPLL234567</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">F25</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_TXDATA_M0[7]</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">T24</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC_SYS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">F25</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_TXDATA_M0[7]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">T24</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC_SYS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">F26</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS_UCIE</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">T25</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">F26</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS_UCIE</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">T25</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">F27</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_TXDATA_M0[9]</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">T26</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC_SYS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">F27</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_TXDATA_M0[9]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">T26</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC_SYS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">F28</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_TXDATA_M0[15]</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">T30</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC_SYS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">F28</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_TXDATA_M0[15]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">T30</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC_SYS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">F29</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS_UCIE</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">T31</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">F29</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS_UCIE</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">T31</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">F30</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_RXVLD_M0</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">T32</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC1833_GPIO2</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">F30</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_RXVLD_M0</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">T32</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC1833_GPIO2</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">F31</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_RXDATA_M0[3]</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">T33</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC1833_GPIO2</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">F31</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_RXDATA_M0[3]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">T33</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC1833_GPIO2</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">F32</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS_UCIE</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">T34</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVDD18_FUSE</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">F32</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS_UCIE</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">T34</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVDD18_FUSE</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">F33</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">T35</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">F33</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">T35</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">F34</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">PRI_TMS</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">T36</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">EMMC_D4</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">F34</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">PRI_TMS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">T36</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">EMMC_D4</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">F35</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">T37</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">EMMC_D1</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">F35</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">T37</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">EMMC_D1</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">F36</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">PWR_SSP_RXD</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">T38</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">EMMC_D6</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">F36</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">PWR_SSP_RXD</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">T38</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">EMMC_D6</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">F37</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">EXT_32K_IN</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">T39</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">EMMC_D2</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">F37</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">EXT_32K_IN</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">T39</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">EMMC_D2</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">F38</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">PWR_SCL</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">T40</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">EMMC_D7</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">F38</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">PWR_SCL</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">T40</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">EMMC_D7</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">F39</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">PRI_TDI</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">U21</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC_SYS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">F39</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">PRI_TDI</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">U21</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC_SYS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">F40</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">U22</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">PCIE/USB3_RCAL</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">F40</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">U22</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">PCIE/USB3_RCAL</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">G21</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVDD33_USB20_HOST</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">U23</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVDD18_PLL234</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">G21</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVDD33_USB20_HOST</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">U23</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVDD18_PLL234</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">G22</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">PCIE0_RX0N</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">U24</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">G22</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">PCIE0_RX0N</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">U24</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">G23</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS_UCIE</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">U25</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC_SYS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">G23</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS_UCIE</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">U25</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC_SYS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">G24</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS_UCIE</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">U26</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">G24</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS_UCIE</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">U26</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">G25</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_TXDATA_M0[6]</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">U30</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">G25</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_TXDATA_M0[6]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">U30</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">G26</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_TXDATA_M0[1]</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">U31</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC_SYS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">G26</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_TXDATA_M0[1]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">U31</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC_SYS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">G27</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS_UCIE</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">U32</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC18_PMIC</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">G27</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS_UCIE</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">U32</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC18_PMIC</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">G28</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_TXDATA_M0[10]</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">U33</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC18_PMIC</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">G28</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_TXDATA_M0[10]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">U33</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC18_PMIC</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">G29</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_RXDATA_M0[13]</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">U34</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">G29</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_RXDATA_M0[13]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">U34</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">G30</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS_UCIE</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">U35</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">G30</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS_UCIE</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">U35</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">G31</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_RXDATA_M0[4]</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">U36</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">G31</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_RXDATA_M0[4]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">U36</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">G32</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_RXDATA_M0[0]</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">U37</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">G32</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_RXDATA_M0[0]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">U37</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">G33</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">U38</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">EMMC_D0</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">G33</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">U38</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">EMMC_D0</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">G34</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">PRI_TCK</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">U39</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">G34</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">PRI_TCK</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">U39</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">G35</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCXO_EN</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">U40</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">G35</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCXO_EN</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">U40</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">G38</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">PWR_SDA</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">V21</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">G38</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">PWR_SDA</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">V21</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">G39</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">RESET_IN_N</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">V22</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVDD18_PLL567</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">G39</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">RESET_IN_N</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">V22</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVDD18_PLL567</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">G40</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">PWR_SSP_FRM</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">V23</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVDD08_PLL567</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">G40</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">PWR_SSP_FRM</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">V23</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVDD08_PLL567</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">H21</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVDD33_B_USB20</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">V24</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC_SYS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">H21</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVDD33_B_USB20</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">V24</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC_SYS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">H22</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVSS_PCIEUSB</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">V25</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">H22</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVSS_PCIEUSB</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">V25</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">H23</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVSS_PCIEUSB</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">V26</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC_SYS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">H23</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVSS_PCIEUSB</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">V26</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC_SYS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">H24</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS_UCIE</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">V27</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">H24</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS_UCIE</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">V27</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">H25</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_ATEST</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">V28</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC_SYS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">H25</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_ATEST</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">V28</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC_SYS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">H26</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_BGR_EAREFCLKN</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">V29</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">H26</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_BGR_EAREFCLKN</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">V29</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">H27</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_VDD_0V8</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">V30</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC_SYS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">H27</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_VDD_0V8</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">V30</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC_SYS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">H28</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_EW_VCTRL_EXT</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">V31</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">H28</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_EW_VCTRL_EXT</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">V31</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">H29</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS_UCIE</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">V32</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC18_GPIO3</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">H29</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS_UCIE</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">V32</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC18_GPIO3</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">H30</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS_UCIE</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">V33</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC18_GPIO3</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">H30</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS_UCIE</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">V33</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC18_GPIO3</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">H31</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS_UCIE</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">V34</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">H31</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS_UCIE</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">V34</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">H32</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS_UCIE</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">V35</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">H32</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS_UCIE</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">V35</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">H33</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">V36</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">MIPI_CSI2_D3N</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">H33</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">V36</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">MIPI_CSI2_D3N</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">H34</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[3]_42</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">V37</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">MIPI_CSI2_D3P</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">H34</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[3]_42</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">V37</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">MIPI_CSI2_D3P</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">H35</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[3]_47</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">V38</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVSS_MIPI012</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">H35</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[3]_47</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">V38</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVSS_MIPI012</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">H36</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[3]_53</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">V39</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">MIPI_CSI2_D2N</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">H36</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[3]_53</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">V39</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">MIPI_CSI2_D2N</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">H37</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[3]_55</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">V40</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">MIPI_CSI2_D2P</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">H37</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[3]_55</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">V40</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">MIPI_CSI2_D2P</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">H38</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[3]_54</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">W21</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC_SYS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">H38</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[3]_54</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">W21</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC_SYS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">H39</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">W22</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">H39</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">W22</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">H40</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[3]_69</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">W23</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC_SYS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">H40</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[3]_69</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">W23</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC_SYS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">J21</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVDD08_PCIE0</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">W24</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">J21</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVDD08_PCIE0</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">W24</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">J22</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVSS_PCIEUSB</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">W25</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC_SYS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">J22</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVSS_PCIEUSB</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">W25</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC_SYS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">J23</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVSS_PCIEUSB</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">W26</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC_SYS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">J23</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVSS_PCIEUSB</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">W26</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC_SYS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">J24</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_VCCAON_0V8</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">W27</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC_SYS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">J24</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_VCCAON_0V8</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">W27</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC_SYS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">J25</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_VCCAON_0V8</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">W28</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">J25</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_VCCAON_0V8</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">W28</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">J26</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_BGR_EAREFCLKP</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">W29</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC_SYS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">J26</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_BGR_EAREFCLKP</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">W29</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC_SYS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">J27</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_VDD_0V8</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">W30</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">J27</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_VDD_0V8</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">W30</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">J28</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS_UCIE</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">W31</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC_SYS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">J28</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS_UCIE</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">W31</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC_SYS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">J29</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_VCCIO_0V8</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">W32</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVDD08_EMMC</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">J29</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_VCCIO_0V8</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">W32</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVDD08_EMMC</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">J30</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS_UCIE</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">W33</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVDD08_EMMC</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">J30</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS_UCIE</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">W33</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVDD08_EMMC</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">J31</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS_UCIE</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">W34</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">J31</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS_UCIE</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">W34</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">J32</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">XI_PAD</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">W35</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">J32</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">XI_PAD</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">W35</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">J33</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVSS_OSCPLL234567</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">W36</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVSS_MIPI012</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">J33</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVSS_OSCPLL234567</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">W36</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVSS_MIPI012</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">J34</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[3]_43</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">W37</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVSS_MIPI012</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">J34</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[3]_43</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">W37</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVSS_MIPI012</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">J35</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[3]_48</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">W38</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">MIPI_CSI3_CLKN</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">J35</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[3]_48</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">W38</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">MIPI_CSI3_CLKN</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">J36</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">W39</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">MIPI_CSI3_CLKP</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">J36</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">W39</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">MIPI_CSI3_CLKP</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">J37</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[3]_56</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">W40</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVSS_MIPI012</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">J37</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[3]_56</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">W40</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVSS_MIPI012</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">J38</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[3]_59</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">Y21</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">J38</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[3]_59</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">Y21</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">J39</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[3]_64</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">Y22</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC_SYS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">J39</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[3]_64</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">Y22</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC_SYS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">J40</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[3]_70</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">Y23</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">J40</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[3]_70</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">Y23</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">K21</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVDD08_PCIE0</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">Y24</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC_SYS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">K21</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVDD08_PCIE0</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">Y24</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC_SYS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">K22</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVDD08_USB20_HOST</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">Y25</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC_SYS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">K22</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVDD08_USB20_HOST</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">Y25</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC_SYS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">K23</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVSS_PCIEUSB</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">Y26</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC_SYS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">K23</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVSS_PCIEUSB</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">Y26</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC_SYS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">K24</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVSS_PCIEUSB</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">Y27</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">K24</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVSS_PCIEUSB</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">Y27</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">K25</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_VCCAON_0V8</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">Y28</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC_SYS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">K25</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_VCCAON_0V8</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">Y28</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC_SYS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">K26</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_VCCPLL_1P2V</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">Y29</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">K26</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_VCCPLL_1P2V</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">Y29</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">K27</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS_UCIE</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">Y30</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC_SYS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">K27</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS_UCIE</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">Y30</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC_SYS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">K28</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_VCCIO_0V8</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">Y31</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">K28</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_VCCIO_0V8</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">Y31</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">K29</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_VCCIO_0V8</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">Y32</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC18_EMMC</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">K29</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_VCCIO_0V8</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">Y32</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC18_EMMC</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">K30</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">UCIE_VCCIO_0V8</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">Y33</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VCC18_EMMC</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">K30</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">UCIE_VCCIO_0V8</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">Y33</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VCC18_EMMC</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">K31</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS_UCIE</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">Y34</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">K31</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS_UCIE</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">Y34</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">K32</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">XO_PAD</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">Y35</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">K32</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">XO_PAD</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">Y35</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">K33</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVSS_OSCPLL234567</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">Y36</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">MIPI_CSI2_D1P</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">K33</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVSS_OSCPLL234567</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">Y36</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">MIPI_CSI2_D1P</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">K34</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[3]_44</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">Y37</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">MIPI_CSI2_D1N</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">K34</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[3]_44</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">Y37</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">MIPI_CSI2_D1N</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">K35</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[3]_49</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">Y38</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">AVSS_MIPI012</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">K35</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[3]_49</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">Y38</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">AVSS_MIPI012</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">K38</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">VSS</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">Y39</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">MIPI_CSI2_D0P</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">K38</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">VSS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">Y39</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">MIPI_CSI2_D0P</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">K39</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[3]_65</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">Y40</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">MIPI_CSI2_D0N</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">K39</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[3]_65</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">Y40</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">MIPI_CSI2_D0N</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">K40</td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[3]_71</td>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;"></td>
-      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5; font-family: monospace;"></td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">K40</td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;">GPIO[3]_71</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
+      <td style="padding: 6px 4px; text-align: left; border: 1px solid #dfe2e5;"></td>
     </tr>
   </tbody>
 </table>
@@ -4197,7 +4197,7 @@ The tables below provide a detailed description of the signal assignments for Fu
   
   <tbody>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">QSPI_DAT3</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">QSPI_DAT3</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">QSPI_DAT[3]</td>
@@ -4209,7 +4209,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">QSPI_DAT2</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">QSPI_DAT2</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">QSPI_DAT[2]</td>
@@ -4221,7 +4221,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">QSPI_DAT1</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">QSPI_DAT1</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">QSPI_DAT[1]</td>
@@ -4233,7 +4233,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">QSPI_DAT0</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">QSPI_DAT0</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">QSPI_DAT[0]</td>
@@ -4245,7 +4245,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">QSPI_CLK</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">QSPI_CLK</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">QSPI_CLK</td>
@@ -4257,7 +4257,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">QSPI_CS0</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">QSPI_CS0</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">QSPI_CS0</td>
@@ -4269,7 +4269,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">QSPI_CS1</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">QSPI_CS1</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">QSPI_CS1</td>
@@ -4317,7 +4317,7 @@ The tables below provide a detailed description of the signal assignments for Fu
   
   <tbody>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">MMC1_DAT3</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">MMC1_DAT3</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">MMC1_DAT[3]</td>
@@ -4329,7 +4329,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">MMC1_DAT2</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">MMC1_DAT2</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">MMC1_DAT[2]</td>
@@ -4341,7 +4341,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">MMC1_DAT1</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">MMC1_DAT1</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">MMC1_DAT[1]</td>
@@ -4353,7 +4353,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">MMC1_DAT0</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">MMC1_DAT0</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">MMC1_DAT[0]</td>
@@ -4365,7 +4365,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">MMC1_CMD</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">MMC1_CMD</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">MMC1_CMD</td>
@@ -4377,7 +4377,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">I2C4_SCL</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">MMC1_CLK</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">MMC1_CLK</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">MMC1_CLK</td>
@@ -4425,7 +4425,7 @@ The tables below provide a detailed description of the signal assignments for Fu
   
   <tbody>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">RESET_IN_N</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">RESET_IN_N</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">NO</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">RESET_IN_N</td>
@@ -4437,7 +4437,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">EXT_32K_IN</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">EXT_32K_IN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">NO</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">EXT_32K_IN</td>
@@ -4449,7 +4449,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">PWR_SCL</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">PWR_SCL</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">PWR_SCL</td>
@@ -4461,7 +4461,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">PWR_SDA</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">PWR_SDA</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">PWR_SDA</td>
@@ -4473,7 +4473,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">VCXO_EN</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">VCXO_EN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">NO</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">VCXO_EN</td>
@@ -4485,7 +4485,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">PMIC_WDT_N</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">PMIC_WDT_N</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">NO</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">PMIC_WDT_N</td>
@@ -4497,7 +4497,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">PMIC_INT_N</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">PMIC_INT_N</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">PMIC_INT_N</td>
@@ -4509,7 +4509,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">PWR_SSP_TXD</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">PWR_SSP_TXD</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">PWR_SSP_TXD</td>
@@ -4521,7 +4521,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">PWR_SSP_RXD</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">PWR_SSP_RXD</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">PWR_SSP_RXD</td>
@@ -4533,7 +4533,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">PWR_SSP_SCLK</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">PWR_SSP_SCLK</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">PWR_SSP_SCLK</td>
@@ -4545,7 +4545,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">PWR_SSP_FRM</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">PWR_SSP_FRM</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">PWR_SSP_FRM</td>
@@ -4557,7 +4557,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">PRI_TDI</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">PRI_TDI</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">NO</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">PRI_TDI</td>
@@ -4569,7 +4569,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">R.UART0_TXD</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">PRI_TMS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">PRI_TMS</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">NO</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">PRI_TMS</td>
@@ -4581,7 +4581,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">R.UART0_RXD</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">PRI_TCK</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">PRI_TCK</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">NO</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">PRI_TCK</td>
@@ -4593,7 +4593,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">PRI_TDO</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">PRI_TDO</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">NO</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">PRI_TDO</td>
@@ -4605,7 +4605,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">PRI_TRST_N</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">PRI_TRST_N</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">NO</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">PRI_TRSTn</td>
@@ -4653,7 +4653,7 @@ The tables below provide a detailed description of the signal assignments for Fu
   
   <tbody>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">EMMC_D0</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">EMMC_D0</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">EMMC_D0</td>
@@ -4665,7 +4665,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">EMMC_D1</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">EMMC_D1</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">EMMC_D1</td>
@@ -4677,7 +4677,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">EMMC_D2</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">EMMC_D2</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">EMMC_D2</td>
@@ -4689,7 +4689,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">EMMC_D3</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">EMMC_D3</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">EMMC_D3</td>
@@ -4701,7 +4701,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">EMMC_D4</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">EMMC_D4</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">EMMC_D4</td>
@@ -4713,7 +4713,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">EMMC_D5</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">EMMC_D5</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">EMMC_D5</td>
@@ -4725,7 +4725,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">EMMC_D6</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">EMMC_D6</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">EMMC_D6</td>
@@ -4737,7 +4737,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">EMMC_D7</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">EMMC_D7</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">EMMC_D7</td>
@@ -4749,7 +4749,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">EMMC_DS</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">EMMC_DS</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">EMMC_DS</td>
@@ -4761,7 +4761,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">EMMC_CLK</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">EMMC_CLK</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">EMMC_CLK</td>
@@ -4773,7 +4773,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">EMMC_CMD</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">EMMC_CMD</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">EMMC_CMD</td>
@@ -4821,7 +4821,7 @@ The tables below provide a detailed description of the signal assignments for Fu
   
   <tbody>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[0]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[0]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[0]</td>
@@ -4833,7 +4833,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">I2C0_SCL</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[1]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[1]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[1]</td>
@@ -4845,7 +4845,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">I2C0_SDA</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[2]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[2]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[2]</td>
@@ -4857,7 +4857,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">I2C1_SCL</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[3]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[3]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[3]</td>
@@ -4869,7 +4869,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">I2C1_SDA</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[4]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[4]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[4]</td>
@@ -4881,7 +4881,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[5]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[5]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[5]</td>
@@ -4893,7 +4893,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">I2C2_SCL</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[6]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[6]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[6]</td>
@@ -4905,7 +4905,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">I2C2_SDA</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[7]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[7]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[7]</td>
@@ -4917,7 +4917,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">I2C6_SCL</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[8]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[8]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[8]</td>
@@ -4929,7 +4929,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">I2C6_SDA</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[9]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[9]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[9]</td>
@@ -4941,7 +4941,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">e/DP0_HPD</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[10]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[10]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[10]</td>
@@ -4953,7 +4953,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">e/DP1_HPD</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[11]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[11]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[11]</td>
@@ -4965,7 +4965,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">I2C4_SCL</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[12]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[12]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[12]</td>
@@ -4977,7 +4977,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">I2C4_SDA</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[13]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[13]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[13]</td>
@@ -4989,7 +4989,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">DSI0_TE</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[14]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[14]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[14]</td>
@@ -5001,7 +5001,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">I2C6_SCL</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[15]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[15]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[15]</td>
@@ -5013,7 +5013,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">I2C6_SDA</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[16]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[16]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[16]</td>
@@ -5025,7 +5025,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">USB20_HOST_DRV</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[17]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[17]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[17]</td>
@@ -5037,7 +5037,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">USB30_DRD_ID</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[18]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[18]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[18]</td>
@@ -5049,7 +5049,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">USB30_DRD_VBUSON</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[19]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[19]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[19]</td>
@@ -5061,7 +5061,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">USB30_DRD_DRV</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[20]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[20]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[20]</td>
@@ -5109,7 +5109,7 @@ The tables below provide a detailed description of the signal assignments for Fu
   
   <tbody>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[21]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[21]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[21]</td>
@@ -5121,7 +5121,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">R.GPIO[28]</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[22]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[22]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[22]</td>
@@ -5133,7 +5133,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">R.GPIO[29]</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[23]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[23]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[23]</td>
@@ -5145,7 +5145,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">e/DP0_HPD</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[24]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[24]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[24]</td>
@@ -5157,7 +5157,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">e/DP1_HPD</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[25]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[25]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[25]</td>
@@ -5169,7 +5169,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">I2C5_SDA</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[26]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[26]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[26]</td>
@@ -5181,7 +5181,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">I2C5_SCL</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[27]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[27]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[27]</td>
@@ -5193,7 +5193,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">R.I2C0_SCL</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[28]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[28]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[28]</td>
@@ -5205,7 +5205,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">R.I2C0_SDA</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[29]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[29]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[29]</td>
@@ -5217,7 +5217,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[30]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[30]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[30]</td>
@@ -5229,7 +5229,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">EDP0_HPD</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[31]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[31]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[31]</td>
@@ -5241,7 +5241,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">EDP1_HPD</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[32]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[32]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[32]</td>
@@ -5253,7 +5253,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[33]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[33]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[33]</td>
@@ -5265,7 +5265,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">R.I2C1_SCL</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[34]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[34]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[34]</td>
@@ -5277,7 +5277,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">R.I2C1_SDA</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[35]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[35]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[35]</td>
@@ -5289,7 +5289,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[36]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[36]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[36]</td>
@@ -5301,7 +5301,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[37]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[37]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[37]</td>
@@ -5313,7 +5313,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[38]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[38]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[38]</td>
@@ -5325,7 +5325,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">DSI0_TE</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[39]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[39]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[39]</td>
@@ -5337,7 +5337,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[40]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[40]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[40]</td>
@@ -5349,7 +5349,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">CAN4_TXD</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[41]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[41]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[41]</td>
@@ -5397,7 +5397,7 @@ The tables below provide a detailed description of the signal assignments for Fu
   
   <tbody>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[42]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[42]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[42]</td>
@@ -5409,7 +5409,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">PWM0</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[43]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[43]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[43]</td>
@@ -5421,7 +5421,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">PWM1</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[44]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[44]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[44]</td>
@@ -5433,7 +5433,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">PWM2</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[45]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[45]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[45]</td>
@@ -5445,7 +5445,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">PWM3</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[46]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[46]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[46]</td>
@@ -5457,7 +5457,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">PWM4</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[47]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[47]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[47]</td>
@@ -5469,7 +5469,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">PWM5</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[48]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[48]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[48]</td>
@@ -5481,7 +5481,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">PWM6</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[49]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[49]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[49]</td>
@@ -5493,7 +5493,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">PWM7</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[50]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[50]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[50]</td>
@@ -5505,7 +5505,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">PWM8</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[51]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[51]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[51]</td>
@@ -5517,7 +5517,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">PWM9</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[52]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[52]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[52]/Strap[5]</td>
@@ -5529,7 +5529,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">PWM10</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[53]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[53]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[53]</td>
@@ -5541,7 +5541,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">PWM11</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[54]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[54]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[54]</td>
@@ -5553,7 +5553,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">PWM12</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[55]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[55]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[55]</td>
@@ -5565,7 +5565,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">PWM13</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[56]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[56]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[56]</td>
@@ -5577,7 +5577,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">PWM14</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[57]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[57]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[57]</td>
@@ -5589,7 +5589,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">PWM15</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[58]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[58]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[58]</td>
@@ -5601,7 +5601,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">PWM16</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[59]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[59]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[59]</td>
@@ -5613,7 +5613,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">PWM17</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[60]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[60]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[60]</td>
@@ -5625,7 +5625,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">PWM18</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[61]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[61]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[61]</td>
@@ -5637,7 +5637,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">PWM19</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[62]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[62]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[62]</td>
@@ -5649,7 +5649,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[63]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[63]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[63]</td>
@@ -5661,7 +5661,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[64]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[64]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[64]/Strap[4]</td>
@@ -5673,7 +5673,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">R.PWM0</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[65]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[65]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[65]/Strap[0]</td>
@@ -5685,7 +5685,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">R.PWM1</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[66]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[66]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[66]/Strap[1]</td>
@@ -5697,7 +5697,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">R.PWM2</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[67]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[67]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[67]</td>
@@ -5709,7 +5709,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">R.PWM3</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[68]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[68]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[68]/Strap[2]</td>
@@ -5721,7 +5721,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">SSP3_TXD</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[69]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[69]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[69]/Strap[3]</td>
@@ -5733,7 +5733,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">SSP3_RXD</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[70]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[70]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[70]</td>
@@ -5745,7 +5745,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">SSP3_SCLK</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[71]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[71]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[71]</td>
@@ -5757,7 +5757,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">SSP3_FRM</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[72]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[72]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[72]</td>
@@ -5769,7 +5769,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[73]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[73]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[73]</td>
@@ -5781,7 +5781,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[74]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[74]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[74]</td>
@@ -5793,7 +5793,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">R.I2C0_SCL</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[75]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[75]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[75]</td>
@@ -5841,7 +5841,7 @@ The tables below provide a detailed description of the signal assignments for Fu
   
   <tbody>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[76]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[76]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[76]</td>
@@ -5853,7 +5853,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">I2C0_SCL</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[77]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[77]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[77]</td>
@@ -5865,7 +5865,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">I2C0_SDA</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[78]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[78]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[78]</td>
@@ -5877,7 +5877,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">I2C1_SCL</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[79]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[79]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[79]</td>
@@ -5889,7 +5889,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">I2C1_SDA</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[80]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[80]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[80]</td>
@@ -5901,7 +5901,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">I2C2_SCL</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[81]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[81]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[81]</td>
@@ -5913,7 +5913,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">I2C2_SDA</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[82]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[82]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[82]</td>
@@ -5925,7 +5925,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">I2C3_SCL</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[83]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[83]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[83]</td>
@@ -5937,7 +5937,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">I2C3_SDA</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[84]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[84]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[84]</td>
@@ -5949,7 +5949,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">DSI0_TE</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[85]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[85]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[85]</td>
@@ -5961,7 +5961,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[86]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[86]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[86]</td>
@@ -5973,7 +5973,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">USB30_DRD_DIR</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[87]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[87]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[87]</td>
@@ -5985,7 +5985,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">PCIeB_PRSNT2n</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[88]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[88]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[88]</td>
@@ -5997,7 +5997,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">CAN1_RXD</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[89]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[89]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[89]</td>
@@ -6009,7 +6009,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">CAN1_TXD</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[90]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[90]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[90]</td>
@@ -6021,7 +6021,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">R.CAN0_RXD</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[91]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[91]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[91]</td>
@@ -6033,7 +6033,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">R.CAN0_TXD</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[92]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[92]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[92]</td>
@@ -6045,7 +6045,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">DSI0_TE</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[93]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[93]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[93]</td>
@@ -6057,7 +6057,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">R.PWM4</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[94]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[94]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[94]</td>
@@ -6069,7 +6069,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">R.PWM6</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[95]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[95]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[95]</td>
@@ -6081,7 +6081,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">PWM1</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[96]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[96]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[96]</td>
@@ -6093,7 +6093,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">PWM2</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[97]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[97]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[97]</td>
@@ -6105,7 +6105,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">PWM3</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[98]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[98]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[98]</td>
@@ -6153,7 +6153,7 @@ The tables below provide a detailed description of the signal assignments for Fu
   
   <tbody>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[99]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[99]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[99]</td>
@@ -6165,7 +6165,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">CLK_CAMCK4</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[100]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[100]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[100]</td>
@@ -6177,7 +6177,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">CLK32K_OUT</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[101]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[101]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[101]</td>
@@ -6189,7 +6189,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">MNCLK_OUT1</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[102]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[102]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[102]</td>
@@ -6201,7 +6201,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">I2C1_SCL</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[103]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[103]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[103]</td>
@@ -6213,7 +6213,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">I2C1_SDA</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[104]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[104]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[104]</td>
@@ -6225,7 +6225,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[105]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[105]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[105]</td>
@@ -6237,7 +6237,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">PWM17</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[106]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[106]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[106]</td>
@@ -6249,7 +6249,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">PWM18</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[107]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[107]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[107]</td>
@@ -6261,7 +6261,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">PWM19</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[108]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[108]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[108]</td>
@@ -6273,7 +6273,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[109]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[109]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[109]</td>
@@ -6285,7 +6285,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">R.PWM6</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[110]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[110]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[110]</td>
@@ -6297,7 +6297,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">R.PWM7</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[111]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[111]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[111]</td>
@@ -6309,7 +6309,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">R.PWM8</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[112]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[112]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[112]</td>
@@ -6321,7 +6321,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">R.PWM9</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[113]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[113]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[113]</td>
@@ -6333,7 +6333,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[114]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[114]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[114]</td>
@@ -6345,7 +6345,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[115]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[115]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[115]</td>
@@ -6357,7 +6357,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">R.I2C0_SCL</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[116]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[116]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[116]</td>
@@ -6369,7 +6369,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">R.I2C0_SDA</td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[117]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[117]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[117]</td>
@@ -6381,7 +6381,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[118]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[118]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[118]</td>
@@ -6393,7 +6393,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[119]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[119]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[119]</td>
@@ -6405,7 +6405,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[120]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[120]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[120]</td>
@@ -6417,7 +6417,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[121]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[121]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[121]</td>
@@ -6429,7 +6429,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[122]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[122]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[122]</td>
@@ -6441,7 +6441,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[123]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[123]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[123]</td>
@@ -6453,7 +6453,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[124]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[124]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[124]</td>
@@ -6465,7 +6465,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[125]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[125]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[125]</td>
@@ -6477,7 +6477,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[126]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[126]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">UP</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[126]</td>
@@ -6489,7 +6489,7 @@ The tables below provide a detailed description of the signal assignments for Fu
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;"></td>
     </tr>
     <tr>
-      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace; font-weight: bold;">GPIO_[127]</td>
+      <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">GPIO_[127]</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">DOWN</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5;">ENABLE</td>
       <td style="padding: 6px 4px; text-align: center; border: 1px solid #dfe2e5; font-family: monospace;">GPIO[127]</td>
