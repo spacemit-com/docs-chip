@@ -50,7 +50,7 @@ Users assume all risks associated with the use of the information provided herei
   </colgroup>
   
   <thead>
-    <tr style="">
+    <tr style="background-color: #f6f8fa;">
       <th style="text-align: center;">Version</th>
       <th style="text-align: center;">Date</th>
       <th style="text-align: left;">Notes</th>
