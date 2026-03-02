@@ -51,7 +51,7 @@ sidebar_position: 2
   </colgroup>
   
   <thead>
-    <tr style="">
+    <tr style="background-color: #f6f8fa;">
       <th style="text-align: center;">版本号</th>
       <th style="text-align: center;">日期</th>
       <th style="text-align: left;">修订说明</th>
