@@ -4793,7 +4793,7 @@ The tables below provide a detailed description of the signal assignments for Fu
 
 #### GPIO1 1.8V/3.3V
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 11px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 12px; color: #333;">
 
   <colgroup>
     <col width="100">
