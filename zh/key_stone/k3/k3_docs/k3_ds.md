@@ -43,7 +43,7 @@ sidebar_position: 2
 
 > 以下修订记录仅供参考，未必涵盖所有变更。规格及产品信息如有调整，恕不另行通知。
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 14px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 14px; color: #333;">
   <colgroup>
     <col width="200">
     <col width="200">
@@ -1253,7 +1253,7 @@ IOPMP 仅可由 安全世界（Secure World） 配置，用于定义非 CPU 主�
 
 DMA 控制器通过 16 个可配置 DMA 通道，在 DMA 直通模式（Flow-Through Mode） 下支持多种数据传输类型。支持的传输路径如下表所示：
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 14px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 14px; color: #333;">
 
   <colgroup>
     <col width="200">
@@ -1513,7 +1513,7 @@ K3 SoC 集成了 8 个锁相环（PLL），为各类模块及 CPU 核心提供�
 
 K3 支持多种资源复位策略，如下表所示：
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 14px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 14px; color: #333;">
   <colgroup>
     <col width="100">
     <col width="300">
@@ -1593,7 +1593,7 @@ K3 始终优先尝试从 SD 卡启动。
 
 K3 使用 4 个 Boot Strap 引脚（GPIO_69、GPIO_68、GPIO_66、GPIO_65）组合选择启动模式，具体映射如下：
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 14px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 14px; color: #333;">
   <colgroup>
     <col width="200">
     <col width="200">
@@ -1680,7 +1680,7 @@ K3 使用 4 个 Boot Strap 引脚（GPIO_69、GPIO_68、GPIO_66、GPIO_65）组�
 
 K3 提供以下封装选项：
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 14px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 14px; color: #333;">
 
   <colgroup>
     <col width="250">
@@ -1730,7 +1730,7 @@ K3 的完整引脚分布图如下所示：
 
 <img src="static/k3_pinmap_a-y_1-20.png" alt="" width="800">
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px; color: #333;">
 
   <colgroup>
     <col width="150">
@@ -1954,7 +1954,7 @@ K3 的完整引脚分布图如下所示：
 
 <img src="static/k3_pinmap_a-y_21-40.png" alt="" width="800">
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px; color: #333;">
   <colgroup>
     <col width="150">
     <col width="350">
@@ -3137,7 +3137,7 @@ K3 的完整引脚分布图如下所示：
 
 <img src="static/k3_pinmap_aa-ay_1-20.png" alt="" width="800">
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px; color: #333;">
 
   <colgroup>
     <col width="150">
@@ -3363,7 +3363,7 @@ K3 的完整引脚分布图如下所示：
 
 <img src="static/k3_pinmap_aa-ay_21-40.png" alt="" width="800">
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px; color: #333;">
 
   <colgroup>
     <col width="150">
@@ -3585,7 +3585,7 @@ K3 的完整引脚分布图如下所示：
 
 #### 4.2.1 1.8V I/O 引脚
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px; color: #333; margin-bottom: 20px;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px; color: #333; margin-bottom: 20px;">
 
   <colgroup>
     <col width="150">
@@ -3718,7 +3718,7 @@ K3 的完整引脚分布图如下所示：
 
 #### 4.2.2 3.3V I/O 引脚
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px; color: #333;">
  
   <colgroup>
     <col width="150">
@@ -3914,7 +3914,7 @@ K3 的 I/O 引脚支持 **功能 0 至 功能 7（Function 0–7）** 的信号�
 
 #### 4.3.1 JTAG – 主接口（Primary）
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px; color: #333;">
   <!-- 列宽定义：100 + 100 + 800 = 1000px -->
   <colgroup>
     <col width="100">
@@ -3971,7 +3971,7 @@ K3 的 I/O 引脚支持 **功能 0 至 功能 7（Function 0–7）** 的信号�
 
 #### 4.3.2 杂项（Miscellaneous）
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px; color: #333;">
 
   <colgroup>
     <col width="100">
@@ -4008,7 +4008,7 @@ K3 的 I/O 引脚支持 **功能 0 至 功能 7（Function 0–7）** 的信号�
 
 #### 4.3.3 SPIx
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px; color: #333;">
 
   <colgroup>
     <col width="100">
@@ -4052,7 +4052,7 @@ K3 的 I/O 引脚支持 **功能 0 至 功能 7（Function 0–7）** 的信号�
 
 **专用信号（Dedicated）**
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px; color: #333;">
 
   <colgroup>
     <col width="100">
@@ -4084,7 +4084,7 @@ K3 的 I/O 引脚支持 **功能 0 至 功能 7（Function 0–7）** 的信号�
 
 **通用信号（Common）**
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px; color: #333;">
 
   <colgroup>
     <col width="100">
@@ -4116,7 +4116,7 @@ K3 的 I/O 引脚支持 **功能 0 至 功能 7（Function 0–7）** 的信号�
 
 #### 4.3.5 UARTx
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px; color: #333;">
 
   <colgroup>
     <col width="100">
@@ -4158,7 +4158,7 @@ K3 的 I/O 引脚支持 **功能 0 至 功能 7（Function 0–7）** 的信号�
 
 #### 4.3.6 USB
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px; color: #333;">
 
   <colgroup>
     <col width="100">
@@ -4201,7 +4201,7 @@ K3 的 I/O 引脚支持 **功能 0 至 功能 7（Function 0–7）** 的信号�
 
 #### QSPI 1.8V/3.3V
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 12px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 12px; color: #333;">
 
   <colgroup>
     <col width="100">
@@ -4219,7 +4219,7 @@ K3 的 I/O 引脚支持 **功能 0 至 功能 7（Function 0–7）** 的信号�
   <thead>
     <tr style="background-color: #f6f8fa; border-bottom: 2px solid #dfe2e5;">
       <th style="padding: 8px 4px; text-align: center; border: 1px solid #dfe2e5;">引脚名称</th>
-      <th style="padding: 8px 4px; text-align: center; border: 1px solid #dfe2e5;">默认上/下拉</th>
+      <th style="padding: 8px 4px; text-align: center; border: 1px solid #dfe2e5;">默认上下拉</th>
       <th style="padding: 8px 4px; text-align: center; border: 1px solid #dfe2e5;">边沿唤醒功能</th>
       <th style="padding: 8px 4px; text-align: center; border: 1px solid #dfe2e5;">Function 0</th>
       <th style="padding: 8px 4px; text-align: center; border: 1px solid #dfe2e5;">Function 1</th>
@@ -4321,7 +4321,7 @@ K3 的 I/O 引脚支持 **功能 0 至 功能 7（Function 0–7）** 的信号�
 
 #### SD/MMC1 1.8V/3.3V
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 12px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 12px; color: #333;">
 
   <colgroup>
     <col width="100">
@@ -4339,7 +4339,7 @@ K3 的 I/O 引脚支持 **功能 0 至 功能 7（Function 0–7）** 的信号�
   <thead>
     <tr style="background-color: #f6f8fa; border-bottom: 2px solid #dfe2e5;">
       <th style="padding: 8px 4px; text-align: center; border: 1px solid #dfe2e5;">引脚名称</th>
-      <th style="padding: 8px 4px; text-align: center; border: 1px solid #dfe2e5;">默认上/下拉</th>
+      <th style="padding: 8px 4px; text-align: center; border: 1px solid #dfe2e5;">默认上下拉</th>
       <th style="padding: 8px 4px; text-align: center; border: 1px solid #dfe2e5;">边沿唤醒功能</th>
       <th style="padding: 8px 4px; text-align: center; border: 1px solid #dfe2e5;">Function 0</th>
       <th style="padding: 8px 4px; text-align: center; border: 1px solid #dfe2e5;">Function 1</th>
@@ -4429,7 +4429,7 @@ K3 的 I/O 引脚支持 **功能 0 至 功能 7（Function 0–7）** 的信号�
 
 #### PMIC [1.8V only]
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 12px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 12px; color: #333;">
 
   <colgroup>
     <col width="100">
@@ -4657,7 +4657,7 @@ K3 的 I/O 引脚支持 **功能 0 至 功能 7（Function 0–7）** 的信号�
 
 #### EMMC5 [1.8V only]
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 12px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 12px; color: #333;">
 
   <colgroup>
     <col width="100">
@@ -4825,7 +4825,7 @@ K3 的 I/O 引脚支持 **功能 0 至 功能 7（Function 0–7）** 的信号�
 
 #### GPIO1 1.8V/3.3V
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 12px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 12px; color: #333;">
 
   <colgroup>
     <col width="100">
@@ -5113,7 +5113,7 @@ K3 的 I/O 引脚支持 **功能 0 至 功能 7（Function 0–7）** 的信号�
 
 #### GPIO2 1.8V/3.3V
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 12px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 12px; color: #333;">
 
   <colgroup>
     <col width="100">
@@ -5401,7 +5401,7 @@ K3 的 I/O 引脚支持 **功能 0 至 功能 7（Function 0–7）** 的信号�
 
 #### GPIO3 [1.8V only]
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 12px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 12px; color: #333;">
 
   <colgroup>
     <col width="100">
@@ -5845,7 +5845,7 @@ K3 的 I/O 引脚支持 **功能 0 至 功能 7（Function 0–7）** 的信号�
 
 #### GPIO4 1.8V/3.3V
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 12px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 12px; color: #333;">
 
   <colgroup>
     <col width="100">
@@ -6157,7 +6157,7 @@ K3 的 I/O 引脚支持 **功能 0 至 功能 7（Function 0–7）** 的信号�
 
 #### GPIO5 1.8V/3.3V
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 12px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 12px; color: #333;">
 
   <colgroup>
     <col width="100">
@@ -6545,7 +6545,7 @@ K3 的 I/O 引脚支持 **功能 0 至 功能 7（Function 0–7）** 的信号�
 
 下表列出了推荐的工作条件。
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px; color: #333;">
 
   <colgroup>
     <col width="200">
@@ -6655,7 +6655,7 @@ K3 的 I/O 引脚支持 **功能 0 至 功能 7（Function 0–7）** 的信号�
 
 #### 5.2.1 引脚参数
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px; color: #333;">
 
   <colgroup>
     <col width="250">
@@ -6762,7 +6762,7 @@ K3 的 I/O 引脚支持 **功能 0 至 功能 7（Function 0–7）** 的信号�
 
 #### 5.2.2 封装参数
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px; color: #333;">
 
   <colgroup>
     <col width="250">

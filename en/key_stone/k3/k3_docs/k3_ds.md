@@ -42,7 +42,7 @@ Users assume all risks associated with the use of the information provided herei
 
 > The revision history below is provided for reference only. Specifications remain subject to change without notice.
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 14px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 14px; color: #333;">
   <colgroup>
     <col width="200">
     <col width="200">
@@ -1244,7 +1244,7 @@ Peripheral devices do not directly issue addresses or commands to the memory con
 The processor can also access the peripheral bus via the DMA controller, which serves as a DMA bridge, enabling data transfers that bypass the system’s primary DMA path when necessary.  
 The DMA controller supports various data transfer types in DMA Flow-Through Mode through 16 configurable DMA channels. The supported data transfer paths are summarized below:
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 14px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 14px; color: #333;">
 
   <colgroup>
     <col width="200">
@@ -1479,7 +1479,7 @@ The K3 integrates eight Phase-Locked Loops (PLLs) designed to provide a wide ran
 
 The K3 allows applying different schemes of resource reset as tabled below.
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 14px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 14px; color: #333;">
 
   <colgroup>
     <col width="100">
@@ -1561,7 +1561,7 @@ The secondary boot device can be selected by configuring the Boot Strap Pins.
 
 The K3 uses a combination of four Boot Strap pins to select the boot mode, as shown in the table below:
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 14px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 14px; color: #333;">
   <colgroup>
     <col width="200">
     <col width="200">
@@ -1648,7 +1648,7 @@ The K3 uses a combination of four Boot Strap pins to select the boot mode, as sh
 
 K3 is available in one package as follows:
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 14px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 14px; color: #333;">
 
   <colgroup>
     <col width="250">
@@ -1698,7 +1698,7 @@ Let’s consider the division into the quadrants, in order to conveniently provi
 
 <img src="static/k3_pinmap_a-y_1-20.png" alt="" width="800">
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px; color: #333;">
 
   <colgroup>
     <col width="150">
@@ -1922,7 +1922,7 @@ Let’s consider the division into the quadrants, in order to conveniently provi
 
 <img src="static/k3_pinmap_a-y_21-40.png" alt="" width="800">
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px; color: #333;">
 
   <colgroup>
     <col width="150">
@@ -3106,7 +3106,7 @@ Let’s consider the division into the quadrants, in order to conveniently provi
 
 <img src="static/k3_pinmap_aa-ay_1-20.png" alt="" width="800">
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px; color: #333;">
 
   <colgroup>
     <col width="150">
@@ -3332,7 +3332,7 @@ Let’s consider the division into the quadrants, in order to conveniently provi
 
 <img src="static/k3_pinmap_aa-ay_21-40.png" alt="" width="800">
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px; color: #333;">
 
   <colgroup>
     <col width="150">
@@ -3554,7 +3554,7 @@ Let’s consider the division into the quadrants, in order to conveniently provi
 
 #### 4.2.1 For 1.8V I/O Pins
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px; color: #333;">
 
   <colgroup>
     <col width="150">
@@ -3687,7 +3687,7 @@ Let’s consider the division into the quadrants, in order to conveniently provi
 
 ### 4.2.2 For 3.3V I/O Pins
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px; color: #333;">
 
   <colgroup>
     <col width="150">
@@ -3882,7 +3882,7 @@ The assigned signals are organized by their functions (e.g. power supply, clock,
 
 #### 4.3.1 JTAG – Primary
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px; color: #333;">
 
   <colgroup>
     <col width="100">
@@ -3939,7 +3939,7 @@ The assigned signals are organized by their functions (e.g. power supply, clock,
 
 #### 4.3.2 Miscellaneous
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px; color: #333;">
 
   <colgroup>
     <col width="100">
@@ -3976,7 +3976,7 @@ The assigned signals are organized by their functions (e.g. power supply, clock,
 
 #### 4.3.3 SPIx
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px; color: #333;">
 
   <colgroup>
     <col width="100">
@@ -4020,7 +4020,7 @@ The assigned signals are organized by their functions (e.g. power supply, clock,
 
 **Dedicated**
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px; color: #333;">
 
   <colgroup>
     <col width="100">
@@ -4052,7 +4052,7 @@ The assigned signals are organized by their functions (e.g. power supply, clock,
 
 **Common**
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px; color: #333;">
 
   <colgroup>
     <col width="100">
@@ -4084,7 +4084,7 @@ The assigned signals are organized by their functions (e.g. power supply, clock,
 
 #### 4.3.5 UARTx
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px; color: #333;">
 
   <colgroup>
     <col width="100">
@@ -4126,7 +4126,7 @@ The assigned signals are organized by their functions (e.g. power supply, clock,
 
 #### 4.3.6 USB
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px; color: #333;">
 
   <colgroup>
     <col width="100">
@@ -4169,7 +4169,7 @@ The tables below provide a detailed description of the signal assignments for Fu
 
 #### QSPI 1.8V/3.3V
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 12px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 12px; color: #333;">
 
   <colgroup>
     <col width="100">
@@ -4289,7 +4289,7 @@ The tables below provide a detailed description of the signal assignments for Fu
 
 #### SD/MMC1 1.8V/3.3V
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 12px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 12px; color: #333;">
 
   <colgroup>
     <col width="100">
@@ -4397,7 +4397,7 @@ The tables below provide a detailed description of the signal assignments for Fu
 
 #### PMIC [1.8V only]
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 12px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 12px; color: #333;">
 
   <colgroup>
     <col width="100">
@@ -4625,7 +4625,7 @@ The tables below provide a detailed description of the signal assignments for Fu
 
 #### EMMC5 [1.8V only]
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 12px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 12px; color: #333;">
 
   <colgroup>
     <col width="100">
@@ -4793,7 +4793,7 @@ The tables below provide a detailed description of the signal assignments for Fu
 
 #### GPIO1 1.8V/3.3V
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 12px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 12px; color: #333;">
 
   <colgroup>
     <col width="100">
@@ -5081,7 +5081,7 @@ The tables below provide a detailed description of the signal assignments for Fu
 
 #### GPIO2 1.8V/3.3V
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 12px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 12px; color: #333;">
 
   <colgroup>
     <col width="100">
@@ -5369,7 +5369,7 @@ The tables below provide a detailed description of the signal assignments for Fu
 
 #### GPIO3 [1.8V only]
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 12px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 12px; color: #333;">
 
   <colgroup>
     <col width="100">
@@ -5813,7 +5813,7 @@ The tables below provide a detailed description of the signal assignments for Fu
 
 #### GPIO4 1.8V/3.3V
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 12px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 12px; color: #333;">
 
   <colgroup>
     <col width="100">
@@ -6125,7 +6125,7 @@ The tables below provide a detailed description of the signal assignments for Fu
 
 #### GPIO5 1.8V/3.3V
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 12px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 12px; color: #333;">
 
   <colgroup>
     <col width="100">
@@ -6513,7 +6513,7 @@ The tables below provide a detailed description of the signal assignments for Fu
 
 The following table describes the recommended operating conditions.
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px; color: #333;">
 
   <colgroup>
     <col width="200">
@@ -6623,7 +6623,7 @@ The following table describes the recommended operating conditions.
 
 #### 5.2.1 For Pins
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px; color: #333;">
 
   <colgroup>
     <col width="250">
@@ -6730,7 +6730,7 @@ The following table describes the recommended operating conditions.
 
 #### 5.2.2 For Packages
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px; color: #333;">
 
   <colgroup>
     <col width="250">
