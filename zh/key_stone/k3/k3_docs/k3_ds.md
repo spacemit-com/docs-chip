@@ -43,7 +43,7 @@ sidebar_position: 2
 
 > 以下修订记录仅供参考，未必涵盖所有变更。规格及产品信息如有调整，恕不另行通知。
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 14px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 14px;">
   <colgroup>
     <col width="200">
     <col width="200">
@@ -51,23 +51,23 @@ sidebar_position: 2
   </colgroup>
   
   <thead>
-    <tr style="background-color: #f6f8fa; border-bottom: 2px solid #dfe2e5;">
-      <th style="padding: 10px 8px; text-align: center; border: 1px solid #dfe2e5;">版本号</th>
-      <th style="padding: 10px 8px; text-align: center; border: 1px solid #dfe2e5;">日期</th>
-      <th style="padding: 10px 8px; text-align: left; border: 1px solid #dfe2e5;">修订说明</th>
+    <tr style="">
+      <th style="text-align: center;">版本号</th>
+      <th style="text-align: center;">日期</th>
+      <th style="text-align: left;">修订说明</th>
     </tr>
   </thead>
   
   <tbody>
     <tr>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;"><b>V0.9.1</b></td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">2026.03.02</td>
-      <td style="padding: 8px; text-align: left; border: 1px solid #dfe2e5;">引脚定义子章节“多功能引脚寄存器（Multi-Function Pin Register）”已移除，此为规格持续优化。</td>
+      <td style="text-align: center;"><b>V0.9.1</b></td>
+      <td style="text-align: center;">2026.03.02</td>
+      <td style="text-align: left;">引脚定义子章节“多功能引脚寄存器（Multi-Function Pin Register）”已移除，此为规格持续优化。</td>
     </tr>
     <tr>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;"><b>V0.9</b></td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">2026.02.28</td>
-      <td style="padding: 8px; text-align: left; border: 1px solid #dfe2e5;">评估版本发布</td>
+      <td style="text-align: center;"><b>V0.9</b></td>
+      <td style="text-align: center;">2026.02.28</td>
+      <td style="text-align: left;">评估版本发布</td>
     </tr>
   </tbody>
 </table>

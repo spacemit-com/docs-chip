@@ -42,7 +42,7 @@ Users assume all risks associated with the use of the information provided herei
 
 > The revision history below is provided for reference only. Specifications remain subject to change without notice.
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 14px; color: #333;">
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 14px;">
   <colgroup>
     <col width="200">
     <col width="200">
@@ -50,23 +50,23 @@ Users assume all risks associated with the use of the information provided herei
   </colgroup>
   
   <thead>
-    <tr style="background-color: #f6f8fa; border-bottom: 2px solid #dfe2e5;">
-      <th style="padding: 10px 8px; text-align: center; border: 1px solid #dfe2e5;">Version</th>
-      <th style="padding: 10px 8px; text-align: center; border: 1px solid #dfe2e5;">Date</th>
-      <th style="padding: 10px 8px; text-align: left; border: 1px solid #dfe2e5;">Notes</th>
+    <tr style="">
+      <th style="text-align: center;">Version</th>
+      <th style="text-align: center;">Date</th>
+      <th style="text-align: left;">Notes</th>
     </tr>
   </thead>
   
   <tbody>
     <tr>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;"><b>V0.9.1</b></td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">2026.03.02</td>
-      <td style="padding: 8px; text-align: left; border: 1px solid #dfe2e5;">Pinout subsection Multi-Function Pin Register has been removed as part of ongoing specification refinement.</td>
+      <td style="text-align: center;"><b>V0.9.1</b></td>
+      <td style="text-align: center;">2026.03.02</td>
+      <td style="text-align: left;">Pinout subsection Multi-Function Pin Register has been removed as part of ongoing specification refinement.</td>
     </tr>
         <tr>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;"><b>V0.9</b></td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">2026.02.28</td>
-      <td style="padding: 8px; text-align: left; border: 1px solid #dfe2e5;">Initial Preliminary release</td>
+      <td style="text-align: center;"><b>V0.9</b></td>
+      <td style="text-align: center;">2026.02.28</td>
+      <td style="text-align: left;">Initial Preliminary release</td>
     </tr>
   </tbody>
 </table>
