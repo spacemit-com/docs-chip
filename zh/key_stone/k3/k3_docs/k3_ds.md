@@ -4199,2342 +4199,2212 @@ K3 的 I/O 引脚支持 **功能 0 至 功能 7（Function 0–7）** 的信号�
 
 下表按接口分组，详细列出了 **Function 0 至 Function 6** 的信号分配情况。
 
-#### QSPI 1.8V/3.3V
-
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 11px;">
-
+<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 12px;">
   <colgroup>
     <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
+    <col width="90"><col width="90"><col width="90">
+    <col width="90"><col width="90"><col width="90">
+    <col width="90"><col width="90"><col width="90"><col width="90">
   </colgroup>
-  
   <thead>
-    <tr style="background-color: #f6f8fa;">
-      <th style="text-align: center;">引脚名称</th>
-      <th style="text-align: center;">默认上下拉</th>
-      <th style="text-align: center;">边沿唤醒功能</th>
-      <th style="text-align: center;">Function 0</th>
-      <th style="text-align: center;">Function 1</th>
-      <th style="text-align: center;">Function 2</th>
-      <th style="text-align: center;">Function 3</th>
-      <th style="text-align: center;">Function 4</th>
-      <th style="text-align: center;">Function 5</th>
-      <th style="text-align: center;">Function 6</th>
+    <tr style="background-color: #f6f8fa; text-align: center;">
+      <th style="padding: 8px 4px;">接口分组</th>
+      <th style="padding: 8px 4px;">引脚名称</th>
+      <th style="padding: 8px 4px;">默认上下拉</th>
+      <th style="padding: 8px 4px;">边沿唤醒功能</th>
+      <th style="padding: 8px 4px;">Function 0</th>
+      <th style="padding: 8px 4px;">Function 1</th>
+      <th style="padding: 8px 4px;">Function 2</th>
+      <th style="padding: 8px 4px;">Function 3</th>
+      <th style="padding: 8px 4px;">Function 4</th>
+      <th style="padding: 8px 4px;">Function 5</th>
+      <th style="padding: 8px 4px;">Function 6</th>
     </tr>
   </thead>
-  
   <tbody>
-    <tr>
-      <td style="text-align: center;">QSPI_DAT3</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">QSPI_DAT[3]</td>
-      <td style="text-align: center;">GPIO[0]</td>
-      <td style="text-align: center;">R.UART1_TXD</td>
-      <td style="text-align: center;">R.GPIO[0]</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">QSPI_DAT2</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">QSPI_DAT[2]</td>
-      <td style="text-align: center;">GPIO[1]</td>
-      <td style="text-align: center;">R.UART1_RXD</td>
-      <td style="text-align: center;">R.GPIO[1]</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">QSPI_DAT1</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">QSPI_DAT[1]</td>
-      <td style="text-align: center;">GPIO[2]</td>
-      <td style="text-align: center;">R.UART1_CTS</td>
-      <td style="text-align: center;">R.GPIO[2]</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">QSPI_DAT0</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">QSPI_DAT[0]</td>
-      <td style="text-align: center;">GPIO[3]</td>
-      <td style="text-align: center;">R.UART1_RTS</td>
-      <td style="text-align: center;">R.GPIO[3]</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">QSPI_CLK</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">QSPI_CLK</td>
-      <td style="text-align: center;">GPIO[4]</td>
-      <td style="text-align: center;">R.CAN1_TXD</td>
-      <td style="text-align: center;">R.GPIO[4]</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">QSPI_CS0</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">QSPI_CS0</td>
-      <td style="text-align: center;">GPIO[5]</td>
-      <td style="text-align: center;">R.CAN1_RXD</td>
-      <td style="text-align: center;">R.GPIO[5]</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">I2C3_SCL</td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">QSPI_CS1</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">QSPI_CS1</td>
-      <td style="text-align: center;">GPIO[6]</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">I2C3_SDA</td>
-      <td style="text-align: center;"></td>
-    </tr>
-  </tbody>
-</table>
-
-#### SD/MMC1 1.8V/3.3V
-
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 11px;">
-
-  <colgroup>
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-  </colgroup>
-  
-  <thead>
-    <tr style="background-color: #f6f8fa;">
-      <th style="text-align: center;">引脚名称</th>
-      <th style="text-align: center;">默认上下拉</th>
-      <th style="text-align: center;">边沿唤醒功能</th>
-      <th style="text-align: center;">Function 0</th>
-      <th style="text-align: center;">Function 1</th>
-      <th style="text-align: center;">Function 2</th>
-      <th style="text-align: center;">Function 3</th>
-      <th style="text-align: center;">Function 4</th>
-      <th style="text-align: center;">Function 5</th>
-      <th style="text-align: center;">Function 6</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <tr>
-      <td style="text-align: center;">MMC1_DAT3</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">MMC1_DAT[3]</td>
-      <td style="text-align: center;">GPIO[93]</td>
-      <td style="text-align: center;">UART0_TXD</td>
-      <td style="text-align: center;">R.GPIO[6]</td>
-      <td style="text-align: center;">R.UART0_TXD</td>
-      <td style="text-align: center;">PRI_TDI</td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">MMC1_DAT2</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">MMC1_DAT[2]</td>
-      <td style="text-align: center;">GPIO[94]</td>
-      <td style="text-align: center;">UART0_RXD</td>
-      <td style="text-align: center;">R.GPIO[7]</td>
-      <td style="text-align: center;">R.UART0_RXD</td>
-      <td style="text-align: center;">PRI_TMS</td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">MMC1_DAT1</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">MMC1_DAT[1]</td>
-      <td style="text-align: center;">GPIO[95]</td>
-      <td style="text-align: center;">UART2_TXD</td>
-      <td style="text-align: center;">R.GPIO[8]</td>
-      <td style="text-align: center;">PWM2</td>
-      <td style="text-align: center;">PRI_TDO</td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">MMC1_DAT0</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">MMC1_DAT[0]</td>
-      <td style="text-align: center;">GPIO[96]</td>
-      <td style="text-align: center;">UART2_RXD</td>
-      <td style="text-align: center;">R.GPIO[9]</td>
-      <td style="text-align: center;">PWM3</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">MMC1_CMD</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">MMC1_CMD</td>
-      <td style="text-align: center;">GPIO[97]</td>
-      <td style="text-align: center;">UART2_CTS</td>
-      <td style="text-align: center;">R.GPIO[10]</td>
-      <td style="text-align: center;">PWM4</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">I2C4_SCL</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">MMC1_CLK</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">MMC1_CLK</td>
-      <td style="text-align: center;">GPIO[98]</td>
-      <td style="text-align: center;">UART2_RTS</td>
-      <td style="text-align: center;">R.GPIO[11]</td>
-      <td style="text-align: center;">PWM5</td>
-      <td style="text-align: center;">PRI_TCK</td>
-      <td style="text-align: center;">I2C4_SDA</td>
-    </tr>
-  </tbody>
-</table>
-
-#### PMIC [1.8V only]
-
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 11px;">
-
-  <colgroup>
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-  </colgroup>
-  
-  <thead>
-    <tr style="background-color: #f6f8fa;">
-      <th style="text-align: center;">引脚名称</th>
-      <th style="text-align: center;">默认上下拉</th>
-      <th style="text-align: center;">边沿唤醒功能</th>
-      <th style="text-align: center;">Function 0</th>
-      <th style="text-align: center;">Function 1</th>
-      <th style="text-align: center;">Function 2</th>
-      <th style="text-align: center;">Function 3</th>
-      <th style="text-align: center;">Function 4</th>
-      <th style="text-align: center;">Function 5</th>
-      <th style="text-align: center;">Function 6</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <tr>
-      <td style="text-align: center;">RESET_IN_N</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">NO</td>
-      <td style="text-align: center;">RESET_IN_N</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">PWM10</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">EXT_32K_IN</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">NO</td>
-      <td style="text-align: center;">EXT_32K_IN</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">PWM11</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">PWR_SCL</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">PWR_SCL</td>
-      <td style="text-align: center;">R_PWR_SCL</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">PWM12</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">PWR_SDA</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">PWR_SDA</td>
-      <td style="text-align: center;">R_PWR_SDA</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">PWM13</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">VCXO_EN</td>
-      <td style="text-align: center;">NO</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">VCXO_EN</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">PWM14</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">PMIC_WDT_N</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">NO</td>
-      <td style="text-align: center;">PMIC_WDT_N</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">PWM15</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">PMIC_INT_N</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">PMIC_INT_N</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">PWM16</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">PWR_SSP_TXD</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">PWR_SSP_TXD</td>
-      <td style="text-align: center;">GPIO[120]</td>
-      <td style="text-align: center;">I2C6_SCL</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">PWR_SSP_RXD</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">PWR_SSP_RXD</td>
-      <td style="text-align: center;">GPIO[121]</td>
-      <td style="text-align: center;">I2C6_SDA</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">PWR_SSP_SCLK</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">PWR_SSP_SCLK</td>
-      <td style="text-align: center;">GPIO[122]</td>
-      <td style="text-align: center;">UART0_TXD</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">PWR_SSP_FRM</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">PWR_SSP_FRM</td>
-      <td style="text-align: center;">GPIO[123]</td>
-      <td style="text-align: center;">UART0_RXD</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">PRI_TDI</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">NO</td>
-      <td style="text-align: center;">PRI_TDI</td>
-      <td style="text-align: center;">GPIO[124]</td>
-      <td style="text-align: center;">R.GPIO[17]</td>
-      <td style="text-align: center;">PWM6</td>
-      <td style="text-align: center;">UART5_TXD</td>
-      <td style="text-align: center;">UART0_TXD</td>
-      <td style="text-align: center;">R.UART0_TXD</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">PRI_TMS</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">NO</td>
-      <td style="text-align: center;">PRI_TMS</td>
-      <td style="text-align: center;">GPIO[125]</td>
-      <td style="text-align: center;">R.GPIO[14]</td>
-      <td style="text-align: center;">PWM7</td>
-      <td style="text-align: center;">UART5_RXD</td>
-      <td style="text-align: center;">UART0_RXD</td>
-      <td style="text-align: center;">R.UART0_RXD</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">PRI_TCK</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">NO</td>
-      <td style="text-align: center;">PRI_TCK</td>
-      <td style="text-align: center;">GPIO[126]</td>
-      <td style="text-align: center;">R.GPIO[15]</td>
-      <td style="text-align: center;">PWM8</td>
-      <td style="text-align: center;">UART9_TXD</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">PRI_TDO</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">NO</td>
-      <td style="text-align: center;">PRI_TDO</td>
-      <td style="text-align: center;">GPIO[127]</td>
-      <td style="text-align: center;">R.GPIO[16]</td>
-      <td style="text-align: center;">PWM9</td>
-      <td style="text-align: center;">UART9_RXD</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">PRI_TRST_N</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">NO</td>
-      <td style="text-align: center;">PRI_TRSTn</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-    </tr>
-  </tbody>
-</table>
-
-#### EMMC5 [1.8V only]
-
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 11px;">
-
-  <colgroup>
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-  </colgroup>
-  
-  <thead>
-    <tr style="background-color: #f6f8fa;">
-      <th style="text-align: center;">引脚名称</th>
-      <th style="text-align: center;">默认上下拉</th>
-      <th style="text-align: center;">边沿唤醒功能</th>
-      <th style="text-align: center;">Function 0</th>
-      <th style="text-align: center;">Function 1</th>
-      <th style="text-align: center;">Function 2</th>
-      <th style="text-align: center;">Function 3</th>
-      <th style="text-align: center;">Function 4</th>
-      <th style="text-align: center;">Function 5</th>
-      <th style="text-align: center;">Function 6</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <tr>
-      <td style="text-align: center;">EMMC_D0</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">EMMC_D0</td>
-      <td style="text-align: center;">GPIO[32]</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">EMMC_D1</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">EMMC_D1</td>
-      <td style="text-align: center;">GPIO[33]</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">EMMC_D2</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">EMMC_D2</td>
-      <td style="text-align: center;">GPIO[34]</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">EMMC_D3</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">EMMC_D3</td>
-      <td style="text-align: center;">GPIO[35]</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">EMMC_D4</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">EMMC_D4</td>
-      <td style="text-align: center;">GPIO[36]</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">EMMC_D5</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">EMMC_D5</td>
-      <td style="text-align: center;">R.GPIO[8]</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">EMMC_D6</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">EMMC_D6</td>
-      <td style="text-align: center;">R.GPIO[9]</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">EMMC_D7</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">EMMC_D7</td>
-      <td style="text-align: center;">R.GPIO[10]</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">EMMC_DS</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">EMMC_DS</td>
-      <td style="text-align: center;">R.GPIO[11]</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">EMMC_CLK</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">EMMC_CLK</td>
-      <td style="text-align: center;">R.GPIO[12]</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">EMMC_CMD</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">EMMC_CMD</td>
-      <td style="text-align: center;">R.GPIO[13]</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-    </tr>
-  </tbody>
-</table>
-
-#### GPIO1 1.8V/3.3V
-
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 11px;">
-
-  <colgroup>
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-  </colgroup>
-  
-  <thead>
-    <tr style="background-color: #f6f8fa;">
-      <th style="text-align: center;">引脚名称</th>
-      <th style="text-align: center;">默认上下拉</th>
-      <th style="text-align: center;">边沿唤醒功能</th>
-      <th style="text-align: center;">Function 0</th>
-      <th style="text-align: center;">Function 1</th>
-      <th style="text-align: center;">Function 2</th>
-      <th style="text-align: center;">Function 3</th>
-      <th style="text-align: center;">Function 4</th>
-      <th style="text-align: center;">Function 5</th>
-      <th style="text-align: center;">Function 6</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <tr>
-      <td style="text-align: center;">GPIO_[0]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[0]</td>
-      <td style="text-align: center;">GMAC0_RXDV</td>
-      <td style="text-align: center;">SSPA5_CLK</td>
-      <td style="text-align: center;">PWM0</td>
-      <td style="text-align: center;">IR1_RX</td>
-      <td style="text-align: center;">eSPI0_D0</td>
-      <td style="text-align: center;">I2C0_SCL</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[1]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[1]</td>
-      <td style="text-align: center;">GMAC0_RX_D0</td>
-      <td style="text-align: center;">SSPA5_FRM</td>
-      <td style="text-align: center;">PWM1</td>
-      <td style="text-align: center;">R.IR1_RX</td>
-      <td style="text-align: center;">eSPI0_D1</td>
-      <td style="text-align: center;">I2C0_SDA</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[2]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[2]</td>
-      <td style="text-align: center;">GMAC0_RX_D1</td>
-      <td style="text-align: center;">SSPA5_TXD</td>
-      <td style="text-align: center;">PWM2</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">eSPI0_D2</td>
-      <td style="text-align: center;">I2C1_SCL</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[3]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[3]</td>
-      <td style="text-align: center;">GMAC0_RX_CLK</td>
-      <td style="text-align: center;">SSPA5_RXD</td>
-      <td style="text-align: center;">PWM3</td>
-      <td style="text-align: center;">PCIeD_PERSTn</td>
-      <td style="text-align: center;">eSPI0_D3</td>
-      <td style="text-align: center;">I2C1_SDA</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[4]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[4]</td>
-      <td style="text-align: center;">GMAC0_RX_D2</td>
-      <td style="text-align: center;">SSPA5_SYSCLK</td>
-      <td style="text-align: center;">PWM4</td>
-      <td style="text-align: center;">PCIeD_WAKEn</td>
-      <td style="text-align: center;">eSPI0_CS</td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[5]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[5]</td>
-      <td style="text-align: center;">GMAC0_RX_D3</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">PWM5</td>
-      <td style="text-align: center;">PCIeD_CLKREQn</td>
-      <td style="text-align: center;">eSPI0_CLK</td>
-      <td style="text-align: center;">I2C2_SCL</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[6]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[6]</td>
-      <td style="text-align: center;">GMAC0_TX_D0</td>
-      <td style="text-align: center;">R.SSPA0_CLK</td>
-      <td style="text-align: center;">PWM6</td>
-      <td style="text-align: center;">PCIeD_PRSNT2n</td>
-      <td style="text-align: center;">eSPI0_RESETN</td>
-      <td style="text-align: center;">I2C2_SDA</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[7]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[7]</td>
-      <td style="text-align: center;">GMAC0_TX_D1</td>
-      <td style="text-align: center;">R.SSPA0_FRM</td>
-      <td style="text-align: center;">PWM7</td>
-      <td style="text-align: center;">PCIeD_ATTn</td>
-      <td style="text-align: center;">eSPI0_ALERT</td>
-      <td style="text-align: center;">I2C6_SCL</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[8]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[8]</td>
-      <td style="text-align: center;">GMAC0_TX_CLK</td>
-      <td style="text-align: center;">R.SSPA0_TXD</td>
-      <td style="text-align: center;">PWM8</td>
-      <td style="text-align: center;">PCIeC_PWRCTn</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">I2C6_SDA</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[9]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[9]</td>
-      <td style="text-align: center;">GMAC0_TX_D2</td>
-      <td style="text-align: center;">R.SSPA0_RXD</td>
-      <td style="text-align: center;">PWM9</td>
-      <td style="text-align: center;">PCIeC_AUXen</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">e/DP0_HPD</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[10]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[10]</td>
-      <td style="text-align: center;">GMAC0_TX_D3</td>
-      <td style="text-align: center;">R.SSPA0_SYSCLK</td>
-      <td style="text-align: center;">PWM10</td>
-      <td style="text-align: center;">PCIeC_PWRDet</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">e/DP1_HPD</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[11]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[11]</td>
-      <td style="text-align: center;">GMAC0_TX_EN</td>
-      <td style="text-align: center;">UART7_RTSn</td>
-      <td style="text-align: center;">CAN0_TXD</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">UART8_RXD</td>
-      <td style="text-align: center;">I2C4_SCL</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[12]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[12]</td>
-      <td style="text-align: center;">GMAC0_MDC</td>
-      <td style="text-align: center;">UART7_CTSn</td>
-      <td style="text-align: center;">CAN0_RXD</td>
-      <td style="text-align: center;">PCIeC_PERSTn</td>
-      <td style="text-align: center;">UART8_TXD</td>
-      <td style="text-align: center;">I2C4_SDA</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[13]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[13]</td>
-      <td style="text-align: center;">GMAC0_MDIO</td>
-      <td style="text-align: center;">UART7_TXD</td>
-      <td style="text-align: center;">PWM13</td>
-      <td style="text-align: center;">PCIeC_WAKEn</td>
-      <td style="text-align: center;">CLK_CAMCK1</td>
-      <td style="text-align: center;">DSI0_TE</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[14]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[14]</td>
-      <td style="text-align: center;">GMAC0_INT_N</td>
-      <td style="text-align: center;">UART7_RXD</td>
-      <td style="text-align: center;">PWM14</td>
-      <td style="text-align: center;">PCIeC_CLKREQn</td>
-      <td style="text-align: center;">MNCLK_OUT1</td>
-      <td style="text-align: center;">I2C6_SCL</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[15]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[15]</td>
-      <td style="text-align: center;">GMAC0_RXER</td>
-      <td style="text-align: center;">SSPA1_CLK</td>
-      <td style="text-align: center;">R.PWM0</td>
-      <td style="text-align: center;">PCIeC_PRSNT2n</td>
-      <td style="text-align: center;">MNCLK_OUT2</td>
-      <td style="text-align: center;">I2C6_SDA</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[16]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[16]</td>
-      <td style="text-align: center;">GMAC0_TXER</td>
-      <td style="text-align: center;">SSPA1_FRM</td>
-      <td style="text-align: center;">R.PWM1</td>
-      <td style="text-align: center;">PCIeC_ATTn</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">USB20_HOST_DRV</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[17]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[17]</td>
-      <td style="text-align: center;">GMAC0_CRS</td>
-      <td style="text-align: center;">SSPA1_TXD</td>
-      <td style="text-align: center;">R.PWM2</td>
-      <td style="text-align: center;">PCIeC_PWRCTn</td>
-      <td style="text-align: center;">R.UART1_TXD</td>
-      <td style="text-align: center;">USB30_DRD_ID</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[18]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[18]</td>
-      <td style="text-align: center;">GMAC0_COL</td>
-      <td style="text-align: center;">SSPA1_RXD</td>
-      <td style="text-align: center;">R.PWM3</td>
-      <td style="text-align: center;">PCIeC_AUXen</td>
-      <td style="text-align: center;">R.UART1_RXD</td>
-      <td style="text-align: center;">USB30_DRD_VBUSON</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[19]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[19]</td>
-      <td style="text-align: center;">GMAC0_PPS</td>
-      <td style="text-align: center;">SSPA1_SYSCLK</td>
-      <td style="text-align: center;">R.PWM4</td>
-      <td style="text-align: center;">PCIeC_PWRDet</td>
-      <td style="text-align: center;">R.UART1_CTSn</td>
-      <td style="text-align: center;">USB30_DRD_DRV</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[20]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[20]</td>
-      <td style="text-align: center;">GMAC0_CLK_REF</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">R.PWM5</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">R.UART1_RTSn</td>
-      <td style="text-align: center;">USB30_D_DRV</td>
-    </tr>
-  </tbody>
-</table>
-
-#### GPIO2 1.8V/3.3V
-
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 11px;">
-
-  <colgroup>
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-  </colgroup>
-  
-  <thead>
-    <tr style="background-color: #f6f8fa;">
-      <th style="text-align: center;">引脚名称</th>
-      <th style="text-align: center;">默认上下拉</th>
-      <th style="text-align: center;">边沿唤醒功能</th>
-      <th style="text-align: center;">Function 0</th>
-      <th style="text-align: center;">Function 1</th>
-      <th style="text-align: center;">Function 2</th>
-      <th style="text-align: center;">Function 3</th>
-      <th style="text-align: center;">Function 4</th>
-      <th style="text-align: center;">Function 5</th>
-      <th style="text-align: center;">Function 6</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <tr>
-      <td style="text-align: center;">GPIO_[21]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[21]</td>
-      <td style="text-align: center;">GMAC1_RXDV</td>
-      <td style="text-align: center;">UART5_TXD</td>
-      <td style="text-align: center;">PWM15</td>
-      <td style="text-align: center;">PCIeB_PERSTn</td>
-      <td style="text-align: center;">R.UART4_TXD</td>
-      <td style="text-align: center;">R.GPIO[28]</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[22]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[22]</td>
-      <td style="text-align: center;">GMAC1_RX_D0</td>
-      <td style="text-align: center;">UART5_RXD</td>
-      <td style="text-align: center;">PWM16</td>
-      <td style="text-align: center;">PCIeB_WAKEn</td>
-      <td style="text-align: center;">R.UART4_RXD</td>
-      <td style="text-align: center;">R.GPIO[29]</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[23]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[23]</td>
-      <td style="text-align: center;">GMAC1_RX_D1</td>
-      <td style="text-align: center;">UART5_CTS</td>
-      <td style="text-align: center;">PWM17</td>
-      <td style="text-align: center;">PCIeB_CLKREQn</td>
-      <td style="text-align: center;">UART7_TXD</td>
-      <td style="text-align: center;">e/DP0_HPD</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[24]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[24]</td>
-      <td style="text-align: center;">GMAC1_RX_CLK</td>
-      <td style="text-align: center;">UART5_RTS</td>
-      <td style="text-align: center;">PWM18</td>
-      <td style="text-align: center;">PCIeB_PRSNT2n</td>
-      <td style="text-align: center;">UART7_RXD</td>
-      <td style="text-align: center;">e/DP1_HPD</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[25]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[25]</td>
-      <td style="text-align: center;">GMAC1_RX_D2</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">PWM19</td>
-      <td style="text-align: center;">PCIeC_PERSTn</td>
-      <td style="text-align: center;">UART7_CTSn</td>
-      <td style="text-align: center;">I2C5_SDA</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[26]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[26]</td>
-      <td style="text-align: center;">GMAC1_RX_D3</td>
-      <td style="text-align: center;">UART3_TXD</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">PCIeC_WAKEn</td>
-      <td style="text-align: center;">UART7_RTSn</td>
-      <td style="text-align: center;">I2C5_SCL</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[27]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[27]</td>
-      <td style="text-align: center;">GMAC1_TX_D0</td>
-      <td style="text-align: center;">UART3_RXD</td>
-      <td style="text-align: center;">R.PWM0</td>
-      <td style="text-align: center;">PCIeC_PRSNT2n</td>
-      <td style="text-align: center;">SSP2_TXD</td>
-      <td style="text-align: center;">R.I2C0_SCL</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[28]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[28]</td>
-      <td style="text-align: center;">GMAC1_TX_D1</td>
-      <td style="text-align: center;">UART3_CTS</td>
-      <td style="text-align: center;">R.PWM1</td>
-      <td style="text-align: center;">PCIeC_CLKREQn</td>
-      <td style="text-align: center;">SSP2_RXD</td>
-      <td style="text-align: center;">R.I2C0_SDA</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[29]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[29]</td>
-      <td style="text-align: center;">GMAC1_TX_CLK</td>
-      <td style="text-align: center;">UART3_RTS</td>
-      <td style="text-align: center;">R.PWM2</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">SSP2_RXD</td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[30]</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[30]</td>
-      <td style="text-align: center;">GMAC1_TX_D2</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">R.PWM3</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">SSP2_SCLK</td>
-      <td style="text-align: center;">EDP0_HPD</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[31]</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[31]</td>
-      <td style="text-align: center;">GMAC1_TX_D3</td>
-      <td style="text-align: center;">UART10_TXD</td>
-      <td style="text-align: center;">R.PWM4</td>
-      <td style="text-align: center;">PCIeE_PERSTn</td>
-      <td style="text-align: center;">SSP2_FRM</td>
-      <td style="text-align: center;">EDP1_HPD</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[32]</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[32]</td>
-      <td style="text-align: center;">GMAC1_TX_EN</td>
-      <td style="text-align: center;">UART10_RXD</td>
-      <td style="text-align: center;">R.PWM5</td>
-      <td style="text-align: center;">PCIeE_WAKEn</td>
-      <td style="text-align: center;">SSP1_TXD</td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[33]</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[33]</td>
-      <td style="text-align: center;">GMAC1_MDC</td>
-      <td style="text-align: center;">UART10_CTS</td>
-      <td style="text-align: center;">R.PWM6</td>
-      <td style="text-align: center;">PCIeE_CLKREQn</td>
-      <td style="text-align: center;">SSP1_RXD</td>
-      <td style="text-align: center;">R.I2C1_SCL</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[34]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[34]</td>
-      <td style="text-align: center;">GMAC1_MDIO</td>
-      <td style="text-align: center;">UART10_RTS</td>
-      <td style="text-align: center;">R.PWM7</td>
-      <td style="text-align: center;">CLK_CAMCK2</td>
-      <td style="text-align: center;">SSP1_SCLK</td>
-      <td style="text-align: center;">R.I2C1_SDA</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[35]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[35]</td>
-      <td style="text-align: center;">GMAC1_INT_N</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">R.PWM8</td>
-      <td style="text-align: center;">CLK_CAMCK3</td>
-      <td style="text-align: center;">SSP1_FRM</td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[36]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[36]</td>
-      <td style="text-align: center;">GMAC1_CLK_REF</td>
-      <td style="text-align: center;">R.SSPA1_CLK</td>
-      <td style="text-align: center;">R.PWM9</td>
-      <td style="text-align: center;">I2C3_SCL</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[37]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[37]</td>
-      <td style="text-align: center;">GMAC1_RXER</td>
-      <td style="text-align: center;">R.SSPA1_FRM</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">I2C3_SDA</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[38]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[38]</td>
-      <td style="text-align: center;">GMAC1_TXER</td>
-      <td style="text-align: center;">R.SSPA1_TXD</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">DSI0_TE</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[39]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[39]</td>
-      <td style="text-align: center;">GMAC1_CRS</td>
-      <td style="text-align: center;">R.SSPA1_RXD</td>
-      <td style="text-align: center;">MNCLK_OUT1</td>
-      <td style="text-align: center;">R.I2C1_SCL</td>
-      <td style="text-align: center;">USB20_HOST_DRV</td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[40]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[40]</td>
-      <td style="text-align: center;">GMAC1_COL</td>
-      <td style="text-align: center;">R.SSPA1_SYSCLK</td>
-      <td style="text-align: center;">MNCLK_OUT2</td>
-      <td style="text-align: center;">R.I2C1_SDA</td>
-      <td style="text-align: center;">R.IR0_RX</td>
-      <td style="text-align: center;">CAN4_TXD</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[41]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[41]</td>
-      <td style="text-align: center;">GMAC1_PPS</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">CLK32K_OUT</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">IR0_RX</td>
-      <td style="text-align: center;">CAN4_RXD</td>
-    </tr>
-  </tbody>
-</table>
-
-#### GPIO3 [1.8V only]
-
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 11px;">
-
-  <colgroup>
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-  </colgroup>
-  
-  <thead>
-    <tr style="background-color: #f6f8fa;">
-      <th style="text-align: center;">引脚名称</th>
-      <th style="text-align: center;">默认上下拉</th>
-      <th style="text-align: center;">边沿唤醒功能</th>
-      <th style="text-align: center;">Function 0</th>
-      <th style="text-align: center;">Function 1</th>
-      <th style="text-align: center;">Function 2</th>
-      <th style="text-align: center;">Function 3</th>
-      <th style="text-align: center;">Function 4</th>
-      <th style="text-align: center;">Function 5</th>
-      <th style="text-align: center;">Function 6</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <tr>
-      <td style="text-align: center;">GPIO_[42]</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[42]</td>
-      <td style="text-align: center;">GMAC2_RXDV</td>
-      <td style="text-align: center;">UART0_TXD</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">PCIeA_PERSTn</td>
-      <td style="text-align: center;">I2C0_SCL</td>
-      <td style="text-align: center;">PWM0</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[43]</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[43]</td>
-      <td style="text-align: center;">GMAC2_RX_D0</td>
-      <td style="text-align: center;">UART0_RXD</td>
-      <td style="text-align: center;">CLK_CAMCK4</td>
-      <td style="text-align: center;">PCIeA_WAKEn</td>
-      <td style="text-align: center;">I2C0_SDA</td>
-      <td style="text-align: center;">PWM1</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[44]</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[44]</td>
-      <td style="text-align: center;">GMAC2_RX_D1</td>
-      <td style="text-align: center;">UART10_TXD</td>
-      <td style="text-align: center;">CAN0_TXD</td>
-      <td style="text-align: center;">PCIeA_CLKREQn</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">PWM2</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[45]</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[45]</td>
-      <td style="text-align: center;">GMAC2_RX_CLK</td>
-      <td style="text-align: center;">UART10_RXD</td>
-      <td style="text-align: center;">CAN0_RXD</td>
-      <td style="text-align: center;">PCIeA_PRSNT2n</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">PWM3</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[46]</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[46]</td>
-      <td style="text-align: center;">GMAC2_RX_D2</td>
-      <td style="text-align: center;">UART10_CTSn</td>
-      <td style="text-align: center;">CLK_CAMCK1</td>
-      <td style="text-align: center;">PCIeA_ATTn</td>
-      <td style="text-align: center;">I2C2_SCL</td>
-      <td style="text-align: center;">PWM4</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[47]</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[47]</td>
-      <td style="text-align: center;">GMAC2_RX_D3</td>
-      <td style="text-align: center;">UART10_RTSn</td>
-      <td style="text-align: center;">CLK_CAMCK2</td>
-      <td style="text-align: center;">PCIeA_PWRCTn</td>
-      <td style="text-align: center;">I2C2_SDA</td>
-      <td style="text-align: center;">PWM5</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[48]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[48]</td>
-      <td style="text-align: center;">GMAC2_TX_D0</td>
-      <td style="text-align: center;">UART6_TXD</td>
-      <td style="text-align: center;">CAN1_RXD</td>
-      <td style="text-align: center;">PCIeA_AUXen</td>
-      <td style="text-align: center;">I2C0_SCL</td>
-      <td style="text-align: center;">PWM6</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[49]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[49]</td>
-      <td style="text-align: center;">GMAC2_TX_D1</td>
-      <td style="text-align: center;">UART6_RXD</td>
-      <td style="text-align: center;">CAN1_TXD</td>
-      <td style="text-align: center;">PCIeA_PWRDet</td>
-      <td style="text-align: center;">I2C0_SDA</td>
-      <td style="text-align: center;">PWM7</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[50]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[50]</td>
-      <td style="text-align: center;">GMAC2_TX_CLK</td>
-      <td style="text-align: center;">UART6_CTS</td>
-      <td style="text-align: center;">CAN2_TXD</td>
-      <td style="text-align: center;">PCIeA_MRLn</td>
-      <td style="text-align: center;">I2C4_SCL</td>
-      <td style="text-align: center;">PWM8</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[51]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[51]</td>
-      <td style="text-align: center;">GMAC2_TX_D2</td>
-      <td style="text-align: center;">UART6_RTS</td>
-      <td style="text-align: center;">CAN2_RXD</td>
-      <td style="text-align: center;">PCIeA_ATNLED</td>
-      <td style="text-align: center;">I2C4_SDA</td>
-      <td style="text-align: center;">PWM9</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[52]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[52]/Strap[5]</td>
-      <td style="text-align: center;">GMAC2_TX_D3</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">PCIeA_PWRLED</td>
-      <td style="text-align: center;">CLK_CAMCK3</td>
-      <td style="text-align: center;">PWM10</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[53]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[53]</td>
-      <td style="text-align: center;">GMAC2_TX_EN</td>
-      <td style="text-align: center;">UART3_CTSn</td>
-      <td style="text-align: center;">SSP0_TXD</td>
-      <td style="text-align: center;">PCIeA_EINT</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">PWM11</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[54]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[54]</td>
-      <td style="text-align: center;">GMAC2_MDC</td>
-      <td style="text-align: center;">UART3_RTSn</td>
-      <td style="text-align: center;">SSP0_RXD</td>
-      <td style="text-align: center;">PCIeA_EINTEG</td>
-      <td style="text-align: center;">I2C1_SCL</td>
-      <td style="text-align: center;">PWM12</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[55]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[55]</td>
-      <td style="text-align: center;">GMAC2_MDIO</td>
-      <td style="text-align: center;">UART3_RXD</td>
-      <td style="text-align: center;">SSP0_SCLK</td>
-      <td style="text-align: center;">R.UART3_RXD</td>
-      <td style="text-align: center;">I2C1_SDA</td>
-      <td style="text-align: center;">PWM13</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[56]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[56]</td>
-      <td style="text-align: center;">GMAC2_INT_N</td>
-      <td style="text-align: center;">UART3_TXD</td>
-      <td style="text-align: center;">SSP0_FRM</td>
-      <td style="text-align: center;">R.UART3_TXD</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">PWM14</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[57]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[57]</td>
-      <td style="text-align: center;">GMAC2_CLK_REF</td>
-      <td style="text-align: center;">R.UART2_TXD</td>
-      <td style="text-align: center;">R.CAN0_RXD</td>
-      <td style="text-align: center;">EDP0_HPD</td>
-      <td style="text-align: center;">R.I2C0_SCL</td>
-      <td style="text-align: center;">PWM15</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[58]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[58]</td>
-      <td style="text-align: center;">GMAC2_PPS</td>
-      <td style="text-align: center;">R.UART2_RXD</td>
-      <td style="text-align: center;">R.CAN0_TXD</td>
-      <td style="text-align: center;">PCIeC_PERSTn</td>
-      <td style="text-align: center;">R.I2C0_SDA</td>
-      <td style="text-align: center;">PWM16</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[59]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[59]</td>
-      <td style="text-align: center;">R.GMAC3_RXDV</td>
-      <td style="text-align: center;">R.UART5_TXD</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">PCIeC_WAKEn</td>
-      <td style="text-align: center;">R.I2C1_SCL</td>
-      <td style="text-align: center;">PWM17</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[60]</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[60]</td>
-      <td style="text-align: center;">R.GMAC3_RX_D0</td>
-      <td style="text-align: center;">R.UART5_RXD</td>
-      <td style="text-align: center;">R.SSP0_TXD</td>
-      <td style="text-align: center;">PCIeC_CLKREQn</td>
-      <td style="text-align: center;">R.I2C1_SDA</td>
-      <td style="text-align: center;">PWM18</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[61]</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[61]</td>
-      <td style="text-align: center;">R.GMAC3_RX_D1</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">R.SSP0_RXD</td>
-      <td style="text-align: center;">PCIeC_PRSNT2n</td>
-      <td style="text-align: center;">I2C6_SCL</td>
-      <td style="text-align: center;">PWM19</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[62]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[62]</td>
-      <td style="text-align: center;">R.GMAC3_RX_CLK</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">R.SSP0_SCLK</td>
-      <td style="text-align: center;">PCIeC_ATTn</td>
-      <td style="text-align: center;">I2C6_SDA</td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[63]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[63]</td>
-      <td style="text-align: center;">R.GMAC3_RX_D2</td>
-      <td style="text-align: center;">R.GPIO[18]</td>
-      <td style="text-align: center;">R.SSP0_FRM</td>
-      <td style="text-align: center;">PCIeC_PWRCTn</td>
-      <td style="text-align: center;">I2C5_SCL</td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[64]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[64]/Strap[4]</td>
-      <td style="text-align: center;">R.GMAC3_RX_D3</td>
-      <td style="text-align: center;">R.GPIO[19]</td>
-      <td style="text-align: center;">R.SSP1_TXD</td>
-      <td style="text-align: center;">PCIeC_AUXen</td>
-      <td style="text-align: center;">I2C5_SDA</td>
-      <td style="text-align: center;">R.PWM0</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[65]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[65]/Strap[0]</td>
-      <td style="text-align: center;">R.GMAC3_TX_D0</td>
-      <td style="text-align: center;">R.GPIO[20]</td>
-      <td style="text-align: center;">R.SSP1_RXD</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">R.PWM1</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[66]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[66]/Strap[1]</td>
-      <td style="text-align: center;">R.GMAC3_TX_D1</td>
-      <td style="text-align: center;">R.GPIO[21]</td>
-      <td style="text-align: center;">R.SSP1_SCLK</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">R.PWM2</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[67]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[67]</td>
-      <td style="text-align: center;">R.GMAC3_TX_CLK</td>
-      <td style="text-align: center;">R.GPIO[22]</td>
-      <td style="text-align: center;">R.SSP1_FRM</td>
-      <td style="text-align: center;">CLK_CAMCK4</td>
-      <td style="text-align: center;">PCIeC_PWRDet</td>
-      <td style="text-align: center;">R.PWM3</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[68]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[68]/Strap[2]</td>
-      <td style="text-align: center;">R.GMAC3_TX_D2</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">eSPI0_D0</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">SSP3_TXD</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[69]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[69]/Strap[3]</td>
-      <td style="text-align: center;">R.GMAC3_TX_D3</td>
-      <td style="text-align: center;">SSPA4_CLK</td>
-      <td style="text-align: center;">eSPI0_D1</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">SSP3_RXD</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[70]</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[70]</td>
-      <td style="text-align: center;">R.GMAC3_TX_EN</td>
-      <td style="text-align: center;">SSPA4_FRM</td>
-      <td style="text-align: center;">eSPI0_D2</td>
-      <td style="text-align: center;">IR1_RX</td>
-      <td style="text-align: center;">MNCLK_OUT1</td>
-      <td style="text-align: center;">SSP3_SCLK</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[71]</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[71]</td>
-      <td style="text-align: center;">R.GMAC3_MDC</td>
-      <td style="text-align: center;">SSPA4_TXD</td>
-      <td style="text-align: center;">eSPI0_D3</td>
-      <td style="text-align: center;">R.IR0_RX</td>
-      <td style="text-align: center;">MNCLK_OUT2</td>
-      <td style="text-align: center;">SSP3_FRM</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[72]</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[72]</td>
-      <td style="text-align: center;">R.GMAC3_MDIO</td>
-      <td style="text-align: center;">SSPA4_RXD</td>
-      <td style="text-align: center;">eSPI0_CS</td>
-      <td style="text-align: center;">e/DP1_HPD</td>
-      <td style="text-align: center;">DSI0_TE</td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[73]</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[73]</td>
-      <td style="text-align: center;">R.GMAC3_INT_N</td>
-      <td style="text-align: center;">SSPA4_SYSCLK</td>
-      <td style="text-align: center;">eSPI0_CLK</td>
-      <td style="text-align: center;">R.IR1_RX</td>
-      <td style="text-align: center;">USB20_HOST_DRV</td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[74]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[74]</td>
-      <td style="text-align: center;">R.GMAC3_CLK_REF</td>
-      <td style="text-align: center;">CLK_CAMCK2</td>
-      <td style="text-align: center;">eSPI0_RESETN</td>
-      <td style="text-align: center;">VCXO_REQ</td>
-      <td style="text-align: center;">USB30H-1_DRV</td>
-      <td style="text-align: center;">R.I2C0_SCL</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[75]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[75]</td>
-      <td style="text-align: center;">R.GMAC3_PPS</td>
-      <td style="text-align: center;">CLK_CAMCK1</td>
-      <td style="text-align: center;">eSPI0_ALERT</td>
-      <td style="text-align: center;">VCXO_OUT</td>
-      <td style="text-align: center;">USB30H-2_DRV</td>
-      <td style="text-align: center;">R.I2C0_SDA</td>
-    </tr>
-  </tbody>
-</table>
-
-#### GPIO4 1.8V/3.3V
-
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 11px;">
-
-  <colgroup>
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-  </colgroup>
-  
-  <thead>
-    <tr style="background-color: #f6f8fa;">
-      <th style="text-align: center;">引脚名称</th>
-      <th style="text-align: center;">默认上下拉</th>
-      <th style="text-align: center;">边沿唤醒功能</th>
-      <th style="text-align: center;">Function 0</th>
-      <th style="text-align: center;">Function 1</th>
-      <th style="text-align: center;">Function 2</th>
-      <th style="text-align: center;">Function 3</th>
-      <th style="text-align: center;">Function 4</th>
-      <th style="text-align: center;">Function 5</th>
-      <th style="text-align: center;">Function 6</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <tr>
-      <td style="text-align: center;">GPIO_[76]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[76]</td>
-      <td style="text-align: center;">R.SSPA0_CLK</td>
-      <td style="text-align: center;">SSPA2_CLK</td>
-      <td style="text-align: center;">UART8_TXD</td>
-      <td style="text-align: center;">CAN0_TXD</td>
-      <td style="text-align: center;">PCIeE_PERSTn</td>
-      <td style="text-align: center;">I2C0_SCL</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[77]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[77]</td>
-      <td style="text-align: center;">R.SSPA0_FRM</td>
-      <td style="text-align: center;">SSPA2_FRM</td>
-      <td style="text-align: center;">UART8_RXD</td>
-      <td style="text-align: center;">CAN0_RXD</td>
-      <td style="text-align: center;">PCIeE_WAKEn</td>
-      <td style="text-align: center;">I2C0_SDA</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[78]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[78]</td>
-      <td style="text-align: center;">R.SSPA0_TXD</td>
-      <td style="text-align: center;">SSPA2_TXD</td>
-      <td style="text-align: center;">UART8_CTS</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">PCIeE_CLKREQn</td>
-      <td style="text-align: center;">I2C1_SCL</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[79]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[79]</td>
-      <td style="text-align: center;">R.SSPA0_RXD</td>
-      <td style="text-align: center;">SSPA2_RXD</td>
-      <td style="text-align: center;">UART8_RTS</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">PCIeA_PERSTn</td>
-      <td style="text-align: center;">I2C1_SDA</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[80]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[80]</td>
-      <td style="text-align: center;">R.SSPA0_SYSCLK</td>
-      <td style="text-align: center;">SSPA2_SYSCLK</td>
-      <td style="text-align: center;">R.UART4_TXD</td>
-      <td style="text-align: center;">CAN3_RXD</td>
-      <td style="text-align: center;">PCIeA_WAKEn</td>
-      <td style="text-align: center;">I2C2_SCL</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[81]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[81]</td>
-      <td style="text-align: center;">SSP0_TXD</td>
-      <td style="text-align: center;">SSPA0_CLK</td>
-      <td style="text-align: center;">R.UART4_RXD</td>
-      <td style="text-align: center;">CAN3_TXD</td>
-      <td style="text-align: center;">PCIeA_CLKREQn</td>
-      <td style="text-align: center;">I2C2_SDA</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[82]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[82]</td>
-      <td style="text-align: center;">SSP0_RXD</td>
-      <td style="text-align: center;">SSPA0_FRM</td>
-      <td style="text-align: center;">UART9_CTSn</td>
-      <td style="text-align: center;">UART5_RXD</td>
-      <td style="text-align: center;">PCIeA_PRSNT2n</td>
-      <td style="text-align: center;">I2C3_SCL</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[83]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[83]</td>
-      <td style="text-align: center;">SSP0_SCLK</td>
-      <td style="text-align: center;">SSPA0_TXD</td>
-      <td style="text-align: center;">UART9_RTSn</td>
-      <td style="text-align: center;">UART5_TXD</td>
-      <td style="text-align: center;">PCIeA_ATTn</td>
-      <td style="text-align: center;">I2C3_SDA</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[84]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[84]</td>
-      <td style="text-align: center;">SSP0_FRM</td>
-      <td style="text-align: center;">SSPA0_RXD</td>
-      <td style="text-align: center;">UART9_TXD</td>
-      <td style="text-align: center;">USB30_B_DRV</td>
-      <td style="text-align: center;">PCIeA_PWRCTn</td>
-      <td style="text-align: center;">DSI0_TE</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[85]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[85]</td>
-      <td style="text-align: center;">CLK_CAMCK3</td>
-      <td style="text-align: center;">SSPA0_SYSCLK</td>
-      <td style="text-align: center;">UART9_RXD</td>
-      <td style="text-align: center;">USB30_C_DRV</td>
-      <td style="text-align: center;">PCIeA_AUXen</td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[86]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[86]</td>
-      <td style="text-align: center;">R.SSP0_TXD</td>
-      <td style="text-align: center;">R.eSPI0_D0</td>
-      <td style="text-align: center;">UART4_TXD</td>
-      <td style="text-align: center;">CAN2_TXD</td>
-      <td style="text-align: center;">PCIeA_PWRDet</td>
-      <td style="text-align: center;">USB30_DRD_DIR</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[87]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[87]</td>
-      <td style="text-align: center;">R.SSP0_RXD</td>
-      <td style="text-align: center;">R.eSPI0_D1</td>
-      <td style="text-align: center;">UART4_RXD</td>
-      <td style="text-align: center;">CAN2_RXD</td>
-      <td style="text-align: center;">PCIeA_MRLn</td>
-      <td style="text-align: center;">PCIeB_PRSNT2n</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[88]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[88]</td>
-      <td style="text-align: center;">R.SSP0_SCLK</td>
-      <td style="text-align: center;">R.eSPI0_D2</td>
-      <td style="text-align: center;">R.UART3_TXD</td>
-      <td style="text-align: center;">PCIeB_PERSTn</td>
-      <td style="text-align: center;">PCIeA_ATNLED</td>
-      <td style="text-align: center;">CAN1_RXD</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[89]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[89]</td>
-      <td style="text-align: center;">R.SSP0_FRM</td>
-      <td style="text-align: center;">R.eSPI0_D3</td>
-      <td style="text-align: center;">R.UART3_RXD</td>
-      <td style="text-align: center;">PCIeB_WAKEn</td>
-      <td style="text-align: center;">PCIeA_PWRLED</td>
-      <td style="text-align: center;">CAN1_TXD</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[90]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[90]</td>
-      <td style="text-align: center;">DSI0_TE</td>
-      <td style="text-align: center;">R.eSPI0_CS</td>
-      <td style="text-align: center;">UART4_CTSn</td>
-      <td style="text-align: center;">PCIeB_CLKREQn</td>
-      <td style="text-align: center;">PCIeA_EINT</td>
-      <td style="text-align: center;">R.CAN0_RXD</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[91]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[91]</td>
-      <td style="text-align: center;">R.GPIO[23]</td>
-      <td style="text-align: center;">R.eSPI0_CLK</td>
-      <td style="text-align: center;">UART4_RTSn</td>
-      <td style="text-align: center;">eSPI0_D0</td>
-      <td style="text-align: center;">PCIeA_EINTEG</td>
-      <td style="text-align: center;">R.CAN0_TXD</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[92]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[92]</td>
-      <td style="text-align: center;">R.GPIO[24]</td>
-      <td style="text-align: center;">R.eSPI0_RESETN</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">eSPI0_D1</td>
-      <td style="text-align: center;">R.PWM5</td>
-      <td style="text-align: center;">DSI0_TE</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[93]</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[93]</td>
-      <td style="text-align: center;">R.GPIO[25]</td>
-      <td style="text-align: center;">R.eSPI0_ALERT</td>
-      <td style="text-align: center;">UART0_TXD</td>
-      <td style="text-align: center;">eSPI0_D2</td>
-      <td style="text-align: center;">I2C5_SCL</td>
-      <td style="text-align: center;">R.PWM4</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[94]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[94]</td>
-      <td style="text-align: center;">R.GPIO[26]</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">UART0_RXD</td>
-      <td style="text-align: center;">eSPI0_D3</td>
-      <td style="text-align: center;">I2C5_SDA</td>
-      <td style="text-align: center;">R.PWM6</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[95]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[95]</td>
-      <td style="text-align: center;">R.GPIO[27]</td>
-      <td style="text-align: center;">UART1_TXD</td>
-      <td style="text-align: center;">USB30_DRD_ID</td>
-      <td style="text-align: center;">eSPI0_CS</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">PWM1</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[96]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[96]</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">UART1_RXD</td>
-      <td style="text-align: center;">USB30_DRD_VBUSON</td>
-      <td style="text-align: center;">eSPI0_CLK</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">PWM2</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[97]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[97]</td>
-      <td style="text-align: center;">UART2_TXD</td>
-      <td style="text-align: center;">UART1_CTS</td>
-      <td style="text-align: center;">USB30_DRD_DRV</td>
-      <td style="text-align: center;">eSPI0_RESETN</td>
-      <td style="text-align: center;">e/DP0_HPD</td>
-      <td style="text-align: center;">PWM3</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[98]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[98]</td>
-      <td style="text-align: center;">UART2_RXD</td>
-      <td style="text-align: center;">UART1_RTS</td>
-      <td style="text-align: center;">CLK32K_OUT</td>
-      <td style="text-align: center;">eSPI0_ALERT</td>
-      <td style="text-align: center;">e/DP1_HPD</td>
-      <td style="text-align: center;"></td>
-    </tr>
-  </tbody>
-</table>
-
-#### GPIO5 1.8V/3.3V
-
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 11px;">
-
-  <colgroup>
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-  </colgroup>
-  
-  <thead>
-    <tr style="background-color: #f6f8fa;">
-      <th style="text-align: center;">引脚名称</th>
-      <th style="text-align: center;">默认上下拉</th>
-      <th style="text-align: center;">边沿唤醒功能</th>
-      <th style="text-align: center;">Function 0</th>
-      <th style="text-align: center;">Function 1</th>
-      <th style="text-align: center;">Function 2</th>
-      <th style="text-align: center;">Function 3</th>
-      <th style="text-align: center;">Function 4</th>
-      <th style="text-align: center;">Function 5</th>
-      <th style="text-align: center;">Function 6</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <tr>
-      <td style="text-align: center;">GPIO_[99]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[99]</td>
-      <td style="text-align: center;">SSP3_TXD</td>
-      <td style="text-align: center;">SSPA3_CLK</td>
-      <td style="text-align: center;">UART4_TXD</td>
-      <td style="text-align: center;">R.CAN2_TXD</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">CLK_CAMCK4</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[100]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[100]</td>
-      <td style="text-align: center;">SSP3_RXD</td>
-      <td style="text-align: center;">SSPA3_FRM</td>
-      <td style="text-align: center;">UART4_RXD</td>
-      <td style="text-align: center;">R.CAN2_RXD</td>
-      <td style="text-align: center;">PCIeD_PRSNT2n</td>
-      <td style="text-align: center;">CLK32K_OUT</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[101]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[101]</td>
-      <td style="text-align: center;">SSP3_SCLK</td>
-      <td style="text-align: center;">SSPA3_TXD</td>
-      <td style="text-align: center;">UART4_CTS</td>
-      <td style="text-align: center;">CAN4_RXD</td>
-      <td style="text-align: center;">PCIeD_ATTn</td>
-      <td style="text-align: center;">MNCLK_OUT1</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[102]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[102]</td>
-      <td style="text-align: center;">SSP3_FRM</td>
-      <td style="text-align: center;">SSPA3_RXD</td>
-      <td style="text-align: center;">UART4_RTS</td>
-      <td style="text-align: center;">CAN4_TXD</td>
-      <td style="text-align: center;">PCIeD_PWRCTn</td>
-      <td style="text-align: center;">I2C1_SCL</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[103]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[103]</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">SSPA3_SYSCLK</td>
-      <td style="text-align: center;">USB20_HOST_DRV</td>
-      <td style="text-align: center;">CAN3_TXD</td>
-      <td style="text-align: center;">PCIeD_AUXen</td>
-      <td style="text-align: center;">I2C1_SDA</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[104]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[104]</td>
-      <td style="text-align: center;">SSP0_TXD</td>
-      <td style="text-align: center;">SSP2_TXD</td>
-      <td style="text-align: center;">USB30H-1_DRV</td>
-      <td style="text-align: center;">CAN3_RXD</td>
-      <td style="text-align: center;">PCIeD_PWRDet</td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[105]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[105]</td>
-      <td style="text-align: center;">SSP0_RXD</td>
-      <td style="text-align: center;">SSP2_RXD</td>
-      <td style="text-align: center;">R.I2C1_SCL</td>
-      <td style="text-align: center;">I2C3_SCL</td>
-      <td style="text-align: center;">PCIeD_PERSTn</td>
-      <td style="text-align: center;">PWM17</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[106]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[106]</td>
-      <td style="text-align: center;">SSP0_SCLK</td>
-      <td style="text-align: center;">SSP2_SCLK</td>
-      <td style="text-align: center;">R.I2C1_SDA</td>
-      <td style="text-align: center;">I2C3_SDA</td>
-      <td style="text-align: center;">PCIeD_WAKEn</td>
-      <td style="text-align: center;">PWM18</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[107]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[107]</td>
-      <td style="text-align: center;">SSP0_FRM</td>
-      <td style="text-align: center;">SSP2_FRM</td>
-      <td style="text-align: center;">R.CAN4_TXD</td>
-      <td style="text-align: center;">USB30_DRD_DIR</td>
-      <td style="text-align: center;">PCIeD_CLKREQn</td>
-      <td style="text-align: center;">PWM19</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[108]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[108]</td>
-      <td style="text-align: center;">R.SSP1_TXD</td>
-      <td style="text-align: center;">USB20_HOST_DRV</td>
-      <td style="text-align: center;">R.CAN4_RXD</td>
-      <td style="text-align: center;">IR0_RX</td>
-      <td style="text-align: center;">PCIeA_PERSTn</td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[109]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[109]</td>
-      <td style="text-align: center;">R.SSP1_RXD</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">R.UART0_TXD</td>
-      <td style="text-align: center;">CAN1_TXD</td>
-      <td style="text-align: center;">PCIeA_WAKEn</td>
-      <td style="text-align: center;">R.PWM6</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[110]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[110]</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">R.UART0_RXD</td>
-      <td style="text-align: center;">CAN1_RXD</td>
-      <td style="text-align: center;">PCIeA_CLKREQn</td>
-      <td style="text-align: center;">R.PWM7</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[111]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[111]</td>
-      <td style="text-align: center;">SSP1_TXD</td>
-      <td style="text-align: center;">SSPA0_CLK</td>
-      <td style="text-align: center;">ucie_deSCL</td>
-      <td style="text-align: center;">I2C4_SCL</td>
-      <td style="text-align: center;">USB30_DRD_INT</td>
-      <td style="text-align: center;">R.PWM8</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[112]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[112]</td>
-      <td style="text-align: center;">SSP1_RXD</td>
-      <td style="text-align: center;">SSPA0_FRM</td>
-      <td style="text-align: center;">ucie_deSDA</td>
-      <td style="text-align: center;">I2C4_SDA</td>
-      <td style="text-align: center;">USB30_D_DRV</td>
-      <td style="text-align: center;">R.PWM9</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[113]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[113]</td>
-      <td style="text-align: center;">SSP1_SCLK</td>
-      <td style="text-align: center;">SSPA0_TXD</td>
-      <td style="text-align: center;">R.GPIO[30]</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">PCIeB_PERSTn</td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[114]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[114]</td>
-      <td style="text-align: center;">SSP1_FRM</td>
-      <td style="text-align: center;">SSPA0_RXD</td>
-      <td style="text-align: center;">R.GPIO[31]</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">PCIeB_WAKEn</td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[115]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[115]</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">SSPA0_SYSCLK</td>
-      <td style="text-align: center;">R.GPIO[32]</td>
-      <td style="text-align: center;">I2C0_SCL</td>
-      <td style="text-align: center;">PCIeB_CLKREQn</td>
-      <td style="text-align: center;">R.I2C0_SCL</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[116]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[116]</td>
-      <td style="text-align: center;">R.SSP1_SCLK</td>
-      <td style="text-align: center;">USB30_DRD_ID</td>
-      <td style="text-align: center;">R.GPIO[33]</td>
-      <td style="text-align: center;">I2C0_SDA</td>
-      <td style="text-align: center;">PCIeB_PRSNT2n</td>
-      <td style="text-align: center;">R.I2C0_SDA</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[117]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[117]</td>
-      <td style="text-align: center;">R.SSP1_FRM</td>
-      <td style="text-align: center;">USB30_DRD_VBUSON</td>
-      <td style="text-align: center;">R.GPIO[34]</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">PCIeB_ATTn</td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[118]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[118]</td>
-      <td style="text-align: center;">UART1_RTSn</td>
-      <td style="text-align: center;">USB30_DRD_DRV</td>
-      <td style="text-align: center;">R.GPIO[35]</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">PCIeB_PWRCTn</td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[119]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[119]</td>
-      <td style="text-align: center;">UART1_CTSn</td>
-      <td style="text-align: center;">USB30_DRD_INT</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">PCIeB_AUXen</td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[120]</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[120]</td>
-      <td style="text-align: center;">UART1_RXD</td>
-      <td style="text-align: center;">I2C2_SCL</td>
-      <td style="text-align: center;">R.CAN3_TXD</td>
-      <td style="text-align: center;">CAN4_TXD</td>
-      <td style="text-align: center;">PCIeB_PWRDet</td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[121]</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[121]</td>
-      <td style="text-align: center;">UART1_TXD</td>
-      <td style="text-align: center;">I2C2_SDA</td>
-      <td style="text-align: center;">R.CAN3_RXD</td>
-      <td style="text-align: center;">CAN4_RXD</td>
-      <td style="text-align: center;">PCIeB_MRLn</td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[122]</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[122]</td>
-      <td style="text-align: center;">MMC2_DAT[3]</td>
-      <td style="text-align: center;">SSPA1_CLK</td>
-      <td style="text-align: center;">UART6_TXD</td>
-      <td style="text-align: center;">R.UART0_TXD</td>
-      <td style="text-align: center;">PCIeB_ATNLED</td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[123]</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[123]</td>
-      <td style="text-align: center;">MMC2_DAT[2]</td>
-      <td style="text-align: center;">SSPA1_FRM</td>
-      <td style="text-align: center;">UART6_RXD</td>
-      <td style="text-align: center;">R.UART0_RXD</td>
-      <td style="text-align: center;">PCIeB_PWRLED</td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[124]</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[124]</td>
-      <td style="text-align: center;">MMC2_DAT[1]</td>
-      <td style="text-align: center;">SSPA1_TXD</td>
-      <td style="text-align: center;">PCIeD_PERSTn</td>
-      <td style="text-align: center;">e/DP0_HPD</td>
-      <td style="text-align: center;">PCIeB_EINT</td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[125]</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[125]</td>
-      <td style="text-align: center;">MMC2_DAT[0]</td>
-      <td style="text-align: center;">SSPA1_RXD</td>
-      <td style="text-align: center;">PCIeD_WAKEn</td>
-      <td style="text-align: center;">e/DP1_HPD</td>
-      <td style="text-align: center;">PCIeB_EINTEG</td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[126]</td>
-      <td style="text-align: center;">上拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[126]</td>
-      <td style="text-align: center;">MMC2_CMD</td>
-      <td style="text-align: center;">SSPA1_SYSCLK</td>
-      <td style="text-align: center;">PCIeD_CLKREQn</td>
-      <td style="text-align: center;">I2C5_SCL</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">GPIO_[127]</td>
-      <td style="text-align: center;">下拉</td>
-      <td style="text-align: center;">启用</td>
-      <td style="text-align: center;">GPIO[127]</td>
-      <td style="text-align: center;">MMC2_CLK</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">PCIeD_PRSNT2n</td>
-      <td style="text-align: center;">I2C5_SDA</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: center;">USB30_C_DRV</td>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">QSPI [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">QSPI_DAT3</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">QSPI_DAT[3]</td>
+      <td style="padding: 4px 2px;">GPIO[0]</td>
+      <td style="padding: 4px 2px;">R.UART1_TXD</td>
+      <td style="padding: 4px 2px;">R.GPIO[0]</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">QSPI [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">QSPI_DAT2</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">QSPI_DAT[2]</td>
+      <td style="padding: 4px 2px;">GPIO[1]</td>
+      <td style="padding: 4px 2px;">R.UART1_RXD</td>
+      <td style="padding: 4px 2px;">R.GPIO[1]</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">QSPI [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">QSPI_DAT1</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">QSPI_DAT[1]</td>
+      <td style="padding: 4px 2px;">GPIO[2]</td>
+      <td style="padding: 4px 2px;">R.UART1_CTS</td>
+      <td style="padding: 4px 2px;">R.GPIO[2]</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">QSPI [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">QSPI_DAT0</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">QSPI_DAT[0]</td>
+      <td style="padding: 4px 2px;">GPIO[3]</td>
+      <td style="padding: 4px 2px;">R.UART1_RTS</td>
+      <td style="padding: 4px 2px;">R.GPIO[3]</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">QSPI [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">QSPI_CLK</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">QSPI_CLK</td>
+      <td style="padding: 4px 2px;">GPIO[4]</td>
+      <td style="padding: 4px 2px;">R.CAN1_TXD</td>
+      <td style="padding: 4px 2px;">R.GPIO[4]</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">QSPI [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">QSPI_CS0</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">QSPI_CS0</td>
+      <td style="padding: 4px 2px;">GPIO[5]</td>
+      <td style="padding: 4px 2px;">R.CAN1_RXD</td>
+      <td style="padding: 4px 2px;">R.GPIO[5]</td>
+      <td style="padding: 4px 2px;">I2C3_SCL</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">QSPI [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">QSPI_CS1</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">QSPI_CS1</td>
+      <td style="padding: 4px 2px;">GPIO[6]</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">I2C3_SDA</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">SD/MMC1 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">MMC1_DAT3</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">MMC1_DAT[3]</td>
+      <td style="padding: 4px 2px;">GPIO[93]</td>
+      <td style="padding: 4px 2px;">UART0_TXD</td>
+      <td style="padding: 4px 2px;">R.GPIO[6]</td>
+      <td style="padding: 4px 2px;">R.UART0_TXD</td>
+      <td style="padding: 4px 2px;">PRI_TDI</td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">SD/MMC1 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">MMC1_DAT2</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">MMC1_DAT[2]</td>
+      <td style="padding: 4px 2px;">GPIO[94]</td>
+      <td style="padding: 4px 2px;">UART0_RXD</td>
+      <td style="padding: 4px 2px;">R.GPIO[7]</td>
+      <td style="padding: 4px 2px;">R.UART0_RXD</td>
+      <td style="padding: 4px 2px;">PRI_TMS</td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">SD/MMC1 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">MMC1_DAT1</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">MMC1_DAT[1]</td>
+      <td style="padding: 4px 2px;">GPIO[95]</td>
+      <td style="padding: 4px 2px;">UART2_TXD</td>
+      <td style="padding: 4px 2px;">R.GPIO[8]</td>
+      <td style="padding: 4px 2px;">PWM2</td>
+      <td style="padding: 4px 2px;">PRI_TDO</td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">SD/MMC1 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">MMC1_DAT0</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">MMC1_DAT[0]</td>
+      <td style="padding: 4px 2px;">GPIO[96]</td>
+      <td style="padding: 4px 2px;">UART2_RXD</td>
+      <td style="padding: 4px 2px;">R.GPIO[9]</td>
+      <td style="padding: 4px 2px;">PWM3</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">SD/MMC1 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">MMC1_CMD</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">MMC1_CMD</td>
+      <td style="padding: 4px 2px;">GPIO[97]</td>
+      <td style="padding: 4px 2px;">UART2_CTS</td>
+      <td style="padding: 4px 2px;">R.GPIO[10]</td>
+      <td style="padding: 4px 2px;">PWM4</td>
+      <td style="padding: 4px 2px;">I2C4_SCL</td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">SD/MMC1 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">MMC1_CLK</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">MMC1_CLK</td>
+      <td style="padding: 4px 2px;">GPIO[98]</td>
+      <td style="padding: 4px 2px;">UART2_RTS</td>
+      <td style="padding: 4px 2px;">R.GPIO[11]</td>
+      <td style="padding: 4px 2px;">PWM5</td>
+      <td style="padding: 4px 2px;">PRI_TCK</td>
+      <td style="padding: 4px 2px;">I2C4_SDA</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">PMIC [1.8V only]</td>
+      <td style="padding: 4px 2px;">RESET_IN_N</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">NO</td>
+      <td style="padding: 4px 2px;">RESET_IN_N</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">PWM10</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">PMIC [1.8V only]</td>
+      <td style="padding: 4px 2px;">EXT_32K_IN</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">NO</td>
+      <td style="padding: 4px 2px;">EXT_32K_IN</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">PWM11</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">PMIC [1.8V only]</td>
+      <td style="padding: 4px 2px;">PWR_SCL</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">PWR_SCL</td>
+      <td style="padding: 4px 2px;">R_PWR_SCL</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">PWM12</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">PMIC [1.8V only]</td>
+      <td style="padding: 4px 2px;">PWR_SDA</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">PWR_SDA</td>
+      <td style="padding: 4px 2px;">R_PWR_SDA</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">PWM13</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">PMIC [1.8V only]</td>
+      <td style="padding: 4px 2px;">VCXO_EN</td>
+      <td style="padding: 4px 2px;">NO</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">VCXO_EN</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">PWM14</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">PMIC [1.8V only]</td>
+      <td style="padding: 4px 2px;">PMIC_WDT_N</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">NO</td>
+      <td style="padding: 4px 2px;">PMIC_WDT_N</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">PWM15</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">PMIC [1.8V only]</td>
+      <td style="padding: 4px 2px;">PMIC_INT_N</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">PMIC_INT_N</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">PWM16</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">PMIC [1.8V only]</td>
+      <td style="padding: 4px 2px;">PWR_SSP_TXD</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">PWR_SSP_TXD</td>
+      <td style="padding: 4px 2px;">GPIO[120]</td>
+      <td style="padding: 4px 2px;">I2C6_SCL</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">PMIC [1.8V only]</td>
+      <td style="padding: 4px 2px;">PWR_SSP_RXD</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">PWR_SSP_RXD</td>
+      <td style="padding: 4px 2px;">GPIO[121]</td>
+      <td style="padding: 4px 2px;">I2C6_SDA</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">PMIC [1.8V only]</td>
+      <td style="padding: 4px 2px;">PWR_SSP_SCLK</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">PWR_SSP_SCLK</td>
+      <td style="padding: 4px 2px;">GPIO[122]</td>
+      <td style="padding: 4px 2px;">UART0_TXD</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">PMIC [1.8V only]</td>
+      <td style="padding: 4px 2px;">PWR_SSP_FRM</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">PWR_SSP_FRM</td>
+      <td style="padding: 4px 2px;">GPIO[123]</td>
+      <td style="padding: 4px 2px;">UART0_RXD</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">PMIC [1.8V only]</td>
+      <td style="padding: 4px 2px;">PRI_TDI</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">NO</td>
+      <td style="padding: 4px 2px;">PRI_TDI</td>
+      <td style="padding: 4px 2px;">GPIO[124]</td>
+      <td style="padding: 4px 2px;">R.GPIO[17]</td>
+      <td style="padding: 4px 2px;">PWM6</td>
+      <td style="padding: 4px 2px;">UART5_TXD</td>
+      <td style="padding: 4px 2px;">UART0_TXD</td>
+      <td style="padding: 4px 2px;">R.UART0_TXD</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">PMIC [1.8V only]</td>
+      <td style="padding: 4px 2px;">PRI_TMS</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">NO</td>
+      <td style="padding: 4px 2px;">PRI_TMS</td>
+      <td style="padding: 4px 2px;">GPIO[125]</td>
+      <td style="padding: 4px 2px;">R.GPIO[14]</td>
+      <td style="padding: 4px 2px;">PWM7</td>
+      <td style="padding: 4px 2px;">UART5_RXD</td>
+      <td style="padding: 4px 2px;">UART0_RXD</td>
+      <td style="padding: 4px 2px;">R.UART0_RXD</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">PMIC [1.8V only]</td>
+      <td style="padding: 4px 2px;">PRI_TCK</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">NO</td>
+      <td style="padding: 4px 2px;">PRI_TCK</td>
+      <td style="padding: 4px 2px;">GPIO[126]</td>
+      <td style="padding: 4px 2px;">R.GPIO[15]</td>
+      <td style="padding: 4px 2px;">PWM8</td>
+      <td style="padding: 4px 2px;">UART9_TXD</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">PMIC [1.8V only]</td>
+      <td style="padding: 4px 2px;">PRI_TDO</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">NO</td>
+      <td style="padding: 4px 2px;">PRI_TDO</td>
+      <td style="padding: 4px 2px;">GPIO[127]</td>
+      <td style="padding: 4px 2px;">R.GPIO[16]</td>
+      <td style="padding: 4px 2px;">PWM9</td>
+      <td style="padding: 4px 2px;">UART9_RXD</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">PMIC [1.8V only]</td>
+      <td style="padding: 4px 2px;">PRI_TRST_N</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">NO</td>
+      <td style="padding: 4px 2px;">PRI_TRSTn</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">EMMC5 [1.8V only]</td>
+      <td style="padding: 4px 2px;">EMMC_D0</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">EMMC_D0</td>
+      <td style="padding: 4px 2px;">GPIO[32]</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">EMMC5 [1.8V only]</td>
+      <td style="padding: 4px 2px;">EMMC_D1</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">EMMC_D1</td>
+      <td style="padding: 4px 2px;">GPIO[33]</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">EMMC5 [1.8V only]</td>
+      <td style="padding: 4px 2px;">EMMC_D2</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">EMMC_D2</td>
+      <td style="padding: 4px 2px;">GPIO[34]</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">EMMC5 [1.8V only]</td>
+      <td style="padding: 4px 2px;">EMMC_D3</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">EMMC_D3</td>
+      <td style="padding: 4px 2px;">GPIO[35]</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">EMMC5 [1.8V only]</td>
+      <td style="padding: 4px 2px;">EMMC_D4</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">EMMC_D4</td>
+      <td style="padding: 4px 2px;">GPIO[36]</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">EMMC5 [1.8V only]</td>
+      <td style="padding: 4px 2px;">EMMC_D5</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">EMMC_D5</td>
+      <td style="padding: 4px 2px;">R.GPIO[8]</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">EMMC5 [1.8V only]</td>
+      <td style="padding: 4px 2px;">EMMC_D6</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">EMMC_D6</td>
+      <td style="padding: 4px 2px;">R.GPIO[9]</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">EMMC5 [1.8V only]</td>
+      <td style="padding: 4px 2px;">EMMC_D7</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">EMMC_D7</td>
+      <td style="padding: 4px 2px;">R.GPIO[10]</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">EMMC5 [1.8V only]</td>
+      <td style="padding: 4px 2px;">EMMC_DS</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">EMMC_DS</td>
+      <td style="padding: 4px 2px;">R.GPIO[11]</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">EMMC5 [1.8V only]</td>
+      <td style="padding: 4px 2px;">EMMC_CLK</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">EMMC_CLK</td>
+      <td style="padding: 4px 2px;">R.GPIO[12]</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">EMMC5 [1.8V only]</td>
+      <td style="padding: 4px 2px;">EMMC_CMD</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">EMMC_CMD</td>
+      <td style="padding: 4px 2px;">R.GPIO[13]</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO1 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[0]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[0]</td>
+      <td style="padding: 4px 2px;">GMAC0_RXDV</td>
+      <td style="padding: 4px 2px;">SSPA5_CLK</td>
+      <td style="padding: 4px 2px;">PWM0</td>
+      <td style="padding: 4px 2px;">IR1_RX</td>
+      <td style="padding: 4px 2px;">eSPI0_D0</td>
+      <td style="padding: 4px 2px;">I2C0_SCL</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO1 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[1]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[1]</td>
+      <td style="padding: 4px 2px;">GMAC0_RX_D0</td>
+      <td style="padding: 4px 2px;">SSPA5_FRM</td>
+      <td style="padding: 4px 2px;">PWM1</td>
+      <td style="padding: 4px 2px;">R.IR1_RX</td>
+      <td style="padding: 4px 2px;">eSPI0_D1</td>
+      <td style="padding: 4px 2px;">I2C0_SDA</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO1 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[2]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[2]</td>
+      <td style="padding: 4px 2px;">GMAC0_RX_D1</td>
+      <td style="padding: 4px 2px;">SSPA5_TXD</td>
+      <td style="padding: 4px 2px;">PWM2</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">eSPI0_D2</td>
+      <td style="padding: 4px 2px;">I2C1_SCL</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO1 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[3]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[3]</td>
+      <td style="padding: 4px 2px;">GMAC0_RX_CLK</td>
+      <td style="padding: 4px 2px;">SSPA5_RXD</td>
+      <td style="padding: 4px 2px;">PWM3</td>
+      <td style="padding: 4px 2px;">PCIeD_PERSTn</td>
+      <td style="padding: 4px 2px;">eSPI0_D3</td>
+      <td style="padding: 4px 2px;">I2C1_SDA</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO1 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[4]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[4]</td>
+      <td style="padding: 4px 2px;">GMAC0_RX_D2</td>
+      <td style="padding: 4px 2px;">SSPA5_SYSCLK</td>
+      <td style="padding: 4px 2px;">PWM4</td>
+      <td style="padding: 4px 2px;">PCIeD_WAKEn</td>
+      <td style="padding: 4px 2px;">eSPI0_CS</td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO1 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[5]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[5]</td>
+      <td style="padding: 4px 2px;">GMAC0_RX_D3</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">PWM5</td>
+      <td style="padding: 4px 2px;">PCIeD_CLKREQn</td>
+      <td style="padding: 4px 2px;">eSPI0_CLK</td>
+      <td style="padding: 4px 2px;">I2C2_SCL</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO1 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[6]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[6]</td>
+      <td style="padding: 4px 2px;">GMAC0_TX_D0</td>
+      <td style="padding: 4px 2px;">R.SSPA0_CLK</td>
+      <td style="padding: 4px 2px;">PWM6</td>
+      <td style="padding: 4px 2px;">PCIeD_PRSNT2n</td>
+      <td style="padding: 4px 2px;">eSPI0_RESETN</td>
+      <td style="padding: 4px 2px;">I2C2_SDA</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO1 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[7]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[7]</td>
+      <td style="padding: 4px 2px;">GMAC0_TX_D1</td>
+      <td style="padding: 4px 2px;">R.SSPA0_FRM</td>
+      <td style="padding: 4px 2px;">PWM7</td>
+      <td style="padding: 4px 2px;">PCIeD_ATTn</td>
+      <td style="padding: 4px 2px;">eSPI0_ALERT</td>
+      <td style="padding: 4px 2px;">I2C6_SCL</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO1 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[8]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[8]</td>
+      <td style="padding: 4px 2px;">GMAC0_TX_CLK</td>
+      <td style="padding: 4px 2px;">R.SSPA0_TXD</td>
+      <td style="padding: 4px 2px;">PWM8</td>
+      <td style="padding: 4px 2px;">PCIeD_AUXen</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">I2C6_SDA</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO1 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[9]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[9]</td>
+      <td style="padding: 4px 2px;">GMAC0_TX_D2</td>
+      <td style="padding: 4px 2px;">R.SSPA0_RXD</td>
+      <td style="padding: 4px 2px;">PWM9</td>
+      <td style="padding: 4px 2px;">PCIeD_PWRCTn</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">e/DP0_HPD</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO1 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[10]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[10]</td>
+      <td style="padding: 4px 2px;">GMAC0_TX_D3</td>
+      <td style="padding: 4px 2px;">R.SSPA0_SYSCLK</td>
+      <td style="padding: 4px 2px;">PWM10</td>
+      <td style="padding: 4px 2px;">PCIeD_PWRDet</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">e/DP1_HPD</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO1 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[11]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[11]</td>
+      <td style="padding: 4px 2px;">GMAC0_TX_EN</td>
+      <td style="padding: 4px 2px;">UART7_RTSn</td>
+      <td style="padding: 4px 2px;">CAN0_TXD</td>
+      <td style="padding: 4px 2px;">UART8_RXD</td>
+      <td style="padding: 4px 2px;">I2C4_SCL</td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO1 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[12]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[12]</td>
+      <td style="padding: 4px 2px;">GMAC0_MDC</td>
+      <td style="padding: 4px 2px;">UART7_CTSn</td>
+      <td style="padding: 4px 2px;">CAN0_RXD</td>
+      <td style="padding: 4px 2px;">PCIeC_PERSTn</td>
+      <td style="padding: 4px 2px;">UART8_TXD</td>
+      <td style="padding: 4px 2px;">I2C4_SDA</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO1 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[13]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[13]</td>
+      <td style="padding: 4px 2px;">GMAC0_MDIO</td>
+      <td style="padding: 4px 2px;">UART7_TXD</td>
+      <td style="padding: 4px 2px;">PWM13</td>
+      <td style="padding: 4px 2px;">PCIeC_WAKEn</td>
+      <td style="padding: 4px 2px;">CLK_CAMCK1</td>
+      <td style="padding: 4px 2px;">DSI0_TE</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO1 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[14]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[14]</td>
+      <td style="padding: 4px 2px;">GMAC0_INT_N</td>
+      <td style="padding: 4px 2px;">UART7_RXD</td>
+      <td style="padding: 4px 2px;">PWM14</td>
+      <td style="padding: 4px 2px;">PCIeC_CLKREQn</td>
+      <td style="padding: 4px 2px;">MNCLK_OUT1</td>
+      <td style="padding: 4px 2px;">I2C6_SCL</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO1 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[15]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[15]</td>
+      <td style="padding: 4px 2px;">GMAC0_RXER</td>
+      <td style="padding: 4px 2px;">SSPA1_CLK</td>
+      <td style="padding: 4px 2px;">R.PWM0</td>
+      <td style="padding: 4px 2px;">PCIeC_PRSNT2n</td>
+      <td style="padding: 4px 2px;">MNCLK_OUT2</td>
+      <td style="padding: 4px 2px;">I2C6_SDA</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO1 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[16]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[16]</td>
+      <td style="padding: 4px 2px;">GMAC0_TXER</td>
+      <td style="padding: 4px 2px;">SSPA1_FRM</td>
+      <td style="padding: 4px 2px;">R.PWM1</td>
+      <td style="padding: 4px 2px;">PCIeC_ATTn</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">USB20_HOST_DRV</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO1 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[17]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[17]</td>
+      <td style="padding: 4px 2px;">GMAC0_CRS</td>
+      <td style="padding: 4px 2px;">SSPA1_TXD</td>
+      <td style="padding: 4px 2px;">R.PWM2</td>
+      <td style="padding: 4px 2px;">PCIeC_PWRCTn</td>
+      <td style="padding: 4px 2px;">R.UART1_TXD</td>
+      <td style="padding: 4px 2px;">USB30_DRD_ID</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO1 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[18]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[18]</td>
+      <td style="padding: 4px 2px;">GMAC0_COL</td>
+      <td style="padding: 4px 2px;">SSPA1_RXD</td>
+      <td style="padding: 4px 2px;">R.PWM3</td>
+      <td style="padding: 4px 2px;">PCIeC_AUXen</td>
+      <td style="padding: 4px 2px;">R.UART1_RXD</td>
+      <td style="padding: 4px 2px;">USB30_DRD_VBUSON</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO1 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[19]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[19]</td>
+      <td style="padding: 4px 2px;">GMAC0_PPS</td>
+      <td style="padding: 4px 2px;">SSPA1_SYSCLK</td>
+      <td style="padding: 4px 2px;">R.PWM4</td>
+      <td style="padding: 4px 2px;">PCIeC_PWRDet</td>
+      <td style="padding: 4px 2px;">R.UART1_CTSn</td>
+      <td style="padding: 4px 2px;">USB30_DRD_DRV</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO1 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[20]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[20]</td>
+      <td style="padding: 4px 2px;">GMAC0_CLK_REF</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">R.PWM5</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">R.UART1_RTSn</td>
+      <td style="padding: 4px 2px;">USB30_D_DRV</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[21]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[21]</td>
+      <td style="padding: 4px 2px;">GMAC1_RXDV</td>
+      <td style="padding: 4px 2px;">UART5_TXD</td>
+      <td style="padding: 4px 2px;">PWM15</td>
+      <td style="padding: 4px 2px;">PCIeB_PERSTn</td>
+      <td style="padding: 4px 2px;">R.UART4_TXD</td>
+      <td style="padding: 4px 2px;">R.GPIO[28]</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[22]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[22]</td>
+      <td style="padding: 4px 2px;">GMAC1_RX_D0</td>
+      <td style="padding: 4px 2px;">UART5_RXD</td>
+      <td style="padding: 4px 2px;">PWM16</td>
+      <td style="padding: 4px 2px;">PCIeB_WAKEn</td>
+      <td style="padding: 4px 2px;">R.UART4_RXD</td>
+      <td style="padding: 4px 2px;">R.GPIO[29]</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[23]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[23]</td>
+      <td style="padding: 4px 2px;">GMAC1_RX_D1</td>
+      <td style="padding: 4px 2px;">UART5_CTS</td>
+      <td style="padding: 4px 2px;">PWM17</td>
+      <td style="padding: 4px 2px;">PCIeB_CLKREQn</td>
+      <td style="padding: 4px 2px;">UART7_TXD</td>
+      <td style="padding: 4px 2px;">e/DP0_HPD</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[24]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[24]</td>
+      <td style="padding: 4px 2px;">GMAC1_RX_CLK</td>
+      <td style="padding: 4px 2px;">UART5_RTS</td>
+      <td style="padding: 4px 2px;">PWM18</td>
+      <td style="padding: 4px 2px;">PCIeB_PRSNT2n</td>
+      <td style="padding: 4px 2px;">UART7_RXD</td>
+      <td style="padding: 4px 2px;">e/DP1_HPD</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[25]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[25]</td>
+      <td style="padding: 4px 2px;">GMAC1_RX_D2</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">PWM19</td>
+      <td style="padding: 4px 2px;">PCIeC_PERSTn</td>
+      <td style="padding: 4px 2px;">UART7_CTSn</td>
+      <td style="padding: 4px 2px;">I2C5_SDA</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[26]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[26]</td>
+      <td style="padding: 4px 2px;">GMAC1_RX_D3</td>
+      <td style="padding: 4px 2px;">UART3_TXD</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">PCIeC_WAKEn</td>
+      <td style="padding: 4px 2px;">UART7_RTSn</td>
+      <td style="padding: 4px 2px;">I2C5_SCL</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[27]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[27]</td>
+      <td style="padding: 4px 2px;">GMAC1_TX_D0</td>
+      <td style="padding: 4px 2px;">UART3_RXD</td>
+      <td style="padding: 4px 2px;">R.PWM0</td>
+      <td style="padding: 4px 2px;">PCIeC_CLKREQn</td>
+      <td style="padding: 4px 2px;">USB30_D_DRV</td>
+      <td style="padding: 4px 2px;">R.I2C0_SCL</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[28]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[28]</td>
+      <td style="padding: 4px 2px;">GMAC1_TX_D1</td>
+      <td style="padding: 4px 2px;">UART3_CTS</td>
+      <td style="padding: 4px 2px;">R.PWM1</td>
+      <td style="padding: 4px 2px;">PCIeC_PRSNT2n</td>
+      <td style="padding: 4px 2px;">SSP2_TXD</td>
+      <td style="padding: 4px 2px;">R.I2C0_SDA</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[29]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[29]</td>
+      <td style="padding: 4px 2px;">GMAC1_TX_CLK</td>
+      <td style="padding: 4px 2px;">UART3_RTS</td>
+      <td style="padding: 4px 2px;">R.PWM2</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">SSP2_RXD</td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[30]</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[30]</td>
+      <td style="padding: 4px 2px;">GMAC1_TX_D2</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">R.PWM3</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">SSP2_SCLK</td>
+      <td style="padding: 4px 2px;">EDP0_HPD</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[31]</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[31]</td>
+      <td style="padding: 4px 2px;">GMAC1_TX_D3</td>
+      <td style="padding: 4px 2px;">UART10_TXD</td>
+      <td style="padding: 4px 2px;">R.PWM4</td>
+      <td style="padding: 4px 2px;">PCIeE_PERSTn</td>
+      <td style="padding: 4px 2px;">SSP2_FRM</td>
+      <td style="padding: 4px 2px;">EDP1_HPD</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[32]</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[32]</td>
+      <td style="padding: 4px 2px;">GMAC1_TX_EN</td>
+      <td style="padding: 4px 2px;">UART10_RXD</td>
+      <td style="padding: 4px 2px;">R.PWM5</td>
+      <td style="padding: 4px 2px;">PCIeE_WAKEn</td>
+      <td style="padding: 4px 2px;">SSP1_TXD</td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[33]</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[33]</td>
+      <td style="padding: 4px 2px;">GMAC1_MDC</td>
+      <td style="padding: 4px 2px;">UART10_CTS</td>
+      <td style="padding: 4px 2px;">R.PWM6</td>
+      <td style="padding: 4px 2px;">PCIeE_CLKREQn</td>
+      <td style="padding: 4px 2px;">SSP1_RXD</td>
+      <td style="padding: 4px 2px;">R.I2C1_SCL</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[34]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[34]</td>
+      <td style="padding: 4px 2px;">GMAC1_MDIO</td>
+      <td style="padding: 4px 2px;">UART10_RTS</td>
+      <td style="padding: 4px 2px;">R.PWM7</td>
+      <td style="padding: 4px 2px;">CLK_CAMCK2</td>
+      <td style="padding: 4px 2px;">SSP1_SCLK</td>
+      <td style="padding: 4px 2px;">R.I2C1_SDA</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[35]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[35]</td>
+      <td style="padding: 4px 2px;">GMAC1_INT_N</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">R.PWM8</td>
+      <td style="padding: 4px 2px;">CLK_CAMCK3</td>
+      <td style="padding: 4px 2px;">SSP1_FRM</td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[36]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[36]</td>
+      <td style="padding: 4px 2px;">GMAC1_CLK_REF</td>
+      <td style="padding: 4px 2px;">R.SSPA1_CLK</td>
+      <td style="padding: 4px 2px;">R.PWM9</td>
+      <td style="padding: 4px 2px;">I2C3_SCL</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[37]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[37]</td>
+      <td style="padding: 4px 2px;">GMAC1_RXER</td>
+      <td style="padding: 4px 2px;">R.SSPA1_FRM</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">I2C3_SDA</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[38]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[38]</td>
+      <td style="padding: 4px 2px;">GMAC1_TXER</td>
+      <td style="padding: 4px 2px;">R.SSPA1_TXD</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">DSI0_TE</td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[39]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[39]</td>
+      <td style="padding: 4px 2px;">GMAC1_CRS</td>
+      <td style="padding: 4px 2px;">R.SSPA1_RXD</td>
+      <td style="padding: 4px 2px;">MNCLK_OUT1</td>
+      <td style="padding: 4px 2px;">R.I2C1_SCL</td>
+      <td style="padding: 4px 2px;">USB20_HOST_DRV</td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[40]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[40]</td>
+      <td style="padding: 4px 2px;">GMAC1_COL</td>
+      <td style="padding: 4px 2px;">R.SSPA1_SYSCLK</td>
+      <td style="padding: 4px 2px;">MNCLK_OUT2</td>
+      <td style="padding: 4px 2px;">R.I2C1_SDA</td>
+      <td style="padding: 4px 2px;">R.IR0_RX</td>
+      <td style="padding: 4px 2px;">CAN4_TXD</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[41]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[41]</td>
+      <td style="padding: 4px 2px;">GMAC1_PPS</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">CLK32K_OUT</td>
+      <td style="padding: 4px 2px;">IR0_RX</td>
+      <td style="padding: 4px 2px;">CAN4_RXD</td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
+      <td style="padding: 4px 2px;">GPIO_[42]</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[42]</td>
+      <td style="padding: 4px 2px;">GMAC2_RXDV</td>
+      <td style="padding: 4px 2px;">UART0_TXD</td>
+      <td style="padding: 4px 2px;">PCIeA_PERSTn</td>
+      <td style="padding: 4px 2px;">I2C0_SCL</td>
+      <td style="padding: 4px 2px;">PWM0</td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
+      <td style="padding: 4px 2px;">GPIO_[43]</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[43]</td>
+      <td style="padding: 4px 2px;">GMAC2_RX_D0</td>
+      <td style="padding: 4px 2px;">UART0_RXD</td>
+      <td style="padding: 4px 2px;">CLK_CAMCK4</td>
+      <td style="padding: 4px 2px;">I2C0_SDA</td>
+      <td style="padding: 4px 2px;">PWM1</td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
+      <td style="padding: 4px 2px;">GPIO_[44]</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[44]</td>
+      <td style="padding: 4px 2px;">GMAC2_RX_D1</td>
+      <td style="padding: 4px 2px;">UART10_TXD</td>
+      <td style="padding: 4px 2px;">CAN0_TXD</td>
+      <td style="padding: 4px 2px;">PCIeA_CLKREQn</td>
+      <td style="padding: 4px 2px;">PWM2</td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
+      <td style="padding: 4px 2px;">GPIO_[45]</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[45]</td>
+      <td style="padding: 4px 2px;">GMAC2_RX_CLK</td>
+      <td style="padding: 4px 2px;">UART10_RXD</td>
+      <td style="padding: 4px 2px;">CAN0_RXD</td>
+      <td style="padding: 4px 2px;">PCIeA_PRSNT2n</td>
+      <td style="padding: 4px 2px;">PWM3</td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
+      <td style="padding: 4px 2px;">GPIO_[46]</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[46]</td>
+      <td style="padding: 4px 2px;">GMAC2_RX_D2</td>
+      <td style="padding: 4px 2px;">UART10_CTSn</td>
+      <td style="padding: 4px 2px;">CLK_CAMCK1</td>
+      <td style="padding: 4px 2px;">PCIeA_ATTn</td>
+      <td style="padding: 4px 2px;">I2C2_SCL</td>
+      <td style="padding: 4px 2px;">PWM4</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
+      <td style="padding: 4px 2px;">GPIO_[47]</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[47]</td>
+      <td style="padding: 4px 2px;">GMAC2_RX_D3</td>
+      <td style="padding: 4px 2px;">UART10_RTSn</td>
+      <td style="padding: 4px 2px;">CLK_CAMCK2</td>
+      <td style="padding: 4px 2px;">PCIeA_PWRCTn</td>
+      <td style="padding: 4px 2px;">I2C2_SDA</td>
+      <td style="padding: 4px 2px;">PWM5</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
+      <td style="padding: 4px 2px;">GPIO_[48]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[48]</td>
+      <td style="padding: 4px 2px;">GMAC2_TX_D0</td>
+      <td style="padding: 4px 2px;">UART6_TXD</td>
+      <td style="padding: 4px 2px;">CAN1_RXD</td>
+      <td style="padding: 4px 2px;">PCIeA_AUXen</td>
+      <td style="padding: 4px 2px;">I2C0_SCL</td>
+      <td style="padding: 4px 2px;">PWM6</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
+      <td style="padding: 4px 2px;">GPIO_[49]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[49]</td>
+      <td style="padding: 4px 2px;">GMAC2_TX_D1</td>
+      <td style="padding: 4px 2px;">UART6_RXD</td>
+      <td style="padding: 4px 2px;">CAN1_TXD</td>
+      <td style="padding: 4px 2px;">PCIeA_PWRDet</td>
+      <td style="padding: 4px 2px;">I2C0_SDA</td>
+      <td style="padding: 4px 2px;">PWM7</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
+      <td style="padding: 4px 2px;">GPIO_[50]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[50]</td>
+      <td style="padding: 4px 2px;">GMAC2_TX_CLK</td>
+      <td style="padding: 4px 2px;">UART6_CTS</td>
+      <td style="padding: 4px 2px;">CAN2_TXD</td>
+      <td style="padding: 4px 2px;">PCIeA_MRLn</td>
+      <td style="padding: 4px 2px;">I2C4_SCL</td>
+      <td style="padding: 4px 2px;">PWM8</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
+      <td style="padding: 4px 2px;">GPIO_[51]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[51]</td>
+      <td style="padding: 4px 2px;">GMAC2_TX_D2</td>
+      <td style="padding: 4px 2px;">UART6_RTS</td>
+      <td style="padding: 4px 2px;">CAN2_RXD</td>
+      <td style="padding: 4px 2px;">PCIeA_ATNLED</td>
+      <td style="padding: 4px 2px;">I2C4_SDA</td>
+      <td style="padding: 4px 2px;">PWM9</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
+      <td style="padding: 4px 2px;">GPIO_[52]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[52]/Strap[5]</td>
+      <td style="padding: 4px 2px;">GMAC2_TX_D3</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">PCIeA_PWRLED</td>
+      <td style="padding: 4px 2px;">CLK_CAMCK3</td>
+      <td style="padding: 4px 2px;">PWM10</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
+      <td style="padding: 4px 2px;">GPIO_[53]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[53]</td>
+      <td style="padding: 4px 2px;">GMAC2_TX_EN</td>
+      <td style="padding: 4px 2px;">UART3_CTSn</td>
+      <td style="padding: 4px 2px;">SSP0_TXD</td>
+      <td style="padding: 4px 2px;">PCIeA_EINT</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">PWM11</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
+      <td style="padding: 4px 2px;">GPIO_[54]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[54]</td>
+      <td style="padding: 4px 2px;">GMAC2_MDC</td>
+      <td style="padding: 4px 2px;">UART3_RTSn</td>
+      <td style="padding: 4px 2px;">SSP0_RXD</td>
+      <td style="padding: 4px 2px;">PCIeA_EINTEG</td>
+      <td style="padding: 4px 2px;">I2C1_SCL</td>
+      <td style="padding: 4px 2px;">PWM12</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
+      <td style="padding: 4px 2px;">GPIO_[55]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[55]</td>
+      <td style="padding: 4px 2px;">GMAC2_MDIO</td>
+      <td style="padding: 4px 2px;">UART3_RXD</td>
+      <td style="padding: 4px 2px;">SSP0_SCLK</td>
+      <td style="padding: 4px 2px;">R.UART3_RXD</td>
+      <td style="padding: 4px 2px;">I2C1_SDA</td>
+      <td style="padding: 4px 2px;">PWM13</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
+      <td style="padding: 4px 2px;">GPIO_[56]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[56]</td>
+      <td style="padding: 4px 2px;">GMAC2_INT_N</td>
+      <td style="padding: 4px 2px;">UART3_TXD</td>
+      <td style="padding: 4px 2px;">SSP0_FRM</td>
+      <td style="padding: 4px 2px;">R.UART3_TXD</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">PWM14</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
+      <td style="padding: 4px 2px;">GPIO_[57]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[57]</td>
+      <td style="padding: 4px 2px;">GMAC2_CLK_REF</td>
+      <td style="padding: 4px 2px;">R.UART2_TXD</td>
+      <td style="padding: 4px 2px;">R.CAN0_RXD</td>
+      <td style="padding: 4px 2px;">EDP0_HPD</td>
+      <td style="padding: 4px 2px;">R.I2C0_SCL</td>
+      <td style="padding: 4px 2px;">PWM15</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
+      <td style="padding: 4px 2px;">GPIO_[58]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[58]</td>
+      <td style="padding: 4px 2px;">GMAC2_PPS</td>
+      <td style="padding: 4px 2px;">R.UART2_RXD</td>
+      <td style="padding: 4px 2px;">R.CAN0_TXD</td>
+      <td style="padding: 4px 2px;">PCIeC_PERSTn</td>
+      <td style="padding: 4px 2px;">R.I2C0_SDA</td>
+      <td style="padding: 4px 2px;">PWM16</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
+      <td style="padding: 4px 2px;">GPIO_[59]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[59]</td>
+      <td style="padding: 4px 2px;">R.GMAC3_RXDV</td>
+      <td style="padding: 4px 2px;">R.UART5_TXD</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">PCIeC_WAKEn</td>
+      <td style="padding: 4px 2px;">R.I2C1_SCL</td>
+      <td style="padding: 4px 2px;">PWM17</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
+      <td style="padding: 4px 2px;">GPIO_[60]</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[60]</td>
+      <td style="padding: 4px 2px;">R.GMAC3_RX_D0</td>
+      <td style="padding: 4px 2px;">R.UART5_RXD</td>
+      <td style="padding: 4px 2px;">R.SSP0_TXD</td>
+      <td style="padding: 4px 2px;">PCIeC_CLKREQn</td>
+      <td style="padding: 4px 2px;">R.I2C1_SDA</td>
+      <td style="padding: 4px 2px;">PWM18</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
+      <td style="padding: 4px 2px;">GPIO_[61]</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[61]</td>
+      <td style="padding: 4px 2px;">R.GMAC3_RX_D1</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">R.SSP0_RXD</td>
+      <td style="padding: 4px 2px;">PCIeC_PRSNT2n</td>
+      <td style="padding: 4px 2px;">I2C6_SCL</td>
+      <td style="padding: 4px 2px;">PWM19</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
+      <td style="padding: 4px 2px;">GPIO_[62]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[62]</td>
+      <td style="padding: 4px 2px;">R.GMAC3_RX_CLK</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">R.SSP0_SCLK</td>
+      <td style="padding: 4px 2px;">PCIeC_ATTn</td>
+      <td style="padding: 4px 2px;">I2C6_SDA</td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
+      <td style="padding: 4px 2px;">GPIO_[63]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[63]</td>
+      <td style="padding: 4px 2px;">R.GMAC3_RX_D2</td>
+      <td style="padding: 4px 2px;">R.GPIO[18]</td>
+      <td style="padding: 4px 2px;">R.SSP0_FRM</td>
+      <td style="padding: 4px 2px;">PCIeC_PWRCTn</td>
+      <td style="padding: 4px 2px;">I2C5_SCL</td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
+      <td style="padding: 4px 2px;">GPIO_[64]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[64]/Strap[4]</td>
+      <td style="padding: 4px 2px;">R.GMAC3_RX_D3</td>
+      <td style="padding: 4px 2px;">R.GPIO[19]</td>
+      <td style="padding: 4px 2px;">R.SSP1_TXD</td>
+      <td style="padding: 4px 2px;">PCIeC_AUXen</td>
+      <td style="padding: 4px 2px;">I2C5_SDA</td>
+      <td style="padding: 4px 2px;">R.PWM0</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
+      <td style="padding: 4px 2px;">GPIO_[65]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[65]/Strap[0]</td>
+      <td style="padding: 4px 2px;">R.GMAC3_TX_D0</td>
+      <td style="padding: 4px 2px;">R.GPIO[20]</td>
+      <td style="padding: 4px 2px;">R.SSP1_RXD</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">R.PWM1</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
+      <td style="padding: 4px 2px;">GPIO_[66]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[66]/Strap[1]</td>
+      <td style="padding: 4px 2px;">R.GMAC3_TX_D1</td>
+      <td style="padding: 4px 2px;">R.GPIO[21]</td>
+      <td style="padding: 4px 2px;">R.SSP1_SCLK</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">R.PWM2</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
+      <td style="padding: 4px 2px;">GPIO_[67]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[67]</td>
+      <td style="padding: 4px 2px;">R.GMAC3_TX_CLK</td>
+      <td style="padding: 4px 2px;">R.GPIO[22]</td>
+      <td style="padding: 4px 2px;">R.SSP1_FRM</td>
+      <td style="padding: 4px 2px;">CLK_CAMCK4</td>
+      <td style="padding: 4px 2px;">PCIeC_PWRDet</td>
+      <td style="padding: 4px 2px;">R.PWM3</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
+      <td style="padding: 4px 2px;">GPIO_[68]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[68]/Strap[2]</td>
+      <td style="padding: 4px 2px;">R.GMAC3_TX_D2</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">eSPI0_D0</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">SSP3_TXD</td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
+      <td style="padding: 4px 2px;">GPIO_[69]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[69]/Strap[3]</td>
+      <td style="padding: 4px 2px;">R.GMAC3_TX_D3</td>
+      <td style="padding: 4px 2px;">SSPA4_CLK</td>
+      <td style="padding: 4px 2px;">eSPI0_D1</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">SSP3_RXD</td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
+      <td style="padding: 4px 2px;">GPIO_[70]</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[70]</td>
+      <td style="padding: 4px 2px;">R.GMAC3_TX_EN</td>
+      <td style="padding: 4px 2px;">SSPA4_FRM</td>
+      <td style="padding: 4px 2px;">eSPI0_D2</td>
+      <td style="padding: 4px 2px;">IR1_RX</td>
+      <td style="padding: 4px 2px;">MNCLK_OUT1</td>
+      <td style="padding: 4px 2px;">SSP3_SCLK</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
+      <td style="padding: 4px 2px;">GPIO_[71]</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[71]</td>
+      <td style="padding: 4px 2px;">R.GMAC3_MDC</td>
+      <td style="padding: 4px 2px;">SSPA4_TXD</td>
+      <td style="padding: 4px 2px;">eSPI0_D3</td>
+      <td style="padding: 4px 2px;">R.IR0_RX</td>
+      <td style="padding: 4px 2px;">MNCLK_OUT2</td>
+      <td style="padding: 4px 2px;">SSP3_FRM</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
+      <td style="padding: 4px 2px;">GPIO_[72]</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[72]</td>
+      <td style="padding: 4px 2px;">R.GMAC3_MDIO</td>
+      <td style="padding: 4px 2px;">SSPA4_RXD</td>
+      <td style="padding: 4px 2px;">eSPI0_CS</td>
+      <td style="padding: 4px 2px;">e/DP1_HPD</td>
+      <td style="padding: 4px 2px;">DSI0_TE</td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
+      <td style="padding: 4px 2px;">GPIO_[73]</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[73]</td>
+      <td style="padding: 4px 2px;">R.GMAC3_INT_N</td>
+      <td style="padding: 4px 2px;">SSPA4_SYSCLK</td>
+      <td style="padding: 4px 2px;">eSPI0_CLK</td>
+      <td style="padding: 4px 2px;">R.IR1_RX</td>
+      <td style="padding: 4px 2px;">USB20_HOST_DRV</td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
+      <td style="padding: 4px 2px;">GPIO_[74]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[74]</td>
+      <td style="padding: 4px 2px;">R.GMAC3_CLK_REF</td>
+      <td style="padding: 4px 2px;">CLK_CAMCK2</td>
+      <td style="padding: 4px 2px;">eSPI0_RESETN</td>
+      <td style="padding: 4px 2px;">VCXO_REQ</td>
+      <td style="padding: 4px 2px;">USB30H-1_DRV</td>
+      <td style="padding: 4px 2px;">R.I2C0_SCL</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
+      <td style="padding: 4px 2px;">GPIO_[75]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[75]</td>
+      <td style="padding: 4px 2px;">R.GMAC3_PPS</td>
+      <td style="padding: 4px 2px;">CLK_CAMCK1</td>
+      <td style="padding: 4px 2px;">eSPI0_ALERT</td>
+      <td style="padding: 4px 2px;">VCXO_OUT</td>
+      <td style="padding: 4px 2px;">USB30H-2_DRV</td>
+      <td style="padding: 4px 2px;">R.I2C0_SDA</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[76]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[76]</td>
+      <td style="padding: 4px 2px;">R.SSPA0_CLK</td>
+      <td style="padding: 4px 2px;">SSPA2_CLK</td>
+      <td style="padding: 4px 2px;">UART8_TXD</td>
+      <td style="padding: 4px 2px;">CAN0_TXD</td>
+      <td style="padding: 4px 2px;">PCIeE_PERSTn</td>
+      <td style="padding: 4px 2px;">I2C0_SCL</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[77]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[77]</td>
+      <td style="padding: 4px 2px;">R.SSPA0_FRM</td>
+      <td style="padding: 4px 2px;">SSPA2_FRM</td>
+      <td style="padding: 4px 2px;">UART8_RXD</td>
+      <td style="padding: 4px 2px;">CAN0_RXD</td>
+      <td style="padding: 4px 2px;">PCIeE_WAKEn</td>
+      <td style="padding: 4px 2px;">I2C0_SDA</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[78]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[78]</td>
+      <td style="padding: 4px 2px;">R.SSPA0_TXD</td>
+      <td style="padding: 4px 2px;">SSPA2_TXD</td>
+      <td style="padding: 4px 2px;">UART8_CTS</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">PCIeE_CLKREQn</td>
+      <td style="padding: 4px 2px;">I2C1_SCL</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[79]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[79]</td>
+      <td style="padding: 4px 2px;">R.SSPA0_RXD</td>
+      <td style="padding: 4px 2px;">SSPA2_RXD</td>
+      <td style="padding: 4px 2px;">UART8_RTS</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">PCIeA_PERSTn</td>
+      <td style="padding: 4px 2px;">I2C1_SDA</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[80]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[80]</td>
+      <td style="padding: 4px 2px;">R.SSPA0_SYSCLK</td>
+      <td style="padding: 4px 2px;">SSPA2_SYSCLK</td>
+      <td style="padding: 4px 2px;">R.UART4_TXD</td>
+      <td style="padding: 4px 2px;">CAN3_RXD</td>
+      <td style="padding: 4px 2px;">PCIeA_WAKEn</td>
+      <td style="padding: 4px 2px;">I2C2_SCL</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[81]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[81]</td>
+      <td style="padding: 4px 2px;">SSP0_TXD</td>
+      <td style="padding: 4px 2px;">SSA0_CLK</td>
+      <td style="padding: 4px 2px;">R.UART4_RXD</td>
+      <td style="padding: 4px 2px;">CAN3_TXD</td>
+      <td style="padding: 4px 2px;">PCIeA_CLKREQn</td>
+      <td style="padding: 4px 2px;">I2C2_SDA</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[82]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[82]</td>
+      <td style="padding: 4px 2px;">SSP0_RXD</td>
+      <td style="padding: 4px 2px;">SSA0_FRM</td>
+      <td style="padding: 4px 2px;">UART9_CTSn</td>
+      <td style="padding: 4px 2px;">UART5_RXD</td>
+      <td style="padding: 4px 2px;">PCIeA_PRSNT2n</td>
+      <td style="padding: 4px 2px;">I2C3_SCL</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[83]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[83]</td>
+      <td style="padding: 4px 2px;">SSP0_SCLK</td>
+      <td style="padding: 4px 2px;">SSA0_TXD</td>
+      <td style="padding: 4px 2px;">UART9_RTSn</td>
+      <td style="padding: 4px 2px;">UART5_TXD</td>
+      <td style="padding: 4px 2px;">PCIeA_ATTn</td>
+      <td style="padding: 4px 2px;">I2C3_SDA</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[84]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[84]</td>
+      <td style="padding: 4px 2px;">SSP0_FRM</td>
+      <td style="padding: 4px 2px;">SSA0_RXD</td>
+      <td style="padding: 4px 2px;">UART9_TXD</td>
+      <td style="padding: 4px 2px;">USB30_B_DRV</td>
+      <td style="padding: 4px 2px;">PCIeA_PWRCTn</td>
+      <td style="padding: 4px 2px;">DSI0_TE</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[85]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[85]</td>
+      <td style="padding: 4px 2px;">CLK_CAMCK3</td>
+      <td style="padding: 4px 2px;">SSA0_SYSCLK</td>
+      <td style="padding: 4px 2px;">UART9_RXD</td>
+      <td style="padding: 4px 2px;">USB30_C_DRV</td>
+      <td style="padding: 4px 2px;">PCIeA_AUXen</td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[86]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[86]</td>
+      <td style="padding: 4px 2px;">R.SSP0_TXD</td>
+      <td style="padding: 4px 2px;">R.eSPI0_D0</td>
+      <td style="padding: 4px 2px;">UART4_TXD</td>
+      <td style="padding: 4px 2px;">CAN2_TXD</td>
+      <td style="padding: 4px 2px;">PCIeA_PWRDet</td>
+      <td style="padding: 4px 2px;">USB30_DRD_DIR</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[87]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[87]</td>
+      <td style="padding: 4px 2px;">R.SSP0_RXD</td>
+      <td style="padding: 4px 2px;">R.eSPI0_D1</td>
+      <td style="padding: 4px 2px;">UART4_RXD</td>
+      <td style="padding: 4px 2px;">CAN2_RXD</td>
+      <td style="padding: 4px 2px;">PCIeA_MRLn</td>
+      <td style="padding: 4px 2px;">PCIeB_PRSNT2n</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[88]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[88]</td>
+      <td style="padding: 4px 2px;">R.SSP0_SCLK</td>
+      <td style="padding: 4px 2px;">R.eSPI0_D2</td>
+      <td style="padding: 4px 2px;">R.UART3_TXD</td>
+      <td style="padding: 4px 2px;">PCIeB_PERSTn</td>
+      <td style="padding: 4px 2px;">PCIeA_ATNLED</td>
+      <td style="padding: 4px 2px;">CAN1_RXD</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[89]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[89]</td>
+      <td style="padding: 4px 2px;">R.SSP0_FRM</td>
+      <td style="padding: 4px 2px;">R.eSPI0_D3</td>
+      <td style="padding: 4px 2px;">R.UART3_RXD</td>
+      <td style="padding: 4px 2px;">PCIeB_WAKEn</td>
+      <td style="padding: 4px 2px;">PCIeA_PWRLED</td>
+      <td style="padding: 4px 2px;">CAN1_TXD</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[90]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[90]</td>
+      <td style="padding: 4px 2px;">DSI0_TE</td>
+      <td style="padding: 4px 2px;">R.eSPI0_CS</td>
+      <td style="padding: 4px 2px;">UART4_CTSn</td>
+      <td style="padding: 4px 2px;">PCIeB_CLKREQn</td>
+      <td style="padding: 4px 2px;">PCIeA_EINT</td>
+      <td style="padding: 4px 2px;">R.CAN0_RXD</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[91]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[91]</td>
+      <td style="padding: 4px 2px;">R.GPIO[23]</td>
+      <td style="padding: 4px 2px;">R.eSPI0_CLK</td>
+      <td style="padding: 4px 2px;">UART4_RTSn</td>
+      <td style="padding: 4px 2px;">eSPI0_D0</td>
+      <td style="padding: 4px 2px;">PCIeA_EINTEG</td>
+      <td style="padding: 4px 2px;">R.CAN0_TXD</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[92]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[92]</td>
+      <td style="padding: 4px 2px;">R.GPIO[24]</td>
+      <td style="padding: 4px 2px;">R.eSPI0_RESETN</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">eSPI0_D1</td>
+      <td style="padding: 4px 2px;">R.PWM5</td>
+      <td style="padding: 4px 2px;">DSI0_TE</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[93]</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[93]</td>
+      <td style="padding: 4px 2px;">R.GPIO[25]</td>
+      <td style="padding: 4px 2px;">R.eSPI0_ALERT</td>
+      <td style="padding: 4px 2px;">UART0_TXD</td>
+      <td style="padding: 4px 2px;">eSPI0_D2</td>
+      <td style="padding: 4px 2px;">I2C5_SCL</td>
+      <td style="padding: 4px 2px;">R.PWM4</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[94]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[94]</td>
+      <td style="padding: 4px 2px;">R.GPIO[26]</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">UART0_RXD</td>
+      <td style="padding: 4px 2px;">eSPI0_D3</td>
+      <td style="padding: 4px 2px;">I2C5_SDA</td>
+      <td style="padding: 4px 2px;">R.PWM6</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[95]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[95]</td>
+      <td style="padding: 4px 2px;">R.GPIO[27]</td>
+      <td style="padding: 4px 2px;">UART1_TXD&lt;secure domain&gt;</td>
+      <td style="padding: 4px 2px;">USB30_DRD_ID</td>
+      <td style="padding: 4px 2px;">eSPI0_CS</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">PWM1</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[96]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[96]</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">UART1_RXD&lt;secure domain&gt;</td>
+      <td style="padding: 4px 2px;">USB30_DRD_VBUSON</td>
+      <td style="padding: 4px 2px;">eSPI0_CLK</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">PWM2</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[97]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[97]</td>
+      <td style="padding: 4px 2px;">UART2_TXD</td>
+      <td style="padding: 4px 2px;">UART1_CTS&lt;secure domain&gt;</td>
+      <td style="padding: 4px 2px;">USB30_DRD_DRV</td>
+      <td style="padding: 4px 2px;">eSPI0_RESETN</td>
+      <td style="padding: 4px 2px;">e/DP0_HPD</td>
+      <td style="padding: 4px 2px;">PWM3</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[98]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[98]</td>
+      <td style="padding: 4px 2px;">UART2_RXD</td>
+      <td style="padding: 4px 2px;">UART1_RTS&lt;secure domain&gt;</td>
+      <td style="padding: 4px 2px;">CLK32K_OUT</td>
+      <td style="padding: 4px 2px;">eSPI0_ALERT</td>
+      <td style="padding: 4px 2px;">e/DP1_HPD</td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[99]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[99]</td>
+      <td style="padding: 4px 2px;">SSP3_TXD</td>
+      <td style="padding: 4px 2px;">SSPA3_CLK</td>
+      <td style="padding: 4px 2px;">UART4_TXD</td>
+      <td style="padding: 4px 2px;">R.CAN2_TXD</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">CLK_CAMCK4</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[100]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[100]</td>
+      <td style="padding: 4px 2px;">SSP3_RXD</td>
+      <td style="padding: 4px 2px;">SSPA3_FRM</td>
+      <td style="padding: 4px 2px;">UART4_RXD</td>
+      <td style="padding: 4px 2px;">R.CAN2_RXD</td>
+      <td style="padding: 4px 2px;">PCIeD_PRSNT2n</td>
+      <td style="padding: 4px 2px;">CLK32K_OUT</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[101]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[101]</td>
+      <td style="padding: 4px 2px;">SSP3_SCLK</td>
+      <td style="padding: 4px 2px;">SSPA3_TXD</td>
+      <td style="padding: 4px 2px;">UART4_CTS</td>
+      <td style="padding: 4px 2px;">CAN4_RXD</td>
+      <td style="padding: 4px 2px;">PCIeD_ATTn</td>
+      <td style="padding: 4px 2px;">MNCLK_OUT1</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[102]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[102]</td>
+      <td style="padding: 4px 2px;">SSP3_FRM</td>
+      <td style="padding: 4px 2px;">SSPA3_RXD</td>
+      <td style="padding: 4px 2px;">UART4_RTS</td>
+      <td style="padding: 4px 2px;">CAN4_TXD</td>
+      <td style="padding: 4px 2px;">PCIeD_PWRCTn</td>
+      <td style="padding: 4px 2px;">I2C1_SCL</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[103]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[103]</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">SSPA3_SYSCLK</td>
+      <td style="padding: 4px 2px;">USB20_HOST_DRV</td>
+      <td style="padding: 4px 2px;">CAN3_TXD</td>
+      <td style="padding: 4px 2px;">PCIeD_AUXen</td>
+      <td style="padding: 4px 2px;">I2C1_SDA</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[104]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[104]</td>
+      <td style="padding: 4px 2px;">SSP0_TXD</td>
+      <td style="padding: 4px 2px;">SSP2_TXD</td>
+      <td style="padding: 4px 2px;">USB30H-1_DRV</td>
+      <td style="padding: 4px 2px;">CAN3_RXD</td>
+      <td style="padding: 4px 2px;">PCIeD_PWRDet</td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[105]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[105]</td>
+      <td style="padding: 4px 2px;">SSP0_RXD</td>
+      <td style="padding: 4px 2px;">SSP2_RXD</td>
+      <td style="padding: 4px 2px;">R.I2C1_SCL</td>
+      <td style="padding: 4px 2px;">I2C3_SCL</td>
+      <td style="padding: 4px 2px;">PCIeD_PERSTn</td>
+      <td style="padding: 4px 2px;">PWM17</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[106]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[106]</td>
+      <td style="padding: 4px 2px;">SSP0_SCLK</td>
+      <td style="padding: 4px 2px;">SSP2_SCLK</td>
+      <td style="padding: 4px 2px;">R.I2C1_SDA</td>
+      <td style="padding: 4px 2px;">I2C3_SDA</td>
+      <td style="padding: 4px 2px;">PCIeD_WAKEn</td>
+      <td style="padding: 4px 2px;">PWM18</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[107]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[107]</td>
+      <td style="padding: 4px 2px;">SSP0_FRM</td>
+      <td style="padding: 4px 2px;">SSP2_FRM</td>
+      <td style="padding: 4px 2px;">R.CAN4_TXD</td>
+      <td style="padding: 4px 2px;">USB30_DRD_DIR</td>
+      <td style="padding: 4px 2px;">PCIeD_CLKREQn</td>
+      <td style="padding: 4px 2px;">PWM19</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[108]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[108]</td>
+      <td style="padding: 4px 2px;">R.SSP1_TXD</td>
+      <td style="padding: 4px 2px;">USB20_HOST_DRV</td>
+      <td style="padding: 4px 2px;">R.CAN4_RXD</td>
+      <td style="padding: 4px 2px;">IR0_RX</td>
+      <td style="padding: 4px 2px;">PCIeA_PERSTn</td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[109]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[109]</td>
+      <td style="padding: 4px 2px;">R.SSP1_RXD</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">R.UART0_TXD</td>
+      <td style="padding: 4px 2px;">CAN1_TXD</td>
+      <td style="padding: 4px 2px;">PCIeA_WAKEn</td>
+      <td style="padding: 4px 2px;">R.PWM6</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[110]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[110]</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">R.UART0_RXD</td>
+      <td style="padding: 4px 2px;">CAN1_RXD</td>
+      <td style="padding: 4px 2px;">PCIeA_CLKREQn</td>
+      <td style="padding: 4px 2px;">R.PWM7</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[111]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[111]</td>
+      <td style="padding: 4px 2px;">SSP1_TXD</td>
+      <td style="padding: 4px 2px;">SSPA0_CLK</td>
+      <td style="padding: 4px 2px;">ucie_deSCL</td>
+      <td style="padding: 4px 2px;">I2C4_SCL</td>
+      <td style="padding: 4px 2px;">USB30_DRD_INT</td>
+      <td style="padding: 4px 2px;">R.PWM8</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[112]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[112]</td>
+      <td style="padding: 4px 2px;">SSP1_RXD</td>
+      <td style="padding: 4px 2px;">SSPA0_FRM</td>
+      <td style="padding: 4px 2px;">ucie_deSDA</td>
+      <td style="padding: 4px 2px;">I2C4_SDA</td>
+      <td style="padding: 4px 2px;">USB30_D_DRV</td>
+      <td style="padding: 4px 2px;">R.PWM9</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[113]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[113]</td>
+      <td style="padding: 4px 2px;">SSP1_SCLK</td>
+      <td style="padding: 4px 2px;">SSPA0_TXD</td>
+      <td style="padding: 4px 2px;">R.GPIO[30]</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">PCIeB_PERSTn</td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[114]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[114]</td>
+      <td style="padding: 4px 2px;">SSP1_FRM</td>
+      <td style="padding: 4px 2px;">SSPA0_RXD</td>
+      <td style="padding: 4px 2px;">R.GPIO[31]</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">PCIeB_WAKEn</td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[115]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[115]</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">SSPA0_SYSCLK</td>
+      <td style="padding: 4px 2px;">R.GPIO[32]</td>
+      <td style="padding: 4px 2px;">I2C0_SCL</td>
+      <td style="padding: 4px 2px;">PCIeB_CLKREQn</td>
+      <td style="padding: 4px 2px;">R.I2C0_SCL</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[116]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[116]</td>
+      <td style="padding: 4px 2px;">R.SSP1_SCLK</td>
+      <td style="padding: 4px 2px;">USB30_DRD_ID</td>
+      <td style="padding: 4px 2px;">R.GPIO[33]</td>
+      <td style="padding: 4px 2px;">I2C0_SDA</td>
+      <td style="padding: 4px 2px;">PCIeB_PRSNT2n</td>
+      <td style="padding: 4px 2px;">R.I2C0_SDA</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[117]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[117]</td>
+      <td style="padding: 4px 2px;">R.SSP1_FRM</td>
+      <td style="padding: 4px 2px;">USB30_DRD_VBUSON</td>
+      <td style="padding: 4px 2px;">R.GPIO[34]</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">PCIeB_ATTn</td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[118]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[118]</td>
+      <td style="padding: 4px 2px;">UART1_RTSn&lt;secure domain&gt;</td>
+      <td style="padding: 4px 2px;">USB30_DRD_DRV</td>
+      <td style="padding: 4px 2px;">R.GPIO[35]</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">PCIeB_PWRCTn</td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[119]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[119]</td>
+      <td style="padding: 4px 2px;">UART1_CTSn&lt;secure domain&gt;</td>
+      <td style="padding: 4px 2px;">USB30_DRD_INT</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">PCIeB_AUXen</td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[120]</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[120]</td>
+      <td style="padding: 4px 2px;">UART1_RXD&lt;secure domain&gt;</td>
+      <td style="padding: 4px 2px;">I2C2_SCL</td>
+      <td style="padding: 4px 2px;">R.CAN3_TXD</td>
+      <td style="padding: 4px 2px;">CAN4_TXD</td>
+      <td style="padding: 4px 2px;">PCIeB_PWRDet</td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[121]</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[121]</td>
+      <td style="padding: 4px 2px;">UART1_TXD&lt;secure domain&gt;</td>
+      <td style="padding: 4px 2px;">I2C2_SDA</td>
+      <td style="padding: 4px 2px;">R.CAN3_RXD</td>
+      <td style="padding: 4px 2px;">CAN4_RXD</td>
+      <td style="padding: 4px 2px;">PCIeB_MRLn</td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[122]</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[122]</td>
+      <td style="padding: 4px 2px;">MMC2_DAT[3]</td>
+      <td style="padding: 4px 2px;">SSPA1_CLK</td>
+      <td style="padding: 4px 2px;">UART6_TXD</td>
+      <td style="padding: 4px 2px;">R.UART0_TXD</td>
+      <td style="padding: 4px 2px;">PCIeB_ATNLED</td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[123]</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[123]</td>
+      <td style="padding: 4px 2px;">MMC2_DAT[2]</td>
+      <td style="padding: 4px 2px;">SSPA1_FRM</td>
+      <td style="padding: 4px 2px;">UART6_RXD</td>
+      <td style="padding: 4px 2px;">R.UART0_RXD</td>
+      <td style="padding: 4px 2px;">PCIeB_PWRLED</td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[124]</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[124]</td>
+      <td style="padding: 4px 2px;">MMC2_DAT[1]</td>
+      <td style="padding: 4px 2px;">SSPA1_TXD</td>
+      <td style="padding: 4px 2px;">PCIeD_PERSTn</td>
+      <td style="padding: 4px 2px;">e/DP0_HPD</td>
+      <td style="padding: 4px 2px;">PCIeB_EINT</td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[125]</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[125]</td>
+      <td style="padding: 4px 2px;">MMC2_DAT[0]</td>
+      <td style="padding: 4px 2px;">SSPA1_RXD</td>
+      <td style="padding: 4px 2px;">PCIeD_WAKEn</td>
+      <td style="padding: 4px 2px;">e/DP1_HPD</td>
+      <td style="padding: 4px 2px;">PCIeB_EINTEG</td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[126]</td>
+      <td style="padding: 4px 2px;">上拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[126]</td>
+      <td style="padding: 4px 2px;">MMC2_CMD</td>
+      <td style="padding: 4px 2px;">SSPA1_SYSCLK</td>
+      <td style="padding: 4px 2px;">PCIeD_CLKREQn</td>
+      <td style="padding: 4px 2px;">I2C5_SCL</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;"></td>
+    </tr>
+    <tr style="text-align: center;">
+      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
+      <td style="padding: 4px 2px;">GPIO_[127]</td>
+      <td style="padding: 4px 2px;">下拉</td>
+      <td style="padding: 4px 2px;">启用</td>
+      <td style="padding: 4px 2px;">GPIO[127]</td>
+      <td style="padding: 4px 2px;">MMC2_CLK</td>
+      <td style="padding: 4px 2px;"></td>
+      <td style="padding: 4px 2px;">PCIeD_PRSNT2n</td>
+      <td style="padding: 4px 2px;">I2C5_SDA</td>
+      <td style="padding: 4px 2px;">USB30_C_DRV</td>
+      <td style="padding: 4px 2px;"></td>
     </tr>
   </tbody>
 </table>
