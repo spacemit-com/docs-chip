@@ -98,7 +98,7 @@ Flasher tool configuration for DDR CS num:
 
 ### 2.5 Image Flashing
 
-Refer to [Flasher Tool User Guide](https://spacemit.com/community/document/info?lang=zh&nodepath=tools/user_guide/flasher_user_guide.md) for image flashing details.
+Refer to [Flasher Tool User Guide](https://spacemit.com/community/document/info?lang=en&nodepath=tools/user_guide/flasher_user_guide.md) for image flashing details.
 
 ## 3. LPDDR4x SDRAM Compatibility Test
 
