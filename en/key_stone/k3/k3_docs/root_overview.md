@@ -11,31 +11,30 @@ The K3 series chips are mainly used in AI consumer hardware, such as AI smart ho
 
 - **Exceptional CPU Performance**
   8 high-performance X100 cores, up to 2.4 GHz, delivering 130 K DMIPS
-  Full support for RVA23 Profile
-  Single-core SPECint2006 > 9.0/GHz, comparable to ARM Cortex-A76
+  RVA23 profile compliant, with single-core SPECint2006 > 9.0/GHz (comparable to Arm Cortex-A76)
 
 - **General-Purpose AI Performance**
-  Up to 60 TOPS AI performance, supporting BF16, FP16, FP8, INT8, and INT4 data types 
-  Smoothly run local 30B models, achieving 84% of the overall intelligence performance of a 235B model
+  Up to 60 TOPS AI performance, supporting BF16, FP16, FP8, INT8, and INT4
+  Runs local 30B models smoothly, reaching ~84% of 235B model capability
 
-- **Latest RISC-V Architecture, Robust Parallel Computing Power**
+- **Latest RISC-V Architecture for Massive Parallelism**
   A100 supports up to 1024-bit RVV 1.0 vector processing
-  Dedicated TCM and DMA acceleration channels provided
+  Dedicated TCM and DMA acceleration
 
-- **Rich I/O Expansion Interfaces**
-  Integrated multiple high-speed expansion interfaces to flexibly meet diverse computing needs
-  Supports 8-lane PCIe, 4x USB 3.0 ports, and 4x GMAC interfaces, among others
+- **Rich I/O Expansion**
+  Multiple high-speed interfaces for diverse workloads
+  Supports 8-lane PCIe, 4x USB 3.0 ports, and 4x GMAC
 
-- **Comprehensive Hardware Virtualization**
+- **Full Hardware Virtualization**
   Supports RV Hypervisor 1.0, AIA, and RV IOMMU extensions
-  Provides full hardware virtualization for CPU, memory, interrupts, and I/O
+  Enables virtualization across CPU, memory, interrupts, and I/O
 
-- **Enhanced Security and Defense Technologies**
-  Supports M/S/U processor privilege levels with hardware mitigations against Spectre- and Meltdown-class attacks
-  Supports China’s commercial cryptography standards SM2/3/4
+- **Enhanced Security**
+  Supports M/S/U privilege levels with hardware protection against Spectre/Meltdown-class attacks
+  Supports SM2/3/4 cryptographic standards
 
-- **Compliant with Industrial-Grade Standards**
-  Delivers stable and reliable computing performance across a wide temperature range of –40°C to 85°C, meeting the demanding requirements of industrial applications
+- **Industrial-Grade Standards**
+  Stable operation from –40°C to 85°C for demanding environments
 
 ## Features
 
