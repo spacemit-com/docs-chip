@@ -25,10 +25,6 @@ The K3 series chips are mainly used in AI consumer hardware, such as AI smart ho
   Multiple high-speed interfaces for diverse workloads
   Supports 8-lane PCIe, 4x USB 3.0 ports, and 4x GMAC
 
-- **Full Hardware Virtualization**
-  Supports RV Hypervisor 1.0, AIA, and RV IOMMU extensions
-  Enables virtualization across CPU, memory, interrupts, and I/O
-
 - **Enhanced Security**
   Supports M/S/U privilege levels with hardware protection against Spectre/Meltdown-class attacks
   Supports SM2/3/4 cryptographic standards
