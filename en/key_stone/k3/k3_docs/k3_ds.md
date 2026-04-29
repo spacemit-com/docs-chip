@@ -4,6 +4,10 @@ sidebar_position: 2
 
 # K3 Datasheet (Preliminary Version)
 
+## PDF Version
+
+Click to download [K3 Datasheet (PDF)](#)
+
 ## Proprietary, Confidentiality & Disclaimer
 
 **Copyright © 2026 SpacemiT Inc. All rights reserved.**

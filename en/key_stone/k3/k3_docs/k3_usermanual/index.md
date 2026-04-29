@@ -4,7 +4,11 @@ sidebar_position: 3
 
 # User Manual
 
-**[K3 User Manual (PDF)](#)**
+## PDF Version
+
+Click to download **[K3 User Manual (PDF)](#)**
+
+## Contents
 
 - [Preface](00_preface.md)
 - [1. Overview](01_overview.md)
