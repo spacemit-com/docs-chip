@@ -4,6 +4,8 @@ sidebar_position: 3
 
 # User Manual
 
+**[K3 User Manual (PDF)](#)**
+
 - [Preface](00_preface.md)
 - [1. Overview](01_overview.md)
 - [2. Package](02_package.md)
