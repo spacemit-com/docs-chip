@@ -33,6 +33,8 @@ It is designed for distributed IoT operating system scenarios, enabling lightwei
 - **User Guide:**  
   [OpenHarmony User Guide](https://www.spacemit.com/community/document/info?lang=zh&nodepath=software/SDK/openharmony/root_overview.md)
 
+> Note: Only Chinese version available 
+
 ## AI Robot SDK  
 
 The AI Robot SDK is a full-stack, production-oriented software development kit designed for scalable robotics deployment. It provides standardized capabilities from the operating system layer to middleware and application frameworks, along with an engineering toolchain to streamline development.
@@ -40,4 +42,6 @@ The AI Robot SDK is a full-stack, production-oriented software development kit d
 The SDK includes a rich set of components and scenario-based reference projects, covering platforms such as service robots, humanoid robots, drones, and robotic arms. It enables rapid prototyping, integration, and mass production.
 
 - **User Guide:**  
-  [SpacemiT Robot SDK User Guide](https://www.spacemit.com/community/document/info?lang=en&nodepath=software/SDK/ros/k3/intro.md)
+  [SpacemiT Robot SDK User Guide](https://www.spacemit.com/community/document/info?lang=zh&nodepath=software/SDK/ros/k3)
+  
+> Note: English version is coming soon

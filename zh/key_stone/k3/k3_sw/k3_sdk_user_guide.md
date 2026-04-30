@@ -26,4 +26,4 @@ K3 OpenHarmony SDK 基于 OpenHarmony 6.x 版本，由中科院软件所联合�
 
 AI Robot SDK 是面向机器人规模化落地的一体化全栈软件开发套件，提供从系统到中间件与应用的标准化能力与工程化工具链，显著降低集成复杂度并加速交付。内置丰富组件库与场景化示例工程，覆盖桌面机器人、人型机器人、无人机、机械臂等多形态平台，帮助开发者快速验证、快速集成、快速量产部署。
 
-- **使用说明：** [SpacemiT Robot SDK 使用指南](https://www.spacemit.com/community/document/info?lang=zh&nodepath=software/SDK/ros/k3/intro.md)
+- **使用说明：** [K3 AI Robot SDK 使用指南](https://www.spacemit.com/community/document/info?lang=zh&nodepath=software/SDK/ros/k3)
