@@ -222,4 +222,4 @@ Additionally, several standard-independent blocks share common logic during oper
 
 ## 11.4 Block Diagram
 
-<img src="/k3_docs/static/k3_video.png" alt="" width="600">
+<img src="./static/k3_video.png" alt="" width="600">

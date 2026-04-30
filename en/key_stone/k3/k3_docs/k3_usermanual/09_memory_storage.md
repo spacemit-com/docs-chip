@@ -12,7 +12,7 @@ K3 includes the following on-chip memory types:
 - 512KB SRAM shared by Main CPU and Real CPU
 
 The memory mapping is shown below.
-<img src="/k3_docs/static/memory01.png" alt="K3 on-chip memory mapping" width="800">
+<img src="./static/memory01.png" alt="K3 on-chip memory mapping" width="800">
 
 ## 9.2 LPDDR4x/5
 
@@ -25,7 +25,7 @@ There are two Memory Controllers (DDRCTLs), each combined with a Synopsys DDR PH
 
 The DDRCTL can accept memory access requests from up to 16 application-side host ports. External AMBA AXI manager ports can be connected to subordinate ports of DDRCTL through the standard AMBA 4 AXI bus interfaces. The configuration registers are programmed through the APB software interface.
 
-<img src="/k3_docs/static/k3_lpddr.png" alt="K3 LPDDR block diagram" width="600">
+<img src="./static/k3_lpddr.png" alt="K3 LPDDR block diagram" width="600">
 
 ### 9.2.2 Features
 
@@ -243,11 +243,11 @@ The QSPI block diagram is shown below, where:
 - AHB BUS is used for XIP transfer (not used in current design)
 - APB BUS is used to configure registers and write/read/erase external serial flash.
 
-<img src="/k3_docs/static/k3_qspi00.png" alt="QSPI block diagram" width="600">
+<img src="./static/k3_qspi00.png" alt="QSPI block diagram" width="600">
 
 The different phases of the serial flash access scheme are shown below.
 
-<img src="/k3_docs/static/k3_qspi01.png" alt="Quad-SPI access phases" width="800">
+<img src="./static/k3_qspi01.png" alt="Quad-SPI access phases" width="800">
 
 The different phases and the I/O driving characteristics of the QuadSPI module are described below:
 
@@ -299,11 +299,11 @@ The eMMC interface supports the following features:
 
 ### 9.4.3 Block Diagram
 
-<img src="/k3_docs/static/k3-emmc-bd.png" alt="eMMC block diagram" width="800">
+<img src="./static/k3-emmc-bd.png" alt="eMMC block diagram" width="800">
 
 ### 9.4.4 Interface Description
 
-<img src="/k3_docs/static/k3-emmc.png" alt="eMMC interface signals" width="600">
+<img src="./static/k3-emmc.png" alt="eMMC interface signals" width="600">
 
 The eMMC device transfers data via a configurable number of data bus signals. The communication signals are:
 
@@ -1607,7 +1607,7 @@ UFS (Universal Flash Storage) is a high-performance serial storage interface sta
 
 The principal components of the UFS host controller are the System Bus Interface Unit, UFS Host Controller Interface, UFS Transport Protocol Layer, UFS Host Registers, Device Management Entity (DME), Transport Layer, Network Layer, Data Link Layer, PHY Adapter Layer, and M-PHY Interface. The functional block diagram of the UFS host controller is shown below.
 
-<img src="/k3_docs/static/ufs_bd.png" alt="" width="500">
+<img src="./static/ufs_bd.png" alt="" width="500">
 
 ### 9.7.4 UFS Operation
 
@@ -1622,7 +1622,7 @@ When the host controller comes out of power-up reset, all registers are in their
 When this register bit is not written as 1, DME_RESET and DME_ENABLE are written by software through the registers.
 
 The following figure shows the link startup process.
-<img src="/k3_docs/static/ufs00.png" alt="" width="800">
+<img src="./static/ufs00.png" alt="" width="800">
 
 #### 9.7.4.2 Write Data Operation
 
@@ -1643,7 +1643,7 @@ The following figure shows the link startup process.
 
 In order to correctly transfer data between the UFS device and system memory, the UFS host software must properly maintain both the host memory space and IO memory/register space, which is shown in the figure below.
 
-<img src="/k3_docs/static/ufs01.png" alt="" width="800">
+<img src="./static/ufs01.png" alt="" width="800">
 
 ### 9.7.5 Registers
 

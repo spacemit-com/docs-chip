@@ -28,7 +28,7 @@ Using the default configuration as an example:
 
 There are no hardware restrictions on channel assignment. If message traffic is asymmetric between users, software can allocate mailbox channels accordingly.
 
-<img src="/k3_docs/static/mailbox.png" alt="" width="500">
+<img src="./static/mailbox.png" alt="" width="500">
 
 ## 16.6.4 Registers
 

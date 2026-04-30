@@ -16,6 +16,6 @@ The package outline drawing (POD) is shown below.
 
 ## 2.2 Package Outline Drawing (POD)
 
-<img src="/k3_docs/static/package1.png" alt="K3 package outline drawing, view 1" width="500">
+<img src="./static/package1.png" alt="K3 package outline drawing, view 1" width="500">
 
-<img src="/k3_docs/static/package2.png" alt="K3 package outline drawing, view 2" width="800">
+<img src="./static/package2.png" alt="K3 package outline drawing, view 2" width="800">
