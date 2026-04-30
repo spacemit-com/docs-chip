@@ -90,7 +90,7 @@ Each external signal that is connected to a UART module and how these pins funct
 | DTRn   | Output | **Data Terminal Ready**<br>When asserted, signals the modem or the data set that the UART is ready to establish a communications link. To assert the DTRn output (active low), set the &lt;Data Terminal Ready&gt; field in the Modem Control Register, which is the complement of the output signal. A reset operation de-asserts this signal (high). Loop-mode operation holds DTRn de-asserted. |
 | RTSn   | Output | **Request To Send**<br>When asserted, signals the modem or the data set that the UART is ready to exchange data. To assert the RTSn output (active low), set the &lt;Request to Send&gt; field in the Modem Control Register, which is the complement of the output signal. A reset operation de-asserts this signal (high). Loop-mode operation holds RTSn de-asserted.<br><br>**Non-Auto-flow mode**:<br>To assert the RTSn output (active low), set &lt;Request to Send&gt;.<br><br>**Auto-flow mode**:<br>RTSn is asserted automatically by the auto-flow circuitry when the Receive buffer exceeds its programmed trigger threshold. It is de-asserted when enough bytes are removed from the buffer to lower the data level back to the trigger threshold. |
 
-The pins transmit digital CMOS-level signals are connected to K3 through GPIOs (refer to Section [Multi-Function Pin Registers](3.Pinout.md#36-multi-function-pin-registers)).
+The pins transmit digital CMOS-level signals are connected to K3 through GPIOs (refer to Section [Multi-Function Pin Registers](../03_pinout.md#33-multiplexed-signalpin-functions)).
 
 ### 14.6.3.2 Operation
 

@@ -429,7 +429,7 @@ The base addresses of the Host Controller registers are:
 - SD3: 0xD4281000
 - SD4: reserved
 
-#### Register Descriptions
+#### 9.6.3.1 Register Descriptions
 
 ##### SYSTEM ADDRESS REGISTER
 SD_SYS_ADDR
@@ -1647,7 +1647,7 @@ In order to correctly transfer data between the UFS device and system memory, th
 
 ### 9.7.5 Registers
 
-#### Register Descriptions (UFS Host Controller)
+#### 9.7.5.1 Register Descriptions (UFS Host Controller)
 
 The base address of UFS Host Controller Registers is: 0xC0E00000.
 
@@ -2036,7 +2036,7 @@ Offset: 0xD8
 | 31:28 | RSVD | RO | 0 | Reserved for future use. |
 | 27:0 | PA_LINK_STARTUP_TIMER | RW | 0x1CA38CE | This register value represents the number of system clock cycles required for 100 milliseconds.<br>For example: If the frequency is 300 MHz (3.33 ns period), then the number of clock cycles required for 100 ms is calculated as:<br>100 ms / 3.33 ns ≈ 30,030,030 cycles. |
 
-#### Register Descriptions (UFS Management)
+#### 9.7.5.2 Register Descriptions (UFS Management)
 
 The base address of UFS MNG Register is: 0xC0E01B00
 

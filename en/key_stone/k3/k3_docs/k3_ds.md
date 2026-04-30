@@ -94,7 +94,7 @@ The K3 series chips are mainly used in AI consumer hardware, such as AI smart ho
 
 - Operating temperature: –40 °C to +85 °C (industrial grade)
 
-## 1.3 Block Diagram
+### 1.3 Block Diagram
 
 <img src="static/k3_block_diagram.png" alt="K3 Block Diagram" width="800">
 
@@ -172,7 +172,7 @@ In addition to advanced AI acceleration, the A100 fully supports general-purpose
 
 <img src="static/a100_block_diagram.png" alt="" width="400">
 
-#### RT24 RISC-V Core
+#### 2.1.3 RT24 RISC-V Core
 
 **Introduction**  
 The RT24 serves as the system management core within the K3 SoC. It is based on CVA6, the OpenHW Group’s open-source 64-bit RISC-V CPU, featuring a 6-stage, in-order, single-issue pipeline with RV64GC support and Unix-like operating system compatibility. Designed for high efficiency and reliability, the RT24 core provides essential control, coordination, and low-power management functions across the system.
@@ -1004,7 +1004,7 @@ The SPI (Serial Peripheral Interface) is a synchronous serial interface that ena
   - In Packed Data Mode, double-depth FIFOs are used for 8-bit or 16-bit data, providing 64 entries × 16 bits, supporting a total of 64 samples.  
   - Both FIFOs support loading and unloading via Programmed I/O (PIO) or DMA burst transfers.  
 
-#### UART Interface
+#### 2.7.6 UART Interface
 
 **Introduction**  
 The UART (Universal Asynchronous Receiver/Transmitter) module provides asynchronous serial communication between the system and external devices. It supports flexible configuration, efficient data handling, and diagnostic features, suitable for both low- and high-speed communication scenarios.
@@ -3638,7 +3638,7 @@ Let’s consider the division into the quadrants, in order to conveniently provi
   </tbody>
 </table>
 
-### 4.2.2 For 3.3V I/O Pins
+#### 4.2.2 For 3.3V I/O Pins
 
 <table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px;">
 
