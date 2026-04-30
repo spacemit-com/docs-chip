@@ -20,7 +20,7 @@ The IR-RX module receives infrared signals and transforms the received informati
 
 The block diagram of IR-RX is depicted below.
 
-<img src="/k3_docs/static/ir_rx.png" alt="" width="400">
+<img src="./static/ir_rx.png" alt="" width="400">
 
 The input clock signal (CLK) is divided by a configurable parameter to generate the internal working clock (WCLK) which is used to measure the duration or transition time of the input infrared signal.
 

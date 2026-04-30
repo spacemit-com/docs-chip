@@ -7,13 +7,13 @@ sidebar_position: 4
 ## 3.1 Pinout Diagram & Description
 
 The overall pinout diagram of K3 is depicted below.
-<img src="/k3_docs/static/k3_pinmap.png" alt="" width="900">
+<img src="./static/k3_pinmap.png" alt="" width="900">
 
 Let’s consider the division into the quadrants, in order to conveniently provide the pinout description of K3 in the following subsections.
 
 ### 3.1.1 (A~Y, 1~20)
 
-<img src="/k3_docs/static/k3_pinmap_a-y_1-20.png" alt="" width="800">
+<img src="./static/k3_pinmap_a-y_1-20.png" alt="" width="800">
 
 | Pin Number | Pin Name | Pin Number | Pin Name |
 | --- | --- | --- | --- |
@@ -218,7 +218,7 @@ Let’s consider the division into the quadrants, in order to conveniently provi
 
 ### 3.1.2 (A~Y, 21~40)
 
-<img src="/k3_docs/static/k3_pinmap_a-y_21-40.png" alt="" width="800">
+<img src="./static/k3_pinmap_a-y_21-40.png" alt="" width="800">
 
 | Pin Number | Pin Name | Pin Number | Pin Name |
 | --- | --- | --- | --- |
@@ -418,7 +418,7 @@ Let’s consider the division into the quadrants, in order to conveniently provi
 
 ### 3.1.3 (AA~AY, 1~20)
 
-<img src="/k3_docs/static/k3_pinmap_aa-ay_1-20.png" alt="" width="800">
+<img src="./static/k3_pinmap_aa-ay_1-20.png" alt="" width="800">
 
 | Pin Number | Pin Name | Pin Number | Pin Name |
 | --- | --- | --- | --- |
@@ -625,7 +625,7 @@ Let’s consider the division into the quadrants, in order to conveniently provi
 
 ### 3.1.4 (AA~AY, 21~40)
 
-<img src="/k3_docs/static/k3_pinmap_aa-ay_21-40.png" alt="" width="800">
+<img src="./static/k3_pinmap_aa-ay_21-40.png" alt="" width="800">
 
 | Pin Number | Pin Name | Pin Number | Pin Name |
 | --- | --- | --- | --- |

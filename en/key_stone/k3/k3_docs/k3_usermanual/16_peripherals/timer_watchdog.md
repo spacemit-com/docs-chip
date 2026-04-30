@@ -51,7 +51,7 @@ The K3 includes:
 
 The architecture of the timer unit is shown below.
 
-<img src="/k3_docs/static/timer.png" alt="" width="600">
+<img src="./static/timer.png" alt="" width="600">
 
 #### Watchdog Timer
 

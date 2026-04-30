@@ -14,7 +14,7 @@ The spinlock provides the following characteristics:
 
 A typical application diagram of the spinlock is shown below:
 
-<img src="/k3_docs/static/spinlock.png" alt="" width="400">
+<img src="./static/spinlock.png" alt="" width="400">
 
 ## 16.7.2 Features
 
@@ -30,7 +30,7 @@ The CPU accesses the spinlock through the APB interface to read and write intern
 
 The functional block diagram of the spinlock is shown below:
 
-<img src="/k3_docs/static/spinlock01.png" alt="" width="400">
+<img src="./static/spinlock01.png" alt="" width="400">
 
 - After reset, all spinlock units default to the unlocked state.
 - Before using a spinlock, the CPU should read `SPINLOCK_STATUS_REG` to obtain the status of all spinlock units.
@@ -49,7 +49,7 @@ For a spinlock unit in the locked state:
 
 The state transition diagram is shown below:
 
-<img src="/k3_docs/static/spinlock02.png" alt="" width="400">
+<img src="./static/spinlock02.png" alt="" width="400">
 
 ### 16.7.3.1 Operating Modes
 
