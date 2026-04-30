@@ -6,7 +6,7 @@ sidebar_position: 2
 
 ## PDF 版本下载
 
-点击下载 [K3 数据手册（PDF）](#)
+点击下载 [K3 数据手册（PDF）](https://cdn-resource.spacemit.com/file/chip/K3/k3_datasheet_zh.pdf)
 
 ## 版权声明
 
@@ -17,64 +17,15 @@ sidebar_position: 2
 
 由于产品版本升级或其他原因，本文档内容会不定期进行更新。除非另有约定，本文档仅作为使用指导，本文档所提供的信息和建议不构成任何明示或暗示的担保。在法律允许的范围内，进迭时空不对因本文档所造成的任何形式的损害负责。
 
-## 评估版本说明
-
-<span style="color: red; font-weight: bold;">本文档为 评估版本，仅供技术参考与评估使用。</span>
-<span style="color: red; font-weight: bold;">本文档所描述的产品仍处于开发或最终验证阶段。文中所载规格、参数、性能指标及功能描述均为阶段性信息，可能在最终版本发布前进行修改、优化或删除，请持续关注文档修订记录。</span>
-<span style="color: red; font-weight: bold;">本文档不构成最终产品规格说明，不得作为量产设计、商业部署或生产交付的依据。</span>
-<span style="color: red; font-weight: bold;">进迭时空有权随时自行决定对本文档或相关产品进行更新、修订、暂停或撤回，且无需承担任何责任。</span>
-<span style="color: red; font-weight: bold;">文中任何计划性的发布安排（包括但不限于 V1.0 版本发布时间）仅供规划参考，不构成具有法律约束力的承诺或合同义务。</span>
-<span style="color: red; font-weight: bold;">本文档内容不构成销售要约、产品路线图承诺或具有法律约束力的技术规格保证。</span>
-
-## 免责声明
-
-除非另有书面约定，本文档所提供的信息按“现状（AS IS）”提供。
-进迭时空不提供任何形式的明示或默示担保，包括但不限于适销性、特定用途适用性、不侵权性或性能保证。
-本文档仅作为信息参考，不构成任何合同权利或义务。
-
-## 责任限制
-
-在法律允许的最大范围内，进迭时空不对因以下情形产生的任何直接、间接、附带、特殊、后果性或惩罚性损害承担责任：
-- 使用本文档，
-- 依赖本文档信息，
-- 或基于本文档进行产品设计、开发或制造
-
-用户应自行承担使用本文档所带来的全部风险。
-
 ---
 
 ## 修订记录
 
 > 以下修订记录仅供参考，未必涵盖所有变更。规格及产品信息如有调整，恕不另行通知。
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 14px;">
-  <colgroup>
-    <col width="200">
-    <col width="200">
-    <col width="600">
-  </colgroup>
-  
-  <thead>
-    <tr style="background-color: #f6f8fa;">
-      <th style="text-align: center;">版本号</th>
-      <th style="text-align: center;">日期</th>
-      <th style="text-align: left;">修订说明</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <tr>
-      <td style="text-align: center;"><b>V0.9.1</b></td>
-      <td style="text-align: center;">2026.03.02</td>
-      <td style="text-align: left;">引脚定义子章节“多功能引脚寄存器（Multi-Function Pin Register）”已移除，此为规格持续优化。</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;"><b>V0.9</b></td>
-      <td style="text-align: center;">2026.02.28</td>
-      <td style="text-align: left;">评估版本发布</td>
-    </tr>
-  </tbody>
-</table>
+| 版本号 | 日期 | 修订说明 |
+| --- | --- | --- |
+| **V1.0** | 2026.04.30 | 首版 |
 
 ---
 

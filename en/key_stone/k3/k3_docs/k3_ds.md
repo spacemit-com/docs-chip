@@ -6,7 +6,7 @@ sidebar_position: 2
 
 ## PDF Version
 
-Click to download [K3 Datasheet (PDF)](#)
+Click to download [K3 Datasheet (PDF)](https://cdn-resource.spacemit.com/file/chip/K3/k3_datasheet_en.pdf)
 
 ## Proprietary, Confidentiality & Disclaimer
 
@@ -18,62 +18,11 @@ The copyrights of all materials and contents set forth herein are owned by Space
 
 The content of this document may be periodically updated due to product version upgrades or other reasons. Unless otherwise specified, this document is provided solely as a user guide, and THE INFORMATION AND ADVICE PROVIDED IN THIS DOCUMENT DO NOT CONSTITUTE ANY EXPLICIT OR IMPLIED WARRANTIES. TO THE EXTENT NOT PROHIBITED BY LAW, THE COMPANY SHALL NOT BE LIABLE FOR ANY FORM OF DAMAGE CAUSED BY THIS DOCUMENT.
 
-## Preliminary Version Notice
-
-<span style="color: red; font-weight: bold;">This document is designated as a Preliminary Version and is provided for reference and evaluation purposes only.</span>
-<span style="color: red; font-weight: bold;">The product described in this document is still under development or in the final validation stage. The specifications, parameters, performance data, and functional descriptions provided herein are preliminary and may be modified, refined, or removed prior to the release of the final version. Please refer to the revision history for the latest updates.</span>
-<span style="color: red; font-weight: bold;">This document does not represent a final product specification and shall not be relied upon for production design, mass manufacturing, or commercial deployment.</span>
-<span style="color: red; font-weight: bold;">SpacemiT reserves the right, at its sole discretion, to update, revise, suspend, or withdraw this document or the related product at any time without notice or liability.</span>
-<span style="color: red; font-weight: bold;">Any planned release schedule, including but not limited to a potential V1.0 release date, is provided for planning reference only and does not constitute a binding commitment or contractual obligation.</span>
-<span style="color: red; font-weight: bold;">Nothing in this document shall be interpreted as a commercial offer, product roadmap commitment, or legally binding technical specification.</span>
-
-## Disclaimer of Warranties
-
-Unless otherwise expressly agreed in writing, the information provided in this document is supplied “AS IS”.
-SpacemiT makes no warranties of any kind, whether express, implied, statutory, or otherwise, including but not limited to warranties of merchantability, fitness for a particular purpose, non-infringement, or performance.
-This document is provided for informational purposes only and does not create any contractual rights or obligations.
-
-## Limitation of Liability
-
-To the maximum extent permitted by applicable law, SpacemiT shall not be liable for any direct, indirect, incidental, special, consequential, exemplary, or punitive damages arising out of or related to:
-- the use of this document,
-- reliance on the information contained herein,
-- or the design, development, manufacture, or use of any product based on this document.
-
-Users assume all risks associated with the use of the information provided herein.
-
 ## Revision History
 
-> The revision history below is provided for reference only. Specifications remain subject to change without notice.
-
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 14px;">
-  <colgroup>
-    <col width="200">
-    <col width="200">
-    <col width="600">
-  </colgroup>
-  
-  <thead>
-    <tr style="background-color: #f6f8fa;">
-      <th style="text-align: center;">Version</th>
-      <th style="text-align: center;">Date</th>
-      <th style="text-align: left;">Notes</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <tr>
-      <td style="text-align: center;"><b>V0.9.1</b></td>
-      <td style="text-align: center;">2026.03.02</td>
-      <td style="text-align: left;">Pinout subsection Multi-Function Pin Register has been removed as part of ongoing specification refinement.</td>
-    </tr>
-        <tr>
-      <td style="text-align: center;"><b>V0.9</b></td>
-      <td style="text-align: center;">2026.02.28</td>
-      <td style="text-align: left;">Initial Preliminary release</td>
-    </tr>
-  </tbody>
-</table>
+| Version | Date | Notes |
+| --- | --- | --- |
+| **V1.0** | 2026.04.30 |First Release |
 
 ---
 
