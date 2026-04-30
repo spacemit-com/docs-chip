@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # K3 Hardware Design Guidelines and PCB Layout Manual
 
-**[PDF Version]()**
+**[PDF Version](https://cdn-resource.spacemit.com/file/chip/K3/k3_hw_design_en.pdf)**
 
 ## Revision History
 
