@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# K3 数据手册（评估版）
+# K3 数据手册
 
 ## PDF 版本下载
 

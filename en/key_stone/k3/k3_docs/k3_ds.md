@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# K3 Datasheet (Preliminary Version)
+# K3 Datasheet
 
 ## PDF Version
 

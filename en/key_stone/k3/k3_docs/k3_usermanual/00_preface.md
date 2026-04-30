@@ -4,30 +4,24 @@ sidebar_position: 1
 
 # Preface
 
+## Proprietary, Confidentiality & Disclaimer
+
+**Copyright©2026 SPACEMIT. All rights reserved.**
+
+Without the written approval of SpacemiT (Hangzhou) Technology Co. Ltd. (hereafter SpacemiT), no individual or entity may excerpt, copy or distribute any part or all of the content of this document in any form.
+
+The copyrights of all materials and contents set forth herein are owned by SpacemiT and/or its subsidiaries, except for those specifically indicated as reference to any other party (if any).
+
+The content of this document may be periodically updated due to product version upgrades or other reasons. Unless otherwise specified, this document is provided solely as a user guide, and THE INFORMATION AND ADVICE PROVIDED IN THIS DOCUMENT DO NOT CONSTITUTE ANY EXPLICIT OR IMPLIED WARRANTIES. TO THE EXTENT NOT PROHIBITED BY LAW, THE COMPANY SHALL NOT BE LIABLE FOR ANY FORM OF DAMAGE CAUSED BY THIS DOCUMENT.
+
+**SpacemiT (Hangzhou) Technology Co. Ltd.**  
+**Address:** Room 701, Block B, Future Center, Wuchang Street, Yuhang District, Hangzhou City, Zhejiang Province, China  
+**Website:** [https://www.spacemit.com](https://www.spacemit.com)  
+**Email:** <business@spacemit.com>  
+**Telephone:** (+86) 0571-89000775  
+
 ## Revision History
 
-> The revision history below is provided for reference only. Specifications remain subject to change without notice.
-
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 14px;">
-  <colgroup>
-    <col width="200">
-    <col width="200">
-    <col width="600">
-  </colgroup>
-  
-  <thead>
-    <tr style="background-color: #f6f8fa;">
-      <th style="text-align: center;">Version</th>
-      <th style="text-align: center;">Date</th>
-      <th style="text-align: left;">Notes</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <tr>
-      <td style="text-align: center;"><b>V0.1</b></td>
-      <td style="text-align: center;">2026.0x.xx</td>
-      <td style="text-align: left;">Initial Preliminary release</td>
-    </tr>
-  </tbody>
-</table>
+| Version | Date | Notes |
+| --- | --- | --- |
+| **V1.0** | 2026.04.30 | Initial release |
