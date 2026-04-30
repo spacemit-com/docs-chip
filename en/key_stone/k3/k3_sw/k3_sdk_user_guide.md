@@ -42,6 +42,6 @@ The AI Robot SDK is a full-stack, production-oriented software development kit d
 The SDK includes a rich set of components and scenario-based reference projects, covering platforms such as service robots, humanoid robots, drones, and robotic arms. It enables rapid prototyping, integration, and mass production.
 
 - **User Guide:**  
-  [SpacemiT Robot SDK User Guide](https://www.spacemit.com/community/document/info?lang=zh&nodepath=software/SDK/ros/k3)
+  [K3 AI Robot SDK User Guide](https://www.spacemit.com/community/document/info?lang=zh&nodepath=software/SDK/ros/k3)
   
 > Note: English version is coming soon
