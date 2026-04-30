@@ -125,13 +125,13 @@ Each channel defines dedicated 8-bit opcodes. In addition, common opcodes indepe
 
 eSPI transfers consist of three phases: Command Phase, Turn-around Phase, and Response Phase.
 
-<img src="./static/espi_01.png" alt="" width="600">
+<img src="../static/espi_01.png" alt="" width="600">
 
 #### Command Phase
 
 In the Command Phase, CMD is an 8-bit opcode that indicates the transfer type (Get/Put) and the associated channel. Each channel defines its own opcodes, as shown below:
 
-<img src="./static/espi_02.png" alt="" width="400">
+<img src="../static/espi_02.png" alt="" width="400">
 
 **PR channel**
 
@@ -172,7 +172,7 @@ The Turn-around Phase consists of two clock cycles. After transmitting the last 
 
 If the slave is ready, it returns data in the next cycle; otherwise, WAIT_STATE, DEFER, or ERROR is inserted.
 
-<img src="./static/espi_03.png" alt="" width="600">
+<img src="../static/espi_03.png" alt="" width="600">
 
 #### Response Phase
 
@@ -181,11 +181,11 @@ The eSPI specification defines the opcodes for response transactions.
 - Normal response: Response Modifier = 2'b00
 - NO_RESPONSE: Response Modifier = 2'b11 (default pull-up)
 
-<img src="./static/espi_04.png" alt="" width="600">
+<img src="../static/espi_04.png" alt="" width="600">
 
 When the Response Modifier Enable bit in the Slave device's General Capabilities and Configuration register is set via the SET_CONFIGURATION command, the Response Modifier field in GET_STATUS indicates the completion channel, as shown below:
 
-<img src="./static/espi_05.png" alt="" width="600">
+<img src="../static/espi_05.png" alt="" width="600">
 
 **Response Code**
 
@@ -219,7 +219,7 @@ Among the status bits:
 - Avail: indicates that the corresponding Channel request is pending on the Slave side;
 - Free: indicates that the corresponding Channel transfer from the Master can be accepted;
 
-<img src="./static/espi_06.png" alt="" width="800">
+<img src="../static/espi_06.png" alt="" width="800">
 
 Status synchronization between the Master and the Slave is performed in the following two ways:
 
@@ -236,7 +236,7 @@ WAIT_STATE is 1 byte of data, corresponding to the following cycle counts:
 - 2x mode: 4 cycles
 - 4x mode: 2 cycles
 
-<img src="./static/espi_07.png" alt="" width="800">
+<img src="../static/espi_07.png" alt="" width="800">
 
 #### Posted and Non-Posted Transfers
 
@@ -265,7 +265,7 @@ This section mainly describes HDR and DATA in the Common Phase.
 - Address: field length depends on the Cycle Type
 - Data: length depends on the Cycle Type and Length 
 
-<img src="./static/espi_08.png" alt="" width="600">
+<img src="../static/espi_08.png" alt="" width="600">
 
 #### VW channel
 
@@ -276,7 +276,7 @@ The counter field in the packet header is 6 bits and indicates the number of Vir
 Each group’s data field contains an index and data value, where the index identifies the target GPIO or IRQ, and the data represents the associated event. Edge detection is supported, allowing operations on the same interrupt ID with different signal levels within a single VW transaction.
 
 
-<img src="./static/espi_09.png" alt="" width="600">
+<img src="../static/espi_09.png" alt="" width="600">
 
 Notes:
 
@@ -288,19 +288,19 @@ Notes:
 
 In the interrupt service routine, the Master-side Controller shall clear the Slave-side interrupt status through the VW Channel, then issue GET_VW to obtain the interrupt status and update the interrupt status.
 
-<img src="./static/espi_10.png" alt="" width="600">
+<img src="../static/espi_10.png" alt="" width="600">
 
 #### OOB channel
 
 Based on the SMBUS protocol. The packet format is basically the same as that of [PR Channel](#pr-channel), but all transfers are Posted type.
 
-<img src="./static/espi_11.png" alt="" width="600">
+<img src="../static/espi_11.png" alt="" width="600">
 
 #### Flash Access channel
 
 Initiated by the Slave side through Alert. The Controller obtains the operation type (Write/Read/Erase) and address through GET_STATUS or GET_FLASH_NP. After the operation is completed, the Controller returns Completion and corresponding data through PUT_FLASH_C.
 
-<img src="./static/espi_12.png" alt="" width="600">
+<img src="../static/espi_12.png" alt="" width="600">
 
 ## 14.9.4 Register List
 
@@ -798,10 +798,11 @@ Initiated by the Slave side through Alert. The Controller obtains the operation 
 1. Before the operation, the Slave must configure the corresponding GPIO as output (the specific implementation is completed by BMC software).
 2. Write to `DN_TXDATA_PORT` (`RG_MEM_BASE + 0xC`) in the format of index (8 bits) + GPIO (4-bit mask + 4-bit data), with a maximum of 16 groups.
 3. Write `DN_TXHDR0` (`RG_MEM_BASE + 0x0`) as `0x030D`:
-  - `[2:0] = 3'b101`: indicates initiation of a PUT_VW transfer
-  - `[3] = 1'b1`: starts the transfer
-  - `[15:8]`: indicates the count in the PUT_VW transfer (currently set to 3, meaning the number of transfers is n+1, and 4 groups of VW transfers will be issued)
-  Transfers are initiated sequentially on the bus, and CRC information is generated after the transfers are complete.
+   - `[2:0] = 3'b101`: indicates initiation of a PUT_VW transfer
+   - `[3] = 1'b1`: starts the transfer
+   - `[15:8]`: indicates the count in the PUT_VW transfer (currently set to 3, meaning the number of transfers is n+1, and 4 groups of VW transfers will be issued)
+  
+    Transfers are initiated sequentially on the bus, and CRC information is generated after the transfers are complete.
 4. After the operation is complete, `con_intr` is asserted. Read `SLAVE0_INT_STS` (`RG_MEM_BASE + 0x70`) to obtain the completion information.
 
 #### Master Reads Slave GPIO
@@ -822,9 +823,9 @@ Initiated by the Slave side through Alert. The Controller obtains the operation 
 #### Master Reads/Writes Slave OOB
 
 1. Write to `DN_TXDATA_PORT` (`RG_MEM_BASE + 0xC`) according to the OOB message packet format, up to 128 bytes; write OOB Header-related information into `DN_TXHDR1/2` (`RG_MEM_BASE + 0x4/8`); write `DN_TXHDR0` (`RG_MEM_BASE + 0x0`) to initiate the transfer:
-  - `[2:0] = 3'b101`: selects PUT_OOB transfer
-  - `[3] = 1'b1`: starts the transfer
-  - `[31:16]`: OOB Header information
+   - `[2:0] = 3'b101`: selects PUT_OOB transfer
+   - `[3] = 1'b1`: starts the transfer
+   - `[31:16]`: OOB Header information
 2. If the opcode in the OOB packet is read, the Slave initiates Alert after preparing the data and sets OOB avail simultaneously. The Master executes GET_STATUS and GET_OOB in sequence, generating a `con_intr` interrupt.
 3. After the CPU receives the `con_intr` interrupt, query `SLAVE0_INT_STS` (`RG_MEM_BASE + 0x70`) to confirm that the interrupt source is OOB. In the interrupt service routine, obtain OOB Header information through `UP_RXHDR0/1` (`RG_MEM_BASE + 0x10/0x14`) and obtain OOB data through `UP_RXDATA_PORT` (`RG_MEM_BASE + 0x18`).
 4. At the end of the interrupt service routine, write `SLAVE0_INT_STS` (`RG_MEM_BASE + 0x70`) to clear the corresponding interrupt.

@@ -43,7 +43,7 @@ The K3 SoC integrates multiple USB interfaces to support high-speed connectivity
 
 ## 14.2.3 Block Diagram
 
-<img src="./static/k3_usb.png" alt="" width="800">
+<img src="../static/k3_usb.png" alt="" width="800">
 
 ## 14.2.4 Sideband IO for USB
 
@@ -74,7 +74,7 @@ The K3 SoC integrates multiple USB interfaces to support high-speed connectivity
 
 ## 14.2.6 Register Descriptions
 
-### Power Management Registers
+### 14.2.6.1 Power Management Registers
 
 #### PMU_USB_CLK_RES_CTRL
 
@@ -250,7 +250,7 @@ To select USB mode for Combo PHY, BIT 4 of PCIE_SUBSYS_MGMT must set to 1b.
 | 7:5 | PCIE_IOMMU_BYPASS | RW | 0x7 | PCIe Controller A, B and C IOMMU bypass.<br>[5]: PortA.<br>[6]: PortB.<br>[7]: PortC. |
 | 4:0 | PCIE_USB_COMBO_MODE | RW | 0x0 | PHY Matrix Configuration<br>[4] PCIe Controller A X8:<br>1: Non X8, 0: PCIe A X8<br>[3] PCIe Controller B X2:<br>1: PCIe B X2, 0: PCIe A X4<br>[2] PCIe Controller C X1:<br>1: USB, 0: PCIe<br>[1] PCIe Controller C X1:<br>1: USB, 0: PCIe<br>[0] PCIe Controller D X1:<br>1: USB, 0: PCIe |
 
-### USB2 PHY Registers
+### 14.2.6.2 USB2 PHY Registers
 
 | Base Address | Description |
 |--------------|-------------|
@@ -282,7 +282,7 @@ This register is functional on USB3.0 PortA Only.
 | 7 | CFG_UTMIOTG_AVALID | RW | 0x0 | cfg_utmiotg_avalid; default 0. set to 1 = force a valid |
 | 6:0 | RSVD | RO | 0x0 | Reserved for future use |
 
-### USB3 PHY and Combo PHY
+### 14.2.6.3 USB3 PHY and Combo PHY
 
 | Port | PHY Base Address | Description |
 |------|------------------|-------------|
@@ -353,6 +353,7 @@ SW can enable CFG_PU_SSC_OUT to enable SSC.
 | 1 | CFG_RXCLK_INV | RW | 0x0 | rxclk inverter enable |
 | 0 | PLL_READY | RO | 0x0 | Indicate the pll is locked |
 
-### USB Controller Registers
+### 14.2.6.4 USB Controller Registers
+
 All USB Host Controller registers and data structures are compliant with the Intel xHCI specification, please refer to the specification documents.
 The USB3.0 Device controller (DRD Port A only) registers and data structures are self-defined requiring software configuration.
