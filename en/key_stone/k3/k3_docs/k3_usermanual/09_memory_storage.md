@@ -349,7 +349,7 @@ The signals on the eMMC interface are described below:
 ### 9.4.5 Registers
 
 This controller instance uses the common SD/SDIO/eMMC register interface.
-The register definitions are described in [Register Section](#963-register).
+The register definitions are described in [Register Section](#963-registers).
 
 ## 9.5 SDIO Interface
 
@@ -385,7 +385,7 @@ The SDIO interface supports the following features:
 ### 9.5.3 Registers
 
 This controller instance uses the common SD/SDIO/eMMC register interface.
-The register definitions are described in [Register Section](#963-register).
+The register definitions are described in [Register Section](#963-registers).
 
 ## 9.6 SD Interface
 

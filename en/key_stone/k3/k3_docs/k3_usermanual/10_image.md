@@ -30,7 +30,7 @@ The MIPI Camera IN interface integrates four MIPI-CSI2 v1.1 controllers, each eq
 
 ### 10.1.3 Block Diagram
 
-<img src="./static/k3_mipi.png" alt="" width="800">
+<img src="../static/k3_mipi.png" alt="" width="800">
 
 ## 10.2 GPU
 
@@ -207,10 +207,10 @@ The V2D (2D Video Processor) in the K3 SoC is a hardware accelerator for video p
 
 ### 10.3.4 Subsystem Description
 
-<img src="./static/k3_v2d.png" alt="" width="800">
+<img src="../static/k3_v2d.png" alt="" width="800">
 
 The work scenario is shown in the following figure.
-<img src="./static/k3_v2dx00.png" alt="" width="600">
+<img src="../static/k3_v2dx00.png" alt="" width="600">
 
 ### 10.3.5 Functional Description
 
@@ -221,7 +221,7 @@ The process of fetching a 16×16 block of data from a source frame (src frame) a
 - AFBC: fetch rectangle left, top, width, and height are 4-byte aligned
 - Non-AFBC: fetch rectangle left, top, width, and height are 1-byte aligned
 
-<img src="./static/k3_fetch.png" alt="" width="400">
+<img src="../static/k3_fetch.png" alt="" width="400">
 
 The code for fetching data for display is listed below.
 
@@ -376,7 +376,7 @@ The coordinates of the fetch rect and solid rect are updated after rotation.
 
 Supports 0°, 90°, 180°, and 270° rotation (performed clockwise), as well as mirror and flip options, as shown in the example below.
 
-<img src="./static/k3_rotat.png" alt="" width="200">
+<img src="../static/k3_rotat.png" alt="" width="200">
 
 The code for rotating, mirroring, and flipping graphical content is listed below.
 
