@@ -154,11 +154,11 @@ When in Motorola\* SPI format, if the SPI/I2S is the master and SSPSP[ETDS] is c
 
 Below are depicted the four possible configurations for the Motorola\* SPI frame protocol for a single transmitted frame.
 
-<img src="./static/k3_spi_format_00.png" alt="" width="800">
+<img src="../static/k3_spi_format_00.png" alt="" width="800">
 
 Instead, below is depicted how back-to-back frames are transmitted for the Motorola\* SPI frame protocol.
 
-<img src="./static/k3_spi_format_01.png" alt="" width="800">
+<img src="../static/k3_spi_format_01.png" alt="" width="800">
 
 > **Note.** The phase and polarity of SS_SCLK can be configured for four different modes. This example shows just one of those modes (SSCR[SPO] and SSCR[SPH] cleared). Other settings for SPO and SPH result in different polarities and timing.
 
@@ -212,7 +212,7 @@ The SPI/I2S supports placing the SS_TX into high impedance during idle time inst
 
 For Motorola\* SPI format, SSCR[TTELP] must be cleared. If SSCR[TTE] = 1. SS_TX functionality is depicted below.
 
-<img src="./static/k3_spi_format.png" alt="" width="800">
+<img src="../static/k3_spi_format.png" alt="" width="800">
 
 For Motorola\* SPI format, SS_TX goes to a high-impedance state whenever SS_FRM is not asserted.
 
@@ -220,7 +220,7 @@ For Motorola\* SPI format, SS_TX goes to a high-impedance state whenever SS_FRM 
 
 SS_TX functionality when SSCR[TTE] = 1, SS_SSCR[TTELP] = 0 and SSCR[SFRMDIR] = 1, are depicted below.
 
-<img src="./static/k3_psp.png" alt="" width="800">
+<img src="../static/k3_psp.png" alt="" width="800">
 
 ### 14.5.3.5 Network Mode Operation
 
@@ -296,7 +296,7 @@ When the source clock is to be changed, software must:
 
 Wait two SS_SCLK cycles before writing new data to the TXFIFO. The SPI/I2S Baud Rate Generation is depicted below.
 
-<img src="./static/k3_spi_i2s_00.png" alt="" width="400">
+<img src="../static/k3_spi_i2s_00.png" alt="" width="400">
 
 ## 14.5.4 Register Description
 

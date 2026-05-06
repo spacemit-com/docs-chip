@@ -104,7 +104,7 @@ The UART can use NRZ coding to represent individual bitvalues. To enable NRZ cod
 
 The data byte 8'b0100_1011 in NRZ coding is depicted below (the LSB in the byte is transmitted first).
 
-<img src="./static/k3_NRZ.png" alt="" width="400">
+<img src="../static/k3_NRZ.png" alt="" width="400">
 
 ### 14.6.3.3 Reset
 
