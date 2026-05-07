@@ -4,9 +4,9 @@ sidebar_position: 2
 
 # K3 硬件资源
 
-本节汇总 K3 芯片相关的硬件资源文件。
+本节汇总 K3 芯片相关硬件资源文件，供硬件设计与系统开发使用。
 
-## 管脚控制
+## 管脚配置
 
 ### 管脚列表与复用（Pin List & Pinmux）
 
@@ -31,3 +31,26 @@ sidebar_position: 2
 
 该文件包含封装尺寸、BGA 球阵列、球间距及机械规格等信息。  
 [k3_pod.pdf](https://cdn-resource.spacemit.com/file/chip/K3/k3_pod.pdf)
+
+## 最小系统参考设计
+
+### PCB 参考设计
+
+该文件提供 K3 最小系统的 PCB 参考设计。
+[K3_10L_minisys_2HDI.brd](https://cdn-resource.spacemit.com/file/chip/K3/K3_10L_minisys_2HDI.brd)
+
+### 原理图
+
+提供最小系统参考设计的原理图文件。
+
+> 待补充
+> - [下载原理图工程文件（DSN 格式）]()
+> - [下载原理图（PDF 格式）]()
+
+### 设计检查清单
+
+用于指导硬件设计规范性审查与量产前验证。
+
+- [原理图设计 Checklist](https://cdn-resource.spacemit.com/file/chip/K3/K3_Schematic_checklist-V1.0-20240417.xlsx)
+- [PCB 设计 Checklist](https://cdn-resource.spacemit.com/file/chip/K3/K3_Layout_checklist-V1.0-20260417.xlsx)
+- [硬件测试 Checklist](https://cdn-resource.spacemit.com/file/chip/K3/K3_Hardware_Tests_checklist-V1.0-20251028.xlsx)
