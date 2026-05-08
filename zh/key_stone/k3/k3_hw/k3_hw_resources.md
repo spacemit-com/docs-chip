@@ -43,9 +43,8 @@ sidebar_position: 2
 
 提供最小系统参考设计的原理图文件。
 
-> 待补充
-> - [下载原理图工程文件（DSN 格式）]()
-> - [下载原理图（PDF 格式）]()
+- [下载原理图工程文件（DSN 格式）](https://cdn-resource.spacemit.com/file/chip/K3/K3-MINISYS-AU4562.DSN)
+- [下载原理图（PDF 格式）](https://cdn-resource.spacemit.com/file/chip/K3/k3-minisys-au4562.pdf)
 
 ### 设计检查清单
 
