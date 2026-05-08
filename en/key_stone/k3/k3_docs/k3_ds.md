@@ -22,6 +22,7 @@ The content of this document may be periodically updated due to product version 
 
 | Version | Date | Notes |
 | --- | --- | --- |
+| **V1.1** | 2026.05.08 | Update image features |
 | **V1.0** | 2026.04.30 |First Release |
 
 ---
@@ -354,7 +355,8 @@ The MIPI Camera IN interface integrates four MIPI-CSI2 v1.1 controllers, each eq
   - CSI2 and CSI3 share one 4-lane D-PHY interface. Each supports up to 4 lanes when used independently, or up to 2 lanes per interface when operating simultaneously  
 - Supported input data formats:  
   - Legacy YUV420 8-bit  
-  - YUV420 8-bit  
+  - YUV420 8-bit
+  - YUV422 8-bit
   - RAW8  
   - RAW10  
   - RAW12  
