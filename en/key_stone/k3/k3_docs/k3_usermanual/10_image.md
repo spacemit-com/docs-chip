@@ -20,6 +20,7 @@ The MIPI Camera IN interface integrates four MIPI-CSI2 v1.1 controllers, each eq
 - Supported input data formats:
   - Legacy YUV420 8-bit
   - YUV420 8-bit
+  - YUV422 8-bit 
   - RAW8
   - RAW10
   - RAW12
