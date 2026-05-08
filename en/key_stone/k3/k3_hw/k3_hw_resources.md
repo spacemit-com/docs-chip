@@ -43,9 +43,8 @@ This file provides the PCB reference design for the K3 minimum system.
 
 Schematic files for the minimum system reference design are provided below.
 
-> To be added
-> - [Download schematic project file (DSN)]()
-> - [Download schematic (PDF)]()
+- [Download schematic project file (DSN)](https://cdn-resource.spacemit.com/file/chip/K3/K3-MINISYS-AU4562.DSN)
+- [Download schematic (PDF)](https://cdn-resource.spacemit.com/file/chip/K3/k3-minisys-au4562.pdf)
 
 ### Design Checklists
 
