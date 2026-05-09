@@ -6,3 +6,4 @@ sidebar_position: 2
 - [Hardware Design Resources](k1_hw_resources.md)
 - [Hardware Design BOM / AVL](k1_hw_avl.md)
 - [AVL Compatibility Verification SOP](avl_veri_sop.md)
+- [Hardware FAQ](k1_hw_faq.md)
