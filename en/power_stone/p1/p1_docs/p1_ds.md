@@ -1680,7 +1680,7 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | Addr | Bits | Field Name | Attr | Default | Description   |
 | ---- | ---- | ---------- | ---- | ------- | ------------------- |
 | 0x01 | 7:6  | Reserved   | RV   | 0       | Reserved   |
-| 0x01 | 5    | GPIO5_ODR  | RWE  | 0x0     | When configured as GPIO output, this bit defines the output data.<br>When configured for an alternate function, this bit defines the active polarity.<br><b>`0`</b>: Output low level / Active polarity is low<br><b>`1`</b>: Output high level / Active polarity is high |
+| 0x01 | 5    | GPIO5_ODR  | RWE  | 0x0     | When configured as GPIO output, this bit defines the output data.<br>When configured for an alternate function, this bit defines the active polarity.<br>`0`: Output low level / Active polarity is low<br>`1`: Output high level / Active polarity is high |
 | 0x01 | 4    | GPIO4_ODR  | RWE  | 0x0     | Same as GPIO5_ODR  |
 | 0x01 | 3    | GPIO3_ODR  | RWE  | 0x0     | Same as GPIO5_ODR |
 | 0x01 | 2    | GPIO2_ODR  | RWE  | 0x0     | Same as GPIO5_ODR |
@@ -1865,7 +1865,7 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 
 | Addr | Bits | Field Name   | Attr | Default | Description                                    |
 | ---- | ---- | ------------ | ---- | ------- | ---------------------------------------------- |
-| 0x16 | 7    | MASK_ALARM_D | RW   | 0x0     | ALARM_D match mask: <br>`0`: not masked <br>``1`: masked |
+| 0x16 | 7    | MASK_ALARM_D | RW   | 0x0     | ALARM_D match mask: <br>`0`: not masked <br>`1`: masked |
 | 0x16 | 6:5  | Reserved     | RV   | 0       | Reserved                                       |
 | 0x16 | 4:0  | ALARM_D      | RW   | 0x00    | RTC_ALARM days setting, range 0x00 ~ 0x1F      |
 
@@ -1919,13 +1919,13 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | Addr | Bits | Field Name      | Attr | Default | Description                                                |
 | ---- | ---- | --------------- | ---- | ------- | ---------------------------------------------------------- |
 | 0x1D | 7    | Reserved        | RV   | 0       | Reserved                                                   |
-|      | 6    | TICK_EN(*1)     | RW   | 0x0     | TICK enable:<br><b>`0`</b>: disable<br><b>`1`</b>: enable                       |
-|      | 5    | ALARM_EN(*1)    | RW   | 0x0     | ALARM enable:<br><b>`0`</b>: disable<br><b>`1`</b>: enable                      |
-|      | 4    | TICK_TYPE(*1)   | RW   | 0x0     | TICK period select:<br><b>`0`</b>: 1s<br><b>`1`</b>: 1min                       |
-|      | 3    | RTC_CLK_SEL(*1) | RW   | 0x0     | RTC clock select:<br><b>`0`</b>: internal 32kHz<br><b>`1`</b>: external crystal |
-|      | 2    | RTC_EN(*1)      | RW   | 0x0     | RTC enable:<br><b>`0`</b>: disable<br><b>`1`</b>: enable                        |
-|      | 1    | OUT_32K_EN(*2)  | RWE  | 0x0     | RTC clock output enable:<br><b>`0`</b>: disable<br><b>`1`</b>: enable           |
-|      | 0    | CRYSTAL_EN(*3)  | RWE  | 0x0     | External crystal enable:<br><b>`0`</b>: disable<br><b>`1`</b>: enable           |
+|      | 6    | TICK_EN(*1)     | RW   | 0x0     | TICK enable:<br>`0`: disable<br>`1`: enable                       |
+|      | 5    | ALARM_EN(*1)    | RW   | 0x0     | ALARM enable:<br>`0`: disable<br>`1`: enable                      |
+|      | 4    | TICK_TYPE(*1)   | RW   | 0x0     | TICK period select:<br>`0`: 1s<br>`1`: 1min                       |
+|      | 3    | RTC_CLK_SEL(*1) | RW   | 0x0     | RTC clock select:<br>`0`: internal 32kHz<br>`1`: external crystal |
+|      | 2    | RTC_EN(*1)      | RW   | 0x0     | RTC enable:<br>`0`: disable<br>`1`: enable                        |
+|      | 1    | OUT_32K_EN(*2)  | RWE  | 0x0     | RTC clock output enable:<br>`0`: disable<br>`1`: enable           |
+|      | 0    | CRYSTAL_EN(*3)  | RWE  | 0x0     | External crystal enable:<br>`0`: disable<br>`1`: enable           |
 
 > Notes:
 > (*1) Values remain unchanged in shutdown mode
@@ -1937,8 +1937,8 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | Addr | Bits | Field Name | Attr | Default | Description    |
 | ---- | ---- | ---------- | ---- | ------- | ---------------------- |
 | 0x1E | 7:2  | Reserved   | RV   | 0       | Reserved  |
-|      | 1    | ADC_GO(*2) | RW   | 0       | ADC conversion start bit:<br><b>`0`</b>: conversion done/not started<br><b>`1`</b>: conversion in progress.<br>In manual mode, set to `1` and cleared by hardware after each conversion; in auto mode, software clears to stop conversions; clearing during conversion stops it immediately. |
-|      | 0    | ADC_EN     | RW   | 0       | ADC enable:<br><b>`0`</b>: disable<br><b>`1`</b>: enable       |
+|      | 1    | ADC_GO(*2) | RW   | 0       | ADC conversion start bit:<br>`0`: conversion done/not started<br>`1`: conversion in progress.<br>In manual mode, set to `1` and cleared by hardware after each conversion; in auto mode, software clears to stop conversions; clearing during conversion stops it immediately. |
+|      | 0    | ADC_EN     | RW   | 0       | ADC enable:<br>`0`: disable<br>`1`: enable       |
 > Notes:
 > (*1) Default restored on entering shutdown mode
 > (*2) Behavior of ADC_GO as described above
@@ -2463,7 +2463,7 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | ------------- | ---- | -------------- | ---- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0x67+3xN (*1) | 7:4  | Reserved       | RV   | 0       | Reserved                                                                                                                                                                                                                                                                     |
 | 0x67+3xN (*1) | 3:1  | DLDOx_GPIO_SEL | RE   | 0x0     | GPIO (PWRCTRL) control of DLDOx enable<br>`000`: Not controlled by GPIO<br>`001`: Controlled by GPIO0<br>`010`: Controlled by GPIO1<br>`011`: Controlled by GPIO2<br>`100`: Controlled by GPIO3<br>`101`: Controlled by GPIO4<br>`110`: Controlled by GPIO5<br>`111`: Not controlled by GPIO |
-| 0x67+3xN (*1) | 0    | DLDOx_EN       | RWE  | 0x0     | DLDOx enable<br><b>`0`</b>: Disable<br><b>`1`</b>: Enable                                                                                                                                                                                                                                      |
+| 0x67+3xN (*1) | 0    | DLDOx_EN       | RWE  | 0x0     | DLDOx enable<br>`0`: Disable<br>`1`: Enable                                                                                                                                                                                                                                      |
 
 > Note:
 > (*1) N: 0 ~ 6, x: 1 ~ 7, corresponding to DLDO1 ~ DLDO7.
@@ -2492,63 +2492,63 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 
 | Addr | Bits | Field Name      | Attr | Default | Description                                                                                                                                                                   |
 | ---- | ---- | --------------- | ---- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0x7C | 7    | WDT_RST_EN      | RW   | 0x0     | WDT timeout reset enable<br><b>`0`</b>: Disable<br><b>`1`</b>: Enable                                                                                                                           |
-| 0x7C | 6    | NRESET_RST_EN   | RW   | 0x0     | nRESET pin pull-down triggered reset enable<br><b>`0`</b>: Disable<br><b>`1`</b>: Enable                                                                                                        |
-| 0x7C | 5    | PWRCTRL_SHUT_EN | RWE  | 0x0     | PWRCTRL all-bound invalid shutdown enable<br><b>`0`</b>: Disable<br><b>`1`</b>: Enable                                                                                                          |
-| 0x7C | 4    | PWRCTRL_STA_EN  | RE   | 0x0     | PWRCTRL all-bound valid power-on enable<br><b>`0`</b>: Disable<br><b>`1`</b>: Enable                                                                                                            |
-| 0x7C | 3    | RTC_STA_EN      | RE   | 0x0     | RTC TICK / ALARM triggered power-on enable<br><b>`0`</b>: Disable<br><b>`1`</b>: Enable                                                                                                         |
-| 0x7C | 2    | INT_STA_EN      | RE   | 0x0     | INT pin triggered power-on enable<br><b>`0`</b>: Disable<br><b>`1`</b>: Enable                                                                                                                  |
-| 0x7C | 1    | VSYS_STA_EN     | RE   | 0x0     | VSYS rising-edge triggered power-on enable<br><b>`0`</b>: Disable<br><b>`1`</b>: Enable<br>When enabled, the device powers on once VSYS exceeds the configured threshold after initial power-up |
+| 0x7C | 7    | WDT_RST_EN      | RW   | 0x0     | WDT timeout reset enable<br>`0`: Disable<br>`1`: Enable                                                                                                                           |
+| 0x7C | 6    | NRESET_RST_EN   | RW   | 0x0     | nRESET pin pull-down triggered reset enable<br>`0`: Disable<br>`1`: Enable                                                                                                        |
+| 0x7C | 5    | PWRCTRL_SHUT_EN | RWE  | 0x0     | PWRCTRL all-bound invalid shutdown enable<br>`0`: Disable<br>`1`: Enable                                                                                                          |
+| 0x7C | 4    | PWRCTRL_STA_EN  | RE   | 0x0     | PWRCTRL all-bound valid power-on enable<br>`0`: Disable<br>`1`: Enable                                                                                                            |
+| 0x7C | 3    | RTC_STA_EN      | RE   | 0x0     | RTC TICK / ALARM triggered power-on enable<br>`0`: Disable<br>`1`: Enable                                                                                                         |
+| 0x7C | 2    | INT_STA_EN      | RE   | 0x0     | INT pin triggered power-on enable<br>`0`: Disable<br>`1`: Enable                                                                                                                  |
+| 0x7C | 1    | VSYS_STA_EN     | RE   | 0x0     | VSYS rising-edge triggered power-on enable<br>`0`: Disable<br>`1`: Enable<br>When enabled, the device powers on once VSYS exceeds the configured threshold after initial power-up |
 | 0x7C | 0    | Reserved        | RV   | 1       | Reserved                                                                                                                                                                      |
 
 ##### Table 7-87 PWR_CTRL1
 
 | Addr | Bits | Field Name   | Attr | Default | Description                                                                                                                                                                 |
 | ---- | ---- | ------------ | ---- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0x7D | 7    | SD_LOW_POWER | RW   | 0x0     | Enter standby mode in shutdown state<br><b>`0`</b>: Do not enter<br><b>`1`</b>: Enter<br>In standby mode, internal bandgap and AON LDO are disabled; only PWRKY and RTC wake-up are available |
-| 0x7D | 6    | PG_RST_EN    | RWE  | 0x0     | PGOOD pin pull-down triggered reset enable<br><b>`0`</b>: Disable<br><b>`1`</b>: Enable                                                                                                       |
-| 0x7D | 5    | PG_PD_EN     | RWE  | 0x0     | PGOOD pin pull-down enable during sleep<br><b>`0`</b>: PGOOD not pulled down on sleep event<br><b>`1`</b>: PGOOD pulled down on sleep event                                                   |
-| 0x7D | 4    | PG_WAIT_TO   | RWE  | 0x0     | Timeout selection for waiting external PGOOD release after power-on<br><b>`0`</b>: 128 ms<br><b>`1`</b>: 1 s                                                                                  |
-| 0x7D | 3    | PG_WAIT_EN   | RWE  | 0x0     | Wait for external PGOOD release after PMIC power-on sequence completes<br><b>`0`</b>: Do not wait<br><b>`1`</b>: Wait                                                                         |
-| 0x7D | 2    | AUTO_BOOT_EN | RWE  | 0x0     | Auto reboot enable after shutdown event<br><b>`0`</b>: No reboot after shutdown<br><b>`1`</b>: Reboot after shutdown                                                                          |
-| 0x7D | 1    | SLP_WKUP_SEQ | RWE  | 0x0     | Sleep / wake-up sequence selection<br><b>`0`</b>: Direct enter / exit sleep<br><b>`1`</b>: Follow shutdown / power-on sequence                                                                |
-| 0x7D | 0    | SD_SEQ       | RWE  | 0x0     | Shutdown sequence selection<br><b>`0`</b>: Reverse-order shutdown<br><b>`1`</b>: Fast shutdown                                                                                                |
+| 0x7D | 7    | SD_LOW_POWER | RW   | 0x0     | Enter standby mode in shutdown state<br>`0`: Do not enter<br>`1`: Enter<br>In standby mode, internal bandgap and AON LDO are disabled; only PWRKY and RTC wake-up are available |
+| 0x7D | 6    | PG_RST_EN    | RWE  | 0x0     | PGOOD pin pull-down triggered reset enable<br>`0`: Disable<br>`1`: Enable                                                                                                       |
+| 0x7D | 5    | PG_PD_EN     | RWE  | 0x0     | PGOOD pin pull-down enable during sleep<br>`0`: PGOOD not pulled down on sleep event<br>`1`: PGOOD pulled down on sleep event                                                   |
+| 0x7D | 4    | PG_WAIT_TO   | RWE  | 0x0     | Timeout selection for waiting external PGOOD release after power-on<br>`0`: 128 ms<br>`1`: 1 s                                                                                  |
+| 0x7D | 3    | PG_WAIT_EN   | RWE  | 0x0     | Wait for external PGOOD release after PMIC power-on sequence completes<br>`0`: Do not wait<br>`1`: Wait                                                                         |
+| 0x7D | 2    | AUTO_BOOT_EN | RWE  | 0x0     | Auto reboot enable after shutdown event<br>`0`: No reboot after shutdown<br>`1`: Reboot after shutdown                                                                          |
+| 0x7D | 1    | SLP_WKUP_SEQ | RWE  | 0x0     | Sleep / wake-up sequence selection<br>`0`: Direct enter / exit sleep<br>`1`: Follow shutdown / power-on sequence                                                                |
+| 0x7D | 0    | SD_SEQ       | RWE  | 0x0     | Shutdown sequence selection<br>`0`: Reverse-order shutdown<br>`1`: Fast shutdown                                                                                                |
 
 ##### Table 7-88 PWR_CTRL2
 
 | Addr | Bits | Field Name        | Attr | Default | Description                                                                                                                                                                                                                                  |
 | ---- | ---- | ----------------- | ---- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0x7E | 7    | SD_RST_TIME       | RE   | 0x0     | Dwell time selection when reset enters shutdown mode<br><b>`0`</b>: 200 ms<br><b>`1`</b>: 1 s                                                                                                                                                                  |
-| 0x7E | 6    | PWRKY_SD_DIS      | RWE  | 0x0     | PWRKY shutdown function mask<br><b>`0`</b>: Enable PWRKY shutdown (12 s long-press reset disabled)<br><b>`1`</b>: Disable PWRKY shutdown (12 s long-press reset enabled)                                                                                       |
-| 0x7E | 5    | PWRCTRL_SDTO_TIME | RWE  | 0x0     | PWRCTRL timeout selection for shutdown and sleep sequences<br><b>`0`</b>: 128 ms<br><b>`1`</b>: 1 s                                                                                                                                                            |
-| 0x7E | 4    | PWRCTRL_WAIT_EN   | RWE  | 0x0     | Wait for PWRCTRL during shutdown and sleep sequences<br><b>`0`</b>: Do not wait<br><b>`1`</b>: Wait                                                                                                                                                            |
+| 0x7E | 7    | SD_RST_TIME       | RE   | 0x0     | Dwell time selection when reset enters shutdown mode<br>`0`: 200 ms<br>`1`: 1 s                                                                                                                                                                  |
+| 0x7E | 6    | PWRKY_SD_DIS      | RWE  | 0x0     | PWRKY shutdown function mask<br>`0`: Enable PWRKY shutdown (12 s long-press reset disabled)<br>`1`: Disable PWRKY shutdown (12 s long-press reset enabled)                                                                                       |
+| 0x7E | 5    | PWRCTRL_SDTO_TIME | RWE  | 0x0     | PWRCTRL timeout selection for shutdown and sleep sequences<br>`0`: 128 ms<br>`1`: 1 s                                                                                                                                                            |
+| 0x7E | 4    | PWRCTRL_WAIT_EN   | RWE  | 0x0     | Wait for PWRCTRL during shutdown and sleep sequences<br>`0`: Do not wait<br>`1`: Wait                                                                                                                                                            |
 | 0x7E | 3    | Reserved          | RV   | 0       | Reserved                                                                                                                                                                                                                                     |
-| 0x7E | 2    | SW_SD             | RW   | 0x0     | Software shutdown<br><b>`0`</b>: No operation<br><b>`1`</b>: Trigger software shutdown (software-triggered, hardware-cleared)                                                                                                                                  |
-| 0x7E | 1    | SW_RST            | RW   | 0x0     | Software reset<br><b>`0`</b>: No operation<br><b>`1`</b>: Trigger software reset (software-triggered, hardware-cleared)                                                                                                                                        |
-| 0x7E | 0    | SW_SLP_WKUP       | RW   | 0x0     | Software sleep / wake-up<br>Power-on mode:<br><b>`0`</b>: No operation<br><b>`1`</b>: Trigger software sleep (software-triggered, hardware-cleared)<br>Shutdown mode:<br><b>`0`</b>: Trigger software wake-up (software-triggered, hardware-cleared)<br><b>`1`</b>: No operation |
+| 0x7E | 2    | SW_SD             | RW   | 0x0     | Software shutdown<br>`0`: No operation<br>`1`: Trigger software shutdown (software-triggered, hardware-cleared)                                                                                                                                  |
+| 0x7E | 1    | SW_RST            | RW   | 0x0     | Software reset<br>`0`: No operation<br>`1`: Trigger software reset (software-triggered, hardware-cleared)                                                                                                                                        |
+| 0x7E | 0    | SW_SLP_WKUP       | RW   | 0x0     | Software sleep / wake-up<br>Power-on mode:<br>`0`: No operation<br>`1`: Trigger software sleep (software-triggered, hardware-cleared)<br>Shutdown mode:<br>`0`: Trigger software wake-up (software-triggered, hardware-cleared)<br>`1`: No operation |
 
 ##### Table 7-89 PWR_STS0
 
 | Addr | Bits | Field Name        | Attr  | Default | Description                                                                                                                       |
 | ---- | ---- | ----------------- | ----- | ------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | 0x7F | 7:5  | Reserved          | RV    | 0       | Reserved                                                                                                                          |
-| 0x7F | 4    | FLAG_PWRCTRL_WKUP | R, IO | 0x0     | Power-on source indicator (cleared by writing 1)<br><b>`0`</b>: Not PWRCTRL all-bound wake-up<br><b>`1`</b>: PWRCTRL all-bound wake-up              |
-| 0x7F | 3    | FLAG_PWRKY_WKUP   | R, IO | 0x0     | Power-on source indicator (cleared by writing 1)<br><b>`0`</b>: Not PWRKY long-press wake-up<br><b>`1`</b>: PWRKY long-press power-on wake-up       |
-| 0x7F | 2    | FLAG_VSYS_WKUP    | R, IO | 0x0     | Power-on source indicator (cleared by writing 1)<br><b>`0`</b>: Not VSYS over-threshold wake-up<br><b>`1`</b>: VSYS over-threshold power-on wake-up |
-| 0x7F | 1    | FLAG_INT_WKUP     | R, IO | 0x0     | Power-on source indicator (cleared by writing 1)<br><b>`0`</b>: Not INT pin wake-up<br><b>`1`</b>: INT pin power-on wake-up                         |
-| 0x7F | 0    | FLAG_RTC_WKUP     | R, IO | 0x0     | Power-on source indicator (cleared by writing 1)<br><b>`0`</b>: Not RTC wake-up<br><b>`1`</b>: RTC power-on wake-up                                 |
+| 0x7F | 4    | FLAG_PWRCTRL_WKUP | R, IO | 0x0     | Power-on source indicator (cleared by writing 1)<br>`0`: Not PWRCTRL all-bound wake-up<br>`1`: PWRCTRL all-bound wake-up              |
+| 0x7F | 3    | FLAG_PWRKY_WKUP   | R, IO | 0x0     | Power-on source indicator (cleared by writing 1)<br>`0`: Not PWRKY long-press wake-up<br>`1`: PWRKY long-press power-on wake-up       |
+| 0x7F | 2    | FLAG_VSYS_WKUP    | R, IO | 0x0     | Power-on source indicator (cleared by writing 1)<br>`0`: Not VSYS over-threshold wake-up<br>`1`: VSYS over-threshold power-on wake-up |
+| 0x7F | 1    | FLAG_INT_WKUP     | R, IO | 0x0     | Power-on source indicator (cleared by writing 1)<br>`0`: Not INT pin wake-up<br>`1`: INT pin power-on wake-up                         |
+| 0x7F | 0    | FLAG_RTC_WKUP     | R, IO | 0x0     | Power-on source indicator (cleared by writing 1)<br>`0`: Not RTC wake-up<br>`1`: RTC power-on wake-up                                 |
 
 ##### Table 7-90 PWR_STS1
 
 | Addr | Bits | Field Name        | Attr  | Default | Description                                                                                                                                                                                                                                                                            |
 | ---- | ---- | ----------------- | ----- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0x80 | 7:6  | Reserved          | RV    | 0       | Reserved                                                                                                                                                                                                                                                                               |
-| 0x80 | 5    | WORK_STS          | R     | 0x0     | Operating mode status<br><b>`0`</b>: Power-on mode<br><b>`1`</b>: Shutdown mode                                                                                                                                                                                                                          |
-| 0x80 | 4    | FLAG_PWRCTRL_SHUT | R, IO | 0x0     | Shutdown source indicator (cleared by writing 1)<br><b>`0`</b>: Not PWRCTRL invalid shutdown<br><b>`1`</b>: PWRCTRL invalid shutdown                                                                                                                                                                     |
-| 0x80 | 3    | FLAG_PWRKY_SHUT   | R, IO | 0x0     | Shutdown source indicator (cleared by writing 1)<br><b>`0`</b>: Not PWRKY long-press shutdown<br><b>`1`</b>: PWRKY long-press shutdown                                                                                                                                                                   |
-| 0x80 | 2    | FLAG_VSYS_SHUT    | R, IO | 0x0     | Shutdown source indicator (cleared by writing 1)<br><b>`0`</b>: Not VSYS low-threshold shutdown<br><b>`1`</b>: VSYS low-threshold shutdown                                                                                                                                                               |
-| 0x80 | 1    | FLAG_ERR_SHUT     | R, IO | 0x0     | Shutdown source indicator (cleared by writing 1)<br><b>`0`</b>: Not abnormal shutdown<br><b>`1`</b>: Abnormal shutdown<br>Abnormal events include: VSYS over-voltage, chip over-temperature, all buck over-voltage / under-voltage / short-circuit, all LDO over-voltage / under-voltage / short-circuit |
-| 0x80 | 0    | FLAG_SW_SHUT      | R, IO | 0x0     | Shutdown source indicator (cleared by writing 1)<br><b>`0`</b>: Not software shutdown<br><b>`1`</b>: Software shutdown                                                                                                                                                                                   |
+| 0x80 | 5    | WORK_STS          | R     | 0x0     | Operating mode status<br>`0`: Power-on mode<br>`1`: Shutdown mode                                                                                                                                                                                                                          |
+| 0x80 | 4    | FLAG_PWRCTRL_SHUT | R, IO | 0x0     | Shutdown source indicator (cleared by writing 1)<br>`0`: Not PWRCTRL invalid shutdown<br>`1`: PWRCTRL invalid shutdown                                                                                                                                                                     |
+| 0x80 | 3    | FLAG_PWRKY_SHUT   | R, IO | 0x0     | Shutdown source indicator (cleared by writing 1)<br>`0`: Not PWRKY long-press shutdown<br>`1`: PWRKY long-press shutdown                                                                                                                                                                   |
+| 0x80 | 2    | FLAG_VSYS_SHUT    | R, IO | 0x0     | Shutdown source indicator (cleared by writing 1)<br>`0`: Not VSYS low-threshold shutdown<br>`1`: VSYS low-threshold shutdown                                                                                                                                                               |
+| 0x80 | 1    | FLAG_ERR_SHUT     | R, IO | 0x0     | Shutdown source indicator (cleared by writing 1)<br>`0`: Not abnormal shutdown<br>`1`: Abnormal shutdown<br>Abnormal events include: VSYS over-voltage, chip over-temperature, all buck over-voltage / under-voltage / short-circuit, all LDO over-voltage / under-voltage / short-circuit |
+| 0x80 | 0    | FLAG_SW_SHUT      | R, IO | 0x0     | Shutdown source indicator (cleared by writing 1)<br>`0`: Not software shutdown<br>`1`: Software shutdown                                                                                                                                                                                   |
 
 
 ##### Table 7-91 PWR_KEY_TIME
