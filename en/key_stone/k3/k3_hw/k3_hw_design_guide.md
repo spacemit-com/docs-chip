@@ -467,7 +467,7 @@ K3 supports the following CSI input configurations:
 - 4-lane + 4-lane + 4-lane, or
 - 4-lane + 4-lane + 2-lane + 2-lane
 
-![](static/poweron.png)
+![](static/mipi.png)
 
 - MIPI CSI0 differential data is sampled using the MIPI_CSI0_CLK differential clock.
 - MIPI CSI1 differential data is sampled using the MIPI_CSI1_CLK differential clock.
@@ -515,7 +515,7 @@ Among them:
 
 - 3 USB 3.0 interfaces are multiplexed with PCIe Combo
 - 4 USB 2.0 interfaces are multiplexed with USB 3.0 Combo
-- One dedicated USB 2.0 interface supports OTG
+- One dedicated USB 2.0 interface supports Host
 
 - USB 3.0 signals require ESD protection.
   The ESD device must have parasitic capacitance < 0.5 pF and should be placed close to the USB connector.
