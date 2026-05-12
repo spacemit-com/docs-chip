@@ -420,7 +420,7 @@ K3 芯片 PCIe 和 USB 供电电源噪声要求：
 
 K3 支持 4 lane + 4 lane + 4 lane 输入，或 4 lane + 4 lane + 2 lane + 2 lane 输入。
 
-![](static/poweron.png)
+![](static/mipi.png)
 
 - MIPI CSI0 差分数据参考 MIPI_CSI0_CLK 差分时钟采样；
 - MIPI_CSI1 差分数据参考 MIPI_CSI1_CLK 差分时钟采样；
@@ -456,7 +456,7 @@ K3 支持 2 路 DP/eDP PHY，可实现双屏异显；
 
 #### 1.4.1 PCIe/USB2.0/USB3.0
 
-K3 支持 4 个 USB3.0 接口、5 个 USB2.0 接口，其中 3 个 USB3.0 与 PCIe Combo，4 个 USB2.0 与 USB3.0 Combo 复用；1 个独立 USB2.0 支持 OTG；
+K3 支持 4 个 USB3.0 接口、5 个 USB2.0 接口，其中 3 个 USB3.0 与 PCIe Combo，4 个 USB2.0 与 USB3.0 Combo 复用；1 个独立 USB2.0 支持 Host；
 
 - USB3.0 信号需要 ESD 保护措施，ESD 器件的寄生电容要求小于 0.5 pF，且 ESD 器件应靠近 USB 接口放置。
    USB3.0 设备对接器件和模组时，差分信号需串接 100 nF 电容；RX 串接电容靠近对接设备端，TX 串接电容靠近 K3 芯片端。
