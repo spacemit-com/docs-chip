@@ -14,10 +14,11 @@ sidebar_position: 3
 2. How should the serial port and JTAG be connected for debugging on K3 Pico-ITX?
 
     - Serial port location:
-
-    - Connection method:
-    - Serial debugging requirements:
+     ![](./static/signal00.png)
+    - Connection method: Connect the TX pin of the serial cable to the RX pin of the K3 Pico-ITX, and connect the RX pin of the serial cable to the TX pin of the K3 Pico-ITX.
+    - Serial debugging requirements: A 3.3 V serial cable is required.
     - PRI JTAG debugging:
+     ![](./static/pico-jtag-debug.png)
 
 3. How should the serial port and JTAG be connected for debugging on the K3 CoM260 development kit?
 

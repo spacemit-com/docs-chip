@@ -14,10 +14,12 @@ sidebar_position: 3
 2. K3 Pico-ITX 如何连接串口和 JTAG 进行调试？
 
     - 串口位置：
+     ![](./static/signal00.png)
 
-    - 连接方式：
-    - 串口调试要求：
+    - 连接方式：串口线的 TX 接 K3 Pico-ITX 的 RX，RX 接 K3 Pico-ITX 的 TX。
+    - 串口调试要求：使用 3.3V 电平串口线。
     - PRI JTAG 调试：
+     ![](./static/pico-jtag-debug.png)
 
 3. K3 CoM260 开发者套件如何连接串口和 JTAG 进行调试？
 
