@@ -4,7 +4,9 @@ sidebar_position: 1
 
 # K3 硬件设计指南和 Layout 指导手册
 
-**[PDF 版本](https://cdn-resource.spacemit.com/file/chip/K3/k3_hw_design_zh.pdf)**
+## PDF 版本下载
+
+点击下载 **[K3 硬件设计指南和 Layout 指导手册（PDF）](https://cdn-resource.spacemit.com/file/chip/K3/k3_hw_design_zh.pdf)**
 
 ## 版本
 

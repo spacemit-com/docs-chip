@@ -2,7 +2,7 @@ sidebar_position: 1
 
 # P1 Brief
 
-**[PDF Version](https://cdn-resource.spacemit.com/file/chip/P1/P1_brief_en.pdf)**
+Click to download **[P1 Brief (PDF)](https://cdn-resource.spacemit.com/file/chip/P1/P1_brief_en.pdf)**
 
 ## Overview
 

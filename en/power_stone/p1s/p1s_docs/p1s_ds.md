@@ -2,7 +2,9 @@ sidebar_position: 2
 
 # P1S Datasheet
 
-## Complete Version in PDF
+## PDF Version
+
+Click to download [P1S Datasheet (PDF)](https://cdn-resource.spacemit.com/file/chip/P1/P1S_Datasheet_en.pdf)
 
 ## Revision History
 

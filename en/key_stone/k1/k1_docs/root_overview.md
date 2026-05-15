@@ -2,7 +2,7 @@ sidebar_position: 1
 
 # K1 Brief
 
-Click to download **[PDF Version](https://cdn-resource.spacemit.com/file/chip/K1/K1_brief_en.pdf)**
+Click to download **[K1 Brief (PDF)](https://cdn-resource.spacemit.com/file/chip/K1/K1_brief_en.pdf)**
 
 ## Overview
 
