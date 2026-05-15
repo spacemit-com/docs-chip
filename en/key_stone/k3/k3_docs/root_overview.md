@@ -1,6 +1,6 @@
 # K3 Brief
 
-Click to download **[PDF Version](https://cdn-resource.spacemit.com/file/chip/K3/K3_brief_en.pdf)**
+Click to download **[K3 Brief (PDF)](https://cdn-resource.spacemit.com/file/chip/K3/K3_brief_en.pdf)**
 
 ## Overview
 

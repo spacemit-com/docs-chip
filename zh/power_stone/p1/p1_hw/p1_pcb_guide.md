@@ -2,7 +2,9 @@ sidebar_position: 1
 
 # P1 PCB 布局布线指南
 
-**[PDF 版本](https://cdn-resource.spacemit.com/file/chip/P1/P1_PCB_Layout_Guide_zh.pdf)**
+## PDF 版本下载
+
+点击下载 **[P1 PCB 布局布线指南（PDF）](https://cdn-resource.spacemit.com/file/chip/P1/P1_PCB_Layout_Guide_zh.pdf)**
 
 ## 版本
 

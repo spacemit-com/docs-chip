@@ -2,7 +2,9 @@ sidebar_position: 2
 
 # K1 Hardware Design Guide
 
-**[PDF Version](https://cdn-resource.spacemit.com/file/chip/K1/K1_Hardware_Design_Guide_en.pdf)**
+## PDF Version
+
+Click to download **[K1 Hardware Design Guide (PDF)](https://cdn-resource.spacemit.com/file/chip/K1/K1_Hardware_Design_Guide_en.pdf)**
 
 ## Revision History
 

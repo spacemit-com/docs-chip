@@ -2,7 +2,7 @@ sidebar_position: 1
 
 # K3 产品简介
 
-**[PDF 版本](https://cdn-resource.spacemit.com/file/chip/K3/K3_brief_zh.pdf)**
+点击下载 **[K3 产品简介（PDF）](https://cdn-resource.spacemit.com/file/chip/K3/K3_brief_zh.pdf)**
 
 ## 概述
 
