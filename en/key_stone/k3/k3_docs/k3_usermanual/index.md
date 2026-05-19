@@ -6,7 +6,7 @@ sidebar_position: 3
 
 ## PDF Version
 
-Click to download [K3 User Manual (PDF)](https://cdn-resource.spacemit.com/file/chip/K3/k3_um_en.pdf)
+Click to download **[K3 User Manual (PDF)](https://cdn-resource.spacemit.com/file/chip/K3/k3_um_en.pdf)**
 
 ## Contents
 
