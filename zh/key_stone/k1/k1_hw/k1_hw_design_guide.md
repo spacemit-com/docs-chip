@@ -224,7 +224,7 @@ Core 电源、DDR 电源和 IO 电源有上下电时序的要求由 PMIC P1 控�
 - AVDD09_PCIEA，AVDD09_PCIEB，AVDD09_PCIEC 合并供电，使用磁珠与系统电源隔离，靠近管脚各放置 3 个 1uF 电容。
 - AVDD18_PCIEA，AVDD18_PCIEB，AVDD18_PCIEC 合并供电，使用磁珠与数字电源隔离，靠近管脚各放置 3 个 1uF 电容。
 
-**注意：无论使用任意一个 PCIE, PCIEA_R_EXT 都需要****连接****240Ω 1% 电阻上拉到 AVDD09_PCIE。**
+**注意：无论使用任意一个 PCIE, PCIEA_R_EXT 都需要连接240Ω 1% 电阻上拉到 AVDD09_PCIE。**
 
 - PCIE_RXP/N
 
@@ -272,7 +272,7 @@ MMC1/2 支持对接 SDIO 接口 WIFI，SD Card
     - 如果对接器件是 IC 或模组，那么 TX 差分信号需要在 K1 端串联 100nF 电容。
     - 如果对接器件是插座，那么 TX 差分信号需要在靠近插座的位置串联 100nF 电容。
 
-**注意：无论使用 USB3.0 还是任意一个 PCIE, PCIEA_R_EXT 都需要****通过****240Ω 1% 电阻上拉到 AVDD09_PCIE。**
+**注意：无论使用 USB3.0 还是任意一个 PCIE, PCIEA_R_EXT 都需要通过240Ω 1% 电阻上拉到 AVDD09_PCIE。**
 
 ## 2. PCB 设计
 
@@ -325,7 +325,7 @@ K1 目前使用 6 层叠层，以下为参考叠层设计。如果使用其它�
 
 ![](static/RHINb1HT4ovh29xhfgechPdSnNg.png)
 
-方式二：使用如下走线（ZigZag)，下图中的 W 至少要大于 3 倍的玻纤编织间距。推荐值 W=60mil,θ=10°，L=340mil。
+方式二：使用如下走线(ZigZag)，下图中的 W 至少要大于 3 倍的玻纤编织间距。推荐值 W=60mil,θ=10°，L=340mil。
 
 ![](static/Jsv8bmUOXowHr9xTMK2co1YQnDe.png)
 
