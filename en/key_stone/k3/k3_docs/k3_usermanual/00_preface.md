@@ -24,5 +24,6 @@ The content of this document may be periodically updated due to product version 
 
 | Version | Date | Notes |
 | --- | --- | --- |
+| **V1.2** | 2026.05.19 | Updated video subsystem parameters|
 | **V1.1** | 2026.05.08 | Update image features |
 | **V1.0** | 2026.04.30 | Initial release |

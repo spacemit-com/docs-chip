@@ -6,17 +6,16 @@ sidebar_position: 12
 
 ## 11.1 Overview
 
-The Video Processing Unit (VPU) is a quad-core video accelerator designed to handle both decoding and encoding of multiple video standards. It includes a host CPU that runs firmware to control the hardware engine, managing tasks such as bitstream parsing, sub-block control, and error resilience.
+The Video Processing Unit (VPU) is a quad-core video accelerator that supports encoding and decoding across multiple video standards. It integrates a host CPU and executes firmware to control the hardware engine, handling bitstream parsing, submodule scheduling, and error recovery.
 
-The VPU can operate at up to 1 GHz and supports a wide range of video standards, including H.265, H.264, VP8, VP9, MPEG-4, MPEG-2, and H.263. It allows simultaneous operations such as:
+The VPU can operate at up to 1 GHz and supports a wide range of video standards, including H.265, H.264, VP8, VP9, MPEG4, MPEG2, and H.263. Typical concurrent processing capabilities include:
+- 4K@60 fps simultaneous encode and decode
+- 4K@90 fps H.264/H.265 encoding  
+- 4K@180 fps H.264/H.265 decoding  
 
-- Encoding and decoding at 4K@60 fps.
-- H.264/H.265 encoding at 4K@60 fps.
-- H.264/H.265 decoding at 4K@120 fps.
+The actual processing for each codec is implemented in dedicated hardware logic. The Macroblock Sequencer serves as the main control unit, orchestrating the processing flow of each submodule to reduce processor load and simplify firmware complexity.
 
-The video codec core performs the actual decoding and encoding for each standard using dedicated hardware logic. The Macroblock Sequencer serves as the main controller, scheduling the process flows of sub-blocks to reduce the load on the processor and simplify firmware complexity.
-
-Additionally, several standard-independent blocks share common logic during operation, ensuring high efficiency and streamlined performance across different video standards.
+In addition, multiple standard-agnostic modules share common runtime logic, ensuring high efficiency and smooth performance across different video standards.
 
 ## 11.2 Video Encoder
 
