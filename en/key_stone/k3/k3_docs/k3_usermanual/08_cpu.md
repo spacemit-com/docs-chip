@@ -58,10 +58,11 @@ In addition to advanced AI acceleration, the A100 fully supports general-purpose
   - L1 D-Cache supports MESI coherence protocol  
   - L2 Cache supports MOESI coherence protocol  
 - Vector Extension: RVV 1.0, VLEN = 1024  
-- Advanced Interrupt Architecture (AIA):  
-  - M-mode MSI: 512  
-  - S-mode MSI: 512  
-- Interrupt Controllers: Supports ACLINT and APLIC with a total of 512 interrupts  
+- Interrupt Controllers: ACLINT and APLIC, compliant with the AIA standard
+- MSI Interrupt Count:
+  - M-mode: 511
+  - S-mode: 511
+  - VS-mode: 7 VS interrupt files, each supporting 63 MSI interrupts  
 - Performance Monitoring: Integrated RISC-V Performance Monitoring Unit (PMU)  
 - Virtual Memory: Supports SV39 virtual memory management  
 - Security Framework:  
