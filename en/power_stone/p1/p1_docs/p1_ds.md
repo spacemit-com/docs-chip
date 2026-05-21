@@ -8,8 +8,9 @@ Click to download [P1 Datasheet (PDF)](https://cdn-resource.spacemit.com/file/ch
 
 ## Revision History
 
-| Version | Date       | Notes                                                                                              |
-|---------|------------|----------------------------------------------------------------------------------------------------|
+| Version | Date       | Notes    |
+|---------|------------|----------|
+| V2.1    | 2026.05.21 | Updated register description                      |
 | V2.0    | 2025.03.31 | Restructured and improved the quality of all content of the whole document                         |
 | V1.3    | 2025.03.28 | Quick revision of all content of the whole document                                                |
 | V1.2    | 2024.09.11 | Update parameters                                                                                |
@@ -1596,7 +1597,7 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | ADC | [Table 7-66](#table-7-66-adc_in3_vth_h1) | 0x3E | RW | ADCIN3 high threshold (8 MSBs) |
 | ADC | [Table 7-67](#table-7-67-adc_in3_vth_l1) | 0x3F | RW | ADCIN3 low threshold (8 MSBs) |
 | ADC | [Table 7-68](#table-7-68-adc_in4_vth_h1) | 0x40 | RW | ADCIN4 high threshold (8 MSBs) |
-| ADC | [Table 7-69](#table-7-69-adc_in4_vth_l1) | 0x44 | RW | ADCIN4 low threshold (8 MSBs) |
+| ADC | [Table 7-69](#table-7-69-adc_in4_vth_l1) | 0x41 | RW | ADCIN4 low threshold (8 MSBs) |
 | ADC | [Table 7-70](#table-7-70-adc_in5_vth_h1) | 0x42 | RW | ADCIN5 high threshold (8 MSBs) |
 | ADC | [Table 7-71](#table-7-71-adc_in5_vth_l1) | 0x43 | RW | ADCIN5 low threshold (8 MSBs) |
 | WDT | [Table 7-72](#table-7-72-wdt_ctrl1) | 0x44 | RW | Watchdog control register |
@@ -1668,118 +1669,118 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | Addr | Bits | Field Name | Attr | Default | Description       |
 | ---- | ---- | ---------- | ---- | ------- | ----------------- |
 | 0x00 | 7:6  | Reserved   | RV   | 0       | Reserved          |
-| 0x00 | 5    | GPIO5_IDR  | R    | 0x0     | GPIO5 input value |
-| 0x00 | 4    | GPIO4_IDR  | R    | 0x0     | GPIO4 input value |
-| 0x00 | 3    | GPIO3_IDR  | R    | 0x0     | GPIO3 input value |
-| 0x00 | 2    | GPIO2_IDR  | R    | 0x0     | GPIO2 input value |
-| 0x00 | 1    | GPIO1_IDR  | R    | 0x0     | GPIO1 input value |
-| 0x00 | 0    | GPIO0_IDR  | R    | 0x0     | GPIO0 input value |
+|      | 5    | GPIO5_IDR  | R    | 0x0     | GPIO5 input value |
+|      | 4    | GPIO4_IDR  | R    | 0x0     | GPIO4 input value |
+|      | 3    | GPIO3_IDR  | R    | 0x0     | GPIO3 input value |
+|      | 2    | GPIO2_IDR  | R    | 0x0     | GPIO2 input value |
+|      | 1    | GPIO1_IDR  | R    | 0x0     | GPIO1 input value |
+|      | 0    | GPIO0_IDR  | R    | 0x0     | GPIO0 input value |
 
 ##### Table 7-5 GPIO_ODR
 
 | Addr | Bits | Field Name | Attr | Default | Description   |
 | ---- | ---- | ---------- | ---- | ------- | ------------------- |
 | 0x01 | 7:6  | Reserved   | RV   | 0       | Reserved   |
-| 0x01 | 5    | GPIO5_ODR  | RWE  | 0x0     | When configured as GPIO output, this bit defines the output data.<br>When configured for an alternate function, this bit defines the active polarity.<br>`0`: Output low level / Active polarity is low<br>`1`: Output high level / Active polarity is high |
-| 0x01 | 4    | GPIO4_ODR  | RWE  | 0x0     | Same as GPIO5_ODR  |
-| 0x01 | 3    | GPIO3_ODR  | RWE  | 0x0     | Same as GPIO5_ODR |
-| 0x01 | 2    | GPIO2_ODR  | RWE  | 0x0     | Same as GPIO5_ODR |
-| 0x01 | 1    | GPIO1_ODR  | RWE  | 0x0     | Same as GPIO5_ODR  |
-| 0x01 | 0    | GPIO0_ODR  | RWE  | 0x0     | Same as GPIO5_ODR  |
+|      | 5    | GPIO5_ODR  | RWE  | 0x0     | When configured as GPIO output, this bit defines the output data.<br>When configured for an alternate function, this bit defines the active polarity.<br>`0`: Output low level / Active polarity is low<br>`1`: Output high level / Active polarity is high |
+|      | 4    | GPIO4_ODR  | RWE  | 0x0     | Same as GPIO5_ODR  |
+|      | 3    | GPIO3_ODR  | RWE  | 0x0     | Same as GPIO5_ODR |
+|      | 2    | GPIO2_ODR  | RWE  | 0x0     | Same as GPIO5_ODR |
+|      | 1    | GPIO1_ODR  | RWE  | 0x0     | Same as GPIO5_ODR  |
+|      | 0    | GPIO0_ODR  | RWE  | 0x0     | Same as GPIO5_ODR  |
 
 ##### Table 7-6 GPIO_PUPD0
 
 | Addr | Bits | Field Name | Attr | Default | Description   |
 | ---- | ---- | ---------- | ---- | ------- | ----- |
 | 0x02 | 7:6  | Reserved   | RV   | 0       | Reserved   |
-| 0x02 | 5:4  | GPIO2_PUPD | RWE  | 0x0     | GPIO2 pull-up / pull-down configuration:<br>- `00`: No operation<br>- `01`: Pull-up enabled<br>- `10`: Pull-down enabled<br>- `1x`: Invalid |
-| 0x02 | 3:2  | GPIO1_PUPD | RWE  | 0x0     | GPIO1 pull-up / pull-down configuration:<br>- `00`: No operation<br>- `01`: Pull-up enabled<br>- `10`: Pull-down enabled<br>- `1x`: Invalid |
-| 0x02 | 1:0  | GPIO0_PUPD | RWE  | 0x0     | GPIO0 pull-up / pull-down configuration:<br>- `00`: No operation<br>- `01`: Pull-up enabled<br>- `10`: Pull-down enabled<br>- `1x`: Invalid |
+|      | 5:4  | GPIO2_PUPD | RWE  | 0x0     | GPIO2 pull-up / pull-down configuration:<br>- `00`: No operation<br>- `01`: Pull-up enabled<br>- `10`: Pull-down enabled<br>- `1x`: Invalid |
+|      | 3:2  | GPIO1_PUPD | RWE  | 0x0     | GPIO1 pull-up / pull-down configuration:<br>- `00`: No operation<br>- `01`: Pull-up enabled<br>- `10`: Pull-down enabled<br>- `1x`: Invalid |
+|      | 1:0  | GPIO0_PUPD | RWE  | 0x0     | GPIO0 pull-up / pull-down configuration:<br>- `00`: No operation<br>- `01`: Pull-up enabled<br>- `10`: Pull-down enabled<br>- `1x`: Invalid |
 
 ##### Table 7-7 GPIO_PUPD1
 
 | Addr | Bits | Field Name | Attr | Default | Description   |
 | ---- | ---- | ---------- | ---- | ------- | ----------- |
 | 0x03 | 7:6  | Reserved   | RV   | 0       | Reserved     |
-| 0x03 | 5:4  | GPIO5_PUPD | RWE  | 0x0     | GPIO5 pull-up / pull-down configuration:<br>- `00`: No operation<br>- `01`: Pull-up enabled<br>- `10`: Pull-down enabled<br>- `1x`: Invalid |
-| 0x03 | 3:2  | GPIO4_PUPD | RWE  | 0x0     | GPIO4 pull-up / pull-down configuration:<br>- `00`: No operation<br>- `01`: Pull-up enabled<br>- `10`: Pull-down enabled<br>- `1x`: Invalid |
-| 0x03 | 1:0  | GPIO3_PUPD | RWE  | 0x0     | GPIO3 pull-up / pull-down configuration:<br>- `00`: No operation<br>- `01`: Pull-up enabled<br>- `10`: Pull-down enabled<br>- `1x`: Invalid |
+|      | 5:4  | GPIO5_PUPD | RWE  | 0x0     | GPIO5 pull-up / pull-down configuration:<br>- `00`: No operation<br>- `01`: Pull-up enabled<br>- `10`: Pull-down enabled<br>- `1x`: Invalid |
+|      | 3:2  | GPIO4_PUPD | RWE  | 0x0     | GPIO4 pull-up / pull-down configuration:<br>- `00`: No operation<br>- `01`: Pull-up enabled<br>- `10`: Pull-down enabled<br>- `1x`: Invalid |
+|      | 1:0  | GPIO3_PUPD | RWE  | 0x0     | GPIO3 pull-up / pull-down configuration:<br>- `00`: No operation<br>- `01`: Pull-up enabled<br>- `10`: Pull-down enabled<br>- `1x`: Invalid |
 
 ##### Table 7-8 GPIO_DEB_EN
 
 | Addr | Bits | Field Name    | Attr | Default | Description     |
 | ---- | ---- | ------------- | ---- | ------- | --------------- |
 | 0x04 | 7:6  | GPIO_DEB_TIME | RW   | 0x0     | GPIO0–GPIO5 debounce time selection:<br>- `00`: 100 µs<br>- `01`: 375 µs<br>- `10`: 750 µs<br>- `11`: 1.5 ms |
-| 0x04 | 5    | GPIO5_DEB_EN  | RW   | 0x0     | GPIO5 debounce enable:<br>- `0`: Disabled<br>- `1`: Enabled  |
-| 0x04 | 4    | GPIO4_DEB_EN  | RW   | 0x0     | GPIO4 debounce enable:<br>- `0`: Disabled<br>- `1`: Enabled   |
-| 0x04 | 3    | GPIO3_DEB_EN  | RW   | 0x0     | GPIO3 debounce enable:<br>- `0`: Disabled<br>- `1`: Enabled  |
-| 0x04 | 2    | GPIO2_DEB_EN  | RW   | 0x0     | GPIO2 debounce enable:<br>- `0`: Disabled<br>- `1`: Enabled   |
-| 0x04 | 1    | GPIO1_DEB_EN  | RW   | 0x0     | GPIO1 debounce enable:<br>- `0`: Disabled<br>- `1`: Enabled  |
-| 0x04 | 0    | GPIO0_DEB_EN  | RW   | 0x0     | GPIO0 debounce enable:<br>- `0`: Disabled<br>- `1`: Enabled   |
+|      | 5    | GPIO5_DEB_EN  | RW   | 0x0     | GPIO5 debounce enable:<br>- `0`: Disabled<br>- `1`: Enabled  |
+|      | 4    | GPIO4_DEB_EN  | RW   | 0x0     | GPIO4 debounce enable:<br>- `0`: Disabled<br>- `1`: Enabled   |
+|      | 3    | GPIO3_DEB_EN  | RW   | 0x0     | GPIO3 debounce enable:<br>- `0`: Disabled<br>- `1`: Enabled  |
+|      | 2    | GPIO2_DEB_EN  | RW   | 0x0     | GPIO2 debounce enable:<br>- `0`: Disabled<br>- `1`: Enabled   |
+|      | 1    | GPIO1_DEB_EN  | RW   | 0x0     | GPIO1 debounce enable:<br>- `0`: Disabled<br>- `1`: Enabled  |
+|      | 0    | GPIO0_DEB_EN  | RW   | 0x0     | GPIO0 debounce enable:<br>- `0`: Disabled<br>- `1`: Enabled   |
 
 ##### Table 7-9 GPIO_OD
 
 | Addr | Bits | Field Name | Attr | Default | Description    |
 | ---- | ---- | ---------- | ---- | ------- | --------|
 | 0x05 | 7:6  | Reserved   | RV   | 0       | Reserved                                                                                      |
-| 0x05 | 5    | GPIO5_OD   | RW   | 0x0     | GPIO5 open-drain output configuration:<br>- `0`: Push-pull output<br>- `1`: Open-drain output |
-| 0x05 | 4    | GPIO4_OD   | RW   | 0x0     | GPIO4 open-drain output configuration:<br>- `0`: Push-pull output<br>- `1`: Open-drain output |
-| 0x05 | 3    | GPIO3_OD   | RW   | 0x0     | GPIO3 open-drain output configuration:<br>- `0`: Push-pull output<br>- `1`: Open-drain output |
-| 0x05 | 2    | GPIO2_OD   | RW   | 0x0     | GPIO2 open-drain output configuration:<br>- `0`: Push-pull output<br>- `1`: Open-drain output |
-| 0x05 | 1    | GPIO1_OD   | RW   | 0x0     | GPIO1 open-drain output configuration:<br>- `0`: Push-pull output<br>- `1`: Open-drain output |
-| 0x05 | 0    | GPIO0_OD   | RW   | 0x0     | GPIO0 open-drain output configuration:<br>- `0`: Push-pull output<br>- `1`: Open-drain output |
+|      | 5    | GPIO5_OD   | RW   | 0x0     | GPIO5 open-drain output configuration:<br>- `0`: Push-pull output<br>- `1`: Open-drain output |
+|      | 4    | GPIO4_OD   | RW   | 0x0     | GPIO4 open-drain output configuration:<br>- `0`: Push-pull output<br>- `1`: Open-drain output |
+|      | 3    | GPIO3_OD   | RW   | 0x0     | GPIO3 open-drain output configuration:<br>- `0`: Push-pull output<br>- `1`: Open-drain output |
+|      | 2    | GPIO2_OD   | RW   | 0x0     | GPIO2 open-drain output configuration:<br>- `0`: Push-pull output<br>- `1`: Open-drain output |
+|      | 1    | GPIO1_OD   | RW   | 0x0     | GPIO1 open-drain output configuration:<br>- `0`: Push-pull output<br>- `1`: Open-drain output |
+|      | 0    | GPIO0_OD   | RW   | 0x0     | GPIO0 open-drain output configuration:<br>- `0`: Push-pull output<br>- `1`: Open-drain output |
 
 ##### Table 7-10 GPIO_ITYPE0
 
 | Addr | Bits | Field Name  | Attr | Default | Description    |
 | ---- | ---- | ----------- | ---- | ------- | --------------|
 | 0x06 | 7:6  | Reserved    | RV   | 0       | Reserved    |
-| 0x06 | 5:4  | GPIO2_ITYPE | RWE  | 0x0     | GPIO2 interrupt type:<br>`00`: Rising-edge triggered<br>`01`: Falling-edge triggered<br>`10`: High-level triggered<br>`11`: Low-level triggered |
-| 0x06 | 3:2  | GPIO1_ITYPE | RWE  | 0x0     | GPIO1 interrupt type:<br>`00`: Rising-edge triggered<br>`01`: Falling-edge triggered<br>`10`: High-level triggered<br>`11`: Low-level triggered |
-| 0x06 | 1:0  | GPIO0_ITYPE | RWE  | 0x0     | GPIO0 interrupt type:<br>`00`: Rising-edge triggered<br>`01`: Falling-edge triggered<br>`10`: High-level triggered<br>`11`: Low-level triggered |
+|      | 5:4  | GPIO2_ITYPE | RWE  | 0x0     | GPIO2 interrupt type:<br>`00`: Rising-edge triggered<br>`01`: Falling-edge triggered<br>`10`: High-level triggered<br>`11`: Low-level triggered |
+|      | 3:2  | GPIO1_ITYPE | RWE  | 0x0     | GPIO1 interrupt type:<br>`00`: Rising-edge triggered<br>`01`: Falling-edge triggered<br>`10`: High-level triggered<br>`11`: Low-level triggered |
+|      | 1:0  | GPIO0_ITYPE | RWE  | 0x0     | GPIO0 interrupt type:<br>`00`: Rising-edge triggered<br>`01`: Falling-edge triggered<br>`10`: High-level triggered<br>`11`: Low-level triggered |
 
 ##### Table 7-11 GPIO_ITYPE1
 
 | Addr | Bits | Field Name  | Attr | Default | Description   |
 | ---- | ---- | ----------- | ---- | ------- | ------- |
 | 0x07 | 7:6  | Reserved    | RV   | 0       | Reserved                                                                                                                                        |
-| 0x07 | 5:4  | GPIO5_ITYPE | RWE  | 0x0     | GPIO5 interrupt type:<br>`00`: Rising-edge triggered<br>`01`: Falling-edge triggered<br>`10`: High-level triggered<br>`11`: Low-level triggered |
-| 0x07 | 3:2  | GPIO4_ITYPE | RWE  | 0x0     | GPIO4 interrupt type:<br>`00`: Rising-edge triggered<br>`01`: Falling-edge triggered<br>`10`: High-level triggered<br>`11`: Low-level triggered |
-| 0x07 | 1:0  | GPIO3_ITYPE | RWE  | 0x0     | GPIO3 interrupt type:<br>`00`: Rising-edge triggered<br>`01`: Falling-edge triggered<br>`10`: High-level triggered<br>`11`: Low-level triggered |
+|      | 5:4  | GPIO5_ITYPE | RWE  | 0x0     | GPIO5 interrupt type:<br>`00`: Rising-edge triggered<br>`01`: Falling-edge triggered<br>`10`: High-level triggered<br>`11`: Low-level triggered |
+|      | 3:2  | GPIO4_ITYPE | RWE  | 0x0     | GPIO4 interrupt type:<br>`00`: Rising-edge triggered<br>`01`: Falling-edge triggered<br>`10`: High-level triggered<br>`11`: Low-level triggered |
+|      | 1:0  | GPIO3_ITYPE | RWE  | 0x0     | GPIO3 interrupt type:<br>`00`: Rising-edge triggered<br>`01`: Falling-edge triggered<br>`10`: High-level triggered<br>`11`: Low-level triggered |
 
 ##### Table 7-12 GPIO_MODE0
 
 | Addr | Bits | Field Name | Attr | Default | Description    |
 | ---- | ---- | ---------- | ---- | ------- | --------- |
 | 0x08 | 7:6  | Reserved   | RV   | 0       | Reserved                                                                                                      |
-| 0x08 | 5:4  | GPIO2_MODE | RWE  | 0x0     | GPIO2 mode selection:<br>`00`: Input mode<br>`01`: Output mode<br>`1x`: Alternate (multiplexed) function mode |
-| 0x08 | 3:2  | GPIO1_MODE | RWE  | 0x0     | GPIO1 mode selection:<br>`00`: Input mode<br>`01`: Output mode<br>`1x`: Alternate (multiplexed) function mode |
-| 0x08 | 1:0  | GPIO0_MODE | RWE  | 0x0     | GPIO0 mode selection:<br>`00`: Input mode<br>`01`: Output mode<br>`1x`: Alternate (multiplexed) function mode |
+|      | 5:4  | GPIO2_MODE | RWE  | 0x0     | GPIO2 mode selection:<br>`00`: Input mode<br>`01`: Output mode<br>`1x`: Alternate (multiplexed) function mode |
+|      | 3:2  | GPIO1_MODE | RWE  | 0x0     | GPIO1 mode selection:<br>`00`: Input mode<br>`01`: Output mode<br>`1x`: Alternate (multiplexed) function mode |
+|      | 1:0  | GPIO0_MODE | RWE  | 0x0     | GPIO0 mode selection:<br>`00`: Input mode<br>`01`: Output mode<br>`1x`: Alternate (multiplexed) function mode |
 
 ##### Table 7-13 GPIO_MODE1
 
 | Addr | Bits | Field Name | Attr | Default | Description  |
 | ---- | ---- | ---------- | ---- | ------- | ---------|
 | 0x09 | 7:6  | Reserved   | RV   | 0       | Reserved                                                                                                      |
-| 0x09 | 5:4  | GPIO5_MODE | RWE  | 0x0     | GPIO5 mode selection:<br>`00`: Input mode<br>`01`: Output mode<br>`1x`: Alternate (multiplexed) function mode |
-| 0x09 | 3:2  | GPIO4_MODE | RWE  | 0x0     | GPIO4 mode selection:<br>`00`: Input mode<br>`01`: Output mode<br>`1x`: Alternate (multiplexed) function mode |
-| 0x09 | 1:0  | GPIO3_MODE | RWE  | 0x0     | GPIO3 mode selection:<br>`00`: Input mode<br>`01`: Output mode<br>`1x`: Alternate (multiplexed) function mode |
+|      | 5:4  | GPIO5_MODE | RWE  | 0x0     | GPIO5 mode selection:<br>`00`: Input mode<br>`01`: Output mode<br>`1x`: Alternate (multiplexed) function mode |
+|      | 3:2  | GPIO4_MODE | RWE  | 0x0     | GPIO4 mode selection:<br>`00`: Input mode<br>`01`: Output mode<br>`1x`: Alternate (multiplexed) function mode |
+|      | 1:0  | GPIO3_MODE | RWE  | 0x0     | GPIO3 mode selection:<br>`00`: Input mode<br>`01`: Output mode<br>`1x`: Alternate (multiplexed) function mode |
 
 ##### Table 7-14 GPIO_AF01
 
 | Addr | Bits | Field Name | Attr | Default | Description   |
 | ---- | ---- | ---------- | ---- | ------- | -------------- |
 | 0x0A | 7:6  | Reserved   | RV   | 0       | Reserved |
-| 0x0A | 5:3  | GPIO1_AFR  | RWE  | 0x0     | GPIO1 alternate function selection:<br>`000`: External power enable output (EXT_EN)<br>`001`: External power-up sequence control input (PWRCTRL)<br>`010`: External sleep / wake-up control input (Sleep/Wakeup)<br>`011`: External reset control input (nReset)<br>`1xx`: ADC input (ADCIN) |
-| 0x0A | 2:0  | GPIO0_AFR  | RWE  | 0x0     | GPIO0 alternate function selection:<br>`000`: External power enable output (EXT_EN)<br>`001`: External power-up sequence control input (PWRCTRL)<br>`010`: External sleep / wake-up control input (Sleep/Wakeup)<br>`011`: External reset control input (nReset)<br>`1xx`: ADC input (ADCIN) |
+|      | 5:3  | GPIO1_AFR  | RWE  | 0x0     | GPIO1 alternate function selection:<br>`000`: External power enable output (EXT_EN)<br>`001`: External power-up sequence control input (PWRCTRL)<br>`010`: External sleep / wake-up control input (Sleep/Wakeup)<br>`011`: External reset control input (nReset)<br>`1xx`: ADC input (ADCIN) |
+|      | 2:0  | GPIO0_AFR  | RWE  | 0x0     | GPIO0 alternate function selection:<br>`000`: External power enable output (EXT_EN)<br>`001`: External power-up sequence control input (PWRCTRL)<br>`010`: External sleep / wake-up control input (Sleep/Wakeup)<br>`011`: External reset control input (nReset)<br>`1xx`: ADC input (ADCIN) |
 
 ##### Table 7-15 GPIO_AF23
 
 | Addr | Bits | Field Name | Attr | Default | Description                                                                                                                                                                                                                                                                                  |
 | ---- | ---- | ---------- | ---- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0x0B | 7:6  | Reserved   | RV   | 0       | Reserved                                                                                                                                                                                                                                                                                     |
-| 0x0B | 5:3  | GPIO3_AFR  | RWE  | 0x0     | GPIO3 alternate function selection:<br>`000`: External power enable output (EXT_EN)<br>`001`: External power-up sequence control input (PWRCTRL)<br>`010`: External sleep / wake-up control input (Sleep/Wakeup)<br>`011`: External reset control input (nReset)<br>`1xx`: ADC input (ADCIN) |
-| 0x0B | 2:0  | GPIO2_AFR  | RWE  | 0x0     | GPIO2 alternate function selection:<br>`000`: External power enable output (EXT_EN)<br>`001`: External power-up sequence control input (PWRCTRL)<br>`010`: External sleep / wake-up control input (Sleep/Wakeup)<br>`011`: External reset control input (nReset)<br>`1xx`: ADC input (ADCIN) |
+|      | 5:3  | GPIO3_AFR  | RWE  | 0x0     | GPIO3 alternate function selection:<br>`000`: External power enable output (EXT_EN)<br>`001`: External power-up sequence control input (PWRCTRL)<br>`010`: External sleep / wake-up control input (Sleep/Wakeup)<br>`011`: External reset control input (nReset)<br>`1xx`: ADC input (ADCIN) |
+|      | 2:0  | GPIO2_AFR  | RWE  | 0x0     | GPIO2 alternate function selection:<br>`000`: External power enable output (EXT_EN)<br>`001`: External power-up sequence control input (PWRCTRL)<br>`010`: External sleep / wake-up control input (Sleep/Wakeup)<br>`011`: External reset control input (nReset)<br>`1xx`: ADC input (ADCIN) |
 
 
 ##### Table 7-16 GPIO_AF45
@@ -1787,15 +1788,15 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | Addr | Bits | Field Name | Attr | Default | Description                                                                                                                                                                                                                                                                                  |
 | ---- | ---- | ---------- | ---- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0x0C | 7:6  | Reserved   | RV   | 0       | Reserved                                                                                                                                                                                                                                                                                     |
-| 0x0C | 5:3  | GPIO5_AFR  | RWE  | 0x0     | GPIO5 alternate function selection:<br>`000`: External power enable output (EXT_EN)<br>`001`: External power-up sequence control input (PWRCTRL)<br>`010`: External sleep / wake-up control input (Sleep/Wakeup)<br>`011`: External reset control input (nReset)<br>`1xx`: ADC input (ADCIN) |
-| 0x0C | 2:0  | GPIO4_AFR  | RWE  | 0x0     | GPIO4 alternate function selection:<br>`000`: External power enable output (EXT_EN)<br>`001`: External power-up sequence control input (PWRCTRL)<br>`010`: External sleep / wake-up control input (Sleep/Wakeup)<br>`011`: External reset control input (nReset)<br>`1xx`: ADC input (ADCIN) |
+|      | 5:3  | GPIO5_AFR  | RWE  | 0x0     | GPIO5 alternate function selection:<br>`000`: External power enable output (EXT_EN)<br>`001`: External power-up sequence control input (PWRCTRL)<br>`010`: External sleep / wake-up control input (Sleep/Wakeup)<br>`011`: External reset control input (nReset)<br>`1xx`: ADC input (ADCIN) |
+|      | 2:0  | GPIO4_AFR  | RWE  | 0x0     | GPIO4 alternate function selection:<br>`000`: External power enable output (EXT_EN)<br>`001`: External power-up sequence control input (PWRCTRL)<br>`010`: External sleep / wake-up control input (Sleep/Wakeup)<br>`011`: External reset control input (nReset)<br>`1xx`: ADC input (ADCIN) |
 
 ##### Table 7-17 RTC_COUNT_S
 
 | Addr | Bits | Field Name | Attr | Default | Description                                                                                                               |
 | ---- | ---- | ---------- | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------- |
 | 0x0D | 7:6  | Reserved   | RV   | 0       | Reserved                                                                                                                  |
-| 0x0D | 5:0  | COUNT_S    | RW   | 0x00    | RTC seconds read register.<br>Reading this register latches the current calendar values into `COUNT_S` through `COUNT_Y`. |
+|      | 5:0  | COUNT_S    | RW   | 0x00    | RTC seconds read register.<br>Reading this register latches the current calendar values into `COUNT_S` through `COUNT_Y`. |
 
 
 ##### Table 7-18 RTC_COUNT_MI
@@ -1803,14 +1804,14 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | Addr | Bits | Field Name | Attr | Default | Description                                                                         |
 | ---- | ---- | ---------- | ---- | ------- | ----------------------------------------------------------------------------------- |
 | 0x0E | 7:6  | Reserved   | RV   | 0       | Reserved                                                                            |
-| 0x0E | 5:0  | COUNT_MI   | RW   | 0x00    | RTC minutes read register. Reading this register returns the current minutes value. |
+|      | 5:0  | COUNT_MI   | RW   | 0x00    | RTC minutes read register. Reading this register returns the current minutes value. |
 
 ##### Table 7-19 RTC_COUNT_H
 
 | Addr | Bits | Field Name | Attr | Default | Description                                                                    |
 | ---- | ---- | ---------- | ---- | ------- | ------------------------------------------------------------------------------ |
 | 0xF  | 7:5  | Reserved   | RV   | 0       | Reserved                                                                       |
-| 0xF  | 4:0  | COUNT_H    | RW   | 0x00    | RTC hours read register. Reading this register returns the current hour value. |
+|      | 4:0  | COUNT_H    | RW   | 0x00    | RTC hours read register. Reading this register returns the current hour value. |
 
 
 ##### Table 7-20 RTC_COUNT_D
@@ -1818,7 +1819,7 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | Addr | Bits | Field Name | Attr | Default | Description                                                                  |
 | ---- | ---- | ---------- | ---- | ------- | ---------------------------------------------------------------------------- |
 | 0x10 | 7:5  | Reserved   | RV   | 0       | Reserved                                                                     |
-| 0x10 | 4:0  | COUNT_D    | RW   | 0x00    | RTC days read register. Reading this register returns the current day value. |
+|      | 4:0  | COUNT_D    | RW   | 0x00    | RTC days read register. Reading this register returns the current day value. |
 
 
 ##### Table 7-21 RTC_COUNT_MO
@@ -1826,7 +1827,7 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | Addr | Bits | Field Name | Attr | Default | Description                                                                      |
 | ---- | ---- | ---------- | ---- | ------- | -------------------------------------------------------------------------------- |
 | 0x11 | 7:4  | Reserved   | RV   | 0       | Reserved                                                                         |
-| 0x11 | 3:0  | COUNT_MO   | RW   | 0x00    | RTC months read register. Reading this register returns the current month value. |
+|      | 3:0  | COUNT_MO   | RW   | 0x00    | RTC months read register. Reading this register returns the current month value. |
 
 
 ##### Table 7-22 RTC_COUNT_Y
@@ -1834,23 +1835,23 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | Addr | Bits | Field Name | Attr | Default | Description                                                                                                                                                             |
 | ---- | ---- | ---------- | ---- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0x12 | 7:6  | Reserved   | RV   | 0       | Reserved                                                                                                                                                                |
-| 0x12 | 5:0  | COUNT_Y    | RW   | 0x00    | RTC years read/write register. Writing to this register updates the calendar counter with the current COUNT_S ~ COUNT_Y values, and resets RTC_SECOND_A ~ RTC_SECOND_D. |
+|      | 5:0  | COUNT_Y    | RW   | 0x00    | RTC years read/write register. Writing to this register updates the calendar counter with the current COUNT_S ~ COUNT_Y values, and resets RTC_SECOND_A ~ RTC_SECOND_D. |
 
 ##### Table 7-23 RTC_ALARM_S
 
 | Addr | Bits | Field Name   | Attr | Default | Description                                    |
 | ---- | ---- | ------------ | ---- | ------- | ---------------------------------------------- |
 | 0x13 | 7    | MASK_ALARM_S | RW   | 0x0     | ALARM_S match mask: <br>`0`: not masked <br> `1`: masked |
-| 0x13 | 6    | Reserved     | RV   | 0       | Reserved                                       |
-| 0x13 | 5:0  | ALARM_S      | RW   | 0x00    | RTC_ALARM seconds setting, range 0x00 ~ 0x3B   |
+|      | 6    | Reserved     | RV   | 0       | Reserved                                       |
+|      | 5:0  | ALARM_S      | RW   | 0x00    | RTC_ALARM seconds setting, range 0x00 ~ 0x3B   |
 
 ##### Table 7-24 RTC_ALARM_MI
 
 | Addr | Bits | Field Name    | Attr | Default | Description                                     |
 | ---- | ---- | ------------- | ---- | ------- | ----------------------------------------------- |
 | 0x14 | 7    | MASK_ALARM_MI | RW   | 0x0     | ALARM_MI match mask: <br>`0`:not masked <br>`1`: masked |
-| 0x14 | 6    | Reserved      | RV   | 0       | Reserved                                        |
-| 0x14 | 5:0  | ALARM_MI      | RW   | 0x00    | RTC_ALARM minutes setting, range 0x00 ~ 0x3B    |
+|      | 6    | Reserved      | RV   | 0       | Reserved                                        |
+|      | 5:0  | ALARM_MI      | RW   | 0x00    | RTC_ALARM minutes setting, range 0x00 ~ 0x3B    |
 
 
 ##### Table 7-25 RTC_ALARM_H
@@ -1858,16 +1859,16 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | Addr | Bits | Field Name   | Attr | Default | Description                                    |
 | ---- | ---- | ------------ | ---- | ------- | ---------------------------------------------- |
 | 0x15 | 7    | MASK_ALARM_H | RW   | 0x0     | ALARM_H match mask: <br>`0`: not masked <br>`1`: masked |
-| 0x15 | 6:5  | Reserved     | RV   | 0       | Reserved                                       |
-| 0x15 | 4:0  | ALARM_H      | RW   | 0x00    | RTC_ALARM hours setting, range 0x00 ~ 0x17     |
+|      | 6:5  | Reserved     | RV   | 0       | Reserved                                       |
+|      | 4:0  | ALARM_H      | RW   | 0x00    | RTC_ALARM hours setting, range 0x00 ~ 0x17     |
 
 ##### Table 7-26 RTC_ALARM_D
 
 | Addr | Bits | Field Name   | Attr | Default | Description                                    |
 | ---- | ---- | ------------ | ---- | ------- | ---------------------------------------------- |
 | 0x16 | 7    | MASK_ALARM_D | RW   | 0x0     | ALARM_D match mask: <br>`0`: not masked <br>`1`: masked |
-| 0x16 | 6:5  | Reserved     | RV   | 0       | Reserved                                       |
-| 0x16 | 4:0  | ALARM_D      | RW   | 0x00    | RTC_ALARM days setting, range 0x00 ~ 0x1F      |
+|      | 6:5  | Reserved     | RV   | 0       | Reserved                                       |
+|      | 4:0  | ALARM_D      | RW   | 0x00    | RTC_ALARM days setting, range 0x00 ~ 0x1F      |
 
 
 ##### Table 7-27 RTC_ALARM_MO
@@ -1875,8 +1876,8 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | Addr | Bits | Field Name    | Attr | Default | Description                                     |
 | ---- | ---- | ------------- | ---- | ------- | ----------------------------------------------- |
 | 0x17 | 7    | MASK_ALARM_MO | RW   | 0x0     | ALARM_MO match mask: <br>`0`: not masked <br>`1`: masked |
-| 0x17 | 6:4  | Reserved      | RV   | 0       | Reserved                                        |
-| 0x17 | 3:0  | ALARM_MO      | RW   | 0x00    | RTC_ALARM months setting, range 0x00 ~ 0x0C     |
+|      | 6:4  | Reserved      | RV   | 0       | Reserved                                        |
+|      | 3:0  | ALARM_MO      | RW   | 0x00    | RTC_ALARM months setting, range 0x00 ~ 0x0C     |
 
 
 ##### Table 7-28 RTC_ALARM_Y
@@ -1884,8 +1885,8 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | Addr | Bits | Field Name   | Attr | Default | Description                                    |
 | ---- | ---- | ------------ | ---- | ------- | ---------------------------------------------- |
 | 0x18 | 7    | MASK_ALARM_Y | RW   | 0x0     | ALARM_Y match mask: <br>`0`: not masked <br> `1`: masked |
-| 0x18 | 6    | Reserved     | RV   | 0       | Reserved                                       |
-| 0x18 | 5:0  | ALARM_Y      | RW   | 0x00    | RTC_ALARM years setting, range 0x00 ~ 0x3F     |
+|      | 6    | Reserved     | RV   | 0       | Reserved                                       |
+|      | 5:0  | ALARM_Y      | RW   | 0x00    | RTC_ALARM years setting, range 0x00 ~ 0x3F     |
 
 ##### Table 7-29 RTC_SECOND_A
 
@@ -1936,7 +1937,8 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 
 | Addr | Bits | Field Name | Attr | Default | Description    |
 | ---- | ---- | ---------- | ---- | ------- | ---------------------- |
-| 0x1E | 7:2  | Reserved   | RV   | 0       | Reserved  |
+| 0x1E | 7    | Reserved     | RV   | 0       | Reserved    |
+|      | 6:2  | ADC_CHNL     | R    | 0       | ADC current channel change indicator    |
 |      | 1    | ADC_GO(*2) | RW   | 0       | ADC conversion start bit:<br>`0`: conversion done/not started<br>`1`: conversion in progress.<br>In manual mode, set to `1` and cleared by hardware after each conversion; in auto mode, software clears to stop conversions; clearing during conversion stops it immediately. |
 |      | 0    | ADC_EN     | RW   | 0       | ADC enable:<br>`0`: disable<br>`1`: enable       |
 > Notes:
@@ -2008,13 +2010,13 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | Addr | Bits | Field Name   | Attr | Default | Description  |
 | ---- | ---- | ------------ | ---- | ------- | --------|
 | 0x23 | 7    | Reserved     | RV   | 0       | Reserved   |
-| 0x23 | 6    | ADC_VSYS_EN  | RW   | 0x0     | VSYS voltage monitoring enable:<br>`0`: Monitoring disabled<br>`1`: Monitoring enabled |
-| 0x23 | 5    | ADC_BUCK6_EN | RW   | 0x0     | BUCK6 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled               |
-| 0x23 | 4    | ADC_BUCK5_EN | RW   | 0x0     | BUCK5 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled               |
-| 0x23 | 3    | ADC_BUCK4_EN | RW   | 0x0     | BUCK4 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled               |
-| 0x23 | 2    | ADC_BUCK3_EN | RW   | 0x0     | BUCK3 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled               |
-| 0x23 | 1    | ADC_BUCK2_EN | RW   | 0x0     | BUCK2 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled               |
-| 0x23 | 0    | ADC_BUCK1_EN | RW   | 0x0     | BUCK1 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled               |
+|      | 6    | ADC_BUCK6_EN | RW   | 0x0     | BUCK6 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled               |
+|      | 5    | ADC_BUCK5_EN | RW   | 0x0     | BUCK5 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled               |
+|      | 4    | ADC_BUCK4_EN | RW   | 0x0     | BUCK4 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled               |
+|      | 3    | ADC_BUCK3_EN | RW   | 0x0     | BUCK3 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled               |
+|      | 2    | ADC_BUCK2_EN | RW   | 0x0     | BUCK2 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled               |
+|      | 1    | ADC_BUCK1_EN | RW   | 0x0     | BUCK1 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled               |
+|      | 0    | ADC_VSYS_EN  | RW   | 0x0     | VSYS voltage monitoring enable:<br>`0`: Monitoring disabled<br>`1`: Monitoring enabled |
 
 > Note:
 > (*1) Restored to default value when entering shutdown mode.
@@ -2024,13 +2026,13 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | Addr | Bits | Field Name         | Attr | Default | Description                                                               |
 | ---- | ---- | ------------------ | ---- | ------- | ------------------------------------------------------------------------- |
 | 0x24 | 7    | ADC_DLDO3_EN (*2)  | RW   | 0x0     | DLDO3 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled  |
-| 0x24 | 6    | ADC_DLDO2_EN (*2)  | RW   | 0x0     | DLDO2 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled  |
-| 0x24 | 5    | ADC_DLDO1_EN (*2)  | RW   | 0x0     | DLDO1 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled  |
-| 0x24 | 4    | ADC_ALDO4_EN (*2)  | RW   | 0x0     | ALDO4 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled  |
-| 0x24 | 3    | ADC_ALDO3_EN (*2)  | RW   | 0x0     | ALDO3 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled  |
-| 0x24 | 2    | ADC_ALDO2_EN (*2)  | RW   | 0x0     | ALDO2 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled  |
-| 0x24 | 1    | ADC_ALDO1_EN (*2)  | RW   | 0x0     | ALDO1 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled  |
-| 0x24 | 0    | ADC_AONLDO_EN (*2) | RW   | 0x0     | AONLDO output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled |
+|      | 6    | ADC_DLDO2_EN (*2)  | RW   | 0x0     | DLDO2 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled  |
+|      | 5    | ADC_DLDO1_EN (*2)  | RW   | 0x0     | DLDO1 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled  |
+|      | 4    | ADC_ALDO4_EN (*2)  | RW   | 0x0     | ALDO4 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled  |
+|      | 3    | ADC_ALDO3_EN (*2)  | RW   | 0x0     | ALDO3 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled  |
+|      | 2    | ADC_ALDO2_EN (*2)  | RW   | 0x0     | ALDO2 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled  |
+|      | 1    | ADC_ALDO1_EN (*2)  | RW   | 0x0     | ALDO1 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled  |
+|      | 0    | ADC_AONLDO_EN (*2) | RW   | 0x0     | AONLDO output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled |
 
 > Notes:
 > (*1) Restored to default value when entering shutdown mode.
@@ -2041,10 +2043,10 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | Addr | Bits | Field Name        | Attr | Default | Description                                                              |
 | ---- | ---- | ----------------- | ---- | ------- | ------------------------------------------------------------------------ |
 | 0x25 | 7:4  | Reserved          | RV   | 0       | Reserved                                                                 |
-| 0x25 | 3    | ADC_DLDO7_EN (*2) | RW   | 0x0     | DLDO7 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled |
-| 0x25 | 2    | ADC_DLDO6_EN (*2) | RW   | 0x0     | DLDO6 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled |
-| 0x25 | 1    | ADC_DLDO5_EN (*2) | RW   | 0x0     | DLDO5 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled |
-| 0x25 | 0    | ADC_DLDO4_EN (*2) | RW   | 0x0     | DLDO4 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled |
+|      | 3    | ADC_DLDO7_EN (*2) | RW   | 0x0     | DLDO7 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled |
+|      | 2    | ADC_DLDO6_EN (*2) | RW   | 0x0     | DLDO6 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled |
+|      | 1    | ADC_DLDO5_EN (*2) | RW   | 0x0     | DLDO5 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled |
+|      | 0    | ADC_DLDO4_EN (*2) | RW   | 0x0     | DLDO4 output voltage monitoring enable:<br>`0`: Disabled<br>`1`: Enabled |
 
 > Notes:
 > (*1) Restored to default value when entering shutdown mode.
@@ -2064,7 +2066,7 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | Addr | Bits | Field Name | Attr | Default | Description                                   |
 | ---- | ---- | ---------- | ---- | ------- | --------------------------------------------- |
 | 0x27 | 7:4  | ADC_RES_L  | R    | 0x0     | 12-bit ADC manual conversion result (4 LSBs). |
-| 0x27 | 3:0  | Reserved   | RV   | 0       | Reserved.                                     |
+|      | 3:0  | Reserved   | RV   | 0       | Reserved.                                     |
 
 > Notes:
 > (*1) Restored to default value when entering shutdown mode.
@@ -2083,7 +2085,7 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | Addr | Bits | Field Name | Attr | Default | Description |
 | ---- | ---- | ---------- | ---- | ------- | ----------- |
 | 0x29 | 7:4  | TJ_RES_L   | R    | 0x0     | Junction temperature automatic conversion result (4 LSBs). |
-| 0x29 | 3:0  | Reserved   | RV   | 0       | Reserved. |
+|      | 3:0  | Reserved   | RV   | 0       | Reserved. |
 
 > Notes:  
 > (*1) Restored to default value when entering shutdown mode.
@@ -2102,7 +2104,7 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | Addr | Bits | Field Name   | Attr | Default | Description |
 | ---- | ---- | ------------ | ---- | ------- | ----------- |
 | 0x2B | 7:4  | ADCIN0_RES_L | R    | 0x0     | ADCIN0 automatic conversion result (4 LSBs). |
-| 0x2B | 3:0  | Reserved     | RV   | 0       | Reserved. |
+|      | 3:0  | Reserved     | RV   | 0       | Reserved. |
 
 > Notes:  
 > (*1) Restored to default value when entering shutdown mode.
@@ -2122,7 +2124,7 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | Addr | Bits | Field Name   | Attr | Default | Description |
 | ---- | ---- | ------------ | ---- | ------- | ----------- |
 | 0x2D | 7:4  | ADCIN1_RES_L | R    | 0x0     | ADCIN1 automatic conversion result (4 LSBs). |
-| 0x2D | 3:0  | Reserved     | RV   | 0       | Reserved. |
+|      | 3:0  | Reserved     | RV   | 0       | Reserved. |
 
 > Notes:  
 > (*1) Restored to default value when entering shutdown mode.
@@ -2141,7 +2143,7 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | Addr | Bits | Field Name     | Attr | Default | Description |
 | ---- | ---- | -------------- | ---- | ------- | ----------- |
 | 0x2F | 7:4  | ADCIN2_RES_L   | R    | 0x0     | ADCIN2 automatic conversion result (4 LSBs). |
-| 0x2F | 3:0  | Reserved       | RV   | 0       | Reserved. |
+|      | 3:0  | Reserved       | RV   | 0       | Reserved. |
 
 > Notes:  
 > (*1) Restored to default value when entering shutdown mode.
@@ -2160,7 +2162,7 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | Addr | Bits | Field Name     | Attr | Default | Description |
 | ---- | ---- | -------------- | ---- | ------- | ----------- |
 | 0x31 | 7:4  | ADCIN3_RES_L   | R    | 0x0     | ADCIN3 automatic conversion result (4 LSBs). |
-| 0x31 | 3:0  | Reserved       | RV   | 0       | Reserved. |
+|      | 3:0  | Reserved       | RV   | 0       | Reserved. |
 
 > Notes:  
 > (*1) Restored to default value when entering shutdown mode.
@@ -2179,7 +2181,7 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | Addr | Bits | Field Name     | Attr | Default | Description |
 | ---- | ---- | -------------- | ---- | ------- | ----------- |
 | 0x33 | 7:4  | ADCIN4_RES_L   | R    | 0x0     | ADCIN4 automatic conversion result (4 LSBs). |
-| 0x33 | 3:0  | Reserved       | RV   | 0       | Reserved. |
+|      | 3:0  | Reserved       | RV   | 0       | Reserved. |
 
 > Notes:  
 > (*1) Restored to default value when entering shutdown mode.
@@ -2198,7 +2200,7 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | Addr | Bits | Field Name     | Attr | Default | Description |
 | ---- | ---- | -------------- | ---- | ------- | ----------- |
 | 0x35 | 7:4  | ADCIN5_RES_L   | R    | 0x0     | ADCIN5 automatic conversion result (4 LSBs). |
-| 0x35 | 3:0  | Reserved       | RV   | 0       | Reserved. |
+|      | 3:0  | Reserved       | RV   | 0       | Reserved. |
 
 > Notes:  
 > (*1) Restored to default value when entering shutdown mode.
@@ -2334,9 +2336,9 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | Addr | Bits | Field Name | Attr | Default | Description                                                                                     |
 | ---- | ---- | ---------- | ---- | ------- | ----------------------------------------------------------------------------------------------- |
 | 0x44 | 7:4  | Reserved   | RV   | 0       | Reserved                                                                                        |
-| 0x44 | 3    | WDT_EN     | RW   | 0x0     | Watchdog enable:<br>`0`: Disabled<br>`1`: Enabled                                               |
-| 0x44 | 2:1  | WDT_SCALE  | RW   | 0x0     | Watchdog timeout configuration:<br>`00`: 1 s<br>`01`: 4 s<br>`10`: 8 s<br>`11`: 16 s            |
-| 0x44 | 0    | WDT_FEED   | RW   | 0x0     | Watchdog counter clear:<br>Write `1`: Clear WDT counter<br>Hardware automatically clears to `0` |
+|      | 3    | WDT_EN     | RW   | 0x0     | Watchdog enable:<br>`0`: Disabled<br>`1`: Enabled                                               |
+|      | 2:1  | WDT_SCALE  | RW   | 0x0     | Watchdog timeout configuration:<br>`00`: 1 s<br>`01`: 4 s<br>`10`: 8 s<br>`11`: 16 s            |
+|      | 0    | WDT_FEED   | RW   | 0x0     | Watchdog counter clear:<br>Write `1`: Clear WDT counter<br>Hardware automatically clears to `0` |
 
 > Note:
 > (*1) Default value is restored when entering power-down mode.
@@ -2346,9 +2348,9 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | Addr | Bits | Field Name | Attr | Default | Description                                                                                         |
 | ---- | ---- | ---------- | ---- | ------- | --------------------------------------------------------------------------------------------------- |
 | 0x45 | 7:5  | Reserved   | RV   | 0       | Reserved                                                                                            |
-| 0x45 | 4:3  | BCHG_ISET  | RW   | 0x0     | Coin-cell charging current setting:<br>`100`: 500 µA<br>`101`: 1 mA<br>`110`: 2 mA<br>`111`: 4 mA   |
-| 0x45 | 2:1  | BCHG_VSET  | RW   | 0x0     | Coin-cell charging voltage setting:<br>`100`: 2.8 V<br>`101`: 2.9 V<br>`110`: 3.0 V<br>`111`: 3.1 V |
-| 0x45 | 0    | BCHG_EN    | RW   | 0x0     | Coin-cell charging enable:<br>`0`: Disabled<br>`1`: Enabled                                         |
+|      | 4:3  | BCHG_ISET  | RW   | 0x0     | Coin-cell charging current setting:<br>`00`: 500 µA<br>`01`: 1 mA<br>`10`: 2 mA<br>`11`: 4 mA   |
+|      | 2:1  | BCHG_VSET  | RW   | 0x0     | Coin-cell charging voltage setting:<br>`00`: 2.8 V<br>`01`: 2.9 V<br>`10`: 3.0 V<br>`11`: 3.1 V |
+|      | 0    | BCHG_EN    | RW   | 0x0     | Coin-cell charging enable:<br>`0`: Disabled<br>`1`: Enabled                                         |
 
 > Note:
 > (*1) Default value is restored when entering power-down mode.
@@ -2358,12 +2360,12 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | Addr | Bits | Field Name     | Attr | Default | Description                                                                                                                                                                                                  |
 | ---- | ---- | -------------- | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | 0x46 | 7    | LDO_PD_EN      | RWE  | 0       | LDO pull-down resistor enable:<br>`0`: Disabled<br>`1`: Enabled<br>When LDO is enabled, this bit has no effect (pull-down disabled); when LDO is disabled, the pull-down resistor is controlled by this bit. |
-| 0x46 | 6    | BUCK_PD_EN     | RWE  | 0x0     | BUCK pull-down resistor enable:<br>`0`: Disabled<br>`1`: Enabled<br>When BUCK is enabled, this bit has no effect; when BUCK is disabled, the pull-down resistor is controlled by this bit.                   |
-| 0x46 | 5    | BUCK_DVS_EN    | RWE  | 0x0     | BUCK DVS enable:<br>`0`: Disabled<br>`1`: Enabled<br>DVS is not active during power-up; DVS is applied only during power-on/off and sleep/wake transitions.                                                  |
-| 0x46 | 4:3  | BUCK_DVS_SEL   | RWE  | 0x0     | BUCK DVS slew rate selection:<br>`00`: 5 mV/µs<br>`01`: 10 mV/µs<br>`10`: 25 mV/µs<br>`11`: 50 mV/µs                                                                                                         |
-| 0x46 | 2    | BUCK_VSET_CTRL | RWE  | 0x0     | BUCK5/6 VSET pin voltage selection:<br>`0`: VSET=VDD: 1.1 V, FLOATING: BUCKx_VOLT, GND: 1.2 V<br>`1`: VSET=VDD: 0.6 V, FLOATING: BUCKx_VOLT, GND: 1.5 V                                                      |
-| 0x46 | 1    | BUCK_34_DUAL   | RWE  | 0x0     | BUCK3 and BUCK4 dual-phase mode enable:<br>`0`: Disabled<br>`1`: Enabled                                                                                                                                     |
-| 0x46 | 0    | BUCK_12_DUAL   | RWE  | 0x0     | BUCK1 and BUCK2 dual-phase mode enable:<br>`0`: Disabled<br>`1`: Enabled                                                                                                                                     |
+|      | 6    | BUCK_PD_EN     | RWE  | 0x0     | BUCK pull-down resistor enable:<br>`0`: Disabled<br>`1`: Enabled<br>When BUCK is enabled, this bit has no effect; when BUCK is disabled, the pull-down resistor is controlled by this bit.                   |
+|      | 5    | BUCK_DVS_EN    | RWE  | 0x0     | BUCK DVS enable:<br>`0`: Disabled<br>`1`: Enabled<br>DVS is not active during power-up; DVS is applied only during power-on/off and sleep/wake transitions.                                                  |
+|      | 4:3  | BUCK_DVS_SEL   | RWE  | 0x0     | BUCK DVS slew rate selection:<br>`00`: 5 mV/µs<br>`01`: 10 mV/µs<br>`10`: 25 mV/µs<br>`11`: 50 mV/µs                                                                                                         |
+|      | 2    | BUCK_VSET_CTRL | RWE  | 0x0     | BUCK5/6 VSET pin voltage selection:<br>`0`: VSET=VDD: 1.1 V, FLOATING: BUCKx_VOLT, GND: 1.2 V<br>`1`: VSET=VDD: 0.6 V, FLOATING: BUCKx_VOLT, GND: 1.5 V                                                      |
+|      | 1    | BUCK_34_DUAL   | RWE  | 0x0     | BUCK3 and BUCK4 dual-phase mode enable:<br>`0`: Disabled<br>`1`: Enabled                                                                                                                                     |
+|      | 0    | BUCK_12_DUAL   | RWE  | 0x0     | BUCK1 and BUCK2 dual-phase mode enable:<br>`0`: Disabled<br>`1`: Enabled                                                                                                                                     |
 
 > Note:
 > (*1) Value is retained in power-down mode and restored from MTP after a power-on event.
@@ -2373,10 +2375,10 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | Addr          | Bits | Field Name     | Attr | Default | Description                                                                                                                                                                                        |
 | ------------- | ---- | -------------- | ---- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0x47+3xN (*2) | 7:6  | Reserved       | RV   | 0       | Reserved                                                                                                                                                                                           |
-| 0x47+3xN (*2) | 5:3  | BUCKx_GPIO_SEL | RE   | 0x0     | GPIO (PWRCTRL) control of BUCK enable:<br>`000`: Not GPIO-controlled<br>`001`: GPIO0<br>`010`: GPIO1<br>`011`: GPIO2<br>`100`: GPIO3<br>`101`: GPIO4<br>`110`: GPIO5<br>`111`: Not GPIO-controlled |
-| 0x47+3xN (*2) | 2    | BUCKx_MODE     | RWE  | 0x0     | BUCK operating mode:<br>`0`: PFM/PWM auto-switch<br>`1`: Forced PWM                                                                                                                                |
-| 0x47+3xN (*2) | 1    | BUCKx_ILIM     | RWE  | 0x0     | BUCK current limit selection:<br>`0`: BUCK1–2: 5000 mA; BUCK3–6: 3500 mA<br>`1`: BUCK1–2: 7500 mA; BUCK3–6: 5000 mA                                                                                |
-| 0x47+3xN (*2) | 0    | BUCKx_EN       | RWE  | 0x0     | BUCK enable:<br>`0`: Disabled<br>`1`: Enabled                                                                                                                                                      |
+|               | 5:3  | BUCKx_GPIO_SEL | RE   | 0x0     | GPIO (PWRCTRL) control of BUCK enable:<br>`000`: Not GPIO-controlled<br>`001`: GPIO0<br>`010`: GPIO1<br>`011`: GPIO2<br>`100`: GPIO3<br>`101`: GPIO4<br>`110`: GPIO5<br>`111`: Not GPIO-controlled |
+|               | 2    | BUCKx_MODE     | RWE  | 0x0     | BUCK operating mode:<br>`0`: PFM/PWM auto-switch<br>`1`: Forced PWM                                                                                                                                |
+|               | 1    | BUCKx_ILIM     | RWE  | 0x0     | BUCK current limit selection:<br>`0`: BUCK1–2: 5000 mA; BUCK3–6: 3500 mA<br>`1`: BUCK1–2: 7500 mA; BUCK3–6: 5000 mA                                                                                |
+|               | 0    | BUCKx_EN       | RWE  | 0x0     | BUCK enable:<br>`0`: Disabled<br>`1`: Enabled                                                                                                                                                      |
 
 > Note:
 > (*1) Value is retained in power-down mode and restored from MTP after a power-on event.
@@ -2407,8 +2409,8 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | Addr | Bits | Field Name   | Attr | Default | Description                                                                                                                                                                                                                               |
 | ---- | ---- | ------------ | ---- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0x59 | 7:2  | Reserved     | RV   | 0       | Reserved                                                                                                                                                                                                                                  |
-| 0x59 | 1    | SWITCH_PD_EN | RW   | 0x0     | SWITCH pull-down resistor enable:<br>`0`: Disabled<br>`1`: Enabled<br>When SWITCH_EN is enabled, the pull-down resistor is disabled and this bit has no effect; the pull-down resistor is controlled by this bit only when SWITCH_EN = 0. |
-| 0x59 | 0    | SWITCH_EN    | RW   | 0x0     | SWITCH enable:<br>`0`: Disabled<br>`1`: Enabled                                                                                                                                                                                           |
+|      | 1    | SWITCH_PD_EN | RW   | 0x0     | SWITCH pull-down resistor enable:<br>`0`: Disabled<br>`1`: Enabled<br>When SWITCH_EN is enabled, the pull-down resistor is disabled and this bit has no effect; the pull-down resistor is controlled by this bit only when SWITCH_EN = 0. |
+|      | 0    | SWITCH_EN    | RW   | 0x0     | SWITCH enable:<br>`0`: Disabled<br>`1`: Enabled                                                                                                                                                                                           |
 
 > Note:
 > (*1) Default value is restored when entering power-down mode.
@@ -2418,7 +2420,7 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | Addr | Bits | Field Name  | Attr | Default | Description                                                                                                                                                                        |
 | ---- | ---- | ----------- | ---- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0x5A | 7:1  | AONLDO_VOLT | RE   | 0x00    | AONLDO output voltage setting (7 MSBs):<br>0.5 V–3.4 V: 25 mV/step<br>`0001011`: 0.500 V<br>`0001100`: 0.525 V<br>`0001101`: 0.550 V<br>...<br>`1111111`: 3.400 V<br>Others: 0.5 V |
-| 0x5A | 0    | Reserved    | RV   | 1       | Reserved                                                                                                                                                                           |
+|      | 0    | Reserved    | RV   | 1       | Reserved                                                                                                                                                                           |
 
 > Note:
 > (*1) Value is retained in power-down mode and restored from MTP after a power-on event.
@@ -2428,8 +2430,8 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | Addr          | Bits | Field Name     | Attr | Default | Description                                                                                                                                                                                         |
 | ------------- | ---- | -------------- | ---- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0x5B+3xN (*2) | 7:4  | Reserved       | RV   | 0       | Reserved                                                                                                                                                                                            |
-| 0x5B+3xN (*2) | 3:1  | ALDOx_GPIO_SEL | RE   | 0x0     | GPIO (PWRCTRL) control of ALDOx enable:<br>`000`: Not GPIO-controlled<br>`001`: GPIO0<br>`010`: GPIO1<br>`011`: GPIO2<br>`100`: GPIO3<br>`101`: GPIO4<br>`110`: GPIO5<br>`111`: Not GPIO-controlled |
-| 0x5B+3xN (*2) | 0    | ALDOx_EN       | RWE  | 0x0     | ALDOx enable:<br>`0`: Disabled<br>`1`: Enabled                                                                                                                                                      |
+|               | 3:1  | ALDOx_GPIO_SEL | RE   | 0x0     | GPIO (PWRCTRL) control of ALDOx enable:<br>`000`: Not GPIO-controlled<br>`001`: GPIO0<br>`010`: GPIO1<br>`011`: GPIO2<br>`100`: GPIO3<br>`101`: GPIO4<br>`110`: GPIO5<br>`111`: Not GPIO-controlled |
+|               | 0    | ALDOx_EN       | RWE  | 0x0     | ALDOx enable:<br>`0`: Disabled<br>`1`: Enabled                                                                                                                                                      |
 
 > Note:
 > (*1) Value is retained in power-down mode and restored from MTP after a power-on event.
@@ -2440,7 +2442,7 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | Addr          | Bits | Field Name | Attr | Default | Description                                                                                                                                                              |
 | ------------- | ---- | ---------- | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | 0x5C+3xN (*2) | 7    | Reserved   | RV   | 0       | Reserved                                                                                                                                                                 |
-| 0x5C+3xN (*2) | 6:0  | ALDOx_VOLT | RWE  | 0x0     | ALDOx voltage output level (7 MSBs)<br>0.5 V ~ 3.4 V, 25 mV/step<br>`0001011`: 0.500 V<br>`0001100`: 0.525 V<br>`0001101`: 0.550 V<br>...<br>`1111111`: 3.400 V<br>others: 0.5 V |
+|               | 6:0  | ALDOx_VOLT | RWE  | 0x0     | ALDOx voltage output level (7 MSBs)<br>0.5 V ~ 3.4 V, 25 mV/step<br>`0001011`: 0.500 V<br>`0001100`: 0.525 V<br>`0001101`: 0.550 V<br>...<br>`1111111`: 3.400 V<br>others: 0.5 V |
 
 > Note:
 > (*1) Value remains unchanged when entering shutdown mode and is restored to the value stored in MTP after a power-on event.
@@ -2451,7 +2453,7 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | Addr          | Bits | Field Name     | Attr | Default | Description                                                                                                                                                                         |
 | ------------- | ---- | -------------- | ---- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0x5D+3xN (*2) | 7    | Reserved       | RV   | 0       | Reserved                                                                                                                                                                            |
-| 0x5D+3xN (*2) | 6:0  | ALDOx_SLP_VOLT | RWE  | 0x0     | ALDOx sleep-mode voltage output level (7 MSBs)<br>0.5 V ~ 3.4 V, 25 mV/step<br>`0001011`: 0.500 V<br>`0001100`: 0.525 V<br>`0001101`: 0.550 V<br>...<br>`1111111`: 3.400 V<br>others: 0.5 V |
+|               | 6:0  | ALDOx_SLP_VOLT | RWE  | 0x0     | ALDOx sleep-mode voltage output level (7 MSBs)<br>0.5 V ~ 3.4 V, 25 mV/step<br>`0001011`: 0.500 V<br>`0001100`: 0.525 V<br>`0001101`: 0.550 V<br>...<br>`1111111`: 3.400 V<br>others: 0.5 V |
 
 > Note:
 > (*1) Value remains unchanged when entering shutdown mode and is restored to the value stored in MTP after a power-on event.
@@ -2462,8 +2464,8 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | Addr          | Bits | Field Name     | Attr | Default | Description                                                                                                                                                                                                                                                                  |
 | ------------- | ---- | -------------- | ---- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0x67+3xN (*1) | 7:4  | Reserved       | RV   | 0       | Reserved                                                                                                                                                                                                                                                                     |
-| 0x67+3xN (*1) | 3:1  | DLDOx_GPIO_SEL | RE   | 0x0     | GPIO (PWRCTRL) control of DLDOx enable<br>`000`: Not controlled by GPIO<br>`001`: Controlled by GPIO0<br>`010`: Controlled by GPIO1<br>`011`: Controlled by GPIO2<br>`100`: Controlled by GPIO3<br>`101`: Controlled by GPIO4<br>`110`: Controlled by GPIO5<br>`111`: Not controlled by GPIO |
-| 0x67+3xN (*1) | 0    | DLDOx_EN       | RWE  | 0x0     | DLDOx enable<br>`0`: Disable<br>`1`: Enable                                                                                                                                                                                                                                      |
+|               | 3:1  | DLDOx_GPIO_SEL | RE   | 0x0     | GPIO (PWRCTRL) control of DLDOx enable<br>`000`: Not controlled by GPIO<br>`001`: Controlled by GPIO0<br>`010`: Controlled by GPIO1<br>`011`: Controlled by GPIO2<br>`100`: Controlled by GPIO3<br>`101`: Controlled by GPIO4<br>`110`: Controlled by GPIO5<br>`111`: Not controlled by GPIO |
+|               | 0    | DLDOx_EN       | RWE  | 0x0     | DLDOx enable<br>`0`: Disable<br>`1`: Enable                                                                                                                                                                                                                                      |
 
 > Note:
 > (*1) N: 0 ~ 6, x: 1 ~ 7, corresponding to DLDO1 ~ DLDO7.
@@ -2473,7 +2475,7 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | Addr          | Bits | Field Name | Attr | Default | Description                                                                                                                                                              |
 | ------------- | ---- | ---------- | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | 0x68+3xN (*1) | 7    | Reserved   | RV   | 0       | Reserved                                                                                                                                                                 |
-| 0x68+3xN (*1) | 6:0  | DLDOx_VOLT | RWE  | 0x0     | DLDOx voltage output level (7 MSBs)<br>0.5 V ~ 3.4 V, 25 mV/step<br>`0001011`: 0.500 V<br>`0001100`: 0.525 V<br>`0001101`: 0.550 V<br>...<br>`1111111`: 3.400 V<br>others: 0.5 V |
+|               | 6:0  | DLDOx_VOLT | RWE  | 0x0     | DLDOx voltage output level (7 MSBs)<br>0.5 V ~ 3.4 V, 25 mV/step<br>`0001011`: 0.500 V<br>`0001100`: 0.525 V<br>`0001101`: 0.550 V<br>...<br>`1111111`: 3.400 V<br>others: 0.5 V |
 
 > Note:
 > (*1) N: 0 ~ 6, x: 1 ~ 7, corresponding to DLDO1 ~ DLDO7.
@@ -2483,7 +2485,7 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | Addr          | Bits | Field Name     | Attr | Default | Description                                                                                                                                                                         |
 | ------------- | ---- | -------------- | ---- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0x69+3xN (*1) | 7    | Reserved       | RV   | 0       | Reserved                                                                                                                                                                            |
-| 0x69+3xN (*1) | 6:0  | DLDOx_SLP_VOLT | RWE  | 0x0     | DLDOx sleep-mode voltage output level (7 MSBs)<br>0.5 V ~ 3.4 V, 25 mV/step<br>`0001011`: 0.500 V<br>`0001100`: 0.525 V<br>`0001101`: 0.550 V<br>...<br>`1111111`: 3.400 V<br>others: 0.5 V |
+|               | 6:0  | DLDOx_SLP_VOLT | RWE  | 0x0     | DLDOx sleep-mode voltage output level (7 MSBs)<br>0.5 V ~ 3.4 V, 25 mV/step<br>`0001011`: 0.500 V<br>`0001100`: 0.525 V<br>`0001101`: 0.550 V<br>...<br>`1111111`: 3.400 V<br>others: 0.5 V |
 
 > Note:
 > (*1) N: 0 ~ 6, x: 1 ~ 7, corresponding to DLDO1 ~ DLDO7.
@@ -2493,62 +2495,62 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | Addr | Bits | Field Name      | Attr | Default | Description                                                                                                                                                                   |
 | ---- | ---- | --------------- | ---- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0x7C | 7    | WDT_RST_EN      | RW   | 0x0     | WDT timeout reset enable<br>`0`: Disable<br>`1`: Enable                                                                                                                           |
-| 0x7C | 6    | NRESET_RST_EN   | RW   | 0x0     | nRESET pin pull-down triggered reset enable<br>`0`: Disable<br>`1`: Enable                                                                                                        |
-| 0x7C | 5    | PWRCTRL_SHUT_EN | RWE  | 0x0     | PWRCTRL all-bound invalid shutdown enable<br>`0`: Disable<br>`1`: Enable                                                                                                          |
-| 0x7C | 4    | PWRCTRL_STA_EN  | RE   | 0x0     | PWRCTRL all-bound valid power-on enable<br>`0`: Disable<br>`1`: Enable                                                                                                            |
-| 0x7C | 3    | RTC_STA_EN      | RE   | 0x0     | RTC TICK / ALARM triggered power-on enable<br>`0`: Disable<br>`1`: Enable                                                                                                         |
-| 0x7C | 2    | INT_STA_EN      | RE   | 0x0     | INT pin triggered power-on enable<br>`0`: Disable<br>`1`: Enable                                                                                                                  |
-| 0x7C | 1    | VSYS_STA_EN     | RE   | 0x0     | VSYS rising-edge triggered power-on enable<br>`0`: Disable<br>`1`: Enable<br>When enabled, the device powers on once VSYS exceeds the configured threshold after initial power-up |
-| 0x7C | 0    | Reserved        | RV   | 1       | Reserved                                                                                                                                                                      |
+|      | 6    | NRESET_RST_EN   | RW   | 0x0     | nRESET pin pull-down triggered reset enable<br>`0`: Disable<br>`1`: Enable                                                                                                        |
+|      | 5    | PWRCTRL_SHUT_EN | RWE  | 0x0     | PWRCTRL all-bound invalid shutdown enable<br>`0`: Disable<br>`1`: Enable                                                                                                          |
+|      | 4    | PWRCTRL_STA_EN  | RE   | 0x0     | PWRCTRL all-bound valid power-on enable<br>`0`: Disable<br>`1`: Enable                                                                                                            |
+|      | 3    | RTC_STA_EN      | RE   | 0x0     | RTC TICK / ALARM triggered power-on enable<br>`0`: Disable<br>`1`: Enable                                                                                                         |
+|      | 2    | INT_STA_EN      | RE   | 0x0     | INT pin triggered power-on enable<br>`0`: Disable<br>`1`: Enable                                                                                                                  |
+|      | 1    | VSYS_STA_EN     | RE   | 0x0     | VSYS rising-edge triggered power-on enable<br>`0`: Disable<br>`1`: Enable<br>When enabled, the device powers on once VSYS exceeds the configured threshold after initial power-up |
+|      | 0    | Reserved        | RV   | 1       | Reserved                                                                                                                                                                      |
 
 ##### Table 7-87 PWR_CTRL1
 
 | Addr | Bits | Field Name   | Attr | Default | Description                                                                                                                                                                 |
 | ---- | ---- | ------------ | ---- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0x7D | 7    | SD_LOW_POWER | RW   | 0x0     | Enter standby mode in shutdown state<br>`0`: Do not enter<br>`1`: Enter<br>In standby mode, internal bandgap and AON LDO are disabled; only PWRKY and RTC wake-up are available |
-| 0x7D | 6    | PG_RST_EN    | RWE  | 0x0     | PGOOD pin pull-down triggered reset enable<br>`0`: Disable<br>`1`: Enable                                                                                                       |
-| 0x7D | 5    | PG_PD_EN     | RWE  | 0x0     | PGOOD pin pull-down enable during sleep<br>`0`: PGOOD not pulled down on sleep event<br>`1`: PGOOD pulled down on sleep event                                                   |
-| 0x7D | 4    | PG_WAIT_TO   | RWE  | 0x0     | Timeout selection for waiting external PGOOD release after power-on<br>`0`: 128 ms<br>`1`: 1 s                                                                                  |
-| 0x7D | 3    | PG_WAIT_EN   | RWE  | 0x0     | Wait for external PGOOD release after PMIC power-on sequence completes<br>`0`: Do not wait<br>`1`: Wait                                                                         |
-| 0x7D | 2    | AUTO_BOOT_EN | RWE  | 0x0     | Auto reboot enable after shutdown event<br>`0`: No reboot after shutdown<br>`1`: Reboot after shutdown                                                                          |
-| 0x7D | 1    | SLP_WKUP_SEQ | RWE  | 0x0     | Sleep / wake-up sequence selection<br>`0`: Direct enter / exit sleep<br>`1`: Follow shutdown / power-on sequence                                                                |
-| 0x7D | 0    | SD_SEQ       | RWE  | 0x0     | Shutdown sequence selection<br>`0`: Reverse-order shutdown<br>`1`: Fast shutdown                                                                                                |
+|      | 6    | PG_RST_EN    | RWE  | 0x0     | PGOOD pin pull-down triggered reset enable<br>`0`: Disable<br>`1`: Enable                                                                                                       |
+|      | 5    | PG_PD_EN     | RWE  | 0x0     | PGOOD pin pull-down enable during sleep<br>`0`: PGOOD not pulled down on sleep event<br>`1`: PGOOD pulled down on sleep event                                                   |
+|      | 4    | PG_WAIT_TO   | RWE  | 0x0     | Timeout selection for waiting external PGOOD release after power-on<br>`0`: 128 ms<br>`1`: 1 s                                                                                  |
+|      | 3    | PG_WAIT_EN   | RWE  | 0x0     | Wait for external PGOOD release after PMIC power-on sequence completes<br>`0`: Do not wait<br>`1`: Wait                                                                         |
+|      | 2    | AUTO_BOOT_EN | RWE  | 0x0     | Auto reboot enable after shutdown event<br>`0`: No reboot after shutdown<br>`1`: Reboot after shutdown                                                                          |
+|      | 1    | SLP_WKUP_SEQ | RWE  | 0x0     | Sleep / wake-up sequence selection<br>`0`: Direct enter / exit sleep<br>`1`: Follow shutdown / power-on sequence                                                                |
+|      | 0    | SD_SEQ       | RWE  | 0x0     | Shutdown sequence selection<br>`0`: Reverse-order shutdown<br>`1`: Fast shutdown                                                                                                |
 
 ##### Table 7-88 PWR_CTRL2
 
 | Addr | Bits | Field Name        | Attr | Default | Description                                                                                                                                                                                                                                  |
 | ---- | ---- | ----------------- | ---- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0x7E | 7    | SD_RST_TIME       | RE   | 0x0     | Dwell time selection when reset enters shutdown mode<br>`0`: 200 ms<br>`1`: 1 s                                                                                                                                                                  |
-| 0x7E | 6    | PWRKY_SD_DIS      | RWE  | 0x0     | PWRKY shutdown function mask<br>`0`: Enable PWRKY shutdown (12 s long-press reset disabled)<br>`1`: Disable PWRKY shutdown (12 s long-press reset enabled)                                                                                       |
-| 0x7E | 5    | PWRCTRL_SDTO_TIME | RWE  | 0x0     | PWRCTRL timeout selection for shutdown and sleep sequences<br>`0`: 128 ms<br>`1`: 1 s                                                                                                                                                            |
-| 0x7E | 4    | PWRCTRL_WAIT_EN   | RWE  | 0x0     | Wait for PWRCTRL during shutdown and sleep sequences<br>`0`: Do not wait<br>`1`: Wait                                                                                                                                                            |
-| 0x7E | 3    | Reserved          | RV   | 0       | Reserved                                                                                                                                                                                                                                     |
-| 0x7E | 2    | SW_SD             | RW   | 0x0     | Software shutdown<br>`0`: No operation<br>`1`: Trigger software shutdown (software-triggered, hardware-cleared)                                                                                                                                  |
-| 0x7E | 1    | SW_RST            | RW   | 0x0     | Software reset<br>`0`: No operation<br>`1`: Trigger software reset (software-triggered, hardware-cleared)                                                                                                                                        |
-| 0x7E | 0    | SW_SLP_WKUP       | RW   | 0x0     | Software sleep / wake-up<br>Power-on mode:<br>`0`: No operation<br>`1`: Trigger software sleep (software-triggered, hardware-cleared)<br>Shutdown mode:<br>`0`: Trigger software wake-up (software-triggered, hardware-cleared)<br>`1`: No operation |
+|      | 6    | PWRKY_SD_DIS      | RWE  | 0x0     | PWRKY shutdown function mask<br>`0`: Enable PWRKY shutdown (12 s long-press reset disabled)<br>`1`: Disable PWRKY shutdown (12 s long-press reset enabled)                                                                                       |
+|      | 5    | PWRCTRL_SDTO_TIME | RWE  | 0x0     | PWRCTRL timeout selection for shutdown and sleep sequences<br>`0`: 128 ms<br>`1`: 1 s                                                                                                                                                            |
+|      | 4    | PWRCTRL_WAIT_EN   | RWE  | 0x0     | Wait for PWRCTRL during shutdown and sleep sequences<br>`0`: Do not wait<br>`1`: Wait                                                                                                                                                            |
+|      | 3    | Reserved          | RV   | 0       | Reserved                                                                                                                                                                                                                                     |
+|      | 2    | SW_SD             | RW   | 0x0     | Software shutdown<br>`0`: No operation<br>`1`: Trigger software shutdown (software-triggered, hardware-cleared)                                                                                                                                  |
+|      | 1    | SW_RST            | RW   | 0x0     | Software reset<br>`0`: No operation<br>`1`: Trigger software reset (software-triggered, hardware-cleared)                                                                                                                                        |
+|      | 0    | SW_SLP_WKUP       | RW   | 0x0     | Software sleep / wake-up<br>Power-on mode:<br>`0`: No operation<br>`1`: Trigger software sleep (software-triggered, hardware-cleared)<br>Shutdown mode:<br>`0`: Trigger software wake-up (software-triggered, hardware-cleared)<br>`1`: No operation |
 
 ##### Table 7-89 PWR_STS0
 
 | Addr | Bits | Field Name        | Attr  | Default | Description                                                                                                                       |
 | ---- | ---- | ----------------- | ----- | ------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | 0x7F | 7:5  | Reserved          | RV    | 0       | Reserved                                                                                                                          |
-| 0x7F | 4    | FLAG_PWRCTRL_WKUP | R, IO | 0x0     | Power-on source indicator (cleared by writing 1)<br>`0`: Not PWRCTRL all-bound wake-up<br>`1`: PWRCTRL all-bound wake-up              |
-| 0x7F | 3    | FLAG_PWRKY_WKUP   | R, IO | 0x0     | Power-on source indicator (cleared by writing 1)<br>`0`: Not PWRKY long-press wake-up<br>`1`: PWRKY long-press power-on wake-up       |
-| 0x7F | 2    | FLAG_VSYS_WKUP    | R, IO | 0x0     | Power-on source indicator (cleared by writing 1)<br>`0`: Not VSYS over-threshold wake-up<br>`1`: VSYS over-threshold power-on wake-up |
-| 0x7F | 1    | FLAG_INT_WKUP     | R, IO | 0x0     | Power-on source indicator (cleared by writing 1)<br>`0`: Not INT pin wake-up<br>`1`: INT pin power-on wake-up                         |
-| 0x7F | 0    | FLAG_RTC_WKUP     | R, IO | 0x0     | Power-on source indicator (cleared by writing 1)<br>`0`: Not RTC wake-up<br>`1`: RTC power-on wake-up                                 |
+|      | 4    | FLAG_PWRCTRL_WKUP | R, IO | 0x0     | Power-on source indicator (cleared by writing 1)<br>`0`: Not PWRCTRL all-bound wake-up<br>`1`: PWRCTRL all-bound wake-up              |
+|      | 3    | FLAG_PWRKY_WKUP   | R, IO | 0x0     | Power-on source indicator (cleared by writing 1)<br>`0`: Not PWRKY long-press wake-up<br>`1`: PWRKY long-press power-on wake-up       |
+|      | 2    | FLAG_VSYS_WKUP    | R, IO | 0x0     | Power-on source indicator (cleared by writing 1)<br>`0`: Not VSYS over-threshold wake-up<br>`1`: VSYS over-threshold power-on wake-up |
+|      | 1    | FLAG_INT_WKUP     | R, IO | 0x0     | Power-on source indicator (cleared by writing 1)<br>`0`: Not INT pin wake-up<br>`1`: INT pin power-on wake-up                         |
+|      | 0    | FLAG_RTC_WKUP     | R, IO | 0x0     | Power-on source indicator (cleared by writing 1)<br>`0`: Not RTC wake-up<br>`1`: RTC power-on wake-up                                 |
 
 ##### Table 7-90 PWR_STS1
 
 | Addr | Bits | Field Name        | Attr  | Default | Description                                                                                                                                                                                                                                                                            |
 | ---- | ---- | ----------------- | ----- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0x80 | 7:6  | Reserved          | RV    | 0       | Reserved                                                                                                                                                                                                                                                                               |
-| 0x80 | 5    | WORK_STS          | R     | 0x0     | Operating mode status<br>`0`: Power-on mode<br>`1`: Shutdown mode                                                                                                                                                                                                                          |
-| 0x80 | 4    | FLAG_PWRCTRL_SHUT | R, IO | 0x0     | Shutdown source indicator (cleared by writing 1)<br>`0`: Not PWRCTRL invalid shutdown<br>`1`: PWRCTRL invalid shutdown                                                                                                                                                                     |
-| 0x80 | 3    | FLAG_PWRKY_SHUT   | R, IO | 0x0     | Shutdown source indicator (cleared by writing 1)<br>`0`: Not PWRKY long-press shutdown<br>`1`: PWRKY long-press shutdown                                                                                                                                                                   |
-| 0x80 | 2    | FLAG_VSYS_SHUT    | R, IO | 0x0     | Shutdown source indicator (cleared by writing 1)<br>`0`: Not VSYS low-threshold shutdown<br>`1`: VSYS low-threshold shutdown                                                                                                                                                               |
-| 0x80 | 1    | FLAG_ERR_SHUT     | R, IO | 0x0     | Shutdown source indicator (cleared by writing 1)<br>`0`: Not abnormal shutdown<br>`1`: Abnormal shutdown<br>Abnormal events include: VSYS over-voltage, chip over-temperature, all buck over-voltage / under-voltage / short-circuit, all LDO over-voltage / under-voltage / short-circuit |
-| 0x80 | 0    | FLAG_SW_SHUT      | R, IO | 0x0     | Shutdown source indicator (cleared by writing 1)<br>`0`: Not software shutdown<br>`1`: Software shutdown                                                                                                                                                                                   |
+|      | 5    | WORK_STS          | R     | 0x0     | Operating mode status<br>`0`: Power-on mode<br>`1`: Shutdown mode                                                                                                                                                                                                                          |
+|      | 4    | FLAG_PWRCTRL_SHUT | R, IO | 0x0     | Shutdown source indicator (cleared by writing 1)<br>`0`: Not PWRCTRL invalid shutdown<br>`1`: PWRCTRL invalid shutdown                                                                                                                                                                     |
+|      | 3    | FLAG_PWRKY_SHUT   | R, IO | 0x0     | Shutdown source indicator (cleared by writing 1)<br>`0`: Not PWRKY long-press shutdown<br>`1`: PWRKY long-press shutdown                                                                                                                                                                   |
+|      | 2    | FLAG_VSYS_SHUT    | R, IO | 0x0     | Shutdown source indicator (cleared by writing 1)<br>`0`: Not VSYS low-threshold shutdown<br>`1`: VSYS low-threshold shutdown                                                                                                                                                               |
+|      | 1    | FLAG_ERR_SHUT     | R, IO | 0x0     | Shutdown source indicator (cleared by writing 1)<br>`0`: Not abnormal shutdown<br>`1`: Abnormal shutdown<br>Abnormal events include: VSYS over-voltage, chip over-temperature, all buck over-voltage / under-voltage / short-circuit, all LDO over-voltage / under-voltage / short-circuit |
+|      | 0    | FLAG_SW_SHUT      | R, IO | 0x0     | Shutdown source indicator (cleared by writing 1)<br>`0`: Not software shutdown<br>`1`: Software shutdown                                                                                                                                                                                   |
 
 
 ##### Table 7-91 PWR_KEY_TIME
@@ -2556,74 +2558,74 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | Addr | Bits | Field Name     | Attr | Default | Description                                                                                 |
 | ---- | ---- | -------------- | ---- | ------- | ------------------------------------------------------------------------------------------- |
 | 0x81 | 7:6  | Reserved       | RV   | 0       | Reserved                                                                                    |
-| 0x81 | 5:4  | PWRKY_INT_TIME | RWE  | 0x0     | PWR key short-press interrupt time:<br>`00`: 0.5 s<br>`01`: 1 s<br>`10`: 1.5 s<br>`11`: 2 s |
-| 0x81 | 3:2  | PWRKY_SD_TIME  | RWE  | 0x0     | PWR key shutdown time:<br>`00`: 4 s<br>`01`: 6 s<br>`10`: 8 s<br>`11`: 10 s                 |
-| 0x81 | 1:0  | PWRKY_STA_TIME | RWE  | 0x0     | PWR key power-on time:<br>`00`: 0.5 s<br>`01`: 1 s<br>`10`: 2 s<br>`11`: 3 s                |
+|      | 5:4  | PWRKY_INT_TIME | RWE  | 0x0     | PWR key short-press interrupt time:<br>`00`: 0.5 s<br>`01`: 1 s<br>`10`: 1.5 s<br>`11`: 2 s |
+|      | 3:2  | PWRKY_SD_TIME  | RWE  | 0x0     | PWR key shutdown time:<br>`00`: 4 s<br>`01`: 6 s<br>`10`: 8 s<br>`11`: 10 s                 |
+|      | 1:0  | PWRKY_STA_TIME | RWE  | 0x0     | PWR key power-on time:<br>`00`: 0.5 s<br>`01`: 1 s<br>`10`: 2 s<br>`11`: 3 s                |
 
 ##### Table 7-92 PWR_SEQ_TIME
 
 | Addr | Bits | Field Name        | Attr | Default | Description                                                                                                                           |
 | ---- | ---- | ----------------- | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | 0x82 | 7:6  | PDN_SEQ_PG_DLY    | RWE  | 0x0     | Delay from PGOOD deassertion to start of power rail power-down:<br>`00`: 4 ms<br>`01`: 16 ms<br>`10`: 64 ms<br>`11`: 128 ms           |
-| 0x82 | 5:4  | PUP_SEQ_PG_DLY    | RWE  | 0x0     | Delay between completion of all power rails power-up and PGOOD assertion:<br>`00`: 4 ms<br>`01`: 16 ms<br>`10`: 64 ms<br>`11`: 128 ms |
-| 0x82 | 3:2  | PDN_SEQ_SLOT_TIME | RWE  | 0x0     | Power-down interval between power rails:<br>`00`: 1 ms<br>`01`: 4 ms<br>`10`: 8 ms<br>`11`: 16 ms                                     |
-| 0x82 | 1:0  | PUP_SEQ_SLOT_TIME | RWE  | 0x0     | Power-up interval between power rails:<br>`00`: 1 ms<br>`01`: 4 ms<br>`10`: 8 ms<br>`11`: 16 ms                                       |
+|      | 5:4  | PUP_SEQ_PG_DLY    | RWE  | 0x0     | Delay between completion of all power rails power-up and PGOOD assertion:<br>`00`: 4 ms<br>`01`: 16 ms<br>`10`: 64 ms<br>`11`: 128 ms |
+|      | 3:2  | PDN_SEQ_SLOT_TIME | RWE  | 0x0     | Power-down interval between power rails:<br>`00`: 1 ms<br>`01`: 4 ms<br>`10`: 8 ms<br>`11`: 16 ms                                     |
+|      | 1:0  | PUP_SEQ_SLOT_TIME | RWE  | 0x0     | Power-up interval between power rails:<br>`00`: 1 ms<br>`01`: 4 ms<br>`10`: 8 ms<br>`11`: 16 ms                                       |
 
 ##### Table 7-93 PWR_SLOT0
 
 | Addr | Bits | Field Name | Attr | Default | Description                                                                                                                                                         |
 | ---- | ---- | ---------- | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0x83 | 7:4  | BUCK2_SLOT | RE   | 0x0     | BUCK2 power-up/power-down sequence slot:<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not included in power sequence |
-| 0x83 | 3:0  | BUCK1_SLOT | RE   | 0x0     | BUCK1 power-up/power-down sequence slot:<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not included in power sequence |
+|      | 3:0  | BUCK1_SLOT | RE   | 0x0     | BUCK1 power-up/power-down sequence slot:<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not included in power sequence |
 
 ##### Table 7-94 PWR_SLOT1
 
 | Addr | Bits | Field Name | Attr | Default | Description                                                                                                                                                         |
 | ---- | ---- | ---------- | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0x84 | 7:4  | BUCK4_SLOT | RE   | 0x0     | BUCK4 power-up/power-down sequence slot:<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not included in power sequence |
-| 0x84 | 3:0  | BUCK3_SLOT | RE   | 0x0     | BUCK3 power-up/power-down sequence slot:<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not included in power sequence |
+|      | 3:0  | BUCK3_SLOT | RE   | 0x0     | BUCK3 power-up/power-down sequence slot:<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not included in power sequence |
 
 ##### Table 7-95 PWR_SLOT2
 
 | Addr | Bits | Field Name | Attr | Default | Description                                                                                                                                                         |
 | ---- | ---- | ---------- | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0x85 | 7:4  | BUCK6_SLOT | RE   | 0x0     | BUCK6 power-up/power-down sequence slot:<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not included in power sequence |
-| 0x85 | 3:0  | BUCK5_SLOT | RE   | 0x0     | BUCK5 power-up/power-down sequence slot:<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not included in power sequence |
+|      | 3:0  | BUCK5_SLOT | RE   | 0x0     | BUCK5 power-up/power-down sequence slot:<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not included in power sequence |
 
 ##### Table 7-96 PWR_SLOT3
 
 | Addr | Bits | Field Name | Attr | Default | Description                                                                                                                                                         |
 | ---- | ---- | ---------- | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0x86 | 7:4  | ALDO2_SLOT | RE   | 0x0     | ALDO2 power-up/power-down sequence slot:<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not included in power sequence |
-| 0x86 | 3:0  | ALDO1_SLOT | RE   | 0x0     | ALDO1 power-up/power-down sequence slot:<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not included in power sequence |
+|      | 3:0  | ALDO1_SLOT | RE   | 0x0     | ALDO1 power-up/power-down sequence slot:<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not included in power sequence |
 
 ##### Table 7-97 PWR_SLOT4
 
 | Addr | Bits | Field Name | Attr | Default | Description                                                                                                                                                         |
 | ---- | ---- | ---------- | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0x87 | 7:4  | ALDO4_SLOT | RE   | 0x0     | ALDO4 power-up/power-down sequence slot:<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not included in power sequence |
-| 0x87 | 3:0  | ALDO3_SLOT | RE   | 0x0     | ALDO3 power-up/power-down sequence slot:<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not included in power sequence |
+|      | 3:0  | ALDO3_SLOT | RE   | 0x0     | ALDO3 power-up/power-down sequence slot:<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not included in power sequence |
 
 ##### Table 7-98 PWR_SLOT5
 
 | Addr | Bits | Field Name | Attr | Default | Description                                                                                                                                                         |
 | ---- | ---- | ---------- | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0x88 | 7:4  | DLDO2_SLOT | RE   | 0x0     | DLDO2 power-up/power-down sequence slot:<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not included in power sequence |
-| 0x88 | 3:0  | DLDO1_SLOT | RE   | 0x0     | DLDO1 power-up/power-down sequence slot:<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not included in power sequence |
+|      | 3:0  | DLDO1_SLOT | RE   | 0x0     | DLDO1 power-up/power-down sequence slot:<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not included in power sequence |
 
 ##### Table 7-99 PWR_SLOT6
 
 | Addr | Bits | Field Name | Attr | Default | Description                                                                                                                                                         |
 | ---- | ---- | ---------- | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0x89 | 7:4  | DLDO4_SLOT | RE   | 0x0     | DLDO4 power-up/power-down sequence slot:<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not included in power sequence |
-| 0x89 | 3:0  | DLDO3_SLOT | RE   | 0x0     | DLDO3 power-up/power-down sequence slot:<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not included in power sequence |
+|      | 3:0  | DLDO3_SLOT | RE   | 0x0     | DLDO3 power-up/power-down sequence slot:<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not included in power sequence |
 
 ##### Table 7-100 PWR_SLOT7
 
 | Addr | Bits | Field Name | Attr | Default | Description                                                                                                                                                         |
 | ---- | ---- | ---------- | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0x8A | 7:4  | DLDO6_SLOT | RE   | 0x0     | DLDO6 power-up/power-down sequence slot:<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not included in power sequence |
-| 0x8A | 3:0  | DLDO5_SLOT | RE   | 0x0     | DLDO5 power-up/power-down sequence slot:<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not included in power sequence |
+|      | 3:0  | DLDO5_SLOT | RE   | 0x0     | DLDO5 power-up/power-down sequence slot:<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not included in power sequence |
 
 
 ##### Table 7-101 PWR_SLOT8
@@ -2631,64 +2633,64 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | Addr | Bits | Field Name | Attr | Default | Description                                                                                                                                                                            |
 | ---- | ---- | ---------- | ---- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0x8B | 7:4  | Reserved   | RV   | 0       | Reserved                                                                                                                                                                               |
-| 0x8B | 3:0  | DLDO7_SLOT | RE   | 0x0     | DLDO7 power-on and power-off sequence slot<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not involved in power-up or power-down sequence |
+|      | 3:0  | DLDO7_SLOT | RE   | 0x0     | DLDO7 power-on and power-off sequence slot<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not involved in power-up or power-down sequence |
 
 ##### Table 7-102 PWR_SLOT9
 
 | Addr | Bits | Field Name   | Attr | Default | Description                                                                                                                                                                           |
 | ---- | ---- | ------------ | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0x8C | 7:4  | EXT1_EN_SLOT | RE   | 0x0     | EXT1 power-on and power-off sequence slot<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not involved in power-up or power-down sequence |
-| 0x8C | 3:0  | EXT0_EN_SLOT | RE   | 0x0     | EXT0 power-on and power-off sequence slot<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not involved in power-up or power-down sequence |
+|      | 3:0  | EXT0_EN_SLOT | RE   | 0x0     | EXT0 power-on and power-off sequence slot<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not involved in power-up or power-down sequence |
 
 ##### Table 7-103 PWR_SLOT10
 
 | Addr | Bits | Field Name   | Attr | Default | Description                                                                                                                                                                           |
 | ---- | ---- | ------------ | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0x8D | 7:4  | EXT3_EN_SLOT | RE   | 0x0     | EXT3 power-on and power-off sequence slot<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not involved in power-up or power-down sequence |
-| 0x8D | 3:0  | EXT2_EN_SLOT | RE   | 0x0     | EXT2 power-on and power-off sequence slot<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not involved in power-up or power-down sequence |
+|      | 3:0  | EXT2_EN_SLOT | RE   | 0x0     | EXT2 power-on and power-off sequence slot<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not involved in power-up or power-down sequence |
 
 ##### Table 7-104 PWR_SLOT11
 
 | Addr | Bits | Field Name   | Attr | Default | Description                                                                                                                                                                           |
 | ---- | ---- | ------------ | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0x8E | 7:4  | EXT5_EN_SLOT | RE   | 0x0     | EXT5 power-on and power-off sequence slot<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not involved in power-up or power-down sequence |
-| 0x8E | 3:0  | EXT4_EN_SLOT | RE   | 0x0     | EXT4 power-on and power-off sequence slot<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not involved in power-up or power-down sequence |
+|      | 3:0  | EXT4_EN_SLOT | RE   | 0x0     | EXT4 power-on and power-off sequence slot<br>`0000`: Slot 1<br>`0001`: Slot 2<br>...<br>`1101`: Slot 14<br>`1110`: Slot 15<br>`1111`: Not involved in power-up or power-down sequence |
 
 ##### Table 7-105 PWR_EXT_EN
 
 | Addr | Bits | Field Name | Attr | Default | Description                                             |
 | ---- | ---- | ---------- | ---- | ------- | ------------------------------------------------------- |
 | 0x8F | 7:6  | Reserved   | RV   | 0       | Reserved                                                |
-| 0x8F | 5    | EXT5_EN    | RWE  | 0x0     | EXT5 software enable bit<br>`0`: disable<br>`1`: enable |
-| 0x8F | 4    | EXT4_EN    | RWE  | 0x0     | EXT4 software enable bit<br>`0`: disable<br>`1`: enable |
-| 0x8F | 3    | EXT3_EN    | RWE  | 0x0     | EXT3 software enable bit<br>`0`: disable<br>`1`: enable |
-| 0x8F | 2    | EXT2_EN    | RWE  | 0x0     | EXT2 software enable bit<br>`0`: disable<br>`1`: enable |
-| 0x8F | 1    | EXT1_EN    | RWE  | 0x0     | EXT1 software enable bit<br>`0`: disable<br>`1`: enable |
-| 0x8F | 0    | EXT0_EN    | RWE  | 0x0     | EXT0 software enable bit<br>`0`: disable<br>`1`: enable |
+|      | 5    | EXT5_EN    | RWE  | 0x0     | EXT5 software enable bit<br>`0`: disable<br>`1`: enable |
+|      | 4    | EXT4_EN    | RWE  | 0x0     | EXT4 software enable bit<br>`0`: disable<br>`1`: enable |
+|      | 3    | EXT3_EN    | RWE  | 0x0     | EXT3 software enable bit<br>`0`: disable<br>`1`: enable |
+|      | 2    | EXT2_EN    | RWE  | 0x0     | EXT2 software enable bit<br>`0`: disable<br>`1`: enable |
+|      | 1    | EXT1_EN    | RWE  | 0x0     | EXT1 software enable bit<br>`0`: disable<br>`1`: enable |
+|      | 0    | EXT0_EN    | RWE  | 0x0     | EXT0 software enable bit<br>`0`: disable<br>`1`: enable |
 
 ##### Table 7-106 PWR_EXT_CTRL
 
 | Addr | Bits | Field Name  | Attr | Default | Description                                                                               |
 | ---- | ---- | ----------- | ---- | ------- | ----------------------------------------------------------------------------------------- |
 | 0x90 | 7:6  | Reserved    | RV   | 0       | Reserved                                                                                  |
-| 0x90 | 5    | EXT5_SLP_SD | RWE  | 0x0     | EXT5 shutdown control during sleep mode and sleep sequence<br>`0`: disable<br>`1`: enable |
-| 0x90 | 4    | EXT4_SLP_SD | RWE  | 0x0     | EXT4 shutdown control during sleep mode and sleep sequence<br>`0`: disable<br>`1`: enable |
-| 0x90 | 3    | EXT3_SLP_SD | RWE  | 0x0     | EXT3 shutdown control during sleep mode and sleep sequence<br>`0`: disable<br>`1`: enable |
-| 0x90 | 2    | EXT2_SLP_SD | RWE  | 0x0     | EXT2 shutdown control during sleep mode and sleep sequence<br>`0`: disable<br>`1`: enable |
-| 0x90 | 1    | EXT1_SLP_SD | RWE  | 0x0     | EXT1 shutdown control during sleep mode and sleep sequence<br>`0`: disable<br>`1`: enable |
-| 0x90 | 0    | EXT0_SLP_SD | RWE  | 0x0     | EXT0 shutdown control during sleep mode and sleep sequence<br>`0`: disable<br>`1`: enable |
+|      | 5    | EXT5_SLP_SD | RWE  | 0x0     | EXT5 shutdown control during sleep mode and sleep sequence<br>`0`: disable<br>`1`: enable |
+|      | 4    | EXT4_SLP_SD | RWE  | 0x0     | EXT4 shutdown control during sleep mode and sleep sequence<br>`0`: disable<br>`1`: enable |
+|      | 3    | EXT3_SLP_SD | RWE  | 0x0     | EXT3 shutdown control during sleep mode and sleep sequence<br>`0`: disable<br>`1`: enable |
+|      | 2    | EXT2_SLP_SD | RWE  | 0x0     | EXT2 shutdown control during sleep mode and sleep sequence<br>`0`: disable<br>`1`: enable |
+|      | 1    | EXT1_SLP_SD | RWE  | 0x0     | EXT1 shutdown control during sleep mode and sleep sequence<br>`0`: disable<br>`1`: enable |
+|      | 0    | EXT0_SLP_SD | RWE  | 0x0     | EXT0 shutdown control during sleep mode and sleep sequence<br>`0`: disable<br>`1`: enable |
 
 ##### Table 7-107 EVENT0
 
 | Addr | Bits | Field Name | Attr  | Default | Description                                                                                                                    |
 | ---- | ---- | ---------- | ----- | ------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | 0x91 | 7:6  | Reserved   | RV    | 0       | Reserved                                                                                                                       |
-| 0x91 | 5    | E_GPI5     | R, IO | 0x0     | GPI5 valid-level input event or ADCIN5 over/under-threshold event<br>`0`: no event<br>`1`: event occurred (write `1` to clear) |
-| 0x91 | 4    | E_GPI4     | R, IO | 0x0     | GPI4 valid-level input event or ADCIN4 over/under-threshold event<br>`0`: no event<br>`1`: event occurred (write `1` to clear) |
-| 0x91 | 3    | E_GPI3     | R, IO | 0x0     | GPI3 valid-level input event or ADCIN3 over/under-threshold event<br>`0`: no event<br>`1`: event occurred (write `1` to clear) |
-| 0x91 | 2    | E_GPI2     | R, IO | 0x0     | GPI2 valid-level input event or ADCIN2 over/under-threshold event<br>`0`: no event<br>`1`: event occurred (write `1` to clear) |
-| 0x91 | 1    | E_GPI1     | R, IO | 0x0     | GPI1 valid-level input event or ADCIN1 over/under-threshold event<br>`0`: no event<br>`1`: event occurred (write `1` to clear) |
-| 0x91 | 0    | E_GPI0     | R, IO | 0x0     | GPI0 valid-level input event or ADCIN0 over/under-threshold event<br>`0`: no event<br>`1`: event occurred (write `1` to clear) |
+|      | 5    | E_GPI5     | R, IO | 0x0     | GPI5 valid-level input event or ADCIN5 over/under-threshold event<br>`0`: no event<br>`1`: event occurred (write `1` to clear) |
+|      | 4    | E_GPI4     | R, IO | 0x0     | GPI4 valid-level input event or ADCIN4 over/under-threshold event<br>`0`: no event<br>`1`: event occurred (write `1` to clear) |
+|      | 3    | E_GPI3     | R, IO | 0x0     | GPI3 valid-level input event or ADCIN3 over/under-threshold event<br>`0`: no event<br>`1`: event occurred (write `1` to clear) |
+|      | 2    | E_GPI2     | R, IO | 0x0     | GPI2 valid-level input event or ADCIN2 over/under-threshold event<br>`0`: no event<br>`1`: event occurred (write `1` to clear) |
+|      | 1    | E_GPI1     | R, IO | 0x0     | GPI1 valid-level input event or ADCIN1 over/under-threshold event<br>`0`: no event<br>`1`: event occurred (write `1` to clear) |
+|      | 0    | E_GPI0     | R, IO | 0x0     | GPI0 valid-level input event or ADCIN0 over/under-threshold event<br>`0`: no event<br>`1`: event occurred (write `1` to clear) |
 
 ##### Table 7-108 EVENT1
 
@@ -2707,160 +2709,160 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | Addr | Bits | Field Name    | Attr  | Default | Description                                                                                                                           |
 | ---- | ---- | ------------- | ----- | ------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | 0x93 | 7    | Reserved      | RV    | 0       | Reserved                                                                                                                              |
-| 0x93 | 6    | E_TEMP_CRIT   | R, IO | 0x0     | Chip critical over-temperature shutdown event<br>`0`: no critical event<br>`1`: critical shutdown event occurred (write `1` to clear) |
-| 0x93 | 5    | E_TEMP_SEVERE | R, IO | 0x0     | Chip severe over-temperature warning event<br>`0`: no severe warning<br>`1`: severe warning occurred (write `1` to clear)             |
-| 0x93 | 4    | E_TEMP_WARN   | R, IO | 0x0     | Chip over-temperature warning event<br>`0`: no warning<br>`1`: warning occurred (write `1` to clear)                                  |
-| 0x93 | 3    | E_SW_SC       | R, IO | 0x0     | SWITCH short-circuit event<br>`0`: no short/open circuit<br>`1`: short circuit detected (write `1` to clear)                          |
-| 0x93 | 2    | E_LDO_SC      | R, IO | 0x0     | LDO short/open-circuit event<br>`0`: no fault<br>`1`: at least one LDO fault occurred (write `1` to clear)                            |
-| 0x93 | 1    | E_LDO_UV      | R, IO | 0x0     | LDO undervoltage event<br>`0`: no undervoltage<br>`1`: undervoltage occurred (write `1` to clear)                                     |
-| 0x93 | 0    | E_LDO_OV      | R, IO | 0x0     | LDO overvoltage event<br>`0`: no overvoltage<br>`1`: overvoltage occurred (write `1` to clear)                                        |
+|      | 6    | E_TEMP_CRIT   | R, IO | 0x0     | Chip critical over-temperature shutdown event<br>`0`: no critical event<br>`1`: critical shutdown event occurred (write `1` to clear) |
+|      | 5    | E_TEMP_SEVERE | R, IO | 0x0     | Chip severe over-temperature warning event<br>`0`: no severe warning<br>`1`: severe warning occurred (write `1` to clear)             |
+|      | 4    | E_TEMP_WARN   | R, IO | 0x0     | Chip over-temperature warning event<br>`0`: no warning<br>`1`: warning occurred (write `1` to clear)                                  |
+|      | 3    | E_SW_SC       | R, IO | 0x0     | SWITCH short-circuit event<br>`0`: no short/open circuit<br>`1`: short circuit detected (write `1` to clear)                          |
+|      | 2    | E_LDO_SC      | R, IO | 0x0     | LDO short/open-circuit event<br>`0`: no fault<br>`1`: at least one LDO fault occurred (write `1` to clear)                            |
+|      | 1    | E_LDO_UV      | R, IO | 0x0     | LDO undervoltage event<br>`0`: no undervoltage<br>`1`: undervoltage occurred (write `1` to clear)                                     |
+|      | 0    | E_LDO_OV      | R, IO | 0x0     | LDO overvoltage event<br>`0`: no overvoltage<br>`1`: overvoltage occurred (write `1` to clear)                                        |
 
 ##### Table 7-110 BUCK_EVENT0
 
 | Addr | Bits | Field Name | Attr  | Default | Description                                                                 |
 | ---- | ---- | ---------- | ----- | ------- | --------------------------------------------------------------------------- |
 | 0x94 | 7:6  | Reserved   | RV    | 0       | Reserved                                                                    |
-| 0x94 | 5    | E_BUCK6_OV | R, IO | 0x0     | BUCK6 overvoltage event<br>`0`: no overvoltage<br>`1`: overvoltage occurred |
-| 0x94 | 4    | E_BUCK5_OV | R, IO | 0x0     | BUCK5 overvoltage event<br>`0`: no overvoltage<br>`1`: overvoltage occurred |
-| 0x94 | 3    | E_BUCK4_OV | R, IO | 0x0     | BUCK4 overvoltage event<br>`0`: no overvoltage<br>`1`: overvoltage occurred |
-| 0x94 | 2    | E_BUCK3_OV | R, IO | 0x0     | BUCK3 overvoltage event<br>`0`: no overvoltage<br>`1`: overvoltage occurred |
-| 0x94 | 1    | E_BUCK2_OV | R, IO | 0x0     | BUCK2 overvoltage event<br>`0`: no overvoltage<br>`1`: overvoltage occurred |
-| 0x94 | 0    | E_BUCK1_OV | R, IO | 0x0     | BUCK1 overvoltage event<br>`0`: no overvoltage<br>`1`: overvoltage occurred |
+|      | 5    | E_BUCK6_OV | R, IO | 0x0     | BUCK6 overvoltage event<br>`0`: no overvoltage<br>`1`: overvoltage occurred |
+|      | 4    | E_BUCK5_OV | R, IO | 0x0     | BUCK5 overvoltage event<br>`0`: no overvoltage<br>`1`: overvoltage occurred |
+|      | 3    | E_BUCK4_OV | R, IO | 0x0     | BUCK4 overvoltage event<br>`0`: no overvoltage<br>`1`: overvoltage occurred |
+|      | 2    | E_BUCK3_OV | R, IO | 0x0     | BUCK3 overvoltage event<br>`0`: no overvoltage<br>`1`: overvoltage occurred |
+|      | 1    | E_BUCK2_OV | R, IO | 0x0     | BUCK2 overvoltage event<br>`0`: no overvoltage<br>`1`: overvoltage occurred |
+|      | 0    | E_BUCK1_OV | R, IO | 0x0     | BUCK1 overvoltage event<br>`0`: no overvoltage<br>`1`: overvoltage occurred |
 
 ##### Table 7-111 BUCK_EVNET1
 
 | Addr | Bits | Field Name | Attr | Default | Description                                                                                          |
 | ---- | ---- | ---------- | ---- | ------- | ---------------------------------------------------------------------------------------------------- |
 | 0x95 | 7:6  | Reserved   | RV   | 0       | Reserved                                                                                             |
-| 0x95 | 5    | E_BUCK6_UV | R，IO | 0x0     | BUCK6 undervoltage event<br>`0`: BUCK6 undervoltage not detected<br>`1`: BUCK6 undervoltage detected |
-| 0x95 | 4    | E_BUCK5_UV | R，IO | 0x0     | BUCK5 undervoltage event<br>`0`: BUCK5 undervoltage not detected<br>`1`: BUCK5 undervoltage detected |
-| 0x95 | 3    | E_BUCK4_UV | R，IO | 0x0     | BUCK4 undervoltage event<br>`0`: BUCK4 undervoltage not detected<br>`1`: BUCK4 undervoltage detected |
-| 0x95 | 2    | E_BUCK3_UV | R，IO | 0x0     | BUCK3 undervoltage event<br>`0`: BUCK3 undervoltage not detected<br>`1`: BUCK3 undervoltage detected |
-| 0x95 | 1    | E_BUCK2_UV | R，IO | 0x0     | BUCK2 undervoltage event<br>`0`: BUCK2 undervoltage not detected<br>`1`: BUCK2 undervoltage detected |
-| 0x95 | 0    | E_BUCK1_UV | R，IO | 0x0     | BUCK1 undervoltage event<br>`0`: BUCK1 undervoltage not detected<br>`1`: BUCK1 undervoltage detected |
+|      | 5    | E_BUCK6_UV | R，IO | 0x0     | BUCK6 undervoltage event<br>`0`: BUCK6 undervoltage not detected<br>`1`: BUCK6 undervoltage detected |
+|      | 4    | E_BUCK5_UV | R，IO | 0x0     | BUCK5 undervoltage event<br>`0`: BUCK5 undervoltage not detected<br>`1`: BUCK5 undervoltage detected |
+|      | 3    | E_BUCK4_UV | R，IO | 0x0     | BUCK4 undervoltage event<br>`0`: BUCK4 undervoltage not detected<br>`1`: BUCK4 undervoltage detected |
+|      | 2    | E_BUCK3_UV | R，IO | 0x0     | BUCK3 undervoltage event<br>`0`: BUCK3 undervoltage not detected<br>`1`: BUCK3 undervoltage detected |
+|      | 1    | E_BUCK2_UV | R，IO | 0x0     | BUCK2 undervoltage event<br>`0`: BUCK2 undervoltage not detected<br>`1`: BUCK2 undervoltage detected |
+|      | 0    | E_BUCK1_UV | R，IO | 0x0     | BUCK1 undervoltage event<br>`0`: BUCK1 undervoltage not detected<br>`1`: BUCK1 undervoltage detected |
 
 ##### Table 7-112 BUCK_EVNET2
 
 | Addr | Bits | Field Name | Attr | Default | Description                                                                                            |
 | ---- | ---- | ---------- | ---- | ------- | ------------------------------------------------------------------------------------------------------ |
 | 0x96 | 7:6  | Reserved   | RV   | 0       | Reserved                                                                                               |
-| 0x96 | 5    | E_BUCK6_SC | R，IO | 0x0     | BUCK6 short/open circuit event<br>`0`: BUCK6 short/open not detected<br>`1`: BUCK6 short/open detected |
-| 0x96 | 4    | E_BUCK5_SC | R，IO | 0x0     | BUCK5 short/open circuit event<br>`0`: BUCK5 short/open not detected<br>`1`: BUCK5 short/open detected |
-| 0x96 | 3    | E_BUCK4_SC | R，IO | 0x0     | BUCK4 short/open circuit event<br>`0`: BUCK4 short/open not detected<br>`1`: BUCK4 short/open detected |
-| 0x96 | 2    | E_BUCK3_SC | R，IO | 0x0     | BUCK3 short/open circuit event<br>`0`: BUCK3 short/open not detected<br>`1`: BUCK3 short/open detected |
-| 0x96 | 1    | E_BUCK2_SC | R，IO | 0x0     | BUCK2 short/open circuit event<br>`0`: BUCK2 short/open not detected<br>`1`: BUCK2 short/open detected |
-| 0x96 | 0    | E_BUCK1_SC | R，IO | 0x0     | BUCK1 short/open circuit event<br>`0`: BUCK1 short/open not detected<br>`1`: BUCK1 short/open detected |
+|      | 5    | E_BUCK6_SC | R，IO | 0x0     | BUCK6 short/open circuit event<br>`0`: BUCK6 short/open not detected<br>`1`: BUCK6 short/open detected |
+|      | 4    | E_BUCK5_SC | R，IO | 0x0     | BUCK5 short/open circuit event<br>`0`: BUCK5 short/open not detected<br>`1`: BUCK5 short/open detected |
+|      | 3    | E_BUCK4_SC | R，IO | 0x0     | BUCK4 short/open circuit event<br>`0`: BUCK4 short/open not detected<br>`1`: BUCK4 short/open detected |
+|      | 2    | E_BUCK3_SC | R，IO | 0x0     | BUCK3 short/open circuit event<br>`0`: BUCK3 short/open not detected<br>`1`: BUCK3 short/open detected |
+|      | 1    | E_BUCK2_SC | R，IO | 0x0     | BUCK2 short/open circuit event<br>`0`: BUCK2 short/open not detected<br>`1`: BUCK2 short/open detected |
+|      | 0    | E_BUCK1_SC | R，IO | 0x0     | BUCK1 short/open circuit event<br>`0`: BUCK1 short/open not detected<br>`1`: BUCK1 short/open detected |
 
 ##### Table 7-113 PWRKY_EVNET
 
 | Addr | Bits | Field Name     | Attr | Default | Description                                                                                                   |
 | ---- | ---- | -------------- | ---- | ------- | ------------------------------------------------------------------------------------------------------------- |
 | 0x97 | 7:6  | Reserved       | RV   | 0       | Reserved                                                                                                      |
-| 0x97 | 5    | E_VSYS_OV      | R，IO | 0x0     | VSYS overvoltage event<br>`0`: VSYS overvoltage not detected<br>`1`: VSYS overvoltage detected (VSYS > 5.9 V) |
-| 0x97 | 4    | E_PWRKY_SDINTR | R，IO | 0x0     | PWRKY shutdown event<br>`0`: Shutdown event not detected<br>`1`: Shutdown event detected                      |
-| 0x97 | 3    | E_PWRKY_LINTR  | R，IO | 0x0     | PWRKY long-press event<br>`0`: Long press not detected<br>`1`: Long press detected                            |
-| 0x97 | 2    | E_PWRKY_SINTR  | R，IO | 0x0     | PWRKY short-press event<br>`0`: Short press not detected<br>`1`: Short press detected                         |
-| 0x97 | 1    | E_PWRKY_FINTR  | R，IO | 0x0     | PWRKY falling-edge event<br>`0`: Falling edge not detected<br>`1`: Falling edge detected                      |
-| 0x97 | 0    | E_PWRKY_RINTR  | R，IO | 0x0     | PWRKY rising-edge event<br>`0`: Rising edge not detected<br>`1`: Rising edge detected                         |
+|      | 5    | E_VSYS_OV      | R，IO | 0x0     | VSYS overvoltage event<br>`0`: VSYS overvoltage not detected<br>`1`: VSYS overvoltage detected (VSYS > 5.9 V) |
+|      | 4    | E_PWRKY_SDINTR | R，IO | 0x0     | PWRKY shutdown event<br>`0`: Shutdown event not detected<br>`1`: Shutdown event detected                      |
+|      | 3    | E_PWRKY_LINTR  | R，IO | 0x0     | PWRKY long-press event<br>`0`: Long press not detected<br>`1`: Long press detected                            |
+|      | 2    | E_PWRKY_SINTR  | R，IO | 0x0     | PWRKY short-press event<br>`0`: Short press not detected<br>`1`: Short press detected                         |
+|      | 1    | E_PWRKY_FINTR  | R，IO | 0x0     | PWRKY falling-edge event<br>`0`: Falling edge not detected<br>`1`: Falling edge detected                      |
+|      | 0    | E_PWRKY_RINTR  | R，IO | 0x0     | PWRKY rising-edge event<br>`0`: Rising edge not detected<br>`1`: Rising edge detected                         |
 
 ##### Table 7-114 IRQ_EN0
 
 | Addr | Bits | Field Name  | Attr | Default | Description                                                  |
 | ---- | ---- | ----------- | ---- | ------- | ------------------------------------------------------------ |
 | 0x98 | 7:6  | Reserved    | RV   | 0       | Reserved                                                     |
-| 0x98 | 5    | IRQ_EN_GPI5 | RW   | 0x0     | E_GPI5 event interrupt enable<br>`0`: disable<br>`1`: enable |
-| 0x98 | 4    | IRQ_EN_GPI4 | RW   | 0x0     | E_GPI4 event interrupt enable<br>`0`: disable<br>`1`: enable |
-| 0x98 | 3    | IRQ_EN_GPI3 | RW   | 0x0     | E_GPI3 event interrupt enable<br>`0`: disable<br>`1`: enable |
-| 0x98 | 2    | IRQ_EN_GPI2 | RW   | 0x0     | E_GPI2 event interrupt enable<br>`0`: disable<br>`1`: enable |
-| 0x98 | 1    | IRQ_EN_GPI1 | RW   | 0x0     | E_GPI1 event interrupt enable<br>`0`: disable<br>`1`: enable |
-| 0x98 | 0    | IRQ_EN_GPI0 | RW   | 0x0     | E_GPI0 event interrupt enable<br>`0`: disable<br>`1`: enable |
+|      | 5    | IRQ_EN_GPI5 | RW   | 0x0     | E_GPI5 event interrupt enable<br>`0`: disable<br>`1`: enable |
+|      | 4    | IRQ_EN_GPI4 | RW   | 0x0     | E_GPI4 event interrupt enable<br>`0`: disable<br>`1`: enable |
+|      | 3    | IRQ_EN_GPI3 | RW   | 0x0     | E_GPI3 event interrupt enable<br>`0`: disable<br>`1`: enable |
+|      | 2    | IRQ_EN_GPI2 | RW   | 0x0     | E_GPI2 event interrupt enable<br>`0`: disable<br>`1`: enable |
+|      | 1    | IRQ_EN_GPI1 | RW   | 0x0     | E_GPI1 event interrupt enable<br>`0`: disable<br>`1`: enable |
+|      | 0    | IRQ_EN_GPI0 | RW   | 0x0     | E_GPI0 event interrupt enable<br>`0`: disable<br>`1`: enable |
 
 ##### Table 7-115 IRQ_EN1
 
 | Addr | Bits | Field Name      | Attr | Default | Description                                                      |
 | ---- | ---- | --------------- | ---- | ------- | ---------------------------------------------------------------- |
 | 0x99 | 7:6  | Reserved        | RV   | 0       | Reserved                                                         |
-| 0x99 | 5    | IRQ_EN_TICK     | RW   | 0x0     | E_TICK event interrupt enable<br>`0`: disable<br>`1`: enable     |
-| 0x99 | 4    | IRQ_EN_ALARM    | RW   | 0x0     | E_ALARM event interrupt enable<br>`0`: disable<br>`1`: enable    |
-| 0x99 | 3    | IRQ_EN_WDT_TO   | RW   | 0x0     | E_WDT_TO event interrupt enable<br>`0`: disable<br>`1`: enable   |
-| 0x99 | 2    | IRQ_EN_ADC_EOS  | RW   | 0x0     | E_ADC_EOS event interrupt enable<br>`0`: disable<br>`1`: enable  |
-| 0x99 | 1    | IRQ_EN_ADC_EOC  | RW   | 0x0     | E_ADC_EOC event interrupt enable<br>`0`: disable<br>`1`: enable  |
-| 0x99 | 0    | IRQ_EN_ADC_TEMP | RW   | 0x0     | E_ADC_TEMP event interrupt enable<br>`0`: disable<br>`1`: enable |
+|      | 5    | IRQ_EN_TICK     | RW   | 0x0     | E_TICK event interrupt enable<br>`0`: disable<br>`1`: enable     |
+|      | 4    | IRQ_EN_ALARM    | RW   | 0x0     | E_ALARM event interrupt enable<br>`0`: disable<br>`1`: enable    |
+|      | 3    | IRQ_EN_WDT_TO   | RW   | 0x0     | E_WDT_TO event interrupt enable<br>`0`: disable<br>`1`: enable   |
+|      | 2    | IRQ_EN_ADC_EOS  | RW   | 0x0     | E_ADC_EOS event interrupt enable<br>`0`: disable<br>`1`: enable  |
+|      | 1    | IRQ_EN_ADC_EOC  | RW   | 0x0     | E_ADC_EOC event interrupt enable<br>`0`: disable<br>`1`: enable  |
+|      | 0    | IRQ_EN_ADC_TEMP | RW   | 0x0     | E_ADC_TEMP event interrupt enable<br>`0`: disable<br>`1`: enable |
 
 ##### Table 7-116 IRQ_EN2
 
 | Addr | Bits | Field Name         | Attr | Default | Description                                                         |
 | ---- | ---- | ------------------ | ---- | ------- | ------------------------------------------------------------------- |
 | 0x9A | 7    | Reserved           | RV   | 0       | Reserved                                                            |
-| 0x9A | 6    | IRQ_EN_TEMP_CRIT   | RW   | 0x0     | E_TEMP_CRIT event interrupt enable<br>`0`: disable<br>`1`: enable   |
-| 0x9A | 5    | IRQ_EN_TEMP_SEVERE | RW   | 0x0     | E_TEMP_SEVERE event interrupt enable<br>`0`: disable<br>`1`: enable |
-| 0x9A | 4    | IRQ_EN_TEMP_WARN   | RW   | 0x0     | E_TEMP_WARN event interrupt enable<br>`0`: disable<br>`1`: enable   |
-| 0x9A | 3    | IRQ_EN_SW_SC       | RW   | 0x0     | E_SW_SC event interrupt enable<br>`0`: disable<br>`1`: enable       |
-| 0x9A | 2    | IRQ_EN_LDO_SC      | RW   | 0x0     | E_LDO_SC event interrupt enable<br>`0`: disable<br>`1`: enable      |
-| 0x9A | 1    | IRQ_EN_LDO_UV      | RW   | 0x0     | E_LDO_UV event interrupt enable<br>`0`: disable<br>`1`: enable      |
-| 0x9A | 0    | IRQ_EN_LDO_OV      | RW   | 0x0     | E_LDO_OV event interrupt enable<br>`0`: disable<br>`1`: enable      |
+|      | 6    | IRQ_EN_TEMP_CRIT   | RW   | 0x0     | E_TEMP_CRIT event interrupt enable<br>`0`: disable<br>`1`: enable   |
+|      | 5    | IRQ_EN_TEMP_SEVERE | RW   | 0x0     | E_TEMP_SEVERE event interrupt enable<br>`0`: disable<br>`1`: enable |
+|      | 4    | IRQ_EN_TEMP_WARN   | RW   | 0x0     | E_TEMP_WARN event interrupt enable<br>`0`: disable<br>`1`: enable   |
+|      | 3    | IRQ_EN_SW_SC       | RW   | 0x0     | E_SW_SC event interrupt enable<br>`0`: disable<br>`1`: enable       |
+|      | 2    | IRQ_EN_LDO_SC      | RW   | 0x0     | E_LDO_SC event interrupt enable<br>`0`: disable<br>`1`: enable      |
+|      | 1    | IRQ_EN_LDO_UV      | RW   | 0x0     | E_LDO_UV event interrupt enable<br>`0`: disable<br>`1`: enable      |
+|      | 0    | IRQ_EN_LDO_OV      | RW   | 0x0     | E_LDO_OV event interrupt enable<br>`0`: disable<br>`1`: enable      |
 
 ##### Table 7-117 IRQ_BUCK_EN0
 
 | Addr | Bits | Field Name      | Attr | Default | Description                                                      |
 | ---- | ---- | --------------- | ---- | ------- | ---------------------------------------------------------------- |
 | 0x9B | 7:6  | Reserved        | RV   | 0       | Reserved                                                         |
-| 0x9B | 5    | IRQ_EN_BUCK6_OV | RW   | 0x0     | E_BUCK6_OV event interrupt enable<br>`0`: disable<br>`1`: enable |
-| 0x9B | 4    | IRQ_EN_BUCK5_OV | RW   | 0x0     | E_BUCK5_OV event interrupt enable<br>`0`: disable<br>`1`: enable |
-| 0x9B | 3    | IRQ_EN_BUCK4_OV | RW   | 0x0     | E_BUCK4_OV event interrupt enable<br>`0`: disable<br>`1`: enable |
-| 0x9B | 2    | IRQ_EN_BUCK3_OV | RW   | 0x0     | E_BUCK3_OV event interrupt enable<br>`0`: disable<br>`1`: enable |
-| 0x9B | 1    | IRQ_EN_BUCK2_OV | RW   | 0x0     | E_BUCK2_OV event interrupt enable<br>`0`: disable<br>`1`: enable |
-| 0x9B | 0    | IRQ_EN_BUCK1_OV | RW   | 0x0     | E_BUCK1_OV event interrupt enable<br>`0`: disable<br>`1`: enable |
+|      | 5    | IRQ_EN_BUCK6_OV | RW   | 0x0     | E_BUCK6_OV event interrupt enable<br>`0`: disable<br>`1`: enable |
+|      | 4    | IRQ_EN_BUCK5_OV | RW   | 0x0     | E_BUCK5_OV event interrupt enable<br>`0`: disable<br>`1`: enable |
+|      | 3    | IRQ_EN_BUCK4_OV | RW   | 0x0     | E_BUCK4_OV event interrupt enable<br>`0`: disable<br>`1`: enable |
+|      | 2    | IRQ_EN_BUCK3_OV | RW   | 0x0     | E_BUCK3_OV event interrupt enable<br>`0`: disable<br>`1`: enable |
+|      | 1    | IRQ_EN_BUCK2_OV | RW   | 0x0     | E_BUCK2_OV event interrupt enable<br>`0`: disable<br>`1`: enable |
+|      | 0    | IRQ_EN_BUCK1_OV | RW   | 0x0     | E_BUCK1_OV event interrupt enable<br>`0`: disable<br>`1`: enable |
 
 ##### Table 7-118 IRQ_BUCK_EN1
 
 | Addr | Bits | Field Name      | Attr | Default | Description                                                      |
 | ---- | ---- | --------------- | ---- | ------- | ---------------------------------------------------------------- |
 | 0x9C | 7:6  | Reserved        | RV   | 0       | Reserved                                                         |
-| 0x9C | 5    | IRQ_EN_BUCK6_UV | RW   | 0x0     | E_BUCK6_UV event interrupt enable<br>`0`: disable<br>`1`: enable |
-| 0x9C | 4    | IRQ_EN_BUCK5_UV | RW   | 0x0     | E_BUCK5_UV event interrupt enable<br>`0`: disable<br>`1`: enable |
-| 0x9C | 3    | IRQ_EN_BUCK4_UV | RW   | 0x0     | E_BUCK4_UV event interrupt enable<br>`0`: disable<br>`1`: enable |
-| 0x9C | 2    | IRQ_EN_BUCK3_UV | RW   | 0x0     | E_BUCK3_UV event interrupt enable<br>`0`: disable<br>`1`: enable |
-| 0x9C | 1    | IRQ_EN_BUCK2_UV | RW   | 0x0     | E_BUCK2_UV event interrupt enable<br>`0`: disable<br>`1`: enable |
-| 0x9C | 0    | IRQ_EN_BUCK1_UV | RW   | 0x0     | E_BUCK1_UV event interrupt enable<br>`0`: disable<br>`1`: enable |
+|      | 5    | IRQ_EN_BUCK6_UV | RW   | 0x0     | E_BUCK6_UV event interrupt enable<br>`0`: disable<br>`1`: enable |
+|      | 4    | IRQ_EN_BUCK5_UV | RW   | 0x0     | E_BUCK5_UV event interrupt enable<br>`0`: disable<br>`1`: enable |
+|      | 3    | IRQ_EN_BUCK4_UV | RW   | 0x0     | E_BUCK4_UV event interrupt enable<br>`0`: disable<br>`1`: enable |
+|      | 2    | IRQ_EN_BUCK3_UV | RW   | 0x0     | E_BUCK3_UV event interrupt enable<br>`0`: disable<br>`1`: enable |
+|      | 1    | IRQ_EN_BUCK2_UV | RW   | 0x0     | E_BUCK2_UV event interrupt enable<br>`0`: disable<br>`1`: enable |
+|      | 0    | IRQ_EN_BUCK1_UV | RW   | 0x0     | E_BUCK1_UV event interrupt enable<br>`0`: disable<br>`1`: enable |
 
 ##### Table 7-119 IRQ_BUCK_EN2
 
 | Addr | Bits | Field Name      | Attr | Default | Description                                                      |
 | ---- | ---- | --------------- | ---- | ------- | ---------------------------------------------------------------- |
 | 0x9D | 7:6  | Reserved        | RV   | 0       | Reserved                                                         |
-| 0x9D | 5    | IRQ_EN_BUCK6_SC | RW   | 0x0     | E_BUCK6_SC event interrupt enable<br>`0`: disable<br>`1`: enable |
-| 0x9D | 4    | IRQ_EN_BUCK5_SC | RW   | 0x0     | E_BUCK5_SC event interrupt enable<br>`0`: disable<br>`1`: enable |
-| 0x9D | 3    | IRQ_EN_BUCK4_SC | RW   | 0x0     | E_BUCK4_SC event interrupt enable<br>`0`: disable<br>`1`: enable |
-| 0x9D | 2    | IRQ_EN_BUCK3_SC | RW   | 0x0     | E_BUCK3_SC event interrupt enable<br>`0`: disable<br>`1`: enable |
-| 0x9D | 1    | IRQ_EN_BUCK2_SC | RW   | 0x0     | E_BUCK2_SC event interrupt enable<br>`0`: disable<br>`1`: enable |
-| 0x9D | 0    | IRQ_EN_BUCK1_SC | RW   | 0x0     | E_BUCK1_SC event interrupt enable<br>`0`: disable<br>`1`: enable |
+|      | 5    | IRQ_EN_BUCK6_SC | RW   | 0x0     | E_BUCK6_SC event interrupt enable<br>`0`: disable<br>`1`: enable |
+|      | 4    | IRQ_EN_BUCK5_SC | RW   | 0x0     | E_BUCK5_SC event interrupt enable<br>`0`: disable<br>`1`: enable |
+|      | 3    | IRQ_EN_BUCK4_SC | RW   | 0x0     | E_BUCK4_SC event interrupt enable<br>`0`: disable<br>`1`: enable |
+|      | 2    | IRQ_EN_BUCK3_SC | RW   | 0x0     | E_BUCK3_SC event interrupt enable<br>`0`: disable<br>`1`: enable |
+|      | 1    | IRQ_EN_BUCK2_SC | RW   | 0x0     | E_BUCK2_SC event interrupt enable<br>`0`: disable<br>`1`: enable |
+|      | 0    | IRQ_EN_BUCK1_SC | RW   | 0x0     | E_BUCK1_SC event interrupt enable<br>`0`: disable<br>`1`: enable |
 
 ##### Table 7-120 IRQ_PWRKY_EN
 
 | Addr | Bits | Field Name          | Attr | Default | Description                                                                                  |
 | ---- | ---- | ------------------- | ---- | ------- | -------------------------------------------------------------------------------------------- |
 | 0x9E | 7    | VSYS_OVP_EN         | RWE  | 0x0     | VSYS overvoltage (5.9 V) shutdown protection enable<br>`0`: disable<br>`1`: enable           |
-| 0x9E | 6    | TEMP_CRIT_PROT      | RWE  | 0x0     | Over-temperature (135 °C / 150 °C) shutdown protection enable<br>`0`: disable<br>`1`: enable |
-| 0x9E | 5    | IRQ_EN_VSYS_OV      | RW   | 0x0     | VSYS overvoltage event interrupt enable<br>`0`: disable<br>`1`: enable                       |
-| 0x9E | 4    | IRQ_EN_PWRKY_SDINTR | RW   | 0x0     | E_PWRKY_SDINTR event interrupt enable<br>`0`: disable<br>`1`: enable                         |
-| 0x9E | 3    | IRQ_EN_PWRKY_LINTR  | RW   | 0x0     | E_PWRKY_LINTR event interrupt enable<br>`0`: disable<br>`1`: enable                          |
-| 0x9E | 2    | IRQ_EN_PWRKY_SINTR  | RW   | 0x0     | E_PWRKY_SINTR event interrupt enable<br>`0`: disable<br>`1`: enable                          |
-| 0x9E | 1    | IRQ_EN_PWRKY_FINTR  | RW   | 0x0     | E_PWRKY_FINTR event interrupt enable<br>`0`: disable<br>`1`: enable                          |
-| 0x9E | 0    | IRQ_EN_PWRKY_RINTR  | RW   | 0x0     | E_PWRKY_RINTR event interrupt enable<br>`0`: disable<br>`1`: enable                          |
+|      | 6    | TEMP_CRIT_PROT      | RWE  | 0x0     | Over-temperature (135 °C / 150 °C) shutdown protection enable<br>`0`: disable<br>`1`: enable |
+|      | 5    | IRQ_EN_VSYS_OV      | RW   | 0x0     | VSYS overvoltage event interrupt enable<br>`0`: disable<br>`1`: enable                       |
+|      | 4    | IRQ_EN_PWRKY_SDINTR | RW   | 0x0     | E_PWRKY_SDINTR event interrupt enable<br>`0`: disable<br>`1`: enable                         |
+|      | 3    | IRQ_EN_PWRKY_LINTR  | RW   | 0x0     | E_PWRKY_LINTR event interrupt enable<br>`0`: disable<br>`1`: enable                          |
+|      | 2    | IRQ_EN_PWRKY_SINTR  | RW   | 0x0     | E_PWRKY_SINTR event interrupt enable<br>`0`: disable<br>`1`: enable                          |
+|      | 1    | IRQ_EN_PWRKY_FINTR  | RW   | 0x0     | E_PWRKY_FINTR event interrupt enable<br>`0`: disable<br>`1`: enable                          |
+|      | 0    | IRQ_EN_PWRKY_RINTR  | RW   | 0x0     | E_PWRKY_RINTR event interrupt enable<br>`0`: disable<br>`1`: enable                          |
 
 ##### Table 7-121 PROT_EN
 
 | Addr | Bits | Field Name       | Attr | Default | Description                                                                                                                                                   |
 | ---- | ---- | ---------------- | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0x9F | 7    | SW_SCP_DIS       | RWE  | 0x0     | Switch short-circuit protection disable<br>`0`: enable<br>`1`: disable                                                                                        |
-| 0x9F | 6    | TEMP_SEVERE_PROT | RWE  | 0x0     | Severe over-temperature protection (shutdown protection)<br>`0`: disable severe over-temperature protection<br>`1`: enable severe over-temperature protection |
-| 0x9F | 5    | BUCK_SCP_EN      | RWE  | 0x0     | Any BUCK short-circuit / open-circuit protection (shutdown protection)<br>`0`: disable protection<br>`1`: enable protection                                   |
-| 0x9F | 4    | BUCK_UVP_EN      | RWE  | 0x0     | Any BUCK output undervoltage protection (shutdown protection)<br>`0`: disable protection<br>`1`: enable protection                                            |
-| 0x9F | 3    | BUCK_OVP_EN      | RWE  | 0x0     | Any BUCK output overvoltage protection (shutdown protection)<br>`0`: disable protection<br>`1`: enable protection                                             |
-| 0x9F | 2    | LDO_SCP_EN       | RWE  | 0x0     | Any LDO output short-circuit / open-circuit protection (shutdown protection)<br>`0`: disable protection<br>`1`: enable protection                             |
-| 0x9F | 1    | LDO_UVP_EN       | RWE  | 0x0     | Any LDO output undervoltage protection (shutdown protection)<br>`0`: disable protection<br>`1`: enable protection                                             |
-| 0x9F | 0    | LDO_OVP_EN       | RWE  | 0x0     | Any LDO overcurrent / short-circuit protection (shutdown protection)<br>`0`: disable protection<br>`1`: enable protection                                     |
+|      | 6    | TEMP_SEVERE_PROT | RWE  | 0x0     | Severe over-temperature protection (shutdown protection)<br>`0`: disable severe over-temperature protection<br>`1`: enable severe over-temperature protection |
+|      | 5    | BUCK_SCP_EN      | RWE  | 0x0     | Any BUCK short-circuit / open-circuit protection (shutdown protection)<br>`0`: disable protection<br>`1`: enable protection                                   |
+|      | 4    | BUCK_UVP_EN      | RWE  | 0x0     | Any BUCK output undervoltage protection (shutdown protection)<br>`0`: disable protection<br>`1`: enable protection                                            |
+|      | 3    | BUCK_OVP_EN      | RWE  | 0x0     | Any BUCK output overvoltage protection (shutdown protection)<br>`0`: disable protection<br>`1`: enable protection                                             |
+|      | 2    | LDO_SCP_EN       | RWE  | 0x0     | Any LDO output short-circuit / open-circuit protection (shutdown protection)<br>`0`: disable protection<br>`1`: enable protection                             |
+|      | 1    | LDO_UVP_EN       | RWE  | 0x0     | Any LDO output undervoltage protection (shutdown protection)<br>`0`: disable protection<br>`1`: enable protection                                             |
+|      | 0    | LDO_OVP_EN       | RWE  | 0x0     | Any LDO overcurrent / short-circuit protection (shutdown protection)<br>`0`: disable protection<br>`1`: enable protection                                     |
 
 ##### Table 7-122 DEVICE_ID
 
@@ -2892,18 +2894,18 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | Addr | Bits | Field Name    | Attr | Default | Description                                                                                                                                                                                                                                                                                                                                                                                                        |
 | ---- | ---- | ------------- | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | 0xA4 | 7:5  | VSYS_STA_VTH  | RE   | 0x0     | Power-on threshold<br>`000`: Vsys > 2.9 V, start power-on sequence<br>`001`: Vsys > 3.0 V, start power-on sequence<br>`010`: Vsys > 3.1 V, start power-on sequence<br>`011`: Vsys > 3.2 V, start power-on sequence<br>`100`: Vsys > 3.3 V, start power-on sequence<br>`101`: Vsys > 3.4 V, start power-on sequence<br>`110`: Vsys > 3.5 V, start power-on sequence<br>`111`: Vsys > 3.6 V, start power-on sequence |
-| 0xA4 | 4:2  | VSYS_SHUT_VTH | RE   | 0x0     | Shutdown threshold<br>`000`: Vsys < 2.6 V, start shutdown sequence<br>`001`: Vsys < 2.7 V, start shutdown sequence<br>`010`: Vsys < 2.8 V, start shutdown sequence<br>`011`: Vsys < 2.9 V, start shutdown sequence<br>`100`: Vsys < 3.0 V, start shutdown sequence<br>`101`: Vsys < 3.1 V, start shutdown sequence<br>`110`: Vsys < 3.2 V, start shutdown sequence<br>`111`: Vsys < 3.3 V, start shutdown sequence |
-| 0xA4 | 1    | KEY_RST_EN    | RE   | 0x0     | In shutdown mode, after long-press PWRKY triggers power-on, continue pressing to trigger reset<br>`0`: do not trigger<br>`1`: trigger (when PWRKY_SD_DIS = `1`)                                                                                                                                                                                                                                                    |
-| 0xA4 | 0    | KEY_SD_EN     | RE   | 0x0     | In shutdown mode, after long-press PWRKY triggers power-on, continue pressing to trigger shutdown<br>`0`: do not trigger<br>`1`: trigger (when PWRKY_SD_DIS = `0`)                                                                                                                                                                                                                                                 |
+|      | 4:2  | VSYS_SHUT_VTH | RE   | 0x0     | Shutdown threshold<br>`000`: Vsys < 2.6 V, start shutdown sequence<br>`001`: Vsys < 2.7 V, start shutdown sequence<br>`010`: Vsys < 2.8 V, start shutdown sequence<br>`011`: Vsys < 2.9 V, start shutdown sequence<br>`100`: Vsys < 3.0 V, start shutdown sequence<br>`101`: Vsys < 3.1 V, start shutdown sequence<br>`110`: Vsys < 3.2 V, start shutdown sequence<br>`111`: Vsys < 3.3 V, start shutdown sequence |
+|      | 1    | KEY_RST_EN    | RE   | 0x0     | In shutdown mode, after long-press PWRKY triggers power-on, continue pressing to trigger reset<br>`0`: do not trigger<br>`1`: trigger (when PWRKY_SD_DIS = `1`)                                                                                                                                                                                                                                                    |
+|      | 0    | KEY_SD_EN     | RE   | 0x0     | In shutdown mode, after long-press PWRKY triggers power-on, continue pressing to trigger shutdown<br>`0`: do not trigger<br>`1`: trigger (when PWRKY_SD_DIS = `0`)                                                                                                                                                                                                                                                 |
 ##### Table 7-127 SYS_CFG2
 
 | Addr | Bits | Field Name      | Attr | Default | Description   |
 | ---- | ---- | --------------- | ---- | ------- | --------------- |
 | 0xA5 | 7    | VSYS_STEP       | RE   | 0x0     | Hot-swap power-on threshold step<br>`0`: 0.1 V<br>`1`: 0.2 V   |
-| 0xA5 | 6    | HOT_SWAP_DIS    | RE   | 0x0     | Hot-swap power-on threshold increase control<br>`0`: enable<br>`1`: disable<br>When disabled, the power-on threshold is not increased after hot-swap    |
-| 0xA5 | 5    | EVENT_DELAY     | RE   | 0x0     | Event filtering for over-temperature, VSYS overvoltage, BUCK and LDO short-circuit events<br>`0`: 100 µs<br>`1`: disable     |
-| 0xA5 | 4:3  | OVUV_DELAY      | RE   | 0x0     | Abnormal event (BUCK and LDO UV/OV) filtering time<br>`00`: 100 µs<br>`01`: 375 µs<br>`10`: 750 µs<br>`11`: disable    |
-| 0xA5 | 2:0  | OVUV_MASK_DELAY | RE   | 0x0     | BUCK and LDO overvoltage/undervoltage event mask duration<br>`000`: 125 µs<br>`001`: 250 µs<br>`010`: 1 ms<br>`011`: 8 ms<br>`100`: 64 ms<br>`101`: 256 ms<br>`110`: 512 ms<br>`111`: disable<br>When the BUCK and LDO are enabled, or when the output voltage of the BUCK or LDO changes, over-voltage and under-voltage events for the BUCK and LDO are masked for the duration defined by UVOV_MASK_DELAY. |
+|      | 6    | HOT_SWAP_DIS    | RE   | 0x0     | Hot-swap power-on threshold increase control<br>`0`: enable<br>`1`: disable<br>When disabled, the power-on threshold is not increased after hot-swap    |
+|      | 5    | EVENT_DELAY     | RE   | 0x0     | Event filtering for over-temperature, VSYS overvoltage, BUCK and LDO short-circuit events<br>`0`: 100 µs<br>`1`: disable     |
+|      | 4:3  | OVUV_DELAY      | RE   | 0x0     | Abnormal event (BUCK and LDO UV/OV) filtering time<br>`00`: 100 µs<br>`01`: 375 µs<br>`10`: 750 µs<br>`11`: disable    |
+|      | 2:0  | OVUV_MASK_DELAY | RE   | 0x0     | BUCK and LDO overvoltage/undervoltage event mask duration<br>`000`: 125 µs<br>`001`: 250 µs<br>`010`: 1 ms<br>`011`: 8 ms<br>`100`: 64 ms<br>`101`: 256 ms<br>`110`: 512 ms<br>`111`: disable<br>When the BUCK and LDO are enabled, or when the output voltage of the BUCK or LDO changes, over-voltage and under-voltage events for the BUCK and LDO are masked for the duration defined by UVOV_MASK_DELAY. |
 
 ##### Table 7-128 MTP_KEY
 
@@ -2916,7 +2918,7 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | Addr | Bits | Field Name | Attr | Default | Description                                 |
 | ---- | ---- | ---------- | ---- | ------- | ------------------------------------------- |
 | 0xA7 | 7    | Reserved   | RV   | 0       | Reserved                                    |
-| 0xA7 | 6:0  | MTP_ADDR   | RW，P | 0x0     | MTP address register (read, program, erase) |
+|      | 6:0  | MTP_ADDR   | RW，P | 0x0     | MTP address register (read, program, erase) |
 
 
 ##### Table 7-130 MTP_DATA
@@ -2930,19 +2932,19 @@ The basic attributes of registers are defined in [Table 7-1](#table-7-1-register
 | Addr | Bits | Field Name      | Attr | Default | Description                                                                                                             |
 | ---- | ---- | --------------- | ---- | ------- | ----------------------------------------------------------------------------------------------------------------------- |
 | 0xA9 | 7:6  | Reserved        | RV   | 0       | Reserved                                                                                                                |
-| 0xA9 | 5:4  | MTP_PG_TIME_SEL | RW，P | 0x0     | MTP programming time selection<br>`00`: 30 µs<br>`01`: 20 µs<br>`1x`: 40 µs                                             |
-| 0xA9 | 3    | MTP_PDN         | RW，P | 0x0     | MTP power control<br>`0`: MTP off<br>`1`: MTP on<br>MTP read, program, and erase operations require this bit set to `1` |
-| 0xA9 | 2:1  | MTP_TRIM        | RW，P | 0x2     | Internal MTP power module output voltage selection<br>`01`: for program and erase<br>`10`: for MTP read                 |
-| 0xA9 | 0    | MTP_VRFCG_SEL   | RW，P | 0x1     | MTP internal CG voltage selection<br>`0`: CG = 0<br>`1`: CG = 1.2 V                                                     |
+|      | 5:4  | MTP_PG_TIME_SEL | RW，P | 0x0     | MTP programming time selection<br>`00`: 30 µs<br>`01`: 20 µs<br>`1x`: 40 µs                                             |
+|      | 3    | MTP_PDN         | RW，P | 0x0     | MTP power control<br>`0`: MTP off<br>`1`: MTP on<br>MTP read, program, and erase operations require this bit set to `1` |
+|      | 2:1  | MTP_TRIM        | RW，P | 0x2     | Internal MTP power module output voltage selection<br>`01`: for program and erase<br>`10`: for MTP read                 |
+|      | 0    | MTP_VRFCG_SEL   | RW，P | 0x1     | MTP internal CG voltage selection<br>`0`: CG = 0<br>`1`: CG = 1.2 V                                                     |
 
 ##### Table 7-132 MTP_CTRL
 
 | Addr | Bits | Field Name | Attr | Default | Description                                       |
 | ---- | ---- | ---------- | ---- | ------- | ------------------------------------------------- |
 | 0xAA | 7:3  | Reserved   | RV   | 0       | Reserved                                          |
-| 0xAA | 2    | MTP_ER     | RW，P | 0x0     | MTP erase enable<br>`0`: disable<br>`1`: enable   |
-| 0xAA | 1    | MTP_PG     | RW，P | 0x0     | MTP program enable<br>`0`: disable<br>`1`: enable |
-| 0xAA | 0    | MTP_RD     | RW，P | 0x0     | MTP read enable<br>`0`: disable<br>`1`: enable    |
+|      | 2    | MTP_ER     | RW，P | 0x0     | MTP erase enable<br>`0`: disable<br>`1`: enable   |
+|      | 1    | MTP_PG     | RW，P | 0x0     | MTP program enable<br>`0`: disable<br>`1`: enable |
+|      | 0    | MTP_RD     | RW，P | 0x0     | MTP read enable<br>`0`: disable<br>`1`: enable    |
 
 
 ## 8. Package Information
