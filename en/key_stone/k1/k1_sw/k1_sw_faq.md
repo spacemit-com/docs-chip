@@ -1,115 +1,125 @@
 sidebar_position: 2
 
-# K1 软件常见问题
+# K1 Software FAQ
 
-我们精心整理了软件使用中的常见问题及答案，为您提供一个快速查询的支持平台。
+This document compiles common software questions and their answers to provide a quick reference for developers.
 
-## 系统启动配置
+## System Boot Configuration
 
-此部分主要介绍系统启动相关的问题记录。
+This section describes some issues about system boot. 
 
-1. **如何在系统启动时使用指定的 ramfs？**
-  在系统启动时使用指定 ramfs 的步骤如下：
+1. **How to use a specified ramfs at system boot?**  
+    Follow these steps to use a specified ramfs during system boot:
 
-   - **步骤 1：准备并加载启动文件**
-     在 PC 端使用 `fastboot` 命令将启动所需的文件传输到设备。这些文件包括 **内核镜像（vmlinuz）**、**设备树（dtb）** 和 **ramfs 镜像（rootfs.cpio.gz）**，并分别加载如下：
-     - 使用 fastboot 命令将内核镜像（vmlinuz）传输到设备
-     - 将设备树（dtb）文件传输到设备
-     - 传输 ramfs 镜像文件（rootfs.cpio.gz）到设备
+   - **Step 1: Prepare and load boot files**  
+     Use the `fastboot` command on the PC to transfer the required boot files to the device. These files include **kernel image (vmlinuz)**, **device tree (dtb)** and **ramfs image (rootfs.cpio.gz)**, loaded as follows:
+     - Transfer the kernel image (vmlinuz) to the device using the fastboot command
+     - Transfer the device tree (dtb) file to the device 
+     - Transfer the ramfs image file (rootfs.cpio.gz) to the device
 
      ```javascript
-     #pc端的命令行，注意，pc端的命令需要对应到uboot的命令行执行
+     #Note: PC-side commands correspond to the execution in the U-boot command line
      fastboot stage vmlinuz-6.6.36
      fastboot stage spacemit/6.6.36/k1-x_FusionOne.dtb
-     fastboot stage linux-6.6/rootfs.cpio.gz #该文件可从bsp-src/linux-6.6/里面获取
+     fastboot stage linux-6.6/rootfs.cpio.gz # This file can be obtained from bsp-src/linux-6.6/
      ```
 
-   - **步骤 2：设置 U-Boot 命令行**
-     在 U-Boot 命令行中设置内存地址，这些地址将用于加载 **内核、ramfs** 和 **设备树**。
-     （**注：** 这里使用的地址是示例，您可能需要根据您的硬件配置进行调整）
+   - **Step 2: Set U-Boot command line**  
+   Set the memory addresses in the U-Boot command line. These addresses will be used to load the **Kernel, ramfs and device tree**.   
+     **Note.** This is an example for reference only. Please modify them according to required hardware configuration. 
 
      ```c
-     #uboot命令行，与上面的pc命令对应，开启fastboot后，pc下发的镜像会存放到指定的内存地址
+     #U-Boot command line, corresponding to the PC commands above. After fastboot is enabled, the images sent fom the PC will be stored at the specified addresses
      fastboot -l 0x20000000 0
      fastboot -l 0x30000000 0
      fastboot -l 0x32000000 0
      ```
 
-   - **步骤 3：启动指定的 ramfs**
-    使用 `bootm` 命令启动系统，指定内核、ramfs 和设备树的内存地址。这里 `0x1251000` 是 ramfs 镜像文件的大小：
+   - **Step 3: Boot the specified ramfs**
+    Boot the system using the `bootm` command, and specify memory address for kernel, ramfs and device tress. Here, `0x1251000` is the size of ramfs image file. 
 
      ```c
-     #启动指定的ramfs，0x1251000为rootfs.cpio.gz的大小
+     # Boot the specified ramfs. 0x1251000 is the size of rootfs.cpio.gz.
      bootm 0x20000000 0x32000000:0x1251000 0x30000000
      ```
 
-   - **步骤 4：验证启动过程**
-     系统启动后，可通过检查系统日志或监控工具来验证 ramfs 是否正确加载并用于系统启动。
-      这些步骤将帮助您在系统启动时使用指定的 ramfs，从而快速验证系统启动。请根据具体硬件和软件环境进行适当调整。
+   - **Step 4: Verify the boot process**  
+     After the system boots, verify that the ramfs has been correctly loaded and used for system startup by checking the system logs or using monitoring tools.
 
-2. **如何修改默认加载的 dtb 方案？**
-   在 K1 启动方案中，默认情况下，系统会从 EEPROM 中读取 product_name，并根据 product_name 来选择相应的 dtb 文件以匹配硬件配置并启动系统。
-   对于需要修改默认加载的 dtb 方案，可以按照以下步骤操作：
+    These steps allow you to use a specified ramfs during system boot, enabling rapid validation of the system boot process. Adjust the configuration as needed for your specific hardware and software.
 
-   - **步骤 1：检查 EEPROM**
-     确认 EEPROM 中是否已经存储了 `product_name`。如果存在，可通过 `titanflasher` 工具写入 `product_name`，具体使用方式可参考文档：[刷机工具使用手册](https://spacemit.com/community/document/info?lang=zh&nodepath=tools/user_guide/flasher_user_guide.md)。
+2. **How to modify the default loaded dtb configuration?**  
+  In the default K1 boot flow, the system reads the product_name from the EEPROM, and selects the corresponding dtb file based on this value to match the hardware configuration and boot the system.
+   To modify the default dtb loading scheme, follow these steps:
 
-   - **步骤 2：修改配置**
-     如果没有 EEPROM，或者想要改变默认的 dtb 方案，可通过修改系统配置文件来指定默认的 `product_name`。默认方案由宏定义 `DEFAULT_PRODUCT_NAME` 指定，例如：
+   - **Step 1: Check the EEPROM**  
+     Verify whether `product_name` is already stored in the EEPROM. If stored, write the `product_name` via `titanflasher`. Refer to [Flashing Tool User Manual](https://spacemit.com/community/document/info?lang=en&nodepath=tools/user_guide/flasher_user_guide.md) for detailed information.
+
+   - **Step 2: Modify the configuration**  
+     If there is no EEPROM, or you want to change the default dtb configuration, you can specify the default `product_name` by modifying the system configuration file. The default configuration is defined by the macro `DEFAULT_PRODUCT_NAME`, for example: 
 
      ```c
      //uboot/include/configs/k1-x.h
      #define DEFAULT_PRODUCT_NAME "k1-x_deb1"
      ```
+       If the system fails to match a valid `product_name` from the EEPROM during boot, or if no EEPROM is present, this default boot configuration will be used instead.
+     
 
-      这样，如果系统启动时未从 EEPROM 匹配到合适的 `product_name`，或者没有 EEPROM，则会使用该默认启动方案。
+   - **Step 3: Rebuild and Deploy**  
+    After modifying the configuration file, rebuild the system to apply the modifications and update the device firmware. 
 
-   - **步骤 3：重新编译和部署**
-     在修改了配置文件后，重新编译系统以应用更改，并更新设备上的固件。
+   - **Step 4: Testing**
+     Reboot the device to confirm the new dtb configuration is loaded correctly and the system boots properly.   
+      
+    You can adjust the dtb configuration loaded at system boot as needed, to adapt to different hardware setups or requirements.
 
-   - **步骤 4：测试**
-     重启设备，确保新的 dtb 方案被正确加载，并且系统能够正常启动。
-     通过这种方式，可根据需要调整系统启动时加载的 dtb 方案，以适应不同的硬件配置或需求。
+3. **How to add a custom script to run at boot?**  
+  The method to add a custom boot script depends on your system type. Below are the approaches for two common systems:
 
-3. **如何添加开机启动的自定义脚本？**
-  添加开机启动的自定义脚本取决于所使用的系统类型。以下是两种常见系统的方法：
-
-   - <u>基于 bianbu-linux 系统</u>
+   - <u>For bianbu-linux systems</u>
 
      ```javascript
-     在/etc/init.d/目录下新建脚本，脚本的执行顺序可以通过脚本文件的命名编号来控制
+     Create a new script in the /etc/init.d/ directory. The execution order depends on the number prefix in the script filename. 
      ```
 
-     - **步骤 1：** 创建脚本：在 `/etc/init.d/` 目录下新建自定义脚本文件。
-     - **步骤 2：** 命名脚本：脚本的执行顺序是通过脚本文件的命名编号来控制。（通常，数字越小，脚本越早执行，如 S50\_testscript）
-     - **步骤 3：** 重启系统：重启设备以使更改生效。
-       （**注：** 确保脚本具有执行权限，执行 chmod a+x /etc/init.d/S50\_testscript）
-   - <u>基于 bianbu-minimal 系统</u>
+     - **Step 1: Create a script**  
+       Create a custom script file in the `/etc/init.d/` directory. 
+     - **Step 2: Name the script**  
+       The execution order depends on the number prefix in the script filename. (The smaller the number, the earlier the script runs, such as S50\_testscript)
+     - **Step 3: Reboot the system**   
+       Reboot the system to apply the changes.  
+       (**Note:** Ensure the script has executable permissions by running chmod a+x /etc/init.d/S50\_testscript)
 
-     - **步骤 1：** 创建 `/etc/rc.local` 并编写自定义脚本。
-     - **步骤 2：** 创建 rc.local：在根目录下创建 `/etc/rc.local` 文件。
-     - **步骤 3：** 编写脚本：`/etc/rc.local` 中编写自定义脚本。
-     - **步骤 4：** 重启系统：重启设备以使更改生效。
-       （**注：** 确保脚本具有执行权限，执行 chmod a+x `/etc/rc.local`）
+   - <u>For bianbu-minimal system</u>
 
-2. **如何实现长按 power 键执行指定的脚本？**
-   **背景知识：**
-   如以下代码所示：
+     - **Step 1:**   
+      Create `/etc/rc.local` and build the custom script.
+     - **Step 2:**   
+      Create rc.local: Create `/etc/rc.local` file in the root directory.
+     - **Step 3:**   
+       Write the script: Write the custom script in `/etc/rc.local`.
+     - **Step 4:**  
+      Reboot the system to apply the changes.  
+     (**Note:** Ensure the script has executable permission by running chmod a+x `/etc/rc.local`)
 
-   - 命令行提供 poweroff 命令关闭系统
-   - 通过读取 `/dev/input/event0` 节点，可以获取与输入设备相关的事件
+2. **How to execute a specified script on long press of the power key?**  
+   **Background:**  
+    As shown in the following code:
+
+   - The poweroff command is provided to shut down the system from the command line.
+   - Input device events can be captured by reading the `/dev/input/event0` node.
 
    ```c
-   # 命令行关机
+   # Power off the system via command line
    poweroff
 
-   # 通过节点获取按键事件
+   # Capture key press events via the device node
    cat /dev/input/event0
    ```
+   As shown in the following code:
 
-   再如以下代码所示：
-
-   - 为解决机械按键的抖动问题，已经对 `spacemit-pwrkey.c` 内核驱动进行修改，通过软件延时策略来消除抖动。（**注：** 该代码改动需要本地修改，不集成到 SDK 中）
+   - To resolve the mechanical switch debounce issue, the spacemit-pwrkey.c kernel driver has been modified to eliminate switch chatter using a software delay strategy.
+(Note: This code change requires local modification and is not integrated into the SDK.)
 
    ```c
    diff --git a/drivers/input/misc/spacemit-pwrkey.c b/drivers/input/misc/spacemit-pwrkey.c
@@ -152,21 +162,21 @@ sidebar_position: 2
 
    ```
 
-   实现长按 power 键执行指定脚本的方案可以通过以下<u>两种方法</u>：
+  <u>Two methods</u> are available to implement the execution of a specified script on long press of the power key:
 
-   - **方法一：纯 shell 脚本实现**
-     通过编写一个 Shell 脚本来监控 power 键的状态。以下是一个示例脚本 `detect_powerkey.sh`，能够检测到长按 power 键的动作并执行相应的操作：
-     - **创建检测脚本：** 编写一个 Shell 脚本 `detect_powerkey.sh`，用于检测 power 键的长按事件，赋予可执行权限，chmod a+x `detect_powerkey.sh`。
-     - **后台运行：** 使用 `evtest` 命令后台运行并监控 `/dev/input/event0` 设备的按键消息。
-     - **计数按压：** 在脚本中，通过读取 `/root/tmp_event_info.txt` 文件来计数 power 键的按压次数。
-     - **判断长按：** 如果按压次数超过设定的阈值（例如 30 次，约 3 秒），则认为检测到长按事件。
-     - **执行脚本：** 长按后，执行指定的脚本，如 `power_off.sh`。
+   - **Method 1: Pure Shell Script Implementation**  
+     This approach uses a Shell script to monitor the state of the power key. The example script `detect_powerkey.sh` below can detect a long press of the power key and trigger the corresponding action:
+     - **Create the detection script:** Write a Shell script named `detect_powerkey.sh` to detect long press events of the power key, and grant it executable permissions with the command: chmod a+x `detect_powerkey.sh`.
+     - **Run in the background:** Use the `evtest` command to run in the background and monitor key events from the `/dev/input/event0` device.
+     - **Count key presses:** In the script, read the `/root/tmp_event_info.txt` file to count the number of power key presses.
+     - **Detect long press:** If the number of presses exceeds the defined threshold (for example, 30 counts, approximately 3 seconds), a long press event is registered.
+     - **Execute the target script:** After the long press is detected, run the specified script, such as `power_off.sh`.
 
      ```javascript
      //cat Templates/detect_powerkey.sh
      #!/bin/bash
 
-     #需要后台运行该命令，可以放到脚本外执行，这里先注释掉
+     #This command must run in the background. It can be launched externally, so it is commented out here.
      #evtest /dev/input/event0 > /root/tmp_event_info.txt &
 
      count_num=0
@@ -201,9 +211,9 @@ sidebar_position: 2
      done
      ```
 
-   - **方法二：C 代码实现**
-     在 bianbu-desktop 中编译（或者使用 bianbu 工具链编译），不支持 bianbu-linux。
-     - **编写 C 程序：** 创建一个 C 程序 `key_detect.c`，用于检测 power 键的长按事件。
+   - **Method 2: C Code Implementation**  
+    Compile the code on bianbu-desktop (or use the bianbu toolchain for cross-compilation). This method is not supported on bianbu-linux.
+     - **Write the C program**: Create a C program named`key_detect.c` to detect long press events of the power key.
 
      ```javascript
      //cat key_detect.c
@@ -298,23 +308,28 @@ sidebar_position: 2
 
      ```
 
-     - **编译和运行：** 在 bianbu-desktop 环境中编译 C 程序，生成可执行文件 `detect_powerkey.bin` 如下：
+     - **Compile and Run:** Build the C program in the bianbu-desktop environment to generate the executable file `detect_powerkey.bin`:
 
      ```javascript
-     #在bianbu-desktop编译
+     # Compile on bianbu-desktop
      gcc -o detect_powerkey.bin key_detect.c `pkg-config --cflags --libs glib-2.0`
 
-     #可能需要安装依赖，apt install -y libglib2.0-dev
+     # It may require dependencies: apt install -y libglib2.0-dev
      ```
 
-     - **修改系统配置：** 修改 `/etc/systemd/logind.conf` 文件，忽略 power 键和长按事件。
-     - **重启系统：** 应用更改并重启系统。
-     - **部署可执行文件：** 将编译好的 `detect_powerkey.bin` 复制到设备上。
-     - **创建并授权脚本：** 在设备上创建 `/usr/bin/power_off.sh` 脚本，并设置执行权限。
-     - **执行脚本：** 长按 power 键 3 秒后松开，`detect_powerkey.bin` 将执行 `power_off.sh` 脚本。
+     - **Modify system configuration:**   
+       Modify the `/etc/systemd/logind.conf` file to ignore the power key and long press events.
+     - **Reboot the system:**   
+       Apply the changes and reboot the device.
+     - **Deploy the Executable:**   
+       Copy the compiled `detect_powerkey.bin` to the target device.
+     - **Create and Authorize the Script:**  
+      Create the `/usr/bin/power_off.sh` script on the device, and set its executable permissions. 
+     - **Run the Script:**  
+      Press and hold the power key for 3 seconds, then release. The `detect_powerkey.bin` will execute the `power_off.sh` script.
 
      ```javascript
-     #运行
+     # Execute
      sed -i 's/#HandlePowerKey=poweroff/HandlePowerKey=ignore/g' /etc/systemd/logind.conf
      sed -i 's/#HandlePowerKeyLongPress=ignore/HandlePowerKeyLongPress=ignore/g' /etc/systemd/logind.conf
      reboot
@@ -324,20 +339,20 @@ sidebar_position: 2
      touch /usr/bin/power_off.sh
      chmod a+x /usr/bin/power_off.sh
 
-     # 长按powerkey 3s后松开按键，会执行power_off.sh脚本
+     # Press and hold the power key for 3 seconds, then release. The power_off.sh script will be executed.
      ```
 
-5. **如何将 U-Boot 和 OpenSBI 镜像文件合并成一个 itb 镜像文件？**
-  K1 SDK 默认将 U-Boot 和 OpenSBI 分开加载，但开发者也可以根据需求将两者合并。以下是合并 U-Boot 和 OpenSBI 的步骤。（请注意标红内容）
+5. **How to merge U-Boot and OpenSBI image file into an itb image file?**  
+By default, the K1 SDK loads U-Boot and OpenSBI separately. However, developers can merge them into a single image as needed. Below are the steps to merge U-Boot and OpenSBI. (Note: Pay close attention to the red content.)
 
-   - **步骤 1：fsbl 启动配置**
-     - 在 U-Boot 配置中取消 second 分区设置，确保取消选中 **"Second partition to use to load U-Boot from"**，如下图所示。
-     - 将分区名更改为 `opensbi-uboot`，并重新编译 U-Boot，确保所有相关引用同步更新。
-     - （**注：** 分区名为 opensbi-uboot，如需自定义，以下红色字体的 opensbi-uboot 也需要同步修改）
+   - **Step 1: fsbl enables configuration**
+     - Disable the second partition setting in the U-Boot configuration. Ensure the option **"Second partition to use to load U-Boot from"** is unchecked, as shown in the figure below.
+     - Rename the partition to `opensbi-uboot`, then recompile U-Boot. Ensure all related references are updated accordingly.
+     - **Note.** If you customize the partition name, all instances of opensbi-uboot (including the red text below) must also be updated to match.
        <img src="static/KSQjbqPrLooavXxxQxxcWwO7nnh.png" alt="" width="600">
 
-   - **步骤 2：创建 itb 文件**
-     创建 `uboot-opensbi.its` 文件，定义 U-Boot、OpenSBI 和设备树（dts）的加载参数，内容如下：
+   - **Step 2: Create itb file**  
+  Create the `uboot-opensbi.its` file to define the load parameters for U-Boot, OpenSBI, and the device tree (DTS) as follows:
 
      ```shell
      /dts-v1/;
@@ -388,20 +403,20 @@ sidebar_position: 2
      };
      ```
 
-   - **步骤 3：生成 itb 文件**
-     - 将以下文件放在同一目录：
-       `uboot-opensbi.its`
-       `u-boot-nodtb.bin`
-       `fw_dynamic.bin`
-       `k1-x_MUSE-Card.dtb`（**此为方案设备树，应根据实际方案名修改**）
-     - 使用 mkimage 工具生成 `uboot-opensbi.itb` 文件，如下所示：
+   - **Step 3: Generate itb file**
+     - Place the following file in the same directory: 
+       `uboot-opensbi.its`  
+       `u-boot-nodtb.bin`  
+       `fw_dynamic.bin`  
+       `k1-x_MUSE-Card.dtb`（**This is the solution device tree. Modify it according to actual solution name**）
+     - Generate `uboot-opensbi.itb` file using mkimage tool as follows:
 
        ```shell
        uboot-2022.10/tools/mkimage -f uboot-opensbi.its -r u-boot-opensbi.itb
        ```
 
-   - **步骤 4：更改分区表**
-     以 `partition_universal.json` 为例，删掉 `uboot` 分区，并将 `opensbi` 分区名修改为 `opensbi-uboot`。分区大小建议设置为两者之和，如下所示：
+   - **Step 4: Modify the partition table**  
+     Taking `partition_universal.json` as an example: delete the `uboot` partition, and rename the `opensbi` partition to `opensbi-uboot`. Set the partition size to the sum of the two original sizes, as shown below:
 
      ```c
      ~$ cat partition_universal.json 
@@ -447,22 +462,22 @@ sidebar_position: 2
      }
      ```
 
-   - **步骤 5：更新刷机命令**
-     以下以 eMMC 为例，将合并后的 U-Boot 和 OpenSBI 镜像文件，以及其他系统组件刷入 eMMC 存储器，需要执行以下命令：
+   - **Step 5: Update the Flashing Commands**   
+     Using eMMC as an example, run the following commands to flash the merged U-Boot and OpenSBI image, along with other system components to the eMMC storage device:
 
      ```bash
      fastboot stage factory/FSBL.bin
      fastboot continue
      #sleep to wait for uboot ready
-     #linux环境下
+     #For linux
      sleep 1
-     #windows环境下
+     #For windows
      #timeout /t 1 >null   
      fastboot stage u-boot-opensbi.itb
      fastboot continue
 
      fastboot flash gpt partition_universal.json
-     #bootinfo_emmc.bin内容无作用，请参考3.1.3章节。但刷写步骤还需执行
+     #The content of bootinfo_emmc.bin has no functional effect. Refer to Section 3.1.3 for details, but this flashing step is still required.
      fastboot flash bootinfo factory/bootinfo_emmc.bin
      fastboot flash fsbl factory/FSBL.bin
      fastboot flash env env.bin
@@ -470,20 +485,19 @@ sidebar_position: 2
      fastboot flash bootfs bootfs.img
      fastboot flash rootfs rootfs.ext4
      ```
+     If you use the titanflasher tool provided by SpacemiT, update the `u-boot.itb` filename to `u-boot-opensbi.itb` in the `fastboot.yaml` file within the flashing package.
 
-     如果使用 spacemit 提供的 titanflasher 工具，需确保刷机包中的 `fastboot.yaml` 文件中将 `u-boot.itb` 的名称更新为 `u-boot-opensbi.itb`。
+4. **How to configure a partition as a hidden partition?**  
+   A hidden partition is a partition that is not displayed by default in the partition table. It is used to store critical system files and configurations, preventing accidental modification or deletion by users. Below are the steps to configure a partition as hidden:
 
-4. **如何将分区配置成隐藏分区？**
-   隐藏分区是一种在分区表中默认不显示的分区，这可以用于存放系统关键文件或配置，避免被用户意外修改或删除。以下是将分区配置为隐藏分区的步骤：
-
-   - **步骤 1：** 编辑分区表配置文件
-     - 打开分区表配置文件：使用文本编辑器打开<u>分区表配置文件</u>，如 `partition_universal.json`。
+   - **Step 1: Edit the partition table configuration file**
+     - Open the partition table file: Use a text editor to open the <u>partition table configuration file</u>, such as `partition_universal.json`.
        `cat k1/common/flash_config/partition_universal.json`
-     - 设置隐藏属性：对于希望隐藏的分区，添加或修改 `"hidden": true` 属性。这将指示系统在显示分区列表时<u>不包括这些分区</u>。
+     - Set the hidden attribute: For the partition you want to hide, add or modify the `"hidden": true` property. This instructs the system to <u>exclude these partitions</u>.
 
-   - **步骤 2：** 配置隐藏分区
-     - 以下是一个包含隐藏分区的分区表配置示例：
-       在这个配置中，`bootinfo`、`fsbl` 和 `env` 分区被设置为隐藏，这意味着它们在分区列表中不会显示，从而提供了额外的安全层。
+   - **Step 2: Apply the hidden partition configuration**
+     - Below is an example of a partition table configuration with hidden partitions:
+       In this configuration, the `bootinfo`, `fsbl`, and `env` partitions are set as hidden. This means they will not appear in the partition list, providing an additional layer of security.
 
        ```c
        {
@@ -538,20 +552,20 @@ sidebar_position: 2
        }
        ```
 
-   - **步骤 3：** 应用更改
-     - 保存配置文件：保存分区表配置文件的更改。
-     - 重新生成分区表：如果需要，重新生成分区表以应用这些更改。
-     - 刷写分区表：将更新后的分区表刷写到存储设备上
-       （**注：** 在进行这些操作时，请确保了解每个步骤的后果，并在必要时备份数据。）
+   - **Step 3: Apply the changes** 
+     - Save the configuration file: Save the changes in partition table configuration file.
+     - Regenerate the partition table: If required, regenerate partition table to apply these changes. 
+     - Flash the updated partition table: Write the updated partition table to the storage device.  
+      (**Note.** When performing these operations, ensure you fully understand the impact of each step, and back up your data if necessary.)
 
-## SDK 编译打包
+## SDK Compilation and Packaging
 
 TBD
 
-## 驱动调试与测试验证
+## Driver Debugging and Test Validation
 
-1. **如何确认是否进入 PD 充电模式？**
-    要确认设备是否已经进入 PD 充电模式，可检查<u>串口输出的日志信息</u>。如果您的设备已经适配了 PD 充电功能，当插入 PD 适配器后，若串口打印出以下或类似信息，则表明设备已经成功进入 PD 充电模式：
+1. **How to Verify Entry into PD Charging Mode?**  
+  To confirm if the device has entered PD charging mode, check the <u>serial port log output</u>. If your device has PD charging support enabled, when you plug in a PD adapter, the presence of the following (or similar) serial log messages confirms successful entry into PD charging mode:
 
    ```javascript
    [57876.061510] husb239 4-0042: husb239_attach status: a1 status1: 0
@@ -560,16 +574,19 @@ TBD
    [57876.543622] husb239 4-0042: update sink voltage: 9000000 current: 3000000
    ```
 
-   (**注：** 请确保设备驱动程序和固件支持 PD 充电，并且使用的是兼容的 PD 适配器。)
+   (**Note.** Ensure the device drivers and firmware support PD charging, and that you are using a compatible PD adapter.)
 
-2. **如何在 dts 中打开 i2c？**
-    要在设备树（dts）中启用 i2c 接口，需要<u>对 dts 文件进行配置</u>，以确保 i2c 控制器被正确初始化并可用。以下以 i2c5 为例说明配置步骤：
+2. **How to Enable I2C in the Device Tree (DTS)?**  
+   To enable an I2C interface in the device tree (DTS), <u>configure the DTS file</u>, to ensure the I2C controller is properly initialized and available. Below are the configuration steps, using i2c5 as an example:
 
-   - U-Boot 配置：
-     - **步骤 1：** 启用 I2C 控制器：在 U-Boot 的 dts 文件中，找到 i2c5 控制器的节点，并确保其 `status` 属性设置为 `"okay"`。
-     - **步骤 2：** 配置引脚控制：为 i2c5 控制器指定引脚控制设置，这通常涉及到定义 `pinctrl-names` 和 `pinctrl-0` 属性。
-     - **步骤 3：** 添加 I2C 设备：如果需要，可以添加连接到 i2c5 的设备节点，并为它们设置适当的 `reg` 属性和 `status` 属性。
-       示例配置如下：
+   - U-Boot Configuration:
+     - **Step 1: Enable the I2C Controller**   
+       In the U-Boot DTS file, locate the i2c5 controller node and set its `status` property to `"okay"`.
+     - **Step 2: Configure Pin Control**   
+       Assign pin control settings to the i2c5 controller, which typically involves defining the `pinctrl-names` and `pinctrl-0` properties.
+     - **Step 3: Add I2C Devices**   
+       If required, add device nodes connected to i2c5, and configure their `reg` and `status` properties appropriately.  
+      Configuration example:
 
      ```c
      diff --git a/arch/riscv/dts/k1-x_FusionOne.dts b/arch/riscv/dts/k1-x_FusionOne.dts
@@ -594,10 +611,12 @@ TBD
      +};
      ```
 
-   - Linux 配置：
-     - **步骤 1：** 启用 I2C 控制器：在 Linux 内核的 dts 文件中，确保 i2c5 控制器的 `status` 属性设置为 `"okay"`。
-     - **步骤 2：** 配置引脚控制和时钟频率：为 i2c5 控制器指定引脚控制设置，并设置 `clock-frequency` 属性以定义 I2C 时钟频率。
-       示例配置如下：
+   - Linux Configuration:
+     - **Step 1: Enable the I2C controller**   
+       In the Linux kernel DTS file, ensure the `status` property of the i2c5 controller node is set to `"okay"`.
+     - **Step 2: Configure pin control and clock frequency**    
+       Assign pin control settings to the i2c5 controller, and set the `clock-frequency` property to define the I2C clock rate.  
+       Configuration example:
 
      ```c
      diff --git a/arch/riscv/boot/dts/spacemit/k1-x_FusionOne.dts b/arch/riscv/boot/dts/spacemit/k1-x_FusionOne.dts
@@ -617,17 +636,21 @@ TBD
      +};
      ```
 
-    通过这些配置，可在 U-Boot 和 Linux 内核中启用 i2c5 接口，使其可用于设备通信。
+    With these configurations, the i2c5 interface can be enabled in both U-Boot and the Linux kernel, making it available for device communication.
 
-3. **如何通过命令行读写 i2c 设备？**
-  通过命令行与 i2c 设备进行交互，可以使用 U-Boot 或 Linux 内核提供的工具来读写 i2c 设备。以下是具体步骤：
+3. **How to Read/Write I2C Devices via the Command Line?**  
+  To interact with I2C devices from the command line, use the tools provided by U-Boot or the Linux kernel to perform I2C read/write operations. Below are the detailed steps:
 
-   - **在 U-Boot 中读写 i2c 设备：**
-     - **选择 I2C 总线：** 选择要通信的 I2C 总线。如示例所示，设备连接在 I2C 总线 `2` 上。
-     - **设置默认频率：** 设置 I2C 通信频率。如示例所示，默认为 `100 kHz`。
-     - **读取 I2C 设备：** 使用 `i2c md` 命令从指定的 I2C 设备地址读取数据。如示例所示，从地址 `0x53` 读取一个字节。
-     - **写入 I2C 设备：** 使用 `i2c mw` 命令向指定的 I2C 设备地址写入数据。如示例所示，向地址 `0x53` 的寄存器 `1` 写入数据 `0x11`。
-       示例如下：
+   - **Reading/Writing I2C Devices in U-Boot**
+     - **Select the I2C Bus:**   
+       Choose the I2C bus for communication. In the example, the device is connected to I2C bus `2`. 
+     - **Set the Default Frequency:**  
+       Configure the I2C communication frequency. In the example, the default value is `100 kHz`.
+     - **Read from the I2C Devices:**   
+       Use the `i2c md` command to read data from the specified I2C device address. In the example, 1 byte is read from the address `0x53`.
+     - **Write to the I2C Device:**  
+       Use the `i2c mw` command to write down to the specified I2C device address. In the example. The value `0x11` is written to register `1` of address `0x53`.
+       Example:
 
      ```javascript
      => i2c bus
@@ -646,11 +669,14 @@ TBD
      => i2c mw 0x53 1 0x10 
      ```
 
-   - **在 Linux 内核（kernel）中读写 i2c 设备：**
-     - **检测 I2C 设备：** 使用 `i2cdetect` 命令扫描指定的 I2C 总线。如示例所示，总线为 `5`。
-     - **读取 I2C 设备：** 使用 `i2cdump` 命令读取 I2C 设备的寄存器内容。如示例所示，从地址 `0x53` 读取。
-     - **写入 I2C 设备：** 使用 `i2cset` 命令向 I2C 设备的寄存器写入数据。如示例所示，向地址 `0x53` 的寄存器 `1` 写入数据 `0x11`。
-       示例如下：
+   - **Reading/Writing I2C Devices in the Linux Kernel:**
+     - **Detect I2C devices:**   
+       Use the `i2cdetect` command to scan the specified I2C bus. In the example, the bus is `5`. 
+     - **Read I2C device:**   
+       Use the `i2cdump` command to read the register of the I2C device. In the example, data is read from address `0x53`.
+     - **Write to I2C device:**   
+       Use the `i2cset` command to write data to the registers of the I2C device. In the example, the value `0x11` is written to register `1` of address `0x53`. 
+       Example：
 
      ```javascript
      i2cdetect -y -r 5
@@ -658,75 +684,85 @@ TBD
      i2cset -f -y 5 0x53 0x1 0x11
      ```
 
-4. **如何通过 PWM 控制 LED 灯的亮度和闪烁？**
-  假设 LED 灯要接入 PWM 的 Pin 脚，具体硬件设计可参考 `k1-x_FusionOne` 方案的 PWM 部分。
-   通过 PWM 控制 LED 灯的亮度和闪烁，可以在 Linux 系统中使用以下步骤：
+4. **How to Control LED Brightness and Blinking with PWM?**  
+  First, connect the LED to a PWM pin. For hardware design details, refer to the PWM section of the `k1-x_FusionOne` platform guide.  
+  To control LED brightness and blinking via PWM, follow these steps in a Linux system:
 
-   - **步骤 1： 打开终端**：在 Linux 系统中打开一个终端窗口。
-   - **步骤 2： 导航到 PWM 目录**：使用 `cd` 命令切换到 PWM 设备的目录。
+   - **Step 1: Open a Terminal**  
+   Launch a terminal window in your Linux system.
+   - **Step 2: Navigate to the PWM Directory**  
+   Use the `cd` command to change to the PWM device directory:
 
      ```bash
      cd /sys/class/pwm/
      ```
 
-   - **步骤 3： 查看 PWM 芯片**：列出所有可用的 PWM 芯片，以确定您要使用的 PWM 芯片编号。
+   - **Step 3: List Available PWM Chips**  
+     List all available PWM controllers to confirm the PWM chip number you will use:
 
      ```bash
      ls
-     #_输出可能包括 pwmchip0  pwmchip1  pwmchip2  pwmchip3  pwmchip4  pwmchip5  pwmchip6_
+     #_Output may include pwmchip0  pwmchip1  pwmchip2  pwmchip3  pwmchip4  pwmchip5  pwmchip6_
      ```
 
-   - **步骤 4： 导出 PWM 通道**：选择一个 PWM 芯片，并导出想要控制的 PWM 通道。例如，使用 `pwmchip0` 的 `pwm0` 通道，执行如下：
+   - **Step 4: Export the PWM Channel**  
+     Select a PWM chip and export the target PWM channel you want to control. For example, to use channel `pwm0` on `pwmchip0`:
 
      ```bash
      echo 0 > pwmchip0/export
      ```
 
-   - **步骤 5： 设置 PWM 周期**：这决定了 PWM 信号的频率。例如，设置为 1000000ns, 即一个周期为 1KHz：
+   - **Step 5: Set the PWM Period**  
+     This defines the frequency of the PWM signal. For example, set it to `1000000`ns, which corresponds to a 1 kHz period:
 
      ```bash
      echo 1000000 > pwmchip0/pwm0/period
      ```
 
-   - **步骤 6： 设置 PWM 占空比**：这决定了 LED 的亮度。例如，设置为 500000ns：
+   - **Step 6: Set the PWM Duty Cycle**  
+     This controls the brightness of the LED. For example, set it to 500000ns:
 
      ```bash
      echo 500000 > pwmchip0/pwm0/duty_cycle
      ```
 
-   - **步骤 7： 启用 PWM**： 开始 PWM 信号输出：
+   - **Step 7: Enable the PWM**  
+     Start the PWM signal output:
 
      ```bash
      echo 1 > pwmchip0/pwm0/enable
      ```
 
-   - **步骤 8：调节亮度**：通过改变 `duty_cycle` 的值来调节 LED 的亮度。例如，将其设置为 `100000` ns 以降低亮度：
+   - **Step 8: Adjust Brightness**  
+     Adjust the LED brightness by changing the `duty_cycle` value. For example, set it to ·100000· ns to reduce brightness:
 
      ```bash
      echo 100000 > pwmchip0/pwm0/duty_cycle
      ```
 
-   - **步骤 9：关闭 PWM**：完成操作后，可以关闭 PWM 信号：
+   - **Step 9: Disable the PWM**  
+     After completing operation, you can stop the PWM signal:
 
      ```bash
      echo 0 > pwmchip0/pwm0/enable
      ```
 
-   **注意：**
-     - 确保在执行这些命令之前，LED 灯已经正确连接到 PWM 的 Pin 脚。
-     - 调整 `period` 和 `duty_cycle` 的值可以改变 LED 的闪烁频率和亮度。
-     - 不同的 Linux 发行版和内核版本可能在 PWM 子系统的具体路径和命令上有所不同，因此请根据系统实际情况进行调整。
+   **Note.**
+     - Ensure the LED is correctly connected to the PWM pin before running these commands.
+     - Adjusting the `period` and `duty_cycle` values changes the LED blinking frequency and brightness.
+     - The exact paths and commands for the PWM subsystem may vary across different Linux distributions and kernel versions. Adjust the steps to match your system configuration.
 
-5. **如何通过节点获取电池电压值？**
-  要通过节点获取电池电压值，首先需要在设备树（dts）中配置相应的 GPADC，然后通过读取特定的系统节点来获取电压值。请参考以下步骤：
+5. **How to Read Battery Voltage Value via Nodes?**  
+   To read the battery voltage value through system nodes, first configure the corresponding GPADC in the device tree (DTS), then retrieve the voltage reading by accessing specific system nodes. Follow the steps below:：
 
-   - **步骤 1：** 参考示例 dts 配置：
-     - **选择 GPADC**：例如 GPADC2，并在 DTS 文件中进行配置。
-     - **配置引脚控制**：在 DTS 中，为 GPADC2 配置引脚控制，指定兼容的控制器和 GPIO 单元。
-     - **定义引脚功能**：为 GPADC2 定义引脚功能，例如将 `PIN2` 配置为模拟输入 `adcin`。
+   - **Step 1: Refer to DTS Configuration Example:** 
+     - **Select the GPADC:**  
+      Choose the GPADC channel (e.g. GPADC2), and configure it in DTS file. 
+     - **Configure Pin Control:** In the DTS, assign pin control to GPADC2, specifying the compatible controller and GPIO unit.
+     - **Define Pin Functionality:** Set the pin functionality for GPADC2. For example configure `PIN2` as the analog input `adcin`.
 
      ```javascript
-     ##需要配置使用哪个GPADC, 如果是使用GPADC2的话需要在dts文件中做如下配置，I2C8节点中：
+     ## Select the GPADC channel to use. For GPADC2, add the following configuration to the I2C8 node in your DTS file:
                      pmic_pinctrl: pinctrl {
                              compatible = "pmic,pinctrl,spm8821";
                              gpio-controller;
@@ -740,64 +776,66 @@ TBD
                      };
      ```
 
-   - **步骤 2：** 读取电压值
-     - 启动系统/设备。
-     - 使用命令行导航到 IIO 设备目录。
+   - **Step 2: Read the Voltage Value** 
+     - Power on the system/device.
+     - Navigate to the IIO device directory using the command line. 
 
        ```bash
        cd /sys/bus/iio/devices/iio:device0
        ```
 
-     - 读取 GPADC 测量得到的<u>原始电压值</u> `in_voltage2_raw`。
+     - Read the <u>raw voltage value</u> measured by GPADC from the `in_voltage2_raw`.
 
        ```bash
        cat in_voltage2_raw
        ```
 
-     - 读取电压的<u>缩放比例</u> `in_voltage2_scale`。
+     - Read the voltage <u>scale factor</u> from the `in_voltage2_scale`.
 
        ```bash
        cat in_voltage2_scale
        ```
 
-    - **计算电压值**：将读取到的<u>原始电压值</u>与<u>缩放比例</u>相乘，得到实际电压值（单位为毫伏，mV）。
-      电压值（mV）= 原始电压值 × 缩放比例。
+    - **Calculate the Voltage Value:**  
+     Multiply the <u>raw voltage value</u> by the <u>scale factor</u> to get the actual voltage, in millivolts (mV):  
+     Voltage (mV) = Raw Voltage Value × Scale Factor
 
-6. **如何设置 ALDO2 在休眠时不关闭并配置成 3.3V？**
-  为了确保 ALDO2 在系统休眠时保持开启并输出 3.3V 电压，需要在 **U-Boot 的 SPL 阶段** 和 **内核阶段** 分别对设备树（dts）进行配置：
+6. **How to Configure ALDO2 to Stay Enabled in Suspend Mode and Output 3.3V?**  
+ To ensure ALDO2 remains enabled and outputs 3.3V when the system enters suspend mode, you need to configure the device tree (DTS) in both the **U-Boot SPL stage** and the **kernel stage**.
 
-   - **U-Boot SPL 阶段配置**
-     - **步骤 1： 编辑 U-Boot 设备树源文件**：
-       打开 `arch/riscv/dts/k1-x_spm8821.dtsi` 文件。
-     - **步骤 2： 配置 ALDO2 调节器**：
-       在文件中找到 ALDO2 的配置节，并添加以下属性以设置初始电压和确保在启动时开启：
+   - **U-Boot SPL Stage Configuration**
+     - **Step 1: Edit the U-Boot Device Tree Source File**:  
+      Open the `arch/riscv/dts/k1-x_spm8821.dtsi` file.
+     - **Step 2: Configure the ALDO2 Regulator**:  
+      Locate the ALDO2 configuration section in the file, and add the following properties to set the initial voltage and ensure it is enabled at boot:
 
        ```javascript
-       #这个需要在uboot的spl阶段打开该路电：
+       #This circuit must be enabled in the U-Boot SPL stage:
        --- a/arch/riscv/dts/k1-x_spm8821.dtsi
        +++ b/arch/riscv/dts/k1-x_spm8821.dtsi
        @@ -72,6 +72,12 @@
              regulator-name = "ldo2";
-             regulator-min-microvolt = <500000>; //最小电压500mV
-             regulator-max-microvolt = <3400000>; // 最大电压3.4V
-       +     regulator-init-microvolt = <3300000>; // 初始电压3.3V
-       +     regulator-boot-on; // 启动时开启
-       +     u-boot,dm-spl; // 在SPL阶段使能
+             regulator-min-microvolt = <500000>; // Minimum voltage 500mV
+             regulator-max-microvolt = <3400000>; // Maximum voltage 3.4V
+       +     regulator-init-microvolt = <3300000>; // Initial voltage 3.3V
+       +     regulator-boot-on; // Enable at boot
+       +     u-boot,dm-spl; // Enable in the SPL stage
        +     regulator-state-mem {
-       +       regulator-off-in-suspend; // 休眠时不关闭
+       +       regulator-off-in-suspend; // Disable in suspend mode
        +     };
           };
 
        ```
 
-   - **内核阶段配置**
-     - **步骤 1： 编辑内核设备树源文件**：
-       以 `k1-x_deb1` 方案为例，打开 `arch/riscv/boot/dts/spacemit/k1-x_deb1.dts` 文件
-     - **步骤 2： 设置 ALDO2 为始终开启**：
-       在文件中找到 ALDO2 的配置节，并添加以下属性以确保 ALDO2 在所有状态下都保持开启：
+   - **Kernel Stage Configuration**
+     - **Step 1: Edit the Kernel Device Tree Source File**:  
+       Example: `k1-x_deb1`  
+       Open the `arch/riscv/boot/dts/spacemit/k1-x_deb1.dts` file
+     - **Step 2: Configure ALDO2 to Stay Enabled**:  
+       Locate the ALDO2 configuration section in the file, and add the following properties to ensure ALDO2 remains enabled in all system states:
 
        ```javascript
-       #内核阶段需要将该路电设置成always-on
+       #This regulator must be configured as always-on in the kernel stage
        --- a/arch/riscv/boot/dts/spacemit/k1-x_deb1.dts
        +++ b/arch/riscv/boot/dts/spacemit/k1-x_deb1.dts
        @@ -340,6 +340,14 @@ ldo_2: LDO_REG2 {
@@ -805,50 +843,54 @@ TBD
            regulator-min-microvolt = <500000>;
            regulator-max-microvolt = <3400000>;
        +
-       +   regulator-boot-on; // 启动时开启
-       +   regulator-always-on; // 始终开启
+       +   regulator-boot-on; // Enable at boot
+       +   regulator-always-on; // Stay power-on
        +
        +   regulator-state-mem {
-       +      regulator-off-in-suspend; // 休眠时不关闭
-       +      regulator-suspend-microvolt = <500000>; // 休眠时电压0.5V
+       +      regulator-off-in-suspend; // Disable in suspend mode
+       +      regulator-suspend-microvolt = <500000>; // Suspend voltage 0.5V
        +     };
            };
        ```
 
-     后续：保存更改，部署，重启设备，验证更改
+     Final Steps: Save your changes, deploy the updated firmware, reboot the device, and verify the configuration.
 
-7. **如何通过节点获取 Type-C 的状态？**
-  在 Linux 系统中，可通过检查特定的系统文件节点来获取 Type-C 接口的状态。以下是具体操作步骤：
+7. **How to Read Type-C Port Status via Nodes?**  
+    On a Linux system, you can retrieve the status of the Type-C port by checking specific system file nodes:
 
-   - **步骤 1：** 打开设备的串口，在串口执行命令，如下步骤。
+   - **Step 1:**   
+      Open the device serial port and execute commands in the serial terminal.
 
-   - **步骤 2：** 使用 `cat` 命令读取 `/sys/class/typec/port0/data_role` 文件的内容。
+   - **Step 2**   
+     Read the `/sys/class/typec/port0/data_role` file using the `cat` command.
 
      ```c
      cat /sys/class/typec/port0/data_role
      ```
 
-   - **步骤 3：** 通过输出结果来获取 Type-C 的连接状态。
-     - Type-C <u>没有连接设备时</u>或<u>连接到 PC 时</u>，输出显示如下：
+   - **Step 3:**   
+     Determine the Type-C connection status from the output
+     - When the Type-C port is not connected to <u>any device or PC</u>, the output is
 
        ```c
        host [device]
        ```
 
-     - Type-C <u>连接到 U 盘时</u>，输出显示如下：
+     - When the Type-C port is <u>connected to a USB drive</u>, the output is
 
        ```c
        [host] device
        ```
 
-8. **如何自定义以太网指示灯的显示状态？**
-  如需自定义以太网指示灯的显示状态，您需要通过编程方式修改 LED 控制寄存器（LCR）的值。以下是具体步骤：
+8. **How to Customize Ethernet LED Indicator Display?**  
+   To customize the display state of the Ethernet LED indicators, please modify the value of the LED Control Register (LCR) via program.
 
-   - **步骤 1：** 了解 LED 控制寄存器（LCR）
-     如下图所示，LCR 寄存器位于扩展页 0xd04，地址 0x10。它包含多个位，用于控制不同 LED 的状态，如 LED0、LED1、LED2 的激活状态和链接指示。
+   - **Step 1:** Understand the LED Control Register (LCR)  
+     As shown in the reference diagram, the LCR register is located at extended page 0xd04, address 0x10. It contains multiple bits that control the status of different LEDs, such as the activation state and link indication for LED0, LED1, and LED2.
      <img src="static/Df0lbeUoGoogRyxFTmncvtdunHb.png" alt="" width="600">
-   - **步骤 2：** 修改驱动程序
-     参考代码修改如下
+
+   - **Step 2:** Modify the Driver Code  
+     Example:
 
      ```javascript
      ## git apply eth_light.diff
@@ -892,13 +934,18 @@ TBD
              return 0;
      ```
 
-    - **定义 LED 模式**：在驱动程序中定义所需的 LED 模式。例如，在 1000 Mbps、100 Mbps 和 10 Mbps 链接时点亮 LED1，在 1000 Mbps 链接时点亮 LED2，可以定义一个宏 `MY_LED_MODE` 来组合这些状态。
+    - **Define the LED Mode:**  
+      Define your desired LED behavior in the driver code. For example:  
+       - LED1 illuminates for 1000Mbps, 100Mbps, and 10Mbps link states  
+       - LED2 only illuminates for 1000Mbps link states  
+       You can combine these states into a single macro `MY_LED_MODE`.
 
        ```c
        #define MY_LED_MODE (LED1_LINK_1000 | LED1_LINK_100 | LED1_LINK_10 | LED1_ACT | LED2_LINK_1000)
        ```
 
-     - **修改寄存器访问代码**：在驱动程序中，找到控制 LED 的代码段，并添加或修改对 LCR 寄存器的写入操作。这通常涉及到使用 `phy_write_paged` 函数来设置 LCR 寄存器的值。
+     - **Modify the Register Access Code:**  
+       Locate the LED control section in your driver, then add or modify the write operation for the LCR register. This is typically done using the `phy_write_paged` function:
 
        ```c
        static int rtl821x_probe(struct phy_device *phydev)
@@ -916,16 +963,18 @@ TBD
                return 0;
        ```
 
-   - **步骤 3：** 在修改了驱动程序后，重新编译驱动以包含更改的部分, 将新编译的驱动程序部署到您的设备上。
-   - **步骤 4：** 验证更改，包括检查以太网指示灯是否符合更新的配置显示状态，LED 指示灯正确反映当前不同的网络链接速度。
+   - **Step 3:** Once you've finished modifying the driver code, rebuild the driver to include your custom changes, then deploy the newly compiled driver to your target device.
+   - **Step 4:** Validate the implementation: check that the Ethernet LED behavior matches your custom configuration, and confirm the LEDs correctly indicate the current link speed and network connection status.
 
-9. **如何自定义温控？**
-   自定义温控以保护芯片在过热时不被损坏，当芯片温度达到该设定值会触发关机，可以通过修改设备树源文件（dts）中的温控设置来实现。以下是具体步骤：
+9. **How to Customize Thermal Control?**  
+   Customize thermal control to protect the chip from damage during overheating. When the chip temperature reaches the set value, it will trigger a shutdown. This can be achieved by modifying the thermal control settings in the device tree source file (dts). Follow the steps below:
 
-   - **步骤 1：** 编辑温控配置文件
-     - **定位温控配置文件**：找到并打开设备树源文件中与温控相关的文件 `arch/riscv/boot/dts/spacemit/k1-x_thermal_cooling.dtsi`
-     - **修改温控设置**：在文件中找到温控节点，如 `cls0_trip4` 和 `cls1_trip4`，并设置 `temperature` 和 `hysteresis` 的参数。这些属性定义了触发关机的温度阈值和回差值。如下 dts 配置所示，设定 115 度会触发关机，以保护芯片不被烧坏。
-
+   - **Step 1: Edit the Thermal Configuration File** 
+     - **Locate the thermal configuration file:**  
+      open the thermal control related device tree file `arch/riscv/boot/dts/spacemit/k1-x_thermal_cooling.dtsi`.
+     - **Modify thermal control settings:**  
+      In the file, locate the thermal control nodes such as `cls0_trip4` and `cls1_trip4`, and set the `temperature` and `hysteresis` parameters. These attributes define the temperature threshold and hysteresis value for triggering shutdown. 
+      As shown in the following dts configuration, set 115℃ to trigger shutdown to protect the chip:
        ```c
        //arch/riscv/boot/dts/spacemit/k1-x_thermal_cooling.dtsi
 
@@ -943,53 +992,58 @@ TBD
                                };
        ```
 
-   - **步骤 2：** 将新编译的设备树（dts）刷入设备，并重启设备。
-   - **步骤 3：** 验证更改，使用适当的工具监控系统温度，确保温控设置按预期工作。
-     **注意：** 更改温控设置可能会影响系统稳定性和硬件寿命，因此在进行这些更改时应谨慎操作。建议在更改前阅读相关文档或寻求专业指导。（建议最高温度为 115℃）
-     若想去掉温控，可关掉配置 kernel 的编译配置 CONFIG\_THERMAL，但“不建议关掉”。
+   - **Step 2:** Flash the new device tree (dts) to the device and reboot the system. 
+   - **Step 3: Verify the changes:** Monitor system temperature with appropriate tools, and ensure the thermal control settings work as expected.  
+     **Note.** Changing thermal control settings may affect system stability and hardware lifespan, so please be cautious.   
+     It is recommended to read relevant documents or seek professional guidance before making changes (the recommended maximum temperature is 115℃).  
+     To disable thermal control, you can turn off the kernel compilation configuration CONFIG\_THERMAL, but this is not recommended.
 
-10. **如何通过命令行拉高 GPIO？**
-  通过命令行拉高 GPIO（即通过命令行将某个 GPIO 引脚设置为高电平状态）。根据不同运行环境（Kernel 和 U-Boot），操作步骤如下：
+10. **How to Pull Up GPIO via Command Line?**  
+   Pull up GPIO via command line, which means setting a GPIO pin to a high level state via command line. According to different running environments (Kernel and U-Boot), the operation steps are as follows:
 
-    - 在 <u>Kernel 环境</u>下，拉高 GPIO122 的具体步骤：
-      - **步骤 1：** 导出 GPIO122：将 GPIO122 写入 `/sys/class/gpio/export`，使其在用户空间中可用。
+    - <u>Kernel</u>: Pull up GPIO122 
+      - **Step 1: Export GPIO122**  
+       Write GPIO122 to `/sys/class/gpio/export` to make it available in user space.
 
         ```c
         echo 122 > /sys/class/gpio/export
         ```
 
-      - **步骤 2：** 设置 GPIO 方向：将 GPIO122 的方向设置为输出（out），这样 GPIO 引脚就可以被配置为输出模式。
+      - **Step 2: Set GPIO direction**  
+         Set the direction of GPIO122 to output (out), so that the GPIO pin can be configured as output mode.
 
         ```c
         echo out > /sys/class/gpio/gpio122/direction
         ```
 
-      - **步骤 3：** 设置 GPIO 值：将 GPIO 引脚的电平设置为高。（“1”表示高电平，“0”表示低电平）
+      - **Step 3: Set GPIO value**   
+        Pull up GPIO (1 means high level, 0 means low level)
 
         ```c
         echo 1 > /sys/class/gpio/gpio122/value
         ```
 
-    - 在 <u>U-Boot 环境下</u>，设置 GPIO116 为高电平：
-      使用 `gpio set` 命令直接设置 GPIO 引脚的电平状态。
+    - <u>U-Boot</u>: Pull up GPIO116   
+      Use the `gpio set` command to directly set the GPIO pin level state.
 
       ```c
       gpio set 116
       ```
 
-11. **如何在 U-Boot 阶段开启 P1 电路？**
-  在 U-Boot 阶段，若需开启 P1 电路，以配置 switch 为例，可以通过修改设备树文件（dts 文件）实现。以下是操作步骤：
+11. **How to Enable P1 Circuit in U-Boot Stage**  
+    Example: Switch Configuration  
+    To enable the P1 circuit in the U-Boot stage, you can modify the device tree (dts) file:
 
-    - **步骤 1：** 定位设备树文件
-      找到目标设备树文件 `k1-x_spm8821.dtsi`，该文件定义了硬件的配置参数。如果使用 Git 来管理代码，可以通过以下命令查看文件修改记录和具体内容：
+    - **Step 1: Locate the Device Tree File**  
+      Find the target device tree file `k1-x_spm8821.dtsi`, which defines the hardware configuration parameters. If you use Git for code management, you can view the file's change history and content with the following command:
 
       ```c
       gitd arch/riscv/dts/k1-x_spm8821.dtsi
       ```
 
-    - **步骤 2：** 修改设备树（dts 文件）内容
-      在设备树文件中，定位并修改与 `SWITCH_REG1` 相关的节点，加入以下配置（如 `regulator-name`、`regulator-state-mem` 等），以确保 P1 电路在 U-Boot 阶段开启：
-      "原始内容"
+    - **Step 2: Modify the Device Tree (dts) File**   
+      In the device tree file, locate and modify the `SWITCH_REG1` node, and add configurations such as `regulator-name` and `regulator-state-mem` to ensure the P1 circuit is enabled in the U-Boot stage: 
+      Original Content:
 
       ```
           sw_2: SWITCH_REG1 {
@@ -997,167 +1051,173 @@ TBD
           };
       ```
 
-      "修改后的内容"
+      Modified Content:
 
       ```
           sw_2: SWITCH_REG1 {
-               regulator-boot-on;    // 开机时自动开启电源
+               regulator-boot-on;    // Enable power supply automatically at boot
                regulator-name = "switch1";
                regulator-state-mem {
-                    regulator-off-in-suspend; // 在 suspend 状态下关闭电源
+                    regulator-off-in-suspend; // Disable power supply in suspend state
                     };
                };
       ```
 
-    - **步骤 3：** 保存修改并重新编译 U-Boot
-      - 完成设备树文件的修改后，重新编译 U-Boot，并烧录到设备中，以使更改生效。
-      - 检查 P1 电路是否正常开启
+    - **Step 3: Save Changes and Recompile U-Boot** 
+      - After modifying the device tree file, recompile U-Boot and flash it to the device to apply the changes.
+      - Verify that the P1 circuit is enabled correctly.
 
-## OS 应用
+## OS Application
 
-### 显示
+### Display
 
-1. **如何通过命令行执行视频播放？**
-   K1 支持 HDMI（1920x1080）、MIPI DSI（1920x1200）和 1920x1440 的 DPU 规格，视频播放的实现方法根据运行环境和需求有所不同，主要分为以下几种方式：
+1. **How to Play Video via Command Line?**  
+   K1 supported DPU specifications: HDMI (1920x1080), MIPI DSI (1920x1200) and 1920x1440.  
+   The implementation methods for video playback vary by runtime environment and requirements, including:
 
-   - 仅限桌面终端，使用 **gst-launch 播放视频**
-    此方法仅支持在显示桌面的终端中运行，**无法在串口或 SSH 环境下执行**。示例如下：
-    **注意：** 视频文件名不应重复包含文件扩展名（如 `xxxmp4.mp4`）。
+  - Desktop Terminal Only: **Play Video with gst-launch**  
+     This method only works on a desktop terminal, and **cannot be executed over a serial port or SSH session**.  
+     **Note:** Video filenames must not have duplicate extensions (e.g., `xxxmp4.mp4`).  
+     Example:
 
      ```javascript
      gst-launch-1.0 playbin uri=file:/root/480p.mp4 video-sink='waylandsink render-rectangle="<0,0,1920,1080>"'
      ```
 
-   - 基于 **bianbu-linux**，在串口或终端运行视频播放，2 种方法如下：
-    - <u>方法 1：使用 </u>**dd 命令**<u>将图像写入帧缓冲区（fb）显示。</u>该方法用于直接将图像（ARGB 格式）写入帧缓冲区并显示在屏幕上。示例如下：
+  - For **bianbu-linux** (Serial/Terminal Playback):
+    - **<u>Method 1:</u>** Use <u>dd command</u> to write images directly to the framebuffer (fb).   
+     Example:
 
        ```c
        dd if=argb.data of="/dev/fb0" bs=1920 count=4320
        ```
 
-    - <u>方法 2：使用 </u>**ffplay 播放视频文件。**适用于终端环境，需加载 GPU 驱动。示例如下：
+    - **<u>Method 2:</u>** Use <u>ffplay</u> to play video files.  
+      This method is suitable for terminal environments and requires the GPU driver to be loaded.   
+      Example:
 
        ```c
-       export MESA_LOADER_DRIVER_OVERRIDE='pvr' //设置 GPU 驱动
+       export MESA_LOADER_DRIVER_OVERRIDE='pvr' //Set GPU driver
        ffplay /root/test.mp4
        ```
 
-   - 基于 **bianbu-minimal** 或 **bianbu-desktop** 环境播放视频（支持串口运行），2 种方法如下：
-     - <u>方法 1：使用 </u>**ffplay**<u> 播放</u>
+  - For **bianbu-minimal** or **bianbu-desktop** (Serial Port Playback Supported):
+     - **<u>Method 1:</u>** Use <u>**ffplay**</u> to play
 
        ```c
-       // 安装必要的软件包
+       // Install required package
        apt install -y k1x-vpu-firmware mpp ffmpeg img-gpu-powervr weston
 
-       // 使用ffplay命令播放视频文件
+       // Use ffplay command to play video files
        weston & WAYLAND_DISPLAY=wayland-1 WESTON_CONFIG_FILE=/root/ SDL_VIDEODRIVER=wayland MESA_LOADER_DRIVER_OVERRIDE=pvr ffplay 480p.mp4
        ```
 
-     - <u>方法 2：使用 </u>**mpv**<u> 播放</u>
+     - **<u>Method 2:** </u>Use <u>**mpv**</u> to play
 
        ```c
-       // 安装必要的软件包 
+       // Install required package
        apt install -y k1x-vpu-firmware mpp ffmpeg img-gpu-powervr mpv
 
-       // 使用mpv命令播放视频文件
+       // Use mpv command to play video files
        SDL_VIDEODRIVER=wayland MESA_LOADER_DRIVER_OVERRIDE=pvr mpv 480p.mp4
        ```
 
-2. **如何检测 HDMI 连接状态？**
-    要检测 HDMI 连接状态，可通过检查 Linux 系统中特定文件的内容来获取信息。具体步骤如下：
+2. **How to Detect HDMI Connection Status?**  
+   To detect the HDMI connection status, you can retrieve information by checking the content of specific files in the Linux system. Follow the steps below:
 
-   - **步骤 1：** 打开计算机上的终端应用程序。
-   - **步骤 2：** 检查 HDMI 连接状态, 如下示例
-     使用 `cat` 命令来查看 `/sys/class/drm/card1-HDMI-A-1/status` 文件的内容。这个文件包含了 HDMI 连接的状态信息：
-     - 如果输出显示 `connected`，则表示 HDMI 连接已建立，显示器已成功连接到系统。
-     - 如果显示 `disconnected` 或文件不存在，则表示 HDMI 连接未建立或显示器未连接。
+   - **Step 1:** Open the terminal application on your device.
+   - **Step 2:** Check the HDMI connection status  
+     View the `/sys/class/drm/card1-HDMI-A-1/status` file using the `cat` command. This file contains the HDMI connection status information:
+     - If the output shows `connected`, the HDMI connection is established and the display is successfully connected to the system. 
+     - If the output shows `disconnected` or the file does not exist, the HDMI connection is not established or the display is not connected
 
      ```c
-     cat /sys/class/drm/card1-HDMI-A-1/status //访问状态文件
-     connected // HDMI连接的状态信息
+     cat /sys/class/drm/card1-HDMI-A-1/status //Access the status file
+     connected // HDMI connection status information
      ```
 
-   <u>检测 HDMI 连接状态需注意以下事项：</u>
+   <u>Notes for HDMI Connection Detection:</u>
 
-   - **如果文件路径不存在怎么办？**
-     - 确保系统加载了 DRM 驱动程序。
-     - 根据具体硬件配置，`card1-HDMI-A-1` 可能会有所不同，可以通过以下命令查看所有 HDMI 相关设备路径：
+   - **If the file path does not exist:**
+     - Ensure the DRM driver is loaded in the system
+     - The `card1-HDMI-A-1` path may vary depending on the hardware configuration. Use the following command to list all HDMI-related device paths:
 
        ```c
        ls /sys/class/drm/
        ```
 
-   - **检测结果不准确怎么办？**
-     - 检查 HDMI 电缆是否连接牢固。
-     - 确保外接显示设备已开启电源。
-     - 重新插拔 HDMI 线缆测试。
+   - **If the detection result is inaccurate:**
+     - Check that the HDMI cable is securely connected
+     - Ensure the external display device is powered on
+     - Reconnect the HDMI cable and test again
 
-3. **在 bianbu-minimal 系统里，如何关闭 tty1 登录显示和光标显示？**
-    以下是关闭 **tty1（登录界面）登录显示** 以及 **光标显示** 的操作方法：
+3. **How to Disable tty1 Login Display and Cursor Display in bianbu-minimal System**
+    Steps to disable the **tty1 (login screen) login display** and **cursor display**:
 
-   - 关闭 tty1 登录显示操作命令如下：
+   - Disable tty1 Login Display:
 
      ```javascript
-     #关闭tty1登录显示
-     systemctl stop getty@tty1 // 停止 tty1 的登录服务
-     systemctl disable getty@tty1 // 禁用 tty1 的登录服务（防止开机时自动启用）
+     #Disable tty1 login display
+     systemctl stop getty@tty1 // Stop the tty1 login service
+     systemctl disable getty@tty1 // Disable the tty1 login service (prevents automatic start on boot)
      ```
 
-   - 关闭光标显示操作命令如下：
+   - Disable/Enable Cursor Display:
 
      ```javascript
-     #关闭光标显示
+     #Disable cursor display
      echo -e "\033[?25l" > /dev/tty1
-     #如果需要重新开启光标显示
+     #To re-enable cursor display
      echo -e "\033[?25h" > /dev/tty1
      ```
 
-4. **在 bianbu-linux 系统里，如何关闭 Weston 桌面？**
-    在 bianbu-linux 系统中，默认安装了 Weston（Wayland 的参考实现桌面）。以下是关闭 Weston 桌面的两种方法：
+4. **How to Disable Weston Desktop in bianbu-linux System?**
+    The bianbu-linux system comes with Weston (the reference implementation of Wayland) pre-installed by default.
 
-   - **方法 1：** 通过命令关闭 Weston，如下
+   - **Method 1:** Disable Weston via command
 
      ```c
      /etc/init.d/S30weston-setup.sh stop
      ```
 
-     此命令会立即停止 Weston 桌面的运行，屏幕将不再显示图形界面。
-   - **方法 2：** 删除启动脚本文件，如下
+     Execute the following command to stop Weston immediately, and the graphical interface will no longer be displayed:
+   - **Method 2:** Delete startup script
 
      ```javascript
      rm /etc/init.d/S30weston-setup.sh
      ```
 
-   重新启动系统后，Weston 将不会自动启动。
-   **注意：**
-    - 通过方法 1 （**临时关闭**），可以随时停止 Weston，但系统重启后 Weston 会再次启动，而通过方法 2 （**永久禁用**）删除启动脚本后，Weston 将不会随系统启动，需手动配置才能恢复。
-    - 如果需要恢复 Weston 桌面，请重新安装或手动创建启动脚本 `/etc/init.d/S30weston-setup.sh`。
-    - 关闭 Weston 后，系统将无法显示图形界面，只能通过终端或串口登录操作。
+   After system reboot, Weston will no longer start automatically:  
+     **Note.**
+    - Method 1 is **temporary disable**: you can stop Weston at any time, but it will restart automatically after system reboot.  
+    - Method 2 is **permanent disable**: after deleting the startup script, Weston will not start with the system, and manual configuration is required to restore it
+    - To restore the Weston desktop, you need to reinstall or manually create the startup script `/etc/init.d/S30weston-setup.sh`.
+    - After disabling Weston, the system will no longer display a graphical interface, and can only be operated via terminal or serial port login.
 
-5. **如何查看 GPU 利用率？**
-    可通过以下命令查看 GPU 的利用率：
+5. **How to Check GPU Utilization?**  
+   Check the GPU utilization with the following command:
 
    ```javascript
    cat /sys/kernel/debug/pvr/status
    ```
 
-   **注意：** 只有在正确加载 GPU 驱动后，`/sys/kernel/debug/pvr/status` 文件才能正常访问。
+   **Note.** The `/sys/kernel/debug/pvr/status` file can only be accessed after the GPU driver is loaded correctly. 
 
-### 软件安装
+### Software Installation
 
-1. **如何在 bianbu-minimal 系统里搭建 Wi-Fi 软件栈？**
-    以下步骤指导您在 **bianbu-minimal** 系统中安装和配置 Wi-Fi 软件栈，以实现无线网络连接。
+1. **How to Set Up Wi-Fi Software Stack in bianbu-minimal System?**  
+    Follow the steps to install and configure the Wi-Fi software stack in the bianbu-minimal system and achieve wireless network connection:
 
-   - **步骤 1：** 运行以下命令安装所需的 Wi-Fi 软件模块和配置工具：
+   - **Step 1:** Install Required Wi-Fi Software Modules and Configuration Tools
 
      ```c
      apt install -y spacemit-modules-usrload wpasupplicant
      ```
 
-   - **步骤 2：** 编辑网络配置文件 `/etc/netplan/01-netcfg.yaml`，如下示例
+   - **Step 2:** Edit the Network Configuration file `/etc/netplan/01-netcfg.yaml`
 
      ```javascript
-     _# 修改 /etc/netplan/01-netcfg.yaml _
+     _# Modify /etc/netplan/01-netcfg.yaml _
      network:
          version: 2
          renderer: networkd
@@ -1165,29 +1225,31 @@ TBD
              end0:
                  dhcp4: true
          wifis:
-             wlan0:        //无线网卡的接口名称
+             wlan0:        //Wireless network card interface name
                  dhcp4: true
-                 access-points:  //设置 Wi-Fi 网络的名称 (**SSID**) 和密码
+                 access-points:  //Set Wi-Fi network name (**SSID**) and password
                    "Set_WIFI_Name":
                      password: "Set_Your_PW"
      ```
 
-   - **步骤 3：** 保存配置文件后，运行以下命令使设置生效并连接 Wi-Fi：
+   - **Step 3:** Apply Configuration and Connect to Wi-Fi
 
      ```c
      netplan apply
      ```
 
-2. **如何开启 AP 热点？**
-    以下步骤指导您在 `bianbu-minimal` 中安装相关软件并开启 AP 热点。请确保设备或开发板搭载 Wi-Fi 芯片，且已正确配置驱动。
+2. **How to Enable AP Hotspot？**  
+     Follow the steps to install the required software and enable the AP hotspot in `bianbu-minimal`. Please ensure the device or development board is equipped with a Wi-Fi chip and the driver is configured correctly.
 
-   - **步骤 1：** 安装相关软件。执行以下命令来安装所需的软件包：
+   - **Step 1: Install the Required Software**   
+    Run the following command to install the required packages:
 
      ```javascript
      apt install -y hostapd udhcpd spacemit-modules-usrload net-tools
      ```
 
-   - **步骤 2：** 生成配置文件。编辑文件内容如下：
+   - **Step 2: Generate the Configuration File**  
+     Edit the configuration file to complete the parameter configuration for the AP hotspot.
 
      ```javascript
      root@k1:~# cat /etc/hostapd.conf 
@@ -1211,7 +1273,8 @@ TBD
      interface wlan0
      ```
 
-   - **步骤 3：** 开启 AP 热点。执行以下命令来启动 AP 热点：
+   - **Step 3: Enable AP Hotspot**   
+     Run the following command to start the AP hotspot:
 
      ```javascript
      ifconfig wlan0 down
@@ -1222,24 +1285,24 @@ TBD
      hostapd -B -d /etc/hostapd.conf
      ```
 
-3. **如何在 bianbu-minimal 系统里搭建蓝牙软件栈？**
-   以下是 **bianbu-minimal** 系统中搭建和配置蓝牙软件栈的详细步骤：
+3. **How to Set Up Bluetooth Software Stack in bianbu-minimal System?**  
+    Steps to set up and configure the Bluetooth software stack in the bianbu-minimal system:
 
-   - **步骤 1：** 使用以下命令安装必要的软件包
+   - **Step 1:** Install the Required Packages with the Following Command
 
      ```c
      apt install -y spacemit-uart-bt bluez bluez-cups bluez-obexd libbluetooth3 libspa-0.2-bluetooth rfkill totem-plugins
      apt install -y gnome-bluetooth-sendto gnome-bluetooth-3-common libgnome-bluetooth-3.0-13 gir1.2-gnomebluetooth-3.0 
      ```
 
-   - **步骤 2：** 关闭与桌面相关的服务
+   - **Step 2:** Disable Desktop-Related Services
 
      ```c
      systemctl stop apport.service accounts-daemon.service gdm.service geoclue.service gnome-remote-desktop.service
      systemctl disable apport.service accounts-daemon.service gdm.service geoclue.service gnome-remote-desktop.service
      ```
 
-   - **步骤 3：** 启用并重启蓝牙相关服务：
+   - **Step 3:** Enable and Restart Bluetooth-Related Services
 
      ```c
      systemctl enable bluetooth.service && systemctl restart bluetooth.service
@@ -1247,28 +1310,28 @@ TBD
      systemctl enable realtek-bt.service && systemctl restart realtek-bt.service
      ```
 
-   - **步骤 4：** 配置 HCI 蓝牙模块
+   - **Step 4:** Enable and Restart Bluetooth-Related Services
 
      ```c
-     #开启hci
+     #Enable hci
      ./hci_init.sh start
 
 
-     #关闭hci
+     #Disable hci
      ./hci_init.sh stop
      ```
 
-   完整的执行命令整理如下：
+   Complete Execution Commands for Bluetooth Software Stack:
 
    ```javascript
    apt install -y spacemit-uart-bt bluez bluez-cups bluez-obexd libbluetooth3 libspa-0.2-bluetooth rfkill totem-plugins
    apt install -y gnome-bluetooth-sendto gnome-bluetooth-3-common libgnome-bluetooth-3.0-13 gir1.2-gnomebluetooth-3.0 
 
-   #关掉桌面的应用(蓝牙应用对桌面有依赖，待查清依赖项)
+   #isable desktop-related applications (Bluetooth applications have dependencies on the desktop, pending dependency verification)
    systemctl stop apport.service accounts-daemon.service gdm.service geoclue.service gnome-remote-desktop.service
    systemctl disable apport.service accounts-daemon.service gdm.service geoclue.service gnome-remote-desktop.service
 
-   #起服务：
+   # Enable and restart services
    systemctl enable bluetooth.service && systemctl restart bluetooth.service
    systemctl --user enable obex.service && systemctl --user restart obex.service
    systemctl enable realtek-bt.service && systemctl restart realtek-bt.service
@@ -1276,96 +1339,92 @@ TBD
    apt install -y spacemit-uart-bt bluez rfkill
    bluez-cups bluez-obexd libbluetooth3 libspa-0.2-bluetooth  totem-plugins
 
-   #开启hci
+   #Enable hci
    ./hci_init.sh start
 
 
-   #关闭hci
+   #Disable hci
    ./hci_init.sh stop
    ```
 
-4. **如何在 bianbu-minimal 系统里安装 SSH 客户端？**
+4. **How to Install SSH Client in bianbu-minimal System?**
 
-  在 **bianbu-minimal** 系统中，执行以下命令，确保系统中的软件包索引为最新，并安装 SSH 客户端和服务端。
+    In the **bianbu-minimal** system, run the following commands to update the system package index and install the SSH client and server:
 
    ```javascript
    apt update && apt install -y openssh-server openssh-client
    ```
 
-5. **如何在 bianbu-minimal 系统里安装 Docker 以及简单的应用？**
+5. **How to Install Docker and Simple Usage in bianbu-minimal System**
 
-  - 通过以下命令安装 Docker：
+  - Install Docker with the following command:
 
      ```javascript
      apt install -y docker.io docker-buildx
      ```
 
-  - Docker 简单使用，以 Ubuntu 22.04 版本为例：
+  - Basic Docker usage (using Ubuntu 22.04 as an example):
 
      ```javascript
      docker pull ubuntu:22.04
 
-     /*创建并运行一个 Docker 容器*/
+     /*Create and Run a Docker Container*/
      docker run --name test -itd -v ~/workspace/bianbu-linux-dev/:/root ubuntu:22.04 /bin/bash
 
      /**
-     * **--name test**：指定容器名称为 test
-     * -itd，表示终端交互式操作,d表示后台运行，如果没有加d参数，退出终端后，docker也停止运行。
-     * **-v**：挂载当前目录到容器内，冒号后面表示挂载到容器里面的路径。注意，只有在run才能挂载
+     * **--name test**: Set the container name to test
+     * -itd indicates interactive terminal operation. `d`: runs the container in the background. Without the `d` parameter, the docker container will stop running after you exit the terminal.
+     * **-v**: Mount the local directory into the container. The path after the colon represents the mount path inside the container. Note: Mounts can only be specified with the `run` command.
      * 
      */
 
-     /* 加d参数后台运行，退出终端后，可以用docker exec id or name重新进入终端 */
+     /*After running in the background with the d parameter, you can re-enter the terminal with docker exec id or name after exiting  */
      docker exec -it id /bin/bash
 
-     /* 停止，删除docker实例 */
-     docker ps -a // 查看已有的docker实例，包括已停止的docker容器
-     docker stop id // 停止一个容器, id替换为容器的ID
-     docker rm -f 018f76b09d53 // 删除已有的docker容器，018f76b09d53为ps -a获取到的容器id
+     /* Stop and delete docker instances*/
+     docker ps -a // List all docker instances, including stopped containers
+     docker stop id // Stop a container, replace id with the container ID
+     docker rm -f 018f76b09d53 // Delete a docker container, 018f76b09d53 is the container ID obtained from docker ps -a
 
-     /* 删除docker images 实例 */
-     docker images // 查看Docker镜像
+     /* Delete docker images instances */
+     docker images // View Docker images
 
-     /** 输出示例：
+     /** Output example:
      * REPOSITORY    TAG       IMAGE ID       CREATED        SIZE
      * openwrtbuild  v1        8dc65be7189e   
      */
 
-     docker rmi openwrtbuild:v1 //删除指定镜像（格式为 repository:tag）
+     docker rmi openwrtbuild:v1 // Delete specified image (format: repository:tag)
 
      ```
 
-6. **ROS 2 环境安装**
-   在 **bianbu-desktop** 系统上，支持 **ROS** 和 **ROS2** 环境的安装。
-   根据官方文档中的步骤执行安装。
 
-   - [ROS 安装指南](https://spacemit.com/community/document/info?lang=zh&nodepath=software/SDK/bianbu/robot/ros.md)
-   - [ROS2 安装指南](https://spacemit.com/community/document/info?lang=zh&nodepath=software/SDK/bianbu/robot/ros2.md)
+### Performance/Functional Testing
 
-### 性能/功能测试
+1. **How to Test Wi-Fi Performance with iperf?**  
+   Please ensure Wi-Fi related software dependencies are installed correctly.
 
-1. **如何使用 iperf 测试 Wi-Fi 性能？**
-    请确保已安装好 Wi-Fi 相关的软件依赖。
-
-  - **步骤 1：** 连接 Wi-Fi 热点（基于 `bianbu-linux`）。对于 `bianbu-minimal` 连接 Wi-Fi 的方法，请参考软件安装 FAQ 中的“如何在 bianbu-minimal 系统里搭建 Wi-Fi 软件栈？”。
+  - **Step 1:** Connect to Wi-Fi Hotspot (based on `bianbu-linux`).  
+    Please refer to [Q3 in Software Installation](#software-installation) for Wi-Fi connection. 
 
      ```javascript
-     #在串口终端执行以下命令
+     # Run the following commands in the serial terminal
      wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant.conf
 
-     #添加网络
+     # Add network
      wpa_cli -i wlan0 add_network
 
-     #连接wifi热点, 注意：不能把斜杠\去掉，ssid和密码只需要替换WIFI_NAME和WIFI_PASSWORD
+     # Connect to Wi-Fi hotspot. Note: Do NOT remove the backslash \. Replace WIFI_NAME and WIFI_PASSWORD with your actual SSID and password
      wpa_cli -i wlan0 set_network 0 ssid "\"WIFI_NAME\""
      wpa_cli -i wlan0 set_network 0 psk "\"WIFI_PASSWORD\""
      wpa_cli -i wlan0 enable_network 0
      ```
 
-  - **步骤 2：** 在 PC 端启动 iperf 服务，运行成功后，终端会显示类似以下输出：
+  - **Step 2:**: Start iperf Service on PC  
+    After successful startup, the terminal will show output similar to the following:
 
      ```javascript
-     #在PC端执行以下命令启动 iperf3 服务（PC和目标设备需在同一网段）
+     # Run the following command on PC to start iperf3 service (PC and target device must be on the same network segment)
      $ iperf3 -s
      -----------------------------------------------------------
      Server listening on 5201
@@ -1392,10 +1451,10 @@ TBD
      -----------------------------------------------------------
      ```
 
-  - **步骤 3：** 在目标设备测试性能。
+  - **Step 3:** Test Performance on the Target Device
 
      ```javascript
-     #在目标设备（如开发板）执行以下命令，示例执行和运行结果如下
+     # Run the following command on the target device (e.g., development board). The example execution and running results are as follows:
      # iperf3 -t 10 -c 10.0.90.77 -bidir --bind-dev wlan0
      Connecting to host 10.0.90.77, port 5201
      [  5] local 10.0.90.72 port 48544 connected to 10.0.90.77 port 5201
@@ -1418,243 +1477,256 @@ TBD
      iperf Done.
      ```
 
-2. **如何使用 iperf 测试以太网性能？**
-  以下是通过 **iperf** 测试以太网性能的详细步骤。测试前需要确保设备与 PC 处于同一个局域网中。
+2. **How to Test Ethernet Performance with iperf?**  
+   Steps to test Ethernet performance with **iperf**.  
+   Ensure the device and PC are on the same local area network before testing.
 
-   - **步骤 1：** 检查网络连接
-     - 在设备串口终端执行以下命令，确认设备获取的 IP 地址（假设为 192.168.3.250）
+   - **Step 1:** Check Network Connection
+     - Run the following command in the device serial terminal to confirm the IP address obtained by the device (assumed to be 192.168.3.250)
 
      ```c
      ifconfig
      ```
 
-     - 在设备和 PC 上分别执行 `ping`，确保双方 IP 能互相访问
-   - **步骤 2：** 在 PC 端启动 iperf 服务，运行以下命令：
+     - Run `ping`on both the device and PC to ensure the two IPs can access each other.
+   - **Step 2:** Start iperf Service on PC  
+     Run the following command to start the iperf server:
 
      ```javascript
-     iperf -s -i 1 //-i 1：每秒输出一次性能数据
+     iperf -s -i 1 //-i 1: Output performance data once per second
      ```
 
-   - **步骤 3：** 在设备端串口运行 iperf 客户端测试, 执行以下示例命令
+   - **Step 3:** Run iperf Client Test on the Device Serial Terminal  
+      Run the following example command to initiate the performance test:
 
      ```javascript
      iperf3 -c 192.168.3.250 -i 1 -t 10 -b 7M 
-     // -t 10：测试持续时间为 10 秒
-     // -b 7M：设置带宽为 7 Mbps（可根据实际需求调整）
+     // -t 10: Test duration is 10 seconds
+     // -b 7M: Set bandwidth to 7 Mbps (adjust according to actual requirements)
      ```
 
-   通过以上步骤即可完成以太网的性能测试，获取传输速率、丢包率等关键指标。
+   With the above steps, you can complete the Ethernet performance test and obtain key metrics such as transmission rate and packet loss rate.
 
-3. **基于 Bianbu Linux 进行 CPU/GPU/VPU 的压测命令**
-   以下是针对 **CPU**、**GPU**、**VPU** 及 **eMMC** 的详细压测步骤及命令：
+3. **CPU/GPU/VPU Stress Test Commands on Bianbu Linux**  
+   Stress test steps and commands for **CPU**, **GPU**, **VPU** and **eMMC**:
 
-   - **CPU 压测**
-     通过 `stress-ng` 工具对 CPU 进行多核压力测试，示例执行命令如下：
+   - **CPU Stress Test**  
+     Use the `stress-ng` tool to perform multi-core stress testing on the CPU. Example execution command: 
 
      ```c
-     #cpu：压测执行命令
+     #cpu: stress test execution command 
      stress-ng --cpu 8 --cpu-method all -t 1h 
-     //--cpu 8：使用8核CPU进行测试。
-     //--cpu-method all：选择全面的 CPU 压测方法，涵盖各种算法。
-     //-t 1h：测试持续时间为 1 小时。
+     //--cpu 8: Use 8 CPU cores for testing
+     //--cpu-method all: Select comprehensive CPU stress test methods covering various algorithms
+     //-t 1h: Test duration is 1 hour
      ```
 
-   - **GPU 压测**
-     使用 `glmark2-es2-wayland` 工具对 GPU 性能进行压力测试, 示例执行命令如下：
+   - **GPU Stress Test**  
+     Use the `glmark2-es2-wayland` tool to perform stress testing on GPU performance. Example execution command:
 
      ```c
-     #gpu:压测执行执行命令 
+     #gpu: stress test execution command
      XDG_RUNTIME_DIR=/root WAYLAND_DISPLAY=wayland-1 MESA_LOADER_DRIVER_OVERRIDE=pvr glmark2-es2-wayland --run-forever
      ```
 
-   - **VPU 压测**
-     通过自定义脚本对 VPU（视频处理单元）进行解码压力测试, 示例执行命令如下：
+   - **VPU Stress Test**  
+    Use a custom script to perform decoding stress testing on the VPU (Video Processing Unit). Example execution command:：
 
      ```c
-     #vpu压测：
-     //推送文件到设备(对应文件可在此下载使用)
+     #vpu stress test:
+     //Push files to the device (corresponding files can be downloaded and used here)
      adb push[ vpu.sh](https://wx2.qq.com/cgi-bin/mmwebwx-bin/webwxcheckurl?requrl=http%3A%2F%2Fvpu.sh&skey=%40crypt_7f0f58b8_5a7ee5cb320ced5c0e481ad2bb827fd8&deviceid=e048963785777114&pass_ticket=61EEy0kyecNkuVjC3qOX%252B4nUOX3Dx3NgZ%252BQHrAB9MdAAIHwcdMXzQtjHN1E8mLKYkwEbFNNC8zVORjCGCITdmA%253D%253D&opcode=2&scene=1&username=@538b5ac2047916fc84b09e047214de19748c34add7ad804c4574be9b2d317549) h264_w1920_h1080_f25_r4_p1_8bit_54f_11mb_high_cabac.264[ yuv420p_w1280_h720_30f.yuv](https://wx2.qq.com/cgi-bin/mmwebwx-bin/webwxcheckurl?requrl=http%3A%2F%2Fyuv420p_w1280_h720_30f.yuv&skey=%40crypt_7f0f58b8_5a7ee5cb320ced5c0e481ad2bb827fd8&deviceid=e048963785777114&pass_ticket=61EEy0kyecNkuVjC3qOX%252B4nUOX3Dx3NgZ%252BQHrAB9MdAAIHwcdMXzQtjHN1E8mLKYkwEbFNNC8zVORjCGCITdmA%253D%253D&opcode=2&scene=1&username=@538b5ac2047916fc84b09e047214de19748c34add7ad804c4574be9b2d317549) /root/
 
-     #执行VPU测试命令：
+     #Execute VPU test command:
      chmod a+x[ vpu.sh](https://wx2.qq.com/cgi-bin/mmwebwx-bin/webwxcheckurl?requrl=http%3A%2F%2Fvpu.sh&skey=%40crypt_7f0f58b8_5a7ee5cb320ced5c0e481ad2bb827fd8&deviceid=e048963785777114&pass_ticket=61EEy0kyecNkuVjC3qOX%252B4nUOX3Dx3NgZ%252BQHrAB9MdAAIHwcdMXzQtjHN1E8mLKYkwEbFNNC8zVORjCGCITdmA%253D%253D&opcode=2&scene=1&username=@538b5ac2047916fc84b09e047214de19748c34add7ad804c4574be9b2d317549); ./vpu.sh
      ```
 
-     **VPU** 测试使用 H.264 编码的 1080p 视频文件及 YUV420P 格式的视频进行解码测试。可通过以下链接获取：
+     **VPU** test uses H.264 encoded 1080p video files and YUV420P format video for decoding testing. Test files and scripts can be obtained via the following links: • 
      - [h264_w1920_h1080_f25_r4_p1_8bit_54f_11mb_high_cabac.264](https://cdn-resource.spacemit.com/file/chip/K1/k1-faq/h264_w1920_h1080_f25_r4_p1_8bit_54f_11mb_high_cabac.264)
      - [yuv420p_w1280_h720_30f.yuv](https://cdn-resource.spacemit.com/file/chip/K1/k1-faq/yuv420p_w1280_h720_30f.yuv)
      - [vpu.sh](https://cdn-resource.spacemit.com/file/chip/K1/k1-faq/vpu.sh)
 
-   - **eMMC 压测**
-     通过 `fio` 工具对 eMMC 存储性能进行随机读写测试, 示例执行命令如下：
+   - **eMMC Stress Test**  
+    Use the `fio` tool to perform random read/write testing on eMMC storage performance. Example execution command:
 
      ```c
-     #emmc压测可用fio
+     #emmc stress test with fio
      fio -name=rand-RW -direct=1 -iodepth=64 -rw=randrw -rwmixread=60 -rwmixwrite=4
      0 -ioengine=libaio -bs=128k -size=1G -numjobs=1 -runtime=1m -time_based -directo
      ry=/root/ -filename=fio-rand-RW --verify=crc32
      ```
 
-4. **蓝牙测试验证**
-   以下是基于 **bianbu-minimal** 和 **bianbu-linux** 系统进行蓝牙设备连接、断开及音响设备连接的测试和验证步骤。
+4. **Bluetooth Test and Verification**  
+   Test and verification steps for Bluetooth device connection, disconnection, and audio device connection on **bianbu-minimal** and **bianbu-linux** systems:
 
-   - 基于 **bianbu-minimal** 系统的蓝牙测试, 运行命令如下
+   - Bluetooth Test on **bianbu-minimal** System  
+     Run the following commands:
 
      ```javascript
-     #在被连接设备上，开启蓝牙，使其可被发现：
-     bluetoothctl //蓝牙控制工具
-     discoverable on //使设备可被发现
-     通过电脑端或者手机端连接k1设备，完成匹配
+     #On the connected device, enable Bluetooth to make it discoverable
+     bluetoothctl //Bluetooth control tool
+     discoverable on //Make the device discoverable
+     Connect to the K1 device via PC or mobile phone to complete pairing
 
 
-     # 连接蓝牙音响设备：
+     # Connect to Bluetooth audio device:
      bluetoothctl
      power on
      agent on
-     scan on  #启动蓝牙扫描，找到蓝牙设备的地址，如48:D8:45:46:08:D0
+     scan on  #Start Bluetooth scanning to find the device address, e.g. 48:D8:45:46:08:D0
 
-     pair 48:D8:45:46:08:D0 // 配对音响设备
-     trust 48:D8:45:46:08:D0 // 信任设备
-     connect 48:D8:45:46:08:D0 // 连接音响设备
-     info 48:D8:45:46:08:D0 // 查看设备信息
+     pair 48:D8:45:46:08:D0 // Pair with the audio device
+     trust 48:D8:45:46:08:D0 // Trust the device
+     connect 48:D8:45:46:08:D0 // Connect to the audio device
+     info 48:D8:45:46:08:D0 // View device information
 
-     #断开音响设备连接
-     disconnect 48:D8:45:46:08:D0 // 断开
-     remove 48:D8:45:46:08:D0 // 移除设备（如不再需要）
+     #Disconnect from the audio device
+     disconnect 48:D8:45:46:08:D0 // Disconnect
+     remove 48:D8:45:46:08:D0 // Remove the device (if no longer needed)
      ```
 
-   - 基于 **bianbu-linux** 系统的蓝牙测试, 运行命令如下
+   - Bluetooth Test on **bianbu-linux** System  
+     Run the following commands:
 
      ```javascript
      ./hci_init.sh start
 
      bluetoothctl scan on
 
-     #等待片刻，扫描到设备后，查看设备列表
+     # Wait for a moment, after the device is scanned, view the device list
 
-     bluetoothctl list // 查看已连接设备
+     bluetoothctl list // View connected devices
      ```
 
-   其他与蓝牙相关的命令，请参考 bianbu-minimal 的 `bluetoothctl` 命令
+    For other Bluetooth-related commands, please refer to the `bluetoothctl` command on bianbu-minimal.
 
-5. **基于 bianbu Linux 测试摄像头功能**
-   以下是基于 **bianbu Linux** 系统对摄像头功能进行测试的步骤，包括如何抓取单个摄像头的图像以及如何同时执行两个摄像头的抓图命令。
+5. **Camera Function Test on bianbu Linux**  
+  Steps to test camera functionality on the **bianbu Linux** system, including how to capture images from a single camera and how to run capture commands for two cameras simultaneously.
 
-   - **步骤 1：** 摄像头测试准备：
-     camera demo，以及 json 文件的配置，参考文档：[摄像头开发指南](https://spacemit.com/community/document/info?lang=zh&nodepath=software/SDK/buildroot/k1_buildroot/camera/camera_development_guide.md)
-   - **步骤 2：** 执行以下命令来测试单个摄像头抓图。
+   - **Step 1:** Camera Test Preparation   
+     Prepare the camera demo and json file configuration.  
+     Reference [Camera Development Guide](https://spacemit.com/community/document/info?lang=zh&nodepath=software/SDK/buildroot/k1_buildroot/camera/camera_development_guide.md)
+   - **Step 2:** Run the following command to test single camera image capture:
 
      ```javascript
-     #单个摄像头抓图, 运行以下命令
-     cam-test /opt/camtest_sensor0_mode0.json //摄像头 0
-     cam-test /opt/camtest_sensor2_mode0.json //摄像头 2
+     #Single camera capture, run the following command
+     cam-test /opt/camtest_sensor0_mode0.json //Camera 0
+     cam-test /opt/camtest_sensor2_mode0.json //Camera 2
      ```
 
-   - **步骤 3：** 执行以下命令来测试**两个**摄像头抓图。
+   - **Step 3:** Run the following command to test **two** cameras capturing at the same time:
 
      ```javascript
-     #同时执行两个摄像头的抓图命令
+     #Run capture commands for two cameras simultaneously
      dual_pipeline_online_test
      ```
 
-### USB 相关
+### USB 
 
-1. **bianbu-minimal/bianbu-desktop 系统如何将开发板配置成 U 盘模式？**
+1. **How to Configure the Development Board as a USB Disk on bianbu-minimal/bianbu-desktop System?**
 
-   - **步骤 1：** 从 Gitee 仓库下载 `usb-gadget` 脚本到开发板上
-     仓库地址：[USB-Gadget](https://gitee.com/bianbu-linux/usb-gadget#mass-storage-bot%E5%8D%8F%E8%AE%AE)
-   - **步骤 2：** 开发板上安装必要的工具 `dosfstools`，执行以下示例命令
+   - **Step 1:** Download the [`usb-gadget`](https://gitee.com/bianbu-linux/usb-gadget#mass-storage-bot%E5%8D%8F%E8%AE%AE) script from the Gitee repository to the development board.
+
+   - **Step 2:** Install the required tool `dosfstools`.  
+    Run the following command:
 
      ```c
      apt -y install dosfstools
      ```
 
-   - **步骤 3：** 配置开发板的 U 盘模式，运行以下命令，以下是选中 usb3.0 口
+   - **Step 3:** Configure USB Disk Mode . 
+     The following example uses the USB3.0 port:
 
      ```c
      USB_UDC=c0a00000.dwc3 ./gadget-setup.sh uas:/dev/nvme0n1p1 
      ```
 
-   完整的执行命令整理如下：
+   Complete Execution Commands
 
      ```javascript
      #bianbu-minimal
 
-     #从git仓库下载脚本,推动到机子
+     # Download the script from the Git repository to the development board
      https://gitee.com/bianbu-linux/usb-gadget#mass-storage-bot%E5%8D%8F%E8%AE%AE
 
      apt -y install dosfstools
      USB_UDC=c0a00000.dwc3 ./gadget-setup.sh uas:/dev/nvme0n1p1 
      ```
 
-2. **挂载 U 盘后，如何让其在 Windows 和 Linux 系统上都能识别分区？**
+2. **How to Make the Partition Recognizable on Both Windows and Linux Systems After Mounting a USB Drive?**
 
-   - **步骤 1：** 在 Linux 系统中，安装支持 NTFS、FAT32 和 exFAT 文件系统的工具。执行以下示例命令
+   - **Step 1:** Install tools supporting NTFS, FAT32, and exFAT file systems on the Linux system:
 
      ```c
      apt install -y ntfs-3g dosfstools exfatprogs exfat-fuse
-     // ntfs-3g: 支持 NTFS 文件系统读写。
-     // dosfstools: 提供创建和检查 FAT 文件系统的工具。
-     // exfatprogs 和 exfat-fuse: 支持 exFAT 文件系统。
+     // ntfs-3g: Supports NTFS file system read and write 
+     // dosfstools: Provides tools for creating an checking FAT file systems
+     // exfatprogs and exfat-fuse: Support exFAT file system
      ```
 
-   - **步骤 2：** 使用 `fdisk` 工具对 U 盘进行分区, 执行以下示例命令
+   - **Step 2:** Partition the USB Disk with `fdisk`   
+     Run the following commands:
 
      ```c
-     # 创建两个分区
-     # 第一个分区（ext4文件系统，用于Linux）
+     # Create 2 partitions
+     # First partition (ext4 file system, for Linux)
      fdisk 
-     g    // 创建新的 GPT 分区表
-     o    // 创建新的空白分区表
-     n    // 创建新分区
-     p    // 创建主分区
-     1    // 分区编号1
-     enter    // 默认起始扇区
-     +16G     //分配16GB空间
+     g    // Create a new GPT partition table
+     o    // Create a new empty partition table
+     n    // Create a new partition
+     p    // Create a primary partition
+     1    // Partition number 1
+     enter    // Default starting sector
+     +16G     // Allocate 16GB of space
 
-     # 第二个分区（NTFS文件系统，用于Windows）
-     n    // 创建第二个分区
-     e    // 选择扩展分区
-     2    // 分区编号2
-     enter    // 默认起始扇区
+     # Second partition (NTFS file system, for Windows)
+     n    // Create the second partition
+     e    // Select extended partition
+     2    // Partition number 2
+     enter    // Default starting sector
 
-     w    // 保存更改并退出fdisk
+     w    // Save changes and exit fdisk
      ```
 
-   - **步骤 3：** 格式化分区 1 为 ext4 文件系统, 执行以下示例命令
+   - **Step 3:** Format Partition 1 to ext4 File System  
+     Run the following command
 
      ```c
      mkfs.ext4 /dev/nvmen0p1
      ```
 
-   - **步骤 4：** 挂载 U 盘, 使用 `gadget-setup.sh` 脚本将 U 盘配置为 UAS 模式，使其在 Linux 上可识别。执行以下示例命令
+   - **Step 4:** Mount the USB Drive and Configure UAS Mode with the `gadget-setup.sh` script, making it recognizable on Linux:
 
      ```c
      USB_UDC=c0a00000.dwc3 gadget-setup.sh uas:/dev/nvme0n1
      ```
 
-   - **步骤 5：** 在 Windows 上格式化分区 2
-     - 将 U 盘插入 windows 电脑，打开磁盘管理。
-     - 将分区 2 新建卷， 并格式化为 NTFS 文件系统。后面挂载 U 盘可以直接选。
-   - **步骤 6：**（如需）继续挂载 U 盘，在开发板上执行以下命令
+   - **Step 5:** Format Partition 2 on Windows
+     - Insert the USB drive into a Windows PC and open the Disk Management tool.
+     - Create a new volume for Partition 2 and format it to the NTFS file system, which will be directly recognized when the USB drive is mounted later.
+
+   - **Step 6:** (Optional) Continue Mounting the USB Drive   
+     Run the following command on the development board:
 
      ```javascript
      USB_UDC=c0a00000.dwc3 gadget-setup.sh uas:/dev/nvme0n1p5
      ```
 
-     这将使 U 盘分区 5 挂载为 U 盘，Windows 系统应该能够识别并访问该分区。
+     This will make the USB drive partition 5 mount as a USB drive, which should be recognized and accessible on the Windows system.
 
-3. **如何使用 husb239 检测 USB 连接状态？**
-   在 **Linux** 系统中，如果需要检测 USB 设备的连接状态，可通过 `husb239` 设备来获取 USB 端口的状态。`husb239` 是一个用于监控 USB 电源供应的驱动，能够帮助你获取 USB 连接的状态信息。
-   执行以下示例命令可来查看 USB 连接状态
-
+3. **How to Detect USB Connection Status with husb239?**  
+   On **Linux** systems, if you need to detect the connection status of USB devices, you can use the `husb239` device to get the status of the USB port. The `husb239` is a driver for monitoring USB power supply, which helps you obtain USB connection status information.  
+   Run the following example command to check the USB connection status:
    ```javascript
    cat /sys/class/power_supply/husb239-source-psy-4-0042/online
    ```
 
-   此命令会输出一个值，通常 `1` 表示 USB 设备已连接，`0` 表示 USB 设备未连接。
+   This command outputs a value:  
+    - `1` indicates the USB device is connected  
+    -  `0` indicates the USB device is disconnected
 
-4. **在 Bianbu Linux 系统中，如何将 ADB 设备切换到指定的 USB 口？**
-   **在串口执行以下命令**
+4. **How to Switch the ADB Device to a Specified USB Port on Bianbu Linux?**  
+  **Execute the following command in serial terminal**
 
    ```javascript
    # gadget-setup.sh info
@@ -1670,27 +1742,27 @@ TBD
    Available UDCs: c0900100.udc c0980100.udc1 
    Available DRDs: mv-otg1-role-switch c0a00000.dwc3 
 
-   #选中对应的usb口，如c0a00000.dwc3
+   #Switch to the specified USB port, such as c0a00000.dwc3
    gadget-setup.sh role c0a00000.dwc3 device
 
-   #重启adbd
+   #Restart adbd
    ADB_UDC=c0a00000.dwc3 /etc/init.d/S50adb-setup restart
    ```
 
-### 连接相关
+### Connection  
 
-1. **如何解决使用 Xterm 通过 SSH 远程登录开发板失败的问题？**
-  在使用 Xterm 通过 SSH 远程登录开发板时，如果遇到登录失败的问题，可能是因为 SSH 设置中的 `Compression` 选项被勾选。请按下图设置：
+1. **How to Fix Failed SSH Remote Login to the Development Board via Xterm?**
+  When you encounter login failures using Xterm to SSH into the development board, the `Compression` option in SSH settings is usually the cause. Please set according to the following steps:
 
-   - **步骤 1：** 打开 Xterm 程序。
-   - **步骤 2：** 在 Xterm 界面，选择"Session"。
-   - **步骤 3：** 在"Session settings"中，选择"SSH"标签页。
-   - **步骤 4：** 取消勾选"Advanced SSH settings"下的"Compression"选项。
-   - **步骤 5：** 点击"OK"保存设置。
+   - **Step 1:** Open the Xterm application
+   - **Step 2:** Select **Session** in the Xterm interface
+   - **Step 3:** Select the **SSH** tab in **Session** settings
+   - **Step 4:** Uncheck the **Compression** option under **Advanced SSH settings**
+   - **Step 5:** Click **OK** to save the settings
      <img src="static/HCcvbmamPo6TNpxyo3WcthWHnng.jpg" alt="" width="800">
 
-2. **以 root 账户通过 SSH 登录失败**
-  出于安全考虑，SSH 默认禁止 root 直接登录。可按如下方式修改配置文件，将 `PermitRootLogin` 的值改为 `yes`：
+2. **Failed to SSH in as root User**  
+  For security reasons, SSH disables direct root login by default. You can enable root remote login by modifying the configuration file and changing the value of `PermitRootLogin` to `yes`:
 
    ```
    //vim /etc/ssh/sshd_config
@@ -1698,7 +1770,10 @@ TBD
    PermitRootLogin yes
    ```
 
-3. **通过 SSH 连接后会自动断开，且再次连接会提示密码错误**
+3. **SSH Connection Drops Automatically, and Password Error is Prompted on Reconnection**
 
-   - **解决方案 1：** 检查是否存在多个板子被分配到相同的 IP。当多个设备被分配相同的 IP 地址时，会导致网络冲突，从而造成 SSH 连接自动断开，并出现密码错误提示。
-   - **解决方案 2：** 如果是路由器问题，尝试更换路由器或重启路由器，以解决可能的网络问题。
+   - **Solution 1:**   
+    Verify if multiple development boards are assigned the same IP address.
+    When multiple devices share the same IP address, it causes network conflicts, leading to automatic SSH disconnections and password error prompts.
+   - **Solution 2:**   
+    If the issue is router-related, try restarting the router or replacing it to resolve potential network instability, DHCP allocation errors, and other network problems.

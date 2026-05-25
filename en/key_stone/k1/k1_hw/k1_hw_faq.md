@@ -2,260 +2,259 @@
 sidebar_position: 5
 ---
 
-# 硬件常见问题
+# Hardware FAQ
 
-## 开发调试
+## Development & Debugging
 
-1. **K1 MUSE Pi 的开发板使用指南在哪里获取？**
+1. **How to get the user guides for the K1 MUSE Pi development board?**
 
-   - 开发文件统一在进迭开发者社区发布。可以通过以下链接访问：
-     [K1 MUSE Pi 用户使用指南](https://spacemit.com/community/document/info?lang=zh&nodepath=hardware/eco/k1_muse_pi/pi_user_guide.md)
+   - Development documentation is published on SpacemiT Developer Community. You can access the guide via the link:
+     [K1 MUSE Pi User Guide](https://spacemit.com/community/document/info?lang=en&nodepath=hardware/eco/k1_muse_pi/pi_user_guide.md)
 
-2. **K1 MUSE Pi 如何连接串口和 JTAG 调试？**
+2. **How should the serial port and JTAG be connected for debugging on K1 MUSE Pi?**
 
-   - **串口位置**
-       K1 MUSE Pi 的串口是一个单排 3 Pin 插针，位于 Wi-Fi 模组和 26 Pin 插针之间。
-   - **连接方式**
-       板上丝印 TX Pin 需要连接串口线的 RX 信号。
-       板上丝印 RX Pin 需要连接串口线的 TX 信号。
-   - **串口调试要求**
-     使用 3.3V 串口线进行调试，确保串口线支持 3.3V 信号。
-     波特率：115200，确保串口调试工具设置为该波特率。
-   - **PRI JTAG 调试**
-     - PRI JTAG 位置：
-          PRI JTAG 位于 26 Pin 插针的 7、11、13、15 号位置，分别对应 PRI\_TDI、PRI\_TMS、PRI\_TCK、PRI\_TDO。
-     - PRI JTAG 连接方式：
-          26 Pin 插针中的 7、11、13、15 号按照信号名称对应连接 J-Link Pin 脚，1 Pin 连接 J-Link 的 VREF 电源。
-   - **SEC JTAG 调试**
-     - SEC JTAG 位置：
-          SEC JTAG 位于 SD 卡插槽处，与 SD 卡 CLK、DATA0~3 Pin 复用，分别对应 SEC\_TCK、SEC\_TRSTn、SEC\_TDO、SEC\_TDI、SEC\_TMS。
-     - SEC JTAG 连接方式：
-          由于 SD 卡槽封装的原因，相关 Pin 未引出，因此建议自行制作转接小板，或将 SD 卡槽拆除后根据位号图飞线连接。
-     - SEC JTAG 使用要求：
-       使用 SEC JTAG 前，请先按照 K1 MUSE Pi 用户使用指南 \> 硬件介绍 \> **Boot Download Sel&JTAG Sel** 的说明调整硬件。**参考链接**：[K1 MUSE Pi 用户使用指南](https://spacemit.com/community/document/info?lang=zh&nodepath=hardware/eco/k1_muse_pi/pi_user_guide.md)
+   - **Serial port location**:
+       The serial is a single-row 3-pin header, located between the Wi-Fi module and the 26-pin expansion header.
+   - **Connection Method**:
+       Connect the board's TX pin (as labeled on the silkscreen) to the RX pin of the serial cable, and connect the board's RX pin to the TX pin of the serial cable.
+   - **Serial Debugging Requirements**:
+      A 3.3 V serial cable is required.
+      Baud rate: 115200 (serial port debugging tools should be set to this rate.)
+   - **PRI JTAG Debugging**
+     - PRI JTAG location:
+          The PRI JTAG is located at pins 7, 11, 13, 15 of the 26 Pin, corresponding to PRI\_TDI, PRI\_TMS, PRI\_TCK and PRI\_TDO respectively.
+     - PRI JTAG connection method:
+          Wire pins 7, 11, 13, and 15 of the 26-pin header to the corresponding pins on your J-Link probe, matching the signal names. Connect pin 1 of the header to the VREF power pin on the J-Link.
+   - **SEC JTAG Debugging**
+     - SEC JTAG location:
+          The SEC JTAG interface is located at the SD card slot, multiplexed with the SD card CLK and DATA0~3 pins. These correspond to SEC\_TCK, SEC\_TRSTn, SEC\_TDO, SEC\_TDI and SEC\_TMS respectively.
+     - SEC JTAG connection method:
+          Due to the SD card slot package design, these pins are not routed to external headers. It is recommended that you either fabricate a custom adapter board, or remove the SD card slot and make flying wire connections according to the board's schematic/position diagram.
+     - SEC JTAG usage requirements:
+       Before using the SEC JTAG interface, you must first configure the hardware as described in the [K1 MUSE Pi User Guide](https://spacemit.com/community/document/info?lang=en&nodepath=hardware/eco/k1_muse_pi/pi_user_guide.md) → Hardware Overview → Boot Download Sel & JTAG Sel section.
 
-3. **原理图中，有注释 "for test" 的器件，可以去掉的？**
+3. **Can components annotated "for test" in the schematic be removed?**
 
-   - 可以去掉。这些器件通常不是产品功能所必需的，而是为了在开发和测试阶段提供便利。
+   - Yes. These components are generally not required for product functionality, and are only intended to provide convenience during the development and debugging.
 
-4. **有 K1 PCB 制板的说明可以参考走线的阻抗设计吗？**
+4. **Is there any description of K1 PCB fabrication for trace impedance design?**
 
-   - 是的，您可以参考 **K1 芯片硬件设计指导手册**，其中包含详细的阻抗设计和走线规范说明。**参考链接**：[K1 硬件设计指南](https://spacemit.com/community/document/info?lang=zh&nodepath=hardware/key_stone/k1/k1_hw/k1_hw_design_guide.md)
+   - Yes, you can refer to [K1 Hardware Design Guide](https://spacemit.com/community/document/info?lang=en&nodepath=hardware/key_stone/k1/k1_hw/k1_hw_design_guide.md) for detailed specifications for impedance design and routing rules.
 
-5. **K1 的 jtag 接口是用来调试什么的？**
+5. **What is the JTAG interface on the K1 used to debug?**
 
-   - 用于调试 CPU，可以用来下载程序，并进行单步调试或断点调试。
+   - It is used for CPU debugging, supporting program download, as well as single-step debugging and breakpoint debugging.
 
-## 电源系统
+## Power System
 
-该部分主要解答与电源系统相关的常见问题，包括 DCIN、P1（多通道电源管理芯片）、电源域、DCDC、电池、充电器、电量计等问题。
+This section answers common questions about the power system, including DCIN, P1 (the multi-channel power management IC), power domains, DCDC, battery, charger, and fuel gauge.
 
-1. **P1 内置 RTC 精度是多少？**
+1. **What is the accuracy of the RTC integrated in P1?**
 
-   - P1 RTC 精度为 20 ppm。
+   - The RTC in P1 has an accuracy of 20 ppm.
 
-2. **休眠和关机时，哪些电源仍然供电？**
+2. **Which power rails remain powered during sleep and shutdown?**
 
-   - 在休眠模式下，以下电源被关闭：
-     - Buck4、Buck3
-     - ALDO0、ALDO1、ALDO2、ALDO3
-     - DLDO0、DLDO1、DLDO2
-   - 如果设备处于关机状态但未断开外部电源，**AONLDO**（Always-On LDO）仍会继续供电，以维持关键功能。
+   - In sleep mode, the following powers are turned off:
+     - Buck4, Buck3
+     - ALDO0, ALDO1, ALDO2, ALDO3
+     - DLDO0, DLDO1, DLDO2
+   - When the device is in shutdown state with external power still connected, the AONLDO (Always-On LDO) remains powered to maintain the power button functionality.
 
-3. **K1 供电的磁珠能否省掉？**
+3. **Can the ferrite beads in the K1 power supply design be removed?**
 
-   - 不能省掉。磁珠用于隔离模拟 PHY 供电和数字供电，确保供电的信号完整性和稳定性。如果省略磁珠，可能导致电源干扰，影响芯片性能。
+   - No. Ferrite beads are used to isolate the analog PHY power supply from the digital power supply, helping maintain power integrity and stability. Removing them may introduce power noise and reduce chip performance.
 
-4. **P1 上未使用的 LDO 能否被重新利用？**
+4. **Can unused LDOs on P1 be reassigned to other functions?**
 
-   - 可以，但需要确保以下几点：
-     - 检查 LDO 的默认输出电压是否符合具体应用需求。
-     - 确保外设的耐压值能够承受该 LDO 输出的电压。
+   - Yes, but the following points should be verified:
+     - Confirm that the default LDO output voltage meets the application requirements.
+     - Confirm that the target peripheral can tolerate the LDO output voltage.
 
-5. **关机状态下，如果定时时间到了，PMIC 能否自动开机？**
+5. **Can the PMIC automatically power on the system at a scheduled time while the system is powered off?**
 
-   - 可以自动开机。
-     - PMIC 支持 RTC 闹钟开机功能。
-     - 当定时时间到达时，P1 会直接启动，无需额外引出中断信号。
+   - Yes,
+     - The PMIC supports RTC alarm wake-up.
+     - When the scheduled time is reached, P1 starts directly without any additional interrupt output signal.
 
-6. **当插入适配器时，P1 端口是否具备自动开机的功能？**
+6. **Does P1 support automatic power-on when an adapter is connected?**
 
-   - 当前方案设计为在插入适配器时，P1 会自动启动，无需手动操作。
+   - In the current design, P1 powers up automatically when the adapter is connected, and no manual action is required.
 
-7. **P1 上没有适配器的检测电路，如何判断适配器插入？**
+7. **If P1 does not use a dedicated adapter detection circuit, how is adapter insertion detected?**
 
-   - 通过 P1 内部集成的检测机制完成判断。
-     - P1 能够通过其内部电路检测到 VIN 的输入信号，从而触发开机操作。
+   - Detection is handled by the internal detection mechanism integrated into P1.
+   - P1 detects the VIN input through its internal circuitry and then triggers power-on.
 
-8. **电池有电且处于关机状态时，插入适配器是否会自动开机？**
+8. **If the battery still has charge and the system is powered off, will connecting the adapter automatically power on the system?**
 
-   - 不会自动开机。在这种情况下，插入适配器后，不会启动，需要通过按键手动开机。
+   - No. In this case, connecting the adapter will not automatically start the system. Manual power-on through the button is required.
 
-9. **P1 能否直接使用 3.7V 电池供电？**
+9. **Can P1 be powered directly from a 3.7 V battery?**
 
-   - 可以。P1 能够直接通过 3.7V 电池供电。
+   - Yes. P1 can be powered directly from a 3.7 V battery.
 
-10. **P1 集成的 SW（开关），开关打开和关闭的时间是否可设置？**
+10. **Is the on/off timing of the integrated SW switch in P1 configurable?**
 
-    - 不可设置。P1 集成的开关在打开和关闭时的时间是固定的，无法进行调整。
+    - No. The on/off timing of the integrated switch in P1 is fixed and cannot be adjusted.
 
-11. **P1 集成的 SW（开关），为什么在未打开时也会导通？**
+11. **Why does the integrated SW switch in P1 still conduct even when it is off?**
 
-    - 已知设计问题，SW 未打开时通过 P1 SW 集成 MOS 管的体二极管导通，但通流能力非常弱。
-    - 建议：正常使用时，为了确保设备的正常运行和性能，需打开 SW。
+    - This is a known design characteristic. When SW is off, current can still flow through the body diode of the MOSFET integrated in the P1 SW path, but the current capability is very limited.
+    - Recommendation: To ensure normal operation and expected performance, SW should be enabled during standard use.
 
-12. **P1 上电是否有直接输出的 LDO，即常开的 LDO？**
+12. **Does P1 provide an always-on LDO that becomes active immediately after power is applied?**
 
-- 有。P1 上电时有一个集成的常开 LDO，即 AONLDO。该 LDO 在 P1 上电时会直接输出，默认输出电压为 1.8V。
+    - Yes. P1 includes an always-on LDO called AONLDO. It begins outputting as soon as P1 is powered, and its default output voltage is 1.8 V.
 
-1. **是否可以将 ALDO 系列的 LDO 全部配置为 3.3V？并且在系统启动时迅速设定为 3.3V，以及在休眠状态下保持该 LDO 开启，以实现持续供电？**
+13. **Can all ALDO-series LDOs be configured to 3.3 V, switched quickly to 3.3 V during startup, and kept enabled during sleep to provide continuous power?**
 
-    - 是的，可以将 ALDO 系列的 LDO 全部配置为 3.3V 输出。
-    - 在系统启动时，可以通过快速配置在 spl 阶段将 ALDO 设置为 3.3V，这个过程大约需要 490 多毫秒。
-    - 同时，在设备进入休眠状态时，可以选择保持 ALDO 开启，以确保关键电路的持续供电。
+    - Yes, all ALDO-series LDOs can be configured for 3.3 V output.
+    - During system startup, ALDO can be set to 3.3 V in the SPL stage through rapid configuration. This takes about 490 ms.
+    - ALDO can also be kept enabled during sleep so that critical circuits remain powered.
 
-2. **P1 上的所有 LDO 的输出电压都是可以修改的吗？**
+14. **Can the output voltage of every LDO on P1 be adjusted?**
 
-- 是的，可以修改。可根据实际需求自定义电压，但需要注意它们的默认开关状态和电压设置。
+    - Yes. The output voltage can be customized as needed, but the default enable state and default voltage setting of each LDO must be taken into account.
 
-1. **8 核 CPU 是否支持每个核心单独断电？**
+15. **Can 8-core CPU support independent power off for each core**
 
-    - 不支持每个 CPU 核单独断电，但支持每个 cluster 单独断电。
+    - No, but it supports independent power off for each cluster.
 
-## 存储系统
+## Storage System
 
-该部分主要解答与存储系统相关的常见问题，包括 DRAM、eMMC、TF Card、SSD、SPI Flash、EEPROM 等问题。
+This section answers common questions about the storage system, including DRAM, eMMC, TF card, SSD, SPI Flash, and EEPROM.
 
-1. **增加 EEPROM 的目的是什么？**
-   - 用来做不同硬件板卡信息的识别，使得单一固件能够兼容多种不同的硬件配置。
+1. **What is the purpose of adding an EEPROM?**
+   - It is used to identify different hardware configurations, allowing a single firmware image to support multiple hardware variants.
 
-## 时钟系统
+## Clock System
 
-该部分主要解答与时钟系统相关的常见问题，包括 DCXO、PLL 等问题。
+This section answers common questions about the clock system, including DCXO and PLL.
 
-## 复位系统
+## Reset System
 
-该部分主要解答与复位系统相关的常见问题，如 Reset 相关问题。
+This section answers common questions about the reset system.
 
-## 显示系统
+## Display System
 
-该部分主要解答与显示系统相关的常见问题，包括 MIPI DSI、HDMI 等问题。
+This section answers common questions about the display system, including MIPI DSI and HDMI.
 
-1. **DSI 用不到，需要供电吗？**
-   - 即使不使用 DSI 模块，仍然需要供电。
+1. **If DSI is not used, does the DSI block still need power?**
+   - Yes. Even when the DSI module is not used, it still requires power.
 
-## 音频系统
+## Audio System
 
-该部分主要解答与音频系统相关的常见问题，包括 Codec、Speaker、PA、MIC 等问题。
+This section answers common questions about the audio system, including codec, speaker, PA, and MIC.
 
-## 摄像系统
+## Camera System
 
-该部分主要解答与摄像系统相关的常见问题，包括 MIPI CSI、USB 等问题。
+This section answers common questions about the camera system, including MIPI CSI and USB.
 
-1. **CSI 用不到，需要供电吗？**
-   - 即使不使用 CSI 模块，仍然需要供电。
+1. **If CSI is not used, does the CSI block still need power?**
+   - Yes. Even when the CSI module is not used, it still requires power.
 
-## 网络系统
+## Networking System
 
-该部分主要解答与网络系统相关的常见问题，包括 Ethernet、Wi-Fi、BT、4G、5G 等问题。
+This section answers common questions about the networking system, including Ethernet, Wi-Fi, BT, 4G, and 5G.
 
-1. **如果使用 100M 以太网，且 PHY 的供电电压只有 3.3V，该如何连接？**
+1. **If 100M Ethernet is used and the PHY supply voltage is only 3.3 V, how should the connection be made?**
 
-   - 我们的 GMAC 不支持百兆 PHY，只支持千兆 PHY。
-   - 建议使用千兆 PHY 进行连接。
+   - Our GMAC does not support 100M PHYs, and only supports 1000M PHYs.
+   - Recommendation: Use a 1000M PHY for connection.
 
-2. **单网口应用，使用 GMAC0 或 GMAC1，是否影响软件应用？**
+2. **In a single-port Ethernet application, does selecting GMAC0 or GMAC1 affect software behavior?**
 
-   - 不影响。无论使用 GMAC0 还是 GMAC1 进行单网口应用，都不会对软件功能产生任何影响。
+   - No. In a single-port application, using GMAC0 or GMAC1 does not affect software functionality.
 
-## 外设及接口
+## Peripherals and Interfaces
 
-该部分主要解答与外设及接口相关的常见问题，包括 USB、SPI、I2C、I2S、UART、PCIe、ADC、PWM、CAN、GPIO、Key、CTP、Sensor、LED 等问题。
+This section answers common questions about peripherals and interfaces, including USB, SPI, I2C, I2S, UART, PCIe, ADC, PWM, CAN, GPIO, Key, CTP, Sensor and LED.
 
-1. **K1 的所有 IO 都支持中断输入吗？**
+1. **Do all K1 IOs support interrupt input?**
 
-   - 不是所有 IO 都支持中断输入。只有复用了 GPIO functions 的 IO 才支持中断输入。
+   - No. Only IOs multiplexed to GPIO functions support interrupt input.
 
-2. **GPIO90 是否只是开机时用于检测，之后可以作为普通 IO 使用？**
+2. **Is GPIO90 only used for detection during boot, and can it be used as a general-purpose I/O pin afterwards?**
 
-   - 是的，GPIO90 在开机时用于检测功能，之后可以作为普通 IO 引脚使用。
+   - Yes, GPIO90 is used for detection functions during the boot sequence, and can be repurposed as a general-purpose I/O pin after boot completion.
 
-3. **K1 有 SATA 接口？**
+3. **Does K1 provides SATA interface?**
 
-   - K1 本身没有直接提供 SATA 接口，但支持通过 PCIe 转 SATA 接口的方式扩展 SATA 功能，并且已经支持 ASM1061 和 JMB582 这两种转接卡。
+   - K1 does not provide a native SATA interface. However, SATA can be added through a PCIe-to-SATA bridge, and ASM1061 and JMB582 adapter cards are already supported.
 
-4. **USB2 口支持 OTG 吗？**
+4. **Does USB2 support OTG?**
 
-   - 是的，USB2 口支持 OTG 功能，可以作为 OTG 接口使用，但不支持烧录。
+   - Yes, USB2 supports OTG functionality. It can act as an OTG interface, but does not support firmware download.
 
-5. **USB0 口在上电时是否默认作为设备（device）模式？除了下载固件，是否可以作为主机（host）使用？**
+5. **Does USB0 default to device mode at power-up? Besides firmware download, can it also operate in host mode?**
 
-   - USB0 口在上电时默认作为设备（device）模式进行固件烧录。
-   - 也支持主机（host）模式，用于其他 USB 设备的连接。
+   - USB0 defaults to device mode at power-up for firmware download.
+   - It also supports host mode for connecting other USB devices.
 
-6. **使用 PCIe 转 SD 卡接口后，是否还支持 TF 卡烧录？**
+6. **After a PCIe-to-SD card interface is used, is TF-card-based firmware download still supported?**
 
-   - 使用 PCIe 转 SD 卡接口时，不支持 TF 卡烧录。
+   - No. TF-card-based firmware download is not supported when a PCIe-to-SD card interface is used.
 
-7. **K1 是否支持 ADC 功能？**
+7. **Does K1 support ADC functionality?**
 
-   - K1 不支持 ADC 功能，但 P1 支持 ADC 功能。
+   - K1 does not support ADC functionality, but P1 does.
 
-8. **我看你们发的资料没有说明 can 引出的引脚位置呢，没有 can 的描述 / CAN 引脚的位置在哪？**
+8. **How to get the description and pin location of the can?**
 
-   - CAN 功能可以通过这几个引脚进行配置，方便调试：
-   - GPIO75 和 GPIO76（位于 26 Pin 接口的第 23 Pin 和第 24 Pin）
-   - GPIO47 和 GPIO48（位于 26 Pin 接口的第 8 Pin 和第 10 Pin）
+   - The CAN functionality can be configured via the following pins:
+   - GPIO75 & GPIO76 (Located at Pin 23 and Pin 24 of the 26-Pin)
+   - GPIO47 & GPIO48 (Located at Pin 8 and Pin 10 of the 26-Pin)
 
-9. **K1 芯片高速接口（如 USB、PCIe 等）在片内的损耗是多少 dB？**
+9. **What is the on-chip consumption (in dB) of K1 high-speed interfaces (such as USB, PCIe)?**
 
-   - K1 芯片片内损耗小于 1 dB。
-   - 具体板级损耗控制范围，请参考各接口协议规范。
+   - The on-chip consumption of the K1 is less than 1 dB.
+   - Please refer to the specifications of each interface protocol for detailed board-level consumption control requirements.
 
-10. **MOS 管电平转换时，为什么要多加一个二极管？**
+10. **Why is an additional diode required for MOSFET level shifting circuits?**
 
-    - 添加二极管是为了降低 3.3V 侧拉低时，1.8V 侧到 3.3V 侧的压降，避免可能的可靠性问题。
-    - 根据实际经验，这个二极管不是必须的。在后续的笔电产品中都没有添加这个二极管。
+    - The purpose of adding the diode is to reduce the voltage drop from the 1.8 V side to the 3.3 V side when the 3.3 V side is pulled low, and to prevent potential reliability issues.
+    - Based on practical field experience, this diode is not mandatory. It has been omitted from all subsequent mass-production products.
 
-11. **pcie2.1 x2，2Lane，我用其中 1lane，是任意选吗？**
+11. **For a PCIe 2.1 x2 interface with 2 lanes, if I only use 1 lane, can I select it arbitrarily?**
 
-- 不是。PCIe 2.1 x2 若配置为 1 Lane，需使用 TX0N/P、RX0N/P 这一组。
+     - No. When the PCIe 2.1 x2 interface is configured for 1-lane operation, you must use the TX0N/P and RX0N/P lane pair.
 
-1. **QSPI 接口所在的 GPIO98~GPIO103 IO，如果用来连接串口设备，设计上有没有要注意的地方？**
+12. **For the GPIOs (GPIO98 ~ GPIO103) assigned to the QSPI interface, are there any design considerations if they are repurposed to connect UART devices?**  
 
-    - 优先使用 GPIO102/103 的 UART5；只有在初始状态确定的情况下，才使用 GPIO98~GPIO101 的 UART，因为 GPIO98~GPIO101 有 strip pin 功能，初始状态决定了启动顺序、下载模式和下载接口。
+     - UART5 on GPIO102/103 is the preferred option.  The UART on GPIO98~GPIO101 should only be used when its initial state is fully confirmed. This is because GPIO98~GPIO101 function as strap pins, whose initial power-up state determines the chip's boot order, download mode, and download interface configuration.
 
-2. **电平转换电路有必要增加一个二极管吗？**
+13. **Is it necessary to add a diode to the level-shifting circuit?**
 
-- 可以不加。
+      - No, it is not required.
 
-## 可靠性
+## Reliability
 
-该部分主要解答与可靠性相关的常见问题，包括 ESD、高低温、湿度、寿命、EMI 等问题。
+This section answers common questions about reliability, including ESD, high and low temperature operation, humidity, lifetime, and EMI.
 
-## 产品认证
+## Product Certification
 
-该部分主要解答与产品认证相关的常见问题，包括 RoHS、CE、3C、FCC 等问题。
+This section answers common questions about product certification, including RoHS, CE, CCC, and FCC.
 
-## 其他
+## Other
 
-该部分主要解答暂无归类的常见问题，包括 PCB、结构、功耗、散热措施、表面温度等问题。
+This section answers miscellaneous questions that do not fall into the categories above, including PCB, mechanical structure, power consumption, thermal design measures, and surface temperature.
 
-1. **K1 休眠的功耗是多少？**
+1. **What is the power consumption of K1 in sleep mode?**
 
-   - 关于 K1 芯片在休眠状态下的功耗，目前可做到 28 mW。
+   - 28 mW.
 
-2. **K1 的单端和差分线阻抗控制要求是什么？**
+2. **What are the impedance control requirements for K1 single-ended and differential traces?**
 
-   - 对于单端线，K1 要求阻抗控制在 50Ω。
-   - 对于差分线，建议阻抗控制在 90Ω。
+   - For single-ended traces, the impedance target is 50Ω.
+   - For differential traces, the impedance target is 90Ω.
 
-3. **K1 差分阻抗控制必须 90Ω 吗？**
+3. **Is 90 Ω differential impedance control mandatory for the K1?**
 
-   - DDR 接口的差分线阻抗必须控制在 90Ω。
-   - 对于其他差分线，阻抗可以控制在 90Ω 或 100Ω 之间。
+   - The differential lines for the DDR interface must be controlled to 90 Ω.
+   - For all other differential lines, the impedance can be set to either 90 Ω or 100 Ω.
 
-4. K1 MUSE N1 cpu 下面放了很多电容，K1 MUSE Pi 很少
+4. **The K1 MUSE N1 has many capacitors placed under the CPU, while the K1 MUSE Pi has very few.**
 
-   - K1 MUSE N1 是根据 SoC 扇出区域的实际情况优化的。由于扇出信号较少，背面有更多空间放置电容，因此可以放置更多电容。
-   - 相比之下，K1 MUSE Pi 全部信号都引出来了，因此背面空间有限，不能放置。但经过仿真和测试验证，这种设计是合理且可靠的。
+   - The K1 MUSE N1 layout is optimized for the actual fanout area of the SoC. With fewer fanout signals, there is more space on the backside to place capacitors, allowing for a higher capacitor count.
+   - In contrast, the K1 MUSE Pi routes out all signals, leaving limited backside space for additional components. This design has been validated through simulation and testing, and is both robust and reliable.
