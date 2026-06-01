@@ -24,7 +24,7 @@ The content of this document may be periodically updated due to product version 
 
 | Version | Date | Notes |
 | --- | --- | --- |
-| **V1.3** | 2026.06.01 | Fixed some typo issues |
+| **V1.4** | 2026.06.01 | Fixed some typo issues |
 | **V1.3** | 2026.05.21 | Updated A100 interrupt description |
 | **V1.2** | 2026.05.19 | Updated video subsystem parameters|
 | **V1.1** | 2026.05.08 | Updated image features |
