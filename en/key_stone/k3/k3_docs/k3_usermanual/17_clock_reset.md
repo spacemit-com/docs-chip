@@ -10,7 +10,7 @@ The K3 SoC integrates multiple on-chip clock sources and reset controls to suppo
 K3 comes with the following clocks:
 
 - One 24M OSC clock
-- One 32K RTC clocks
+- One 32K RTC clock
 
 ## 17.2 Features
 

@@ -780,7 +780,7 @@ Offset:0x190
 | 15:12    | DPHY_ERR_SYNC_ESC          | RWC  | 0x0     | PPI ErrSyncEsc<br>Partial byte detected          |
 | 11:8     | DPHY_ERR_ESC               | RWC  | 0x0     | PPI ErrEsc<br>Invalid esc command detected       |
 | 7:4      | DPHY_ERR_CONT_LP0          | RWC  | 0x0     | PPI ErrContentionLP0<br>Contention detect        |
-| 3:0      | DPHY_ERR_CONT_LP1          | RWC  | 0x0     | PPI ErrContentionLP0<br>Contention detect        |
+| 3:0      | DPHY_ERR_CONT_LP1          | RWC  | 0x0     | PPI ErrContentionLP1<br>Contention detect        |
 
 #### DPHY STATUS REGISTER 1
 DSI_PHY_STATUS_1
@@ -798,7 +798,7 @@ Offset:0x194
 | 15:12    | DPHY_ERR_ESC               | RO   | 0x0     | PPI ErrEsc - Invalid esc command detected        |
 | 11:8     | DPHY_ERR_SYNC_ESC          | RO   | 0x0     | PPI ErrSyncEsc - Partial byte detected           |
 | 7:4      | DPHY_ERR_CONT_LP0          | RO   | 0x0     | PPI ErrContentionLP0 - Contention detect         |
-| 3:0      | DPHY_ERR_CONT_LP1          | RO   | 0x0     | PPI ErrContentionLP0 - Contention detect         |
+| 3:0      | DPHY_ERR_CONT_LP1          | RO   | 0x0     | PPI ErrContentionLP1 - Contention detect         |
 
 #### DPHY LP RX REGISTER 0
 DSI_PHY_LPRX_0

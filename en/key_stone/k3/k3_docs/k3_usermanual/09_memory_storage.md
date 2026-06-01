@@ -511,7 +511,6 @@ Offset: 0x18
 ##### RESPONSE REGISTER 3
 SD_RESP_3
 Offset: 0x1C
-s
 | Bits | Field | Type | Reset | Description |
 | --- | --- | --- | --- | --- |
 | 31:16 | RESP7 | RO | 0x0000 | Response 7. For a 48-bit response token, this register is don't-care. For a 136-bit response token, this register contains bits[127:120] of the response token. For Auto CMD12 response, this register contains bits[39:24] of the response token. |

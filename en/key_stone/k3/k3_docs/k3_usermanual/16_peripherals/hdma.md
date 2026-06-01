@@ -605,7 +605,7 @@ Offset: 0x438
 
 | Bits | Field | Type | Reset | Description |
 | :--- | :--- | :--- | :--- | :--- |
-| 31:0 | CURRENT_SRC_ADDRESS | RO | 0x00000000 | Address form which the next data sample is read.<br>This register is only valid if the DMA channel has been configured for read from memory support. |
+| 31:0 | CURRENT_SRC_ADDRESS | RO | 0x00000000 | Address from which the next data sample is read.<br>This register is only valid if the DMA channel has been configured for read from memory support. |
 
 ### TRANSFER_PROGRESS
 

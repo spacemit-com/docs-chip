@@ -58,7 +58,7 @@ The following table describes the recommended operating conditions.
 |               | AVDD18_OSC                   | 1.71V             | 1.8V            | 1.96V             |
 | **PICE PHY0**     | AVDD08_PCIeA                 | 0.744V            | 0.8V            | 0.88V             |
 |               | AVDD18_PCIeA                 | 1.674V            | 1.8V            | 1.98V             |
-| **PICE PHY**1     | AVDD08_PCIeB                 | 0.744V            | 0.8V            | 0.88V             |
+| **PCIe PHY1**     | AVDD08_PCIeB                 | 0.744V            | 0.8V            | 0.88V             |
 |               | AVDD18_PCIeB                 | 1.674V            | 1.8V            | 1.98V             |
 | **PICE PHY2**     | AVDD08_PCIeC/USB3-B          | 0.744V            | 0.8V            | 0.88V             |
 |               | AVDD18_PCIeC/USB3-B          | 1.674V            | 1.8V            | 1.98V             |
