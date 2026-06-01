@@ -950,7 +950,7 @@ Minimize inter-lane crosstalk. When performing length matching, import pin_delay
 | --- | --- |
 | Trace impedance | Differential 90 Ω ±10% |
 | Maximum P/N skew within differential pair | ≤ 5 mil |
-| Clock-to-data length matching | v 12 mil |
+| Clock-to-data length matching | ≤ 12 mil |
 | Trace length | < 6000 mil |
 | Spacing between differential pairs | ≥ 4× MIPI trace width |
 | Spacing between MIPI and other signals | ≥ 4× MIPI trace width |

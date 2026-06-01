@@ -8,7 +8,7 @@ sidebar_position: 6
 
 The K3 has 10 UARTs (UART 0-9). The UARTs use the same programming model.
 
-Each port contains an UART, a slow serial infrared transmit encoder and a Receive decoder conforming to the IrDA serial infrared specification.
+Each port contains a UART, a slow serial infrared transmit encoder and a Receive decoder conforming to the IrDA serial infrared specification.
 
 Each UART performs serial-to-parallel conversion on data characters received from a peripheral device or a modem and parallel-to-serial conversion on data characters received from K3.
 
@@ -100,7 +100,7 @@ Each data frame is between 9 and 11 bits long, depending on the size of the data
 
 Each UART has 2 FIFOs: 1 Transmit and 1 Receive. The Transmit FIFO is 64 bytes deep and 8 bits wide. The Receive FIFO is 64 bytes deep and 11 bits wide. Three bits are used for tracking errors.
 
-The UART can use NRZ coding to represent individual bitvalues. To enable NRZ coding, set the \<NRZ Coding Enable\> field in the Interrupt Enable Register. A bit value of 1 is represented by a line transition, and 0 is represented by no line transition.
+The UART can use NRZ coding to represent individual bit values. To enable NRZ coding, set the \<NRZ Coding Enable\> field in the Interrupt Enable Register. A bit value of 1 is represented by a line transition, and 0 is represented by no line transition.
 
 The data byte 8'b0100_1011 in NRZ coding is depicted below (the LSB in the byte is transmitted first).
 
@@ -108,7 +108,7 @@ The data byte 8'b0100_1011 in NRZ coding is depicted below (the LSB in the byte 
 
 ### 14.6.3.3 Reset
 
-The UARTs are disabled on reset. To enable a UART, software must program the Multi-function Pin registers, then set the \<UART Unit Enable\> field in the Interrupt Enable Register. When the UART is enabled, the receiver waits for a frame start bit, and the transmitter sends data if it is available in the Transmit Holding Register. Transmit data can be written to the Transmit Holding Register before the UARTunit is enabled. In FIFO mode, data is transmitted from the FIFO to the Transmit Holding Register before it goes to the pin.
+The UARTs are disabled on reset. To enable a UART, software must program the Multi-function Pin registers, then set the \<UART Unit Enable\> field in the Interrupt Enable Register. When the UART is enabled, the receiver waits for a frame start bit, and the transmitter sends data if it is available in the Transmit Holding Register. Transmit data can be written to the Transmit Holding Register before the UART unit is enabled. In FIFO mode, data is transmitted from the FIFO to the Transmit Holding Register before it goes to the pin.
 
 When the UART unit is disabled, the transmitter or receiver finishes the current byte and stops transmitting or receiving more data. Data in the FIFO is not cleared and transmission resumes when the UART is enabled.
 
@@ -173,7 +173,7 @@ The UART has 2 DMA requests: 1 for Transmit data service and 1 for Receive data 
 
 #### DMA Receive Programming Errors
 
-If the DMA channel stops prematurely due to the end of a Descriptor chain or other error, the K3 must be notified since the DMAC can no longer service the UARTs FIFOs.If this occurs, the K3 must correct the situation by programming another Descriptor or by servicing the FIFOs via interrupt or polling mode, as described above. There are 2 methods for notifying the K3 of a stopped DMA channel:
+If the DMA channel stops prematurely due to the end of a Descriptor chain or other error, the K3 must be notified since the DMAC can no longer service the UART's FIFOs.If this occurs, the K3 must correct the situation by programming another Descriptor or by servicing the FIFOs via interrupt or polling mode, as described above. There are 2 methods for notifying the K3 of a stopped DMA channel:
 
 - Program the DMAC to interrupt on the event of a stopped channel by setting DCSR[StopIrqEn].
 - For the Receive channel, the UART interrupts with an end-of-Descriptor chain (EOC) interrupt if \<Trailing Bytes\> is set, such that the UART makes a DMA request to remove trailing bytes (see Removing Trailing Bytes In DMA Mode). Using the UART interrupt for the Receive channel is preferable to the DMA DCSR interrupt because extra logic exists to ensure that the UART EOC interrupt asserts only when necessary. For example, a UART EOC interrupt does not assert if the UART has completed the reception of its message (indicated by the character timeout timer) and the Receive FIFO is empty. The \<DMA End of Descriptor Chain\> field in the Interrupt Identification Register interrupt does not assert if \<Trailing Bytes\> is cleared.
@@ -190,7 +190,7 @@ If an error occurs when the Receive FIFO trigger threshold has been reached such
 
 When the number of entries in the Receive FIFO is less than its trigger threshold and no additional data is received, the remaining bytes are called trailing bytes. Set \<Trailing Bytes\> to program the UART to make a DMA request to remove the trailing bytes. Setting \<Trailing Bytes\> also enables the \<DMA End of Descriptor Chain\> interrupt.
 
-A request is issued automatically for the remaining number of bytes left in the Receive buffer when the DMAC is removing trailing bytes. The DMAC then empties the contents of the Receive buffer unless the DMA reaches the end of its Descriptor chain. If the DMA reaches the end of the Descriptor chain while removing trailing bytes, the K3 is forced to take over because the DMAC can no longer service the UART request until a new chain is linked. In this situation, the UART sets\<DMA End of Descriptor Chain\> ifdata exists in the Receive FIFO, and if \<Receiver Time-out Interrupt Enable\> is set, it also sets the \<Time Out Detected\> field in the Interrupt Identification Register. The remaining bytes must then be removed using Processor I/O mode as described in FIFO Interrupt Mode Operation.
+A request is issued automatically for the remaining number of bytes left in the Receive buffer when the DMAC is removing trailing bytes. The DMAC then empties the contents of the Receive buffer unless the DMA reaches the end of its Descriptor chain. If the DMA reaches the end of the Descriptor chain while removing trailing bytes, the K3 is forced to take over because the DMAC can no longer service the UART request until a new chain is linked. In this situation, the UART sets \<DMA End of Descriptor Chain\> if data exists in the Receive FIFO, and if \<Receiver Time-out Interrupt Enable\> is set, it also sets the \<Time Out Detected\> field in the Interrupt Identification Register. The remaining bytes must then be removed using Processor I/O mode as described in FIFO Interrupt Mode Operation.
 
 #### False EOR Due to Character Time-out Expiration
 
@@ -202,7 +202,7 @@ A caveat to this behavior could be encountered under legitimate EOR situations: 
 
 #### Auto-Flow Control
 
-Auto-flow control uses the Clear to Send (CTSn) and Request to Send (RTSn) signals to automatically control the flow of data between the UART and external modem. When auto-flow is enabled, the remote device is not allowed to send data unless the UART asserts (that is, sets to 0) RTSn. If the UART de-asserts (that is, sets to 1) RTSn while the remote device is sending data, the remote device is allowed to send 1 additional byte after RTSn is de-asserted. An overflow could occur if the remote device violates this rule. Likewise, the UART is not allowed to transmit data unless the remote device asserts CTSn (that is, sets to 0). ASR recommends using this feature because it increases system efficiency and eliminates the possibility of a Receive-FIFO-overflow errordue to long interrupt latency.
+Auto-flow control uses the Clear to Send (CTSn) and Request to Send (RTSn) signals to automatically control the flow of data between the UART and external modem. When auto-flow is enabled, the remote device is not allowed to send data unless the UART asserts (that is, sets to 0) RTSn. If the UART de-asserts (that is, sets to 1) RTSn while the remote device is sending data, the remote device is allowed to send 1 additional byte after RTSn is de-asserted. An overflow could occur if the remote device violates this rule. Likewise, the UART is not allowed to transmit data unless the remote device asserts CTSn (that is, sets to 0). ASR recommends using this feature because it increases system efficiency and eliminates the possibility of a Receive-FIFO-overflow error due to long interrupt latency.
 
 Auto-flow mode can be used in 2 ways:
 
@@ -217,7 +217,7 @@ When in full Auto-flow mode, RTSn is asserted (0) when the UART FIFO is ready to
 
 #### CTSn (UART Input)
 
-When in full- or half-Auto-flow mode, CTSn is asserted (set to 0) by the remote receiver when the receiver isready to receive data from the UART. The UART checks CTSn before sending the next byte of data and does not transmit the byte until CTSn is low. The transmitter completes this byte if CTSn goes high while the transfer of a byte is in progress.
+When in full- or half-Auto-flow mode, CTSn is asserted (set to 0) by the remote receiver when the receiver is ready to receive data from the UART. The UART checks CTSn before sending the next byte of data and does not transmit the byte until CTSn is low. The transmitter completes this byte if CTSn goes high while the transfer of a byte is in progress.
 
 If UART transmission is stalled by disabling the UART, none of the interrupts in the Modem Status Register indicate an interrupt when CTSn re-asserts because disabling the UART also disables interrupts. ASR recommends using auto-CTS in Auto-flow mode.
 
@@ -251,7 +251,7 @@ Each UART supports an 8- (default) or 32-bit peripheral bus. If a 32-bit bus is 
 
 DMA—the DMAC can read or write 1,2, 3, or 4 continuous bytes per word. The number of valid bytes available per word is determined internally between the DMAC and the UART.
 
-PIO—the K3 is restricted to reading or writing 1, 2, or 4 bytes per word. When reading, the K3 must read the Receive FIFO Occupancy Register to retrieve the number of bytes available in the Receive buffer. If the number ofbytes available is 4 or greater, the K3 can request any number of bytes per word (except 3). If the number is less than 4, software must request the proper number of bytes. When 3 bytes are remaining, software must requesteither 2 bytes followed by 1 byte or 1 byte followed by 2 bytes. The UART retrieves unusable data for the non-valid bytes if the K3 reads more than the number of bytes available in the Receive buffer. The Receive FIFO counters do not increase.
+PIO—the K3 is restricted to reading or writing 1, 2, or 4 bytes per word. When reading, the K3 must read the Receive FIFO Occupancy Register to retrieve the number of bytes available in the Receive buffer. If the number of bytes available is 4 or greater, the K3 can request any number of bytes per word (except 3). If the number is less than 4, software must request the proper number of bytes. When 3 bytes are remaining, software must request either 2 bytes followed by 1 byte or 1 byte followed by 2 bytes. The UART retrieves unusable data for the non-valid bytes if the K3 reads more than the number of bytes available in the Receive buffer. The Receive FIFO counters do not increase.
 
 > **Note.** The Receive and Transmit FIFOs must be enabled when in 32-bit mode.
 
@@ -579,5 +579,5 @@ Offset: 0x38
 | Bits | Field(Code) | Type | Reset | Description |
 |------|-------------|------|-------|-------------|
 | 31:2 | Reserved | RO | 0x0 | Reserved for future use. |
-| 1 | BAUD_SYNC_DONE | RWC | 0x0 | baud_sync_done.<br>1 = the completion of {DLH, DLL} sync to clk_uart domain from clk_apb domain when &lt;baud_newreg_en&gt; is set previously, can be cleared by writing this resiger(0x38) or full baud divisor register(0x34).<br>0 = default status. |
+| 1 | BAUD_SYNC_DONE | RWC | 0x0 | baud_sync_done.<br>1 = the completion of {DLH, DLL} sync to clk_uart domain from clk_apb domain when &lt;baud_newreg_en&gt; is set previously, can be cleared by writing this register(0x38) or full baud divisor register(0x34).<br>0 = default status. |
 | 0 | BAUD_NEWREG_EN | RW | 0x0 | baud_newreg_en.<br>0 = no influence with the previous config, except the new read access for FCR in offset=0x34.<br>1 = enable another new address access for {DLH, DLL} in offset= 0x30 and FCR in offset=0x34. The previous access for DLH, DLL, FCR are all blocked. |

@@ -283,8 +283,8 @@ Offset: 0x8
 | 5 | UFS_SECURE_EN | RW | 0x0 | UFS master secure enable. |
 | 4 | GPU_SECURE_EN | RW | 0x0 | GPU master secure enable. |
 | 3 | ISP_SECURE_EN | RW | 0x0 | ISP master secure enable. |
-| 2 | USB3_SECURE_EN | RW | 0x0 | DDRC trustzoe disable. |
-| 1 | USB2_HOST_SECURE_EN | RW | 0x0 | DDRC trustzone lock. |
+| 2 | USB3_SECURE_EN | RW | 0x0 | DDRC TrustZone disable. |
+| 1 | USB2_HOST_SECURE_EN | RW | 0x0 | DDRC TrustZone lock. |
 | 0 | USB2_SECURE_EN | RW | 0x0 | DDR low 2GB remap to high address, 0x0, not remap. |
 
 ##### ETR
