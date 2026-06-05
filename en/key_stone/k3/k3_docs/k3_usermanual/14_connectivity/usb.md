@@ -49,7 +49,7 @@ The K3 SoC integrates multiple USB interfaces to support high-speed connectivity
 
 - USB20_HOST_DRV: For External VBUS Switch Control of USB2.0 Host Only Controller, controlled by PMU_USB_SD_ROT_WAKE_CLR, or use GPIO mode.
 - USB30_DRD_DIR: For DRD Port A Dual PHY Direction select Input, controlled by PMUA_USB_PHY_CTRL0 register.
-- USB30_DRD_INT: For TypeC CC logic chip interrupt Input, controlled by PMUA_USB_PHY_CTRL0, or use GPIO interrupt mode.
+- USB30_DRD_INT: For Type-C CC logic chip interrupt Input, controlled by PMUA_USB_PHY_CTRL0, or use GPIO interrupt mode.
 - USB30_DRD_DRV: For External VBUS Switch Control of USB3.0 Port A Controller, controlled by PMU_USB3_WAKE_CLR_A, or use GPIO mode.
 - USB30_DRD_ID: For MicroUSB ID Pin Input, the status could be read at PMUA_USB_PHY_READ register.
 - USB30_DRD_VBUSON: For MicroUSB VBUS Pin Input, the status could be read at PMUA_USB_PHY_READ register.
@@ -325,7 +325,7 @@ Offset: 0x0
 | 31:0 | PCIE_PHY_VERSION_ID | RO | 0x302 | pcie_phy version ID |
 
 #### PCIE_PHY_CLK_CFG
-Base PHY Base
+Base: PHY Base
 Offset: 0x8
 SW can enable CFG_PU_SSC_OUT to enable SSC.
 

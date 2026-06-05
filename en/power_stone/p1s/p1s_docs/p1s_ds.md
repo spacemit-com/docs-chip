@@ -8,7 +8,7 @@ Click to download [P1S Datasheet (PDF)](https://cdn-resource.spacemit.com/file/c
 
 ## Revision History
 
-| Visions | Date | Notes     |
+| Version | Date | Notes     |
 |-----------|---------------|--------------------|
 | V1.2      | 2024.09.11    | Update parameters  |
 | V1.1      | 2024.05.14    | Update parameters  |
@@ -37,7 +37,7 @@ Individual output voltages and startup/shutdown sequences can be preset via the 
   - Dedicated pin for selecting VDDQ voltage of different DDR chips
 - 5 programmable LDO regulators
 
-  - 1 dedicated normally open LDO
+  - 1 dedicated always-on LDO
   - 4 low noise LDOs
   - output voltage：0.5V～3.4V，25mV/step
   - Output current：0.3A
@@ -346,7 +346,7 @@ Table 3-2 P1S pin description
 <td>33</td>
 <td>AGND</td>
 <td>GND</td>
-<td>Analogly</td>
+<td>Analog ground</td>
 <td> </td>
 </tr>
 <tr>
@@ -514,7 +514,7 @@ Table 3-2 P1S pin description
 <td>57</td>
 <td>AGND</td>
 <td>GND</td>
-<td>Analogly</td>
+<td>Analog ground</td>
 <td> </td>
 </tr>
 <tr>
@@ -1123,7 +1123,7 @@ Table 5-6 ALDO1~4 electrical characteristics
 </tr>
 <tr>
 <td>V(S_LINE)</td>
-<td>Satic linear adjustment</td>
+<td>Static linear adjustment</td>
 <td>V(IN )= 3 ~ 5 V</td>
 <td> </td>
 <td>10</td>
@@ -1375,28 +1375,28 @@ Table 5-7 BUCK1~6 electrical characteristics
 <tr>
 <td rowspan=4 colspan=1>V(TR_LD)</td>
 <td rowspan=4 colspan=1>Load transient response<br/>(Cout=44uF，Iout=0.02 ~ 2.7 A)  </td>
-<td>undershoot，V(OUT )&lt; 1.2 V</td>
+<td>undershoot, V(OUT) &lt; 1.2 V</td>
 <td> </td>
 <td>30</td>
 <td>60</td>
 <td>mV</td>
 </tr>
 <tr>
-<td>undershoot，V(OUT )&gt; 1.2 V</td>
+<td>undershoot, V(OUT) &gt; 1.2 V</td>
 <td> </td>
 <td>3</td>
 <td>5</td>
 <td>%</td>
 </tr>
 <tr>
-<td>overshoot，V(OUT) &lt; 1.6 V</td>
+<td>overshoot, V(OUT) &lt; 1.6 V</td>
 <td> </td>
 <td>72</td>
 <td>80</td>
 <td>mV</td>
 </tr>
 <tr>
-<td>overshoot，V(OUT )&gt; 1.6 V</td>
+<td>overshoot, V(OUT) &gt; 1.6 V</td>
 <td> </td>
 <td> </td>
 <td>5</td>

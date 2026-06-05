@@ -86,6 +86,6 @@ The FlexCAN module supports the following functional modes:
 
 - CAN FD Active mode:
   
-  - In CAN FD Active mode, the FlexCAN is capable of transmitting and receiving all messages formatted according to the CAN FD Protocol and CAN 2.0 Protocol 2.0 in an interleaved fashion.
+  - In CAN FD Active mode, the FlexCAN is capable of transmitting and receiving all messages formatted according to the CAN FD Protocol and CAN 2.0 Protocol in an interleaved fashion.
   
   - The CPU or MCU can set the FlexCAN into CAN FD Active mode by setting the MCR FDEN when the FlexCAN is in Freeze Mode.

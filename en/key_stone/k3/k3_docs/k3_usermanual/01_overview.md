@@ -58,7 +58,7 @@ The K3 series chips are mainly used in AI consumer hardware, such as AI smart ho
 **Connectivity and I/O**  
 
 - 8 × PCIe Gen3 lanes (8 Gbps/lane) with RC & EP modes, hot-plug supported  
-- 3 × USB 3.0 host, 1 × USB 3.0 DRD (Type-C), 1 × USB 2.0 host  
+- 3 × USB 3.0 Host, 1 × USB 3.0 DRD (Type-C), 1 × USB 2.0 Host  
 - 4 × GMAC (RGMII, RMII, MII) with TSN protocol support  
 - 6 × SPI, 2 × eSPI, 17 × UART, 10 × CAN, 9 × I²C, 30 × PWM  
 

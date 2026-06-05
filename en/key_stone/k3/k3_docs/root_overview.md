@@ -7,7 +7,7 @@ Click to download **[K3 Brief (PDF)](https://cdn-resource.spacemit.com/file/chip
 **K3 is a high-performance RISC-V AI CPU capable of running 30B large models.**
 
 SpacemiT K3 series chips adopt RISC-V homogeneous integrated computing technology, integrating 8 high-performance computing X100 cores and 8 ultra-wide parallel AI computing A100 cores developed by SpacemiT, which provide 130 KDMIPS of general computing power and 60 TOPS of general AI computing power, and can smoothly run 30-billion-parameter models.
-The K3 series chips are mainly used in AI consumer hardware, such as AI smart home devices, AI-powered conference and office solutions, AI content creation tools, AI-driven e-commerce and retail systems, and other fields. 
+The K3 series chips are mainly used in AI consumer hardware, such as AI smart home devices, AI-powered conference and office solutions, AI content creation tools, AI-driven e-commerce and retail systems, and other fields.
 
 - **Exceptional CPU Performance**
   8 high-performance X100 cores, up to 2.4 GHz, delivering 130 K DMIPS
@@ -71,12 +71,12 @@ The K3 series chips are mainly used in AI consumer hardware, such as AI smart ho
   - 4K@90fps encoding for H.265, H.264, and other formats
   - Dual 3840×2160@60fps display outputs
   - MIPI-DSI 8-lane display output, 4.5Gbps/lane, supporting:
-    - 3840*2160@60fps
-    - 2560*1440@90fps
-    - 1920*1080@60fps, etc.
+    - 3840×2160@60fps
+    - 2560×1440@90fps
+    - 1920×1080@60fps, etc.
   - Dual DP/eDP display outputs, supporting
-    - 3840*2160@60fps
-    - 2560*1440@144fps, etc.
+    - 3840×2160@60fps
+    - 2560×1440@144fps, etc.
   - 4× MIPI-CSI, 12 lanes: 4 + 4 + (2 + 2)
   - Supports up to 12 camera inputs
 - **Interfaces**

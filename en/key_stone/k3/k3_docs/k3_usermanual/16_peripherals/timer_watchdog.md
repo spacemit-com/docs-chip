@@ -256,6 +256,7 @@ Offset: 0xB8
 | 1 | WRIE | RW | 0x0 | Watchdog reset/interrupt enable.<br/>`0`: Watchdog timer expiration generates a watchdog interrupt (no watchdog timer reset).<br/>`1`: Watchdog timer expiration generates a watchdog timer reset (no watchdog interrupt). |
 | 0 | WE | RW | 0x0 | WDT count enable.<br/>`0`: Disable WDT counting and reset the WDT value to zero.<br/>`1`: Enable counting; the WDT always starts from zero.<br/>**Note.** Due to the chain of synchronizers that transfers this signal from domain to domain, WDT enable and disable operations do not occur immediately. |
 
+
 ### Timer Watchdog Match Register
 
 This match register is compared with the watchdog timer. The watchdog timer resets the processor when a match occurs and the `TWER[WRIE]` bit is set.

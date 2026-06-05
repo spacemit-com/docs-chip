@@ -362,10 +362,10 @@ The electrical characteristics of BUCK1–BUCK6 are listed in the tables below.
 | V(BUCK_ACC) | Output voltage accuracy             | Excluding line/load regulation, V(OUT) < 1 V   | –   | –                | ±10 | mV    |
 | V(S_LOAD)   | Static load regulation              | I(OUT) = 0.1 ~ 2 A, V(OUT) = 1 V       | –   | –                | ±1  | %     |
 | V(S_LINE)   | Static line regulation              | V(IN) = 3 ~ 5 V, V(OUT) = 1 V         | –   | –                | ±1  | %     |
-| V(TR_LD)    | Load transient response; C(OUT)=44uF, I(OUT)=0.02 ~ 2.7 A | (undershoot，V(OUT)< 1.2 V) | –   | 30               | 60  | mV    |
-|             | Undershoot                           | (undershoot，V(OUT)< 1.2 V) V                                  | –   | 3                | 5   | %     |
-|             | Overshoot                            | (overshoot，V(OUT) < 1.6 V)                                  | –   | 72               | 80  | mV    |
-|             | Overshoot                            | (overshoot，V(OUT) < 1.6 V)                                  | –   | –                | 5   | %     |
+| V(TR_LD)    | Load transient response; C(OUT)=44uF, I(OUT)=0.02 ~ 2.7 A | (undershoot, V(OUT)< 1.2 V) | –   | 30               | 60  | mV    |
+|             | Undershoot                           | (undershoot, V(OUT)< 1.2 V) V                                  | –   | 3                | 5   | %     |
+|             | Overshoot                            | (overshoot, V(OUT) < 1.6 V)                                  | –   | 72               | 80  | mV    |
+|             | Overshoot                            | (overshoot, V(OUT) < 1.6 V)                                  | –   | –                | 5   | %     |
 | V(RIPPLE)   | Output ripple; I(OUT) = 0.1 A, V(OUT) = 1.1 V |   –     | –   | 13               | 25  | mV    |
 | V(RIPPLE)   | Output ripple; I(OUT) > 1 A, V(OUT) = 1.1 V   |   –    | –   | 7                | 20  | mV    |
 

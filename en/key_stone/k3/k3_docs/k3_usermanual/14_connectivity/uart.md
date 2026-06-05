@@ -122,7 +122,7 @@ In DMA mode, software must set the DMA stop interrupt on the last Descriptor in 
 
 #### FIFO Interrupt Mode: Receive Interrupt
 
-For a Receive interrupt to occur, the Receive FIFO and Receive interrupts mustbe enabled. The \<Interrupt Source Encoded\> field in the Interrupt Identification Register changes to show that Receive data is available when the FIFO reaches its trigger threshold. The \<Interrupt Source Encoded\> field changes to show the next waiting interrupt when the FIFO drops below the trigger threshold. A change in the \<Interrupt Source Encoded\> field triggers an interrupt to the core.
+For a Receive interrupt to occur, the Receive FIFO and Receive interrupts must be enabled. The \<Interrupt Source Encoded\> field in the Interrupt Identification Register changes to show that Receive data is available when the FIFO reaches its trigger threshold. The \<Interrupt Source Encoded\> field changes to show the next waiting interrupt when the FIFO drops below the trigger threshold. A change in the \<Interrupt Source Encoded\> field triggers an interrupt to the core.
 
 Software reads the \<Interrupt Source Encoded\> field to determine the cause of the interrupt.
 
@@ -500,7 +500,7 @@ Offset: 0x20
 
 ### Receive FIFO Occupancy Register
 
-This register shows the number of bytes currently remaining the receive FIFO.
+This register shows the number of bytes currently remaining in the receive FIFO.
 
 This register can be used to determine the number of trailing bytes to remove in the case when the DMA reaches the end of its descriptor chain or when the \<Trailing Bytes\> field in the FIFO Control Register is clear (see Section [FIFO Interrupt Mode: Removing Trailing Bytes](#fifo-interrupt-mode-removing-trailing-bytes)).
 
@@ -572,7 +572,7 @@ Offset: 0x34
 
 ### Baud Newreg Enable Register
 
-Configurate BAUD_NEWREG_EN to use the new address for DLH, DLL, FCR
+Configure BAUD_NEWREG_EN to use the new address for DLH, DLL, FCR
 
 Offset: 0x38
 

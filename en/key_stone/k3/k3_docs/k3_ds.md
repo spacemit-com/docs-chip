@@ -273,7 +273,7 @@ The Quad-SPI interface provides communication between the SoC and external seria
 - Supports XIP mode and Page mode  
 - Independent 1/2/4 data width  
 - Maximum clock frequency up to 102 MHz, minimum 13.25 MHz  
-- Supports SPI Nor Flash and SPI Nand Flash  
+- Supports SPI NOR Flash and SPI NAND Flash  
 - Supports 1.8 V and 3.3 V signal voltages  
 
 #### 2.2.4 eMMC Interface
@@ -480,11 +480,11 @@ In addition, multiple standard-agnostic modules share common runtime logic, ensu
 - AFBC YUV420  
 
 **Supported Encoding Formats**  
-- HEVC（H.265）Main Profile  
+- HEVC (H.265) Main Profile  
 - HEVC (H.265) Main 10 Profile
-- H.264 Baseline Profile（BP）  
-- H.264 Main Profile（MP）  
-- H.264 High Profile（HP）  
+- H.264 Baseline Profile (BP)  
+- H.264 Main Profile (MP)  
+- H.264 High Profile (HP)  
 - VP8  
 - VP9 Profile 0
 - JPEG, baseline sequential
@@ -1015,7 +1015,7 @@ The SPI (Serial Peripheral Interface) is a synchronous serial interface that ena
 The UART (Universal Asynchronous Receiver/Transmitter) module provides asynchronous serial communication between the system and external devices. It supports flexible configuration, efficient data handling, and diagnostic features, suitable for both low- and high-speed communication scenarios.
 
 **Features**  
-- Interfaces: Supports up to 17 independent UART interfaces. It includes 11 AP domain UARTS and 6 RCPU domain UARTS  
+- Interfaces: Supports up to 17 independent UART interfaces. It includes 11 AP domain UARTs and 6 RCPU domain UARTs  
 - Compatibility: Fully compatible with industry-standard 8250 UART.  
 - Asynchronous Communication: Automatic insertion and removal of start, stop, and parity bits in the serial data stream.  
 - Interrupt Control: Independent control of transmit, receive, line status, and data set interrupts.  
@@ -1084,7 +1084,7 @@ IRC (IR Controller) can be used to receive infrared signals from external source
 - Converts incoming infrared signals into Run-Length-Code (RLC) format  
 - Configurable signal width threshold for noise filtering and detection  
 - 32-byte FIFO for temporary storage of received data  
-- Sample clock up to 102.4M with a 24-bit frequency divider in it which allows user to configure sample clock freely  
+- Sample clock up to 102.4 MHz with a 24-bit frequency divider in it which allows user to configure sample clock freely  
 
 #### 2.7.9 eSPI
 
@@ -1409,7 +1409,7 @@ The Time-Out Monitor (TOM) is an AXI bus event detection module designed to moni
 The K3 integrates multiple on-chip clock sources and reset controls to support a wide range of operational scenarios, providing high flexibility, stability, and power efficiency.  
 K3 comes with the following clocks:  
 - One 24MHz OSC clock  
-- One 32.768kHz RTC clock  
+- One 32.768 kHz RTC clock  
 - One 3MHz OSC clock  
 - One 1MHz OSC clock  
 

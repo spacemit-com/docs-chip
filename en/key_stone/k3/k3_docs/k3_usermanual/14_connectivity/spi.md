@@ -200,7 +200,7 @@ The SS_FRM delay (T5) must not extend beyond the end of T4. The SS_FRM width (T6
 
 to ensure that SS_FRM is asserted for at least two edges of SS_SCLK). Program T1 to 0 when SS_SCLK is enabled by the SSCR[SCFR] fields.
 
-While the SPI/I2S can be programmed to generate the assertion of SS_FRM during the middle of the data transfer (for example, after the MSb has been sent), the SPI/I2S port is unable to Receive data in frame-Slave mode. Transmit data transitions from the end-of-transfer-data state (SSPSP[ETDS]) to the next MSb data value upon assertion of the internal version of SS_FRM. Program the SSPSP[STRTDLY] field to 0x00 whenever SS_SCLK or SS_FRM is configured as an input (for example, SSCR[SCLKDIR] and SSCR1[SFRMDIR] are cleared.
+While the SPI/I2S can be programmed to generate the assertion of SS_FRM during the middle of the data transfer (for example, after the MSb has been sent), the SPI/I2S port is unable to Receive data in frame-Slave mode. Transmit data transitions from the end-of-transfer-data state (SSPSP[ETDS]) to the next MSb data value upon assertion of the internal version of SS_FRM. Program the SSPSP[STRTDLY] field to 0x00 whenever SS_SCLK or SS_FRM is configured as an input (for example, SSCR[SCLKDIR] and SSCR[SFRMDIR] are cleared).
 
 > **Note.** When the SPI/I2S port is slave to the frame, the sum of T1+T2+T3+T4 can be less than the actual time from the beginning of the current frame to the beginning of the next frame. For example, when the rate of SS_SCLK is 12.8 MHz and the data sample size is 16-bits, the beginning of the frame can occur at a rate of 8 kHz.
 
@@ -292,7 +292,7 @@ When the source clock is to be changed, software must:
 - Set the SSCR[SSE] bit to re-enable the SPI/I2S port. Whenever the baud rate is to be changed, software must:
 
   - Disable the SPI/I2S port by clearing SSCR[SSE] bit
-  - Set the SSCR0[SSE])bit to re-enable the SPI/I2S port
+  - Set the SSCR[SSE] bit to re-enable the SPI/I2S port
 
 Wait two SS_SCLK cycles before writing new data to the TXFIFO. The SPI/I2S Baud Rate Generation is depicted below.
 

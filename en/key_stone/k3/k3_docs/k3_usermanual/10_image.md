@@ -644,7 +644,7 @@ if output_format == ARGB8888
 | Output_layout | 1-bit unsigned | 1: FBC compressed; 0: Linear |
 | Output_crop_left | 16-bit unsigned | Range [0, 65534]; `crop_left < output_left + output_width` |
 | Output_crop_top | 16-bit unsigned | Range [0, 65534]; `crop_top < output_top + output_height` |
-| Output_crop_width | 16-bit unsigned | Range [1, 65535]; `crop_left + crop_wdith ≤ output_left + output_width` |
+| Output_crop_width | 16-bit unsigned | Range [1, 65535]; `crop_left + crop_width ≤ output_left + output_width` |
 | Output_crop_height | 16-bit unsigned | Range [1, 65535]; `crop_top + crop_height ≤ output_top + output_height` |
 
 ### 10.3.6 Register Description

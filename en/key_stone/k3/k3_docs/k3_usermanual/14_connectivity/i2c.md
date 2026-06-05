@@ -460,7 +460,7 @@ Every I2C byte transfer must be accompanied by an acknowledge (ACK) pulse that t
   - The associated interrupt is generated (if enabled)
   - The I2C automatically generates a Stop condition and aborts the transaction
 
-#### Master-Receive Mod
+#### Master-Receive Mode
 
 - The I2C sends a negative-acknowledge (NAK) pulse to signal the slave transmitter to stop sending data
 - The ICR[ACKNAK] bit controls the ACK/NAK pulse value driven onto the I2C bus
@@ -568,7 +568,7 @@ If the I2C loses arbitration because another bus master addresses the I2C unit a
 
 Software must clear the Start and re-initiate the master transaction.
 
-> Note: Software must ensure that the I2C unit does not write to its own slave address, as this cause the I2C bus to enter an indeterminate state.
+> Note: Software must ensure that the I2C unit does not write to its own slave address, as this causes the I2C bus to enter an indeterminate state.
 
 ##### Boundary conditions
 
@@ -668,7 +668,7 @@ The CPU writes to the ICR register to initiate a master transaction. Data is rea
 | Read one byte of I2C data from the IDBR | Master-receive only          | Eight bits are read from the serial bus, collected in the Shift register, then transferred to the IDBR after the ICR[ACKNAK] bit is read.<br>- The CPU reads the IDBR when ISR[IRF] is set and ICR[TB] is clear. If the IDBR receive-full interrupt is enabled, it is signalled to the CPU.<br>- When the IDBR is read, if ISR[ACKNAK] is clear (indicating ACK), the software must clear the ICR[ACKNAK] bit and set ICR[TB] to initiate the next byte Read.<br>- If ISR[ACKNAK] is set (indicating NAK), ICR[TB] is clear, ICR[STOP] is set, and ISR[UB] is set, then the last data byte has been read into the IDBR, and the I2C is sending the Stop.<br>- If ISR[ACKNAK] is set (indicating NAK) and ICR[TB] is clear, but ICR[STOP] is clear, then the software has 2 options:<br>(1) Set ICR[START], write a new target address to the IDBR, and set ICR[TB], which sends a repeated Start.<br>(2) Set ICR[MA] and leave ICR[TB] clear, which sends a Stop only. |
 | Transmit acknowledge to slave transmitter | Master-receive only       | - As a master receiver, the I2C generates the clock for the acknowledge pulse and drives the SDA line during the acknowledge cycle.<br>- If the next data byte is to be the last transaction, the user software sets ICR[ACKNAK] for NAK generation.<br>See Section [I2C Acknowledge](#i2c-acknowledge). |
 | Generate a repeated Start to chain I2C transactions | Master-transmit Master-receive | Data chaining takes place by using a repeated Start condition instead of a Stop condition.<br>- The repeated Start is generated after the last data byte of a transaction has been transmitted on the I2C bus, as described in Section [Data Transfer Sequence](#data-transfer-sequence).<br>- The software must write the next target slave address and the R/nW bit to the IDBR, sets ICR[START], and sets ICR[TB].<br>See Section [Start and Stop Bus States](#start--stop-bus-states) in this chapter |
-| Generate a Stop                      | Master-transmit Master-receive  | - A Stop is generated after the last data byte of a transaction has been transmitted on the I2C bus, as described in Section [Data Transfer Sequence](#data-transfer-sequence).<br>- ICR[STOP] must be set in order to generate the Stop condition.<br>See See Section [Start and Stop Bus States](#start--stop-bus-states) in this chapter. |
+| Generate a Stop                      | Master-transmit Master-receive  | - A Stop is generated after the last data byte of a transaction has been transmitted on the I2C bus, as described in Section [Data Transfer Sequence](#data-transfer-sequence).<br>- ICR[STOP] must be set in order to generate the Stop condition.<br>See Section [Start and Stop Bus States](#start--stop-bus-states) in this chapter. |
 
 ### 14.7.3.14 FIFO mode
 
