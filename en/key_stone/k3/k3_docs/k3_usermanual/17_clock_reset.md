@@ -1408,7 +1408,7 @@ Offset:0x26C
 | 4 | DSI4LN2_LCD_SW_RST | RW | 0x0 | DSI4LN2_LCD Software Reset<br>0 = Reset<br>1 = Reset Release |
 | 3 | DSI4LN2_ESCCLK_RESET | RW | 0x0 | DSI4LN2 ESC Clock Reset<br>0 = Reset |
 | 2 | DSI4LN2_DSI_ESC_EN | RW | 0x0 | DSI4LN2 ESC Clock Enable:<br>0x0 = Disable<br>0x1 = Enable |
-| 1:0 | DSI4LN2_DSI_ESC_SEL | RW | 0x0 | DSI4LN2_ESC Clock Select<br>0x0 = 51/2 MHz<br>0x1 = 47.26 MHz<br>0x2 = 25.6 MHz<br>0x3 = 76.8 MHz |
+| 1:0 | DSI4LN2_DSI_ESC_SEL | RW | 0x0 | DSI4LN2_ESC Clock Select<br>0x0 = 51.2 MHz<br>0x1 = 47.26 MHz<br>0x2 = 25.6 MHz<br>0x3 = 76.8 MHz |
 
 ##### LCD CLOCK/RESET CONTROL REGISTER4
 PMU_LCD_CLK_RST_CTRL4

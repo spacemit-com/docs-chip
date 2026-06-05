@@ -144,8 +144,8 @@ Offset:0x10
 | 15   | IRQ_VPN_VACT_DONE                | RW   | 0x0   | VPN VACT Done<br>1 = Clear interrupt<br>0 = No effect |
 | 14   | IRQ_VPN_BF_FULL                  | RW   | 0x0   | VPN Buffer Full Error<br>Pixel data may be incorrect.<br>1 = Clear interrupt<br>0 = No effect |
 | 13   | IRQ_CPN_BF_FULL                  | RW   | 0x0   | CPN Buffer Full Error<br>Pixel data may be incorrect.<br>1 = Clear interrupt<br>0 = No effect |
-| 12   | IRQ_DPHY_ERR_CONT_LP1            | RW   | 0x0   | DPHY LP1 Contention Detect<br>PPI ErrContertionLP1<br>1 = Clear interrupt<br>0 = No effect |
-| 11   | IRQ_DPHY_ERR_CONT_LP0            | RW   | 0x0   | DPHY LP0 Contention Detect<br>PPI ErrContertionLP0<br>1 = Clear interrupt<br>0 = No effect |
+| 12   | IRQ_DPHY_ERR_CONT_LP1            | RW   | 0x0   | DPHY LP1 Contention Detect<br>PPI ErrContentionLP1<br>1 = Clear interrupt<br>0 = No effect |
+| 11   | IRQ_DPHY_ERR_CONT_LP0            | RW   | 0x0   | DPHY LP0 Contention Detect<br>PPI ErrContentionLP0<br>1 = Clear interrupt<br>0 = No effect |
 | 10   | IRQ_DPHY_ERR_SYNC_ESC            | RW   | 0x0   | DPHY Sync Error<br>PPI ErrSyncEsc, partial byte detected<br>1 = Clear interrupt<br>0 = No effect |
 | 9    | IRQ_DPHY_ERR_ESC                 | RW   | 0x0   | DPHY Invalid Command Detect<br>PPI ErrEsc, invalid esc command detected<br>1 = Clear interrupt<br>0 = No effect |
 | 8    | IRQ_DPHY_RX_LINE_ERR             | RW   | 0x0   | DPHY Invalid Line State Detect<br>PPI ErrControl<br>1 = Clear interrupt<br>0 = No effect |
@@ -264,7 +264,7 @@ Offset:0x38
 
 | Bits   | Field           | Type | Reset | Description |
 |--------|------------------------|------|-------|-------------|
-| 31:0   | CFG_CPU_CMD_TX_CNT     | RO   | 0x0   | CPU CMD TX Counter<br>This counter counts how many byte clock cycles it takes to transfer the current CPU command.<br>It begins to count after CPU command is received, and stops to counter after DPHY gets ready for another TX request.<br>This counter could help to decide the CFG_L*_SLOT_**_CNT values of register 0x130, 0x134, 0x1B0, and 0x1B4. |
+| 31:0   | CFG_CPU_CMD_TX_CNT     | RO   | 0x0   | CPU CMD TX Counter<br>This counter counts how many byte clock cycles it takes to transfer the current CPU command.<br>It begins to count after CPU command is received, and stops counting after DPHY gets ready for another TX request.<br>This counter could help to decide the CFG_L*_SLOT_**_CNT values of register 0x130, 0x134, 0x1B0, and 0x1B4. |
 
 #### DSI CPU COMMAND STATUS 2
 DSI_CPU_STATUS_2

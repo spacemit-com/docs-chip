@@ -4,9 +4,9 @@ sidebar_position: 1
 
 ## Overview
 
-P1S is a high-performance multi-channel power management chip (PMIC), designed to provide customized power solutions for complex computing systems and meet the differentiated and high-demanding power requirements of customers.
+P1S is a high-performance multi-channel power management chip (PMIC), designed to provide customized power solutions for complex computing systems and meet the differentiated and highly demanding power requirements of customers.
 
-P1S is mainly used for AR/VR, industrial devices, AI Robots and drone.
+P1S is mainly used for AR/VR, industrial devices, AI robots, and drones.
 
 - **Highly Flexible Power Management Capabilities**
 It features 6 channels of COT (Constant On-Time) control buck converters, 12 Low Drop-Out (LDO) regulators, and an I2C interface, providing highly flexible power management capabilities for a range of mobile devices and embedded systems.
@@ -44,7 +44,7 @@ The P1S requires a minimal number of external components, and is available in a 
 
 - **Output voltage and start up/shutdown sequence can be  preset by MTP**
 
-- **6 GPIO pins for peirpheral control**
+- **6 GPIO pins for peripheral control**
 
 - **-40℃ ~ 125℃ junction temperature**
 

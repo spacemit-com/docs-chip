@@ -67,7 +67,7 @@ Offset: 0x4
 | 31:24 | Reserved | RO | 0x0 | Reserved |
 | 23:0 | CLKDIV | RW | 0x0 | Frequency dividing parameter for generating the internal working clock (WCLK). The generated WCLK frequency is:<br>Freq_of_WCLK = Freq_of_CLK / (CLKDIV +1) |
 
-### NOISEHTR REGISTER
+### NOISETHR REGISTER
 
 Offset: 0x8
 

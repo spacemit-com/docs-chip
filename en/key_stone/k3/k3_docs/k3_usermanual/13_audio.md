@@ -462,7 +462,7 @@ Offset:0x84
 | Bits | Field | Type | Reset | Description |
 |------|-------|------|-------|-------------|
 | 31:2 | RSVD | RO | 0x0 | Reserved for future use |
-| 1 | DMA_ABORT_INT | RW | 0x0 | Channel 0 DMA Aborted Interrupt Mask<br>1 = Channel 1 DMA aborted interrupt is enabled<br>0 = Channel 1 DMA aborted interrupt is disabled |
+| 1 | DMA_ABORT_INT | RW | 0x0 | Channel 1 DMA Aborted Interrupt Mask<br>1 = Channel 1 DMA aborted interrupt is enabled<br>0 = Channel 1 DMA aborted interrupt is disabled |
 | 0 | COMP | RW | 0x0 | Channel 1 Completion Interrupt Mask<br>1 = Channel 1 completion interrupt is enabled<br>0 = Channel 1 completion interrupt is disabled |
 
 ##### CHANNEL 0 RESET SELECT REGISTER
