@@ -8,7 +8,7 @@ Click to download **[K1 Brief (PDF)](https://cdn-resource.spacemit.com/file/chip
 
 K1 Series: 8-Core 64-bit RISC-V AI CPU
 
-The K1 series leverages homogenous fusion computing technology, integrating eight high-performance X60™ computing cores developed by SpacemiT. It delivers 50 KDMIPS of general computing power and 2 TOPS of AI computing power, enabling seamless operation of local large models such as 0.5B and 1B parameters.
+The K1 series leverages homogeneous fusion computing technology, integrating eight high-performance X60™ computing cores developed by SpacemiT. It delivers 50 KDMIPS of general computing power and 2 TOPS of AI computing power, enabling seamless operation of local large models such as 0.5B and 1B parameters.
 
 The K1 series chips are primarily designed for applications in AI edge computing, AI-integrated hardware, intelligent robotics, industrial main control systems, cloud computing and open-source Harmony OS among others.
 
@@ -28,7 +28,7 @@ The streamlined RISC-V architecture and advanced micro-architecture design reduc
 Integrated with multiple PCIe, USB, GMAC and SPI interfaces, offering comprehensive peripheral connectivity options.
 
 - **Industrial standards compliance**
-The CPU delivers stable and reliable computing power from -40°C to 85°C, complying  the demanding requirements of industrial applications.
+The CPU delivers stable and reliable computing power from -40°C to 85°C, complying with the demanding requirements of industrial applications.
 
 ## Key Features
 
@@ -67,7 +67,7 @@ The CPU delivers stable and reliable computing power from -40°C to 85°C, compl
   - Support of SSD: NVMe over PCIe
 
 - **Multimedia & Display**
-  - Support of 3D graphics engine: OpenCL 3.0, OpenGLES 1.1/3.2, Vulkan 1.3
+  - Support of 3D graphics engine: OpenCL 3.0, OpenGL ES 1.1/3.2, Vulkan 1.3
   - Support of 4K H.265/H.264/VP9/VP8 codec formats
   - Support of dual displays with independent output, up to 1920×1440@60fps 
     - Output via MIPI-DSI or HDMI

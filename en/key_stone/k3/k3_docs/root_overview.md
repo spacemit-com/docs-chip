@@ -66,7 +66,7 @@ The K3 series chips are mainly used in AI consumer hardware, such as AI smart ho
   - Dual-core RT24™ 64-bit RISC-V real-time processor
   - Six-stage in-order pipeline per core
 - **Multimedia and Display**
-  - Integrated 3D graphics engine supporting Vulkan, OpenCL, and OpenGLES
+  - Integrated 3D graphics engine supporting Vulkan, OpenCL, and OpenGL ES
   - 4K@180fps decoding for H.265, H.264, VP9, and other formats
   - 4K@90fps encoding for H.265, H.264, and other formats
   - Dual 3840×2160@60fps display outputs

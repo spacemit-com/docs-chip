@@ -78,7 +78,7 @@ SpacemiT Key Stone® K1 is a high-performance and ultra-low-power SoC that integ
   - UART (×10)
     - AP/BT/print
   - I2C (×10)
-    - For camera, G-Sensor, E-COMPASS, Proximit-Sensor, Light-Sensor, Gyro, Fingerprint, NFC, PMIC, Touch, etc.
+    - For camera, G-Sensor, E-COMPASS, Proximity-Sensor, Light-Sensor, Gyro, Fingerprint, NFC, PMIC, Touch, etc.
     - 8x AP_I2C (AP I2C0/1/7 dedicated for camera) + 1x HDMI I2C + 1x PWR I2C
   - SPI (×4)
     - Support for both master and slave mode
@@ -100,7 +100,7 @@ SpacemiT Key Stone® K1 is a high-performance and ultra-low-power SoC that integ
   - SD (×1 for TF card)
     - Compatible with 4-bit SD 3.0 UHS-I protocol, up to SDR104 (208MHz)
   - eMMC (×1)
-    - Compatible with 8bit eMMC5.1, up to HS400 (200MHz)
+    - Compatible with 8-bit eMMC 5.1, up to HS400 (200MHz)
   - MIPI CSI (CSI-2 v1.1) 4-Lane (×2)
     - 4-Lane + 4-Lane mode
     - 4-Lane + 2-Lane mode
@@ -131,7 +131,7 @@ SpacemiT Key Stone® K1 is a high-performance and ultra-low-power SoC that integ
 
 - GPU
   - IMG BXE-2-32@819MHz, 32KB SLC
-  - Support for OpenCL3.0 / OpenGL ES 3.2 / Vulkan1.3
+  - Support for OpenCL 3.0 / OpenGL ES 3.2 / Vulkan 1.3
 - VPU (Video Processing Unit)
   - H.265/H.264/VP8/VP9/MPEG4/MPEG2 decoder 4K@60fps
   - H.265/H.264/VP8/VP9 encoder 4K@30fps

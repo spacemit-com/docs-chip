@@ -78,7 +78,7 @@ The K3 series chips are mainly used in AI consumer hardware, such as AI smart ho
 **Multimedia and Display**  
 
 - Integrated 3D graphics engine supporting Vulkan, OpenCL, OpenGL ES  
-- 4K 120 fps decoding and 4K 60 fps encoding (H.265/H.264/VP9)  
+- 4K@120 fps decoding and 4K@60 fps encoding (H.265/H.264/VP9)  
 - Dual 3840×2160@60fps display outputs via MIPI-DSI (8-lane, 4.5 Gbps/lane) and DP/eDP  
 - 4 × MIPI-CSI interfaces (12 lanes total), supporting up to 12 camera inputs  
 
@@ -211,7 +211,7 @@ These components are interconnected as follows:
 
 - The debugging software generally communicates with the debugging agent service over a network.
 - The debugging agent service commonly interfaces with the debugger via USB.  
-- The debugger interacts with the CPU through the JTAG interface  
+- The debugger interacts with the CPU through the JTAG interface.
 
 The JTAG memory access method could be either **progbuf** or **sysbus** mode, where  
 
@@ -232,7 +232,7 @@ Key features include:
 - Independent trace encoder connected to each X100/A100 core  
 - Integrated ATB bridge for connection to the ATB bus  
 - Support for BTM (Branch Trace Mode) compression  
-- Optional message types such as ownership messages, and enables improved trace handling in complex OS environments.  
+- Optional message types such as ownership messages, and enable improved trace handling in complex OS environments.  
 - Precise trace enable/disable control via debug triggers  
 - Extended compression capabilities such as virtual address compression to further enhance trace efficiency  
 
@@ -245,10 +245,8 @@ Key features include:
 
 **Introduction**  
 K3 integrates the following on-chip memory resources:
-- 128 KB Boot ROM
-Stores the first-stage bootloader and supports booting from multiple external media. Also supports program download via USB and UART, and enables eFuse-based secure boot.
-- 512 KB SRAM
-Shared by the main CPU and the RCPU.
+- 128 KB Boot ROM: stores the first-stage bootloader, supports booting from multiple external media, program download via USB and UART, and eFuse-based secure boot.
+- 512 KB SRAM: shared by the main CPU and the RCPU.
 
 #### 2.2.2 LPDDR4x/5
 
@@ -291,7 +289,7 @@ The eMMC interface functions as a host controller for the eMMC bus, enabling dat
   - ADMA  
   - ADMA2  
 - Supports SPI mode operation for eMMC cards  
-- Supports the following speed modes defined in the eMMC 5.1 specification:  
+- Supports the following speed modes as defined in the eMMC 5.1 specification:  
   - Legacy mode: up to 26 MB/s bandwidth, 1.8 V signal voltage  
   - High-Speed SDR: up to 52 MB/s bandwidth, 1.8 V signal voltage  
   - High-Speed DDR: up to 52 MB/s bandwidth, 1.8 V signal voltage  
