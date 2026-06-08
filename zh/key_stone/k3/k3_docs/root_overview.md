@@ -68,7 +68,7 @@ K3 系列芯片主要应用在 AI 消费硬件如 AI 智慧家居、AI 会议办
   - 双核 RT24™-64 位 RISC-V 实时处理器
   - 六级单发按序流水线
 - **多媒体和显示**
-  - 集成 3D 图形引擎支持 Vulkan、OpenCL、OpenGLES 
+  - 集成 3D 图形引擎支持 Vulkan、OpenCL、OpenGL ES 
   - 4K@180fps H.265/H.264/VP9 等格式解码能力
   - 4K@90fps H.265/H.264 等格式编码能力
   - 2 路 3840*2160@60fps 屏异显

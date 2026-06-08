@@ -65,7 +65,7 @@ CPU 在 -40˚C～85˚C 的环境温度下仍能提供稳定可靠的持续算力
   - 支持 SSD：NVMe over PCIe
 
 - **多媒体和显示**
-  - 支持 3D 图形引擎 OpenCL 3.0、OpenGLES 1.1/3.2、Vulkan 1.3
+  - 支持 3D 图形引擎 OpenCL 3.0、OpenGL ES 1.1/3.2、Vulkan 1.3
   - 支持 4K H.265/H.264/VP9/VP8 等编解码格式
   - 支持双屏异显，最高可达 1920 ×1440@60fps
   - 通过 MIPI-DSI、HDMI 输出

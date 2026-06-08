@@ -1245,7 +1245,7 @@ Offset: 0x174
 | 15:8 | RSVD | RO | 0 | Reserved for future use |
 | 7:0 | DLL_SLAVE_DELAY | RO | 0x0 | This field reflects the delay value currently used for the strobe signal, or the final delay value used by the software/HW tuning process. |
 
-##### SDHC PHY PAD CONFIGRATION REGISTER
+##### SDHC PHY PAD CONFIGURATION REGISTER
 SDHC_PHY_PADCFG_REG
 Offset: 0x178
 
@@ -1265,7 +1265,7 @@ Offset: 0x178
 | 4:3 | SLEW_RATE | RW | 0x0 | PAD slew-rate control:<br>00 = low.<br>01 = medium.<br>10 = high.<br>11 = very high. |
 | 2:0 | DRIVE_SEL | RW | 0x4 | Drive nominal impedance selection:<br>000 = high-Z.<br>001 = 200.<br>010 = 100.<br>011 = 66.<br>100 = 50.<br>101 = 40.<br>110 = 33.<br>111 = 33. |
 
-##### SDHC PHY PAD CONFIGRATION1 REGISTER
+##### SDHC PHY PAD CONFIGURATION1 REGISTER
 SDHC_PHY_PADCFG1_REG
 Offset: 0x17C
 
