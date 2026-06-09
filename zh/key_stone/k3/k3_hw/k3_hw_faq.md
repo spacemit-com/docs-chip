@@ -1,4 +1,6 @@
-sidebar_position: 3
+---
+sidebar_position: 4
+---
 
 # K3 硬件方案 FAQ
 
