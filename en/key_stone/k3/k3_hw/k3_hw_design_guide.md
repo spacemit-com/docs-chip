@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 # K3 Hardware Design Guidelines and PCB Layout Manual
