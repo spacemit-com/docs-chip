@@ -224,8 +224,8 @@ Offset: 0x10
 
 To configure the SID for the GPU:
 
-1. Set **NASID_CTRL1** (offset: 0x14) bit [30] = 1.
-2. Specify the SID via **NASID_CTRL1** bits [19:16].
+1. Set **NSAID_CTRL1** (offset: 0x14) bit [30] = 1.
+2. Specify the SID via **NSAID_CTRL1** bits [19:16].
 
 ###### NSAID CONTROL REGISTER1
 
@@ -250,15 +250,15 @@ Offset: 0x14
 
 To configure the SID for the VPU:
 
-1. Set **NASID_CTRL1** (offset: 0x14) bit [31] = 0.
-2. Specify the SID via **NASID_CTRL1** bits [23:20].
+1. Set **NSAID_CTRL1** (offset: 0x14) bit [31] = 0.
+2. Specify the SID via **NSAID_CTRL1** bits [23:20].
 
 ##### V2D
 
 To configure the SID for the V2D:
 
 1. Set **MAS_SEC_CTRL** (offset: 0x8) bit [31] = 1.
-2. Specify the SID via **NASID_CTRL1** (offset: 0x14) bits [11:8].
+2. Specify the SID via **NSAID_CTRL1** (offset: 0x14) bits [11:8].
 
 ###### MASTER SECURE CONTROL REGISTER
 
@@ -331,14 +331,14 @@ The SID is configured via the **DDRPORT_USER_CTRL** register (offset: 0x78) bits
 
 ##### ISP
 
-The SID is configured via the **NASID_CTRL1** register (offset: 0x14) bits [3:0].
+The SID is configured via the **NSAID_CTRL1** register (offset: 0x14) bits [3:0].
 
 ##### LCD0
 
 To configure the SID for LCD0:
 
-- Set **NASID_CTRL1** (offset: 0x14) bit [28] = 0.
-- Specify the SID via **NASID_CTRL1** (offset: 0x14) bits [7:4].
+- Set **NSAID_CTRL1** (offset: 0x14) bit [28] = 0.
+- Specify the SID via **NSAID_CTRL1** (offset: 0x14) bits [7:4].
 
 ##### LCD1
 

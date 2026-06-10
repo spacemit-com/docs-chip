@@ -356,7 +356,7 @@ Offset:0x100
 | 15:8 | PLL1_REG2 | RW | 0x0C | PLL1 Register 2 Configuration |
 | 7:0 | PLL1_REG1 | RW | 0xCC | PLL1 Register 1 Configuration |
 
-##### PLL1 SW CONTROL REGISTER 
+##### PLL1 SW CONTROL REGISTER
 APB_SPARE2_REG
 Offset:0x104
 
@@ -1057,7 +1057,7 @@ Offset:0x50
 | 6 | RSVD | RO | 0 | Reserved for future use |
 | 5 | CCIC1_PHYCLK_EN | RW | 0x0 | CCIC1 PHY Clock Enable:<br>0x0 = Disable<br>0x1 = Enable |
 | 4 | CCIC_CLK4X_EN | RW | 0x0 | CMOS Camera Interface Controller Peripheral Clock Enable:<br>0x0 = Disable<br>0x1 = Enable |
-| 3 | SC2_HCLK_EN | RW | 0x0 | SC2_HCLK Enable<br>0x0 = disable<br>0x1 = enable |
+| 3 | SC2_HCLK_EN | RW | 0x0 | SC2_HCLK Enable:<br>0x0 = Disable<br>0x1 = Enable |
 | 2 | CCIC1_PHYCLK_RST | RW | 0x0 | CCIC1 PHY Clock Reset<br>This clock is also used for DPHY reset.<br>0 = Reset<br>1 = Release Reset |
 | 1 | CCIC_CLK4X_RST | RW | 0x0 | CMOS Camera Interface Controller Peripheral Reset<br>0 = Reset<br>1 = Release Reset |
 | 0 | SC2_HCLK_RST | RW | 0x0 | SC2_HCLK Reset<br>0 = Reset<br>1 = Release Reset |
