@@ -20,7 +20,7 @@ The package outline drawing (POD) is shown below.
 
 <img src="./static/package2.png" alt="K3 package outline drawing, view 2" width="800">
 
-### 2.3 Part Number
+## 2.3 Part Number
 
 The figure below shows the K3 part number structure and field definitions.
 
