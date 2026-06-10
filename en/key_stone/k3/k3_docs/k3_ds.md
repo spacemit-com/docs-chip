@@ -22,6 +22,7 @@ The content of this document may be periodically updated due to product version 
 
 | Version | Date | Notes |
 | --- | --- | --- |
+| **V1.4** | 2026.06.10 | Added Part Number information |
 | **V1.3** | 2026.05.21 | Updated A100 interrupt description |
 | **V1.2** | 2026.05.19 | Updated video subsystem parameters|
 | **V1.1** | 2026.05.08 | Updated image features |
@@ -1640,6 +1641,12 @@ The related package outline drawing (POD) is depicted in the following section.
 <img src="static/package1.png" alt="" width="500">
 
 <img src="static/package2.png" alt="" width="800">
+
+### 3.3 Part Number
+
+The figure below shows the K3 part number structure and field definitions.
+
+<img src="static/k3_partno.png" alt="" width="800">
 
 ## 4. Pinout
 

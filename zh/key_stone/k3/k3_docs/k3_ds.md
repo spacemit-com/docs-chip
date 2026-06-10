@@ -23,6 +23,7 @@ sidebar_position: 2
 
 | 版本号 | 日期 | 修订说明 |
 | --- | --- | --- |
+| **V1.4** | 2026.06.10 | 增添 Part Number 描述 |
 | **V1.3** | 2026.05.21 | 更新 A100 中断描述 |
 | **V1.2** | 2026.05.19 | 更新视频子系统参数 |
 | **V1.1** | 2026.05.08 | 更新图像子系统特性 |
@@ -1675,6 +1676,12 @@ K3 提供以下封装选项：
 <img src="static/package1.png" alt="" width="500">
 
 <img src="static/package2.png" alt="" width="800">
+
+### 3.3 Part Number
+
+下图给出了 K3 Part Number 的组成及字段定义。
+
+<img src="static/k3_partno.png" alt="" width="800">
 
 ## 4. 引脚定义（Pinout）
 
