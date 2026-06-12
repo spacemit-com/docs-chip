@@ -1,0 +1,471 @@
+"""
+Doc Review Agent
+================
+Reviews Markdown documentation files in a pull request and posts
+inline comments + a summary to GitHub.
+
+Usage (invoked by GitHub Actions):
+    python agent.py
+
+Required environment variables:
+    GITHUB_TOKEN       - GitHub token with pull-request write permission
+    GITHUB_REPOSITORY  - e.g. "spacemit-com/docs-chip"
+    PR_NUMBER          - pull request number
+    OPENAI_API_KEY     - (or compatible LLM key)
+    OPENAI_BASE_URL    - optional, for compatible endpoints
+    OPENAI_MODEL       - model name, e.g. "gpt-4o"
+"""
+
+from __future__ import annotations
+
+import os
+import re
+import sys
+import json
+import yaml
+import pathlib
+import textwrap
+import requests
+from dataclasses import dataclass, field
+from typing import Literal
+
+# ─── Configuration ────────────────────────────────────────────────────────────
+
+REPO          = os.environ["GITHUB_REPOSITORY"]          # "owner/repo"
+PR_NUMBER     = int(os.environ["PR_NUMBER"])
+GITHUB_TOKEN  = os.environ["GITHUB_TOKEN"]
+LLM_API_KEY   = os.environ.get("OPENAI_API_KEY", "")
+LLM_BASE_URL  = os.environ.get("OPENAI_BASE_URL", "https://api.openai.com/v1")
+LLM_MODEL     = os.environ.get("OPENAI_MODEL", "gpt-4o")
+
+CONFIG_PATH   = pathlib.Path(__file__).parent / "config.yml"
+PROMPT_PATH   = pathlib.Path(__file__).parent / "system_prompt.md"
+WORKSPACE     = pathlib.Path(os.environ.get("GITHUB_WORKSPACE", "."))
+
+GH_API        = "https://api.github.com"
+GH_HEADERS    = {
+    "Authorization": f"Bearer {GITHUB_TOKEN}",
+    "Accept": "application/vnd.github+json",
+    "X-GitHub-Api-Version": "2022-11-28",
+}
+
+# ─── Data types ───────────────────────────────────────────────────────────────
+
+Severity = Literal["Error", "Warning", "Suggestion", "错误", "警告", "建议"]
+
+@dataclass
+class ReviewComment:
+    path: str           # relative file path
+    line: int           # 1-based line number in the file
+    body: str           # comment text (already formatted)
+    severity: str       # Error / Warning / Suggestion
+
+
+@dataclass
+class ReviewResult:
+    comments: list[ReviewComment] = field(default_factory=list)
+    errors: int = 0
+    warnings: int = 0
+    suggestions: int = 0
+
+
+# ─── GitHub helpers ───────────────────────────────────────────────────────────
+
+def gh_get(path: str) -> dict | list:
+    r = requests.get(f"{GH_API}{path}", headers=GH_HEADERS, timeout=30)
+    r.raise_for_status()
+    return r.json()
+
+
+def gh_post(path: str, body: dict) -> dict:
+    r = requests.post(f"{GH_API}{path}", headers=GH_HEADERS, json=body, timeout=30)
+    r.raise_for_status()
+    return r.json()
+
+
+def get_pr_files() -> list[dict]:
+    """Return list of changed files in the PR (up to 300 files)."""
+    files = []
+    page = 1
+    while True:
+        batch = gh_get(f"/repos/{REPO}/pulls/{PR_NUMBER}/files?per_page=100&page={page}")
+        if not batch:
+            break
+        files.extend(batch)
+        if len(batch) < 100:
+            break
+        page += 1
+    return files
+
+
+def get_pr_head_sha() -> str:
+    pr = gh_get(f"/repos/{REPO}/pulls/{PR_NUMBER}")
+    return pr["head"]["sha"]
+
+
+def post_review(comments: list[ReviewComment], summary_body: str, commit_sha: str) -> None:
+    """Post all inline comments + summary as a single PR review."""
+    gh_comments = []
+    for c in comments:
+        gh_comments.append({
+            "path": c.path,
+            "line": c.line,
+            "side": "RIGHT",
+            "body": c.body,
+        })
+
+    payload = {
+        "commit_id": commit_sha,
+        "body": summary_body,
+        "event": "COMMENT",      # advisory only — never REQUEST_CHANGES
+        "comments": gh_comments,
+    }
+    gh_post(f"/repos/{REPO}/pulls/{PR_NUMBER}/reviews", payload)
+
+
+# ─── Rule-based checks ────────────────────────────────────────────────────────
+
+def is_zh(filepath: str) -> bool:
+    return filepath.startswith("zh/")
+
+
+def label(sev: str, zh: bool) -> str:
+    mapping = {
+        "Error":      "错误" if zh else "Error",
+        "Warning":    "警告" if zh else "Warning",
+        "Suggestion": "建议" if zh else "Suggestion",
+    }
+    return f"`[{mapping.get(sev, sev)}]`"
+
+
+def check_frontmatter(content: str, path: str, cfg: dict) -> list[tuple[int, str, str]]:
+    """Returns list of (line, severity, message)."""
+    issues = []
+    if not content.startswith("---"):
+        issues.append((1, "Warning", "Missing YAML frontmatter block."))
+        return issues
+
+    end = content.find("\n---", 3)
+    if end == -1:
+        issues.append((1, "Warning", "Frontmatter block is not closed."))
+        return issues
+
+    try:
+        fm = yaml.safe_load(content[3:end])
+    except yaml.YAMLError:
+        issues.append((1, "Error", "Frontmatter YAML is invalid."))
+        return issues
+
+    if not isinstance(fm, dict):
+        return issues
+
+    for field_name in cfg.get("required_fields", ["title"]):
+        if field_name not in fm:
+            issues.append((1, "Warning", f"Frontmatter is missing required field: `{field_name}`."))
+
+    return issues
+
+
+def check_headings(lines: list[str]) -> list[tuple[int, str, str]]:
+    issues = []
+    prev_level = 0
+    for i, line in enumerate(lines, 1):
+        m = re.match(r'^(#{1,6})\s', line)
+        if not m:
+            continue
+        level = len(m.group(1))
+        if prev_level > 0 and level > prev_level + 1:
+            issues.append((i, "Warning",
+                f"Heading level jumps from `{'#' * prev_level}` to `{'#' * level}`. "
+                "Avoid skipping heading levels."))
+        prev_level = level
+    return issues
+
+
+def check_tbd(lines: list[str]) -> list[tuple[int, str, str]]:
+    issues = []
+    pattern = re.compile(r'\b(TBD|TODO|FIXME)\b', re.IGNORECASE)
+    for i, line in enumerate(lines, 1):
+        if pattern.search(line):
+            issues.append((i, "Warning",
+                f"Found `{pattern.search(line).group()}` placeholder. "
+                "Remove or replace before publication."))
+    return issues
+
+
+def check_images(lines: list[str], file_path: str) -> list[tuple[int, str, str]]:
+    issues = []
+    img_pattern = re.compile(r'!\[.*?\]\(([^)]+)\)')
+    base_dir = (WORKSPACE / file_path).parent
+
+    for i, line in enumerate(lines, 1):
+        for m in img_pattern.finditer(line):
+            img_src = m.group(1)
+            if img_src.startswith("http"):
+                continue
+            img_path = (base_dir / img_src).resolve()
+            if not img_path.exists():
+                issues.append((i, "Error",
+                    f"Image not found: `{img_src}`. "
+                    "Add the file to the `static/` directory or fix the path."))
+    return issues
+
+
+def check_links(lines: list[str], file_path: str) -> list[tuple[int, str, str]]:
+    issues = []
+    link_pattern = re.compile(r'\[.*?\]\(([^)#]+)(?:#[^)]*)?\)')
+    base_dir = (WORKSPACE / file_path).parent
+
+    for i, line in enumerate(lines, 1):
+        for m in link_pattern.finditer(line):
+            target = m.group(1).strip()
+            if target.startswith("http"):
+                continue
+            target_path = (base_dir / target).resolve()
+            if not target_path.exists():
+                issues.append((i, "Error",
+                    f"Broken link: `{target}`. "
+                    "Verify the target file exists or update the path."))
+    return issues
+
+
+def check_code_blocks(lines: list[str]) -> list[tuple[int, str, str]]:
+    issues = []
+    for i, line in enumerate(lines, 1):
+        if re.match(r'^```\s*$', line):
+            issues.append((i, "Suggestion",
+                "Code block has no language identifier. "
+                "Specify a language (e.g., ` ```bash `, ` ```c `) for syntax highlighting."))
+    return issues
+
+
+def check_chinese_punctuation(lines: list[str], path: str) -> list[tuple[int, str, str]]:
+    if not is_zh(path):
+        return []
+    issues = []
+    # Detect common ASCII punctuation in prose (outside code blocks)
+    in_code = False
+    ascii_punct = re.compile(r'(?<!\s)[,;:](?!\s*\d)')  # rough heuristic
+    for i, line in enumerate(lines, 1):
+        if line.startswith("```"):
+            in_code = not in_code
+        if in_code:
+            continue
+        if ascii_punct.search(line):
+            issues.append((i, "Suggestion",
+                "检测到 ASCII 标点符号（`,` `;` `:`）。中文文档请使用中文标点（，；：）。"))
+    return issues
+
+
+def check_bilingual_pair(file_path: str) -> list[tuple[int, str, str]]:
+    issues = []
+    if file_path.startswith("en/"):
+        pair = "zh/" + file_path[3:]
+    elif file_path.startswith("zh/"):
+        pair = "en/" + file_path[3:]
+    else:
+        return issues
+
+    pair_full = WORKSPACE / pair
+    if not pair_full.exists():
+        issues.append((1, "Warning",
+            f"Bilingual counterpart not found: `{pair}`. "
+            "Create the corresponding file or update the language index."))
+    return issues
+
+
+# ─── LLM-assisted review ─────────────────────────────────────────────────────
+
+def llm_review(content: str, file_path: str, system_prompt: str) -> list[tuple[int, str, str]]:
+    """
+    Ask the LLM to review the document content.
+    Returns list of (line, severity, message).
+    """
+    if not LLM_API_KEY:
+        return []
+
+    lang_hint = "This file is under zh/ — respond in Chinese." if is_zh(file_path) else \
+                "This file is under en/ — respond in English."
+
+    user_msg = textwrap.dedent(f"""
+        Review the following Markdown file: `{file_path}`
+        {lang_hint}
+
+        Return your findings as a JSON array. Each item must have:
+        - "line": integer (1-based line number closest to the issue)
+        - "severity": "Error" | "Warning" | "Suggestion"  (use Chinese equivalents for zh/ files)
+        - "message": string (formatted per the style guide in your system prompt)
+
+        If there are no issues, return an empty array [].
+
+        ```markdown
+        {content[:12000]}
+        ```
+    """).strip()
+
+    payload = {
+        "model": LLM_MODEL,
+        "messages": [
+            {"role": "system", "content": system_prompt},
+            {"role": "user",   "content": user_msg},
+        ],
+        "temperature": 0.1,
+        "response_format": {"type": "json_object"},
+    }
+
+    try:
+        r = requests.post(
+            f"{LLM_BASE_URL}/chat/completions",
+            headers={"Authorization": f"Bearer {LLM_API_KEY}", "Content-Type": "application/json"},
+            json=payload,
+            timeout=60,
+        )
+        r.raise_for_status()
+        raw = r.json()["choices"][0]["message"]["content"]
+        data = json.loads(raw)
+        items = data if isinstance(data, list) else data.get("issues", data.get("findings", []))
+        return [(int(item["line"]), item["severity"], item["message"]) for item in items]
+    except Exception as e:
+        print(f"  LLM review failed for {file_path}: {e}", file=sys.stderr)
+        return []
+
+
+# ─── Main ─────────────────────────────────────────────────────────────────────
+
+def run_checks(file_path: str, content: str, cfg: dict) -> list[tuple[int, str, str]]:
+    lines = content.splitlines()
+    issues: list[tuple[int, str, str]] = []
+
+    if cfg["checks"]["frontmatter"]["enabled"]:
+        issues += check_frontmatter(content, file_path, cfg["checks"]["frontmatter"])
+    if cfg["checks"]["heading_hierarchy"]["enabled"]:
+        issues += check_headings(lines)
+    if cfg["checks"]["technical_style"]["enabled"] and cfg["checks"]["technical_style"]["flag_tbd"]:
+        issues += check_tbd(lines)
+    if cfg["checks"]["missing_images"]["enabled"]:
+        issues += check_images(lines, file_path)
+    if cfg["checks"]["broken_links"]["enabled"]:
+        issues += check_links(lines, file_path)
+    if cfg["checks"]["technical_style"]["enabled"] and cfg["checks"]["technical_style"]["flag_code_block_language"]:
+        issues += check_code_blocks(lines)
+    if cfg["checks"]["punctuation"]["enabled"] and cfg["checks"]["punctuation"]["chinese_punctuation_in_zh"]:
+        issues += check_chinese_punctuation(lines, file_path)
+    if cfg["checks"]["bilingual_mirror"]["enabled"] and cfg["checks"]["bilingual_mirror"]["flag_missing_pair"]:
+        issues += check_bilingual_pair(file_path)
+
+    return issues
+
+
+def build_comment_body(sev: str, message: str, zh: bool) -> str:
+    lbl = label(sev, zh)
+    return f"{lbl} {message}\n\n<!-- bot:doc-review -->"
+
+
+def build_summary(result: ReviewResult, zh: bool) -> str:
+    bot_tag = "<!-- bot:doc-review -->"
+    if zh:
+        return textwrap.dedent(f"""
+            ## 📋 文档审阅摘要
+
+            | 级别 | 数量 |
+            |------|------|
+            | 错误 | {result.errors} |
+            | 警告 | {result.warnings} |
+            | 建议 | {result.suggestions} |
+
+            > 错误项表示信息缺失或有误，建议在合并前处理。
+            > 警告和建议仅供参考，最终合并决策由人工审阅者决定。
+
+            {bot_tag}
+        """).strip()
+    else:
+        return textwrap.dedent(f"""
+            ## 📋 Doc Review Summary
+
+            | Severity   | Count |
+            |------------|-------|
+            | Error      | {result.errors} |
+            | Warning    | {result.warnings} |
+            | Suggestion | {result.suggestions} |
+
+            > Errors indicate missing or incorrect information that should be addressed before merge.
+            > Warnings and suggestions are advisory — human reviewer makes the final call.
+
+            {bot_tag}
+        """).strip()
+
+
+def main() -> None:
+    cfg = yaml.safe_load(CONFIG_PATH.read_text(encoding="utf-8"))
+    system_prompt = PROMPT_PATH.read_text(encoding="utf-8")
+
+    pr_files = get_pr_files()
+    commit_sha = get_pr_head_sha()
+
+    # Filter to Markdown doc files only
+    include_re = [re.compile(p.replace("**", ".*").replace("*", "[^/]*"))
+                  for p in cfg["include_patterns"]]
+    exclude_re = [re.compile(p.replace("**", ".*").replace("*", "[^/]*"))
+                  for p in cfg.get("exclude_patterns", [])]
+
+    def is_included(path: str) -> bool:
+        return (any(r.fullmatch(path) for r in include_re) and
+                not any(r.fullmatch(path) for r in exclude_re))
+
+    result = ReviewResult()
+    all_comments: list[ReviewComment] = []
+    has_zh = False
+
+    for f in pr_files:
+        fpath = f["filename"]
+        status = f.get("status", "")
+
+        if not is_included(fpath):
+            continue
+        if status == "removed":
+            continue
+
+        print(f"Reviewing: {fpath}")
+        zh = is_zh(fpath)
+        if zh:
+            has_zh = True
+
+        full_path = WORKSPACE / fpath
+        try:
+            content = full_path.read_text(encoding="utf-8")
+        except FileNotFoundError:
+            print(f"  File not found locally, skipping: {fpath}", file=sys.stderr)
+            continue
+
+        # Rule-based checks
+        issues = run_checks(fpath, content, cfg)
+
+        # LLM-assisted checks
+        llm_issues = llm_review(content, fpath, system_prompt)
+        issues += llm_issues
+
+        for line_no, sev, msg in issues:
+            body = build_comment_body(sev, msg, zh)
+            all_comments.append(ReviewComment(path=fpath, line=line_no, body=body, severity=sev))
+
+            sev_norm = sev.lower()
+            if sev_norm in ("error", "错误"):
+                result.errors += 1
+            elif sev_norm in ("warning", "警告"):
+                result.warnings += 1
+            else:
+                result.suggestions += 1
+
+    summary = build_summary(result, zh=has_zh)
+
+    if all_comments or result.errors + result.warnings + result.suggestions > 0:
+        print(f"\nPosting review: {result.errors} errors, {result.warnings} warnings, "
+              f"{result.suggestions} suggestions")
+        post_review(all_comments, summary, commit_sha)
+    else:
+        print("No issues found. Posting clean summary.")
+        post_review([], summary, commit_sha)
+
+
+if __name__ == "__main__":
+    main()
