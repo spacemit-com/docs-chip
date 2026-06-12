@@ -1,0 +1,73 @@
+# Doc Review Agent Configuration
+
+# ─── Scope ────────────────────────────────────────────────────────────────────
+# Only review files matching these patterns
+include_patterns:
+  - "en/**/*.md"
+  - "zh/**/*.md"
+
+# Never review these files
+exclude_patterns:
+  - "**/index.md"   # index files are auto-generated navigation stubs
+
+# ─── Checks ───────────────────────────────────────────────────────────────────
+checks:
+  frontmatter:
+    enabled: true
+    required_fields:
+      - title
+    # Add sidebar_position if your site framework requires it
+    # - sidebar_position
+
+  heading_hierarchy:
+    enabled: true
+
+  empty_file:
+    enabled: true
+    min_content_lines: 5    # files with fewer lines are flagged
+
+  broken_links:
+    enabled: true
+    check_internal: true
+    check_anchors: false    # anchor checking is best-effort; set true if needed
+
+  missing_images:
+    enabled: true
+
+  bilingual_mirror:
+    enabled: true
+    # Flag if the paired file in the other language is missing
+    flag_missing_pair: true
+    # Flag if heading count differs by more than this threshold
+    heading_count_tolerance: 2
+
+  technical_style:
+    enabled: true
+    flag_tbd: true          # flag TBD / TODO / FIXME
+    flag_missing_units: false  # heuristic check; may have false positives
+    flag_code_block_language: true
+
+  punctuation:
+    enabled: true
+    # Enforce Chinese punctuation in zh/ files
+    chinese_punctuation_in_zh: true
+
+# ─── Severity overrides ───────────────────────────────────────────────────────
+# Default severities are defined in the agent. Override here if needed.
+severity_overrides:
+  missing_pair_file: "warning"      # missing bilingual pair → warning, not error
+  tbd_in_content: "warning"
+  missing_code_block_lang: "suggestion"
+
+# ─── Output ───────────────────────────────────────────────────────────────────
+output:
+  # Post inline review comments on specific lines
+  inline_comments: true
+  # Post a summary comment at the PR level
+  pr_summary: true
+  # GitHub status check result when errors are found
+  # "neutral" = visible but never blocks merge
+  # "failure" = blocks merge (requires the check to be non-required in branch protection)
+  status_on_error: "neutral"
+  # Tag appended to all bot comments for easy identification and bulk-resolve
+  bot_tag: "<!-- bot:doc-review -->"

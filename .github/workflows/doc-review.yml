@@ -1,0 +1,41 @@
+name: Doc Review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - "en/**/*.md"
+      - "zh/**/*.md"
+
+permissions:
+  pull-requests: write   # post review comments
+  contents: read
+
+jobs:
+  review:
+    name: Review documentation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout PR
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # full history needed for bilingual pair checks
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests pyyaml
+
+      - name: Run Doc Review Agent
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_BASE_URL: ${{ secrets.OPENAI_BASE_URL || 'https://api.openai.com/v1' }}
+          OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-4o' }}
+        run: python .github/doc-review-agent/agent.py
