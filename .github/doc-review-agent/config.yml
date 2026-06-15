@@ -38,6 +38,8 @@ checks:
     enabled: true
     # Flag if the paired file in the other language is missing
     flag_missing_pair: true
+    # Remind author to update the counterpart when only one language file is modified
+    flag_sync_reminder: true
     # Flag if heading count differs by more than this threshold
     heading_count_tolerance: 2
 
@@ -52,12 +54,56 @@ checks:
     # Enforce Chinese punctuation in zh/ files
     chinese_punctuation_in_zh: true
 
+  # ─── Professional technical-writer checks ──────────────────────────────
+  technical_writing:
+
+    # Flag runs of more than 2 consecutive blank lines
+    consecutive_blank_lines:
+      enabled: true
+
+    # Flag lines with single trailing whitespace
+    trailing_whitespace:
+      enabled: true
+
+    # Validate Markdown table structure (separator row + consistent columns)
+    table_structure:
+      enabled: true
+
+    # Enforce correct product name casing: K1, K3, P1, P1S
+    product_name_casing:
+      enabled: true
+
+    # Flag bare numeric values in unit-bearing contexts (voltage, frequency, etc.)
+    missing_units:
+      enabled: true
+
+    # Flag first-person pronouns (I, me, my, we, us) in formal en/ docs — Warning level
+    first_person:
+      enabled: true
+
+    # Passive voice is natural in academic technical EN — disabled
+    passive_voice:
+      enabled: false
+
+    # Flag non-standard admonition keywords (only NOTE/WARNING/CAUTION/TIP/IMPORTANT)
+    admonition_keywords:
+      enabled: true
+
 # ─── Severity overrides ───────────────────────────────────────────────────────
 # Default severities are defined in the agent. Override here if needed.
 severity_overrides:
   missing_pair_file: "warning"      # missing bilingual pair → warning, not error
   tbd_in_content: "warning"
   missing_code_block_lang: "suggestion"
+  consecutive_blank_lines: "suggestion"
+  trailing_whitespace: "suggestion"
+  table_structure_missing_separator: "error"
+  table_structure_inconsistent_columns: "warning"
+  product_name_casing: "warning"
+  missing_units: "suggestion"
+  first_person: "warning"
+  passive_voice: "suggestion"   # disabled above; severity kept for reference
+  admonition_keywords: "suggestion"
 
 # ─── Output ───────────────────────────────────────────────────────────────────
 output:

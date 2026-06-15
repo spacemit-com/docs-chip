@@ -257,6 +257,168 @@ def check_chinese_punctuation(lines: list[str], path: str) -> list[tuple[int, st
     return issues
 
 
+def check_consecutive_blank_lines(lines: list[str]) -> list[tuple[int, str, str]]:
+    """Flag runs of more than 2 consecutive blank lines."""
+    issues = []
+    blank_run = 0
+    run_start = 0
+    for i, line in enumerate(lines, 1):
+        if line.strip() == "":
+            if blank_run == 0:
+                run_start = i
+            blank_run += 1
+        else:
+            if blank_run > 2:
+                issues.append((run_start, "Suggestion",
+                    f"{blank_run} consecutive blank lines found. "
+                    "Reduce to at most 1 blank line between paragraphs."))
+            blank_run = 0
+    return issues
+
+
+def check_trailing_whitespace(lines: list[str]) -> list[tuple[int, str, str]]:
+    """Flag lines with trailing spaces (except intentional line-break double-space)."""
+    issues = []
+    for i, line in enumerate(lines, 1):
+        stripped = line.rstrip("\n")
+        if stripped.endswith(" ") and not stripped.endswith("  "):  # single trailing space
+            issues.append((i, "Suggestion",
+                "Trailing whitespace detected. Remove the trailing space(s)."))
+    return issues
+
+
+def check_table_structure(lines: list[str]) -> list[tuple[int, str, str]]:
+    """Check that Markdown tables have a separator row and consistent column counts."""
+    issues = []
+    i = 0
+    while i < len(lines):
+        line = lines[i]
+        if re.match(r'^\s*\|', line):
+            # Collect table block
+            table_start = i + 1  # 1-based
+            col_counts = []
+            j = i
+            while j < len(lines) and (re.match(r'^\s*\|', lines[j]) or lines[j].strip() == ""):
+                if re.match(r'^\s*\|', lines[j]):
+                    col_counts.append(lines[j].count("|"))
+                j += 1
+
+            if len(col_counts) >= 2:
+                # Second row must be a separator (only |, -, :, space)
+                sep_row = lines[i + 1] if i + 1 < len(lines) else ""
+                if not re.match(r'^[\s|:\-]+$', sep_row):
+                    issues.append((table_start + 1, "Error",
+                        "Table is missing a separator row (`| --- | --- |`) after the header."))
+                # Check consistent column count (ignore separator row)
+                data_cols = [c for idx, c in enumerate(col_counts) if idx != 1]
+                if len(set(data_cols)) > 1:
+                    issues.append((table_start, "Warning",
+                        "Table has inconsistent column counts across rows. "
+                        "Ensure every row has the same number of `|` delimiters."))
+            i = j
+        else:
+            i += 1
+    return issues
+
+
+def check_product_name_casing(lines: list[str]) -> list[tuple[int, str, str]]:
+    """Flag incorrect casing of product names (K1, K3, P1, P1S)."""
+    issues = []
+    # Match variants like k1, K-1, k-1, p1s, P-1S, etc. but not the correct forms
+    wrong = re.compile(r'\b(k1|k3|p1s|p1|K-1|K-3|P-1S|P-1)\b')
+    correct_forms = {"k1": "K1", "k3": "K3", "p1s": "P1S", "p1": "P1",
+                     "K-1": "K1", "K-3": "K3", "P-1S": "P1S", "P-1": "P1"}
+    in_code = False
+    for i, line in enumerate(lines, 1):
+        if line.startswith("```"):
+            in_code = not in_code
+        if in_code:
+            continue
+        for m in wrong.finditer(line):
+            token = m.group()
+            correct = correct_forms.get(token, token.upper().replace("-", ""))
+            issues.append((i, "Warning",
+                f"Incorrect product name casing: `{token}`. Use `{correct}`."))
+    return issues
+
+
+def check_missing_units(lines: list[str]) -> list[tuple[int, str, str]]:
+    """Flag bare numeric values that are likely missing units."""
+    issues = []
+    # Match numbers followed by nothing, or a non-unit word — heuristic
+    # Patterns: a standalone number at end of sentence or before punctuation
+    bare_num = re.compile(
+        r'(?<![\w/])'
+        r'(\d+\.?\d*)'
+        r'(?!\s*(?:V|mV|A|mA|MHz|GHz|kHz|Hz|°C|℃|KB|MB|GB|TB|ns|us|ms|s|Ω|W|mW|%|\.|,|\d))'
+        r'(?=[\s,\.;。，])'
+    )
+    unit_context = re.compile(
+        r'(?i)(voltage|current|frequen|temperatur|speed|capacity|power|resistanc|timing|latency)'
+    )
+    in_code = False
+    for i, line in enumerate(lines, 1):
+        if line.startswith("```"):
+            in_code = not in_code
+        if in_code:
+            continue
+        if unit_context.search(line):
+            for m in bare_num.finditer(line):
+                issues.append((i, "Suggestion",
+                    f"Numeric value `{m.group(1)}` appears to be missing a unit "
+                    "(e.g., V, mA, MHz, °C). Add the appropriate unit."))
+    return issues
+
+
+def check_first_person(lines: list[str], file_path: str) -> list[tuple[int, str, str]]:
+    """Flag first-person pronouns in en/ formal documentation."""
+    if is_zh(file_path):
+        return []
+    issues = []
+    # Only flag unambiguous personal pronouns; exclude 'our' in company/product context
+    pattern = re.compile(r'\b(I|my|me|we|us)\b')
+    in_code = False
+    for i, line in enumerate(lines, 1):
+        if line.startswith("```"):
+            in_code = not in_code
+        if in_code or line.startswith(">") or line.startswith("#"):
+            continue
+        for m in pattern.finditer(line):
+            found = m.group()
+            issues.append((i, "Warning",
+                f"First-person pronoun `{found}` is not appropriate in formal technical "
+                "documentation. Rewrite using imperative mood or a subject-neutral construction "
+                "(e.g., \"The user should…\" or \"Configure the…\")."))
+    return issues
+
+
+def check_passive_overuse(lines: list[str], file_path: str) -> list[tuple[int, str, str]]:
+    """Passive voice is acceptable and natural in academic/formal technical EN docs.
+    This check is intentionally a no-op; kept for config compatibility."""
+    return []
+    return issues
+
+
+def check_admonition_keywords(lines: list[str], file_path: str) -> list[tuple[int, str, str]]:
+    """Flag non-standard admonition keywords (NOTE/WARNING/CAUTION/TIP only)."""
+    issues = []
+    # Match blockquote lines that start with bold keyword
+    admon = re.compile(r'^>\s*\*\*(\w[\w\s]*)\*\*')
+    valid_en = {"NOTE", "WARNING", "CAUTION", "TIP", "IMPORTANT"}
+    valid_zh = {"注意", "警告", "提示", "重要", "危险"}
+    valid = valid_zh if is_zh(file_path) else valid_en
+    for i, line in enumerate(lines, 1):
+        m = admon.match(line)
+        if m:
+            kw = m.group(1).strip().upper() if not is_zh(file_path) else m.group(1).strip()
+            if kw not in valid and kw not in {v.upper() for v in valid}:
+                allowed = "、".join(sorted(valid)) if is_zh(file_path) else ", ".join(sorted(valid))
+                issues.append((i, "Suggestion",
+                    f"Non-standard admonition keyword `{m.group(1).strip()}`. "
+                    f"Use one of: {allowed}."))
+    return issues
+
+
 def check_bilingual_pair(file_path: str) -> list[tuple[int, str, str]]:
     issues = []
     if file_path.startswith("en/"):
@@ -271,6 +433,38 @@ def check_bilingual_pair(file_path: str) -> list[tuple[int, str, str]]:
         issues.append((1, "Warning",
             f"Bilingual counterpart not found: `{pair}`. "
             "Create the corresponding file or update the language index."))
+    return issues
+
+
+def check_bilingual_sync(file_path: str, pr_file_paths: set[str]) -> list[tuple[int, str, str]]:
+    """
+    If this file was modified in the PR but its language counterpart was NOT,
+    remind the author to update the paired file to keep both versions in sync.
+    Only fires when the counterpart file actually exists on disk.
+    """
+    issues = []
+    if file_path.startswith("en/"):
+        pair = "zh/" + file_path[3:]
+    elif file_path.startswith("zh/"):
+        pair = "en/" + file_path[3:]
+    else:
+        return issues
+
+    pair_full = WORKSPACE / pair
+    if not pair_full.exists():
+        return issues   # missing pair is handled by check_bilingual_pair
+
+    if pair not in pr_file_paths:
+        lang = "英文" if file_path.startswith("zh/") else "Chinese"
+        pair_lang = "Chinese" if file_path.startswith("en/") else "英文"
+        if file_path.startswith("zh/"):
+            issues.append((1, "Warning",
+                f"此文件已在本 PR 中修改，但对应的{lang}文档 `{pair}` 未同步更新。"
+                "请同步修改对应文档，确保中英文内容一致。"))
+        else:
+            issues.append((1, "Warning",
+                f"This file was updated in this PR but its {pair_lang} counterpart `{pair}` "
+                "was not. Update the paired file to keep both language versions in sync."))
     return issues
 
 
@@ -332,9 +526,12 @@ def llm_review(content: str, file_path: str, system_prompt: str) -> list[tuple[i
 
 # ─── Main ─────────────────────────────────────────────────────────────────────
 
-def run_checks(file_path: str, content: str, cfg: dict) -> list[tuple[int, str, str]]:
+def run_checks(file_path: str, content: str, cfg: dict,
+               pr_file_paths: set[str] | None = None) -> list[tuple[int, str, str]]:
     lines = content.splitlines()
     issues: list[tuple[int, str, str]] = []
+    if pr_file_paths is None:
+        pr_file_paths = set()
 
     if cfg["checks"]["frontmatter"]["enabled"]:
         issues += check_frontmatter(content, file_path, cfg["checks"]["frontmatter"])
@@ -352,6 +549,35 @@ def run_checks(file_path: str, content: str, cfg: dict) -> list[tuple[int, str, 
         issues += check_chinese_punctuation(lines, file_path)
     if cfg["checks"]["bilingual_mirror"]["enabled"] and cfg["checks"]["bilingual_mirror"]["flag_missing_pair"]:
         issues += check_bilingual_pair(file_path)
+    if cfg["checks"]["bilingual_mirror"]["enabled"] and cfg["checks"]["bilingual_mirror"].get("flag_sync_reminder", True):
+        issues += check_bilingual_sync(file_path, pr_file_paths)
+
+    # ── New professional technical-writer checks ──────────────────────────────
+    tw = cfg["checks"].get("technical_writing", {})
+
+    if tw.get("consecutive_blank_lines", {}).get("enabled", True):
+        issues += check_consecutive_blank_lines(lines)
+
+    if tw.get("trailing_whitespace", {}).get("enabled", True):
+        issues += check_trailing_whitespace(lines)
+
+    if tw.get("table_structure", {}).get("enabled", True):
+        issues += check_table_structure(lines)
+
+    if tw.get("product_name_casing", {}).get("enabled", True):
+        issues += check_product_name_casing(lines)
+
+    if tw.get("missing_units", {}).get("enabled", True):
+        issues += check_missing_units(lines)
+
+    if tw.get("first_person", {}).get("enabled", True):
+        issues += check_first_person(lines, file_path)
+
+    if tw.get("passive_voice", {}).get("enabled", True):
+        issues += check_passive_overuse(lines, file_path)
+
+    if tw.get("admonition_keywords", {}).get("enabled", True):
+        issues += check_admonition_keywords(lines, file_path)
 
     return issues
 
@@ -438,7 +664,8 @@ def main() -> None:
             continue
 
         # Rule-based checks
-        issues = run_checks(fpath, content, cfg)
+        pr_paths = {f["filename"] for f in pr_files}
+        issues = run_checks(fpath, content, cfg, pr_file_paths=pr_paths)
 
         # LLM-assisted checks
         llm_issues = llm_review(content, fpath, system_prompt)
