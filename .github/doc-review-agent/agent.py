@@ -103,6 +103,23 @@ def get_pr_head_sha() -> str:
     return pr["head"]["sha"]
 
 
+def get_pr_info() -> dict:
+    """Return the full PR object (title, body, head sha, etc.)."""
+    return gh_get(f"/repos/{REPO}/pulls/{PR_NUMBER}")
+
+
+def update_pr_description(new_body: str) -> None:
+    """Prepend the auto-generated summary block to the PR description."""
+    import requests as _req
+    r = _req.patch(
+        f"{GH_API}/repos/{REPO}/pulls/{PR_NUMBER}",
+        headers=GH_HEADERS,
+        json={"body": new_body},
+        timeout=30,
+    )
+    r.raise_for_status()
+
+
 def post_review(comments: list[ReviewComment], summary_body: str, commit_sha: str) -> None:
     """Post all inline comments + summary as a single PR review."""
     gh_comments = []
@@ -227,6 +244,46 @@ def check_links(lines: list[str], file_path: str) -> list[tuple[int, str, str]]:
                     f"Broken link: `{target}`. "
                     "Verify the target file exists or update the path."))
     return issues
+
+
+def check_links_to_deleted(all_md_files: list[pathlib.Path],
+                           deleted_paths: set[str]) -> list[tuple[str, int, str, str]]:
+    """
+    Scan every tracked Markdown file for links that now point to a file
+    deleted/renamed in this PR.
+    Returns list of (file_path, line, severity, message).
+    """
+    if not deleted_paths:
+        return []
+
+    link_pattern = re.compile(r'\[.*?\]\(([^)#]+)(?:#[^)]*)?\)')
+    results: list[tuple[str, int, str, str]] = []
+
+    for md_file in all_md_files:
+        try:
+            rel = md_file.relative_to(WORKSPACE).as_posix()
+        except ValueError:
+            continue
+        try:
+            lines = md_file.read_text(encoding="utf-8").splitlines()
+        except Exception:
+            continue
+        base_dir = md_file.parent
+        for i, line in enumerate(lines, 1):
+            for m in link_pattern.finditer(line):
+                target = m.group(1).strip()
+                if target.startswith("http"):
+                    continue
+                resolved = (base_dir / target).resolve()
+                try:
+                    resolved_rel = resolved.relative_to(WORKSPACE.resolve()).as_posix()
+                except ValueError:
+                    continue
+                if resolved_rel in deleted_paths:
+                    results.append((rel, i, "Error",
+                        f"Link `{target}` points to `{resolved_rel}` which was "
+                        "deleted or renamed in this PR. Update or remove the link."))
+    return results
 
 
 def check_code_blocks(lines: list[str]) -> list[tuple[int, str, str]]:
@@ -436,6 +493,51 @@ def check_bilingual_pair(file_path: str) -> list[tuple[int, str, str]]:
     return issues
 
 
+def build_translation_sync_table(pr_files: list[dict]) -> str:
+    """
+    Build a Markdown table listing every changed doc file whose bilingual
+    counterpart was NOT also changed in this PR.
+    Returns an empty string if everything is in sync.
+    """
+    md_files = [f["filename"] for f in pr_files
+                if f.get("status") != "removed"
+                and (f["filename"].startswith("en/") or f["filename"].startswith("zh/"))
+                and f["filename"].endswith(".md")]
+    pr_paths = set(md_files)
+
+    out_of_sync: list[tuple[str, str, str]] = []  # (changed, counterpart, exists_on_disk)
+    seen: set[str] = set()
+
+    for fpath in md_files:
+        if fpath in seen:
+            continue
+        if fpath.startswith("en/"):
+            pair = "zh/" + fpath[3:]
+        else:
+            pair = "en/" + fpath[3:]
+
+        if pair not in pr_paths:
+            exists = "✅ exists" if (WORKSPACE / pair).exists() else "❌ missing"
+            out_of_sync.append((fpath, pair, exists))
+        seen.add(fpath)
+        seen.add(pair)
+
+    if not out_of_sync:
+        return ""
+
+    rows = "\n".join(
+        f"| `{changed}` | `{counterpart}` | {status} |"
+        for changed, counterpart, status in out_of_sync
+    )
+    return (
+        "### 🌐 Translation Sync\n\n"
+        "The following files were changed without updating their language counterpart:\n\n"
+        "| Changed file | Counterpart not in PR | Counterpart on disk |\n"
+        "|---|---|---|\n"
+        f"{rows}\n"
+    )
+
+
 def check_bilingual_sync(file_path: str, pr_file_paths: set[str]) -> list[tuple[int, str, str]]:
     """
     If this file was modified in the PR but its language counterpart was NOT,
@@ -587,8 +689,111 @@ def build_comment_body(sev: str, message: str, zh: bool) -> str:
     return f"{lbl} {message}\n\n<!-- bot:doc-review -->"
 
 
-def build_summary(result: ReviewResult, zh: bool) -> str:
+def build_pr_description_block(pr_files: list[dict]) -> str:
+    """
+    Auto-generate a structured summary block describing what changed in this PR.
+    Covers: which chips, which doc types, EN/ZH or both.
+    """
+    chip_map = {"k1": "K1", "k3": "K3", "p1s": "P1S", "p1": "P1"}
+    doctype_map = {
+        "_usermanual": "User Manual",
+        "_hw": "Hardware Design",
+        "_sw": "Software / SDK",
+        "_docs": "Product Docs",
+        "_ds": "Datasheet",
+        "_hw_faq": "HW FAQ",
+        "_sw_faq": "SW FAQ",
+    }
+
+    chips: set[str] = set()
+    doctypes: set[str] = set()
+    langs: set[str] = set()
+    added = added_count = 0
+    modified = modified_count = 0
+    removed_count = 0
+
+    for f in pr_files:
+        fpath = f["filename"]
+        status = f.get("status", "modified")
+
+        if not fpath.endswith(".md"):
+            continue
+
+        if fpath.startswith("en/"):
+            langs.add("EN")
+        elif fpath.startswith("zh/"):
+            langs.add("ZH")
+
+        parts = fpath.lower().split("/")
+        for part in parts:
+            for key, label in chip_map.items():
+                if part == key or part.startswith(key + "_") or part.startswith(key + "/"):
+                    chips.add(label)
+        for part in parts:
+            for key, label in doctype_map.items():
+                if key in part:
+                    doctypes.add(label)
+
+        if status == "added":
+            added_count += 1
+        elif status == "removed":
+            removed_count += 1
+        else:
+            modified_count += 1
+
+    chips_str = ", ".join(sorted(chips)) if chips else "—"
+    doctypes_str = ", ".join(sorted(doctypes)) if doctypes else "—"
+    langs_str = " + ".join(sorted(langs)) if langs else "—"
+
+    change_parts = []
+    if added_count:
+        change_parts.append(f"{added_count} added")
+    if modified_count:
+        change_parts.append(f"{modified_count} modified")
+    if removed_count:
+        change_parts.append(f"{removed_count} removed")
+    changes_str = ", ".join(change_parts) if change_parts else "no changes"
+
+    return textwrap.dedent(f"""
+        <!-- bot:doc-review:description -->
+        ## 📝 Auto-generated PR Summary
+
+        | Field       | Value |
+        |-------------|-------|
+        | Chips       | {chips_str} |
+        | Doc types   | {doctypes_str} |
+        | Languages   | {langs_str} |
+        | Files       | {changes_str} |
+
+        > *Generated by doc-review-agent. Edit below this block to add context.*
+        <!-- /bot:doc-review:description -->
+    """).strip()
+
+
+def update_pr_description_with_summary(pr_info: dict, pr_files: list[dict]) -> None:
+    """
+    Prepend (or replace) the auto-summary block in the PR description.
+    Preserves any human-written content that follows the block.
+    """
+    block = build_pr_description_block(pr_files)
+    existing_body = pr_info.get("body") or ""
+
+    # Strip previous auto-block if present
+    start_marker = "<!-- bot:doc-review:description -->"
+    end_marker = "<!-- /bot:doc-review:description -->"
+    if start_marker in existing_body and end_marker in existing_body:
+        s = existing_body.index(start_marker)
+        e = existing_body.index(end_marker) + len(end_marker)
+        existing_body = (existing_body[:s] + existing_body[e:]).strip()
+
+    new_body = block + ("\n\n" + existing_body if existing_body else "")
+    update_pr_description(new_body)
+
+
+def build_summary(result: ReviewResult, zh: bool,
+                  sync_table: str = "") -> str:
     bot_tag = "<!-- bot:doc-review -->"
+    sync_section = ("\n\n" + sync_table.strip()) if sync_table else ""
     if zh:
         return textwrap.dedent(f"""
             ## 📋 文档审阅摘要
@@ -601,7 +806,7 @@ def build_summary(result: ReviewResult, zh: bool) -> str:
 
             > 错误项表示信息缺失或有误，建议在合并前处理。
             > 警告和建议仅供参考，最终合并决策由人工审阅者决定。
-
+            {sync_section}
             {bot_tag}
         """).strip()
     else:
@@ -616,7 +821,7 @@ def build_summary(result: ReviewResult, zh: bool) -> str:
 
             > Errors indicate missing or incorrect information that should be addressed before merge.
             > Warnings and suggestions are advisory — human reviewer makes the final call.
-
+            {sync_section}
             {bot_tag}
         """).strip()
 
@@ -626,7 +831,8 @@ def main() -> None:
     system_prompt = PROMPT_PATH.read_text(encoding="utf-8")
 
     pr_files = get_pr_files()
-    commit_sha = get_pr_head_sha()
+    pr_info = get_pr_info()
+    commit_sha = pr_info["head"]["sha"]
 
     # Filter to Markdown doc files only
     include_re = [re.compile(p.replace("**", ".*").replace("*", "[^/]*"))
@@ -638,9 +844,38 @@ def main() -> None:
         return (any(r.fullmatch(path) for r in include_re) and
                 not any(r.fullmatch(path) for r in exclude_re))
 
+    # ── Item 5: Auto-update PR description ───────────────────────────────────
+    print("Updating PR description with auto-summary...")
+    try:
+        update_pr_description_with_summary(pr_info, pr_files)
+    except Exception as e:
+        print(f"  PR description update failed (non-fatal): {e}", file=sys.stderr)
+
+    # ── Item 2: Check links pointing to deleted/renamed files ─────────────────
+    deleted_paths = {
+        f["filename"] for f in pr_files
+        if f.get("status") in ("removed", "renamed")
+    }
+    all_md_files = list(WORKSPACE.rglob("*.md"))
+    dangling_link_issues = check_links_to_deleted(all_md_files, deleted_paths)
+
     result = ReviewResult()
     all_comments: list[ReviewComment] = []
     has_zh = False
+
+    # Add dangling-link issues as review comments
+    for fpath, line_no, sev, msg in dangling_link_issues:
+        zh = is_zh(fpath)
+        if zh:
+            has_zh = True
+        body = build_comment_body(sev, msg, zh)
+        all_comments.append(ReviewComment(path=fpath, line=line_no, body=body, severity=sev))
+        if sev.lower() in ("error", "错误"):
+            result.errors += 1
+        elif sev.lower() in ("warning", "警告"):
+            result.warnings += 1
+        else:
+            result.suggestions += 1
 
     for f in pr_files:
         fpath = f["filename"]
@@ -683,7 +918,10 @@ def main() -> None:
             else:
                 result.suggestions += 1
 
-    summary = build_summary(result, zh=has_zh)
+    # ── Item 1: Build PR-level translation sync table for the summary ─────────
+    sync_table = build_translation_sync_table(pr_files)
+
+    summary = build_summary(result, zh=has_zh, sync_table=sync_table)
 
     if all_comments or result.errors + result.warnings + result.suggestions > 0:
         print(f"\nPosting review: {result.errors} errors, {result.warnings} warnings, "
