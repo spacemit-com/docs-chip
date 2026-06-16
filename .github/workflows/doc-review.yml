@@ -8,7 +8,7 @@ on:
       - "zh/**/*.md"
 
 permissions:
-  pull-requests: write   # post review comments
+  pull-requests: write   # post review comments and update PR description
   contents: read
 
 jobs:
