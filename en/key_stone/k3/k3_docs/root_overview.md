@@ -1,3 +1,8 @@
+---
+title: K3 Brief
+sidebar_position: 1
+---
+
 # K3 Brief
 
 Click to download **[K3 Brief (PDF)](https://cdn-resource.spacemit.com/file/chip/K3/K3_brief_en.pdf)**
@@ -10,7 +15,7 @@ SpacemiT K3 series chips adopt RISC-V homogeneous integrated computing technolog
 The K3 series chips are mainly used in AI consumer hardware, such as AI smart home devices, AI-powered conference and office solutions, AI content creation tools, AI-driven e-commerce and retail systems, and other fields.
 
 - **Exceptional CPU Performance**
-  8 high-performance X100 cores, up to 2.4 GHz, delivering 130 K DMIPS
+  8 high-performance X100 cores, up to 2.4 GHz, delivering 130 KDMIPS
   RVA23 profile compliant, with single-core SPECint2006 > 9.0/GHz (comparable to Arm Cortex-A76)
 
 - **General-Purpose AI Performance**
@@ -38,7 +43,7 @@ The K3 series chips are mainly used in AI consumer hardware, such as AI smart ho
   - 8× X100™ 64-bit RISC-V AI processor cores
   - X100™ is a quad-issue, out-of-order high-performance core
   - 8 MB shared L2 cache per 8-core cluster
-- **60TOPS General-Purpose AI Compute**
+- **60 TOPS General-Purpose AI Compute**
   - 8-core A100™ delivers up to 60 TOPS AI performance
   - Model throughput > 10 Tokens/s @ 30B
   - Supports FP16, BF16, FP8, INT8, and INT4 data formats
@@ -53,8 +58,8 @@ The K3 series chips are mainly used in AI consumer hardware, such as AI smart ho
   - Hardware acceleration for AES / SHA / RSA / SM2 / SM3 / SM4
   - Full product lifecycle security management support
 - **Memory**
-  - 64-bit LPDDR5 - 6400Mbps
-  - 64-bit LPDDR4x - 4266Mbps
+  - 64-bit LPDDR5 - 6400 Mbps
+  - 64-bit LPDDR4x - 4266 Mbps
   - Up to 32 GB capacity, with bandwidth up to 51 GB/s
 - **Storage**
   - SPI flash
@@ -70,7 +75,7 @@ The K3 series chips are mainly used in AI consumer hardware, such as AI smart ho
   - 4K@180fps decoding for H.265, H.264, VP9, and other formats
   - 4K@90fps encoding for H.265, H.264, and other formats
   - Dual 3840×2160@60fps display outputs
-  - MIPI-DSI 8-lane display output, 4.5Gbps/lane, supporting:
+  - MIPI-DSI 8-lane display output, 4.5 Gbps/lane, supporting:
     - 3840×2160@60fps
     - 2560×1440@90fps
     - 1920×1080@60fps, etc.
@@ -80,7 +85,7 @@ The K3 series chips are mainly used in AI consumer hardware, such as AI smart ho
   - 4× MIPI-CSI, 12 lanes: 4 + 4 + (2 + 2)
   - Supports up to 12 camera inputs
 - **Interfaces**
-  - 8× PCIe lanes (8Gbps per lane), across 5 PCIe controllers
+  - 8× PCIe lanes (8 Gbps per lane), across 5 PCIe controllers
     - PCIe x8 supports both RC and EP modes
     - Hot-plug supported
   - 3× USB 3.0 Host (combo with PCIe, includes USB 2.0)
@@ -88,10 +93,10 @@ The K3 series chips are mainly used in AI consumer hardware, such as AI smart ho
   - 1× USB 2.0 Host
   - 4× GMAC (RGMII & RMII & MII)
     - TSN protocol support
-  - 6× SPI, 2× eSPI, 17× UART, 10× CAN-FD, 9× I2C, 30× PWM
+  - 6× SPI, 2× eSPI, 17× UART, 10× CAN-FD, 9× I²C, 30× PWM
 - **Power**
   - TDP: 15W–25W
 
 ## Block Diagram
 
-![](./static/k3_block_diagram.png)
+![K3 Block Diagram](./static/k3_block_diagram.png)
