@@ -6,6 +6,8 @@ Click to download **[K1 Brief (PDF)](https://cdn-resource.spacemit.com/file/chip
 
 ## Overview
 
+**Most Widely Deployed Energy-Efficient RISC-V AI Processor**
+
 K1 Series: 8-Core 64-bit RISC-V AI CPU
 
 The K1 series leverages homogeneous fusion computing technology, integrating eight high-performance X60™ computing cores developed by SpacemiT. It delivers 50 KDMIPS of general computing power and 2 TOPS of AI computing power, enabling seamless operation of local large models such as 0.5B and 1B parameters.
