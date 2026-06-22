@@ -15,9 +15,9 @@ checks:
   frontmatter:
     enabled: true
     required_fields:
-      - title
-    # Add sidebar_position if your site framework requires it
-    # - sidebar_position
+      - sidebar_position
+    # 'title' is NOT a frontmatter field in this repo — docs use a Markdown H1 heading instead.
+    # sidebar_position is mandatory for Docusaurus sidebar ordering.
 
   heading_hierarchy:
     enabled: true
@@ -42,6 +42,8 @@ checks:
     flag_sync_reminder: true
     # Flag if heading count differs by more than this threshold
     heading_count_tolerance: 2
+    # index.md files are excluded globally; this catches other stub-like files
+    skip_stub_files: true
 
   technical_style:
     enabled: true

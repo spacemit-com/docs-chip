@@ -156,30 +156,56 @@ def label(sev: str, zh: bool) -> str:
 
 
 def check_frontmatter(content: str, path: str, cfg: dict) -> list[tuple[int, str, str]]:
-    """Returns list of (line, severity, message)."""
+    """
+    Returns list of (line, severity, message).
+
+    This repo uses a bare single-line frontmatter format (no --- delimiters):
+
+        sidebar_position: 2
+
+        # Section Title
+
+    A YAML --- block is NOT used and should NOT be flagged as valid.
+    We accept either format defensively, but the canonical form is bare.
+    """
     issues = []
-    if not content.startswith("---"):
-        issues.append((1, "Warning", "Missing YAML frontmatter block."))
+    first_line = content.split("\n", 1)[0].strip()
+
+    # --- YAML block format (not canonical here, but accept it)
+    if content.startswith("---"):
+        end = content.find("\n---", 3)
+        if end == -1:
+            issues.append((1, "Warning", "Frontmatter `---` block is not closed."))
+            return issues
+        try:
+            fm = yaml.safe_load(content[3:end])
+        except yaml.YAMLError:
+            issues.append((1, "Error", "Frontmatter YAML is invalid."))
+            return issues
+        if not isinstance(fm, dict):
+            return issues
+        for field_name in cfg.get("required_fields", ["sidebar_position"]):
+            if field_name not in fm:
+                issues.append((1, "Warning",
+                    f"Frontmatter is missing required field: `{field_name}`."))
         return issues
 
-    end = content.find("\n---", 3)
-    if end == -1:
-        issues.append((1, "Warning", "Frontmatter block is not closed."))
+    # Bare single-line format: "sidebar_position: <int>"
+    bare_fm = re.match(r'^sidebar_position\s*:\s*(\d+)', first_line)
+    if bare_fm:
+        # Valid — check for required fields beyond sidebar_position
+        for field_name in cfg.get("required_fields", ["sidebar_position"]):
+            if field_name != "sidebar_position":
+                # Other required fields can't be in bare format; flag only if really missing
+                issues.append((1, "Warning",
+                    f"Frontmatter is missing required field: `{field_name}`."))
         return issues
 
-    try:
-        fm = yaml.safe_load(content[3:end])
-    except yaml.YAMLError:
-        issues.append((1, "Error", "Frontmatter YAML is invalid."))
-        return issues
-
-    if not isinstance(fm, dict):
-        return issues
-
-    for field_name in cfg.get("required_fields", ["title"]):
-        if field_name not in fm:
-            issues.append((1, "Warning", f"Frontmatter is missing required field: `{field_name}`."))
-
+    # Neither format found
+    issues.append((1, "Warning",
+        "Missing `sidebar_position` frontmatter. "
+        "Add `sidebar_position: N` as the first line of the file "
+        "(no `---` delimiters needed)."))
     return issues
 
 
