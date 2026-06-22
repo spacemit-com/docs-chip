@@ -6,7 +6,7 @@ Click to download **[K1 Brief (PDF)](https://cdn-resource.spacemit.com/file/chip
 
 ## Overview
 
-**Most Widely Deployed Energy-Efficient RISC-V AI Processor**
+**The Highest-volume, Energy-efficient RISC-V AI CPU in Mass Production**
 
 K1 Series: 8-Core 64-bit RISC-V AI CPU
 
