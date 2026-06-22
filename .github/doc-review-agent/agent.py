@@ -715,6 +715,167 @@ def build_comment_body(sev: str, message: str, zh: bool) -> str:
     return f"{lbl} {message}\n\n<!-- bot:doc-review -->"
 
 
+# ─── Changes Summary ──────────────────────────────────────────────────────────
+
+def get_pr_file_patch(filename: str) -> str:
+    """Fetch the unified diff patch for a single file in the PR."""
+    files = gh_get(f"/repos/{REPO}/pulls/{PR_NUMBER}/files?per_page=100")
+    # May span multiple pages; find the matching file
+    for f in files:
+        if f["filename"] == filename:
+            return f.get("patch", "")
+    return ""
+
+
+def get_all_pr_patches(pr_files: list[dict]) -> dict[str, str]:
+    """Return {filename: patch} for all PR files (patches already in the pr_files list)."""
+    return {f["filename"]: f.get("patch", "") for f in pr_files}
+
+
+def parse_diff_headings(patch: str) -> tuple[list[str], list[str]]:
+    """
+    Parse added/removed Markdown headings from a unified diff patch.
+    Returns (added_headings, removed_headings) as lists of heading strings.
+    """
+    added, removed = [], []
+    heading_re = re.compile(r'^(#{1,4})\s+(.+)')
+    for line in patch.splitlines():
+        if line.startswith("+") and not line.startswith("+++"):
+            m = heading_re.match(line[1:].strip())
+            if m:
+                added.append(f"{'#' * len(m.group(1))} {m.group(2).strip()}")
+        elif line.startswith("-") and not line.startswith("---"):
+            m = heading_re.match(line[1:].strip())
+            if m:
+                removed.append(f"{'#' * len(m.group(1))} {m.group(2).strip()}")
+    return added, removed
+
+
+def parse_diff_stats(patch: str) -> tuple[int, int]:
+    """Return (lines_added, lines_removed) from a patch."""
+    added = sum(1 for l in patch.splitlines()
+                if l.startswith("+") and not l.startswith("+++"))
+    removed = sum(1 for l in patch.splitlines()
+                  if l.startswith("-") and not l.startswith("---"))
+    return added, removed
+
+
+def classify_file(fpath: str) -> str:
+    """Return a human-readable document type label for a file path."""
+    p = fpath.lower()
+    if "usermanual" in p:
+        return "User Manual"
+    if "_hw_faq" in p:
+        return "HW FAQ"
+    if "_sw_faq" in p:
+        return "SW FAQ"
+    if "_hw_design_guide" in p:
+        return "HW Design Guide"
+    if "_hw_avl" in p:
+        return "AVL"
+    if "_hw_resources" in p:
+        return "HW Resources"
+    if "_sdk_user_guide" in p:
+        return "SDK User Guide"
+    if "_ds." in p:
+        return "Datasheet"
+    if "root_overview" in p:
+        return "Product Brief"
+    if "_thermal" in p:
+        return "Thermal Design"
+    if "_pcb_guide" in p:
+        return "PCB Guide"
+    if "avl_veri_sop" in p:
+        return "AVL Verification SOP"
+    return "Doc"
+
+
+def get_chip_from_path(fpath: str) -> str:
+    """Extract chip name (K1 / K3 / P1 / P1S) from file path."""
+    chip_map = {"k1": "K1", "k3": "K3", "p1s": "P1S", "p1": "P1"}
+    parts = fpath.lower().split("/")
+    for part in parts:
+        for key, name in chip_map.items():
+            if part == key:
+                return name
+    return ""
+
+
+def build_changes_summary(pr_files: list[dict], patches: dict[str, str]) -> str:
+    """
+    Build a structured '## 📄 Changes Summary' block that lists every changed
+    doc file with its type, language, diff stats, and heading-level changes.
+    """
+    STATUS_ICON = {"added": "🆕", "modified": "✏️", "removed": "🗑️", "renamed": "🔀"}
+
+    rows: list[str] = []
+
+    # Group by chip for a cleaner layout
+    chip_groups: dict[str, list[dict]] = {}
+    other: list[dict] = []
+
+    for f in pr_files:
+        fpath = f["filename"]
+        if not fpath.endswith(".md"):
+            continue
+        if not (fpath.startswith("en/") or fpath.startswith("zh/")):
+            continue
+
+        chip = get_chip_from_path(fpath)
+        if chip:
+            chip_groups.setdefault(chip, []).append(f)
+        else:
+            other.append(f)
+
+    def render_file_row(f: dict) -> str:
+        fpath = f["filename"]
+        status = f.get("status", "modified")
+        icon = STATUS_ICON.get(status, "✏️")
+        lang = "🇺🇸 EN" if fpath.startswith("en/") else "🇨🇳 ZH"
+        doc_type = classify_file(fpath)
+        patch = patches.get(fpath, "")
+        added_lines, removed_lines = parse_diff_stats(patch)
+        added_h, removed_h = parse_diff_headings(patch)
+
+        # Short display name: just the filename
+        fname = pathlib.Path(fpath).name
+
+        parts = [f"{icon} **`{fname}`** ({lang} · {doc_type})"]
+
+        if status != "removed":
+            diff_str = f"+{added_lines} / -{removed_lines} lines"
+            parts.append(f"  `{diff_str}`")
+
+        if added_h:
+            for h in added_h[:5]:  # cap at 5 to avoid noise
+                parts.append(f"  - ➕ `{h}`")
+            if len(added_h) > 5:
+                parts.append(f"  - ➕ *…and {len(added_h) - 5} more headings*")
+
+        if removed_h:
+            for h in removed_h[:3]:
+                parts.append(f"  - ➖ `{h}`")
+            if len(removed_h) > 3:
+                parts.append(f"  - ➖ *…and {len(removed_h) - 3} more removed*")
+
+        return "\n".join(parts)
+
+    sections: list[str] = []
+
+    for chip in sorted(chip_groups.keys()):
+        file_rows = [render_file_row(f) for f in chip_groups[chip]]
+        sections.append(f"### {chip}\n\n" + "\n\n".join(file_rows))
+
+    if other:
+        file_rows = [render_file_row(f) for f in other]
+        sections.append("### Other\n\n" + "\n\n".join(file_rows))
+
+    if not sections:
+        return ""
+
+    return "## 📄 Changes Summary\n\n" + "\n\n".join(sections)
+
+
 def build_pr_description_block(pr_files: list[dict]) -> str:
     """
     Auto-generate a structured summary block describing what changed in this PR.
@@ -817,12 +978,14 @@ def update_pr_description_with_summary(pr_info: dict, pr_files: list[dict]) -> N
 
 
 def build_summary(result: ReviewResult, zh: bool,
-                  sync_table: str = "") -> str:
+                  sync_table: str = "",
+                  changes_summary: str = "") -> str:
     bot_tag = "<!-- bot:doc-review -->"
     sync_section = ("\n\n" + sync_table.strip()) if sync_table else ""
+    changes_section = (changes_summary.strip() + "\n\n---\n") if changes_summary else ""
     if zh:
         return textwrap.dedent(f"""
-            ## 📋 文档审阅摘要
+            {changes_section}## 📋 文档审阅摘要
 
             | 级别 | 数量 |
             |------|------|
@@ -837,7 +1000,7 @@ def build_summary(result: ReviewResult, zh: bool,
         """).strip()
     else:
         return textwrap.dedent(f"""
-            ## 📋 Doc Review Summary
+            {changes_section}## 📋 Doc Review Summary
 
             | Severity   | Count |
             |------------|-------|
@@ -944,10 +1107,16 @@ def main() -> None:
             else:
                 result.suggestions += 1
 
-    # ── Item 1: Build PR-level translation sync table for the summary ─────────
+    # ── Build PR-level translation sync table ────────────────────────────────
     sync_table = build_translation_sync_table(pr_files)
 
-    summary = build_summary(result, zh=has_zh, sync_table=sync_table)
+    # ── Build Changes Summary (diff-based, per file) ──────────────────────────
+    print("Building changes summary...")
+    patches = get_all_pr_patches(pr_files)
+    changes_summary = build_changes_summary(pr_files, patches)
+
+    summary = build_summary(result, zh=has_zh, sync_table=sync_table,
+                            changes_summary=changes_summary)
 
     if all_comments or result.errors + result.warnings + result.suggestions > 0:
         print(f"\nPosting review: {result.errors} errors, {result.warnings} warnings, "
