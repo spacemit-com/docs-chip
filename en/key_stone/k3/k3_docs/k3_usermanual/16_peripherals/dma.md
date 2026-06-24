@@ -519,12 +519,12 @@ The DMA request numbers for non-secure DMA (AP DMA) peripherals are listed below
 | 61 | Request for SSPA4 RxReq | 0xD4041000 |
 | 62 | Request for SSPA5 TxReq | 0xD4041800 |
 | 63 | Request for SSPA5 RxReq | 0xD4041800 |
-| 0x1004 | Request for SSP0 TxReq | 0xD4040000 |
-| 0x1008 | Request for SSP0 RxReq | 0xD4040000 |
-| 0x100C | Request for SSP1 TxReq | 0xD4040800 |
-| 0x1010 | Request for SSP1 RxReq | 0xD4040800 |
-| 0x1054 | Request for QSPI RxReq | 0xD420C000 |
-| 0x1058 | Request for QSPI TxReq | 0xD420C000 |
+| 0x1104 | Request for SSP0 TxReq | 0xD4040000 |
+| 0x1108 | Request for SSP0 RxReq | 0xD4040000 |
+| 0x110C | Request for SSP1 TxReq | 0xD4040800 |
+| 0x1110 | Request for SSP1 RxReq | 0xD4040800 |
+| 0x1154 | Request for QSPI RxReq | 0xD420C000 |
+| 0x1158 | Request for QSPI TxReq | 0xD420C000 |
 
 The DMA request numbers for secure DMA (AP DMA2) peripherals are listed below.
 
