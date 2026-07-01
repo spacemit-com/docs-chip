@@ -49,7 +49,7 @@ In addition to advanced AI acceleration, the A100 fully supports general-purpose
 
 ### 8.2.2 Features
 
-- AI Compute Performance: 60 TOPs (@FP4 sparse)  
+- AI Compute Performance: 60 TOPs (@INT4 sparse)  
 - RISC-V Compliance: Fully compliant with the RISC-V RVA23* standard  
 - Cache Architecture:  
   - 32 KB L1 I-Cache and 32 KB L1 D-Cache per core  

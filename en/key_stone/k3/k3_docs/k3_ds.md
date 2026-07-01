@@ -22,6 +22,7 @@ The content of this document may be periodically updated due to product version 
 
 | Version | Date | Notes |
 | --- | --- | --- |
+| **V1.5** | 2026.07.01 | Updated A100 feature description |
 | **V1.4** | 2026.06.10 | Added Part Number information |
 | **V1.3** | 2026.05.21 | Updated A100 interrupt description |
 | **V1.2** | 2026.05.19 | Updated video subsystem parameters|
@@ -147,7 +148,7 @@ The SpacemiT® A100™ is an AI-first RISC-V AI-CPU that delivers native AI comp
 In addition to advanced AI acceleration, the A100 fully supports general-purpose CPU functionalities defined by the RVA23* specification and leverages a standard RISC-V unified programming model to power Small-Local Language Model (SLM) and a broad range of AI-centric applications.
 
 **Features**  
-- AI Compute Performance: 60 TOPs (@FP4 sparse)  
+- AI Compute Performance: 60 TOPs (@INT4 sparse)  
 - RISC-V Compliance: Fully compliant with RISC-V RVA23* standards  
 - Cache Architecture:  
   - 32 KB L1 I-Cache and 32 KB L1 D-Cache per core  
