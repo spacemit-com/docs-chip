@@ -37,14 +37,14 @@ sidebar_position: 3
 ### PCB 参考设计
 
 该文件提供 K3 最小系统的 PCB 参考设计。
-[K3_10L_minisys_2HDI.brd](https://cdn-resource.spacemit.com/file/chip/K3/K3_10L_minisys_2HDI.brd)
+[下载最小系统 PCB 参考设计（BRD 格式）](https://cdn-resource.spacemit.com/file/chip/K3/K3_Mini_Sys_10L2HDI_AURA.brd)
 
 ### 原理图
 
 提供最小系统参考设计的原理图文件。
 
-- [下载原理图工程文件（DSN 格式）](https://cdn-resource.spacemit.com/file/chip/K3/K3-MINISYS-AU4562.DSN)
-- [下载原理图（PDF 格式）](https://cdn-resource.spacemit.com/file/chip/K3/k3-minisys-au4562.pdf)
+- [下载原理图工程文件（DSN 格式）](https://cdn-resource.spacemit.com/file/chip/K3/k3-minisys-lp5-au4562-v2.DSN)
+- [下载原理图（PDF 格式）](https://cdn-resource.spacemit.com/file/chip/K3/k3-minisys-lp5-au4562-v2.pdf)
 
 ### 设计检查清单
 

@@ -37,14 +37,14 @@ This file includes package dimensions, the BGA ball layout, ball pitch, and othe
 ### PCB Reference Design
 
 This file provides the PCB reference design for the K3 minimum system.
-[K3_10L_minisys_2HDI.brd](https://cdn-resource.spacemit.com/file/chip/K3/K3_10L_minisys_2HDI.brd)
+[Download Minimum System PCB Reference Design (BRD)](https://cdn-resource.spacemit.com/file/chip/K3/K3_Mini_Sys_10L2HDI_AURA.brd)
 
 ### Schematic
 
 Schematic files for the minimum system reference design are provided below.
 
-- [Download schematic project file (DSN)](https://cdn-resource.spacemit.com/file/chip/K3/K3-MINISYS-AU4562.DSN)
-- [Download schematic (PDF)](https://cdn-resource.spacemit.com/file/chip/K3/k3-minisys-au4562.pdf)
+- [Download Schematic Project File (DSN)](https://cdn-resource.spacemit.com/file/chip/K3/k3-minisys-lp5-au4562-v2.DSN)
+- [Download Schematic (PDF)](https://cdn-resource.spacemit.com/file/chip/K3/k3-minisys-lp5-au4562-v2.pdf)
 
 ### Design Checklists
 
