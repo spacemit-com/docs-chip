@@ -31,9 +31,9 @@ sidebar_position: 4
     - Serial debugging requirements: A 3.3 V serial cable is required.
     - PRI JTAG Debugging: Supports JTAG debugging through a TF card-to-JTAG adapter.
        > Note: The TMS and TDI signals must be cross-connected between the JTAG debugger and the adapter board, as shown in the figure below.
-       
+
        ![](./static/com260_debug_00.png)
-     
+
 ## Power System
 
 This section answers common questions about the power system, including DCIN, P1 (the multi-channel power management IC), power domains, DCDC, battery, charger, and fuel gauge.
