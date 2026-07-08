@@ -30,9 +30,10 @@ sidebar_position: 4
 
     - 连接方式：串口线的 TX 连接 K3-CoM260 KIT 的 RX，RX 连接 K3-CoM260 KIT 的 TX。
     - 串口调试要求：使用 3.3V 电平的串口线。
-    - PRI JTAG 调试：支持通过 TF 卡接口转 JTAG。
-      > 注：JTAG 调试器与转接子板之间，TDI 与 TDO 需交叉连接（调试器的 TDI 接子板的 TDO，调试器的 TDO 接子板的 TDI），TMS 直连，如下图所示。
-     ![](./static/com260_debug_00.png)
+    - PRI JTAG 调试：支持通过 TF 卡接口转 JTAG。 
+      > 注：JTAG 调试器与转接子板的 TMS 和 TDI 需要交叉连接，如下图所示
+     
+      ![](./static/com260_debug_00.png)
 
 ## 电源系统
 
