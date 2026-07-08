@@ -30,6 +30,8 @@ sidebar_position: 4
     - Connection method: Connect the TX pin of the serial cable to the RX pin of the K3 CoM260 kit, and connect the RX pin of the serial cable to the TX pin of the K3 CoM260 kit.
     - Serial debugging requirements: A 3.3 V serial cable is required.
     - PRI JTAG debugging: JTAG debugging is supported by means of a TF-card-to-JTAG adapter.
+      > Note: TDI and TDO must be cross-connected between the JTAG debugger and the adapter board (debugger TDI → adapter TDO, debugger TDO → adapter TDI); TMS connects straight through. See the diagram below.
+     ![](./static/com260_debug_00.png)
 
 ## Power System
 
