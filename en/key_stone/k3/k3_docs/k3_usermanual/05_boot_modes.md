@@ -61,8 +61,8 @@ The boot voltage of SPI NAND/NOR Flash is selected based on the state of the STR
 
 | No. | STRAP[4] | SPI NAND/NOR Flash Boot Voltage |
 | --- | --- | --- |
-| 1 | Up | 3.3V I/O |
-| 2 | Down | 1.8V I/O |
+| 1 | Down | 3.3V I/O |
+| 2 | Up | 1.8V I/O |
 
 ### 5.2.5 DDR Type Selection
 
