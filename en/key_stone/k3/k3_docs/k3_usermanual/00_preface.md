@@ -24,6 +24,7 @@ The content of this document may be periodically updated due to product version 
 
 | Version | Date | Notes |
 | --- | --- | --- |
+| **V1.8** | 2026.07.15 | Updated video subsystem parameters in Chapter 11 |
 | **V1.7** | 2026.07.14 | Updated boot modes in Chapter 5 |
 | **V1.6** | 2026.07.13 | Updated the address map in Chapter 6 |
 | **V1.5** | 2026.07.01 | Updated A100 feature description in Chapter 8 |
