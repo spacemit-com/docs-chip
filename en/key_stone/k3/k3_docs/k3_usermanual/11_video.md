@@ -54,7 +54,7 @@ In addition, multiple standard-agnostic modules share common runtime logic, ensu
 #### 11.2.3.1 HEVC (H.265)
 
 - Encoded bitstream compliant with HEVC (H.265) Main Profile.
-  - Encoded: up to 4K@60 fps.
+  - Encoded: up to 4K@90 fps.
 - Maximum frame dimensions: 4096 × 4096 pixels.
 - Bit depth: 8-bit encoding with I, P, and B frames.
 - Supports tiled mode with up to 4 tiles (horizontal splits only).
@@ -79,7 +79,7 @@ In addition, multiple standard-agnostic modules share common runtime logic, ensu
 #### 11.2.3.2 H.264
 
 - Encoded bitstream compliant with Baseline, Main, and High Profiles.
-- Encoded: up to 4K@60 fps.
+- Encoded: up to 4K@90 fps.
 - Maximum frame dimensions: 4096 × 4096 pixels.
 - Frame types: Supports I, P, and B frames.
 - Progressive encoding supported.
@@ -104,7 +104,7 @@ In addition, multiple standard-agnostic modules share common runtime logic, ensu
 
 #### 11.2.3.3 VP8
 
-- Encoded: up to 4K@60 fps.
+- Encoded: up to 4K@90 fps.
 - Maximum frame dimensions: 2048 × 2048 pixels.
 - Frame types: Supports I and P frames.
 - Motion Estimation (ME):
@@ -120,7 +120,7 @@ In addition, multiple standard-agnostic modules share common runtime logic, ensu
 
 #### 11.2.3.4 VP9
 
-- Encoded: up to 4K@60 fps.
+- Encoded: up to 4K@90 fps.
 - Encoded bitstream compliant with VP9 Profile 0 at 8-bit depth.
 - Maximum frame dimensions: 4096 × 4096 pixels.
 - Sample depth: 8-bit.
@@ -169,25 +169,25 @@ In addition, multiple standard-agnostic modules share common runtime logic, ensu
 #### 11.3.2.1 HEVC (H.265)
 
 - Full compliance with Main Profiles.
-- Decoded: up to 4K@120 fps.
+- Decoded: up to 4K@180 fps.
 - Maximum frame dimensions: 4096 × 4096 pixels.
 
 #### 11.3.2.2 H.264
 
-- Decoded: up to 4K@120 fps.
+- Decoded: up to 4K@180 fps.
 - Fully compliant with Baseline, Main, High, and High 10 progressive profiles.
 - Maximum frame dimensions: 4096 × 4096 pixels.
 - Note: For further details, refer to ITU-T H.264 Annex B.
 
 #### 11.3.2.3 VP8
 
-- Decoded: up to 4K@120 fps.
+- Decoded: up to 4K@180 fps.
 - Fully compliant with the VP8 specification.
 - Maximum frame dimensions: 2048 × 2048 pixels.
 
 #### 11.3.2.4 VP9
 
-- Decoded: up to 4K@120 fps.
+- Decoded: up to 4K@180 fps.
 - Fully compliant with Profile 0.
 - Maximum frame dimensions: 4096 × 4096 pixels.
 

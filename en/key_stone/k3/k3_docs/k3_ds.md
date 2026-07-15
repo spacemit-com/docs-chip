@@ -80,7 +80,7 @@ The K3 series chips are mainly used in AI consumer hardware, such as AI smart ho
 **Multimedia and Display**  
 
 - Integrated 3D graphics engine supporting Vulkan, OpenCL, OpenGL ES  
-- 4K@120 fps decoding and 4K@60 fps encoding (H.265/H.264/VP9)  
+- 4K@180 fps decoding and 4K@90 fps encoding (H.265/H.264/VP9)
 - Dual 3840×2160@60fps display outputs via MIPI-DSI (8-lane, 4.5 Gbps/lane) and DP/eDP  
 - 4 × MIPI-CSI interfaces (12 lanes total), supporting up to 12 camera inputs  
 
@@ -444,14 +444,14 @@ V2D is a 2D hardware acceleration module that supports common 2D image operation
 
 ### 2.4 Video Subsystem
 
-#### 2.4.1 Introduction  
+#### 2.4.1 Introduction
 
 The Video Processing Unit (VPU) is a quad-core video accelerator that supports encoding and decoding across multiple video standards. It integrates a host CPU and executes firmware to control the hardware engine, handling bitstream parsing, submodule scheduling, and error recovery.
 
 The VPU can operate at up to 1 GHz and supports a wide range of video standards, including H.265, H.264, VP8, VP9, MPEG4, MPEG2, and H.263. Typical concurrent processing capabilities include:
 - 4K@60 fps simultaneous encode and decode
-- 4K@90 fps H.264/H.265 encoding  
-- 4K@180 fps H.264/H.265 decoding  
+- 4K@90 fps H.264/H.265 encoding
+- 4K@180 fps H.264/H.265 decoding
 
 The actual processing for each codec is implemented in dedicated hardware logic. The Macroblock Sequencer serves as the main control unit, orchestrating the processing flow of each submodule to reduce processor load and simplify firmware complexity.
 
@@ -459,39 +459,39 @@ In addition, multiple standard-agnostic modules share common runtime logic, ensu
 
 #### 2.4.2 Video Encoder
 
-**Encoding Features**  
-- Configurable Arm Frame Buffer Compression (AFBC) 1.0 or 1.2 for input  
-- Supports YUV422 and YUV420 AFBC block splitting (16 × 16)  
-- Supports stride (not applicable to AFBC input formats)  
-- Horizontal and vertical mirroring (not applicable to AFBC input formats)  
-- Optional source frame rotation in 90° steps before encoding (not applicable to AFBC input formats)  
+**Encoding Features**
+- Configurable Arm Frame Buffer Compression (AFBC) 1.0 or 1.2 for input
+- Supports YUV422 and YUV420 AFBC block splitting (16 × 16)
+- Supports stride (not applicable to AFBC input formats)
+- Horizontal and vertical mirroring (not applicable to AFBC input formats)
+- Optional source frame rotation in 90° steps before encoding (not applicable to AFBC input formats)
 
-> **Note:** If YUV422 is rotated by 90° or 270° without conversion to YUV420, the output will be converted to YUV440  
+> **Note:** If YUV422 is rotated by 90° or 270° without conversion to YUV420, the output will be converted to YUV440
 
-**Supported Source-Frame Input Formats**  
+**Supported Source-Frame Input Formats**
 
-- 1-plane YUV422, scan-line format, interleaved in YUYV or UYVY order  
-  > **Note:** YUV422 input can be converted to YUV420  
-- 1-plane RGB (8-bit), byte-address order: RGBA, BGRA, ARGB, ABGR  
-- 2-plane YUV420, scan-line format, with chroma interleaved in UV or VU order  
-- 3-plane YUV420, scan-line format  
-  > **Note:** Supported for testing purposes only; not recommended for optimal performance  
-- AFBC YUV422  
-- AFBC YUV420  
+- 1-plane YUV422, scan-line format, interleaved in YUYV or UYVY order
+  > **Note:** YUV422 input can be converted to YUV420
+- 1-plane RGB (8-bit), byte-address order: RGBA, BGRA, ARGB, ABGR
+- 2-plane YUV420, scan-line format, with chroma interleaved in UV or VU order
+- 3-plane YUV420, scan-line format
+  > **Note:** Supported for testing purposes only; not recommended for optimal performance
+- AFBC YUV422
+- AFBC YUV420
 
-**Supported Encoding Formats**  
-- HEVC (H.265) Main Profile  
+**Supported Encoding Formats**
+- HEVC (H.265) Main Profile
 - HEVC (H.265) Main 10 Profile
-- H.264 Baseline Profile (BP)  
-- H.264 Main Profile (MP)  
-- H.264 High Profile (HP)  
-- VP8  
+- H.264 Baseline Profile (BP)
+- H.264 Main Profile (MP)
+- H.264 High Profile (HP)
+- VP8
 - VP9 Profile 0
 - JPEG, baseline sequential
 
 **HEVC (H.265) Encoding Features**
 - Output bitstream compliant with HEVC Main Profile
-- Encoding performance: Up to 4K@60 fps
+- Encoding performance: Up to 4K@90 fps
 - Maximum frame size: 4096 × 4096 pixels
 - Bit depth: 8-bit, supporting I, P, and B frames
 - Supports Tiled Mode, up to 4 tiles (horizontal split only)
@@ -502,144 +502,144 @@ In addition, multiple standard-agnostic modules share common runtime logic, ensu
   - Luma: 8×8, 16×16, 32×32
   - Chroma: 4×4, 8×8, 16×16
 - Inter Prediction Modes: 8×8, 16×16, 32×32
-- Transform Sizes
+- Transform Sizes:
   - Luma: 8×8, 16×16, 32×32
   - Chroma: 4×4, 8×8, 16×16
 - Supports Deblocking Filter
-- Quantization modes: fixed QP, or leaky bucket model–based rate control (based on target bitrate and buffer size)
+- Quantization modes: fixed QP, or leaky bucket model-based rate control (based on target bitrate and buffer size)
 - Supports Long-Term Reference (LTR) frames
 - Supports slice insertion at CTU-row granularity
 
-> **Note**: The encoder does not enforce a maximum bit constraint per CTU.
+> **Note:** The encoder does not enforce a maximum bit constraint per CTU.
 
-**H.264 Encoding Features**  
-- Encoded bitstream compliant with Baseline, Main, and High Profiles  
-- Encoding performance: Up to 4K@60 fps
-- Maximum frame size: 4096 × 4096 pixels  
-- Frame types: Supports I, P, and B frames  
-- Entropy coding: CABAC or CAVLC  
-  > **Note:** B frames are not supported by CAVLC  
-- Motion Estimation (ME) with search range:
-  - Horizontal: ±128 pixels & Vertical: ±64 pixels
-  - Precision: Supports down to 1/4-pixel (QPEL) accuracy  
-- Intra Prediction Modes:  
-  - Luma: 4×4, 8×8, 16×16  
-  - Chroma: 8×8  
-- Inter Prediction Modes: 8×8, 16×16  
-- Transform Sizes: 4×4, 8×8 
-- Supports Deblocking Filter
-- Constrained intra-prediction (selectable)  
-- Quantization modes: fixed QP, or leaky bucket model–based rate control (based on target bitrate and buffer size) 
-- Long-term reference frame support  
-- Selectable intra-frame refresh intervals  
-- Slice insertion granularity: 32-pixel high rows
-
-> **Notes:**  
-> 1. For further details, refer to ITU-T H.264 Annex B: VC-1 Compressed Video Bitstream Format and Decoding Process  
-> 2. Encoder does not prevent output from exceeding the maximum bits per macroblock  
-
-**VP8 Encoding Features**  
-- Encoding performance: Up to 4K@60 fps
-- Maximum frame size: 2048 × 2048 pixels  
-- Frame types: Supports I and P frames  
+**H.264 Encoding Features**
+- Encoded bitstream compliant with Baseline, Main, and High Profiles
+- Encoding performance: Up to 4K@90 fps
+- Maximum frame size: 4096 × 4096 pixels
+- Frame types: Supports I, P, and B frames
+- Entropy coding: CABAC or CAVLC
+  > **Note:** B frames are not supported by CAVLC
 - Motion Estimation (ME) with search range:
   - Horizontal: ±128 pixels & Vertical: ±64 pixels
   - Precision: Supports down to 1/4-pixel (QPEL) accuracy
 - Intra Prediction Modes:
-  - Luma: 4×4, 8×8, 16×16  
-  - Chroma: 8×8  
+  - Luma: 4×4, 8×8, 16×16
+  - Chroma: 8×8
 - Inter Prediction Modes: 8×8, 16×16
+- Transform Sizes: 4×4, 8×8
 - Supports Deblocking Filter
-- Quantization modes: fixed QP, or leaky bucket model–based rate control (based on target bitrate and buffer size)
+- Constrained intra-prediction (selectable)
+- Quantization modes: fixed QP, or leaky bucket model-based rate control (based on target bitrate and buffer size)
+- Long-term reference frame support
+- Selectable intra-frame refresh intervals
+- Slice insertion granularity: 32-pixel high rows
 
-**VP9 Encoding Features**  
-- Encoded bitstream compliant with VP9 Profile 0 at 8-bit depth  
-- Encoding performance: Up to 4K@60 fps 
-- Maximum frame size: 4096 × 4096 pixels  
-- Sample depth: 8-bit  
-- Frame types: Supports I and P frames  
+> **Notes:**
+> 1. For further details, refer to ITU-T H.264 Annex B: VC-1 Compressed Video Bitstream Format and Decoding Process
+> 2. Encoder does not prevent output from exceeding the maximum bits per macroblock
+
+**VP8 Encoding Features**
+- Encoding performance: Up to 4K@90 fps
+- Maximum frame size: 2048 × 2048 pixels
+- Frame types: Supports I and P frames
 - Motion Estimation (ME) with search range:
   - Horizontal: ±128 pixels & Vertical: ±64 pixels
-  - Precision: Supports down to 1/4-pixel (QPEL) accuracy 
+  - Precision: Supports down to 1/4-pixel (QPEL) accuracy
 - Intra Prediction Modes:
-  - Luma: 8×8, 16×16, 32×32  
-  - Chroma: 4×4, 8×8, 16×16  
-- Inter Prediction Modes: 8×8, 16×16, 32×32  
-- Transform sizes:  
-  - Luma: 8×8, 16×16, 32×32  
-  - Chroma: 4×4, 8×8, 16×16  
+  - Luma: 4×4, 8×8, 16×16
+  - Chroma: 8×8
+- Inter Prediction Modes: 8×8, 16×16
 - Supports Deblocking Filter
-- Quantization modes: fixed QP, or leaky bucket model–based rate control (based on target bitrate and buffer size)  
+- Quantization modes: fixed QP, or leaky bucket model-based rate control (based on target bitrate and buffer size)
+
+**VP9 Encoding Features**
+- Encoded bitstream compliant with VP9 Profile 0 at 8-bit depth
+- Encoding performance: Up to 4K@90 fps
+- Maximum frame size: 4096 × 4096 pixels
+- Sample depth: 8-bit
+- Frame types: Supports I and P frames
+- Motion Estimation (ME) with search range:
+  - Horizontal: ±128 pixels & Vertical: ±64 pixels
+  - Precision: Supports down to 1/4-pixel (QPEL) accuracy
+- Intra Prediction Modes:
+  - Luma: 8×8, 16×16, 32×32
+  - Chroma: 4×4, 8×8, 16×16
+- Inter Prediction Modes: 8×8, 16×16, 32×32
+- Transform sizes:
+  - Luma: 8×8, 16×16, 32×32
+  - Chroma: 4×4, 8×8, 16×16
+- Supports Deblocking Filter
+- Quantization modes: fixed QP, or leaky bucket model-based rate control (based on target bitrate and buffer size)
 
 #### 2.4.3 Video Decoder
 
-**Decoding Features**  
-- Supports the following output frame formats:  
-  - 2-plane YUV420, scan-line format, chroma interleaved in UV or VU order  
-  - 3-plane YUV420, scan-line format  
-    > **Note:** 3-plane format is for testing purposes only; not recommended for maximum performance in normal applications  
-- Ensure correct YUV buffer alignment and stride for optimal performance  
-- Supports YUV420 AFBC format, 8-bit color depth  
-- Configurable for AFBC 1.0 or AFBC 1.2 output  
-- Stride support for scan-line formats only  
-- Decoded frame rotation supported in 90-degree increments before output  
-  > **Note:** Not applicable for AFBC output formats  
-- Supports reporting of average luminance (brightness) and chrominance (color) values for each 32×32 pixel block in every displayed output frame  
+**Decoding Features**
+- Supports the following output frame formats:
+  - 2-plane YUV420, scan-line format, chroma interleaved in UV or VU order
+  - 3-plane YUV420, scan-line format
+    > **Note:** 3-plane format is for testing purposes only; not recommended for maximum performance in normal applications
+- Ensure correct YUV buffer alignment and stride for optimal performance
+- Supports YUV420 AFBC format, 8-bit color depth
+- Configurable for AFBC 1.0 or AFBC 1.2 output
+- Stride support for scan-line formats only
+- Decoded frame rotation supported in 90-degree increments before output
+  > **Note:** Not applicable for AFBC output formats
+- Supports reporting of average luminance (brightness) and chrominance (color) values for each 32×32 pixel block in every displayed output frame
 
-**Supported Decoding Formats**  
-- HEVC (H.265): Main Profile  
-- H.264: Baseline, Main, High Profiles  
-- VP8  
-- VP9: Profile 0  
-- VC-1: Simple Profile (SP), Main Profile (MP), Advanced Profile (AP)  
-- MPEG-4: Simple Profile (SP), Advanced Simple Profile (ASP)  
-- MPEG-2: Main Profile (MP)  
-- H.263: Profile 0  
+**Supported Decoding Formats**
+- HEVC (H.265): Main Profile
+- H.264: Baseline, Main, High Profiles
+- VP8
+- VP9: Profile 0 and Profile 2 at 10-bit
+- VC-1: Simple Profile (SP), Main Profile (MP), Advanced Profile (AP)
+- MPEG-4: Simple Profile (SP), Advanced Simple Profile (ASP)
+- MPEG-2: Main Profile (MP)
+- H.263: Profile 0
 
-**HEVC (H.265) Decoding Features**  
+**HEVC (H.265) Decoding Features**
 - Full compliance with Main Profiles
-- Decoding performance: Up to 4K@120 fps  
+- Decoding performance: Up to 4K@180 fps
 - Maximum frame size: 4096 × 4096 pixels
 
 **H.264 Decoding Features**
 - Fully compliant with Baseline, Main, High, and High 10 progressive profiles
-- Decoding performance: Up to 4K@120 fps
-- Escape option is always enabled to prevent emulation of a Network Abstraction Layer (NAL) unit start code, regardless of the NAL packet format setting  
+- Decoding performance: Up to 4K@180 fps
+- Escape option is always enabled to prevent emulation of a Network Abstraction Layer (NAL) unit start code, regardless of the NAL packet format setting
 
-> **Note:** For further details, refer to ITU-T H.264 Annex B: VC-1 Compressed Video Bitstream Format and Decoding Process  
+> **Note:** For further details, refer to ITU-T H.264 Annex B: VC-1 Compressed Video Bitstream Format and Decoding Process
 
-**VP8 Decoding Features**  
+**VP8 Decoding Features**
 - Fully compliant with the VP8 specification
-- Decoding performance: Up to 4K@120 fps
-- Maximum frame size: 2048 × 2048 pixels  
+- Decoding performance: Up to 4K@180 fps
+- Maximum frame size: 2048 × 2048 pixels
 
-**VP9 Decoding Features**  
+**VP9 Decoding Features**
 - Fully compliant with Profile 0
-- Decoding performance: Up to 4K@120 fps
-- Maximum frame size: 4096 × 4096 pixels  
+- Decoding performance: Up to 4K@180 fps
+- Maximum frame size: 4096 × 4096 pixels
 
-**VC-1 Decoding Features**  
-- Fully compliant with VC-1 Simple, Main, and Advanced Profiles  
-- Decoding performance: Up to 4K@120 fps  
+**VC-1 Decoding Features**
+- Fully compliant with VC-1 Simple, Main, and Advanced Profiles
+- Decoding performance: Up to 4K@120 fps
 - Maximum frame size: 2048 × 4096 pixels
 
-**MPEG4 Decoding Features**  
+**MPEG4 Decoding Features**
 - Compliant with MPEG-4 Simple Profile (SP) and Advanced Simple Profile (ASP)
-- Supports Global Motion Compensation (GMC) with a limitation of one warp point  
+- Supports Global Motion Compensation (GMC) with a limitation of one warp point
 - Decoding performance: Up to 4K@120 fps
 - Maximum frame size: 2048 × 2048 pixels
 
-**MPEG2 Decoding Features**  
-- Compliant with MPEG-2 Main Profile  
+**MPEG2 Decoding Features**
+- Compliant with MPEG-2 Main Profile
 - Decoding performance: Up to 4K@120 fps
-- Maximum frame size:  
-  - Progressive streams: Width up to 4096 pixels  
+- Maximum frame size:
+  - Progressive streams: Width up to 4096 pixels
   - Interlaced streams: Width up to 2048 pixels and Height up to 4096 pixels
 
-**H.263 Decoding Features**  
-- Compliant with H.263 Profile 0  
+**H.263 Decoding Features**
+- Compliant with H.263 Profile 0
 - Decoding performance: Up to 4K@120 fps
-- Maximum frame size: Width and height up to 2048 pixels  
+- Maximum frame size: Width and height up to 2048 pixels
 
 ### 2.5 Display Subsystem
 

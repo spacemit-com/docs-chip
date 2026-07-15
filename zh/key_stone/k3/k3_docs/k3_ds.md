@@ -81,7 +81,7 @@ K3 系列芯片主要应用在 AI 消费硬件如 AI 智慧家居、AI 会议办
 **多媒体与显示**
 
 - 集成 3D 图形引擎，支持 Vulkan、OpenCL、OpenGL ES  
-- 支持 4K@120fps 视频解码与 4K@60fps 视频编码（兼容 H.265、H.264 及 VP9 编解码格式）  
+- 支持 4K@180fps 视频解码与 4K@90fps 视频编码（兼容 H.265、H.264、VP8 及 VP9 编解码格式）
 - 通过 MIPI-DSI（8 通道，4.5 Gbps/通道）和 DP/eDP 接口，可实现双路 3840×2160@60fps 显示输出。  
 - 4 个 MIPI-CSI 接口（共 12 条通道），最多支持 12 路摄像头输入。
 
@@ -492,7 +492,7 @@ VPU 最高运行频率可达 1 GHz，支持广泛的视频标准，包括 H.265�
 
 **HEVC (H.265) 编码特性**  
 - 输出比特流符合 HEVC Main Profile  
-- 编码性能：4K@60fps
+- 编码性能：4K@90fps
 - 最大帧尺寸：4096 × 4096 像素  
 - 位深：8-bit，支持 I、P、B 帧  
 - 支持分块模式（Tiled Mode），最多 4 个分块（仅支持水平分割）
@@ -515,7 +515,7 @@ VPU 最高运行频率可达 1 GHz，支持广泛的视频标准，包括 H.265�
 
 **H.264 编码特性**  
 - 编码比特流符合 Baseline、Main 与 High Profile  
-- 编码性能：4K@60fps
+- 编码性能：4K@90fps
 - 最大帧尺寸：4096 × 4096 像素  
 - 帧类型：支持 I 帧、P 帧和 B 帧  
 - 熵编码：CABAC 或 CAVLC  
@@ -538,7 +538,7 @@ VPU 最高运行频率可达 1 GHz，支持广泛的视频标准，包括 H.265�
 > 2. 编码器不阻止输出超过每宏块的最大比特数限制
 
 **VP8 编码特性**  
-- 编码性能：4K@60fps
+- 编码性能：4K@90fps
 - 最大帧尺寸：2048 × 2048 像素  
 - 帧类型：支持 I 帧与P 帧  
 - 运动估计（ME）：  
@@ -553,7 +553,7 @@ VPU 最高运行频率可达 1 GHz，支持广泛的视频标准，包括 H.265�
 
 **VP9 编码特性**  
 - 输出比特流符合 VP9 Profile 0（8-bit）  
-- 编码性能：4K@60fps
+- 编码性能：4K@90fps
 - 最大帧尺寸：4096 × 4096 像素  
 - 采样深度：8-bit  
 - 帧类型：支持 I 与 P 帧
@@ -589,7 +589,7 @@ VPU 最高运行频率可达 1 GHz，支持广泛的视频标准，包括 H.265�
 - HEVC（H.265）：Main Profile  
 - H.264：Baseline、Main、High Profiles  
 - VP8  
-- VP9：Profile 0  
+- VP9：Profile 0 和 Profile 2（10-bit）
 - VC-1：Simple Profile（SP）、Main Profile（MP）、Advanced Profile（AP）  
 - MPEG-4：Simple Profile（SP）、Advanced Simple Profile（ASP）  
 - MPEG-2：Main Profile（MP）  
@@ -597,24 +597,24 @@ VPU 最高运行频率可达 1 GHz，支持广泛的视频标准，包括 H.265�
 
 **HEVC（H.265）解码特性**  
 - 完全符合 Main Profile  
-- 解码性能：4K@120fps
+- 解码性能：4K@180fps
 - 最大帧尺寸：4096 × 4096 像素
 
 **H.264 解码特性**
 - 完全符合 Baseline、Main、High 及 High 10 Progressive Profiles  
-- 解码性能：4K@120fps
+- 解码性能：4K@180fps
 - 无论 NAL 数据包格式设置如何，始终启用转义选项，以防止模拟网络抽象层 (NAL) 单元起始码  
 
 > **注意**：更多细节请参见 ITU-T H.264 Annex B: VC-1 Compressed Video Bitstream Format and Decoding Process
 
 **VP8 解码特性**  
 - 完全符合 VP8 规范  
-- 解码性能：4K@120fps
+- 解码性能：4K@180fps
 - 最大帧尺寸：2048 × 2048 像素
 
 **VP9 解码特性**  
 - 完全符合 Profile 0  
-- 解码性能：4K@120fps
+- 解码性能：4K@180fps
 - 最大帧尺寸：4096 × 4096 像素  
 
 **VC-1 解码特性**  
