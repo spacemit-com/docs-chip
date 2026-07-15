@@ -51,7 +51,7 @@ The K3 series chips are mainly used in AI consumer hardware, such as AI smart ho
 **Multimedia and Display**  
 
 - Integrated 3D graphics engine supporting Vulkan, OpenCL, OpenGL ES  
-- 4K 120 fps decoding and 4K 60 fps encoding (H.265/H.264/VP9)  
+- 4K@180 fps decoding and 4K@90 fps encoding (H.265/H.264/VP9)  
 - Dual 3840×2160@60fps display outputs via MIPI-DSI (8-lane, 4.5 Gbps/lane) and DP/eDP  
 - 4 × MIPI-CSI interfaces (12 lanes total), supporting up to 12 camera inputs  
 
