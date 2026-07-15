@@ -72,8 +72,8 @@ The K3 series chips are mainly used in AI consumer hardware, such as AI smart ho
   - Six-stage in-order pipeline per core
 - **Multimedia and Display**
   - Integrated 3D graphics engine supporting Vulkan, OpenCL, and OpenGL ES
-  - 4K@180fps decoding for H.265, H.264, VP8, and VP9
-  - 4K@90fps encoding for H.265, H.264, VP8, and VP9
+  - 4K@180fps decoding for H.265, H.264, VP9, and other formats
+  - 4K@90fps encoding for H.265, H.264, and other formats
   - Dual 3840×2160@60fps display outputs
   - MIPI-DSI 8-lane display output, 4.5 Gbps/lane, supporting:
     - 3840×2160@60fps
