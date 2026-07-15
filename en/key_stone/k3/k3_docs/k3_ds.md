@@ -22,6 +22,7 @@ The content of this document may be periodically updated due to product version 
 
 | Version | Date | Notes |
 | --- | --- | --- |
+| **V1.6** | 2026.07.15 | Updated video subsystem parameters |
 | **V1.5** | 2026.07.01 | Updated A100 feature description |
 | **V1.4** | 2026.06.10 | Added Part Number information |
 | **V1.3** | 2026.05.21 | Updated A100 interrupt description |
