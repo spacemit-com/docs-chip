@@ -5100,7 +5100,7 @@ K3 的 I/O 引脚支持 **功能 0 至 功能 7（Function 0–7）** 的信号�
       <td style="padding: 4px 2px;">R.PWM3</td>
       <td style="padding: 4px 2px;"></td>
       <td style="padding: 4px 2px;">SSP2_SCLK</td>
-      <td style="padding: 4px 2px;">EDP0_HPD</td>
+      <td style="padding: 4px 2px;">eDP0_HPD</td>
     </tr>
     <tr style="text-align: center;">
       <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
@@ -5113,7 +5113,7 @@ K3 的 I/O 引脚支持 **功能 0 至 功能 7（Function 0–7）** 的信号�
       <td style="padding: 4px 2px;">R.PWM4</td>
       <td style="padding: 4px 2px;">PCIeE_PERSTn</td>
       <td style="padding: 4px 2px;">SSP2_FRM</td>
-      <td style="padding: 4px 2px;">EDP1_HPD</td>
+      <td style="padding: 4px 2px;">eDP1_HPD</td>
     </tr>
     <tr style="text-align: center;">
       <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
@@ -5449,7 +5449,7 @@ K3 的 I/O 引脚支持 **功能 0 至 功能 7（Function 0–7）** 的信号�
       <td style="padding: 4px 2px;">GMAC2_CLK_REF</td>
       <td style="padding: 4px 2px;">R.UART2_TXD</td>
       <td style="padding: 4px 2px;">R.CAN0_RXD</td>
-      <td style="padding: 4px 2px;">EDP0_HPD</td>
+      <td style="padding: 4px 2px;">eDP0_HPD</td>
       <td style="padding: 4px 2px;">R.I2C0_SCL</td>
       <td style="padding: 4px 2px;">PWM15</td>
     </tr>
