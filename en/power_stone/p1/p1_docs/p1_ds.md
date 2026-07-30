@@ -219,8 +219,8 @@ The digital I/O electrical characteristics are listed below.
 
 | Parameter | Description          | Conditions                                                                 | Min              | Typ              | Max             | Unit |
 |----------|----------------------|----------------------------------------------------------------------------|------------------|------------------|------------------|------|
-| V(IH) | Input high voltage | 2.7–5.5 V, -40 to 105 °C                                                    | –                | –                | 0.3 × AONLDO     | V    |
-| V(IL) | Input low voltage  | 2.7–5.5 V, -40 to 105 °C                                                    | 0.7 × AONLDO     | –                | –                | V    |
+| V(IH) | Input high voltage | 2.7–5.5 V, -40 to 105 °C                                                    |0.7 × AONLDO                 | –                |   –  | V    |
+| V(IL) | Input low voltage  | 2.7–5.5 V, -40 to 105 °C                                                    |  –    | –                | 0.3 × AONLDO              | V    |
 | V(OH) | Output high voltage | 5 V, 25 °C<br/>AONLDO = 1.8 V, I(LOAD) = 1 mA                      | –                | AONLDO − 0.1     | –                | V    |
 | V(OL) | Output low voltage  | 5 V, 25 °C<br/>AONLDO = 1.8 V, I(LOAD) = 1 mA                      | –                | 0.1              | –                | V    |
 | I(DRIVE) | Source drive current | 5 V, 25 °C<br/>AONLDO = 1.8 V, PAD = 1.3 V                                | –                | 10               | –                | mA   |
