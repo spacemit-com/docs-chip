@@ -34,6 +34,7 @@ from typing import Literal
 REPO          = os.environ["GITHUB_REPOSITORY"]          # "owner/repo"
 PR_NUMBER     = int(os.environ["PR_NUMBER"])
 GITHUB_TOKEN  = os.environ["GITHUB_TOKEN"]
+GITHUB_EVENT_ACTION = os.environ.get("GITHUB_EVENT_NAME", "")   # opened | synchronize | reopened
 LLM_API_KEY   = os.environ.get("OPENAI_API_KEY", "")
 LLM_BASE_URL  = os.environ.get("OPENAI_BASE_URL", "https://api.openai.com/v1")
 LLM_MODEL     = os.environ.get("OPENAI_MODEL", "gpt-4o")
@@ -138,6 +139,123 @@ def post_review(comments: list[ReviewComment], summary_body: str, commit_sha: st
         "comments": gh_comments,
     }
     gh_post(f"/repos/{REPO}/pulls/{PR_NUMBER}/reviews", payload)
+
+
+SEV_RANK = {"error": 3, "错误": 3, "warning": 2, "警告": 2, "suggestion": 1, "建议": 1}
+
+
+def filter_inline_comments(comments: list[ReviewComment], cfg: dict) -> tuple[list[ReviewComment], list[ReviewComment]]:
+    """
+    Only used when output.inline_comments is opted back in.
+    Applies inline_comments_min_severity and max_inline_comments.
+    Returns (comments_to_post_inline, rolled_over) where rolled_over holds every
+    finding suppressed from inline posting (still rendered in the summary).
+    """
+    out_cfg = cfg.get("output", {})
+    min_sev = out_cfg.get("inline_comments_min_severity", "suggestion").lower()
+    min_rank = SEV_RANK.get(min_sev, 1)
+    cap = out_cfg.get("max_inline_comments")
+
+    eligible = [c for c in comments if SEV_RANK.get(c.severity.lower(), 1) >= min_rank]
+    rolled_over = [c for c in comments if c not in eligible]
+
+    if cap is not None and len(eligible) > cap:
+        # Keep highest-severity first, then earliest, up to the cap.
+        eligible.sort(key=lambda c: -SEV_RANK.get(c.severity.lower(), 1))
+        rolled_over.extend(eligible[cap:])
+        eligible = eligible[:cap]
+
+    return eligible, rolled_over
+
+
+def find_bot_issue_comment(bot_tag: str) -> dict | None:
+    """Find the existing bot summary comment on this PR, if any."""
+    page = 1
+    while True:
+        batch = gh_get(f"/repos/{REPO}/issues/{PR_NUMBER}/comments?per_page=100&page={page}")
+        if not batch:
+            return None
+        for c in batch:
+            if bot_tag in (c.get("body") or ""):
+                return c
+        if len(batch) < 100:
+            return None
+        page += 1
+
+
+def upsert_summary_comment(body: str, bot_tag: str) -> None:
+    """
+    Post the PR summary as a single issue comment, editing the previous bot
+    comment in place on subsequent runs instead of creating a new one. This is
+    what keeps a PR to exactly one notification for doc review, no matter how
+    many times the workflow re-runs (e.g. on every push).
+    """
+    existing = find_bot_issue_comment(bot_tag)
+    if existing:
+        r = requests.patch(
+            f"{GH_API}/repos/{REPO}/issues/comments/{existing['id']}",
+            headers=GH_HEADERS,
+            json={"body": body},
+            timeout=30,
+        )
+        r.raise_for_status()
+    else:
+        gh_post(f"/repos/{REPO}/issues/{PR_NUMBER}/comments", {"body": body})
+
+
+def minimize_previous_bot_reviews(bot_tag: str) -> None:
+    """
+    On a new push (`synchronize`), minimize (collapse) prior bot review comments
+    instead of leaving them alongside a brand-new full comment set. This avoids
+    stacking duplicate notifications across pushes to the same PR.
+    """
+    try:
+        reviews = gh_get(f"/repos/{REPO}/pulls/{PR_NUMBER}/reviews?per_page=100")
+    except Exception as e:
+        print(f"  Could not list previous reviews (non-fatal): {e}", file=sys.stderr)
+        return
+
+    graphql_headers = {
+        "Authorization": f"Bearer {GITHUB_TOKEN}",
+        "Accept": "application/vnd.github+json",
+    }
+
+    for review in reviews:
+        body = review.get("body") or ""
+        if bot_tag not in body:
+            continue
+        review_id = review.get("id")
+        if not review_id:
+            continue
+        try:
+            comments = gh_get(
+                f"/repos/{REPO}/pulls/{PR_NUMBER}/reviews/{review_id}/comments?per_page=100"
+            )
+        except Exception as e:
+            print(f"  Could not list comments for review {review_id}: {e}", file=sys.stderr)
+            continue
+        for c in comments:
+            node_id = c.get("node_id")
+            if not node_id:
+                continue
+            mutation = {
+                "query": (
+                    "mutation($id: ID!) { minimizeComment(input: "
+                    "{subjectId: $id, classifier: OUTDATED}) "
+                    "{ minimizedComment { isMinimized } } }"
+                ),
+                "variables": {"id": node_id},
+            }
+            try:
+                r = requests.post(
+                    "https://api.github.com/graphql",
+                    headers=graphql_headers,
+                    json=mutation,
+                    timeout=30,
+                )
+                r.raise_for_status()
+            except Exception as e:
+                print(f"  Could not minimize comment {node_id} (non-fatal): {e}", file=sys.stderr)
 
 
 # ─── Rule-based checks ────────────────────────────────────────────────────────
@@ -977,12 +1095,48 @@ def update_pr_description_with_summary(pr_info: dict, pr_files: list[dict]) -> N
     update_pr_description(new_body)
 
 
+def build_findings_section(comments: list[ReviewComment], zh: bool, max_findings: int) -> str:
+    """
+    Render every finding (that isn't posted as its own inline comment) as a
+    grouped-by-file, collapsible list inside the single summary comment.
+    """
+    if not comments:
+        return ""
+
+    truncated = len(comments) > max_findings
+    shown = comments[:max_findings]
+
+    by_file: dict[str, list[ReviewComment]] = {}
+    for c in shown:
+        by_file.setdefault(c.path, []).append(c)
+
+    lines: list[str] = []
+    for fpath in sorted(by_file):
+        lines.append(f"<details>\n<summary><code>{fpath}</code> ({len(by_file[fpath])})</summary>\n")
+        for c in sorted(by_file[fpath], key=lambda c: c.line):
+            # body already carries the `[Severity]` label; strip the trailing bot tag for inline display
+            text = c.body.split("<!-- bot:doc-review -->")[0].strip()
+            lines.append(f"- L{c.line}: {text}")
+        lines.append("\n</details>")
+
+    header = "### 🔍 详细发现" if zh else "### 🔍 Findings"
+    note = ""
+    if truncated:
+        remaining = len(comments) - max_findings
+        note = (f"\n\n> *还有 {remaining} 条发现未在此列出，请查看完整 CI 日志。*" if zh else
+                f"\n\n> *{remaining} more finding(s) not shown here — see the full CI run log.*")
+
+    return f"{header}\n\n" + "\n".join(lines) + note
+
+
 def build_summary(result: ReviewResult, zh: bool,
                   sync_table: str = "",
-                  changes_summary: str = "") -> str:
+                  changes_summary: str = "",
+                  findings_section: str = "") -> str:
     bot_tag = "<!-- bot:doc-review -->"
     sync_section = ("\n\n" + sync_table.strip()) if sync_table else ""
     changes_section = (changes_summary.strip() + "\n\n---\n") if changes_summary else ""
+    findings_block = ("\n\n" + findings_section.strip()) if findings_section else ""
     if zh:
         return textwrap.dedent(f"""
             {changes_section}## 📋 文档审阅摘要
@@ -995,7 +1149,8 @@ def build_summary(result: ReviewResult, zh: bool,
 
             > 错误项表示信息缺失或有误，建议在合并前处理。
             > 警告和建议仅供参考，最终合并决策由人工审阅者决定。
-            {sync_section}
+            {sync_section}{findings_block}
+
             {bot_tag}
         """).strip()
     else:
@@ -1010,7 +1165,8 @@ def build_summary(result: ReviewResult, zh: bool,
 
             > Errors indicate missing or incorrect information that should be addressed before merge.
             > Warnings and suggestions are advisory — human reviewer makes the final call.
-            {sync_section}
+            {sync_section}{findings_block}
+
             {bot_tag}
         """).strip()
 
@@ -1039,6 +1195,12 @@ def main() -> None:
         update_pr_description_with_summary(pr_info, pr_files)
     except Exception as e:
         print(f"  PR description update failed (non-fatal): {e}", file=sys.stderr)
+
+    # ── Minimize prior bot review comments on re-push to avoid stacked duplicates ─
+    bot_tag = cfg.get("output", {}).get("bot_tag", "<!-- bot:doc-review -->")
+    if GITHUB_EVENT_ACTION == "synchronize" and cfg.get("output", {}).get("supersede_previous_review_on_sync", True):
+        print("Minimizing previous bot review comments (new push detected)...")
+        minimize_previous_bot_reviews(bot_tag)
 
     # ── Item 2: Check links pointing to deleted/renamed files ─────────────────
     deleted_paths = {
@@ -1115,16 +1277,28 @@ def main() -> None:
     patches = get_all_pr_patches(pr_files)
     changes_summary = build_changes_summary(pr_files, patches)
 
-    summary = build_summary(result, zh=has_zh, sync_table=sync_table,
-                            changes_summary=changes_summary)
+    out_cfg = cfg.get("output", {})
+    max_findings = out_cfg.get("max_findings_in_summary", 200)
 
-    if all_comments or result.errors + result.warnings + result.suggestions > 0:
-        print(f"\nPosting review: {result.errors} errors, {result.warnings} warnings, "
-              f"{result.suggestions} suggestions")
-        post_review(all_comments, summary, commit_sha)
+    # Every PR gets exactly one bot comment: findings are folded into the summary
+    # by default. output.inline_comments is opt-in for teams that want per-line
+    # threads (each of which is a separate GitHub notification).
+    if out_cfg.get("inline_comments", False):
+        inline_comments, rolled_over = filter_inline_comments(all_comments, cfg)
+        if inline_comments:
+            print(f"Posting {len(inline_comments)} inline review comment(s)...")
+            post_review(inline_comments, "Inline findings — see PR summary comment for full report.",
+                       commit_sha)
     else:
-        print("No issues found. Posting clean summary.")
-        post_review([], summary, commit_sha)
+        rolled_over = all_comments
+
+    findings_section = build_findings_section(rolled_over, zh=has_zh, max_findings=max_findings)
+    summary = build_summary(result, zh=has_zh, sync_table=sync_table,
+                            changes_summary=changes_summary, findings_section=findings_section)
+
+    print(f"\nPosting single summary comment: {result.errors} errors, "
+          f"{result.warnings} warnings, {result.suggestions} suggestions")
+    upsert_summary_comment(summary, bot_tag)
 
 
 if __name__ == "__main__":

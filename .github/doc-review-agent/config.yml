@@ -76,8 +76,10 @@ checks:
       enabled: true
 
     # Flag bare numeric values in unit-bearing contexts (voltage, frequency, etc.)
+    # Disabled: same false-positive-prone heuristic as technical_style.flag_missing_units,
+    # fires once per numeric value and floods spec-heavy files (datasheets) with comments.
     missing_units:
-      enabled: true
+      enabled: false
 
     # Flag first-person pronouns (I, me, my, we, us) in formal en/ docs — Warning level
     first_person:
@@ -109,10 +111,25 @@ severity_overrides:
 
 # ─── Output ───────────────────────────────────────────────────────────────────
 output:
-  # Post inline review comments on specific lines
-  inline_comments: true
+  # Post inline (per-line) review comments in addition to the summary.
+  # Disabled by default: every inline comment is its own GitHub notification/email,
+  # so a doc-heavy PR can generate dozens of emails. All findings are instead folded
+  # into a single grouped-by-file section inside the one PR summary comment.
+  inline_comments: false
+  # Only used when inline_comments is re-enabled above — post inline comments at or
+  # above this severity; lower-severity findings still get rolled into the summary.
+  inline_comments_min_severity: "warning"   # error | warning | suggestion
+  # Only used when inline_comments is re-enabled above — hard cap on inline comments
+  # posted per run, regardless of severity, as a backstop against floods.
+  max_inline_comments: 25
+  # Cap on individual findings listed in the consolidated summary section, to keep
+  # the single comment body from becoming unreadable on very large PRs.
+  max_findings_in_summary: 200
   # Post a summary comment at the PR level
   pr_summary: true
+  # On `synchronize` (new pushes to an open PR), resolve/minimize the previous bot
+  # review before posting a new one instead of stacking a full new comment set on top.
+  supersede_previous_review_on_sync: true
   # GitHub status check result when errors are found
   # "neutral" = visible but never blocks merge
   # "failure" = blocks merge (requires the check to be non-required in branch protection)
