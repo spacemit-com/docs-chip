@@ -4,6 +4,8 @@ sidebar_position: 1
 
 # P3 Brief
 
+Click to download [P3 Brief (PDF)](https://cdn-resource.spacemit.com/file/chip/P3/P3_brief_en.pdf)
+
 ## Overview
 
 **High-Performance Four-Phase Buck Power Management Chip**

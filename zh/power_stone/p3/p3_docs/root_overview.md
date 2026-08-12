@@ -4,6 +4,8 @@ sidebar_position: 1
 
 # P3 简介
 
+点击下载 [P3 简介（PDF）](https://cdn-resource.spacemit.com/file/chip/P3/P3_brief_zh.pdf)
+
 ## 概述
 
 **高性能四相降压（Buck）电源管理芯片**
