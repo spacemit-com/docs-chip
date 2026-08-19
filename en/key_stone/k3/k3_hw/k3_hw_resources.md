@@ -11,7 +11,7 @@ This section provides a consolidated list of K3 hardware resource files for hard
 ### Pin List and Pin Multiplexing
 
 This file contains the complete pin list and the corresponding pin multiplexing options.  
-[k3_pinlist_pinmux_v21.xlsx](https://cdn-resource.spacemit.com/file/chip/K3/k3_pinlist_pinmux_v21.xlsx)
+[k3_pinlist_pinmux.xlsx](https://cdn-resource.spacemit.com/file/chip/K3/k3_pinlist_pinmux.xlsx)
 
 ### Pin Map
 

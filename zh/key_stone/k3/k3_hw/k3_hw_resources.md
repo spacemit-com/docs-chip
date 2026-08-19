@@ -11,7 +11,7 @@ sidebar_position: 3
 ### 管脚列表与复用（Pin List & Pinmux）
 
 该文件包含全部管脚信息及其复用功能配置。  
-[k3_pinlist_pinmux_v21.xlsx](https://cdn-resource.spacemit.com/file/chip/K3/k3_pinlist_pinmux_v21.xlsx)
+[k3_pinlist_pinmux.xlsx](https://cdn-resource.spacemit.com/file/chip/K3/k3_pinlist_pinmux.xlsx)
 
 ### 管脚映射（Pin Map）
 
