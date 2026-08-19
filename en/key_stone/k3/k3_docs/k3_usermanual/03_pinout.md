@@ -956,224 +956,897 @@ The assigned signals are organized by their functions (e.g. power supply, clock,
 
 The General-Purpose Input/Output (GPIO) module provides flexible pin control and signal multiplexing capabilities. Each GPIO pin can operate as a standard input/output or be configured for one of several alternate functions, allowing efficient connection between the system and on-chip peripherals.
 
-The tables below provide a detailed description of the signal assignments for Function 0 through Function 6, organized according to their respective interface groups.
+### 3.4.1 QSPI 1.8V/3.3V
 
-#### QSPI 1.8V/3.3V
+| Pad Name | Default Pull | Pad Edge Wakeup | Function 0 | Function 1 | Function 2 | Function 3 | Function 4 | Function 5 | Function 6 | Function 7 | Pin Name |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| QSPI_DAT3 | DOWN | ENABLE | QSPI_DAT[3] | GPIO[0] | R.UART1_TXD | R.GPIO[0] | PWM10 |  |  | PLL1 | QSPI_DAT3 |
+| QSPI_DAT2 | DOWN | ENABLE | QSPI_DAT[2] | GPIO[1] | R.UART1_RXD | R.GPIO[1] | PWM11 |  |  | PLL1_LOCK | QSPI_DAT2 |
+| QSPI_DAT1 | DOWN | ENABLE | QSPI_DAT[1] | GPIO[2] | R.UART1_CTS | R.GPIO[2] | PWM12 |  |  | PLL2 | QSPI_DAT1 |
+| QSPI_DAT0 | DOWN | ENABLE | QSPI_DAT[0] | GPIO[3] | R.UART1_RTS | R.GPIO[3] | PWM13 |  |  | PLL2_LOCK | QSPI_DAT0 |
+| QSPI_CLK | DOWN | ENABLE | QSPI_CLK | GPIO[4] | R.CAN1_TXD | R.GPIO[4] | PWM14 |  |  | PLL_3 | QSPI_CLK |
+| QSPI_CS0 | UP | ENABLE | QSPI_CS0 | GPIO[5] | R.CAN1_RXD | R.GPIO[5] | PWM15 | I2C3_SCL |  | PLL_3_LOCK | QSPI_CS0 |
+| QSPI_CS1 | UP | ENABLE | QSPI_CS1 | GPIO[6] |  |  | PWM16 | I2C3_SDA |  |  | QSPI_CS1 |
+| vcc18_qspi |  |  |  |  |  |  |  |  |  |  | VCC18_QSPI_CAP |
+| vcc33_qspi |  |  |  |  |  |  |  |  |  |  | VCC1833_QSPI |
 
-| Pad Name | Default Pull | Pad Edge Wakeup | Function 0 | Function 1 | Function 2 | Function 3 | Function 4 | Function 5 | Function 6 |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| QSPI_DAT3 | DOWN | ENABLE | QSPI_DAT[3] | GPIO[0] | R.UART1_TXD | R.GPIO[0] | — | — | — |
-| QSPI_DAT2 | DOWN | ENABLE | QSPI_DAT[2] | GPIO[1] | R.UART1_RXD | R.GPIO[1] | — | — | — |
-| QSPI_DAT1 | DOWN | ENABLE | QSPI_DAT[1] | GPIO[2] | R.UART1_CTS | R.GPIO[2] | — | — | — |
-| QSPI_DAT0 | DOWN | ENABLE | QSPI_DAT[0] | GPIO[3] | R.UART1_RTS | R.GPIO[3] | — | — | — |
-| QSPI_CLK | DOWN | ENABLE | QSPI_CLK | GPIO[4] | R.CAN1_TXD | R.GPIO[4] | — | — | — |
-| QSPI_CS0 | UP | ENABLE | QSPI_CS0 | GPIO[5] | R.CAN1_RXD | R.GPIO[5] | I2C3_SCL | — | — |
-| QSPI_CS1 | UP | ENABLE | QSPI_CS1 | GPIO[6] | — | — | I2C3_SDA | — | — |
+### 3.4.2 SD/MMC1 1.8V/3.3V
 
-#### SD/MMC1 1.8V/3.3V
+| Pad Name | Default Pull | Pad Edge Wakeup | Function 0 | Function 1 | Function 2 | Function 3 | Function 4 | Function 5 | Function 6 | Function 7 | Pin Name |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| MMC1_DAT3 | UP | ENABLE | MMC1_DAT[3] | GPIO[93] | UART0_TXD | R.GPIO[6] | R.UART0_TXD | PRI_TDI |  | NDR_CW[12] | MMC1_DAT3 |
+| MMC1_DAT2 | UP | ENABLE | MMC1_DAT[2] | GPIO[94] | UART0_RXD | R.GPIO[7] | R.UART0_RXD | PRI_TMS |  | NDR_CW[13] | MMC1_DAT2 |
+| MMC1_DAT1 | UP | ENABLE | MMC1_DAT[1] | GPIO[95] | UART2_TXD | R.GPIO[8] | PWM2 | PRI_TDO |  | NDR_CW[14] | MMC1_DAT1 |
+| MMC1_DAT0 | UP | ENABLE | MMC1_DAT[0] | GPIO[96] | UART2_RXD | R.GPIO[9] | PWM3 |  |  | NDR_CW[15] | MMC1_DAT0 |
+| MMC1_CMD | UP | ENABLE | MMC1_CMD | GPIO[97] | UART2_CTS | R.GPIO[10] | PWM4 |  | I2C4_SCL | NDR_CW[0] | MMC1_CMD |
+| MMC1_CLK | DOWN | ENABLE | MMC1_CLK | GPIO[98] | UART2_RTS | R.GPIO[11] | PWM5 | PRI_TCK | I2C4_SDA | NDR_CW[1] | MMC1_CLK |
+| vcc18_sd |  |  |  |  |  |  |  |  |  |  | VCC18_SD_CAP |
+| vcc33_sd |  |  |  |  |  |  |  |  |  |  | VCC1833_SD |
 
-| Pad Name | Default Pull | Pad Edge Wakeup | Function 0 | Function 1 | Function 2 | Function 3 | Function 4 | Function 5 | Function 6 |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| MMC1_DAT3 | UP | ENABLE | MMC1_DAT[3] | GPIO[93] | UART0_TXD | R.GPIO[6] | R.UART0_TXD | PRI_TDI | — |
-| MMC1_DAT2 | UP | ENABLE | MMC1_DAT[2] | GPIO[94] | UART0_RXD | R.GPIO[7] | R.UART0_RXD | PRI_TMS | — |
-| MMC1_DAT1 | UP | ENABLE | MMC1_DAT[1] | GPIO[95] | UART2_TXD | R.GPIO[8] | PWM2 | PRI_TDO | — |
-| MMC1_DAT0 | UP | ENABLE | MMC1_DAT[0] | GPIO[96] | UART2_RXD | R.GPIO[9] | PWM3 | — | — |
-| MMC1_CMD | UP | ENABLE | MMC1_CMD | GPIO[97] | UART2_CTS | R.GPIO[10] | PWM4 | I2C4_SCL | — |
-| MMC1_CLK | DOWN | ENABLE | MMC1_CLK | GPIO[98] | UART2_RTS | R.GPIO[11] | PWM5 | PRI_TCK | I2C4_SDA |
+### 3.4.3 PMIC [1.8V only]
 
-#### PMIC [1.8V only]
+| Pad Name | Default Pull | Pad Edge Wakeup | Function 0 | Function 1 | Function 2 | Function 3 | Function 4 | Function 5 | Function 6 | Function 7 | Pin Name |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| RESET_IN_N | UP | NO | RESET_IN_N |  |  |  | |  |  |  | RESET_IN_N |
+| EXT_32K_IN | DOWN | NO | EXT_32K_IN |  |  |  |  |  |  |  | EXT_32K_IN |
+| PWR_SCL | UP | ENABLE | PWR_SCL | R_PWR_SCL |  |  | |  |  |  | PWR_SCL |
+| PWR_SDA | UP | ENABLE | PWR_SDA | R_PWR_SDA |  |  | |  |  |  | PWR_SDA |
+| VCXO_EN | NO | ENABLE | VCXO_EN |  |  |  | |  |  |  | VCXO_EN |
+| PMIC_WDT_N | UP | NO | PMIC_WDT_N |  |  |  | |  |  |  | PMIC_WDT_N |
+| PMIC_INT_N | UP | ENABLE | PMIC_INT_N |  |  |  | |  |  |  | PMIC_INT_N |
+| PWR_SSP_TXD | UP | ENABLE | PWR_SSP_TXD | GPIO[120] | I2C6_SCL |  |  |  |  |  | PWR_SSP_TXD |
+| PWR_SSP_RXD | UP | ENABLE | PWR_SSP_RXD | GPIO[121] | I2C6_SDA |  |  |  |  |  | PWR_SSP_RXD |
+| PWR_SSP_SCLK | UP | ENABLE | PWR_SSP_SCLK | GPIO[122] | UART0_TXD |  |  |  |  |  | PWR_SSP_SCLK |
+| PWR_SSP_FRM | UP | ENABLE | PWR_SSP_FRM | GPIO[123] | UART0_RXD |  |  |  |  |  | PWR_SSP_FRM |
+| PRI_TDI | UP | NO | PRI_TDI | GPIO[124] | R.GPIO[17] | PWM6 | UART5_TXD | UART0_TXD | R.UART0_TXD |  | PRI_TDI |
+| PRI_TMS | UP | NO | PRI_TMS | GPIO[125] | R.GPIO[14] | PWM7 | UART5_RXD | UART0_RXD | R.UART0_RXD |  | PRI_TMS |
+| PRI_TCK | DOWN | NO | PRI_TCK | GPIO[126] | R.GPIO[15] | PWM8 | UART9_TXD |  |  |  | PRI_TCK |
+| PRI_TDO | UP | NO | PRI_TDO | GPIO[127] | R.GPIO[16] | PWM9 | UART9_RXD |  |  |  | PRI_TDO |
+| PRI_TRST_N | UP | NO | PRI_TRSTn |  |  | |  |  |  |  | PRI_TRST_N |
+| vcc18_pmic |  |  |  |  |  |  |  |  |  |  | VCC18_PMIC |
 
-| Pad Name | Default Pull | Pad Edge Wakeup | Function 0 | Function 1 | Function 2 | Function 3 | Function 4 | Function 5 | Function 6 |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| RESET_IN_N | UP | NO | RESET_IN_N | — | — | — | PWM10 | — | — |
-| EXT_32K_IN | DOWN | NO | EXT_32K_IN | — | — | — | PWM11 | — | — |
-| PWR_SCL | UP | ENABLE | PWR_SCL | R_PWR_SCL | — | — | PWM12 | — | — |
-| PWR_SDA | UP | ENABLE | PWR_SDA | R_PWR_SDA | — | — | PWM13 | — | — |
-| VCXO_EN | NO | ENABLE | VCXO_EN | — | — | — | PWM14 | — | — |
-| PMIC_WDT_N | UP | NO | PMIC_WDT_N | — | — | — | PWM15 | — | — |
-| PMIC_INT_N | UP | ENABLE | PMIC_INT_N | — | — | — | PWM16 | — | — |
-| PWR_SSP_TXD | UP | ENABLE | PWR_SSP_TXD | GPIO[120] | I2C6_SCL | — | — | — | — |
-| PWR_SSP_RXD | UP | ENABLE | PWR_SSP_RXD | GPIO[121] | I2C6_SDA | — | — | — | — |
-| PWR_SSP_SCLK | UP | ENABLE | PWR_SSP_SCLK | GPIO[122] | UART0_TXD | — | — | — | — |
-| PWR_SSP_FRM | UP | ENABLE | PWR_SSP_FRM | GPIO[123] | UART0_RXD | — | — | — | — |
-| PRI_TDI | UP | NO | PRI_TDI | GPIO[124] | R.GPIO[17] | PWM6 | UART5_TXD | UART0_TXD | R.UART0_TXD |
-| PRI_TMS | UP | NO | PRI_TMS | GPIO[125] | R.GPIO[14] | PWM7 | UART5_RXD | UART0_RXD | R.UART0_RXD |
-| PRI_TCK | DOWN | NO | PRI_TCK | GPIO[126] | R.GPIO[15] | PWM8 | UART9_TXD | — | — |
-| PRI_TDO | UP | NO | PRI_TDO | GPIO[127] | R.GPIO[16] | PWM9 | UART9_RXD | — | — |
+### 3.4.4 GPIO1 1.8V/3.3V
 
-#### EMMC5 [1.8V only]
+| Pad Name | Default Pull | Pad Edge Wakeup | Function 0 | Function 1 | Function 2 | Function 3 | Function 4 | Function 5 | Function 6 | Function 7 | Pin Name |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| GPIO_[0] | DOWN | ENABLE | GPIO[0] | GMAC0_RXDV | SSPA5_CLK | PWM0 | IR1_RX | eSPI0_D0 | I2C0_SCL | WFSTAT[0] | GPIO[1]_00 |
+| GPIO_[1] | DOWN | ENABLE | GPIO[1] | GMAC0_RX_D0 | SSPA5_FRM | PWM1 | R.IR1_RX | eSPI0_D1 | I2C0_SDA | WFSTAT[1] | GPIO[1]_01 |
+| GPIO_[2] | DOWN | ENABLE | GPIO[2] | GMAC0_RX_D1 | SSPA5_TXD | PWM2 |  | eSPI0_D2 | I2C1_SCL | WFSTAT[2] | GPIO[1]_02 |
+| GPIO_[3] | DOWN | ENABLE | GPIO[3] | GMAC0_RX_CLK | SSPA5_RXD | PWM3 | PCIeD_PERSTn | eSPI0_D3 | I2C1_SDA | WFSTAT[3] | GPIO[1]_03 |
+| GPIO_[4] | DOWN | ENABLE | GPIO[4] | GMAC0_RX_D2 | SSPA5_SYSCLK | PWM4 | PCIeD_WAKEn | eSPI0_CS |  | WFSTAT[4] | GPIO[1]_04 |
+| GPIO_[5] | DOWN | ENABLE | GPIO[5] | GMAC0_RX_D3 |  | PWM5 | PCIeD_CLKREQn | eSPI0_CLK | I2C2_SCL | AP_IDLE_SM[0] | GPIO[1]_05 |
+| GPIO_[6] | DOWN | ENABLE | GPIO[6] | GMAC0_TX_D0 | R.SSPA0_CLK | PWM6 | PCIeD_PRSNT2n | eSPI0_RESETN | I2C2_SDA | AP_IDLE_SM[1] | GPIO[1]_06 |
+| GPIO_[7] | DOWN | ENABLE | GPIO[7] | GMAC0_TX_D1 | R.SSPA0_FRM | PWM7 | PCIeD_ATTn | eSPI0_ALERT | I2C6_SCL | AP_IDLE_SM[2] | GPIO[1]_07 |
+| GPIO_[8] | DOWN | ENABLE | GPIO[8] | GMAC0_TX_CLK | R.SSPA0_TXD | PWM8 | PCIeD_PWRCTn |  | I2C6_SDA | AP_IDLE_SM[3] | GPIO[1]_08 |
+| GPIO_[9] | DOWN | ENABLE | GPIO[9] | GMAC0_TX_D2 | R.SSPA0_RXD | PWM9 | PCIeD_AUXen |  | e/DP0_HPD | AP_IDLE_SM[4] | GPIO[1]_09 |
+| GPIO_[10] | DOWN | ENABLE | GPIO[10] | GMAC0_TX_D3 | R.SSPA0_SYSCLK | PWM10 | PCIeD_PWRDet |  | e/DP1_HPD | MP0_IDLE_SM[0] | GPIO[1]_10 |
+| GPIO_[11] | DOWN | ENABLE | GPIO[11] | GMAC0_TX_EN | UART7_RTSn | CAN0_TXD |  | UART8_RXD | I2C4_SCL | MP0_IDLE_SM[1] | GPIO[1]_11 |
+| GPIO_[12] | DOWN | ENABLE | GPIO[12] | GMAC0_MDC | UART7_CTSn | CAN0_RXD | PCIeC_PERSTn | UART8_TXD | I2C4_SDA | MP0_IDLE_SM[2] | GPIO[1]_12 |
+| GPIO_[13] | DOWN | ENABLE | GPIO[13] | GMAC0_MDIO | UART7_TXD | PWM13 | PCIeC_WAKEn | CLK_CAMCK1 | DSI0_TE | MP0_IDLE_SM[3] | GPIO[1]_13 |
+| GPIO_[14] | DOWN | ENABLE | GPIO[14] | GMAC0_INT_N | UART7_RXD | PWM14 | PCIeC_CLKREQn | MNCLK_OUT1 | I2C6_SCL | MP0_IDLE_SM[4] | GPIO[1]_14 |
+| GPIO_[15] | DOWN | ENABLE | GPIO[15] | GMAC0_RXER | SSPA1_CLK | R.PWM0 | PCIeC_PRSNT2n | MNCLK_OUT2 | I2C6_SDA | MP0_IDLE_SM[5] | GPIO[1]_15 |
+| GPIO_[16] | DOWN | ENABLE | GPIO[16] | GMAC0_TXER | SSPA1_FRM | R.PWM1 | PCIeC_ATTn |  | USB20_HOST_DRV |  | GPIO[1]_16 |
+| GPIO_[17] | DOWN | ENABLE | GPIO[17] | GMAC0_CRS | SSPA1_TXD | R.PWM2 | PCIeC_PWRCTn | R.UART1_TXD | USB30_DRD_ID | PUPHY_PLL_LK | GPIO[1]_17 |
+| GPIO_[18] | DOWN | ENABLE | GPIO[18] | GMAC0_COL | SSPA1_RXD | R.PWM3 | PCIeC_AUXen | R.UART1_RXD | USB30_DRD_VBUSON | PUPHY_RX_LFPS_OUT | GPIO[1]_18 |
+| GPIO_[19] | DOWN | ENABLE | GPIO[19] | GMAC0_PPS | SSPA1_SYSCLK | R.PWM4 | PCIeC_PWRDet | R.UART1_CTSn | USB30_DRD_DRV | PUPHY_RCV_DET_DONE | GPIO[1]_19 |
+| GPIO_[20] | DOWN | ENABLE | GPIO[20] | GMAC0_CLK_REF |  | R.PWM5 |  | R.UART1_RTSn | USB30_D_DRV | PUPHY_RCV_DET_OUT | GPIO[1]_20 |
+| vcc18_gpio1 |  |  |  |  |  |  |  |  |  |  | VCC18_GPIO1 |
+| vcc33_gpio1 |  |  |  |  |  |  |  |  |  |  | VCC1833_GPIO1 |
 
-| Pad Name | Default Pull | Pad Edge Wakeup | Function 0 | Function 1 | Function 2 | Function 3 | Function 4 | Function 5 | Function 6 |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| RESET_IN_N | UP | NO | RESET_IN_N | — | — | — | — | PWM10 | — |
-| EXT_32K_IN | DOWN | NO | EXT_32K_IN | — | — | — | — | PWM11 | — |
-| PWR_SCL | UP | ENABLE | PWR_SCL | R_PWR_SCL | — | — | — | PWM12 | — |
-| PWR_SDA | UP | ENABLE | PWR_SDA | R_PWR_SDA | — | — | — | PWM13 | — |
-| VCXO_EN | NO | ENABLE | VCXO_EN | — | — | — | — | PWM14 | — |
-| PMIC_WDT_N | UP | NO | PMIC_WDT_N | — | — | — | — | PWM15 | — |
-| PMIC_INT_N | UP | ENABLE | PMIC_INT_N | — | — | — | — | PWM16 | — |
-| PWR_SSP_TXD | UP | ENABLE | PWR_SSP_TXD | GPIO[120] | I2C6_SCL | — | — | — | — |
-| PWR_SSP_RXD | UP | ENABLE | PWR_SSP_RXD | GPIO[121] | I2C6_SDA | — | — | — | — |
-| PWR_SSP_SCLK | UP | ENABLE | PWR_SSP_SCLK | GPIO[122] | UART0_TXD | — | — | — | — |
-| PWR_SSP_FRM | UP | ENABLE | PWR_SSP_FRM | GPIO[123] | UART0_RXD | — | — | — | — |
-| PRI_TDI | UP | NO | PRI_TDI | GPIO[124] | R.GPIO[17] | PWM6 | UART5_TXD | UART0_TXD | R.UART0_TXD |
-| PRI_TMS | UP | NO | PRI_TMS | GPIO[125] | R.GPIO[14] | PWM7 | UART5_RXD | UART0_RXD | R.UART0_RXD |
-| PRI_TCK | DOWN | NO | PRI_TCK | GPIO[126] | R.GPIO[15] | PWM8 | UART9_TXD | — | — |
-| PRI_TDO | UP | NO | PRI_TDO | GPIO[127] | R.GPIO[16] | PWM9 | UART9_RXD | — | — |
-| PRI_TRST_N | UP | NO | PRI_TRSTn | — | — | — | — | — | — |
+### 3.4.5 GPIO2 1.8V/3.3V
 
-#### GPIO1 1.8V/3.3V
+| Pad Name | Default Pull | Pad Edge Wakeup | Function 0 | Function 1 | Function 2 | Function 3 | Function 4 | Function 5 | Function 6 | Function 7 | Pin Name |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| GPIO_[21] | DOWN | ENABLE | GPIO[21] | GMAC1_RXDV | UART5_TXD | PWM15 | PCIeB_PERSTn | R.UART4_TXD | R.GPIO[28] |  | GPIO[2]_21 |
+| GPIO_[22] | DOWN | ENABLE | GPIO[22] | GMAC1_RX_D0 | UART5_RXD | PWM16 | PCIeB_WAKEn | R.UART4_RXD | R.GPIO[29] |  | GPIO[2]_22 |
+| GPIO_[23] | DOWN | ENABLE | GPIO[23] | GMAC1_RX_D1 | UART5_CTS | PWM17 | PCIeB_CLKREQn | UART7_TXD | e/DP0_HPD |  | GPIO[2]_23 |
+| GPIO_[24] | DOWN | ENABLE | GPIO[24] | GMAC1_RX_CLK | UART5_RTS | PWM18 | PCIeB_PRSNT2n | UART7_RXD | e/DP1_HPD |  | GPIO[2]_24 |
+| GPIO_[25] | DOWN | ENABLE | GPIO[25] | GMAC1_RX_D2 |  | PWM19 | PCIeC_PERSTn | UART7_CTSn | I2C5_SDA |  | GPIO[2]_25 |
+| GPIO_[26] | DOWN | ENABLE | GPIO[26] | GMAC1_RX_D3 | UART3_TXD |  | PCIeC_WAKEn | UART7_RTSn | I2C5_SCL |  | GPIO[2]_26 |
+| GPIO_[27] | DOWN | ENABLE | GPIO[27] | GMAC1_TX_D0 | UART3_RXD | R.PWM0 | PCIeC_CLKREQn | USB30_D_DRV | R.I2C0_SCL |  | GPIO[2]_27 |
+| GPIO_[28] | DOWN | ENABLE | GPIO[28] | GMAC1_TX_D1 | UART3_CTS | R.PWM1 | PCIeC_PRSNT2n | SSP2_TXD | R.I2C0_SDA |  | GPIO[2]_28 |
+| GPIO_[29] | DOWN | ENABLE | GPIO[29] | GMAC1_TX_CLK | UART3_RTS | R.PWM2 |  | SSP2_RXD |  |  | GPIO[2]_29 |
+| GPIO_[30] | UP | ENABLE | GPIO[30] | GMAC1_TX_D2 |  | R.PWM3 |  | SSP2_SCLK | e/DP0_HPD |  | GPIO[2]_30 |
+| GPIO_[31] | UP | ENABLE | GPIO[31] | GMAC1_TX_D3 | UART10_TXD | R.PWM4 | PCIeE_PERSTn | SSP2_FRM | e/DP1_HPD |  | GPIO[2]_31 |
+| GPIO_[32] | UP | ENABLE | GPIO[32] | GMAC1_TX_EN | UART10_RXD | R.PWM5 | PCIeE_WAKEn | SSP1_TXD |  |  | GPIO[2]_32 |
+| GPIO_[33] | UP | ENABLE | GPIO[33] | GMAC1_MDC | UART10_CTS | R.PWM6 | PCIeE_CLKREQn | SSP1_RXD | R.I2C1_SCL |  | GPIO[2]_33 |
+| GPIO_[34] | DOWN | ENABLE | GPIO[34] | GMAC1_MDIO | UART10_RTS | R.PWM7 | CLK_CAMCK2 | SSP1_SCLK | R.I2C1_SDA |  | GPIO[2]_34 |
+| GPIO_[35] | DOWN | ENABLE | GPIO[35] | GMAC1_INT_N |  | R.PWM8 | CLK_CAMCK3 | SSP1_FRM |  |  | GPIO[2]_35 |
+| GPIO_[36] | DOWN | ENABLE | GPIO[36] | GMAC1_CLK_REF | R.SSPA1_CLK | R.PWM9 | I2C3_SCL |  |  |  | GPIO[2]_36 |
+| GPIO_[37] | DOWN | ENABLE | GPIO[37] | GMAC1_RXER | R.SSPA1_FRM |  | I2C3_SDA |  |  |  | GPIO[2]_37 |
+| GPIO_[38] | DOWN | ENABLE | GPIO[38] | GMAC1_TXER | R.SSPA1_TXD |  |  |  | DSI0_TE |  | GPIO[2]_38 |
+| GPIO_[39] | DOWN | ENABLE | GPIO[39] | GMAC1_CRS | R.SSPA1_RXD | MNCLK_OUT1 | R.I2C1_SCL | USB20_HOST_DRV |  |  | GPIO[2]_39 |
+| GPIO_[40] | DOWN | ENABLE | GPIO[40] | GMAC1_COL | R.SSPA1_SYSCLK | MNCLK_OUT2 | R.I2C1_SDA | R.IR0_RX | CAN4_TXD |  | GPIO[2]_40 |
+| GPIO_[41] | DOWN | ENABLE | GPIO[41] | GMAC1_PPS |  | CLK32K_OUT |  | IR0_RX | CAN4_RXD |  | GPIO[2]_41 |
+| vcc18_gpio2 |  |  |  |  |  |  |  |  |  |  | VCC18_GPIO2 |
+| vcc33_gpio2 |  |  |  |  |  |  |  |  |  |  | VCC1833_GPIO2 |
 
-| Pad Name | Default Pull | Pad Edge Wakeup | Function 0 | Function 1 | Function 2 | Function 3 | Function 4 | Function 5 | Function 6 |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| GPIO_[0] | DOWN | ENABLE | GPIO[0] | GMAC0_RXDV | SSPA5_CLK | PWM0 | IR1_RX | eSPI0_D0 | I2C0_SCL |
-| GPIO_[1] | DOWN | ENABLE | GPIO[1] | GMAC0_RX_D0 | SSPA5_FRM | PWM1 | R.IR1_RX | eSPI0_D1 | I2C0_SDA |
-| GPIO_[2] | DOWN | ENABLE | GPIO[2] | GMAC0_RX_D1 | SSPA5_TXD | PWM2 | — | eSPI0_D2 | I2C1_SCL |
-| GPIO_[3] | DOWN | ENABLE | GPIO[3] | GMAC0_RX_CLK | SSPA5_RXD | PWM3 | PCIeD_PERSTn | eSPI0_D3 | I2C1_SDA |
-| GPIO_[4] | DOWN | ENABLE | GPIO[4] | GMAC0_RX_D2 | SSPA5_SYSCLK | PWM4 | PCIeD_WAKE n | eSPI0_CS | — |
-| GPIO_[5] | DOWN | ENABLE | GPIO[5] | GMAC0_RX_D3 | — | PWM5 | PCIeD_CLKREQn | eSPI0_CLK | I2C2_SCL |
-| GPIO_[6] | DOWN | ENABLE | GPIO[6] | GMAC0_TX_D0 | R.SSPA0_CLK | PWM6 | PCIeD_PRSNT2n | eSPI0_RESETN | I2C2_SDA |
-| GPIO_[7] | DOWN | ENABLE | GPIO[7] | GMAC0_TX_D1 | R.SSPA0_FRM | PWM7 | PCIeD_ATNn | eSPI0_ALERT | I2C6_SCL |
-| GPIO_[8] | DOWN | ENABLE | GPIO[8] | GMAC0_TX_CLK | R.SSPA0_TXD | PWM8 | PCIeD_AUXen | — | I2C6_SDA |
-| GPIO_[9] | DOWN | ENABLE | GPIO[9] | GMAC0_TX_D2 | R.SSPA0_RXD | PWM9 | PCIeD_PWRCTn | — | e/DP0_HPD |
-| GPIO_[10] | DOWN | ENABLE | GPIO[10] | GMAC0_TX_D3 | R.SSPA0_SYSCLK | PWM10 | PCIeD_PWRDet | — | e/DP1_HPD |
-| GPIO_[11] | DOWN | ENABLE | GPIO[11] | GMAC0_TX_EN | UART7_RTSn | CAN0_TXD | UART8_RXD | I2C4_SCL | — |
-| GPIO_[12] | DOWN | ENABLE | GPIO[12] | GMAC0_MDC | UART7_CTSn | CAN0_RXD | PCIeC_PERSTn | UART8_TXD | I2C4_SDA |
-| GPIO_[13] | DOWN | ENABLE | GPIO[13] | GMAC0_MDIO | UART7_TXD | PWM13 | PCIeC_WAKE n | CLK_CAMCK1 | DSI0_TE |
-| GPIO_[14] | DOWN | ENABLE | GPIO[14] | GMAC0_INT_N | UART7_RXD | PWM14 | PCIeC_CLKREQn | MNCLK_OUT1 | I2C6_SCL |
-| GPIO_[15] | DOWN | ENABLE | GPIO[15] | GMAC0_RXER | SSPA1_CLK | R.PWM0 | PCIeC_PRSNT2n | MNCLK_OUT2 | I2C6_SDA |
-| GPIO_[16] | DOWN | ENABLE | GPIO[16] | GMAC0_TXER | SSPA1_FRM | R.PWM1 | PCIeC_ATTn | — | USB20_HOST_DRV |
-| GPIO_[17] | DOWN | ENABLE | GPIO[17] | GMAC0_CRS | SSPA1_TXD | R.PWM2 | PCIeC_PWRCTn | R.UART1_TXD | USB30_DRD_ID |
-| GPIO_[18] | DOWN | ENABLE | GPIO[18] | GMAC0_COL | SSPA1_RXD | R.PWM3 | PCIeC_AUXen | R.UART1_RXD | USB30_DRD_VBUSON |
-| GPIO_[19] | DOWN | ENABLE | GPIO[19] | GMAC0_PPS | SSPA1_SYSCLK | R.PWM4 | PCIeC_PWRDet | R.UART1_CTSn | USB30_DRD_DRV |
-| GPIO_[20] | DOWN | ENABLE | GPIO[20] | GMAC0_CLK_REF | — | R.PWM5 | — | R.UART1_RTSn | USB30_D_DRV |
+### 3.4.6 GPIO3 [1.8V only]
 
-#### GPIO2 1.8V/3.3V
+| Pad Name | Default Pull | Pad Edge Wakeup | Function 0 | Function 1 | Function 2 | Function 3 | Function 4 | Function 5 | Function 6 | Function 7 | Pin Name |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| GPIO_[42] | UP | ENABLE | GPIO[42] | GMAC2_RXDV | UART0_TXD |  | PCIeA_PERSTn | I2C0_SCL | PWM0 |  | GPIO[3]_42 |
+| GPIO_[43] | UP | ENABLE | GPIO[43] | GMAC2_RX_D0 | UART0_RXD | CLK_CAMCK4 | PCIeA_WAKEn | I2C0_SDA | PWM1 |  | GPIO[3]_43 |
+| GPIO_[44] | UP | ENABLE | GPIO[44] | GMAC2_RX_D1 | UART10_TXD | CAN0_TXD | PCIeA_CLKREQn |  | PWM2 |  | GPIO[3]_44 |
+| GPIO_[45] | UP | ENABLE | GPIO[45] | GMAC2_RX_CLK | UART10_RXD | CAN0_RXD | PCIeA_PRSNT2n |  | PWM3 |  | GPIO[3]_45 |
+| GPIO_[46] | UP | ENABLE | GPIO[46] | GMAC2_RX_D2 | UART10_CTSn | CLK_CAMCK1 | PCIeA_ATTn | I2C2_SCL | PWM4 |  | GPIO[3]_46 |
+| GPIO_[47] | UP | ENABLE | GPIO[47] | GMAC2_RX_D3 | UART10_RTSn | CLK_CAMCK2 | PCIeA_PWRCTn | I2C2_SDA | PWM5 |  | GPIO[3]_47 |
+| GPIO_[48] | DOWN | ENABLE | GPIO[48] | GMAC2_TX_D0 | UART6_TXD | CAN1_RXD | PCIeA_AUXen | I2C0_SCL | PWM6 |  | GPIO[3]_48 |
+| GPIO_[49] | DOWN | ENABLE | GPIO[49] | GMAC2_TX_D1 | UART6_RXD | CAN1_TXD | PCIeA_PWRDet | I2C0_SDA | PWM7 |  | GPIO[3]_49 |
+| GPIO_[50] | DOWN | ENABLE | GPIO[50] | GMAC2_TX_CLK | UART6_CTS | CAN2_TXD | PCIeA_MRLn | I2C4_SCL | PWM8 |  | GPIO[3]_50 |
+| GPIO_[51] | DOWN | ENABLE | GPIO[51] | GMAC2_TX_D2 | UART6_RTS | CAN2_RXD | PCIeA_ATNLED | I2C4_SDA | PWM9 |  | GPIO[3]_51 |
+| GPIO_[52] | DOWN | ENABLE | GPIO[52]/Strap[5] | GMAC2_TX_D3 |  |  | PCIeA_PWRLED | CLK_CAMCK3 | PWM10 |  | GPIO[3]_52 |
+| GPIO_[53] | DOWN | ENABLE | GPIO[53] | GMAC2_TX_EN | UART3_CTSn | SSP0_TXD | PCIeA_EINT |  | PWM11 |  | GPIO[3]_53 |
+| GPIO_[54] | DOWN | ENABLE | GPIO[54] | GMAC2_MDC | UART3_RTSn | SSP0_RXD | PCIeA_EINTEG | I2C1_SCL | PWM12 |  | GPIO[3]_54 |
+| GPIO_[55] | DOWN | ENABLE | GPIO[55] | GMAC2_MDIO | UART3_RXD | SSP0_SCLK | R.UART3_RXD | I2C1_SDA | PWM13 |  | GPIO[3]_55 |
+| GPIO_[56] | DOWN | ENABLE | GPIO[56] | GMAC2_INT_N | UART3_TXD | SSP0_FRM | R.UART3_TXD |  | PWM14 |  | GPIO[3]_56 |
+| GPIO_[57] | DOWN | ENABLE | GPIO[57] | GMAC2_CLK_REF | R.UART2_TXD | R.CAN0_RXD | e/DP0_HPD | R.I2C0_SCL | PWM15 |  | GPIO[3]_57 |
+| GPIO_[58] | DOWN | ENABLE | GPIO[58] | GMAC2_PPS | R.UART2_RXD | R.CAN0_TXD | PCIeC_PERSTn | R.I2C0_SDA | PWM16 |  | GPIO[3]_58 |
+| GPIO_[59] | DOWN | ENABLE | GPIO[59] | R.GMAC3_RXDV | R.UART5_TXD |  | PCIeC_WAKEn | R.I2C1_SCL | PWM17 |  | GPIO[3]_59 |
+| GPIO_[60] | UP | ENABLE | GPIO[60] | R.GMAC3_RX_D0 | R.UART5_RXD | R.SSP0_TXD | PCIeC_CLKREQn | R.I2C1_SDA | PWM18 |  | GPIO[3]_60 |
+| GPIO_[61] | UP | ENABLE | GPIO[61] | R.GMAC3_RX_D1 |  | R.SSP0_RXD | PCIeC_PRSNT2n | I2C6_SCL | PWM19 |  | GPIO[3]_61 |
+| GPIO_[62] | DOWN | ENABLE | GPIO[62] | R.GMAC3_RX_CLK |  | R.SSP0_SCLK | PCIeC_ATTn | I2C6_SDA |  |  | GPIO[3]_62 |
+| GPIO_[63] | DOWN | ENABLE | GPIO[63] | R.GMAC3_RX_D2 | R.GPIO[18] | R.SSP0_FRM | PCIeC_PWRCTn | I2C5_SCL |  |  | GPIO[3]_63 |
+| GPIO_[64] | DOWN | ENABLE | GPIO[64]/Strap[4] | R.GMAC3_RX_D3 | R.GPIO[19] | R.SSP1_TXD | PCIeC_AUXen | I2C5_SDA | R.PWM0 |  | GPIO[3]_64 |
+| GPIO_[65] | DOWN | ENABLE | GPIO[65]/Strap[0] | R.GMAC3_TX_D0 | R.GPIO[20] | R.SSP1_RXD |  |  | R.PWM1 |  | GPIO[3]_65 |
+| GPIO_[66] | DOWN | ENABLE | GPIO[66]/Strap[1] | R.GMAC3_TX_D1 | R.GPIO[21] | R.SSP1_SCLK |  |  | R.PWM2 |  | GPIO[3]_66 |
+| GPIO_[67] | DOWN | ENABLE | GPIO[67] | R.GMAC3_TX_CLK | R.GPIO[22] | R.SSP1_FRM | CLK_CAMCK4 | PCIeC_PWRDet | R.PWM3 |  | GPIO[3]_67 |
+| GPIO_[68] | DOWN | ENABLE | GPIO[68]/Strap[2] | R.GMAC3_TX_D2 |  | eSPI0_D0 |  |  | SSP3_TXD |  | GPIO[3]_68 |
+| GPIO_[69] | DOWN | ENABLE | GPIO[69]/Strap[3] | R.GMAC3_TX_D3 | SSPA4_CLK | eSPI0_D1 | | | SSP3_RXD |  | GPIO[3]_69 |
+| GPIO_[70] | UP | ENABLE | GPIO[70] | R.GMAC3_TX_EN | SSPA4_FRM | eSPI0_D2 | IR1_RX | MNCLK_OUT1 | SSP3_SCLK |  | GPIO[3]_70 |
+| GPIO_[71] | UP | ENABLE | GPIO[71] | R.GMAC3_MDC | SSPA4_TXD | eSPI0_D3 | R.IR0_RX | MNCLK_OUT2 | SSP3_FRM |  | GPIO[3]_71 |
+| GPIO_[72] | UP | ENABLE | GPIO[72] | R.GMAC3_MDIO | SSPA4_RXD | eSPI0_CS | e/DP1_HPD | DSI0_TE |  |  | GPIO[3]_72 |
+| GPIO_[73] | UP | ENABLE | GPIO[73] | R.GMAC3_INT_N | SSPA4_SYSCLK | eSPI0_CLK | R.IR1_RX | USB20_HOST_DRV |  |  | GPIO[3]_73 |
+| GPIO_[74] | DOWN | ENABLE | GPIO[74] | R.GMAC3_CLK_REF | CLK_CAMCK2 | eSPI0_RESETN | VCXO_REQ | USB30H-1_DRV | R.I2C0_SCL |  | GPIO[3]_74 |
+| GPIO_[75] | DOWN | ENABLE | GPIO[75] | R.GMAC3_PPS | CLK_CAMCK1 | eSPI0_ALERT | VCXO_OUT | USB30H-2_DRV | R.I2C0_SDA |  | GPIO[3]_75 |
+| vcc18_gpio3 |  |  |  |  |  |  |  |  |  |  | VCC18_GPIO3 |
 
-| Pad Name | Default Pull | Pad Edge Wakeup | Function 0 | Function 1 | Function 2 | Function 3 | Function 4 | Function 5 | Function 6 |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| GPIO_[21] | DOWN | ENABLE | GPIO[21] | GMAC1_RXDV | UART5_TXD | PWM15 | PCIeB_PERSTn | R.UART4_TXD | R.GPIO[28] |
-| GPIO_[22] | DOWN | ENABLE | GPIO[22] | GMAC1_RX_D0 | UART5_RXD | PWM16 | PCIeB_WAKE n | R.UART4_RXD | R.GPIO[29] |
-| GPIO_[23] | DOWN | ENABLE | GPIO[23] | GMAC1_RX_D1 | UART5_CTS | PWM17 | PCIeB_CLKREQn | UART7_TXD | e/DP0_HPD |
-| GPIO_[24] | DOWN | ENABLE | GPIO[24] | GMAC1_RX_CLK | UART5_RTS | PWM18 | PCIeB_PRSNT2n | UART7_RXD | e/DP1_HPD |
-| GPIO_[25] | DOWN | ENABLE | GPIO[25] | GMAC1_RX_D2 | — | PWM19 | PCIeC_PERSTn | UART7_CTSn | I2C5_SDA |
-| GPIO_[26] | DOWN | ENABLE | GPIO[26] | GMAC1_RX_D3 | UART3_TXD | — | PCIeC_WAKE n | UART7_RTSn | I2C5_SCL |
-| GPIO_[27] | DOWN | ENABLE | GPIO[27] | GMAC1_TX_D0 | UART3_RXD | R.PWM0 | PCIeC_CLKREQn | USB30_D_DRV | R.I2C0_SCL |
-| GPIO_[28] | DOWN | ENABLE | GPIO[28] | GMAC1_TX_D1 | UART3_CTS | R.PWM1 | PCIeC_PRSNT2n | SSP2_TXD | R.I2C0_SDA |
-| GPIO_[29] | DOWN | ENABLE | GPIO[29] | GMAC1_TX_CLK | UART3_RTS | R.PWM2 | — | SSP2_RXD | — |
-| GPIO_[30] | UP | ENABLE | GPIO[30] | GMAC1_TX_D2 | — | R.PWM3 | — | SSP2_SCLK | eDP0_HPD |
-| GPIO_[31] | UP | ENABLE | GPIO[31] | GMAC1_TX_D3 | UART10_TXD | R.PWM4 | PCIeE_PERSTn | SSP2_FRM | eDP1_HPD |
-| GPIO_[32] | UP | ENABLE | GPIO[32] | GMAC1_TX_EN | UART10_RXD | R.PWM5 | PCIeE_WAKE n | SSP1_TXD | — |
-| GPIO_[33] | UP | ENABLE | GPIO[33] | GMAC1_MDC | UART10_CTS | R.PWM6 | PCIeE_CLKREQn | SSP1_RXD | R.I2C1_SCL |
-| GPIO_[34] | DOWN | ENABLE | GPIO[34] | GMAC1_MDIO | UART10_RTS | R.PWM7 | CLK_CAMCK2 | SSP1_SCLK | R.I2C1_SDA |
-| GPIO_[35] | DOWN | ENABLE | GPIO[35] | GMAC1_INT_N | — | R.PWM8 | CLK_CAMCK3 | SSP1_FRM | — |
-| GPIO_[36] | DOWN | ENABLE | GPIO[36] | GMAC1_CLK_REF | R.SSPA1_CLK | R.PWM9 | I2C3_SCL | — | — |
-| GPIO_[37] | DOWN | ENABLE | GPIO[37] | GMAC1_RXER | R.SSPA1_FRM | — | I2C3_SDA | — | — |
-| GPIO_[38] | DOWN | ENABLE | GPIO[38] | GMAC1_TXER | R.SSPA1_TXD | — | — | DSI0_TE | — |
-| GPIO_[39] | DOWN | ENABLE | GPIO[39] | GMAC1_CRS | R.SSPA1_RXD | MNCLK_OUT1 | R.I2C1_SCL | USB20_HOST_DRV | — |
-| GPIO_[40] | DOWN | ENABLE | GPIO[40] | GMAC1_COL | R.SSPA1_SYSCLK | MNCLK_OUT2 | R.I2C1_SDA | R.IR0_RX | CAN4_TXD |
-| GPIO_[41] | DOWN | ENABLE | GPIO[41] | GMAC1_PPS | — | CLK32K_OUT | IR0_RX | CAN4_RXD | — |
+### 3.4.7 GPIO4 1.8V/3.3V
 
-#### GPIO3 [1.8V only]
+| Pad Name | Default Pull | Pad Edge Wakeup | Function 0 | Function 1 | Function 2 | Function 3 | Function 4 | Function 5 | Function 6 | Function 7 | Pin Name |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| GPIO_[76] | DOWN | ENABLE | GPIO[76] | R.SSPA0_CLK | SSPA2_CLK | UART8_TXD | CAN0_TXD | PCIeE_PERSTn | I2C0_SCL |  | GPIO[4]_76 |
+| GPIO_[77] | DOWN | ENABLE | GPIO[77] | R.SSPA0_FRM | SSPA2_FRM | UART8_RXD | CAN0_RXD | PCIeE_WAKEn | I2C0_SDA |  | GPIO[4]_77 |
+| GPIO_[78] | DOWN | ENABLE | GPIO[78] | R.SSPA0_TXD | SSPA2_TXD | UART8_CTS |  | PCIeE_CLKREQn | I2C1_SCL |  | GPIO[4]_78 |
+| GPIO_[79] | DOWN | ENABLE | GPIO[79] | R.SSPA0_RXD | SSPA2_RXD | UART8_RTS |  | PCIeA_PERSTn | I2C1_SDA |  | GPIO[4]_79 |
+| GPIO_[80] | DOWN | ENABLE | GPIO[80] | R.SSPA0_SYSCLK | SSPA2_SYSCLK | R.UART4_TXD | CAN3_RXD | PCIeA_WAKEn | I2C2_SCL |  | GPIO[4]_80 |
+| GPIO_[81] | DOWN | ENABLE | GPIO[81] | SSP0_TXD | SSPA0_CLK | R.UART4_RXD | CAN3_TXD | PCIeA_CLKREQn | I2C2_SDA |  | GPIO[4]_81 |
+| GPIO_[82] | DOWN | ENABLE | GPIO[82] | SSP0_RXD | SSPA0_FRM | UART9_CTSn | UART5_RXD | PCIeA_PRSNT2n | I2C3_SCL |  | GPIO[4]_82 |
+| GPIO_[83] | DOWN | ENABLE | GPIO[83] | SSP0_SCLK | SSPA0_TXD | UART9_RTSn | UART5_TXD | PCIeA_ATTn | I2C3_SDA |  | GPIO[4]_83 |
+| GPIO_[84] | DOWN | ENABLE | GPIO[84] | SSP0_FRM | SSPA0_RXD | UART9_TXD | USB30_B_DRV | PCIeA_PWRCTn | DSI0_TE |  | GPIO[4]_84 |
+| GPIO_[85] | DOWN | ENABLE | GPIO[85] | CLK_CAMCK3 | SSPA0_SYSCLK | UART9_RXD | USB30_C_DRV | PCIeA_AUXen |  |  | GPIO[4]_85 |
+| GPIO_[86] | DOWN | ENABLE | GPIO[86] | R.SSP0_TXD | R.eSPI0_D0 | UART4_TXD | CAN2_TXD | PCIeA_PWRDet | USB30_DRD_DIR |  | GPIO[4]_86 |
+| GPIO_[87] | DOWN | ENABLE | GPIO[87] | R.SSP0_RXD | R.eSPI0_D1 | UART4_RXD | CAN2_RXD | PCIeA_MRLn | PCIeB_PRSNT2n |  | GPIO[4]_87 |
+| GPIO_[88] | DOWN | ENABLE | GPIO[88] | R.SSP0_SCLK | R.eSPI0_D2 | R.UART3_TXD | PCIeB_PERSTn | PCIeA_ATNLED | CAN1_RXD |  | GPIO[4]_88 |
+| GPIO_[89] | DOWN | ENABLE | GPIO[89] | R.SSP0_FRM | R.eSPI0_D3 | R.UART3_RXD | PCIeB_WAKEn | PCIeA_PWRLED | CAN1_TXD |  | GPIO[4]_89 |
+| GPIO_[90] | DOWN | ENABLE | GPIO[90] | DSI0_TE | R.eSPI0_CS | UART4_CTSn | PCIeB_CLKREQn | PCIeA_EINT | R.CAN0_RXD |  | GPIO[4]_90 |
+| GPIO_[91] | DOWN | ENABLE | GPIO[91] | R.GPIO[23] | R.eSPI0_CLK | UART4_RTSn | eSPI0_D0 | PCIeA_EINTEG | R.CAN0_TXD |  | GPIO[4]_91 |
+| GPIO_[92] | DOWN | ENABLE | GPIO[92] | R.GPIO[24] | R.eSPI0_RESETN |  | eSPI0_D1 | R.PWM5 | DSI0_TE |  | GPIO[4]_92 |
+| GPIO_[93] | UP | ENABLE | GPIO[93] | R.GPIO[25] | R.eSPI0_ALERT | UART0_TXD | eSPI0_D2 | I2C5_SCL | R.PWM4 |  | GPIO[4]_93 |
+| GPIO_[94] | DOWN | ENABLE | GPIO[94] | R.GPIO[26] |  | UART0_RXD | eSPI0_D3 | I2C5_SDA | R.PWM6 |  | GPIO[4]_94 |
+| GPIO_[95] | DOWN | ENABLE | GPIO[95] | R.GPIO[27] | UART1_TXD<secure domain> | USB30_DRD_ID | eSPI0_CS |  | PWM1 |  | GPIO[4]_95 |
+| GPIO_[96] | DOWN | ENABLE | GPIO[96] |  | UART1_RXD<secure domain> | USB30_DRD_VBUSON | eSPI0_CLK |  | PWM2 |  | GPIO[4]_96 |
+| GPIO_[97] | DOWN | ENABLE | GPIO[97] | UART2_TXD | UART1_CTS<secure domain> | USB30_DRD_DRV | eSPI0_RESETN | e/DP0_HPD | PWM3 |  | GPIO[4]_97 |
+| GPIO_[98] | DOWN | ENABLE | GPIO[98] | UART2_RXD | UART1_RTS<secure domain> | CLK32K_OUT | eSPI0_ALERT | e/DP1_HPD |  |  | GPIO[4]_98 |
+| vcc18_gpio4 |  |  |  |  |  |  |  |  |  |  | VCC18_GPIO4 |
+| vcc33_gpio4 |  |  |  |  |  |  |  |  |  |  | VCC1833_GPIO4 |
 
-| Pad Name | Default Pull | Pad Edge Wakeup | Function 0 | Function 1 | Function 2 | Function 3 | Function 4 | Function 5 | Function 6 |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| GPIO_[42] | UP | ENABLE | GPIO[42] | GMAC2_RXDV | UART0_TXD | PCIeA_PERSTn | I2C0_SCL | PWM0 | — |
-| GPIO_[43] | UP | ENABLE | GPIO[43] | GMAC2_RX_D0 | UART0_RXD | CLK_CAMCK4 | I2C0_SDA | PWM1 | — |
-| GPIO_[44] | UP | ENABLE | GPIO[44] | GMAC2_RX_D1 | UART10_TXD | CAN0_TXD | PCIeA_CLKREQn | PWM2 | — |
-| GPIO_[45] | UP | ENABLE | GPIO[45] | GMAC2_RX_CLK | UART10_RXD | CAN0_RXD | PCIeA_PRSNT2n | PWM3 | — |
-| GPIO_[46] | UP | ENABLE | GPIO[46] | GMAC2_RX_D2 | UART10_CTSn | CLK_CAMCK1 | PCIeA_ATTn | I2C2_SCL | PWM4 |
-| GPIO_[47] | UP | ENABLE | GPIO[47] | GMAC2_RX_D3 | UART10_RTSn | CLK_CAMCK2 | PCIeA_PWRC Tn | I2C2_SDA | PWM5 |
-| GPIO_[48] | DOWN | ENABLE | GPIO[48] | GMAC2_TX_D0 | UART6_TXD | CAN1_RXD | PCIeA_AUXen | I2C0_SCL | PWM6 |
-| GPIO_[49] | DOWN | ENABLE | GPIO[49] | GMAC2_TX_D1 | UART6_RXD | CAN1_TXD | PCIeA_PWRDet | I2C0_SDA | PWM7 |
-| GPIO_[50] | DOWN | ENABLE | GPIO[50] | GMAC2_TX_CLK | UART6_CTS | CAN2_TXD | PCIeA_MRLn | I2C4_SCL | PWM8 |
-| GPIO_[51] | DOWN | ENABLE | GPIO[51] | GMAC2_TX_D2 | UART6_RTS | CAN2_RXD | PCIeA_ATNLED | I2C4_SDA | PWM9 |
-| GPIO_[52] | DOWN | ENABLE | GPIO[52]<br>/Strap[5] | GMAC2_TX_D3 | — | — | PCIeA_PWRLED | CLK_CAMCK3 | PWM10 |
-| GPIO_[53] | DOWN | ENABLE | GPIO[53] | GMAC2_TX_EN | UART3_CTSn | SSP0_TXD | PCIeA_EINT | — | PWM11 |
-| GPIO_[54] | DOWN | ENABLE | GPIO[54] | GMAC2_MDC | UART3_RTSn | SSP0_RXD | PCIeA_EINTEG | I2C1_SCL | PWM12 |
-| GPIO_[55] | DOWN | ENABLE | GPIO[55] | GMAC2_MDIO | UART3_RXD | SSP0_SCLK | R.UART3_RXD | I2C1_SDA | PWM13 |
-| GPIO_[56] | DOWN | ENABLE | GPIO[56] | GMAC2_INT_N | UART3_TXD | SSP0_FRM | R.UART3_TXD | — | PWM14 |
-| GPIO_[57] | DOWN | ENABLE | GPIO[57] | GMAC2_CLK_REF | R.UART2_TXD | R.CAN0_RXD | eDP0_HPD | R.I2C0_SCL | PWM15 |
-| GPIO_[58] | DOWN | ENABLE | GPIO[58] | GMAC2_PPS | R.UART2_RXD | R.CAN0_TXD | PCIeC_PERSTn | R.I2C0_SDA | PWM16 |
-| GPIO_[59] | DOWN | ENABLE | GPIO[59] | R.GMAC3_RXDV | R.UART5_TXD | — | PCIeC_WAKE n | R.I2C1_SCL | PWM17 |
-| GPIO_[60] | UP | ENABLE | GPIO[60] | R.GMAC3_RX_D0 | R.UART5_RXD | R.SSP0_TXD | PCIeC_CLKREQn | R.I2C1_SDA | PWM18 |
-| GPIO_[61] | UP | ENABLE | GPIO[61] | R.GMAC3_RX_D1 | — | R.SSP0_RXD | PCIeC_PRSNT2n | I2C6_SCL | PWM19 |
-| GPIO_[62] | DOWN | ENABLE | GPIO[62] | R.GMAC3_RX_CLK | — | R.SSP0_SCLK | PCIeC_ATTn | I2C6_SDA | — |
-| GPIO_[63] | DOWN | ENABLE | GPIO[63] | R.GMAC3_RX_D2 | R.GPIO[18] | R.SSP0_FRM | PCIeC_PWRCTn | I2C5_SCL | — |
-| GPIO_[64] | DOWN | ENABLE | GPIO[64]<br>/Strap[4] | R.GMAC3_RX_D3 | R.GPIO[19] | R.SSP1_TXD | PCIeC_AUXen | I2C5_SDA | R.PWM0 |
-| GPIO_[65] | DOWN | ENABLE | GPIO[65]<br>/Strap[0] | R.GMAC3_TX_D0 | R.GPIO[20] | R.SSP1_RXD | — | — | R.PWM1 |
-| GPIO_[66] | DOWN | ENABLE | GPIO[66]<br>/Strap[1] | R.GMAC3_TX_D1 | R.GPIO[21] | R.SSP1_SCLK | — | — | R.PWM2 |
-| GPIO_[67] | DOWN | ENABLE | GPIO[67] | R.GMAC3_TX_CLK | R.GPIO[22] | R.SSP1_FRM | CLK_CAMCK4 | PCIeC_PWRDet | R.PWM3 |
-| GPIO_[68] | DOWN | ENABLE | GPIO[68]<br>/Strap[2] | R.GMAC3_TX_D2 | — | eSPI0_D0 | — | SSP3_TXD | — |
-| GPIO_[69] | DOWN | ENABLE | GPIO[69]<br>/Strap[3] | R.GMAC3_TX_D3 | SSPA4_CLK | eSPI0_D1 | — | SSP3_RXD | — |
-| GPIO_[70] | UP | ENABLE | GPIO[70] | R.GMAC3_TX_EN | SSPA4_FRM | eSPI0_D2 | IR1_RX | MNCLK_OUT1 | SSP3_SCLK |
-| GPIO_[71] | UP | ENABLE | GPIO[71] | R.GMAC3_MDC | SSPA4_TXD | eSPI0_D3 | R.IR0_RX | MNCLK_OUT2 | SSP3_FRM |
-| GPIO_[72] | UP | ENABLE | GPIO[72] | R.GMAC3_MDIO | SSPA4_RXD | eSPI0_CS | e/DP1_HPD | DSI0_TE | — |
-| GPIO_[73] | UP | ENABLE | GPIO[73] | R.GMAC3_INT_N | SSPA4_SYSCLK | eSPI0_CLK | R.IR1_RX | USB20_HOST_DRV | — |
-| GPIO_[74] | DOWN | ENABLE | GPIO[74] | R.GMAC3_CLK_REF | CLK_CAMCK2 | eSPI0_RESETN | VCXO_REQ | USB30H-1_DRV | R.I2C0_SCL |
-| GPIO_[75] | DOWN | ENABLE | GPIO[75] | R.GMAC3_PPS | CLK_CAMCK1 | eSPI0_ALERT | VCXO_OUT | USB30H-2_DRV | R.I2C0_SDA |
+### 3.4.8 GPIO5 1.8V/3.3V
 
-#### GPIO4 1.8V/3.3V
+| Pad Name | Default Pull | Pad Edge Wakeup | Function 0 | Function 1 | Function 2 | Function 3 | Function 4 | Function 5 | Function 6 | Function 7 | Pin Name |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| GPIO_[99] | DOWN | ENABLE | GPIO[99] | SSP3_TXD | SSPA3_CLK | UART4_TXD | R.CAN2_TXD |  | CLK_CAMCK4 |  | GPIO[5]_99 |
+| GPIO_[100] | DOWN | ENABLE | GPIO[100] | SSP3_RXD | SSPA3_FRM | UART4_RXD | R.CAN2_RXD | PCIeD_PRSNT2n | CLK32K_OUT |  | GPIO[5]_100 |
+| GPIO_[101] | DOWN | ENABLE | GPIO[101] | SSP3_SCLK | SSPA3_TXD | UART4_CTS | CAN4_RXD | PCIeD_ATTn | MNCLK_OUT1 |  | GPIO[5]_101 |
+| GPIO_[102] | DOWN | ENABLE | GPIO[102] | SSP3_FRM | SSPA3_RXD | UART4_RTS | CAN4_TXD | PCIeD_PWRCTn | I2C1_SCL |  | GPIO[5]_102 |
+| GPIO_[103] | DOWN | ENABLE | GPIO[103] |  | SSPA3_SYSCLK | USB20_HOST_DRV | CAN3_TXD | PCIeD_AUXen | I2C1_SDA |  | GPIO[5]_103 |
+| GPIO_[104] | DOWN | ENABLE | GPIO[104] | SSP0_TXD | SSP2_TXD | USB30H-1_DRV | CAN3_RXD | PCIeD_PWRDet |  |  | GPIO[5]_104 |
+| GPIO_[105] | DOWN | ENABLE | GPIO[105] | SSP0_RXD | SSP2_RXD | R.I2C1_SCL | I2C3_SCL | PCIeD_PERSTn | PWM17 |  | GPIO[5]_105 |
+| GPIO_[106] | DOWN | ENABLE | GPIO[106] | SSP0_SCLK | SSP2_SCLK | R.I2C1_SDA | I2C3_SDA | PCIeD_WAKEn | PWM18 |  | GPIO[5]_106 |
+| GPIO_[107] | DOWN | ENABLE | GPIO[107] | SSP0_FRM | SSP2_FRM | R.CAN4_TXD | USB30_DRD_DIR | PCIeD_CLKREQn | PWM19 |  | GPIO[5]_107 |
+| GPIO_[108] | DOWN | ENABLE | GPIO[108] | R.SSP1_TXD | USB20_HOST_DRV | R.CAN4_RXD | IR0_RX | PCIeA_PERSTn |  |  | GPIO[5]_108 |
+| GPIO_[109] | DOWN | ENABLE | GPIO[109] | R.SSP1_RXD |  | R.UART0_TXD | CAN1_TXD | PCIeA_WAKEn | R.PWM6 |  | GPIO[5]_109 |
+| GPIO_[110] | DOWN | ENABLE | GPIO[110] |  |  | R.UART0_RXD | CAN1_RXD | PCIeA_CLKREQn | R.PWM7 |  | GPIO[5]_110 |
+| GPIO_[111] | DOWN | ENABLE | GPIO[111] | SSP1_TXD | SSPA0_CLK | ucie_deSCL | I2C4_SCL | USB30_DRD_INT | R.PWM8 |  | GPIO[5]_111 |
+| GPIO_[112] | DOWN | ENABLE | GPIO[112] | SSP1_RXD | SSPA0_FRM | ucie_deSDA | I2C4_SDA | USB30_D_DRV | R.PWM9 |  | GPIO[5]_112 |
+| GPIO_[113] | DOWN | ENABLE | GPIO[113] | SSP1_SCLK | SSPA0_TXD | R.GPIO[30] |  | PCIeB_PERSTn |  |  | GPIO[5]_113 |
+| GPIO_[114] | DOWN | ENABLE | GPIO[114] | SSP1_FRM | SSPA0_RXD | R.GPIO[31] |  | PCIeB_WAKEn |  |  | GPIO[5]_114 |
+| GPIO_[115] | DOWN | ENABLE | GPIO[115] |  | SSPA0_SYSCLK | R.GPIO[32] | I2C0_SCL | PCIeB_CLKREQn | R.I2C0_SCL |  | GPIO[5]_115 |
+| GPIO_[116] | DOWN | ENABLE | GPIO[116] | R.SSP1_SCLK | USB30_DRD_ID | R.GPIO[33] | I2C0_SDA | PCIeB_PRSNT2n | R.I2C0_SDA |  | GPIO[5]_116 |
+| GPIO_[117] | DOWN | ENABLE | GPIO[117] | R.SSP1_FRM | USB30_DRD_VBUSON | R.GPIO[34] |  | PCIeB_ATTn |  |  | GPIO[5]_117 |
+| GPIO_[118] | DOWN | ENABLE | GPIO[118] | UART1_RTSn<secure domain> | USB30_DRD_DRV | R.GPIO[35] |  | PCIeB_PWRCTn |  |  | GPIO[5]_118 |
+| GPIO_[119] | DOWN | ENABLE | GPIO[119] | UART1_CTSn<secure domain> | USB30_DRD_INT |  |  | PCIeB_AUXen |  |  | GPIO[5]_119 |
+| GPIO_[120] | UP | ENABLE | GPIO[120] | UART1_RXD<secure domain> | I2C2_SCL | R.CAN3_TXD | CAN4_TXD | PCIeB_PWRDet |  |  | GPIO[5]_120 |
+| GPIO_[121] | UP | ENABLE | GPIO[121] | UART1_TXD<secure domain> | I2C2_SDA | R.CAN3_RXD | CAN4_RXD | PCIeB_MRLn |  |  | GPIO[5]_121 |
+| GPIO_[122] | UP | ENABLE | GPIO[122] | MMC2_DAT[3] | SSPA1_CLK | UART6_TXD | R.UART0_TXD | PCIeB_ATNLED |  |  | GPIO[5]_122 |
+| GPIO_[123] | UP | ENABLE | GPIO[123] | MMC2_DAT[2] | SSPA1_FRM | UART6_RXD | R.UART0_RXD | PCIeB_PWRLED |  |  | GPIO[5]_123 |
+| GPIO_[124] | UP | ENABLE | GPIO[124] | MMC2_DAT[1] | SSPA1_TXD | PCIeD_PERSTn | e/DP0_HPD | PCIeB_EINT |  |  | GPIO[5]_124 |
+| GPIO_[125] | UP | ENABLE | GPIO[125] | MMC2_DAT[0] | SSPA1_RXD | PCIeD_WAKEn | e/DP1_HPD | PCIeB_EINTEG |  |  | GPIO[5]_125 |
+| GPIO_[126] | UP | ENABLE | GPIO[126] | MMC2_CMD | SSPA1_SYSCLK | PCIeD_CLKREQn | I2C5_SCL |  |  |  | GPIO[5]_126 |
+| GPIO_[127] | DOWN | ENABLE | GPIO[127] | MMC2_CLK |  | PCIeD_PRSNT2n | I2C5_SDA |  | USB30_C_DRV |  | GPIO[5]_127 |
+| vcc18_gpio5 |  |  |  |  |  |  |  |  |  |  | VCC18_GPIO5 |
+| vcc33_gpio5 |  |  |  |  |  |  |  |  |  |  | VCC1833_GPIO5 |
 
-| Pad Name | Default Pull | Pad Edge Wakeup | Function 0 | Function 1 | Function 2 | Function 3 | Function 4 | Function 5 | Function 6 |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| GPIO_[76] | DOWN | ENABLE | GPIO[76] | R.SSPA0_CLK | SSPA2_CLK | UART8_TXD | CAN0_TXD | PCIeE_PERSTn | I2C0_SCL |
-| GPIO_[77] | DOWN | ENABLE | GPIO[77] | R.SSPA0_FRM | SSPA2_FRM | UART8_RXD | CAN0_RXD | PCIeE_WAKE n | I2C0_SDA |
-| GPIO_[78] | DOWN | ENABLE | GPIO[78] | R.SSPA0_TXD | SSPA2_TXD | UART8_CTS | — | PCIeE_CLKREQn | I2C1_SCL |
-| GPIO_[79] | DOWN | ENABLE | GPIO[79] | R.SSPA0_RXD | SSPA2_RXD | UART8_RTS | — | PCIeA_PERSTn | I2C1_SDA |
-| GPIO_[80] | DOWN | ENABLE | GPIO[80] | R.SSPA0_SYSCLK | SSPA2_SYSCLK | R.UART4_TXD | CAN3_RXD | PCIeA_WAKE n | I2C2_SCL |
-| GPIO_[81] | DOWN | ENABLE | GPIO[81] | SSP0_TXD | SSA0_CLK | R.UART4_RXD | CAN3_TXD | PCIeA_CLKREQn | I2C2_SDA |
-| GPIO_[82] | DOWN | ENABLE | GPIO[82] | SSP0_RXD | SSA0_FRM | UART9_CTSn | UART5_RXD | PCIeA_PRSNT2n | I2C3_SCL |
-| GPIO_[83] | DOWN | ENABLE | GPIO[83] | SSP0_SCLK | SSA0_TXD | UART9_RTSn | UART5_TXD | PCIeA_ATTn | I2C3_SDA |
-| GPIO_[84] | DOWN | ENABLE | GPIO[84] | SSP0_FRM | SSA0_RXD | UART9_TXD | USB30_B_DRV | PCIeA_PWRCTn | DSI0_TE |
-| GPIO_[85] | DOWN | ENABLE | GPIO[85] | CLK_CAMCK3 | SSA0_SYSCLK | UART9_RXD | USB30_C_DRV | PCIeA_AUXen | — |
-| GPIO_[86] | DOWN | ENABLE | GPIO[86] | R.SSP0_TXD | R.eSPI0_D0 | UART4_TXD | CAN2_TXD | PCIeA_PWRDet | USB30_DRD_DIR |
-| GPIO_[87] | DOWN | ENABLE | GPIO[87] | R.SSP0_RXD | R.eSPI0_D1 | UART4_RXD | CAN2_RXD | PCIeA_MRLn | PCIeB_PRSNT2n |
-| GPIO_[88] | DOWN | ENABLE | GPIO[88] | R.SSP0_SCLK | R.eSPI0_D2 | R.UART3_TXD | PCIeB_PERSTn | PCIeA_ATNLED | CAN1_RXD |
-| GPIO_[89] | DOWN | ENABLE | GPIO[89] | R.SSP0_FRM | R.eSPI0_D3 | R.UART3_RXD | PCIeB_WAKE n | PCIeA_PWRLED | CAN1_TXD |
-| GPIO_[90] | DOWN | ENABLE | GPIO[90] | DSI0_TE | R.eSPI0_CS | UART4_CTSn | PCIeB_CLKREQn | PCIeA_EINT | R.CAN0_RXD |
-| GPIO_[91] | DOWN | ENABLE | GPIO[91] | R.GPIO[23] | R.eSPI0_CLK | UART4_RTSn | eSPI0_D0 | PCIeA_EINTEG | R.CAN0_TXD |
-| GPIO_[92] | DOWN | ENABLE | GPIO[92] | R.GPIO[24] | R.eSPI0_RESETN | — | eSPI0_D1 | R.PWM5 | DSI0_TE |
-| GPIO_[93] | UP | ENABLE | GPIO[93] | R.GPIO[25] | R.eSPI0_ALERT | UART0_TXD | eSPI0_D2 | I2C5_SCL | R.PWM4 |
-| GPIO_[94] | DOWN | ENABLE | GPIO[94] | R.GPIO[26] | — | UART0_RXD | eSPI0_D3 | I2C5_SDA | R.PWM6 |
-| GPIO_[95] | DOWN | ENABLE | GPIO[95] | R.GPIO[27] | UART1_TXD<secure domain> | USB30_DRD_ID | eSPI0_CS | — | PWM1 |
-| GPIO_[96] | DOWN | ENABLE | GPIO[96] | — | UART1_RXD<secure domain> | USB30_DRD_VBUSON | eSPI0_CLK | — | PWM2 |
-| GPIO_[97] | DOWN | ENABLE | GPIO[97] | UART2_TXD | UART1_CTS<secure domain> | USB30_DRD_DRV | eSPI0_RESETN | e/DP0_HPD | PWM3 |
-| GPIO_[98] | DOWN | ENABLE | GPIO[98] | UART2_RXD | UART1_RTS<secure domain> | CLK32K_OUT | eSPI0_ALERT | e/DP1_HPD | — |
+### 3.4.9 EMMC5 [1.8V only]
 
-#### GPIO5 1.8V/3.3V
+| Pad Name | Default Pull | Pad Edge Wakeup | Function 0 | Function 1 | Function 2 | Function 3 | Function 4 | Function 5 | Function 6 | Function 7 | Pin Name |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| EMMC_D0 |  |  | EMMC_D0 |  |  |  |  |  |  |  | EMMC_D0 |
+| EMMC_D1 |  |  | EMMC_D1 |  |  |  |  |  |  |  | EMMC_D1 |
+| EMMC_D2 |  |  | EMMC_D2 |  |  |  |  |  |  |  | EMMC_D2 |
+| EMMC_D3 |  |  | EMMC_D3 |  |  |  |  |  |  |  | EMMC_D3 |
+| EMMC_D4 |  |  | EMMC_D4 |  |  |  |  |  |  |  | EMMC_D4 |
+| EMMC_D5 |  |  | EMMC_D5 |  |  |  |  |  |  |  | EMMC_D5 |
+| EMMC_D6 |  |  | EMMC_D6 |  |  |  |  |  |  |  | EMMC_D6 |
+| EMMC_D7 |  |  | EMMC_D7 |  |  |  |  |  |  |  | EMMC_D7 |
+| EMMC_DS |  |  | EMMC_DS |  |  |  |  |  |  |  | EMMC_DS |
+| EMMC_CLK |  |  | EMMC_CLK |  |  |  |  |  |  |  | EMMC_CLK |
+| EMMC_CMD |  |  | EMMC_CMD |  |  |  |  |  |  |  | EMMC_CMD |
+| AVDD08_EMMC |  |  |  |  |  |  |  |  |  |  | AVDD08_EMMC |
+| V18_EMMC |  |  |  |  |  |  |  |  |  |  | VCC18_EMMC |
 
-| Pad Name | Default Pull | Pad Edge Wakeup | Function 0 | Function 1 | Function 2 | Function 3 | Function 4 | Function 5 | Function 6 |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| GPIO_[99] | DOWN | ENABLE | GPIO[99] | SSP3_TXD | SSPA3_CLK | UART4_TXD | R.CAN2_TXD | — | CLK_CAMCK4 |
-| GPIO_[100] | DOWN | ENABLE | GPIO[100] | SSP3_RXD | SSPA3_FRM | UART4_RXD | R.CAN2_RXD | PCIeD_PRSNT2n | CLK32K_OUT |
-| GPIO_[101] | DOWN | ENABLE | GPIO[101] | SSP3_SCLK | SSPA3_TXD | UART4_CTS | CAN4_RXD | PCIeD_ATtn | MNCLK_OUT1 |
-| GPIO_[102] | DOWN | ENABLE | GPIO[102] | SSP3_FRM | SSPA3_RXD | UART4_RTS | CAN4_TXD | PCIeD_PWRCTn | I2C1_SCL |
-| GPIO_[103] | DOWN | ENABLE | GPIO[103] | — | SSPA3_SYSCLK | USB20_HOST_DRV | CAN3_TXD | PCIeD_AUXen | I2C1_SDA |
-| GPIO_[104] | DOWN | ENABLE | GPIO[104] | SSP0_TXD | SSP2_TXD | USB30H-1_DRV | CAN3_RXD | PCIeD_PWRDet | — |
-| GPIO_[105] | DOWN | ENABLE | GPIO[105] | SSP0_RXD | SSP2_RXD | R.I2C1_SCL | I2C3_SCL | PCIeD_PERSTn | PWM17 |
-| GPIO_[106] | DOWN | ENABLE | GPIO[106] | SSP0_SCLK | SSP2_SCLK | R.I2C1_SDA | I2C3_SDA | PCIeD_WAKEn | PWM18 |
-| GPIO_[107] | DOWN | ENABLE | GPIO[107] | SSP0_FRM | SSP2_FRM | R.CAN4_TXD | USB30_DRD_DIR | PCIeD_CLKREQn | PWM19 |
-| GPIO_[108] | DOWN | ENABLE | GPIO[108] | R.SSP1_TXD | USB20_HOST_DRV | R.CAN4_RXD | IR0_RX | PCIeA_PERSTn | — |
-| GPIO_[109] | DOWN | ENABLE | GPIO[109] | R.SSP1_RXD | — | R.UART0_TXD | CAN1_TXD | PCIeA_WAKEn | R.PWM6 |
-| GPIO_[110] | DOWN | ENABLE | GPIO[110] | — | — | R.UART0_RXD | CAN1_RXD | PCIeA_CLKREQn | R.PWM7 |
-| GPIO_[111] | DOWN | ENABLE | GPIO[111] | SSP1_TXD | SSPA0_CLK | ucie_deSCL | I2C4_SCL | USB30_DRD_INT | R.PWM8 |
-| GPIO_[112] | DOWN | ENABLE | GPIO[112] | SSP1_RXD | SSPA0_FRM | ucie_deSDA | I2C4_SDA | USB30_D_DRV | R.PWM9 |
-| GPIO_[113] | DOWN | ENABLE | GPIO[113] | SSP1_SCLK | SSPA0_TXD | R.GPIO[30] | — | PCIeB_PERSTn | — |
-| GPIO_[114] | DOWN | ENABLE | GPIO[114] | SSP1_FRM | SSPA0_RXD | R.GPIO[31] | — | PCIeB_WAKEn | — |
-| GPIO_[115] | DOWN | ENABLE | GPIO[115] | — | SSPA0_SYSCLK | R.GPIO[32] | I2C0_SCL | PCIeB_CLKREQn | R.I2C0_SCL |
-| GPIO_[116] | DOWN | ENABLE | GPIO[116] | R.SSP1_SCLK | USB30_DRD_ID | R.GPIO[33] | I2C0_SDA | PCIeB_PRSNT2n | R.I2C0_SDA |
-| GPIO_[117] | DOWN | ENABLE | GPIO[117] | R.SSP1_FRM | USB30_DRD_VBUSON | R.GPIO[34] | — | PCIeB_ATIn | — |
-| GPIO_[118] | DOWN | ENABLE | GPIO[118] | UART1_RTSn<secure domain> | USB30_DRD_DRV | R.GPIO[35] | — | PCIeB_PWRCTn | — |
-| GPIO_[119] | DOWN | ENABLE | GPIO[119] | UART1_CTSn<secure domain> | USB30_DRD_INT | — | — | PCIeB_AUXen | — |
-| GPIO_[120] | UP | ENABLE | GPIO[120] | UART1_RXD<secure domain> | I2C2_SCL | R.CAN3_TXD | CAN4_TXD | PCIeB_PWRDet | — |
-| GPIO_[121] | UP | ENABLE | GPIO[121] | UART1_TXD<secure domain> | I2C2_SDA | R.CAN3_RXD | CAN4_RXD | PCIeB_MRLn | — |
-| GPIO_[122] | UP | ENABLE | GPIO[122] | MMC2_DAT[3] | SSPA1_CLK | UART6_TXD | R.UART0_TXD | PCIeB_ATNLED | — |
-| GPIO_[123] | UP | ENABLE | GPIO[123] | MMC2_DAT[2] | SSPA1_FRM | UART6_RXD | R.UART0_RXD | PCIeB_PWRLED | — |
-| GPIO_[124] | UP | ENABLE | GPIO[124] | MMC2_DAT[1] | SSPA1_TXD | PCIeD_PERSTn | e/DP0_HPD | PCIeB_EINT | — |
-| GPIO_[125] | UP | ENABLE | GPIO[125] | MMC2_DAT[0] | SSPA1_RXD | PCIeD_WAKE n | e/DP1_HPD | PCIeB_EINTEG | — |
-| GPIO_[126] | UP | ENABLE | GPIO[126] | MMC2_CMD | SSPA1_SYSCLK | PCIeD_CLKREQn | I2C5_SCL | — | — |
-| GPIO_[127] | DOWN | ENABLE | GPIO[127] | MMC2_CLK | — | PCIeD_PRSNT2n | I2C5_SDA | USB30_C_DRV | — |
+### 3.4.10 MIPI-DSI0 / eDP0
+
+| Pad Name | Default Pull | Pad Edge Wakeup | Function 0 | Function 1 | Function 2 | Function 3 | Function 4 | Function 5 | Function 6 | Function 7 | Pin Name |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| MIPI_DSI0_CLKLANE_DN |  |  | MIPI_DSI0_CLKLANE_DN |  |  |  |  |  |  |  | MIPI_DSI0_CLKN |
+| MIPI_DSI0_CLKLANE_DP |  |  | MIPI_DSI0_CLKLANE_DP |  |  |  |  |  |  |  | MIPI_DSI0_CLKP |
+| MIPI_DSI0_DATALANE0_DN |  |  | MIPI_DSI0_DATALANE0_DN |  |  |  |  |  |  |  | MIPI_DSI0_D0N |
+| MIPI_DSI0_DATALANE0_DP |  |  | MIPI_DSI0_DATALANE0_DP |  |  |  |  |  |  |  | MIPI_DSI0_D0P |
+| MIPI_DSI0_DATALANE1_DN |  |  | MIPI_DSI0_DATALANE1_DN |  |  |  |  |  |  |  | MIPI_DSI0_D1N |
+| MIPI_DSI0_DATALANE1_DP |  |  | MIPI_DSI0_DATALANE1_DP |  |  |  |  |  |  |  | MIPI_DSI0_D1P |
+| MIPI_DSI0_DATALANE2_DN |  |  | MIPI_DSI0_DATALANE2_DN |  |  |  |  |  |  |  | MIPI_DSI0_D2N |
+| MIPI_DSI0_DATALANE2_DP |  |  | MIPI_DSI0_DATALANE2_DP |  |  |  |  |  |  |  | MIPI_DSI0_D2P |
+| MIPI_DSI0_DATALANE3_DN |  |  | MIPI_DSI0_DATALANE3_DN |  |  |  |  |  |  |  | MIPI_DSI0_D3N |
+| MIPI_DSI0_DATALANE3_DP |  |  | MIPI_DSI0_DATALANE3_DP |  |  |  |  |  |  |  | MIPI_DSI0_D3P |
+| MIPI_DSI1_CLKLANE_DN |  |  | MIPI_DSI1_CLKLANE_DN |  |  |  |  |  |  |  | MIPI_DSI1_CLKN |
+| MIPI_DSI1_CLKLANE_DP |  |  | MIPI_DSI1_CLKLANE_DP |  |  |  |  |  |  |  | MIPI_DSI1_CLKP |
+| MIPI_DSI1_DATALANE0_DN |  |  | MIPI_DSI1_DATALANE0_DN |  |  |  |  |  |  |  | MIPI_DSI1_D0N |
+| MIPI_DSI1_DATALANE0_DP |  |  | MIPI_DSI1_DATALANE0_DP |  |  |  |  |  |  |  | MIPI_DSI1_D0P |
+| MIPI_DSI1_DATALANE1_DN |  |  | MIPI_DSI1_DATALANE1_DN |  |  |  |  |  |  |  | MIPI_DSI1_D1N |
+| MIPI_DSI1_DATALANE1_DP |  |  | MIPI_DSI1_DATALANE1_DP |  |  |  |  |  |  |  | MIPI_DSI1_D1P |
+| MIPI_DSI1_DATALANE2_DN |  |  | MIPI_DSI1_DATALANE2_DN |  |  |  |  |  |  |  | MIPI_DSI1_D2N |
+| MIPI_DSI1_DATALANE2_DP |  |  | MIPI_DSI1_DATALANE2_DP |  |  |  |  |  |  |  | MIPI_DSI1_D2P |
+| MIPI_DSI1_DATALANE3_DN |  |  | MIPI_DSI1_DATALANE3_DN |  |  |  |  |  |  |  | MIPI_DSI1_D3N |
+| MIPI_DSI1_DATALANE3_DP |  |  | MIPI_DSI1_DATALANE3_DP |  |  |  |  |  |  |  | MIPI_DSI1_D3P |
+| AVDD08_DSI0 |  |  |  |  |  |  |  |  |  |  | AVDD08_DSI |
+| AVDD08_DSI1 |  |  |  |  |  |  |  |  |  |  | AVDD08_DSI |
+| AVDD12_DSI0 |  |  |  |  |  |  |  |  |  |  | AVDD12_DSI |
+| AVDD12_DSI1 |  |  |  |  |  |  |  |  |  |  | AVDD12_DSI |
+| AVDD18_DSI0 |  |  |  |  |  |  |  |  |  |  | AVDD18_DSI |
+| AVDD18_DSI1 |  |  |  |  |  |  |  |  |  |  | AVDD18_DSI |
+| VSSU_DSI0 |  |  |  |  |  |  |  |  |  |  | AVSS_DSI |
+| VSSU_DSI1 |  |  |  |  |  |  |  |  |  |  | AVSS_DSI |
+
+### 3.4.11 DP0 [eDP0]
+
+| Pad Name | Default Pull | Pad Edge Wakeup | Function 0 | Function 1 | Function 2 | Function 3 | Function 4 | Function 5 | Function 6 | Function 7 | Pin Name |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| EDP0_AUXN |  |  | EDP0_AUXN | DP0_AUXN |  |  |  |  |  |  | EDP0_AUXN |
+| EDP0_AUXP |  |  | EDP0_AUXP | DP0_AUXP |  |  |  |  |  |  | EDP0_AUXP |
+| EDP0_EXTR |  |  | EDP0_EXTR | DP0_EXTR |  |  |  |  |  |  | EDP0_EXTR |
+| EDP0_TX0N |  |  | EDP0_TX0N | DP0_TX0N |  |  |  |  |  |  | EDP0_TX0N |
+| EDP0_TX0P |  |  | EDP0_TX0P | DP0_TX0P |  |  |  |  |  |  | EDP0_TX0P |
+| EDP0_TX1N |  |  | EDP0_TX1N | DP0_TX1N |  |  |  |  |  |  | EDP0_TX1N |
+| EDP0_TX1P |  |  | EDP0_TX1P | DP0_TX1P |  |  |  |  |  |  | EDP0_TX1P |
+| EDP0_TX2N |  |  | EDP0_TX2N | DP0_TX2N |  |  |  |  |  |  | EDP0_TX2N |
+| EDP0_TX2P |  |  | EDP0_TX2P | DP0_TX2P |  |  |  |  |  |  | EDP0_TX2P |
+| EDP0_TX3N |  |  | EDP0_TX3N | DP0_TX3N |  |  |  |  |  |  | EDP0_TX3N |
+| EDP0_TX3P |  |  | EDP0_TX3P | DP0_TX3P |  |  |  |  |  |  | EDP0_TX3P |
+| EDP0_AVDD |  |  |  |  |  |  |  |  |  |  | AVDD18_EDP0 |
+| EDP0_DVDD0 |  |  |  |  |  |  |  |  |  |  | DVDD08_EDP0 |
+| EDP0_DVDD1 |  |  |  |  |  |  |  |  |  |  | DVDD08_EDP0 |
+| EDP0_DVDD2 |  |  |  |  |  |  |  |  |  |  | DVDD08_EDP0 |
+| EDP0_DVDD3 |  |  |  |  |  |  |  |  |  |  | DVDD08_EDP0 |
+| EDP0_PVDD |  |  |  |  |  |  |  |  |  |  | DVDD08_EDP0 |
+| EDP0_AVSS |  |  |  |  |  |  |  |  |  |  | AVSS_EDP0 |
+| EDP0_PVSS |  |  |  |  |  |  |  |  |  |  | AVSS_EDP0 |
+
+### 3.4.12 DP1 [eDP1]
+
+| Pad Name | Default Pull | Pad Edge Wakeup | Function 0 | Function 1 | Function 2 | Function 3 | Function 4 | Function 5 | Function 6 | Function 7 | Pin Name |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| EDP1_AUXN |  |  | EDP1_AUXN | DP1_AUXN |  |  |  |  |  |  | EDP1_AUXN |
+| EDP1_AUXP |  |  | EDP1_AUXP | DP1_AUXP |  |  |  |  |  |  | EDP1_AUXP |
+| EDP1_EXTR |  |  | EDP1_EXTR | DP1_EXTR |  |  |  |  |  |  | EDP1_EXTR |
+| EDP1_TX0N |  |  | EDP1_TX0N | DP1_TX0N |  |  |  |  |  |  | EDP1_TX0N |
+| EDP1_TX0P |  |  | EDP1_TX0P | DP1_TX0P |  |  |  |  |  |  | EDP1_TX0P |
+| EDP1_TX1N |  |  | EDP1_TX1N | DP1_TX1N |  |  |  |  |  |  | EDP1_TX1N |
+| EDP1_TX1P |  |  | EDP1_TX1P | DP1_TX1P |  |  |  |  |  |  | EDP1_TX1P |
+| EDP1_TX2N |  |  | EDP1_TX2N | DP1_TX2N |  |  |  |  |  |  | EDP1_TX2N |
+| EDP1_TX2P |  |  | EDP1_TX2P | DP1_TX2P |  |  |  |  |  |  | EDP1_TX2P |
+| EDP1_TX3N |  |  | EDP1_TX3N | DP1_TX3N |  |  |  |  |  |  | EDP1_TX3N |
+| EDP1_TX3P |  |  | EDP1_TX3P | DP1_TX3P |  |  |  |  |  |  | EDP1_TX3P |
+| EDP1_AVDD |  |  |  |  |  |  |  |  |  |  | AVDD18_EDP1 |
+| EDP1_DVDD0 |  |  |  |  |  |  |  |  |  |  | DVDD08_EDP1 |
+| EDP1_DVDD1 |  |  |  |  |  |  |  |  |  |  | DVDD08_EDP1 |
+| EDP1_DVDD2 |  |  |  |  |  |  |  |  |  |  | DVDD08_EDP1 |
+| EDP1_DVDD3 |  |  |  |  |  |  |  |  |  |  | DVDD08_EDP1 |
+| EDP1_PVDD |  |  |  |  |  |  |  |  |  |  | DVDD08_EDP1 |
+| EDP1_AVSS |  |  |  |  |  |  |  |  |  |  | AVSS_EDP1 |
+| EDP1_PVSS |  |  |  |  |  |  |  |  |  |  | AVSS_EDP1 |
+
+### 3.4.13 MIPI-CSI
+
+| Pad Name | Default Pull | Pad Edge Wakeup | Function 0 | Function 1 | Function 2 | Function 3 | Function 4 | Function 5 | Function 6 | Function 7 | Pin Name |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| MIPI_CSI0_CLKLANE_DN |  |  | MIPI_CSI0_CLKLANE_DN |  |  |  |  |  |  |  | MIPI_CSI0_CLKN |
+| MIPI_CSI0_CLKLANE_DP |  |  | MIPI_CSI0_CLKLANE_DP |  |  |  |  |  |  |  | MIPI_CSI0_CLKP |
+| MIPI_CSI0_DATALANE0_DN |  |  | MIPI_CSI0_DATALANE0_DN |  |  |  |  |  |  |  | MIPI_CSI0_D0N |
+| MIPI_CSI0_DATALANE0_DP |  |  | MIPI_CSI0_DATALANE0_DP |  |  |  |  |  |  |  | MIPI_CSI0_D0P |
+| MIPI_CSI0_DATALANE1_DN |  |  | MIPI_CSI0_DATALANE1_DN |  |  |  |  |  |  |  | MIPI_CSI0_D1N |
+| MIPI_CSI0_DATALANE1_DP |  |  | MIPI_CSI0_DATALANE1_DP |  |  |  |  |  |  |  | MIPI_CSI0_D1P |
+| MIPI_CSI0_DATALANE2_DN |  |  | MIPI_CSI0_DATALANE2_DN |  |  |  |  |  |  |  | MIPI_CSI0_D2N |
+| MIPI_CSI0_DATALANE2_DP |  |  | MIPI_CSI0_DATALANE2_DP |  |  |  |  |  |  |  | MIPI_CSI0_D2P |
+| MIPI_CSI0_DATALANE3_DN |  |  | MIPI_CSI0_DATALANE3_DN |  |  |  |  |  |  |  | MIPI_CSI0_D3N |
+| MIPI_CSI0_DATALANE3_DP |  |  | MIPI_CSI0_DATALANE3_DP |  |  |  |  |  |  |  | MIPI_CSI0_D3P |
+| MIPI_CSI1_CLKLANE_DN |  |  | MIPI_CSI1_CLKLANE_DN |  |  |  |  |  |  |  | MIPI_CSI1_CLKN |
+| MIPI_CSI1_CLKLANE_DP |  |  | MIPI_CSI1_CLKLANE_DP |  |  |  |  |  |  |  | MIPI_CSI1_CLKP |
+| MIPI_CSI1_DATALANE0_DN |  |  | MIPI_CSI1_DATALANE0_DN |  |  |  |  |  |  |  | MIPI_CSI1_D0N |
+| MIPI_CSI1_DATALANE0_DP |  |  | MIPI_CSI1_DATALANE0_DP |  |  |  |  |  |  |  | MIPI_CSI1_D0P |
+| MIPI_CSI1_DATALANE1_DN |  |  | MIPI_CSI1_DATALANE1_DN |  |  |  |  |  |  |  | MIPI_CSI1_D1N |
+| MIPI_CSI1_DATALANE1_DP |  |  | MIPI_CSI1_DATALANE1_DP |  |  |  |  |  |  |  | MIPI_CSI1_D1P |
+| MIPI_CSI1_DATALANE2_DN |  |  | MIPI_CSI1_DATALANE2_DN |  |  |  |  |  |  |  | MIPI_CSI1_D2N |
+| MIPI_CSI1_DATALANE2_DP |  |  | MIPI_CSI1_DATALANE2_DP |  |  |  |  |  |  |  | MIPI_CSI1_D2P |
+| MIPI_CSI1_DATALANE3_DN |  |  | MIPI_CSI1_DATALANE3_DN |  |  |  |  |  |  |  | MIPI_CSI1_D3N |
+| MIPI_CSI1_DATALANE3_DP |  |  | MIPI_CSI1_DATALANE3_DP |  |  |  |  |  |  |  | MIPI_CSI1_D3P |
+| MIPI_CSI2_CLKLANE_DN |  |  | MIPI_CSI2_CLKLANE_DN |  |  |  |  |  |  |  | MIPI_CSI2_CLKN |
+| MIPI_CSI2_CLKLANE_DP |  |  | MIPI_CSI2_CLKLANE_DP |  |  |  |  |  |  |  | MIPI_CSI2_CLKP |
+| MIPI_CSI2_DATALANE0_DN |  |  | MIPI_CSI2_DATALANE0_DN |  |  |  |  |  |  |  | MIPI_CSI2_D0N |
+| MIPI_CSI2_DATALANE0_DP |  |  | MIPI_CSI2_DATALANE0_DP |  |  |  |  |  |  |  | MIPI_CSI2_D0P |
+| MIPI_CSI2_DATALANE1_DN |  |  | MIPI_CSI2_DATALANE1_DN |  |  |  |  |  |  |  | MIPI_CSI2_D1N |
+| MIPI_CSI2_DATALANE1_DP |  |  | MIPI_CSI2_DATALANE1_DP |  |  |  |  |  |  |  | MIPI_CSI2_D1P |
+| MIPI_CSI2_DATALANE2_DN |  |  | MIPI_CSI2_DATALANE2_DN |  |  |  |  |  |  |  | MIPI_CSI2_D2N |
+| MIPI_CSI2_DATALANE2_DP |  |  | MIPI_CSI2_DATALANE2_DP |  |  |  |  |  |  |  | MIPI_CSI2_D2P |
+| MIPI_CSI2_DATALANE3_DN |  |  | MIPI_CSI2_DATALANE3_DN |  |  |  |  |  |  |  | MIPI_CSI2_D3N |
+| MIPI_CSI2_DATALANE3_DP |  |  | MIPI_CSI2_DATALANE3_DP |  |  |  |  |  |  |  | MIPI_CSI2_D3P |
+| MIPI_CSI3_CLKLANE_DN |  |  | MIPI_CSI3_CLKLANE_DN |  |  |  |  |  |  |  | MIPI_CSI3_CLKN |
+| MIPI_CSI3_CLKLANE_DP |  |  | MIPI_CSI3_CLKLANE_DP |  |  |  |  |  |  |  | MIPI_CSI3_CLKP |
+| MIPI_AVDD0P8V_0 |  |  | MIPI_AVDD0P8V_0 |  |  |  |  |  |  |  | AVDD08_CSI0 |
+| MIPI_AVDD0P8V_1 |  |  | MIPI_AVDD0P8V_1 |  |  |  |  |  |  |  | AVDD08_CSI1 |
+| MIPI_AVDD0P8V_2 |  |  | MIPI_AVDD0P8V_2 |  |  |  |  |  |  |  | AVDD08_CSI2 |
+| MIPI_AVDD1P8V_0 |  |  | MIPI_AVDD1P8V_0 |  |  |  |  |  |  |  | AVDD18_CSI0 |
+| MIPI_AVDD1P8V_1 |  |  | MIPI_AVDD1P8V_1 |  |  |  |  |  |  |  | AVDD18_CSI1 |
+| MIPI_AVDD1P8V_2 |  |  | MIPI_AVDD1P8V_2 |  |  |  |  |  |  |  | AVDD18_CSI2 |
+| MIPI_ANA_VSSU_0 |  |  | MIPI_ANA_VSSU_0 |  |  |  |  |  |  |  | AVSS_MIPI012 |
+| MIPI_ANA_VSSU_1 |  |  | MIPI_ANA_VSSU_1 |  |  |  |  |  |  |  | AVSS_MIPI012 |
+| MIPI_ANA_VSSU_2 |  |  | MIPI_ANA_VSSU_2 |  |  |  |  |  |  |  | AVSS_MIPI012 |
+
+### 3.4.14 USB2.0 Host
+
+| Pad Name | Default Pull | Pad Edge Wakeup | Function 0 | Function 1 | Function 2 | Function 3 | Function 4 | Function 5 | Function 6 | Function 7 | Pin Name |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| USB_M |  |  | USB_M |  |  |  |  |  |  |  | USB20_HOST_M |
+| USB_P |  |  | USB_P |  |  |  |  |  |  |  | USB20_HOST_P |
+| USB2_V08 |  |  |  |  |  |  |  |  |  |  | AVDD08_USB20_HOST |
+| USB2_V18 |  |  |  |  |  |  |  |  |  |  | AVDD18_USB20_HOST |
+| USB2_V33 |  |  |  |  |  |  |  |  |  |  | AVDD33_USB20_HOST |
+| USB2_AGND |  |  |  |  |  |  |  |  |  |  | AVSS_USB20_HOST |
+| USB2_VSSU |  |  |  |  |  |  |  |  |  |  | AVSS_USB20_HOST |
+
+### 3.4.15 USB3.0 DRD
+
+| Pad Name | Default Pull | Pad Edge Wakeup | Function 0 | Function 1 | Function 2 | Function 3 | Function 4 | Function 5 | Function 6 | Function 7 | Pin Name |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| USB3_PORTA_USB_M |  |  | USB20_A_DRD_USB_M |  |  |  |  |  |  |  | USB20_A_DRD_USB_M |
+| USB3_PORTA_USB_P |  |  | USB20_A_DRD_USB_P |  |  |  |  |  |  |  | USB20_A_DRD_USB_P |
+| phy8_rxn |  |  | USB30_A_DRD0_RXn |  |  |  |  |  |  |  | USB30_A_DRD0_RXn |
+| phy8_rxp |  |  | USB30_A_DRD0_RXp |  |  |  |  |  |  |  | USB30_A_DRD0_RXp |
+| phy8_txn |  |  | USB30_A_DRD0_TXn |  |  |  |  |  |  |  | USB30_A_DRD0_TXn |
+| phy8_txp |  |  | USB30_A_DRD0_TXp |  |  |  |  |  |  |  | USB30_A_DRD0_TXp |
+| phy9_rxn |  |  | USB30_A_DRD1_RXn |  |  |  |  |  |  |  | USB30_A_DRD1_RXn |
+| phy9_rxp |  |  | USB30_A_DRD1_RXp |  |  |  |  |  |  |  | USB30_A_DRD1_RXp |
+| phy9_txn |  |  | USB30_A_DRD1_TXn |  |  |  |  |  |  |  | USB30_A_DRD1_TXn |
+| phy9_txp |  |  | USB30_A_DRD1_TXp |  |  |  |  |  |  |  | USB30_A_DRD1_TXp |
+| usb_porta_adtest |  |  | usb_porta_adtest |  |  |  |  |  |  |  | usb_porta_adtest |
+| USB3_PORTA_USB2_V08 |  |  |  |  |  |  |  |  |  |  | AVDD08_DRD_USB |
+| USB3_PORTA_USB2_V18 |  |  |  |  |  |  |  |  |  |  | AVDD18_DRD_USB |
+| USB3_PORTA_USB2_V33 |  |  |  |  |  |  |  |  |  |  | AVDD33_DRD_USB |
+| phy8_avdd18 |  |  |  |  |  |  |  |  |  |  | AVDD18_DRD_USB |
+| phy8_avdd18_ck |  |  |  |  |  |  |  |  |  |  | AVDD18_DRD_USB |
+| phy8_vddu_pll |  |  |  |  |  |  |  |  |  |  | AVDD08_DRD_USB |
+| phy8_vddu_rx |  |  |  |  |  |  |  |  |  |  | AVDD08_DRD_USB |
+| phy8_vddu_tx |  |  |  |  |  |  |  |  |  |  | AVDD08_DRD_USB |
+| phy9_avdd18 |  |  |  |  |  |  |  |  |  |  | AVDD18_DRD_USB |
+| phy9_avdd18_ck |  |  |  |  |  |  |  |  |  |  | AVDD18_DRD_USB |
+| phy9_vddu_pll |  |  |  |  |  |  |  |  |  |  | AVDD08_DRD_USB |
+| phy9_vddu_rx |  |  |  |  |  |  |  |  |  |  | AVDD08_DRD_USB |
+| phy9_vddu_tx |  |  |  |  |  |  |  |  |  |  | AVDD08_DRD_USB |
+| USB3_PORTA_USB2_AGND |  |  |  |  |  |  |  |  |  |  | AVSS_DRD |
+| USB3_PORTA_USB2_VSSU |  |  |  |  |  |  |  |  |  |  | AVSS_DRD |
+| phy8_avss |  |  |  |  |  |  |  |  |  |  | AVSS_DRD |
+| phy8_avss_ck |  |  |  |  |  |  |  |  |  |  | AVSS_DRD |
+| phy8_vssu_pll |  |  |  |  |  |  |  |  |  |  | AVSS_DRD |
+| phy8_vssu_rx |  |  |  |  |  |  |  |  |  |  | AVSS_DRD |
+| phy8_vssu_tx |  |  |  |  |  |  |  |  |  |  | AVSS_DRD |
+| phy9_avss |  |  |  |  |  |  |  |  |  |  | AVSS_DRD |
+| phy9_avss_ck |  |  |  |  |  |  |  |  |  |  | AVSS_DRD |
+| phy9_vssu_pll |  |  |  |  |  |  |  |  |  |  | AVSS_DRD |
+| phy9_vssu_rx |  |  |  |  |  |  |  |  |  |  | AVSS_DRD |
+| phy9_vssu_tx |  |  |  |  |  |  |  |  |  |  | AVSS_DRD |
+| USB3_PORTB_USB2_AGND |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| USB3_PORTB_USB2_VSSU |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| USB3_PORTC_USB2_AGND |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| USB3_PORTC_USB2_VSSU |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| USB3_PORTD_USB2_AGND |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| USB3_PORTD_USB2_VSSU |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+
+### 3.4.16 PCIe3.0 and USB
+
+| Pad Name | Default Pull | Pad Edge Wakeup | Function 0 | Function 1 | Function 2 | Function 3 | Function 4 | Function 5 | Function 6 | Function 7 | Pin Name |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| pad_rin_ana_bump |  |  | PCIE/USB3_RCAL |  |  |  |  |  |  |  | PCIE/USB3_RCAL |
+| phy0_refclk_n |  |  | PCIE0_REFCLK_N |  |  |  |  |  |  |  | PCIE0_REFCLK_N |
+| phy0_refclk_p |  |  | PCIE0_REFCLK_P |  |  |  |  |  |  |  | PCIE0_REFCLK_P |
+| phy0_rxn[0] |  |  | PCIE0_RX0N |  |  |  |  |  |  |  | PCIE0_RX0N |
+| phy0_rxn[1] |  |  | PCIE0_RX1N |  |  |  |  |  |  |  | PCIE0_RX1N |
+| phy0_rxp[0] |  |  | PCIE0_RX0P |  |  |  |  |  |  |  | PCIE0_RX0P |
+| phy0_rxp[1] |  |  | PCIE0_RX1P |  |  |  |  |  |  |  | PCIE0_RX1P |
+| phy0_txn[0] |  |  | PCIE0_TX0N |  |  |  |  |  |  |  | PCIE0_TX0N |
+| phy0_txn[1] |  |  | PCIE0_TX1N |  |  |  |  |  |  |  | PCIE0_TX1N |
+| phy0_txp[0] |  |  | PCIE0_TX0P |  |  |  |  |  |  |  | PCIE0_TX0P |
+| phy0_txp[1] |  |  | PCIE0_TX1P |  |  |  |  |  |  |  | PCIE0_TX1P |
+| phy1_refclk_n |  |  | PCIE1_REFCLK_N |  |  |  |  |  |  |  | PCIE1_REFCLK_N |
+| phy1_refclk_p |  |  | PCIE1_REFCLK_P |  |  |  |  |  |  |  | PCIE1_REFCLK_P |
+| phy1_rxn[0] |  |  | PCIE1_RX0N |  |  |  |  |  |  |  | PCIE1_RX0N |
+| phy1_rxn[1] |  |  | PCIE1_RX1N |  |  |  |  |  |  |  | PCIE1_RX1N |
+| phy1_rxp[0] |  |  | PCIE1_RX0P |  |  |  |  |  |  |  | PCIE1_RX0P |
+| phy1_rxp[1] |  |  | PCIE1_RX1P |  |  |  |  |  |  |  | PCIE1_RX1P |
+| phy1_txn[0] |  |  | PCIE1_TX0N |  |  |  |  |  |  |  | PCIE1_TX0N |
+| phy1_txn[1] |  |  | PCIE1_TX1N |  |  |  |  |  |  |  | PCIE1_TX1N |
+| phy1_txp[0] |  |  | PCIE1_TX0P |  |  |  |  |  |  |  | PCIE1_TX0P |
+| phy1_txp[1] |  |  | PCIE1_TX1P |  |  |  |  |  |  |  | PCIE1_TX1P |
+| phy2_refclk_n |  |  | PCIE2_REFCLK_N |  |  |  |  |  |  |  | PCIE2_REFCLK_N |
+| phy2_refclk_p |  |  | PCIE2_REFCLK_P |  |  |  |  |  |  |  | PCIE2_REFCLK_P |
+| phy2_rxn |  |  | PCIE2_RX0N | USB3-B_RX0N |  |  |  |  |  |  | PCIE2/USB3-B_RX0N |
+| phy2_rxp |  |  | PCIE2_RX0P | USB3-B_RX0P |  |  |  |  |  |  | PCIE2/USB3-B_RX0P |
+| phy2_txn |  |  | PCIE2_TX0N | USB3-B_TX0N |  |  |  |  |  |  | PCIE2/USB3-B_TX0N |
+| phy2_txp |  |  | PCIE2_TX0P | USB3-B_TX0P |  |  |  |  |  |  | PCIE2/USB3-B_TX0P |
+| phy3_refclk_n |  |  | PCIE3_REFCLK_N |  |  |  |  |  |  |  | PCIE3_REFCLK_N |
+| phy3_refclk_p |  |  | PCIE3_REFCLK_P |  |  |  |  |  |  |  | PCIE3_REFCLK_P |
+| phy3_rxn |  |  | PCIE3_RX0N | USB3-C_RX0N |  |  |  |  |  |  | PCIE3/USB3-C_RX0N |
+| phy3_rxp |  |  | PCIE3_RX0P | USB3-C_RX0P |  |  |  |  |  |  | PCIE3/USB3-C_RX0P |
+| phy3_txn |  |  | PCIE3_TX0N | USB3-C_TX0N |  |  |  |  |  |  | PCIE3/USB3-C_TX0N |
+| phy3_txp |  |  | PCIE3_TX0P | USB3-C_TX0P |  |  |  |  |  |  | PCIE3/USB3-C_TX0P |
+| phy4_refclk_n |  |  | PCIE4_REFCLK_N |  |  |  |  |  |  |  | PCIE4_REFCLK_N |
+| phy4_refclk_p |  |  | PCIE4_REFCLK_P |  |  |  |  |  |  |  | PCIE4_REFCLK_P |
+| phy4_rxn |  |  | PCIE4_RX0N | USB3-D_RX0N |  |  |  |  |  |  | PCIE4/USB3-D_RX0N |
+| phy4_rxp |  |  | PCIE4_RX0P | USB3-D_RX0P |  |  |  |  |  |  | PCIE4/USB3-D_RX0P |
+| phy4_txn |  |  | PCIE4_TX0N | USB3-D_TX0N |  |  |  |  |  |  | PCIE4/USB3-D_TX0N |
+| phy4_txp |  |  | PCIE4_TX0P | USB3-D_TX0P |  |  |  |  |  |  | PCIE4/USB3-D_TX0P |
+| phy5_refclk_n |  |  | PCIE5_REFCLK_N |  |  |  |  |  |  |  | PCIE5_REFCLK_N |
+| phy5_refclk_p |  |  | PCIE5_REFCLK_P |  |  |  |  |  |  |  | PCIE5_REFCLK_P |
+| phy5_rxn |  |  | PCIE5_RX0N |  |  |  |  |  |  |  | PCIE5_RX0N |
+| phy5_rxp |  |  | PCIE5_RX0P |  |  |  |  |  |  |  | PCIE5_RX0P |
+| phy5_txn |  |  | PCIE5_TX0N |  |  |  |  |  |  |  | PCIE5_TX0N |
+| phy5_txp |  |  | PCIE5_TX0P |  |  |  |  |  |  |  | PCIE5_TX0P |
+| pcie_usb_combo_adtest_0 |  |  | pcie_usb_combo_adtest_0 |  |  |  |  |  |  |  | pcie_usb_combo_adtest_0 |
+| pcie_usb_combo_adtest_1 |  |  | pcie_usb_combo_adtest_1 |  |  |  |  |  |  |  | pcie_usb_combo_adtest_1 |
+| USB3_PORTB_USB_M |  |  |  | USB20_B_USB_M |  |  |  |  |  |  | USB20_B_USB_M |
+| USB3_PORTB_USB_P |  |  |  | USB20_B_USB_P |  |  |  |  |  |  | USB20_B_USB_P |
+| USB3_PORTC_USB_M |  |  |  | USB20_C_USB_M |  |  |  |  |  |  | USB20_C_USB_M |
+| USB3_PORTC_USB_P |  |  |  | USB20_C_USB_P |  |  |  |  |  |  | USB20_C_USB_P |
+| USB3_PORTD_USB_M |  |  |  | USB20_D_USB_M |  |  |  |  |  |  | USB20_D_USB_M |
+| USB3_PORTD_USB_P |  |  |  | USB20_D_USB_P |  |  |  |  |  |  | USB20_D_USB_P |
+| USB3_PORTB_USB2_V08 |  |  |  |  |  |  |  |  |  |  | AVDD08_B_USB20 |
+| USB3_PORTC_USB2_V08 |  |  |  |  |  |  |  |  |  |  | AVDD08_C_USB20 |
+| USB3_PORTD_USB2_V08 |  |  |  |  |  |  |  |  |  |  | AVDD08_D_USB20 |
+| USB3_PORTB_USB2_V18 |  |  |  |  |  |  |  |  |  |  | AVDD18_B_USB20 |
+| USB3_PORTC_USB2_V18 |  |  |  |  |  |  |  |  |  |  | AVDD18_C_USB20 |
+| USB3_PORTD_USB2_V18 |  |  |  |  |  |  |  |  |  |  | AVDD18_D_USB20 |
+| USB3_PORTB_USB2_V33 |  |  |  |  |  |  |  |  |  |  | AVDD33_B_USB20 |
+| USB3_PORTC_USB2_V33 |  |  |  |  |  |  |  |  |  |  | AVDD33_C_USB20 |
+| USB3_PORTD_USB2_V33 |  |  |  |  |  |  |  |  |  |  | AVDD33_D_USB20 |
+| USB3_PORTB_USB2_AGND |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| USB3_PORTB_USB2_VSSU |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| USB3_PORTC_USB2_AGND |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| USB3_PORTC_USB2_VSSU |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| USB3_PORTD_USB2_AGND |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| USB3_PORTD_USB2_VSSU |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| phy0_avdd18[0] |  |  |  |  |  |  |  |  |  |  | AVDD18_PCIE0 |
+| phy0_avdd18[1] |  |  |  |  |  |  |  |  |  |  | AVDD18_PCIE0 |
+| phy0_avdd18_ck |  |  |  |  |  |  |  |  |  |  | AVDD18_PCIE0 |
+| phy0_vddu_pll[0] |  |  |  |  |  |  |  |  |  |  | AVDD08_PCIE0 |
+| phy0_vddu_pll[1] |  |  |  |  |  |  |  |  |  |  | AVDD08_PCIE0 |
+| phy0_vddu_rx[0] |  |  |  |  |  |  |  |  |  |  | AVDD08_PCIE0 |
+| phy1_avdd18[0] |  |  |  |  |  |  |  |  |  |  | AVDD18_PCIE1 |
+| phy1_avdd18[1] |  |  |  |  |  |  |  |  |  |  | AVDD18_PCIE1 |
+| phy1_avdd18_ck |  |  |  |  |  |  |  |  |  |  | AVDD18_PCIE1 |
+| phy1_vddu_pll[0] |  |  |  |  |  |  |  |  |  |  | AVDD08_PCIE1 |
+| phy1_vddu_pll[1] |  |  |  |  |  |  |  |  |  |  | AVDD08_PCIE1 |
+| phy1_vddu_rx[0] |  |  |  |  |  |  |  |  |  |  | AVDD08_PCIE1 |
+| phy2_avdd18 |  |  |  |  |  |  |  |  |  |  | AVDD18_PCIE2/USB3-B |
+| phy2_avdd18_ck |  |  |  |  |  |  |  |  |  |  | AVDD18_PCIE2/USB3-B |
+| phy2_vddu_pll |  |  |  |  |  |  |  |  |  |  | AVDD08_PCIE2/USB3-B |
+| phy2_vddu_rx |  |  |  |  |  |  |  |  |  |  | AVDD08_PCIE2/USB3-B |
+| phy3_avdd18 |  |  |  |  |  |  |  |  |  |  | AVDD18_PCIE3/USB3-C |
+| phy3_avdd18_ck |  |  |  |  |  |  |  |  |  |  | AVDD18_PCIE3/USB3-C |
+| phy3_vddu_pll |  |  |  |  |  |  |  |  |  |  | AVDD08_PCIE3/USB3-C |
+| phy3_vddu_rx |  |  |  |  |  |  |  |  |  |  | AVDD08_PCIE3/USB3-C |
+| phy4_avdd18 |  |  |  |  |  |  |  |  |  |  | AVDD18_PCIE4/USB3-D |
+| phy4_avdd18_ck |  |  |  |  |  |  |  |  |  |  | AVDD18_PCIE4/USB3-D |
+| phy4_vddu_pll |  |  |  |  |  |  |  |  |  |  | AVDD08_PCIE4/USB3-D |
+| phy4_vddu_rx |  |  |  |  |  |  |  |  |  |  | AVDD08_PCIE4/USB3-D |
+| phy5_avdd18 |  |  |  |  |  |  |  |  |  |  | AVDD18_PCIE5 |
+| phy5_avdd18_ck |  |  |  |  |  |  |  |  |  |  | AVDD18_PCIE5 |
+| phy5_vddu_pll |  |  |  |  |  |  |  |  |  |  | AVDD08_PCIE5 |
+| phy5_vddu_rx |  |  |  |  |  |  |  |  |  |  | AVDD08_PCIE5 |
+| phy0_avss[0] |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| phy0_avss[1] |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| phy0_avss_ck |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| phy0_vssu_pll[0] |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| phy0_vssu_pll[1] |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| phy0_vssu_rx[0] |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| phy0_vssu_rx[1] |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| phy0_vssu_tx[0] |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| phy0_vssu_tx[1] |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| phy1_avss[0] |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| phy1_avss[1] |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| phy1_avss_ck |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| phy1_vssu_pll[0] |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| phy1_vssu_pll[1] |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| phy1_vssu_rx[0] |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| phy1_vssu_rx[1] |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| phy1_vssu_tx[0] |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| phy1_vssu_tx[1] |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| phy2_avss |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| phy2_avss_ck |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| phy2_vssu_pll |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| phy2_vssu_rx |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| phy2_vssu_tx |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| phy3_avss |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| phy3_avss_ck |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| phy3_vssu_pll |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| phy3_vssu_rx |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| phy3_vssu_tx |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| phy4_avss |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| phy4_avss_ck |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| phy4_vssu_pll |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| phy4_vssu_rx |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| phy4_vssu_tx |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| phy5_avss |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| phy5_avss_ck |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| phy5_vssu_pll |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| phy5_vssu_rx |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+| phy5_vssu_tx |  |  |  |  |  |  |  |  |  |  | AVSS_PCIeUSB |
+
+### 3.4.17 UCIe
+
+| Pad Name | Default Pull | Pad Edge Wakeup | Function 0 | Function 1 | Function 2 | Function 3 | Function 4 | Function 5 | Function 6 | Function 7 | Pin Name |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| UCIE_BGR_EAREFCLKN |  |  | UCIE_BGR_EAREFCLKN |  |  |  |  |  |  |  | UCIE_BGR_EAREFCLKN |
+| UCIE_BGR_EAREFCLKP |  |  | UCIE_BGR_EAREFCLKP |  |  |  |  |  |  |  | UCIE_BGR_EAREFCLKP |
+| UCIE_EW_ATEST |  |  | UCIE_EW_ATEST |  |  |  |  |  |  |  | UCIE_EW_ATEST |
+| UCIE_EW_O_CKNT |  |  | UCIE_EW_O_CKNT |  |  |  |  |  |  |  | UCIE_EW_O_CKNT |
+| UCIE_EW_O_CKPT |  |  | UCIE_EW_O_CKPT |  |  |  |  |  |  |  | UCIE_EW_O_CKPT |
+| UCIE_EW_RXCKN_M0 |  |  | UCIE_EW_RXCKN_M0 |  |  |  |  |  |  |  | UCIE_EW_RXCKN_M0 |
+| UCIE_EW_RXCKP_M0 |  |  | UCIE_EW_RXCKP_M0 |  |  |  |  |  |  |  | UCIE_EW_RXCKP_M0 |
+| UCIE_EW_RXCKSB_M0 |  |  | UCIE_EW_RXCKSB_M0 |  |  |  |  |  |  |  | UCIE_EW_RXCKSB_M0 |
+| UCIE_EW_RXDATA_M0[0] |  |  | UCIE_EW_RXDATA_M0[0] |  |  |  |  |  |  |  | UCIE_EW_RXDATA_M0[0] |
+| UCIE_EW_RXDATA_M0[1] |  |  | UCIE_EW_RXDATA_M0[1] |  |  |  |  |  |  |  | UCIE_EW_RXDATA_M0[1] |
+| UCIE_EW_RXDATA_M0[10] |  |  | UCIE_EW_RXDATA_M0[10] |  |  |  |  |  |  |  | UCIE_EW_RXDATA_M0[10] |
+| UCIE_EW_RXDATA_M0[11] |  |  | UCIE_EW_RXDATA_M0[11] |  |  |  |  |  |  |  | UCIE_EW_RXDATA_M0[11] |
+| UCIE_EW_RXDATA_M0[12] |  |  | UCIE_EW_RXDATA_M0[12] |  |  |  |  |  |  |  | UCIE_EW_RXDATA_M0[12] |
+| UCIE_EW_RXDATA_M0[13] |  |  | UCIE_EW_RXDATA_M0[13] |  |  |  |  |  |  |  | UCIE_EW_RXDATA_M0[13] |
+| UCIE_EW_RXDATA_M0[14] |  |  | UCIE_EW_RXDATA_M0[14] |  |  |  |  |  |  |  | UCIE_EW_RXDATA_M0[14] |
+| UCIE_EW_RXDATA_M0[15] |  |  | UCIE_EW_RXDATA_M0[15] |  |  |  |  |  |  |  | UCIE_EW_RXDATA_M0[15] |
+| UCIE_EW_RXDATA_M0[2] |  |  | UCIE_EW_RXDATA_M0[2] |  |  |  |  |  |  |  | UCIE_EW_RXDATA_M0[2] |
+| UCIE_EW_RXDATA_M0[3] |  |  | UCIE_EW_RXDATA_M0[3] |  |  |  |  |  |  |  | UCIE_EW_RXDATA_M0[3] |
+| UCIE_EW_RXDATA_M0[4] |  |  | UCIE_EW_RXDATA_M0[4] |  |  |  |  |  |  |  | UCIE_EW_RXDATA_M0[4] |
+| UCIE_EW_RXDATA_M0[5] |  |  | UCIE_EW_RXDATA_M0[5] |  |  |  |  |  |  |  | UCIE_EW_RXDATA_M0[5] |
+| UCIE_EW_RXDATA_M0[6] |  |  | UCIE_EW_RXDATA_M0[6] |  |  |  |  |  |  |  | UCIE_EW_RXDATA_M0[6] |
+| UCIE_EW_RXDATA_M0[7] |  |  | UCIE_EW_RXDATA_M0[7] |  |  |  |  |  |  |  | UCIE_EW_RXDATA_M0[7] |
+| UCIE_EW_RXDATA_M0[8] |  |  | UCIE_EW_RXDATA_M0[8] |  |  |  |  |  |  |  | UCIE_EW_RXDATA_M0[8] |
+| UCIE_EW_RXDATA_M0[9] |  |  | UCIE_EW_RXDATA_M0[9] |  |  |  |  |  |  |  | UCIE_EW_RXDATA_M0[9] |
+| UCIE_EW_RXDATASB_M0 |  |  | UCIE_EW_RXDATASB_M0 |  |  |  |  |  |  |  | UCIE_EW_RXDATASB_M0 |
+| UCIE_EW_RXTRK_M0 |  |  | UCIE_EW_RXTRK_M0 |  |  |  |  |  |  |  | UCIE_EW_RXTRK_M0 |
+| UCIE_EW_RXVLD_M0 |  |  | UCIE_EW_RXVLD_M0 |  |  |  |  |  |  |  | UCIE_EW_RXVLD_M0 |
+| UCIE_EW_TXCKN_M0 |  |  | UCIE_EW_TXCKN_M0 |  |  |  |  |  |  |  | UCIE_EW_TXCKN_M0 |
+| UCIE_EW_TXCKP_M0 |  |  | UCIE_EW_TXCKP_M0 |  |  |  |  |  |  |  | UCIE_EW_TXCKP_M0 |
+| UCIE_EW_TXCKSB_M0 |  |  | UCIE_EW_TXCKSB_M0 |  |  |  |  |  |  |  | UCIE_EW_TXCKSB_M0 |
+| UCIE_EW_TXDATA_M0[0] |  |  | UCIE_EW_TXDATA_M0[0] |  |  |  |  |  |  |  | UCIE_EW_TXDATA_M0[0] |
+| UCIE_EW_TXDATA_M0[1] |  |  | UCIE_EW_TXDATA_M0[1] |  |  |  |  |  |  |  | UCIE_EW_TXDATA_M0[1] |
+| UCIE_EW_TXDATA_M0[10] |  |  | UCIE_EW_TXDATA_M0[10] |  |  |  |  |  |  |  | UCIE_EW_TXDATA_M0[10] |
+| UCIE_EW_TXDATA_M0[11] |  |  | UCIE_EW_TXDATA_M0[11] |  |  |  |  |  |  |  | UCIE_EW_TXDATA_M0[11] |
+| UCIE_EW_TXDATA_M0[12] |  |  | UCIE_EW_TXDATA_M0[12] |  |  |  |  |  |  |  | UCIE_EW_TXDATA_M0[12] |
+| UCIE_EW_TXDATA_M0[13] |  |  | UCIE_EW_TXDATA_M0[13] |  |  |  |  |  |  |  | UCIE_EW_TXDATA_M0[13] |
+| UCIE_EW_TXDATA_M0[14] |  |  | UCIE_EW_TXDATA_M0[14] |  |  |  |  |  |  |  | UCIE_EW_TXDATA_M0[14] |
+| UCIE_EW_TXDATA_M0[15] |  |  | UCIE_EW_TXDATA_M0[15] |  |  |  |  |  |  |  | UCIE_EW_TXDATA_M0[15] |
+| UCIE_EW_TXDATA_M0[2] |  |  | UCIE_EW_TXDATA_M0[2] |  |  |  |  |  |  |  | UCIE_EW_TXDATA_M0[2] |
+| UCIE_EW_TXDATA_M0[3] |  |  | UCIE_EW_TXDATA_M0[3] |  |  |  |  |  |  |  | UCIE_EW_TXDATA_M0[3] |
+| UCIE_EW_TXDATA_M0[4] |  |  | UCIE_EW_TXDATA_M0[4] |  |  |  |  |  |  |  | UCIE_EW_TXDATA_M0[4] |
+| UCIE_EW_TXDATA_M0[5] |  |  | UCIE_EW_TXDATA_M0[5] |  |  |  |  |  |  |  | UCIE_EW_TXDATA_M0[5] |
+| UCIE_EW_TXDATA_M0[6] |  |  | UCIE_EW_TXDATA_M0[6] |  |  |  |  |  |  |  | UCIE_EW_TXDATA_M0[6] |
+| UCIE_EW_TXDATA_M0[7] |  |  | UCIE_EW_TXDATA_M0[7] |  |  |  |  |  |  |  | UCIE_EW_TXDATA_M0[7] |
+| UCIE_EW_TXDATA_M0[8] |  |  | UCIE_EW_TXDATA_M0[8] |  |  |  |  |  |  |  | UCIE_EW_TXDATA_M0[8] |
+| UCIE_EW_TXDATA_M0[9] |  |  | UCIE_EW_TXDATA_M0[9] |  |  |  |  |  |  |  | UCIE_EW_TXDATA_M0[9] |
+| UCIE_EW_TXDATASB_M0 |  |  | UCIE_EW_TXDATASB_M0 |  |  |  |  |  |  |  | UCIE_EW_TXDATASB_M0 |
+| UCIE_EW_TXTRK_M0 |  |  | UCIE_EW_TXTRK_M0 |  |  |  |  |  |  |  | UCIE_EW_TXTRK_M0 |
+| UCIE_EW_TXVLD_M0 |  |  | UCIE_EW_TXVLD_M0 |  |  |  |  |  |  |  | UCIE_EW_TXVLD_M0 |
+| UCIE_EW_VCTRL_EXT |  |  | UCIE_EW_VCTRL_EXT |  |  |  |  |  |  |  | UCIE_EW_VCTRL_EXT |
+| UCIE_BGR_VDD |  |  |  |  |  |  |  |  |  |  | UCIE_VDD_0V8 |
+| UCIE_BGR_VDD_PL |  |  |  |  |  |  |  |  |  |  | UCIE_VCCAON_0V8 |
+| UCIE_BGR_VDD_PL |  |  |  |  |  |  |  |  |  |  | UCIE_VCCAON_0V8 |
+| UCIE_BGR_VDD_PL |  |  |  |  |  |  |  |  |  |  | UCIE_VCCAON_0V8 |
+| UCIE_BGR_VDDBH |  |  |  |  |  |  |  |  |  |  | UCIE_VDDBH_0V9 |
+| UCIE_EW_VCCIO |  |  |  |  |  |  |  |  |  |  | UCIE_VCCIO_0V8 |
+| UCIE_EW_VCCIO |  |  |  |  |  |  |  |  |  |  | UCIE_VCCIO_0V8 |
+| UCIE_EW_VCCIO |  |  |  |  |  |  |  |  |  |  | UCIE_VCCIO_0V8 |
+| UCIE_EW_VCCIO |  |  |  |  |  |  |  |  |  |  | UCIE_VCCIO_0V8 |
+| UCIE_EW_VCCIO |  |  |  |  |  |  |  |  |  |  | UCIE_VCCIO_0V8 |
+| UCIE_EW_VCCPLL_1P2V |  |  |  |  |  |  |  |  |  |  | UCIE_VCCPLL_1P2V |
+| UCIE_EW_VDD |  |  |  |  |  |  |  |  |  |  | UCIE_VDD_0V8 |
+| UCIE_EW_VDDH_L |  |  |  |  |  |  |  |  |  |  | UCIE_VCCPLL_1P2V |
+| UCIE_EW_VDDPH |  |  |  |  |  |  |  |  |  |  | UCIE_VDDVPH0_0V9 |
+| UCIE_EW_VDDPH |  |  |  |  |  |  |  |  |  |  | UCIE_VDDVPH0_0V9 |
+| UCIE_BGR_VSS |  |  |  |  |  |  |  |  |  |  | VSS_UCIE |
+| UCIE_BGR_VSS_BGR |  |  |  |  |  |  |  |  |  |  | VSS_UCIE |
+| UCIE_BGR_VSSA |  |  |  |  |  |  |  |  |  |  | VSS_UCIE |
+| UCIE_EW_VSS |  |  |  |  |  |  |  |  |  |  | VSS_UCIE |
+
+### 3.4.18 UFS
+
+| Pad Name | Default Pull | Pad Edge Wakeup | Function 0 | Function 1 | Function 2 | Function 3 | Function 4 | Function 5 | Function 6 | Function 7 | Pin Name |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| UFS_REF_CLK |  |  | UFS_REF_CLK |  |  |  |  |  |  |  | UFS_REF_CLK |
+| UFS_RST_N |  |  | UFS_RST_N |  |  |  |  |  |  |  | UFS_RST_N |
+| UFS_RXDN0 |  |  | UFS_RXDN0 |  |  |  |  |  |  |  | UFS_RXD0N |
+| UFS_RXDN1 |  |  | UFS_RXDN1 |  |  |  |  |  |  |  | UFS_RXD1N |
+| UFS_RXDP0 |  |  | UFS_RXDP0 |  |  |  |  |  |  |  | UFS_RXD0P |
+| UFS_RXDP1 |  |  | UFS_RXDP1 |  |  |  |  |  |  |  | UFS_RXD1P |
+| UFS_TXDN0 |  |  | UFS_TXDN0 |  |  |  |  |  |  |  | UFS_TXD0N |
+| UFS_TXDN1 |  |  | UFS_TXDN1 |  |  |  |  |  |  |  | UFS_TXD1N |
+| UFS_TXDP0 |  |  | UFS_TXDP0 |  |  |  |  |  |  |  | UFS_TXD0P |
+| UFS_TXDP1 |  |  | UFS_TXDP1 |  |  |  |  |  |  |  | UFS_TXD1P |
+| UFS_V18 |  |  |  |  |  |  |  |  |  |  | AVDD18_UFS |
+| UFS_VCCQ |  |  |  |  |  |  |  |  |  |  | VCC12_UFS |
+| UFS_VDDU |  |  |  |  |  |  |  |  |  |  | VDD08_UFS |
+| UFS_VSSU |  |  |  |  |  |  |  |  |  |  | AVSS_UFS |
+| UFS_AGND |  |  |  |  |  |  |  |  |  |  | AVSS_UFS |
+
+### 3.4.19 LPDDR X32 CH0
+
+| Pad Name | Default Pull | Pad Edge Wakeup | Function 0 | Function 1 | Function 2 | Function 3 | Function 4 | Function 5 | Function 6 | Function 7 | Pin Name |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| DDR0_ATO |  |  | LP5_DDR0_CA_A_00 | LP4_DDR0_CA_A_00 |  |  |  |  |  |  | DDR0_ATO |
+| CA_A_0 |  |  | LP5_DDR0_CA_A_01 | LP4_DDR0_CA_A_01 |  |  |  |  |  |  | DDR0_CA_A_00 |
+| CA_A_1 |  |  | LP5_DDR0_CA_A_02 | LP4_DDR0_CA_A_02 |  |  |  |  |  |  | DDR0_CA_A_01 |
+| CA_A_2 |  |  | LP5_DDR0_CA_A_03 | LP4_DDR0_CA_A_03 |  |  |  |  |  |  | DDR0_CA_A_02 |
+| CA_A_3 |  |  | LP5_DDR0_CA_A_04 | LP4_DDR0_CA_A_04 |  |  |  |  |  |  | DDR0_CA_A_03 |
+| CA_A_4 |  |  | LP5_DDR0_CA_A_05 | LP4_DDR0_CA_A_05 |  |  |  |  |  |  | DDR0_CA_A_04 |
+| CA_A_5 |  |  | LP5_DDR0_CA_B_00 | LP4_DDR0_CA_B_00 |  |  |  |  |  |  | DDR0_CA_A_05 |
+| CA_B_0 |  |  | LP5_DDR0_CA_B_01 | LP4_DDR0_CA_B_01 |  |  |  |  |  |  | DDR0_CA_B_00 |
+| CA_B_1 |  |  | LP5_DDR0_CA_B_02 | LP4_DDR0_CA_B_02 |  |  |  |  |  |  | DDR0_CA_B_01 |
+| CA_B_2 |  |  | LP5_DDR0_CA_B_03 | LP4_DDR0_CA_B_03 |  |  |  |  |  |  | DDR0_CA_B_02 |
+| CA_B_3 |  |  | LP5_DDR0_CA_B_04 | LP4_DDR0_CA_B_04 |  |  |  |  |  |  | DDR0_CA_B_03 |
+| CA_B_4 |  |  | LP5_DDR0_CA_B_05 | LP4_DDR0_CA_B_05 |  |  |  |  |  |  | DDR0_CA_B_04 |
+| CA_B_5 |  |  | LP5_DDR0_CKC_A | LP4_DDR0_CKC_A |  |  |  |  |  |  | DDR0_CA_B_05 |
+| CK_C_A |  |  | LP5_DDR0_CKC_B | LP4_DDR0_CKC_B |  |  |  |  |  |  | DDR0_CKC_A |
+| CK_C_B |  |  | LP5_DDR0_CS0_A | LP4_DDR0_CKE0_A |  |  |  |  |  |  | DDR0_CKC_B |
+| CKE0_A |  |  | LP5_DDR0_CS0_B | LP4_DDR0_CKE0_B |  |  |  |  |  |  | DDR0_CKE0_A |
+| CKE0_B |  |  | LP5_DDR0_CS1_A | LP4_DDR0_CKE1_A |  |  |  |  |  |  | DDR0_CKE0_B |
+| CKE1_A |  |  | LP5_DDR0_CS1_B | LP4_DDR0_CKE1_B |  |  |  |  |  |  | DDR0_CKE1_A |
+| CKE1_B |  |  | LP5_DDR0_CKT_A | LP4_DDR0_CKT_A |  |  |  |  |  |  | DDR0_CKE1_B |
+| CK_T_A |  |  | LP5_DDR0_CKT_B | LP4_DDR0_CKT_B |  |  |  |  |  |  | DDR0_CKT_A |
+| CK_T_B |  |  | LP5_DDR0_CA_A_06 | LP4_DDR0_CS0_A |  |  |  |  |  |  | DDR0_CKT_B |
+| CS0_A |  |  | LP5_DDR0_CA_B_06 | LP4_DDR0_CS0_B |  |  |  |  |  |  | DDR0_CS0_A_CA06 |
+| CS0_B |  |  | NA | LP4_DDR0_CS1_A |  |  |  |  |  |  | DDR0_CS0_B_CA06 |
+| CS1_A |  |  | NA | LP4_DDR0_CS1_B |  |  |  |  |  |  | DDR0_CS1_A |
+| CS1_B |  |  | LP5_DDR0_DMI0_A | LP4_DDR0_DMI0_A |  |  |  |  |  |  | DDR0_CS1_B |
+| DMI0_A |  |  | LP5_DDR0_DMI0_B | LP4_DDR0_DMI0_B |  |  |  |  |  |  | DDR0_DMI0_A |
+| DMI0_B |  |  | LP5_DDR0_DMI1_A | LP4_DDR0_DMI1_A |  |  |  |  |  |  | DDR0_DMI0_B |
+| DMI1_A |  |  | LP5_DDR0_DMI1_B | LP4_DDR0_DMI1_B |  |  |  |  |  |  | DDR0_DMI1_A |
+| DMI1_B |  |  | LP5_DDR0_DQ_A_00 | LP4_DDR0_DQ_A_00 |  |  |  |  |  |  | DDR0_DMI1_B |
+| DQ_A_0 |  |  | LP5_DDR0_DQ_A_01 | LP4_DDR0_DQ_A_01 |  |  |  |  |  |  | DDR0_DQ_A_00 |
+| DQ_A_1 |  |  | LP5_DDR0_DQ_A_02 | LP4_DDR0_DQ_A_02 |  |  |  |  |  |  | DDR0_DQ_A_01 |
+| DQ_A_2 |  |  | LP5_DDR0_DQ_A_03 | LP4_DDR0_DQ_A_03 |  |  |  |  |  |  | DDR0_DQ_A_02 |
+| DQ_A_3 |  |  | LP5_DDR0_DQ_A_04 | LP4_DDR0_DQ_A_04 |  |  |  |  |  |  | DDR0_DQ_A_03 |
+| DQ_A_4 |  |  | LP5_DDR0_DQ_A_05 | LP4_DDR0_DQ_A_05 |  |  |  |  |  |  | DDR0_DQ_A_04 |
+| DQ_A_5 |  |  | LP5_DDR0_DQ_A_06 | LP4_DDR0_DQ_A_06 |  |  |  |  |  |  | DDR0_DQ_A_05 |
+| DQ_A_6 |  |  | LP5_DDR0_DQ_A_07 | LP4_DDR0_DQ_A_07 |  |  |  |  |  |  | DDR0_DQ_A_06 |
+| DQ_A_7 |  |  | LP5_DDR0_DQ_A_08 | LP4_DDR0_DQ_A_08 |  |  |  |  |  |  | DDR0_DQ_A_07 |
+| DQ_A_8 |  |  | LP5_DDR0_DQ_A_09 | LP4_DDR0_DQ_A_09 |  |  |  |  |  |  | DDR0_DQ_A_08 |
+| DQ_A_9 |  |  | LP5_DDR0_DQ_A_10 | LP4_DDR0_DQ_A_10 |  |  |  |  |  |  | DDR0_DQ_A_09 |
+| DQ_A_10 |  |  | LP5_DDR0_DQ_A_11 | LP4_DDR0_DQ_A_11 |  |  |  |  |  |  | DDR0_DQ_A_10 |
+| DQ_A_11 |  |  | LP5_DDR0_DQ_A_12 | LP4_DDR0_DQ_A_12 |  |  |  |  |  |  | DDR0_DQ_A_11 |
+| DQ_A_12 |  |  | LP5_DDR0_DQ_A_13 | LP4_DDR0_DQ_A_13 |  |  |  |  |  |  | DDR0_DQ_A_12 |
+| DQ_A_13 |  |  | LP5_DDR0_DQ_A_14 | LP4_DDR0_DQ_A_14 |  |  |  |  |  |  | DDR0_DQ_A_13 |
+| DQ_A_14 |  |  | LP5_DDR0_DQ_A_15 | LP4_DDR0_DQ_A_15 |  |  |  |  |  |  | DDR0_DQ_A_14 |
+| DQ_A_15 |  |  | LP5_DDR0_DQ_B_00 | LP4_DDR0_DQ_B_00 |  |  |  |  |  |  | DDR0_DQ_A_15 |
+| DQ_B_0 |  |  | LP5_DDR0_DQ_B_01 | LP4_DDR0_DQ_B_01 |  |  |  |  |  |  | DDR0_DQ_B_00 |
+| DQ_B_1 |  |  | LP5_DDR0_DQ_B_02 | LP4_DDR0_DQ_B_02 |  |  |  |  |  |  | DDR0_DQ_B_01 |
+| DQ_B_2 |  |  | LP5_DDR0_DQ_B_03 | LP4_DDR0_DQ_B_03 |  |  |  |  |  |  | DDR0_DQ_B_02 |
+| DQ_B_3 |  |  | LP5_DDR0_DQ_B_04 | LP4_DDR0_DQ_B_04 |  |  |  |  |  |  | DDR0_DQ_B_03 |
+| DQ_B_4 |  |  | LP5_DDR0_DQ_B_05 | LP4_DDR0_DQ_B_05 |  |  |  |  |  |  | DDR0_DQ_B_04 |
+| DQ_B_5 |  |  | LP5_DDR0_DQ_B_06 | LP4_DDR0_DQ_B_06 |  |  |  |  |  |  | DDR0_DQ_B_05 |
+| DQ_B_6 |  |  | LP5_DDR0_DQ_B_07 | LP4_DDR0_DQ_B_07 |  |  |  |  |  |  | DDR0_DQ_B_06 |
+| DQ_B_7 |  |  | LP5_DDR0_DQ_B_08 | LP4_DDR0_DQ_B_08 |  |  |  |  |  |  | DDR0_DQ_B_07 |
+| DQ_B_8 |  |  | LP5_DDR0_DQ_B_09 | LP4_DDR0_DQ_B_09 |  |  |  |  |  |  | DDR0_DQ_B_08 |
+| DQ_B_9 |  |  | LP5_DDR0_DQ_B_10 | LP4_DDR0_DQ_B_10 |  |  |  |  |  |  | DDR0_DQ_B_09 |
+| DQ_B_10 |  |  | LP5_DDR0_DQ_B_11 | LP4_DDR0_DQ_B_11 |  |  |  |  |  |  | DDR0_DQ_B_10 |
+| DQ_B_11 |  |  | LP5_DDR0_DQ_B_12 | LP4_DDR0_DQ_B_12 |  |  |  |  |  |  | DDR0_DQ_B_11 |
+| DQ_B_12 |  |  | LP5_DDR0_DQ_B_13 | LP4_DDR0_DQ_B_13 |  |  |  |  |  |  | DDR0_DQ_B_12 |
+| DQ_B_13 |  |  | LP5_DDR0_DQ_B_14 | LP4_DDR0_DQ_B_14 |  |  |  |  |  |  | DDR0_DQ_B_13 |
+| DQ_B_14 |  |  | LP5_DDR0_DQ_B_15 | LP4_DDR0_DQ_B_15 |  |  |  |  |  |  | DDR0_DQ_B_14 |
+| DQ_B_15 |  |  | LP5_DDR0_DQS0_C_A | LP4_DDR0_DQS0_C_A |  |  |  |  |  |  | DDR0_DQ_B_15 |
+| DQS0_C_A |  |  | LP5_DDR0_DQS0_C_B | LP4_DDR0_DQS0_C_B |  |  |  |  |  |  | DDR0_DQS0_C_A |
+| DQS0_C_B |  |  | LP5_DDR0_DQS0_T_A | LP4_DDR0_DQS0_T_A |  |  |  |  |  |  | DDR0_DQS0_C_B |
+| DQS0_T_A |  |  | LP5_DDR0_DQS0_T_B | LP4_DDR0_DQS0_T_B |  |  |  |  |  |  | DDR0_DQS0_T_A |
+| DQS0_T_B |  |  | LP5_DDR0_DQS1_C_A | LP4_DDR0_DQS1_C_A |  |  |  |  |  |  | DDR0_DQS0_T_B |
+| DQS1_C_A |  |  | LP5_DDR0_DQS1_C_B | LP4_DDR0_DQS1_C_B |  |  |  |  |  |  | DDR0_DQS1_C_A |
+| DQS1_C_B |  |  | LP5_DDR0_DQS1_T_A | LP4_DDR0_DQS1_T_A |  |  |  |  |  |  | DDR0_DQS1_C_B |
+| DQS1_T_A |  |  | LP5_DDR0_DQS1_T_B | LP4_DDR0_DQS1_T_B |  |  |  |  |  |  | DDR0_DQS1_T_A |
+| DQS1_T_B |  |  | LP5_DDR0_WCK_C_A_0 | N/A |  |  |  |  |  |  | DDR0_DQS1_T_B |
+| DDR0_DTO |  |  | LP5_DDR0_WCK_C_A_1 | N/A |  |  |  |  |  |  | DDR0_DTO |
+| DDR0_PWROK |  |  | LP5_DDR0_WCK_C_B_0 | N/A |  |  |  |  |  |  | DDR0_PWROK |
+| RESET_N |  |  | LP5_DDR0_WCK_C_B_1 | N/A |  |  |  |  |  |  | DDR0_RESET_N |
+| WCK_C_A_0 |  |  | LP5_DDR0_WCK_T_A_0 | N/A |  |  |  |  |  |  | DDR0_WCK_C_A_0 |
+| WCK_C_A_1 |  |  | LP5_DDR0_WCK_T_A_1 | N/A |  |  |  |  |  |  | DDR0_WCK_C_A_1 |
+| WCK_C_B_0 |  |  | LP5_DDR0_WCK_T_B_0 | N/A |  |  |  |  |  |  | DDR0_WCK_C_B_0 |
+| WCK_C_B_1 |  |  | LP5_DDR0_WCK_T_B_1 | N/A |  |  |  |  |  |  | DDR0_WCK_C_B_1 |
+| WCK_T_A_0 |  |  | LP5_DDR0_ZN | LP4_DDR0_ZN |  |  |  |  |  |  | DDR0_WCK_T_A_0 |
+| WCK_T_A_1 |  |  | LP5_DDR0_ATO | LP4_DDR0_ATO |  |  |  |  |  |  | DDR0_WCK_T_A_1 |
+| WCK_T_B_0 |  |  | LP5_DDR0_DTO | LP4_DDR0_DTO |  |  |  |  |  |  | DDR0_WCK_T_B_0 |
+| WCK_T_B_1 |  |  | LP5_DDR0_PWROK | LP4_DDR0_PWROK |  |  |  |  |  |  | DDR0_WCK_T_B_1 |
+| DDR0_ZN |  |  | LP5_DDR0_RESET_N | LP4_DDR0_RESET_N |  |  |  |  |  |  | DDR0_ZN |
+| DDR1_ATO |  |  | LP5_DDR1_CA_A_00 | LP4_DDR1_CA_A_00 |  |  |  |  |  |  | DDR1_ATO |
+| DDR1_CA_A_0 |  |  | LP5_DDR1_CA_A_01 | LP4_DDR1_CA_A_01 |  |  |  |  |  |  | DDR1_CA_A_00 |
+| DDR1_CA_A_1 |  |  | LP5_DDR1_CA_A_02 | LP4_DDR1_CA_A_02 |  |  |  |  |  |  | DDR1_CA_A_01 |
+| DDR1_CA_A_2 |  |  | LP5_DDR1_CA_A_03 | LP4_DDR1_CA_A_03 |  |  |  |  |  |  | DDR1_CA_A_02 |
+| DDR1_CA_A_3 |  |  | LP5_DDR1_CA_A_04 | LP4_DDR1_CA_A_04 |  |  |  |  |  |  | DDR1_CA_A_03 |
+| DDR1_CA_A_4 |  |  | LP5_DDR1_CA_A_05 | LP4_DDR1_CA_A_05 |  |  |  |  |  |  | DDR1_CA_A_04 |
+| DDR1_CA_A_5 |  |  | LP5_DDR1_CA_B_00 | LP4_DDR1_CA_B_00 |  |  |  |  |  |  | DDR1_CA_A_05 |
+| DDR1_CA_B_0 |  |  | LP5_DDR1_CA_B_01 | LP4_DDR1_CA_B_01 |  |  |  |  |  |  | DDR1_CA_B_00 |
+| DDR1_CA_B_1 |  |  | LP5_DDR1_CA_B_02 | LP4_DDR1_CA_B_02 |  |  |  |  |  |  | DDR1_CA_B_01 |
+| DDR1_CA_B_2 |  |  | LP5_DDR1_CA_B_03 | LP4_DDR1_CA_B_03 |  |  |  |  |  |  | DDR1_CA_B_02 |
+| DDR1_CA_B_3 |  |  | LP5_DDR1_CA_B_04 | LP4_DDR1_CA_B_04 |  |  |  |  |  |  | DDR1_CA_B_03 |
+| DDR1_CA_B_4 |  |  | LP5_DDR1_CA_B_05 | LP4_DDR1_CA_B_05 |  |  |  |  |  |  | DDR1_CA_B_04 |
+| DDR1_CA_B_5 |  |  | LP5_DDR1_CKC_A | LP4_DDR1_CKC_A |  |  |  |  |  |  | DDR1_CA_B_05 |
+| DDR1_CK_C_A |  |  | LP5_DDR1_CKC_B | LP4_DDR1_CKC_B |  |  |  |  |  |  | DDR1_CKC_A |
+| DDR1_CK_C_B |  |  | LP5_DDR1_CS0_A | LP4_DDR1_CKE0_A |  |  |  |  |  |  | DDR1_CKC_B |
+| DDR1_CKE0_A |  |  | LP5_DDR1_CS0_B | LP4_DDR1_CKE0_B |  |  |  |  |  |  | DDR1_CKE0_A |
+| DDR1_CKE0_B |  |  | LP5_DDR1_CS1_A | LP4_DDR1_CKE1_A |  |  |  |  |  |  | DDR1_CKE0_B |
+| DDR1_CKE1_A |  |  | LP5_DDR1_CS1_B | LP4_DDR1_CKE1_B |  |  |  |  |  |  | DDR1_CKE1_A |
+| DDR1_CKE1_B |  |  | LP5_DDR1_CKT_A | LP4_DDR1_CKT_A |  |  |  |  |  |  | DDR1_CKE1_B |
+| DDR1_CK_T_A |  |  | LP5_DDR1_CKT_B | LP4_DDR1_CKT_B |  |  |  |  |  |  | DDR1_CKT_A |
+| DDR1_CK_T_B |  |  | LP5_DDR1_CA_A_06 | LP4_DDR1_CS0_A |  |  |  |  |  |  | DDR1_CKT_B |
+| DDR1_CS0_A |  |  | LP5_DDR1_CA_B_06 | LP4_DDR1_CS0_B |  |  |  |  |  |  | DDR1_CS0_A_CA06 |
+| DDR1_CS0_B |  |  | NA | LP4_DDR1_CS1_A |  |  |  |  |  |  | DDR1_CS0_B_CA06 |
+| DDR1_CS1_A |  |  | NA | LP4_DDR1_CS1_B |  |  |  |  |  |  | DDR1_CS1_A |
+| DDR1_CS1_B |  |  | LP5_DDR1_DMI0_A | LP4_DDR1_DMI0_A |  |  |  |  |  |  | DDR1_CS1_B |
+| DDR1_DMI0_A |  |  | LP5_DDR1_DMI0_B | LP4_DDR1_DMI0_B |  |  |  |  |  |  | DDR1_DMI0_A |
+| DDR1_DMI0_B |  |  | LP5_DDR1_DMI1_A | LP4_DDR1_DMI1_A |  |  |  |  |  |  | DDR1_DMI0_B |
+| DDR1_DMI1_A |  |  | LP5_DDR1_DMI1_B | LP4_DDR1_DMI1_B |  |  |  |  |  |  | DDR1_DMI1_A |
+| DDR1_DMI1_B |  |  | LP5_DDR1_DQ_A_00 | LP4_DDR1_DQ_A_00 |  |  |  |  |  |  | DDR1_DMI1_B |
+| DDR1_DQ_A_0 |  |  | LP5_DDR1_DQ_A_01 | LP4_DDR1_DQ_A_01 |  |  |  |  |  |  | DDR1_DQ_A_00 |
+| DDR1_DQ_A_1 |  |  | LP5_DDR1_DQ_A_02 | LP4_DDR1_DQ_A_02 |  |  |  |  |  |  | DDR1_DQ_A_01 |
+| DDR1_DQ_A_2 |  |  | LP5_DDR1_DQ_A_03 | LP4_DDR1_DQ_A_03 |  |  |  |  |  |  | DDR1_DQ_A_02 |
+| DDR1_DQ_A_3 |  |  | LP5_DDR1_DQ_A_04 | LP4_DDR1_DQ_A_04 |  |  |  |  |  |  | DDR1_DQ_A_03 |
+| DDR1_DQ_A_4 |  |  | LP5_DDR1_DQ_A_05 | LP4_DDR1_DQ_A_05 |  |  |  |  |  |  | DDR1_DQ_A_04 |
+| DDR1_DQ_A_5 |  |  | LP5_DDR1_DQ_A_06 | LP4_DDR1_DQ_A_06 |  |  |  |  |  |  | DDR1_DQ_A_05 |
+| DDR1_DQ_A_6 |  |  | LP5_DDR1_DQ_A_07 | LP4_DDR1_DQ_A_07 |  |  |  |  |  |  | DDR1_DQ_A_06 |
+| DDR1_DQ_A_7 |  |  | LP5_DDR1_DQ_A_08 | LP4_DDR1_DQ_A_08 |  |  |  |  |  |  | DDR1_DQ_A_07 |
+| DDR1_DQ_A_8 |  |  | LP5_DDR1_DQ_A_09 | LP4_DDR1_DQ_A_09 |  |  |  |  |  |  | DDR1_DQ_A_08 |
+| DDR1_DQ_A_9 |  |  | LP5_DDR1_DQ_A_10 | LP4_DDR1_DQ_A_10 |  |  |  |  |  |  | DDR1_DQ_A_09 |
+| DDR1_DQ_A_10 |  |  | LP5_DDR1_DQ_A_11 | LP4_DDR1_DQ_A_11 |  |  |  |  |  |  | DDR1_DQ_A_10 |
+| DDR1_DQ_A_11 |  |  | LP5_DDR1_DQ_A_12 | LP4_DDR1_DQ_A_12 |  |  |  |  |  |  | DDR1_DQ_A_11 |
+| DDR1_DQ_A_12 |  |  | LP5_DDR1_DQ_A_13 | LP4_DDR1_DQ_A_13 |  |  |  |  |  |  | DDR1_DQ_A_12 |
+| DDR1_DQ_A_13 |  |  | LP5_DDR1_DQ_A_14 | LP4_DDR1_DQ_A_14 |  |  |  |  |  |  | DDR1_DQ_A_13 |
+| DDR1_DQ_A_14 |  |  | LP5_DDR1_DQ_A_15 | LP4_DDR1_DQ_A_15 |  |  |  |  |  |  | DDR1_DQ_A_14 |
+| DDR1_DQ_A_15 |  |  | LP5_DDR1_DQ_B_00 | LP4_DDR1_DQ_B_00 |  |  |  |  |  |  | DDR1_DQ_A_15 |
+| DDR1_DQ_B_0 |  |  | LP5_DDR1_DQ_B_01 | LP4_DDR1_DQ_B_01 |  |  |  |  |  |  | DDR1_DQ_B_00 |
+| DDR1_DQ_B_1 |  |  | LP5_DDR1_DQ_B_02 | LP4_DDR1_DQ_B_02 |  |  |  |  |  |  | DDR1_DQ_B_01 |
+| DDR1_DQ_B_2 |  |  | LP5_DDR1_DQ_B_03 | LP4_DDR1_DQ_B_03 |  |  |  |  |  |  | DDR1_DQ_B_02 |
+| DDR1_DQ_B_3 |  |  | LP5_DDR1_DQ_B_04 | LP4_DDR1_DQ_B_04 |  |  |  |  |  |  | DDR1_DQ_B_03 |
+| DDR1_DQ_B_4 |  |  | LP5_DDR1_DQ_B_05 | LP4_DDR1_DQ_B_05 |  |  |  |  |  |  | DDR1_DQ_B_04 |
+| DDR1_DQ_B_5 |  |  | LP5_DDR1_DQ_B_06 | LP4_DDR1_DQ_B_06 |  |  |  |  |  |  | DDR1_DQ_B_05 |
+| DDR1_DQ_B_6 |  |  | LP5_DDR1_DQ_B_07 | LP4_DDR1_DQ_B_07 |  |  |  |  |  |  | DDR1_DQ_B_06 |
+| DDR1_DQ_B_7 |  |  | LP5_DDR1_DQ_B_08 | LP4_DDR1_DQ_B_08 |  |  |  |  |  |  | DDR1_DQ_B_07 |
+| DDR1_DQ_B_8 |  |  | LP5_DDR1_DQ_B_09 | LP4_DDR1_DQ_B_09 |  |  |  |  |  |  | DDR1_DQ_B_08 |
+| DDR1_DQ_B_9 |  |  | LP5_DDR1_DQ_B_10 | LP4_DDR1_DQ_B_10 |  |  |  |  |  |  | DDR1_DQ_B_09 |
+| DDR1_DQ_B_10 |  |  | LP5_DDR1_DQ_B_11 | LP4_DDR1_DQ_B_11 |  |  |  |  |  |  | DDR1_DQ_B_10 |
+| DDR1_DQ_B_11 |  |  | LP5_DDR1_DQ_B_12 | LP4_DDR1_DQ_B_12 |  |  |  |  |  |  | DDR1_DQ_B_11 |
+| DDR1_DQ_B_12 |  |  | LP5_DDR1_DQ_B_13 | LP4_DDR1_DQ_B_13 |  |  |  |  |  |  | DDR1_DQ_B_12 |
+| DDR1_DQ_B_13 |  |  | LP5_DDR1_DQ_B_14 | LP4_DDR1_DQ_B_14 |  |  |  |  |  |  | DDR1_DQ_B_13 |
+| DDR1_DQ_B_14 |  |  | LP5_DDR1_DQ_B_15 | LP4_DDR1_DQ_B_15 |  |  |  |  |  |  | DDR1_DQ_B_14 |
+| DDR1_DQ_B_15 |  |  | LP5_DDR1_DQS0_C_A | LP4_DDR1_DQS0_C_A |  |  |  |  |  |  | DDR1_DQ_B_15 |
+| DDR1_DQS0_C_A |  |  | LP5_DDR1_DQS0_C_B | LP4_DDR1_DQS0_C_B |  |  |  |  |  |  | DDR1_DQS0_C_A |
+| DDR1_DQS0_C_B |  |  | LP5_DDR1_DQS0_T_A | LP4_DDR1_DQS0_T_A |  |  |  |  |  |  | DDR1_DQS0_C_B |
+| DDR1_DQS0_T_A |  |  | LP5_DDR1_DQS0_T_B | LP4_DDR1_DQS0_T_B |  |  |  |  |  |  | DDR1_DQS0_T_A |
+| DDR1_DQS0_T_B |  |  | LP5_DDR1_DQS1_C_A | LP4_DDR1_DQS1_C_A |  |  |  |  |  |  | DDR1_DQS0_T_B |
+| DDR1_DQS1_C_A |  |  | LP5_DDR1_DQS1_C_B | LP4_DDR1_DQS1_C_B |  |  |  |  |  |  | DDR1_DQS1_C_A |
+| DDR1_DQS1_C_B |  |  | LP5_DDR1_DQS1_T_A | LP4_DDR1_DQS1_T_A |  |  |  |  |  |  | DDR1_DQS1_C_B |
+| DDR1_DQS1_T_A |  |  | LP5_DDR1_DQS1_T_B | LP4_DDR1_DQS1_T_B |  |  |  |  |  |  | DDR1_DQS1_T_A |
+| DDR1_DQS1_T_B |  |  | LP5_DDR1_WCK_C_A_0 | N/A |  |  |  |  |  |  | DDR1_DQS1_T_B |
+| DDR1_DTO |  |  | LP5_DDR1_WCK_C_A_1 | N/A |  |  |  |  |  |  | DDR1_DTO |
+| DDR1_PWROK |  |  | LP5_DDR1_WCK_C_B_0 | N/A |  |  |  |  |  |  | DDR1_PWROK |
+| DDR1_RESET_N |  |  | LP5_DDR1_WCK_C_B_1 | N/A |  |  |  |  |  |  | DDR1_RESET_N |
+| DDR1_WCK_C_A_0 |  |  | LP5_DDR1_WCK_T_A_0 | N/A |  |  |  |  |  |  | DDR1_WCK_C_A_0 |
+| DDR1_WCK_C_A_1 |  |  | LP5_DDR1_WCK_T_A_1 | N/A |  |  |  |  |  |  | DDR1_WCK_C_A_1 |
+| DDR1_WCK_C_B_0 |  |  | LP5_DDR1_WCK_T_B_0 | N/A |  |  |  |  |  |  | DDR1_WCK_C_B_0 |
+| DDR1_WCK_C_B_1 |  |  | LP5_DDR1_WCK_T_B_1 | N/A |  |  |  |  |  |  | DDR1_WCK_C_B_1 |
+| DDR1_WCK_T_A_0 |  |  | LP5_DDR1_ZN | LP4_DDR1_ZN |  |  |  |  |  |  | DDR1_WCK_T_A_0 |
+| DDR1_WCK_T_A_1 |  |  | LP5_DDR1_ATO | LP4_DDR1_ATO |  |  |  |  |  |  | DDR1_WCK_T_A_1 |
+| DDR1_WCK_T_B_0 |  |  | LP5_DDR1_DTO | LP4_DDR1_DTO |  |  |  |  |  |  | DDR1_WCK_T_B_0 |
+| DDR1_WCK_T_B_1 |  |  | LP5_DDR1_PWROK | LP4_DDR1_PWROK |  |  |  |  |  |  | DDR1_WCK_T_B_1 |
+| DDR1_ZN |  |  | LP5_DDR1_RESET_N | LP4_DDR1_RESET_N |  |  |  |  |  |  | DDR1_ZN |
+| DDR0_AVDD08_PLL |  |  |  |  |  |  |  |  |  |  | AVDD08_PLL_DDR0 |
+| DDR1_AVDD08_PLL |  |  |  |  |  |  |  |  |  |  | AVDD08_PLL_DDR1 |
+| DDR0_AVDD18_PLL |  |  |  |  |  |  |  |  |  |  | AVDD18_PLL_DDR0 |
+| DDR1_AVDD18_PLL |  |  |  |  |  |  |  |  |  |  | AVDD18_PLL_DDR1 |
+| VAA_VDD2H_DDR0 |  |  |  |  |  |  |  |  |  |  | VAA18_VDD2H_DDR |
+| VAA_VDD2H_DDR1 |  |  |  |  |  |  |  |  |  |  | VAA18_VDD2H_DDR |
+| vcc_ddr |  |  |  |  |  |  |  |  |  |  | VDD0V8_DDR |
+| VDD2H_DDR0 |  |  |  |  |  |  |  |  |  |  | VDD2H_DDR |
+| VDDQ_DDR0 |  |  |  |  |  |  |  |  |  |  | VDDQ_DDR |
+
+### 3.4.20 PLL
+
+| Pad Name | Default Pull | Pad Edge Wakeup | Function 0 | Function 1 | Function 2 | Function 3 | Function 4 | Function 5 | Function 6 | Function 7 | Pin Name |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| DDR0_AVDD08_PLL |  |  |  |  |  |  |  |  |  |  | AVDD08_PLL_DDR0 |
+| DDR1_AVDD08_PLL |  |  |  |  |  |  |  |  |  |  | AVDD08_PLL_DDR1 |
+| AVDD08_PLL1 |  |  |  |  |  |  |  |  |  |  | AVDD08_PLL1 |
+| AVDD08_PLL234 |  |  |  |  |  |  |  |  |  |  | AVDD08_PLL234 |
+| AVDD08_PLL567 |  |  |  |  |  |  |  |  |  |  | AVDD08_PLL567 |
+| DDR0_AVDD18_PLL |  |  |  |  |  |  |  |  |  |  | AVDD18_PLL_DDR0 |
+| DDR1_AVDD18_PLL |  |  |  |  |  |  |  |  |  |  | AVDD18_PLL_DDR1 |
+| AVDD18_PLL1 |  |  |  |  |  |  |  |  |  |  | AVDD18_PLL1 |
+| AVDD18_PLL234 |  |  |  |  |  |  |  |  |  |  | AVDD18_PLL234 |
+| AVDD18_PLL567 |  |  |  |  |  |  |  |  |  |  | AVDD18_PLL567 |
+| AVSS_PLL234 |  |  |  |  |  |  |  |  |  |  | AVSS_OSCPLL234567 |
+| AVSS_PLL567 |  |  |  |  |  |  |  |  |  |  | AVSS_OSCPLL234567 |
+| AVSS18_OSC |  |  |  |  |  |  |  |  |  |  | AVSS_OSCPLL234567 |
+| VSSU_OSC |  |  |  |  |  |  |  |  |  |  | AVSS_OSCPLL234567 |
+| VSSU_PLL234 |  |  |  |  |  |  |  |  |  |  | AVSS_OSCPLL234567 |
+| VSSU_PLL567 |  |  |  |  |  |  |  |  |  |  | AVSS_OSCPLL234567 |
+| AVSS_PLL1 |  |  |  |  |  |  |  |  |  |  | AVSS_PLL1 |
+| VSSU_PLL1 |  |  |  |  |  |  |  |  |  |  | AVSS_PLL1 |
+
+### 3.4.21 EFUSE
+
+| Pad Name | Default Pull | Pad Edge Wakeup | Function 0 | Function 1 | Function 2 | Function 3 | Function 4 | Function 5 | Function 6 | Function 7 | Pin Name |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| FUSE_AVDD18 |  |  |  |  |  |  |  |  |  |  | AVDD18_FUSE |
+
+### 3.4.22 DCXO
+
+| Pad Name | Default Pull | Pad Edge Wakeup | Function 0 | Function 1 | Function 2 | Function 3 | Function 4 | Function 5 | Function 6 | Function 7 | Pin Name |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| ATEST_PAD |  |  |  |  |  |  |  |  |  |  | ATEST_PAD |
+| DTEST_PAD |  |  |  |  |  |  |  |  |  |  | DTEST_PAD |
+| XI_PAD |  |  |  |  |  |  |  |  |  |  | XI_PAD |
+| XO_PAD |  |  |  |  |  |  |  |  |  |  | XO_PAD |
+| AVDD08_OSC |  |  |  |  |  |  |  |  |  |  | AVDD08_OSC |
+| AVDD18_OSC |  |  |  |  |  |  |  |  |  |  | AVDD18_OSC |
+| AVSS18_OSC |  |  |  |  |  |  |  |  |  |  | AVSS_OSCPLL234567 |
+| VSSU_OSC |  |  |  |  |  |  |  |  |  |  | AVSS_OSCPLL234567 |
+
+### 3.4.23 POWER
+
+| Pad Name | Default Pull | Pad Edge Wakeup | Function 0 | Function 1 | Function 2 | Function 3 | Function 4 | Function 5 | Function 6 | Function 7 | Pin Name |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| vcc_m1_cluster0 |  |  |  |  |  |  |  |  |  |  | VCC_CPUX |
+| vcc_m1_cluster1 |  |  |  |  |  |  |  |  |  |  | VCC_CPUX |
+| vcc_m1_cluster2 |  |  |  |  |  |  |  |  |  |  | VCC_SYS |
+| vcc_m1_cluster3 |  |  |  |  |  |  |  |  |  |  | VCC_SYS |
+| vcc_m1_mem2 |  |  |  |  |  |  |  |  |  |  | VCC_SYS |
+| vcc_m1_mem3 |  |  |  |  |  |  |  |  |  |  | VCC_SYS |
+| vcc_m1 |  |  |  |  |  |  |  |  |  |  | VCC_SYS |
+| vss |  |  |  |  |  |  |  |  |  |  | VSS |
+
+### 3.4.25 DUMMY
+
+| Pad Name | Default Pull | Pad Edge Wakeup | Function 0 | Function 1 | Function 2 | Function 3 | Function 4 | Function 5 | Function 6 | Function 7 | Pin Name |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 0x0 |  |  |  |  |  |  |  |  |  |  |  |
+| BG_OUT |  |  |  |  |  |  |  |  |  |  |  |
+| BG1_OUT |  |  |  |  |  |  |  |  |  |  |  |
+| BG2_OUT |  |  |  |  |  |  |  |  |  |  |  |
+| phy8_refclk_n |  |  |  |  |  |  |  |  |  |  |  |
+| phy8_refclk_p |  |  |  |  |  |  |  |  |  |  |  |
+| phy9_refclk_n |  |  |  |  |  |  |  |  |  |  |  |
+| phy9_refclk_p |  |  |  |  |  |  |  |  |  |  |  |
 
 ## 3.5 Multi-Function Pin Register (MFPRs)
 
