@@ -36,7 +36,7 @@ P3 is a high-performance four-phase buck power management Chip (PMIC) featuring 
 - UVLO, short-circuit, and thermal protection
 - 8-channel configurable 12-bit ADC
 - Four flexible GPIOs for multi-function expansion
-- Operating temperature range: -40°C ~ 85°C
+- Operating temperature range: -40°C ~ 125°C
 - Package: 80-ball WLCSP with 0.4mm ball pitch
 
 ## P3 Four-Phase Independent Output Simplified Circuit Diagram
