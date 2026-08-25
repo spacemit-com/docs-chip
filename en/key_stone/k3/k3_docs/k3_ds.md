@@ -12,6 +12,7 @@ Click to download [K3 Datasheet (PDF)](https://cdn-resource.spacemit.com/file/ch
 
 | Version | Date | Notes |
 | --- | --- | --- |
+| **V1.8** | 2026.08.25 | Added DPU0/DPU1 display interface support note in section 1.2 |
 | **V1.7** | 2026.08.19 | Added section 4.4 cross-references to pin assignment tables |
 | **V1.6** | 2026.07.15 | Updated video subsystem parameters |
 | **V1.5** | 2026.07.01 | Updated A100 feature description |
@@ -73,7 +74,8 @@ The K3 series chips are mainly used in AI consumer hardware, such as AI smart ho
 
 - Integrated 3D graphics engine supporting Vulkan, OpenCL, OpenGL ES  
 - 4K@180 fps decoding and 4K@90 fps encoding (H.265/H.264/VP9)
-- Dual 3840×2160@60fps display outputs via MIPI-DSI (8-lane, 4.5 Gbps/lane) and DP/eDP  
+- Dual 3840×2160@60fps display outputs via MIPI-DSI (8-lane, 4.5 Gbps/lane) or DP/eDP
+  > Note: DPU0 supports MIPI-DSI or DP/eDP; DPU1 supports DP/eDP only.
 - 4 × MIPI-CSI interfaces (12 lanes total), supporting up to 12 camera inputs  
 
 **Connectivity and I/O**  

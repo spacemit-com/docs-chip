@@ -8,6 +8,7 @@ sidebar_position: 1
 
 | Version | Date | Notes |
 | --- | --- | --- |
+| **V1.10** | 2026.08.25 | Added DPU0/DPU1 display interface support note in Section 1.2 |
 | **V1.9** | 2026.08.19 | Updated Section 3.4 pin assignment tables |
 | **V1.8** | 2026.07.15 | Updated video subsystem parameters in Chapter 11 |
 | **V1.7** | 2026.07.14 | Updated boot modes in Chapter 5 |
