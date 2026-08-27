@@ -23,7 +23,8 @@ The SoC address maps from each CPU perspective are provided in the following sec
 | QSPI (128MB) | 0xB800_0000 | 0x0800_0000 |  |  |
 | Reserved | 0xC000_0000 | 0x0010_0000 |  |  |
 | V2D | 0xC010_0000 | 0x0020_0000 |  |  |
-| ASR_DPU0 | 0xC030_0000 | 0x0010_0000 |  |  |
+| DPU0 | 0xC034_0000 | 0x0005_4000 |  |  |
+| Reserved  | 0xC039_4000 | 0x0006_C000 |  |  |
 | FBC-Dec0 | 0xC040_0000 | 0x0000_0100 |  |  |
 | FBC-Dec1 | 0xC040_0100 | 0x0000_0100 |  |  |
 | ASTC-Dec | 0xC040_0200 | 0x0000_0100 |  |  |
@@ -31,8 +32,8 @@ The SoC address maps from each CPU perspective are provided in the following sec
 | LCD_MMU | 0xC040_0400 | 0x0000_0100 |  |  |
 | LCD_DSI | 0xC040_0500 | 0x0000_0200 |  |  |
 | Reserved | 0xC040_0700 | 0x0003_F900 |  |  |
-| Saturn | 0xC044_0000 | 0x0004_0000 |  |  |
-| Reserved | 0xC048_0000 | 0x0008_0000 |  |  |
+| DPU1 | 0xC044_0000 | 0x0005_4000 |  |  |
+| Reserved  | 0xC049_4000 | 0x0006_C000 |  |  |
 | VPU | 0xC050_0000 | 0x0020_0000 |  |  |
 | Audio Peripherals2 | 0xC070_0000 | 0x0010_0000 |  |  |
 | Audio SRAM (512KB) | 0xC080_0000 | 0x0008_0000 |  | Secure |

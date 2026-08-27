@@ -8,20 +8,13 @@ sidebar_position: 2
 
 Click to download [K3 Datasheet (PDF)](https://cdn-resource.spacemit.com/file/chip/K3/k3_datasheet_en.pdf)
 
-## Proprietary, Confidentiality & Disclaimer
-
-**Copyright © 2026 SpacemiT Inc. All rights reserved.**
-
-Without the written approval of SpacemiT (Hangzhou) Technology Co. Ltd. (hereafter SpacemiT), no individual or entity may excerpt, copy or distribute any part or all of the content of this document in any form.
-
-The copyrights of all materials and contents set forth herein are owned by SpacemiT and/or its subsidiaries, except for those specifically indicated as reference to any other party (if any).
-
-The content of this document may be periodically updated due to product version upgrades or other reasons. Unless otherwise specified, this document is provided solely as a user guide, and THE INFORMATION AND ADVICE PROVIDED IN THIS DOCUMENT DO NOT CONSTITUTE ANY EXPLICIT OR IMPLIED WARRANTIES. TO THE EXTENT NOT PROHIBITED BY LAW, THE COMPANY SHALL NOT BE LIABLE FOR ANY FORM OF DAMAGE CAUSED BY THIS DOCUMENT.
-
 ## Revision History
 
 | Version | Date | Notes |
 | --- | --- | --- |
+| **V1.8** | 2026.08.25 | Added DPU0/DPU1 display interface support note in section 1.2 |
+| **V1.7** | 2026.08.19 | Added section 4.4 cross-references to pin assignment tables |
+| **V1.6** | 2026.07.15 | Updated video subsystem parameters |
 | **V1.5** | 2026.07.01 | Updated A100 feature description |
 | **V1.4** | 2026.06.10 | Added Part Number information |
 | **V1.3** | 2026.05.21 | Updated A100 interrupt description |
@@ -80,8 +73,9 @@ The K3 series chips are mainly used in AI consumer hardware, such as AI smart ho
 **Multimedia and Display**  
 
 - Integrated 3D graphics engine supporting Vulkan, OpenCL, OpenGL ES  
-- 4K@120 fps decoding and 4K@60 fps encoding (H.265/H.264/VP9)  
-- Dual 3840×2160@60fps display outputs via MIPI-DSI (8-lane, 4.5 Gbps/lane) and DP/eDP  
+- 4K@180 fps decoding and 4K@90 fps encoding (H.265/H.264/VP9)
+- Dual 3840×2160@60fps display outputs via MIPI-DSI (8-lane, 4.5 Gbps/lane) or DP/eDP
+  > Note: DPU0 supports MIPI-DSI or DP/eDP; DPU1 supports DP/eDP only.
 - 4 × MIPI-CSI interfaces (12 lanes total), supporting up to 12 camera inputs  
 
 **Connectivity and I/O**  
@@ -444,14 +438,14 @@ V2D is a 2D hardware acceleration module that supports common 2D image operation
 
 ### 2.4 Video Subsystem
 
-#### 2.4.1 Introduction  
+#### 2.4.1 Introduction
 
 The Video Processing Unit (VPU) is a quad-core video accelerator that supports encoding and decoding across multiple video standards. It integrates a host CPU and executes firmware to control the hardware engine, handling bitstream parsing, submodule scheduling, and error recovery.
 
 The VPU can operate at up to 1 GHz and supports a wide range of video standards, including H.265, H.264, VP8, VP9, MPEG4, MPEG2, and H.263. Typical concurrent processing capabilities include:
 - 4K@60 fps simultaneous encode and decode
-- 4K@90 fps H.264/H.265 encoding  
-- 4K@180 fps H.264/H.265 decoding  
+- 4K@90 fps H.264/H.265 encoding
+- 4K@180 fps H.264/H.265 decoding
 
 The actual processing for each codec is implemented in dedicated hardware logic. The Macroblock Sequencer serves as the main control unit, orchestrating the processing flow of each submodule to reduce processor load and simplify firmware complexity.
 
@@ -459,39 +453,39 @@ In addition, multiple standard-agnostic modules share common runtime logic, ensu
 
 #### 2.4.2 Video Encoder
 
-**Encoding Features**  
-- Configurable Arm Frame Buffer Compression (AFBC) 1.0 or 1.2 for input  
-- Supports YUV422 and YUV420 AFBC block splitting (16 × 16)  
-- Supports stride (not applicable to AFBC input formats)  
-- Horizontal and vertical mirroring (not applicable to AFBC input formats)  
-- Optional source frame rotation in 90° steps before encoding (not applicable to AFBC input formats)  
+**Encoding Features**
+- Configurable Arm Frame Buffer Compression (AFBC) 1.0 or 1.2 for input
+- Supports YUV422 and YUV420 AFBC block splitting (16 × 16)
+- Supports stride (not applicable to AFBC input formats)
+- Horizontal and vertical mirroring (not applicable to AFBC input formats)
+- Optional source frame rotation in 90° steps before encoding (not applicable to AFBC input formats)
 
-> **Note:** If YUV422 is rotated by 90° or 270° without conversion to YUV420, the output will be converted to YUV440  
+> **Note:** If YUV422 is rotated by 90° or 270° without conversion to YUV420, the output will be converted to YUV440
 
-**Supported Source-Frame Input Formats**  
+**Supported Source-Frame Input Formats**
 
-- 1-plane YUV422, scan-line format, interleaved in YUYV or UYVY order  
-  > **Note:** YUV422 input can be converted to YUV420  
-- 1-plane RGB (8-bit), byte-address order: RGBA, BGRA, ARGB, ABGR  
-- 2-plane YUV420, scan-line format, with chroma interleaved in UV or VU order  
-- 3-plane YUV420, scan-line format  
-  > **Note:** Supported for testing purposes only; not recommended for optimal performance  
-- AFBC YUV422  
-- AFBC YUV420  
+- 1-plane YUV422, scan-line format, interleaved in YUYV or UYVY order
+  > **Note:** YUV422 input can be converted to YUV420
+- 1-plane RGB (8-bit), byte-address order: RGBA, BGRA, ARGB, ABGR
+- 2-plane YUV420, scan-line format, with chroma interleaved in UV or VU order
+- 3-plane YUV420, scan-line format
+  > **Note:** Supported for testing purposes only; not recommended for optimal performance
+- AFBC YUV422
+- AFBC YUV420
 
-**Supported Encoding Formats**  
-- HEVC (H.265) Main Profile  
+**Supported Encoding Formats**
+- HEVC (H.265) Main Profile
 - HEVC (H.265) Main 10 Profile
-- H.264 Baseline Profile (BP)  
-- H.264 Main Profile (MP)  
-- H.264 High Profile (HP)  
-- VP8  
+- H.264 Baseline Profile (BP)
+- H.264 Main Profile (MP)
+- H.264 High Profile (HP)
+- VP8
 - VP9 Profile 0
 - JPEG, baseline sequential
 
 **HEVC (H.265) Encoding Features**
 - Output bitstream compliant with HEVC Main Profile
-- Encoding performance: Up to 4K@60 fps
+- Encoding performance: Up to 4K@90 fps
 - Maximum frame size: 4096 × 4096 pixels
 - Bit depth: 8-bit, supporting I, P, and B frames
 - Supports Tiled Mode, up to 4 tiles (horizontal split only)
@@ -502,144 +496,144 @@ In addition, multiple standard-agnostic modules share common runtime logic, ensu
   - Luma: 8×8, 16×16, 32×32
   - Chroma: 4×4, 8×8, 16×16
 - Inter Prediction Modes: 8×8, 16×16, 32×32
-- Transform Sizes
+- Transform Sizes:
   - Luma: 8×8, 16×16, 32×32
   - Chroma: 4×4, 8×8, 16×16
 - Supports Deblocking Filter
-- Quantization modes: fixed QP, or leaky bucket model–based rate control (based on target bitrate and buffer size)
+- Quantization modes: fixed QP, or leaky bucket model-based rate control (based on target bitrate and buffer size)
 - Supports Long-Term Reference (LTR) frames
 - Supports slice insertion at CTU-row granularity
 
-> **Note**: The encoder does not enforce a maximum bit constraint per CTU.
+> **Note:** The encoder does not enforce a maximum bit constraint per CTU.
 
-**H.264 Encoding Features**  
-- Encoded bitstream compliant with Baseline, Main, and High Profiles  
-- Encoding performance: Up to 4K@60 fps
-- Maximum frame size: 4096 × 4096 pixels  
-- Frame types: Supports I, P, and B frames  
-- Entropy coding: CABAC or CAVLC  
-  > **Note:** B frames are not supported by CAVLC  
-- Motion Estimation (ME) with search range:
-  - Horizontal: ±128 pixels & Vertical: ±64 pixels
-  - Precision: Supports down to 1/4-pixel (QPEL) accuracy  
-- Intra Prediction Modes:  
-  - Luma: 4×4, 8×8, 16×16  
-  - Chroma: 8×8  
-- Inter Prediction Modes: 8×8, 16×16  
-- Transform Sizes: 4×4, 8×8 
-- Supports Deblocking Filter
-- Constrained intra-prediction (selectable)  
-- Quantization modes: fixed QP, or leaky bucket model–based rate control (based on target bitrate and buffer size) 
-- Long-term reference frame support  
-- Selectable intra-frame refresh intervals  
-- Slice insertion granularity: 32-pixel high rows
-
-> **Notes:**  
-> 1. For further details, refer to ITU-T H.264 Annex B: VC-1 Compressed Video Bitstream Format and Decoding Process  
-> 2. Encoder does not prevent output from exceeding the maximum bits per macroblock  
-
-**VP8 Encoding Features**  
-- Encoding performance: Up to 4K@60 fps
-- Maximum frame size: 2048 × 2048 pixels  
-- Frame types: Supports I and P frames  
+**H.264 Encoding Features**
+- Encoded bitstream compliant with Baseline, Main, and High Profiles
+- Encoding performance: Up to 4K@90 fps
+- Maximum frame size: 4096 × 4096 pixels
+- Frame types: Supports I, P, and B frames
+- Entropy coding: CABAC or CAVLC
+  > **Note:** B frames are not supported by CAVLC
 - Motion Estimation (ME) with search range:
   - Horizontal: ±128 pixels & Vertical: ±64 pixels
   - Precision: Supports down to 1/4-pixel (QPEL) accuracy
 - Intra Prediction Modes:
-  - Luma: 4×4, 8×8, 16×16  
-  - Chroma: 8×8  
+  - Luma: 4×4, 8×8, 16×16
+  - Chroma: 8×8
 - Inter Prediction Modes: 8×8, 16×16
+- Transform Sizes: 4×4, 8×8
 - Supports Deblocking Filter
-- Quantization modes: fixed QP, or leaky bucket model–based rate control (based on target bitrate and buffer size)
+- Constrained intra-prediction (selectable)
+- Quantization modes: fixed QP, or leaky bucket model-based rate control (based on target bitrate and buffer size)
+- Long-term reference frame support
+- Selectable intra-frame refresh intervals
+- Slice insertion granularity: 32-pixel high rows
 
-**VP9 Encoding Features**  
-- Encoded bitstream compliant with VP9 Profile 0 at 8-bit depth  
-- Encoding performance: Up to 4K@60 fps 
-- Maximum frame size: 4096 × 4096 pixels  
-- Sample depth: 8-bit  
-- Frame types: Supports I and P frames  
+> **Notes:**
+> 1. For further details, refer to ITU-T H.264 Annex B: VC-1 Compressed Video Bitstream Format and Decoding Process
+> 2. Encoder does not prevent output from exceeding the maximum bits per macroblock
+
+**VP8 Encoding Features**
+- Encoding performance: Up to 4K@90 fps
+- Maximum frame size: 2048 × 2048 pixels
+- Frame types: Supports I and P frames
 - Motion Estimation (ME) with search range:
   - Horizontal: ±128 pixels & Vertical: ±64 pixels
-  - Precision: Supports down to 1/4-pixel (QPEL) accuracy 
+  - Precision: Supports down to 1/4-pixel (QPEL) accuracy
 - Intra Prediction Modes:
-  - Luma: 8×8, 16×16, 32×32  
-  - Chroma: 4×4, 8×8, 16×16  
-- Inter Prediction Modes: 8×8, 16×16, 32×32  
-- Transform sizes:  
-  - Luma: 8×8, 16×16, 32×32  
-  - Chroma: 4×4, 8×8, 16×16  
+  - Luma: 4×4, 8×8, 16×16
+  - Chroma: 8×8
+- Inter Prediction Modes: 8×8, 16×16
 - Supports Deblocking Filter
-- Quantization modes: fixed QP, or leaky bucket model–based rate control (based on target bitrate and buffer size)  
+- Quantization modes: fixed QP, or leaky bucket model-based rate control (based on target bitrate and buffer size)
+
+**VP9 Encoding Features**
+- Encoded bitstream compliant with VP9 Profile 0 at 8-bit depth
+- Encoding performance: Up to 4K@90 fps
+- Maximum frame size: 4096 × 4096 pixels
+- Sample depth: 8-bit
+- Frame types: Supports I and P frames
+- Motion Estimation (ME) with search range:
+  - Horizontal: ±128 pixels & Vertical: ±64 pixels
+  - Precision: Supports down to 1/4-pixel (QPEL) accuracy
+- Intra Prediction Modes:
+  - Luma: 8×8, 16×16, 32×32
+  - Chroma: 4×4, 8×8, 16×16
+- Inter Prediction Modes: 8×8, 16×16, 32×32
+- Transform sizes:
+  - Luma: 8×8, 16×16, 32×32
+  - Chroma: 4×4, 8×8, 16×16
+- Supports Deblocking Filter
+- Quantization modes: fixed QP, or leaky bucket model-based rate control (based on target bitrate and buffer size)
 
 #### 2.4.3 Video Decoder
 
-**Decoding Features**  
-- Supports the following output frame formats:  
-  - 2-plane YUV420, scan-line format, chroma interleaved in UV or VU order  
-  - 3-plane YUV420, scan-line format  
-    > **Note:** 3-plane format is for testing purposes only; not recommended for maximum performance in normal applications  
-- Ensure correct YUV buffer alignment and stride for optimal performance  
-- Supports YUV420 AFBC format, 8-bit color depth  
-- Configurable for AFBC 1.0 or AFBC 1.2 output  
-- Stride support for scan-line formats only  
-- Decoded frame rotation supported in 90-degree increments before output  
-  > **Note:** Not applicable for AFBC output formats  
-- Supports reporting of average luminance (brightness) and chrominance (color) values for each 32×32 pixel block in every displayed output frame  
+**Decoding Features**
+- Supports the following output frame formats:
+  - 2-plane YUV420, scan-line format, chroma interleaved in UV or VU order
+  - 3-plane YUV420, scan-line format
+    > **Note:** 3-plane format is for testing purposes only; not recommended for maximum performance in normal applications
+- Ensure correct YUV buffer alignment and stride for optimal performance
+- Supports YUV420 AFBC format, 8-bit color depth
+- Configurable for AFBC 1.0 or AFBC 1.2 output
+- Stride support for scan-line formats only
+- Decoded frame rotation supported in 90-degree increments before output
+  > **Note:** Not applicable for AFBC output formats
+- Supports reporting of average luminance (brightness) and chrominance (color) values for each 32×32 pixel block in every displayed output frame
 
-**Supported Decoding Formats**  
-- HEVC (H.265): Main Profile  
-- H.264: Baseline, Main, High Profiles  
-- VP8  
-- VP9: Profile 0  
-- VC-1: Simple Profile (SP), Main Profile (MP), Advanced Profile (AP)  
-- MPEG-4: Simple Profile (SP), Advanced Simple Profile (ASP)  
-- MPEG-2: Main Profile (MP)  
-- H.263: Profile 0  
+**Supported Decoding Formats**
+- HEVC (H.265): Main Profile
+- H.264: Baseline, Main, High Profiles
+- VP8
+- VP9: Profile 0 and Profile 2 at 10-bit
+- VC-1: Simple Profile (SP), Main Profile (MP), Advanced Profile (AP)
+- MPEG-4: Simple Profile (SP), Advanced Simple Profile (ASP)
+- MPEG-2: Main Profile (MP)
+- H.263: Profile 0
 
-**HEVC (H.265) Decoding Features**  
+**HEVC (H.265) Decoding Features**
 - Full compliance with Main Profiles
-- Decoding performance: Up to 4K@120 fps  
+- Decoding performance: Up to 4K@180 fps
 - Maximum frame size: 4096 × 4096 pixels
 
 **H.264 Decoding Features**
 - Fully compliant with Baseline, Main, High, and High 10 progressive profiles
-- Decoding performance: Up to 4K@120 fps
-- Escape option is always enabled to prevent emulation of a Network Abstraction Layer (NAL) unit start code, regardless of the NAL packet format setting  
+- Decoding performance: Up to 4K@180 fps
+- Escape option is always enabled to prevent emulation of a Network Abstraction Layer (NAL) unit start code, regardless of the NAL packet format setting
 
-> **Note:** For further details, refer to ITU-T H.264 Annex B: VC-1 Compressed Video Bitstream Format and Decoding Process  
+> **Note:** For further details, refer to ITU-T H.264 Annex B: VC-1 Compressed Video Bitstream Format and Decoding Process
 
-**VP8 Decoding Features**  
+**VP8 Decoding Features**
 - Fully compliant with the VP8 specification
-- Decoding performance: Up to 4K@120 fps
-- Maximum frame size: 2048 × 2048 pixels  
+- Decoding performance: Up to 4K@180 fps
+- Maximum frame size: 2048 × 2048 pixels
 
-**VP9 Decoding Features**  
+**VP9 Decoding Features**
 - Fully compliant with Profile 0
-- Decoding performance: Up to 4K@120 fps
-- Maximum frame size: 4096 × 4096 pixels  
+- Decoding performance: Up to 4K@180 fps
+- Maximum frame size: 4096 × 4096 pixels
 
-**VC-1 Decoding Features**  
-- Fully compliant with VC-1 Simple, Main, and Advanced Profiles  
-- Decoding performance: Up to 4K@120 fps  
+**VC-1 Decoding Features**
+- Fully compliant with VC-1 Simple, Main, and Advanced Profiles
+- Decoding performance: Up to 4K@120 fps
 - Maximum frame size: 2048 × 4096 pixels
 
-**MPEG4 Decoding Features**  
+**MPEG4 Decoding Features**
 - Compliant with MPEG-4 Simple Profile (SP) and Advanced Simple Profile (ASP)
-- Supports Global Motion Compensation (GMC) with a limitation of one warp point  
+- Supports Global Motion Compensation (GMC) with a limitation of one warp point
 - Decoding performance: Up to 4K@120 fps
 - Maximum frame size: 2048 × 2048 pixels
 
-**MPEG2 Decoding Features**  
-- Compliant with MPEG-2 Main Profile  
+**MPEG2 Decoding Features**
+- Compliant with MPEG-2 Main Profile
 - Decoding performance: Up to 4K@120 fps
-- Maximum frame size:  
-  - Progressive streams: Width up to 4096 pixels  
+- Maximum frame size:
+  - Progressive streams: Width up to 4096 pixels
   - Interlaced streams: Width up to 2048 pixels and Height up to 4096 pixels
 
-**H.263 Decoding Features**  
-- Compliant with H.263 Profile 0  
+**H.263 Decoding Features**
+- Compliant with H.263 Profile 0
 - Decoding performance: Up to 4K@120 fps
-- Maximum frame size: Width and height up to 2048 pixels  
+- Maximum frame size: Width and height up to 2048 pixels
 
 ### 2.5 Display Subsystem
 
@@ -1202,61 +1196,12 @@ Peripheral devices do not directly issue addresses or commands to the memory con
 The processor can also access the peripheral bus via the DMA controller, which serves as a DMA bridge, enabling data transfers that bypass the system’s primary DMA path when necessary.  
 The DMA controller supports various data transfer types in DMA Flow-Through Mode through 16 configurable DMA channels. The supported data transfer paths are summarized below:
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 14px;">
-
-  <colgroup>
-    <col width="200">
-    <col width="200">
-    <col width="200">
-    <col width="200">
-    <col width="200">
-  </colgroup>
-  
-  <thead>
-    <tr style="background-color: #f6f8fa;">
-      <th style="text-align: center;">Source / Destination</th>
-      <th style="text-align: center;">Internal Memory</th>
-      <th style="text-align: center;">External Memory</th>
-      <th style="text-align: center;">Internal Peripheral</th>
-      <th style="text-align: center;">External Peripheral</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <!-- Row 1: Internal Memory -->
-    <tr>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5; font-weight: bold;">Internal Memory</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">Flow-Through Mode</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">___</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">___</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">___</td>
-    </tr>
-    <!-- Row 2: External Memory -->
-    <tr>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5; font-weight: bold;">External Memory</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">Flow-Through Mode</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">Flow-Through Mode</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">___</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">___</td>
-    </tr>
-    <!-- Row 3: Internal Peripheral -->
-    <tr>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5; font-weight: bold;">Internal Peripheral</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">Flow-Through Mode</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">Flow-Through Mode</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">___</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">___</td>
-    </tr>
-    <!-- Row 4: External Peripheral -->
-    <tr>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5; font-weight: bold;">External Peripheral</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">Flow-Through Mode</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">Flow-Through Mode</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">___</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">___</td>
-    </tr>
-  </tbody>
-</table>
+| Source / Destination | Internal Memory | External Memory | Internal Peripheral | External Peripheral |
+| --- | --- | --- | --- | --- |
+| **Internal Memory** | Flow-Through Mode | ___ | ___ | ___ |
+| **External Memory** | Flow-Through Mode | Flow-Through Mode | ___ | ___ |
+| **Internal Peripheral** | Flow-Through Mode | Flow-Through Mode | ___ | ___ |
+| **External Peripheral** | Flow-Through Mode | Flow-Through Mode | ___ | ___ |
 
 **Features**  
 - Two independent DMA controller instances, supporting:  
@@ -1437,49 +1382,12 @@ The K3 integrates eight Phase-Locked Loops (PLLs) designed to provide a wide ran
 
 The K3 allows applying different schemes of resource reset as tabled below.
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 14px;">
-
-  <colgroup>
-    <col width="100">
-    <col width="300">
-    <col width="600">
-  </colgroup>
-  
-  <thead>
-    <tr style="background-color: #f6f8fa;">
-      <th style="text-align: center;">No.</th>
-      <th style="text-align: center;">Resource Reset Scheme</th>
-      <th style="text-align: left;">Description</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <!-- Row 1 -->
-    <tr>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">1</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">Power-On-Reset</td>
-      <td style="padding: 8px; text-align: left; border: 1px solid #dfe2e5;">Reset the whole chip during power-on sequence</td>
-    </tr>
-    <!-- Row 2 -->
-    <tr>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">2</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">WatchDog Reset</td>
-      <td style="padding: 8px; text-align: left; border: 1px solid #dfe2e5;">Reset the whole chip excluding pinmux registers and debug registers</td>
-    </tr>
-    <!-- Row 3 -->
-    <tr>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">3</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">Module Software Reset</td>
-      <td style="padding: 8px; text-align: left; border: 1px solid #dfe2e5;">Reset each module individually through software</td>
-    </tr>
-    <!-- Row 4 -->
-    <tr>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">4</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">Power Island POR Reset</td>
-      <td style="padding: 8px; text-align: left; border: 1px solid #dfe2e5;">Reset the whole power island during its power-on sequence</td>
-    </tr>
-  </tbody>
-</table>
+| No. | Resource Reset Scheme | Description |
+| --- | --- | --- |
+| 1 | Power-On-Reset | Reset the whole chip during power-on sequence |
+| 2 | WatchDog Reset | Reset the whole chip excluding pinmux registers and debug registers |
+| 3 | Module Software Reset | Reset each module individually through software |
+| 4 | Power Island POR Reset | Reset the whole power island during its power-on sequence |
 
 ### 2.11 Boot Mode
 
@@ -1519,84 +1427,14 @@ The secondary boot device can be selected by configuring the Boot Strap Pins.
 
 The K3 uses a combination of four Boot Strap pins to select the boot mode, as shown in the table below:
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 14px;">
-  <colgroup>
-    <col width="200">
-    <col width="200">
-    <col width="200">
-    <col width="200">
-    <col width="200">
-  </colgroup>
-  
-  <thead>
-    <tr style="background-color: #f6f8fa;">
-      <th style="text-align: center;">
-        Download Select<br><span style="font-weight: normal; font-size: 1em; color: #555;">GPIO_69</span>
-      </th>
-      <th style="text-align: center;">
-        Download Mode<br><span style="font-weight: normal; font-size: 1em; color: #555;">GPIO_68</span>
-      </th>
-      <th style="text-align: center;">
-        Boot Select 1<br><span style="font-weight: normal; font-size: 1em; color: #555;">GPIO_66</span>
-      </th>
-      <th style="text-align: center;">
-        Boot Select 0<br><span style="font-weight: normal; font-size: 1em; color: #555;">GPIO_65</span>
-      </th>
-      <th style="text-align: center;">Boot Mode</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <!-- Row 1 -->
-    <tr>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">1</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">0</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">x</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">x</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">USB Fastboot</td>
-    </tr>
-    <!-- Row 2 -->
-    <tr>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">1</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">1</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">x</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">x</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">UART Xmodem</td>
-    </tr>
-    <!-- Row 3 -->
-    <tr>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">0</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">x</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">0</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">0</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">SD Card → eMMC</td>
-    </tr>
-    <!-- Row 4 -->
-    <tr>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">0</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">x</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">0</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">1</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">SD Card → SPI NOR</td>
-    </tr>
-    <!-- Row 5 -->
-    <tr>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">0</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">x</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">1</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">0</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">SD Card → SPI NAND</td>
-    </tr>
-    <!-- Row 6 -->
-    <tr>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">0</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">x</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">1</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">1</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">SD Card → UFS</td>
-    </tr>
-  </tbody>
-</table>
+| Download Select<br>GPIO_69 | Download Mode<br>GPIO_68 | Boot Select 1<br>GPIO_66 | Boot Select 0<br>GPIO_65 | Boot Mode |
+| --- | --- | --- | --- | --- |
+| 1 | 0 | x | x | USB Fastboot |
+| 1 | 1 | x | x | UART Xmodem |
+| 0 | x | 0 | 0 | SD Card → eMMC |
+| 0 | x | 0 | 1 | SD Card → SPI NOR |
+| 0 | x | 1 | 0 | SD Card → SPI NAND |
+| 0 | x | 1 | 1 | SD Card → UFS |
 
 > **Note**: “x” indicates that the pin state does not affect boot mode selection.
 
@@ -1606,34 +1444,9 @@ The K3 uses a combination of four Boot Strap pins to select the boot mode, as sh
 
 K3 is available in one package as follows:
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 14px;">
-
-  <colgroup>
-    <col width="250">
-    <col width="250">
-    <col width="250">
-    <col width="250">
-  </colgroup>
-  
-  <thead>
-    <tr style="background-color: #f6f8fa;">
-      <th style="text-align: center;">Type</th>
-      <th style="text-align: center;">Size</th>
-      <th style="text-align: center;">Pin Pitch</th>
-      <th style="text-align: center;">Pin Count</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <!-- Row 1 -->
-    <tr>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5; font-weight: bold;">FBGA</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">27×27 mm</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">0.650 mm</td>
-      <td style="padding: 8px; text-align: center; border: 1px solid #dfe2e5;">1563 (40×40)</td>
-    </tr>
-  </tbody>
-</table>
+| Type | Size | Pin Pitch | Pin Count |
+| --- | --- | --- | --- |
+| **FBGA** | 27×27 mm | 0.650 mm | 1563 (40×40) |
 
 The related package outline drawing (POD) is depicted in the following section.
 
@@ -1662,2173 +1475,866 @@ Let’s consider the division into the quadrants, in order to conveniently provi
 
 <img src="static/k3_pinmap_a-y_1-20.png" alt="" width="800">
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px;">
-
-  <colgroup>
-    <col width="150">
-    <col width="350">
-    <col width="150">
-    <col width="350">
-  </colgroup>
-  
-  <thead>
-    <tr style="background-color: #f6f8fa;">
-      <th style="text-align: center;">Pin Number</th>
-      <th style="text-align: left;">Pin Name</th>
-      <th style="text-align: center;">Pin Number</th>
-      <th style="text-align: left;">Pin Name</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <tr><td style="text-align: center;">A2</td><td style="text-align: left;">VSS</td><td style="text-align: center;">K20</td><td style="text-align: left;">AVDD08_PCIE1</td></tr>
-    <tr><td style="text-align: center;">A3</td><td style="text-align: left;">DDR1_DQ_B_08</td><td style="text-align: center;">L1</td><td style="text-align: left;">DDR1_CKT_B</td></tr>
-    <tr><td style="text-align: center;">A4</td><td style="text-align: left;">DDR1_DMI1_B</td><td style="text-align: center;">L2</td><td style="text-align: left;">DDR1_CKC_B</td></tr>
-    <tr><td style="text-align: center;">A5</td><td style="text-align: left;">DDR1_DQ_B_09</td><td style="text-align: center;">L3</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">A6</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">L4</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">A7</td><td style="text-align: left;">PCIE5_TX0N</td><td style="text-align: center;">L5</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">A8</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">L6</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">A9</td><td style="text-align: left;">PCIE4/USB3-D_TX0N</td><td style="text-align: center;">L7</td><td style="text-align: left;">DDR1_CA_A_01</td></tr>
-    <tr><td style="text-align: center;">A10</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">L8</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">A11</td><td style="text-align: left;">PCIE3/USB3-C_TX0N</td><td style="text-align: center;">L9</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">A12</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">L10</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">A13</td><td style="text-align: left;">PCIE2/USB3-B_TX0N</td><td style="text-align: center;">L11</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">A14</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">L12</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">A15</td><td style="text-align: left;">PCIE1_TX1P</td><td style="text-align: center;">L13</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">A16</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">L14</td><td style="text-align: left;">AVSS_PCIEUSB</td></tr>
-    <tr><td style="text-align: center;">A17</td><td style="text-align: left;">PCIE1_TX0N</td><td style="text-align: center;">L15</td><td style="text-align: left;">AVSS_PCIEUSB</td></tr>
-    <tr><td style="text-align: center;">A18</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">L16</td><td style="text-align: left;">AVSS_PCIEUSB</td></tr>
-    <tr><td style="text-align: center;">A19</td><td style="text-align: left;">PCIE0_TX1P</td><td style="text-align: center;">L17</td><td style="text-align: left;">AVSS_PCIEUSB</td></tr>
-    <tr><td style="text-align: center;">A20</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">L18</td><td style="text-align: left;">AVSS_PCIEUSB</td></tr>
-    <tr><td style="text-align: center;">B1</td><td style="text-align: left;">VSS</td><td style="text-align: center;">L19</td><td style="text-align: left;">AVDD08_PCIE3/USB3-C</td></tr>
-    <tr><td style="text-align: center;">B2</td><td style="text-align: left;">VSS</td><td style="text-align: center;">L20</td><td style="text-align: left;">AVDD08_PCIE2/USB3-B</td></tr>
-    <tr><td style="text-align: center;">B3</td><td style="text-align: left;">VSS</td><td style="text-align: center;">M1</td><td style="text-align: left;">DDR1_CKT_A</td></tr>
-    <tr><td style="text-align: center;">B4</td><td style="text-align: left;">DDR1_DQ_B_11</td><td style="text-align: center;">M2</td><td style="text-align: left;">DDR1_CKC_A</td></tr>
-    <tr><td style="text-align: center;">B5</td><td style="text-align: left;">DDR1_DQ_B_10</td><td style="text-align: center;">M3</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">B6</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">M4</td><td style="text-align: left;">DDR1_DQ_A_00</td></tr>
-    <tr><td style="text-align: center;">B7</td><td style="text-align: left;">PCIE5_TX0P</td><td style="text-align: center;">M5</td><td style="text-align: left;">DDR1_DQ_A_02</td></tr>
-    <tr><td style="text-align: center;">B8</td><td style="text-align: left;">PCIE5_REFCLK_N</td><td style="text-align: center;">M6</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">B9</td><td style="text-align: left;">PCIE4/USB3-D_TX0P</td><td style="text-align: center;">M7</td><td style="text-align: left;">DDR1_CA_A_00</td></tr>
-    <tr><td style="text-align: center;">B10</td><td style="text-align: left;">PCIE4_REFCLK_P</td><td style="text-align: center;">M8</td><td style="text-align: left;">VDDQ_DDR</td></tr>
-    <tr><td style="text-align: center;">B11</td><td style="text-align: left;">PCIE3/USB3-C_TX0P</td><td style="text-align: center;">M9</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">B12</td><td style="text-align: left;">PCIE3_REFCLK_N</td><td style="text-align: center;">M10</td><td style="text-align: left;">VDD0V8_DDR</td></tr>
-    <tr><td style="text-align: center;">B13</td><td style="text-align: left;">PCIE2/USB3-B_TX0P</td><td style="text-align: center;">M11</td><td style="text-align: left;">AVDD18_PLL_DDR1</td></tr>
-    <tr><td style="text-align: center;">B14</td><td style="text-align: left;">PCIE2_REFCLK_P</td><td style="text-align: center;">M12</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">B15</td><td style="text-align: left;">PCIE1_TX1N</td><td style="text-align: center;">M13</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">B16</td><td style="text-align: left;">PCIE1_REFCLK_P</td><td style="text-align: center;">M14</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">B17</td><td style="text-align: left;">PCIE1_TX0P</td><td style="text-align: center;">M15</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">B18</td><td style="text-align: left;">USB20_B_USB_P</td><td style="text-align: center;">M16</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">B19</td><td style="text-align: left;">PCIE0_TX1N</td><td style="text-align: center;">M17</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">B20</td><td style="text-align: left;">PCIE0_REFCLK_P</td><td style="text-align: center;">M18</td><td style="text-align: left;">AVSS_PCIEUSB</td></tr>
-    <tr><td style="text-align: center;">C1</td><td style="text-align: left;">DDR1_DQ_B_00</td><td style="text-align: center;">M19</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">C2</td><td style="text-align: left;">DDR1_DQ_B_02</td><td style="text-align: center;">M20</td><td style="text-align: left;">AVDD08_PCIE2/USB3-B</td></tr>
-    <tr><td style="text-align: center;">C3</td><td style="text-align: left;">VSS</td><td style="text-align: center;">N1</td><td style="text-align: left;">DDR1_DQ_A_15</td></tr>
-    <tr><td style="text-align: center;">C4</td><td style="text-align: left;">DDR1_DQS1_T_B</td><td style="text-align: center;">N2</td><td style="text-align: left;">DDR1_DQ_A_14</td></tr>
-    <tr><td style="text-align: center;">C5</td><td style="text-align: left;">DDR1_DQS1_C_B</td><td style="text-align: center;">N3</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">C6</td><td style="text-align: left;">DDR1_ZN</td><td style="text-align: center;">N4</td><td style="text-align: left;">DDR1_DQ_A_01</td></tr>
-    <tr><td style="text-align: center;">C7</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">N5</td><td style="text-align: left;">DDR1_DQ_A_03</td></tr>
-    <tr><td style="text-align: center;">C8</td><td style="text-align: left;">PCIE5_REFCLK_P</td><td style="text-align: center;">N6</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">C9</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">N7</td><td style="text-align: left;">DDR1_CKE0_A</td></tr>
-    <tr><td style="text-align: center;">C10</td><td style="text-align: left;">PCIE4_REFCLK_N</td><td style="text-align: center;">N8</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">C11</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">N9</td><td style="text-align: left;">VDD0V8_DDR</td></tr>
-    <tr><td style="text-align: center;">C12</td><td style="text-align: left;">PCIE3_REFCLK_P</td><td style="text-align: center;">N10</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">C13</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">N11</td><td style="text-align: left;">AVDD08_PLL_DDR1</td></tr>
-    <tr><td style="text-align: center;">C14</td><td style="text-align: left;">PCIE2_REFCLK_N</td><td style="text-align: center;">N12</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">C15</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">N13</td><td style="text-align: left;">VCC_SYS</td></tr>
-    <tr><td style="text-align: center;">C16</td><td style="text-align: left;">PCIE1_REFCLK_N</td><td style="text-align: center;">N14</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">C17</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">N15</td><td style="text-align: left;">VCC_SYS</td></tr>
-    <tr><td style="text-align: center;">C18</td><td style="text-align: left;">USB20_B_USB_M</td><td style="text-align: center;">N16</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">C19</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">N17</td><td style="text-align: left;">VCC_SYS</td></tr>
-    <tr><td style="text-align: center;">C20</td><td style="text-align: left;">PCIE0_REFCLK_N</td><td style="text-align: center;">N18</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">D1</td><td style="text-align: left;">DDR1_DQ_B_03</td><td style="text-align: center;">N19</td><td style="text-align: left;">VCC_SYS</td></tr>
-    <tr><td style="text-align: center;">D2</td><td style="text-align: left;">DDR1_DQ_B_01</td><td style="text-align: center;">N20</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">D3</td><td style="text-align: left;">VSS</td><td style="text-align: center;">P1</td><td style="text-align: left;">DDR1_DQ_A_13</td></tr>
-    <tr><td style="text-align: center;">D4</td><td style="text-align: left;">VSS</td><td style="text-align: center;">P2</td><td style="text-align: left;">DDR1_DQ_A_12</td></tr>
-    <tr><td style="text-align: center;">D5</td><td style="text-align: left;">VSS</td><td style="text-align: center;">P3</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">D6</td><td style="text-align: left;">DDR1_CKE1_B</td><td style="text-align: center;">P4</td><td style="text-align: left;">DDR1_DQS0_C_A</td></tr>
-    <tr><td style="text-align: center;">D7</td><td style="text-align: left;">DDR1_CA_B_00</td><td style="text-align: center;">P5</td><td style="text-align: left;">DDR1_DQS0_T_A</td></tr>
-    <tr><td style="text-align: center;">D8</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">P6</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">D9</td><td style="text-align: left;">PCIE5_RX0P</td><td style="text-align: center;">P7</td><td style="text-align: left;">DDR1_CS1_A</td></tr>
-    <tr><td style="text-align: center;">D10</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">P8</td><td style="text-align: left;">VDDQ_DDR</td></tr>
-    <tr><td style="text-align: center;">D11</td><td style="text-align: left;">USB20_D_USB_P</td><td style="text-align: center;">P9</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">D12</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">P10</td><td style="text-align: left;">VDD0V8_DDR</td></tr>
-    <tr><td style="text-align: center;">D13</td><td style="text-align: left;">PCIE4/USB3-D_RX0N</td><td style="text-align: center;">P11</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">D14</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">P12</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">D15</td><td style="text-align: left;">PCIE3/USB3-C_RX0N</td><td style="text-align: center;">P13</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">D16</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">P14</td><td style="text-align: left;">VCC_SYS</td></tr>
-    <tr><td style="text-align: center;">D17</td><td style="text-align: left;">PCIE2/USB3-B_RX0P</td><td style="text-align: center;">P15</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">D18</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">P16</td><td style="text-align: left;">VCC_SYS</td></tr>
-    <tr><td style="text-align: center;">D19</td><td style="text-align: left;">PCIE1_RX0P</td><td style="text-align: center;">P17</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">D20</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">P18</td><td style="text-align: left;">VCC_SYS</td></tr>
-    <tr><td style="text-align: center;">E1</td><td style="text-align: left;">DDR1_WCK_T_B_0</td><td style="text-align: center;">P19</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">E2</td><td style="text-align: left;">DDR1_WCK_C_B_0</td><td style="text-align: center;">P20</td><td style="text-align: left;">VCC_SYS</td></tr>
-    <tr><td style="text-align: center;">E3</td><td style="text-align: left;">VSS</td><td style="text-align: center;">R1</td><td style="text-align: left;">DDR1_WCK_C_A_1</td></tr>
-    <tr><td style="text-align: center;">E4</td><td style="text-align: left;">DDR1_WCK_T_B_1</td><td style="text-align: center;">R2</td><td style="text-align: left;">DDR1_WCK_T_A_1</td></tr>
-    <tr><td style="text-align: center;">E5</td><td style="text-align: left;">DDR1_WCK_C_B_1</td><td style="text-align: center;">R3</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">E6</td><td style="text-align: left;">VSS</td><td style="text-align: center;">R4</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">E7</td><td style="text-align: left;">DDR1_CS1_B</td><td style="text-align: center;">R5</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">E8</td><td style="text-align: left;">VSS</td><td style="text-align: center;">R6</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">E9</td><td style="text-align: left;">PCIE5_RX0N</td><td style="text-align: center;">R7</td><td style="text-align: left;">VDDQ_DDR</td></tr>
-    <tr><td style="text-align: center;">E10</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">R8</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">E11</td><td style="text-align: left;">USB20_D_USB_M</td><td style="text-align: center;">R9</td><td style="text-align: left;">VDD0V8_DDR</td></tr>
-    <tr><td style="text-align: center;">E12</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">R10</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">E13</td><td style="text-align: left;">PCIE4/USB3-D_RX0P</td><td style="text-align: center;">R11</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">E14</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">R12</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">E15</td><td style="text-align: left;">PCIE3/USB3-C_RX0P</td><td style="text-align: center;">R13</td><td style="text-align: left;">VCC_SYS</td></tr>
-    <tr><td style="text-align: center;">E16</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">R14</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">E17</td><td style="text-align: left;">PCIE2/USB3-B_RX0N</td><td style="text-align: center;">R15</td><td style="text-align: left;">VCC_SYS</td></tr>
-    <tr><td style="text-align: center;">E18</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">R16</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">E19</td><td style="text-align: left;">PCIE1_RX0N</td><td style="text-align: center;">R17</td><td style="text-align: left;">VCC_SYS</td></tr>
-    <tr><td style="text-align: center;">E20</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">R18</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">F1</td><td style="text-align: left;">DDR1_DQS0_T_B</td><td style="text-align: center;">R19</td><td style="text-align: left;">VCC_SYS</td></tr>
-    <tr><td style="text-align: center;">F2</td><td style="text-align: left;">DDR1_DQS0_C_B</td><td style="text-align: center;">R20</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">F3</td><td style="text-align: left;">VSS</td><td style="text-align: center;">T1</td><td style="text-align: left;">DDR1_DQS1_C_A</td></tr>
-    <tr><td style="text-align: center;">F4</td><td style="text-align: left;">DDR1_DQ_B_12</td><td style="text-align: center;">T2</td><td style="text-align: left;">DDR1_DQS1_T_A</td></tr>
-    <tr><td style="text-align: center;">F5</td><td style="text-align: left;">VSS</td><td style="text-align: center;">T3</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">F6</td><td style="text-align: left;">VSS</td><td style="text-align: center;">T4</td><td style="text-align: left;">DDR1_WCK_C_A_0</td></tr>
-    <tr><td style="text-align: center;">F7</td><td style="text-align: left;">DDR1_CKE0_B</td><td style="text-align: center;">T5</td><td style="text-align: left;">DDR1_WCK_T_A_0</td></tr>
-    <tr><td style="text-align: center;">F8</td><td style="text-align: left;">VSS</td><td style="text-align: center;">T6</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">F9</td><td style="text-align: left;">VSS</td><td style="text-align: center;">T7</td><td style="text-align: left;">DDR1_CKE1_A</td></tr>
-    <tr><td style="text-align: center;">F10</td><td style="text-align: left;">AVDD18_PCIE5</td><td style="text-align: center;">T8</td><td style="text-align: left;">VDDQ_DDR</td></tr>
-    <tr><td style="text-align: center;">F11</td><td style="text-align: left;">AVDD18_PCIE4/USB3-D</td><td style="text-align: center;">T9</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">F12</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">T10</td><td style="text-align: left;">VDD0V8_DDR</td></tr>
-    <tr><td style="text-align: center;">F13</td><td style="text-align: left;">AVDD18_B_USB20</td><td style="text-align: center;">T11</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">F14</td><td style="text-align: left;">PCIE_USB_COMBO_ADTEST_0</td><td style="text-align: center;">T12</td><td style="text-align: left;">VCC_SYS</td></tr>
-    <tr><td style="text-align: center;">F15</td><td style="text-align: left;">AVDD18_USB20_HOST</td><td style="text-align: center;">T13</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">F16</td><td style="text-align: left;">USB20_C_USB_M</td><td style="text-align: center;">T14</td><td style="text-align: left;">VCC_SYS</td></tr>
-    <tr><td style="text-align: center;">F17</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">T15</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">F18</td><td style="text-align: left;">PCIE1_RX1N</td><td style="text-align: center;">T16</td><td style="text-align: left;">VCC_SYS</td></tr>
-    <tr><td style="text-align: center;">F19</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">T19</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">F20</td><td style="text-align: left;">AVDD33_D_USB20</td><td style="text-align: center;">T20</td><td style="text-align: left;">VCC_SYS</td></tr>
-    <tr><td style="text-align: center;">G1</td><td style="text-align: left;">DDR1_DMI0_B</td><td style="text-align: center;">U1</td><td style="text-align: left;">DDR1_DMI1_A</td></tr>
-    <tr><td style="text-align: center;">G2</td><td style="text-align: left;">VSS</td><td style="text-align: center;">U2</td><td style="text-align: left;">DDR1_DQ_A_11</td></tr>
-    <tr><td style="text-align: center;">G3</td><td style="text-align: left;">VSS</td><td style="text-align: center;">U3</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">G4</td><td style="text-align: left;">DDR1_DQ_B_13</td><td style="text-align: center;">U4</td><td style="text-align: left;">DDR1_DMI0_A</td></tr>
-    <tr><td style="text-align: center;">G5</td><td style="text-align: left;">DDR1_DQ_B_15</td><td style="text-align: center;">U5</td><td style="text-align: left;">DDR1_DQ_A_04</td></tr>
-    <tr><td style="text-align: center;">G6</td><td style="text-align: left;">VSS</td><td style="text-align: center;">U6</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">G7</td><td style="text-align: left;">DDR1_CA_B_01</td><td style="text-align: center;">U7</td><td style="text-align: left;">DDR1_CS0_A_CA06</td></tr>
-    <tr><td style="text-align: center;">G8</td><td style="text-align: left;">VSS</td><td style="text-align: center;">U8</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">G9</td><td style="text-align: left;">VSS</td><td style="text-align: center;">U9</td><td style="text-align: left;">VDD0V8_DDR</td></tr>
-    <tr><td style="text-align: center;">G10</td><td style="text-align: left;">AVDD18_PCIE5</td><td style="text-align: center;">U10</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">G11</td><td style="text-align: left;">AVDD18_PCIE4/USB3-D</td><td style="text-align: center;">U11</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">G12</td><td style="text-align: left;">AVDD18_C_USB20</td><td style="text-align: center;">U12</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">G13</td><td style="text-align: left;">AVDD18_PCIE1</td><td style="text-align: center;">U13</td><td style="text-align: left;">VCC_SYS</td></tr>
-    <tr><td style="text-align: center;">G14</td><td style="text-align: left;">AVDD18_PCIE1</td><td style="text-align: center;">U14</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">G15</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">U15</td><td style="text-align: left;">VCC_SYS</td></tr>
-    <tr><td style="text-align: center;">G16</td><td style="text-align: left;">USB20_C_USB_P</td><td style="text-align: center;">U16</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">G17</td><td style="text-align: left;">AVDD18_PCIE0</td><td style="text-align: center;">U19</td><td style="text-align: left;">VCC_SYS</td></tr>
-    <tr><td style="text-align: center;">G18</td><td style="text-align: left;">PCIE1_RX1P</td><td style="text-align: center;">U20</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">G19</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">V1</td><td style="text-align: left;">DDR1_DQ_A_10</td></tr>
-    <tr><td style="text-align: center;">G20</td><td style="text-align: left;">AVDD33_C_USB20</td><td style="text-align: center;">V2</td><td style="text-align: left;">DDR1_DQ_A_09</td></tr>
-    <tr><td style="text-align: center;">H1</td><td style="text-align: left;">DDR1_DQ_B_05</td><td style="text-align: center;">V3</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">H2</td><td style="text-align: left;">DDR1_DQ_B_04</td><td style="text-align: center;">V4</td><td style="text-align: left;">DDR1_DQ_A_07</td></tr>
-    <tr><td style="text-align: center;">H3</td><td style="text-align: left;">VSS</td><td style="text-align: center;">V5</td><td style="text-align: left;">DDR1_DQ_A_05</td></tr>
-    <tr><td style="text-align: center;">H4</td><td style="text-align: left;">DDR1_DQ_B_14</td><td style="text-align: center;">V6</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">H5</td><td style="text-align: left;">DDR1_CA_B_03</td><td style="text-align: center;">V7</td><td style="text-align: left;">DDR1_CA_A_05</td></tr>
-    <tr><td style="text-align: center;">H6</td><td style="text-align: left;">VSS</td><td style="text-align: center;">V8</td><td style="text-align: left;">VDDQ_DDR</td></tr>
-    <tr><td style="text-align: center;">H7</td><td style="text-align: left;">DDR1_CA_B_02</td><td style="text-align: center;">V9</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">H8</td><td style="text-align: left;">VSS</td><td style="text-align: center;">V10</td><td style="text-align: left;">VDD0V8_DDR</td></tr>
-    <tr><td style="text-align: center;">H9</td><td style="text-align: left;">VSS</td><td style="text-align: center;">V11</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">H10</td><td style="text-align: left;">VSS</td><td style="text-align: center;">V12</td><td style="text-align: left;">VCC_SYS</td></tr>
-    <tr><td style="text-align: center;">H11</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">V13</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">H12</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">V14</td><td style="text-align: left;">VCC_SYS</td></tr>
-    <tr><td style="text-align: center;">H13</td><td style="text-align: left;">AVDD18_PCIE3/USB3-C</td><td style="text-align: center;">V15</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">H14</td><td style="text-align: left;">AVDD18_PCIE1</td><td style="text-align: center;">V16</td><td style="text-align: left;">VCC_SYS</td></tr>
-    <tr><td style="text-align: center;">H15</td><td style="text-align: left;">PCIE_USB_COMBO_ADTEST_1</td><td style="text-align: center;">V19</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">H16</td><td style="text-align: left;">AVDD18_PCIE0</td><td style="text-align: center;">V20</td><td style="text-align: left;">VCC_SYS</td></tr>
-    <tr><td style="text-align: center;">H17</td><td style="text-align: left;">AVDD18_PCIE0</td><td style="text-align: center;">W1</td><td style="text-align: left;">DDR1_DQ_A_08</td></tr>
-    <tr><td style="text-align: center;">H18</td><td style="text-align: left;">AVDD08_D_USB20</td><td style="text-align: center;">W2</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">H19</td><td style="text-align: left;">AVDD08_C_USB20</td><td style="text-align: center;">W3</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">H20</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">W4</td><td style="text-align: left;">DDR1_DQ_A_06</td></tr>
-    <tr><td style="text-align: center;">J1</td><td style="text-align: left;">DDR1_DQ_B_07</td><td style="text-align: center;">W5</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">J2</td><td style="text-align: left;">DDR1_DQ_B_06</td><td style="text-align: center;">W6</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">J3</td><td style="text-align: left;">VSS</td><td style="text-align: center;">W7</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">J4</td><td style="text-align: left;">DDR1_CA_A_03</td><td style="text-align: center;">W8</td><td style="text-align: left;">VDDQ_DDR</td></tr>
-    <tr><td style="text-align: center;">J5</td><td style="text-align: left;">DDR1_CA_B_04</td><td style="text-align: center;">W9</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">J6</td><td style="text-align: left;">VSS</td><td style="text-align: center;">W10</td><td style="text-align: left;">VDD2H_DDR</td></tr>
-    <tr><td style="text-align: center;">J7</td><td style="text-align: left;">DDR1_CS0_B_CA06</td><td style="text-align: center;">W11</td><td style="text-align: left;">VAA18_VDD2H_DDR</td></tr>
-    <tr><td style="text-align: center;">J8</td><td style="text-align: left;">VSS</td><td style="text-align: center;">W12</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">J9</td><td style="text-align: left;">VSS</td><td style="text-align: center;">W13</td><td style="text-align: left;">VCC_SYS</td></tr>
-    <tr><td style="text-align: center;">J10</td><td style="text-align: left;">VSS</td><td style="text-align: center;">W14</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">J11</td><td style="text-align: left;">VSS</td><td style="text-align: center;">W15</td><td style="text-align: left;">VCC_SYS</td></tr>
-    <tr><td style="text-align: center;">J12</td><td style="text-align: left;">AVDD18_D_USB20</td><td style="text-align: center;">W16</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">J13</td><td style="text-align: left;">AVDD18_PCIE3/USB3-C</td><td style="text-align: center;">W17</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">J14</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">W18</td><td style="text-align: left;">VCC_SYS</td></tr>
-    <tr><td style="text-align: center;">J15</td><td style="text-align: left;">AVDD18_PCIE2/USB3-B</td><td style="text-align: center;">W19</td><td style="text-align: left;">VCC_SYS</td></tr>
-    <tr><td style="text-align: center;">J16</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">W20</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">J17</td><td style="text-align: left;">AVDD08_PCIE5</td><td style="text-align: center;">Y1</td><td style="text-align: left;">DDR1_RESET_N</td></tr>
-    <tr><td style="text-align: center;">J18</td><td style="text-align: left;">AVDD08_PCIE4/USB3-D</td><td style="text-align: center;">Y2</td><td style="text-align: left;">DDR1_PWROK</td></tr>
-    <tr><td style="text-align: center;">J19</td><td style="text-align: left;">AVDD08_PCIE1</td><td style="text-align: center;">Y3</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">J20</td><td style="text-align: left;">AVDD08_PCIE1</td><td style="text-align: center;">Y4</td><td style="text-align: left;">DDR1_DTO</td></tr>
-    <tr><td style="text-align: center;">K1</td><td style="text-align: left;">VSS</td><td style="text-align: center;">Y5</td><td style="text-align: left;">DDR1_ATO</td></tr>
-    <tr><td style="text-align: center;">K2</td><td style="text-align: left;">VSS</td><td style="text-align: center;">Y6</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">K3</td><td style="text-align: left;">VSS</td><td style="text-align: center;">Y7</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">K4</td><td style="text-align: left;">DDR1_CA_A_02</td><td style="text-align: center;">Y8</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">K5</td><td style="text-align: left;">DDR1_CA_A_04</td><td style="text-align: center;">Y9</td><td style="text-align: left;">VDDQ_DDR</td></tr>
-    <tr><td style="text-align: center;">K6</td><td style="text-align: left;">VSS</td><td style="text-align: center;">Y10</td><td style="text-align: left;">VDD2H_DDR</td></tr>
-    <tr><td style="text-align: center;">K7</td><td style="text-align: left;">DDR1_CA_B_05</td><td style="text-align: center;">Y11</td><td style="text-align: left;">VAA18_VDD2H_DDR</td></tr>
-    <tr><td style="text-align: center;">K8</td><td style="text-align: left;">VDDQ_DDR</td><td style="text-align: center;">Y12</td><td style="text-align: left;">VCC_SYS</td></tr>
-    <tr><td style="text-align: center;">K9</td><td style="text-align: left;">VSS</td><td style="text-align: center;">Y13</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">K10</td><td style="text-align: left;">VSS</td><td style="text-align: center;">Y14</td><td style="text-align: left;">VCC_SYS</td></tr>
-    <tr><td style="text-align: center;">K11</td><td style="text-align: left;">VSS</td><td style="text-align: center;">Y15</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">K12</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">Y16</td><td style="text-align: left;">VCC_SYS</td></tr>
-    <tr><td style="text-align: center;">K13</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">Y17</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">K14</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">Y18</td><td style="text-align: left;">VCC_SYS</td></tr>
-    <tr><td style="text-align: center;">K15</td><td style="text-align: left;">AVDD18_PCIE2/USB3-B</td><td style="text-align: center;">Y19</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">K16</td><td style="text-align: left;">AVSS_PCIEUSB</td><td style="text-align: center;">Y20</td><td style="text-align: left;">VCC_SYS</td></tr>
-    <tr><td style="text-align: center;">K17</td><td style="text-align: left;">AVDD08_PCIE5</td><td style="text-align: center;"></td><td style="text-align: left;"></td></tr>
-    <tr><td style="text-align: center;">K18</td><td style="text-align: left;">AVDD08_PCIE4/USB3-D</td><td style="text-align: center;"></td><td style="text-align: left;"></td></tr>
-    <tr><td style="text-align: center;">K19</td><td style="text-align: left;">AVDD08_PCIE3/USB3-C</td><td style="text-align: center;"></td><td style="text-align: left;"></td></tr>
-  </tbody>
-</table>
+| Pin Number | Pin Name | Pin Number | Pin Name |
+| --- | --- | --- | --- |
+| A2 | VSS | K20 | AVDD08_PCIE1 |
+| A3 | DDR1_DQ_B_08 | L1 | DDR1_CKT_B |
+| A4 | DDR1_DMI1_B | L2 | DDR1_CKC_B |
+| A5 | DDR1_DQ_B_09 | L3 | VSS |
+| A6 | AVSS_PCIEUSB | L4 | VSS |
+| A7 | PCIE5_TX0N | L5 | VSS |
+| A8 | AVSS_PCIEUSB | L6 | VSS |
+| A9 | PCIE4/USB3-D_TX0N | L7 | DDR1_CA_A_01 |
+| A10 | AVSS_PCIEUSB | L8 | VSS |
+| A11 | PCIE3/USB3-C_TX0N | L9 | VSS |
+| A12 | AVSS_PCIEUSB | L10 | VSS |
+| A13 | PCIE2/USB3-B_TX0N | L11 | VSS |
+| A14 | AVSS_PCIEUSB | L12 | VSS |
+| A15 | PCIE1_TX1P | L13 | VSS |
+| A16 | AVSS_PCIEUSB | L14 | AVSS_PCIEUSB |
+| A17 | PCIE1_TX0N | L15 | AVSS_PCIEUSB |
+| A18 | AVSS_PCIEUSB | L16 | AVSS_PCIEUSB |
+| A19 | PCIE0_TX1P | L17 | AVSS_PCIEUSB |
+| A20 | AVSS_PCIEUSB | L18 | AVSS_PCIEUSB |
+| B1 | VSS | L19 | AVDD08_PCIE3/USB3-C |
+| B2 | VSS | L20 | AVDD08_PCIE2/USB3-B |
+| B3 | VSS | M1 | DDR1_CKT_A |
+| B4 | DDR1_DQ_B_11 | M2 | DDR1_CKC_A |
+| B5 | DDR1_DQ_B_10 | M3 | VSS |
+| B6 | AVSS_PCIEUSB | M4 | DDR1_DQ_A_00 |
+| B7 | PCIE5_TX0P | M5 | DDR1_DQ_A_02 |
+| B8 | PCIE5_REFCLK_N | M6 | VSS |
+| B9 | PCIE4/USB3-D_TX0P | M7 | DDR1_CA_A_00 |
+| B10 | PCIE4_REFCLK_P | M8 | VDDQ_DDR |
+| B11 | PCIE3/USB3-C_TX0P | M9 | VSS |
+| B12 | PCIE3_REFCLK_N | M10 | VDD0V8_DDR |
+| B13 | PCIE2/USB3-B_TX0P | M11 | AVDD18_PLL_DDR1 |
+| B14 | PCIE2_REFCLK_P | M12 | VSS |
+| B15 | PCIE1_TX1N | M13 | VSS |
+| B16 | PCIE1_REFCLK_P | M14 | VSS |
+| B17 | PCIE1_TX0P | M15 | VSS |
+| B18 | USB20_B_USB_P | M16 | VSS |
+| B19 | PCIE0_TX1N | M17 | VSS |
+| B20 | PCIE0_REFCLK_P | M18 | AVSS_PCIEUSB |
+| C1 | DDR1_DQ_B_00 | M19 | VSS |
+| C2 | DDR1_DQ_B_02 | M20 | AVDD08_PCIE2/USB3-B |
+| C3 | VSS | N1 | DDR1_DQ_A_15 |
+| C4 | DDR1_DQS1_T_B | N2 | DDR1_DQ_A_14 |
+| C5 | DDR1_DQS1_C_B | N3 | VSS |
+| C6 | DDR1_ZN | N4 | DDR1_DQ_A_01 |
+| C7 | AVSS_PCIEUSB | N5 | DDR1_DQ_A_03 |
+| C8 | PCIE5_REFCLK_P | N6 | VSS |
+| C9 | AVSS_PCIEUSB | N7 | DDR1_CKE0_A |
+| C10 | PCIE4_REFCLK_N | N8 | VSS |
+| C11 | AVSS_PCIEUSB | N9 | VDD0V8_DDR |
+| C12 | PCIE3_REFCLK_P | N10 | VSS |
+| C13 | AVSS_PCIEUSB | N11 | AVDD08_PLL_DDR1 |
+| C14 | PCIE2_REFCLK_N | N12 | VSS |
+| C15 | AVSS_PCIEUSB | N13 | VCC_SYS |
+| C16 | PCIE1_REFCLK_N | N14 | VSS |
+| C17 | AVSS_PCIEUSB | N15 | VCC_SYS |
+| C18 | USB20_B_USB_M | N16 | VSS |
+| C19 | AVSS_PCIEUSB | N17 | VCC_SYS |
+| C20 | PCIE0_REFCLK_N | N18 | VSS |
+| D1 | DDR1_DQ_B_03 | N19 | VCC_SYS |
+| D2 | DDR1_DQ_B_01 | N20 | VSS |
+| D3 | VSS | P1 | DDR1_DQ_A_13 |
+| D4 | VSS | P2 | DDR1_DQ_A_12 |
+| D5 | VSS | P3 | VSS |
+| D6 | DDR1_CKE1_B | P4 | DDR1_DQS0_C_A |
+| D7 | DDR1_CA_B_00 | P5 | DDR1_DQS0_T_A |
+| D8 | AVSS_PCIEUSB | P6 | VSS |
+| D9 | PCIE5_RX0P | P7 | DDR1_CS1_A |
+| D10 | AVSS_PCIEUSB | P8 | VDDQ_DDR |
+| D11 | USB20_D_USB_P | P9 | VSS |
+| D12 | AVSS_PCIEUSB | P10 | VDD0V8_DDR |
+| D13 | PCIE4/USB3-D_RX0N | P11 | VSS |
+| D14 | AVSS_PCIEUSB | P12 | VSS |
+| D15 | PCIE3/USB3-C_RX0N | P13 | VSS |
+| D16 | AVSS_PCIEUSB | P14 | VCC_SYS |
+| D17 | PCIE2/USB3-B_RX0P | P15 | VSS |
+| D18 | AVSS_PCIEUSB | P16 | VCC_SYS |
+| D19 | PCIE1_RX0P | P17 | VSS |
+| D20 | AVSS_PCIEUSB | P18 | VCC_SYS |
+| E1 | DDR1_WCK_T_B_0 | P19 | VSS |
+| E2 | DDR1_WCK_C_B_0 | P20 | VCC_SYS |
+| E3 | VSS | R1 | DDR1_WCK_C_A_1 |
+| E4 | DDR1_WCK_T_B_1 | R2 | DDR1_WCK_T_A_1 |
+| E5 | DDR1_WCK_C_B_1 | R3 | VSS |
+| E6 | VSS | R4 | VSS |
+| E7 | DDR1_CS1_B | R5 | VSS |
+| E8 | VSS | R6 | VSS |
+| E9 | PCIE5_RX0N | R7 | VDDQ_DDR |
+| E10 | AVSS_PCIEUSB | R8 | VSS |
+| E11 | USB20_D_USB_M | R9 | VDD0V8_DDR |
+| E12 | AVSS_PCIEUSB | R10 | VSS |
+| E13 | PCIE4/USB3-D_RX0P | R11 | VSS |
+| E14 | AVSS_PCIEUSB | R12 | VSS |
+| E15 | PCIE3/USB3-C_RX0P | R13 | VCC_SYS |
+| E16 | AVSS_PCIEUSB | R14 | VSS |
+| E17 | PCIE2/USB3-B_RX0N | R15 | VCC_SYS |
+| E18 | AVSS_PCIEUSB | R16 | VSS |
+| E19 | PCIE1_RX0N | R17 | VCC_SYS |
+| E20 | AVSS_PCIEUSB | R18 | VSS |
+| F1 | DDR1_DQS0_T_B | R19 | VCC_SYS |
+| F2 | DDR1_DQS0_C_B | R20 | VSS |
+| F3 | VSS | T1 | DDR1_DQS1_C_A |
+| F4 | DDR1_DQ_B_12 | T2 | DDR1_DQS1_T_A |
+| F5 | VSS | T3 | VSS |
+| F6 | VSS | T4 | DDR1_WCK_C_A_0 |
+| F7 | DDR1_CKE0_B | T5 | DDR1_WCK_T_A_0 |
+| F8 | VSS | T6 | VSS |
+| F9 | VSS | T7 | DDR1_CKE1_A |
+| F10 | AVDD18_PCIE5 | T8 | VDDQ_DDR |
+| F11 | AVDD18_PCIE4/USB3-D | T9 | VSS |
+| F12 | AVSS_PCIEUSB | T10 | VDD0V8_DDR |
+| F13 | AVDD18_B_USB20 | T11 | VSS |
+| F14 | PCIE_USB_COMBO_ADTEST_0 | T12 | VCC_SYS |
+| F15 | AVDD18_USB20_HOST | T13 | VSS |
+| F16 | USB20_C_USB_M | T14 | VCC_SYS |
+| F17 | AVSS_PCIEUSB | T15 | VSS |
+| F18 | PCIE1_RX1N | T16 | VCC_SYS |
+| F19 | AVSS_PCIEUSB | T19 | VSS |
+| F20 | AVDD33_D_USB20 | T20 | VCC_SYS |
+| G1 | DDR1_DMI0_B | U1 | DDR1_DMI1_A |
+| G2 | VSS | U2 | DDR1_DQ_A_11 |
+| G3 | VSS | U3 | VSS |
+| G4 | DDR1_DQ_B_13 | U4 | DDR1_DMI0_A |
+| G5 | DDR1_DQ_B_15 | U5 | DDR1_DQ_A_04 |
+| G6 | VSS | U6 | VSS |
+| G7 | DDR1_CA_B_01 | U7 | DDR1_CS0_A_CA06 |
+| G8 | VSS | U8 | VSS |
+| G9 | VSS | U9 | VDD0V8_DDR |
+| G10 | AVDD18_PCIE5 | U10 | VSS |
+| G11 | AVDD18_PCIE4/USB3-D | U11 | VSS |
+| G12 | AVDD18_C_USB20 | U12 | VSS |
+| G13 | AVDD18_PCIE1 | U13 | VCC_SYS |
+| G14 | AVDD18_PCIE1 | U14 | VSS |
+| G15 | AVSS_PCIEUSB | U15 | VCC_SYS |
+| G16 | USB20_C_USB_P | U16 | VSS |
+| G17 | AVDD18_PCIE0 | U19 | VCC_SYS |
+| G18 | PCIE1_RX1P | U20 | VSS |
+| G19 | AVSS_PCIEUSB | V1 | DDR1_DQ_A_10 |
+| G20 | AVDD33_C_USB20 | V2 | DDR1_DQ_A_09 |
+| H1 | DDR1_DQ_B_05 | V3 | VSS |
+| H2 | DDR1_DQ_B_04 | V4 | DDR1_DQ_A_07 |
+| H3 | VSS | V5 | DDR1_DQ_A_05 |
+| H4 | DDR1_DQ_B_14 | V6 | VSS |
+| H5 | DDR1_CA_B_03 | V7 | DDR1_CA_A_05 |
+| H6 | VSS | V8 | VDDQ_DDR |
+| H7 | DDR1_CA_B_02 | V9 | VSS |
+| H8 | VSS | V10 | VDD0V8_DDR |
+| H9 | VSS | V11 | VSS |
+| H10 | VSS | V12 | VCC_SYS |
+| H11 | AVSS_PCIEUSB | V13 | VSS |
+| H12 | AVSS_PCIEUSB | V14 | VCC_SYS |
+| H13 | AVDD18_PCIE3/USB3-C | V15 | VSS |
+| H14 | AVDD18_PCIE1 | V16 | VCC_SYS |
+| H15 | PCIE_USB_COMBO_ADTEST_1 | V19 | VSS |
+| H16 | AVDD18_PCIE0 | V20 | VCC_SYS |
+| H17 | AVDD18_PCIE0 | W1 | DDR1_DQ_A_08 |
+| H18 | AVDD08_D_USB20 | W2 | VSS |
+| H19 | AVDD08_C_USB20 | W3 | VSS |
+| H20 | AVSS_PCIEUSB | W4 | DDR1_DQ_A_06 |
+| J1 | DDR1_DQ_B_07 | W5 | VSS |
+| J2 | DDR1_DQ_B_06 | W6 | VSS |
+| J3 | VSS | W7 | VSS |
+| J4 | DDR1_CA_A_03 | W8 | VDDQ_DDR |
+| J5 | DDR1_CA_B_04 | W9 | VSS |
+| J6 | VSS | W10 | VDD2H_DDR |
+| J7 | DDR1_CS0_B_CA06 | W11 | VAA18_VDD2H_DDR |
+| J8 | VSS | W12 | VSS |
+| J9 | VSS | W13 | VCC_SYS |
+| J10 | VSS | W14 | VSS |
+| J11 | VSS | W15 | VCC_SYS |
+| J12 | AVDD18_D_USB20 | W16 | VSS |
+| J13 | AVDD18_PCIE3/USB3-C | W17 | VSS |
+| J14 | AVSS_PCIEUSB | W18 | VCC_SYS |
+| J15 | AVDD18_PCIE2/USB3-B | W19 | VCC_SYS |
+| J16 | AVSS_PCIEUSB | W20 | VSS |
+| J17 | AVDD08_PCIE5 | Y1 | DDR1_RESET_N |
+| J18 | AVDD08_PCIE4/USB3-D | Y2 | DDR1_PWROK |
+| J19 | AVDD08_PCIE1 | Y3 | VSS |
+| J20 | AVDD08_PCIE1 | Y4 | DDR1_DTO |
+| K1 | VSS | Y5 | DDR1_ATO |
+| K2 | VSS | Y6 | VSS |
+| K3 | VSS | Y7 | VSS |
+| K4 | DDR1_CA_A_02 | Y8 | VSS |
+| K5 | DDR1_CA_A_04 | Y9 | VDDQ_DDR |
+| K6 | VSS | Y10 | VDD2H_DDR |
+| K7 | DDR1_CA_B_05 | Y11 | VAA18_VDD2H_DDR |
+| K8 | VDDQ_DDR | Y12 | VCC_SYS |
+| K9 | VSS | Y13 | VSS |
+| K10 | VSS | Y14 | VCC_SYS |
+| K11 | VSS | Y15 | VSS |
+| K12 | AVSS_PCIEUSB | Y16 | VCC_SYS |
+| K13 | AVSS_PCIEUSB | Y17 | VSS |
+| K14 | AVSS_PCIEUSB | Y18 | VCC_SYS |
+| K15 | AVDD18_PCIE2/USB3-B | Y19 | VSS |
+| K16 | AVSS_PCIEUSB | Y20 | VCC_SYS |
+| K17 | AVDD08_PCIE5 | — | — |
+| K18 | AVDD08_PCIE4/USB3-D | — | — |
+| K19 | AVDD08_PCIE3/USB3-C | — | — |
 
 #### 4.1.2 (A~Y, 21~40)
 
 <img src="static/k3_pinmap_a-y_21-40.png" alt="" width="800">
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px;">
-
-  <colgroup>
-    <col width="150">
-    <col width="350">
-    <col width="150">
-    <col width="350">
-  </colgroup>
-  
-  <thead>
-    <tr style="background-color: #f6f8fa;">
-      <th style="text-align: center;">Pin Number</th>
-      <th style="text-align: left;">Pin Name</th>
-      <th style="text-align: center;">Pin Number</th>
-      <th style="text-align: left;">Pin Name</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <tr>
-      <td style="text-align: center;">A21</td>
-      <td style="text-align: left;">PCIE0_TX0N</td>
-      <td style="text-align: center;">L21</td>
-      <td style="text-align: left;">AVDD08_PCIE0</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">A22</td>
-      <td style="text-align: left;">AVSS_PCIEUSB</td>
-      <td style="text-align: center;">L22</td>
-      <td style="text-align: left;">AVDD08_B_USB20</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">A23</td>
-      <td style="text-align: left;">UCIE_EW_TXDATA_M0[2]</td>
-      <td style="text-align: center;">L23</td>
-      <td style="text-align: left;">AVSS_PCIEUSB</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">A24</td>
-      <td style="text-align: left;">VSS_UCIE</td>
-      <td style="text-align: center;">L24</td>
-      <td style="text-align: left;">AVSS_PCIEUSB</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">A25</td>
-      <td style="text-align: left;">UCIE_EW_TXCKN_M0</td>
-      <td style="text-align: center;">L25</td>
-      <td style="text-align: left;">UCIE_VDDBH_0V9</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">A26</td>
-      <td style="text-align: left;">UCIE_EW_TXDATA_M0[8]</td>
-      <td style="text-align: center;">L26</td>
-      <td style="text-align: left;">UCIE_VCCPLL_1P2V</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">A27</td>
-      <td style="text-align: left;">VSS_UCIE</td>
-      <td style="text-align: center;">L27</td>
-      <td style="text-align: left;">VSS_UCIE</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">A28</td>
-      <td style="text-align: left;">UCIE_EW_RXCKP_M0</td>
-      <td style="text-align: center;">L28</td>
-      <td style="text-align: left;">UCIE_VCCIO_0V8</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">A29</td>
-      <td style="text-align: left;">UCIE_EW_RXCKSB_M0</td>
-      <td style="text-align: center;">L29</td>
-      <td style="text-align: left;">VSS_UCIE</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">A30</td>
-      <td style="text-align: left;">VSS_UCIE</td>
-      <td style="text-align: center;">L30</td>
-      <td style="text-align: left;">VSS_UCIE</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">A31</td>
-      <td style="text-align: left;">UCIE_EW_RXDATA_M0[7]</td>
-      <td style="text-align: center;">L31</td>
-      <td style="text-align: left;">AVSS_OSCPLL234567</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">A32</td>
-      <td style="text-align: left;">UCIE_EW_RXDATA_M0[2]</td>
-      <td style="text-align: center;">L32</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">A33</td>
-      <td style="text-align: left;">VSS_UCIE</td>
-      <td style="text-align: center;">L33</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">A34</td>
-      <td style="text-align: left;">GPIO[2]_21</td>
-      <td style="text-align: center;">L34</td>
-      <td style="text-align: left;">GPIO[3]_45</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">A35</td>
-      <td style="text-align: left;">GPIO[2]_25</td>
-      <td style="text-align: center;">L35</td>
-      <td style="text-align: left;">GPIO[3]_50</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">A36</td>
-      <td style="text-align: left;">GPIO[2]_29</td>
-      <td style="text-align: center;">L36</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">A37</td>
-      <td style="text-align: left;">GPIO[2]_32</td>
-      <td style="text-align: center;">L37</td>
-      <td style="text-align: left;">GPIO[3]_57</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">A38</td>
-      <td style="text-align: left;">GPIO[2]_34</td>
-      <td style="text-align: center;">L38</td>
-      <td style="text-align: left;">GPIO[3]_60</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">A39</td>
-      <td style="text-align: left;">VSS</td>
-      <td style="text-align: center;">L39</td>
-      <td style="text-align: left;">GPIO[3]_66</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">B21</td>
-      <td style="text-align: left;">PCIE0_TX0P</td>
-      <td style="text-align: center;">L40</td>
-      <td style="text-align: left;">GPIO[3]_72</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">B22</td>
-      <td style="text-align: left;">USB20_HOST_M</td>
-      <td style="text-align: center;">M21</td>
-      <td style="text-align: left;">AVSS_PCIEUSB</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">B23</td>
-      <td style="text-align: left;">UCIE_EW_TXDATA_M0[5]</td>
-      <td style="text-align: center;">M22</td>
-      <td style="text-align: left;">AVSS_PCIEUSB</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">B24</td>
-      <td style="text-align: left;">UCIE_EW_TXDATA_M0[3]</td>
-      <td style="text-align: center;">M23</td>
-      <td style="text-align: left;">AVSS_USB20_HOST</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">B25</td>
-      <td style="text-align: left;">VSS_UCIE</td>
-      <td style="text-align: center;">M24</td>
-      <td style="text-align: left;">AVSS_PCIEUSB</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">B26</td>
-      <td style="text-align: left;">UCIE_EW_TXCKP_M0</td>
-      <td style="text-align: center;">M25</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">B27</td>
-      <td style="text-align: left;">UCIE_EW_TXDATA_M0[14]</td>
-      <td style="text-align: center;">M26</td>
-      <td style="text-align: left;">UCIE_VDDVPH0_0V9</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">B28</td>
-      <td style="text-align: left;">VSS_UCIE</td>
-      <td style="text-align: center;">M27</td>
-      <td style="text-align: left;">UCIE_VDDVPH0_0V9</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">B29</td>
-      <td style="text-align: left;">UCIE_EW_RXCKN_M0</td>
-      <td style="text-align: center;">M28</td>
-      <td style="text-align: left;">VCC_SYS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">B30</td>
-      <td style="text-align: left;">UCIE_EW_RXDATA_M0[15]</td>
-      <td style="text-align: center;">M29</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">B31</td>
-      <td style="text-align: left;">VSS_UCIE</td>
-      <td style="text-align: center;">M30</td>
-      <td style="text-align: left;">VCC_SYS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">B32</td>
-      <td style="text-align: left;">UCIE_EW_RXDATA_M0[5]</td>
-      <td style="text-align: center;">M31</td>
-      <td style="text-align: left;">AVSS_OSCPLL234567</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">B33</td>
-      <td style="text-align: left;">VSS</td>
-      <td style="text-align: center;">M32</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">B34</td>
-      <td style="text-align: left;">GPIO[2]_22</td>
-      <td style="text-align: center;">M33</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">B35</td>
-      <td style="text-align: left;">GPIO[2]_26</td>
-      <td style="text-align: center;">M34</td>
-      <td style="text-align: left;">GPIO[3]_46</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">B36</td>
-      <td style="text-align: left;">GPIO[2]_30</td>
-      <td style="text-align: center;">M35</td>
-      <td style="text-align: left;">GPIO[3]_51</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">B37</td>
-      <td style="text-align: left;">VSS</td>
-      <td style="text-align: center;">M36</td>
-      <td style="text-align: left;">GPIO[3]_58</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">B38</td>
-      <td style="text-align: left;">GPIO[2]_33</td>
-      <td style="text-align: center;">M37</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">B39</td>
-      <td style="text-align: left;">GPIO[2]_38</td>
-      <td style="text-align: center;">M38</td>
-      <td style="text-align: left;">GPIO[3]_61</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">B40</td>
-      <td style="text-align: left;">VSS</td>
-      <td style="text-align: center;">M39</td>
-      <td style="text-align: left;">GPIO[3]_67</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">C21</td>
-      <td style="text-align: left;">AVSS_PCIEUSB</td>
-      <td style="text-align: center;">M40</td>
-      <td style="text-align: left;">GPIO[3]_73</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">C22</td>
-      <td style="text-align: left;">USB20_HOST_P</td>
-      <td style="text-align: center;">N21</td>
-      <td style="text-align: left;">VCC_SYS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">C23</td>
-      <td style="text-align: left;">VSS_UCIE</td>
-      <td style="text-align: center;">N22</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">C24</td>
-      <td style="text-align: left;">UCIE_EW_TXDATA_M0[4]</td>
-      <td style="text-align: center;">N23</td>
-      <td style="text-align: left;">VCC_SYS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">C25</td>
-      <td style="text-align: left;">UCIE_EW_TXTRK_M0</td>
-      <td style="text-align: center;">N24</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">C26</td>
-      <td style="text-align: left;">VSS_UCIE</td>
-      <td style="text-align: center;">N25</td>
-      <td style="text-align: left;">VCC_SYS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">C27</td>
-      <td style="text-align: left;">UCIE_EW_TXDATA_M0[11]</td>
-      <td style="text-align: center;">N26</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">C28</td>
-      <td style="text-align: left;">UCIE_EW_RXDATA_M0[11]</td>
-      <td style="text-align: center;">N27</td>
-      <td style="text-align: left;">VCC_SYS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">C29</td>
-      <td style="text-align: left;">VSS_UCIE</td>
-      <td style="text-align: center;">N28</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">C30</td>
-      <td style="text-align: left;">UCIE_EW_RXDATA_M0[12]</td>
-      <td style="text-align: center;">N29</td>
-      <td style="text-align: left;">VCC_SYS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">C31</td>
-      <td style="text-align: left;">UCIE_EW_RXTRK_M0</td>
-      <td style="text-align: center;">N30</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">C32</td>
-      <td style="text-align: left;">VSS_UCIE</td>
-      <td style="text-align: center;">N31</td>
-      <td style="text-align: left;">VCC_SYS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">C33</td>
-      <td style="text-align: left;">VSS</td>
-      <td style="text-align: center;">N32</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">C34</td>
-      <td style="text-align: left;">GPIO[2]_23</td>
-      <td style="text-align: center;">N33</td>
-      <td style="text-align: left;">DTEST_PAD</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">C35</td>
-      <td style="text-align: left;">GPIO[2]_27</td>
-      <td style="text-align: center;">N34</td>
-      <td style="text-align: left;">ATEST_PAD</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">C36</td>
-      <td style="text-align: left;">GPIO[2]_31</td>
-      <td style="text-align: center;">N35</td>
-      <td style="text-align: left;">GPIO[3]_52</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">C37</td>
-      <td style="text-align: left;">GPIO[2]_35</td>
-      <td style="text-align: center;">N38</td>
-      <td style="text-align: left;">GPIO[3]_62</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">C38</td>
-      <td style="text-align: left;">GPIO[2]_36</td>
-      <td style="text-align: center;">N39</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">C39</td>
-      <td style="text-align: left;">VSS</td>
-      <td style="text-align: center;">N40</td>
-      <td style="text-align: left;">GPIO[3]_74</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">C40</td>
-      <td style="text-align: left;">GPIO[2]_40</td>
-      <td style="text-align: center;">P21</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">D21</td>
-      <td style="text-align: left;">PCIE0_RX1P</td>
-      <td style="text-align: center;">P22</td>
-      <td style="text-align: left;">VCC_SYS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">D22</td>
-      <td style="text-align: left;">AVSS_PCIEUSB</td>
-      <td style="text-align: center;">P23</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">D23</td>
-      <td style="text-align: left;">UCIE_EW_TXDATA_M0[0]</td>
-      <td style="text-align: center;">P24</td>
-      <td style="text-align: left;">VCC_SYS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">D24</td>
-      <td style="text-align: left;">VSS_UCIE</td>
-      <td style="text-align: center;">P25</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">D25</td>
-      <td style="text-align: left;">UCIE_EW_TXVLD_M0</td>
-      <td style="text-align: center;">P26</td>
-      <td style="text-align: left;">VCC_SYS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">D26</td>
-      <td style="text-align: left;">UCIE_EW_TXDATA_M0[12]</td>
-      <td style="text-align: center;">P27</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">D27</td>
-      <td style="text-align: left;">VSS_UCIE</td>
-      <td style="text-align: center;">P28</td>
-      <td style="text-align: left;">VCC_SYS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">D28</td>
-      <td style="text-align: left;">UCIE_EW_RXDATA_M0[10]</td>
-      <td style="text-align: center;">P29</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">D29</td>
-      <td style="text-align: left;">UCIE_EW_RXDATA_M0[14]</td>
-      <td style="text-align: center;">P30</td>
-      <td style="text-align: left;">VCC_SYS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">D30</td>
-      <td style="text-align: left;">VSS_UCIE</td>
-      <td style="text-align: center;">P31</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">D31</td>
-      <td style="text-align: left;">UCIE_EW_RXDATA_M0[6]</td>
-      <td style="text-align: center;">P32</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">D32</td>
-      <td style="text-align: left;">UCIE_EW_RXDATA_M0[1]</td>
-      <td style="text-align: center;">P33</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">D33</td>
-      <td style="text-align: left;">VSS</td>
-      <td style="text-align: center;">P34</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">D34</td>
-      <td style="text-align: left;">VSS</td>
-      <td style="text-align: center;">P35</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">D35</td>
-      <td style="text-align: left;">GPIO[2]_28</td>
-      <td style="text-align: center;">P36</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">D38</td>
-      <td style="text-align: left;">GPIO[2]_37</td>
-      <td style="text-align: center;">P37</td>
-      <td style="text-align: left;">EMMC_DS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">D39</td>
-      <td style="text-align: left;">GPIO[2]_39</td>
-      <td style="text-align: center;">P38</td>
-      <td style="text-align: left;">GPIO[3]_63</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">D40</td>
-      <td style="text-align: left;">GPIO[2]_41</td>
-      <td style="text-align: center;">P39</td>
-      <td style="text-align: left;">GPIO[3]_68</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">E21</td>
-      <td style="text-align: left;">PCIE0_RX1N</td>
-      <td style="text-align: center;">P40</td>
-      <td style="text-align: left;">GPIO[3]_75</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">E22</td>
-      <td style="text-align: left;">AVSS_PCIEUSB</td>
-      <td style="text-align: center;">R21</td>
-      <td style="text-align: left;">VCC_SYS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">E23</td>
-      <td style="text-align: left;">UCIE_EW_TXDATASB_M0</td>
-      <td style="text-align: center;">R22</td>
-      <td style="text-align: left;">AVDD08_OSC</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">E24</td>
-      <td style="text-align: left;">UCIE_EW_O_CKNT</td>
-      <td style="text-align: center;">R23</td>
-      <td style="text-align: left;">AVDD18_OSC</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">E25</td>
-      <td style="text-align: left;">VSS_UCIE</td>
-      <td style="text-align: center;">R24</td>
-      <td style="text-align: left;">AVSS_OSCPLL234567</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">E26</td>
-      <td style="text-align: left;">UCIE_EW_TXCKSB_M0</td>
-      <td style="text-align: center;">R25</td>
-      <td style="text-align: left;">VCC_SYS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">E27</td>
-      <td style="text-align: left;">UCIE_EW_TXDATA_M0[13]</td>
-      <td style="text-align: center;">R26</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">E28</td>
-      <td style="text-align: left;">VSS_UCIE</td>
-      <td style="text-align: center;">R27</td>
-      <td style="text-align: left;">VCC_SYS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">E29</td>
-      <td style="text-align: left;">UCIE_EW_RXDATA_M0[8]</td>
-      <td style="text-align: center;">R28</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">E30</td>
-      <td style="text-align: left;">UCIE_EW_RXDATA_M0[9]</td>
-      <td style="text-align: center;">R29</td>
-      <td style="text-align: left;">VCC_SYS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">E31</td>
-      <td style="text-align: left;">VSS_UCIE</td>
-      <td style="text-align: center;">R30</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">E32</td>
-      <td style="text-align: left;">UCIE_EW_RXDATASB_M0</td>
-      <td style="text-align: center;">R31</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">E33</td>
-      <td style="text-align: left;">VSS</td>
-      <td style="text-align: center;">R32</td>
-      <td style="text-align: left;">VCC18_GPIO2</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">E34</td>
-      <td style="text-align: left;">GPIO[2]_24</td>
-      <td style="text-align: center;">R33</td>
-      <td style="text-align: left;">VCC18_GPIO2</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">E35</td>
-      <td style="text-align: left;">PMIC_INT_N</td>
-      <td style="text-align: center;">R34</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">E36</td>
-      <td style="text-align: left;">PWR_SSP_SCLK</td>
-      <td style="text-align: center;">R35</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">E37</td>
-      <td style="text-align: left;">PMIC_WDT_N</td>
-      <td style="text-align: center;">R36</td>
-      <td style="text-align: left;">EMMC_CLK</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">E38</td>
-      <td style="text-align: left;">PRI_TDO</td>
-      <td style="text-align: center;">R37</td>
-      <td style="text-align: left;">EMMC_CMD</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">E39</td>
-      <td style="text-align: left;">PRI_TRST_N</td>
-      <td style="text-align: center;">R38</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">E40</td>
-      <td style="text-align: left;">PWR_SSP_TXD</td>
-      <td style="text-align: center;">R39</td>
-      <td style="text-align: left;">EMMC_D5</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">F21</td>
-      <td style="text-align: left;">AVSS_PCIEUSB</td>
-      <td style="text-align: center;">R40</td>
-      <td style="text-align: left;">EMMC_D3</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">F22</td>
-      <td style="text-align: left;">PCIE0_RX0P</td>
-      <td style="text-align: center;">T21</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">F23</td>
-      <td style="text-align: left;">VSS_UCIE</td>
-      <td style="text-align: center;">T22</td>
-      <td style="text-align: left;">AVDD08_PLL234</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">F24</td>
-      <td style="text-align: left;">UCIE_EW_O_CKPT</td>
-      <td style="text-align: center;">T23</td>
-      <td style="text-align: left;">AVSS_OSCPLL234567</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">F25</td>
-      <td style="text-align: left;">UCIE_EW_TXDATA_M0[7]</td>
-      <td style="text-align: center;">T24</td>
-      <td style="text-align: left;">VCC_SYS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">F26</td>
-      <td style="text-align: left;">VSS_UCIE</td>
-      <td style="text-align: center;">T25</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">F27</td>
-      <td style="text-align: left;">UCIE_EW_TXDATA_M0[9]</td>
-      <td style="text-align: center;">T26</td>
-      <td style="text-align: left;">VCC_SYS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">F28</td>
-      <td style="text-align: left;">UCIE_EW_TXDATA_M0[15]</td>
-      <td style="text-align: center;">T30</td>
-      <td style="text-align: left;">VCC_SYS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">F29</td>
-      <td style="text-align: left;">VSS_UCIE</td>
-      <td style="text-align: center;">T31</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">F30</td>
-      <td style="text-align: left;">UCIE_EW_RXVLD_M0</td>
-      <td style="text-align: center;">T32</td>
-      <td style="text-align: left;">VCC1833_GPIO2</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">F31</td>
-      <td style="text-align: left;">UCIE_EW_RXDATA_M0[3]</td>
-      <td style="text-align: center;">T33</td>
-      <td style="text-align: left;">VCC1833_GPIO2</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">F32</td>
-      <td style="text-align: left;">VSS_UCIE</td>
-      <td style="text-align: center;">T34</td>
-      <td style="text-align: left;">AVDD18_FUSE</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">F33</td>
-      <td style="text-align: left;">VSS</td>
-      <td style="text-align: center;">T35</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">F34</td>
-      <td style="text-align: left;">PRI_TMS</td>
-      <td style="text-align: center;">T36</td>
-      <td style="text-align: left;">EMMC_D4</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">F35</td>
-      <td style="text-align: left;">VSS</td>
-      <td style="text-align: center;">T37</td>
-      <td style="text-align: left;">EMMC_D1</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">F36</td>
-      <td style="text-align: left;">PWR_SSP_RXD</td>
-      <td style="text-align: center;">T38</td>
-      <td style="text-align: left;">EMMC_D6</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">F37</td>
-      <td style="text-align: left;">EXT_32K_IN</td>
-      <td style="text-align: center;">T39</td>
-      <td style="text-align: left;">EMMC_D2</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">F38</td>
-      <td style="text-align: left;">PWR_SCL</td>
-      <td style="text-align: center;">T40</td>
-      <td style="text-align: left;">EMMC_D7</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">F39</td>
-      <td style="text-align: left;">PRI_TDI</td>
-      <td style="text-align: center;">U21</td>
-      <td style="text-align: left;">VCC_SYS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">F40</td>
-      <td style="text-align: left;">VSS</td>
-      <td style="text-align: center;">U22</td>
-      <td style="text-align: left;">PCIE/USB3_RCAL</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">G21</td>
-      <td style="text-align: left;">AVDD33_USB20_HOST</td>
-      <td style="text-align: center;">U23</td>
-      <td style="text-align: left;">AVDD18_PLL234</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">G22</td>
-      <td style="text-align: left;">PCIE0_RX0N</td>
-      <td style="text-align: center;">U24</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">G23</td>
-      <td style="text-align: left;">VSS_UCIE</td>
-      <td style="text-align: center;">U25</td>
-      <td style="text-align: left;">VCC_SYS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">G24</td>
-      <td style="text-align: left;">VSS_UCIE</td>
-      <td style="text-align: center;">U26</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">G25</td>
-      <td style="text-align: left;">UCIE_EW_TXDATA_M0[6]</td>
-      <td style="text-align: center;">U30</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">G26</td>
-      <td style="text-align: left;">UCIE_EW_TXDATA_M0[1]</td>
-      <td style="text-align: center;">U31</td>
-      <td style="text-align: left;">VCC_SYS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">G27</td>
-      <td style="text-align: left;">VSS_UCIE</td>
-      <td style="text-align: center;">U32</td>
-      <td style="text-align: left;">VCC18_PMIC</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">G28</td>
-      <td style="text-align: left;">UCIE_EW_TXDATA_M0[10]</td>
-      <td style="text-align: center;">U33</td>
-      <td style="text-align: left;">VCC18_PMIC</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">G29</td>
-      <td style="text-align: left;">UCIE_EW_RXDATA_M0[13]</td>
-      <td style="text-align: center;">U34</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">G30</td>
-      <td style="text-align: left;">VSS_UCIE</td>
-      <td style="text-align: center;">U35</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">G31</td>
-      <td style="text-align: left;">UCIE_EW_RXDATA_M0[4]</td>
-      <td style="text-align: center;">U36</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">G32</td>
-      <td style="text-align: left;">UCIE_EW_RXDATA_M0[0]</td>
-      <td style="text-align: center;">U37</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">G33</td>
-      <td style="text-align: left;">VSS</td>
-      <td style="text-align: center;">U38</td>
-      <td style="text-align: left;">EMMC_D0</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">G34</td>
-      <td style="text-align: left;">PRI_TCK</td>
-      <td style="text-align: center;">U39</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">G35</td>
-      <td style="text-align: left;">VCXO_EN</td>
-      <td style="text-align: center;">U40</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">G38</td>
-      <td style="text-align: left;">PWR_SDA</td>
-      <td style="text-align: center;">V21</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">G39</td>
-      <td style="text-align: left;">RESET_IN_N</td>
-      <td style="text-align: center;">V22</td>
-      <td style="text-align: left;">AVDD18_PLL567</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">G40</td>
-      <td style="text-align: left;">PWR_SSP_FRM</td>
-      <td style="text-align: center;">V23</td>
-      <td style="text-align: left;">AVDD08_PLL567</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">H21</td>
-      <td style="text-align: left;">AVDD33_B_USB20</td>
-      <td style="text-align: center;">V24</td>
-      <td style="text-align: left;">VCC_SYS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">H22</td>
-      <td style="text-align: left;">AVSS_PCIEUSB</td>
-      <td style="text-align: center;">V25</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">H23</td>
-      <td style="text-align: left;">AVSS_PCIEUSB</td>
-      <td style="text-align: center;">V26</td>
-      <td style="text-align: left;">VCC_SYS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">H24</td>
-      <td style="text-align: left;">VSS_UCIE</td>
-      <td style="text-align: center;">V27</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">H25</td>
-      <td style="text-align: left;">UCIE_EW_ATEST</td>
-      <td style="text-align: center;">V28</td>
-      <td style="text-align: left;">VCC_SYS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">H26</td>
-      <td style="text-align: left;">UCIE_BGR_EAREFCLKN</td>
-      <td style="text-align: center;">V29</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">H27</td>
-      <td style="text-align: left;">UCIE_VDD_0V8</td>
-      <td style="text-align: center;">V30</td>
-      <td style="text-align: left;">VCC_SYS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">H28</td>
-      <td style="text-align: left;">UCIE_EW_VCTRL_EXT</td>
-      <td style="text-align: center;">V31</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">H29</td>
-      <td style="text-align: left;">VSS_UCIE</td>
-      <td style="text-align: center;">V32</td>
-      <td style="text-align: left;">VCC18_GPIO3</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">H30</td>
-      <td style="text-align: left;">VSS_UCIE</td>
-      <td style="text-align: center;">V33</td>
-      <td style="text-align: left;">VCC18_GPIO3</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">H31</td>
-      <td style="text-align: left;">VSS_UCIE</td>
-      <td style="text-align: center;">V34</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">H32</td>
-      <td style="text-align: left;">VSS_UCIE</td>
-      <td style="text-align: center;">V35</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">H33</td>
-      <td style="text-align: left;">VSS</td>
-      <td style="text-align: center;">V36</td>
-      <td style="text-align: left;">MIPI_CSI2_D3N</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">H34</td>
-      <td style="text-align: left;">GPIO[3]_42</td>
-      <td style="text-align: center;">V37</td>
-      <td style="text-align: left;">MIPI_CSI2_D3P</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">H35</td>
-      <td style="text-align: left;">GPIO[3]_47</td>
-      <td style="text-align: center;">V38</td>
-      <td style="text-align: left;">AVSS_MIPI012</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">H36</td>
-      <td style="text-align: left;">GPIO[3]_53</td>
-      <td style="text-align: center;">V39</td>
-      <td style="text-align: left;">MIPI_CSI2_D2N</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">H37</td>
-      <td style="text-align: left;">GPIO[3]_55</td>
-      <td style="text-align: center;">V40</td>
-      <td style="text-align: left;">MIPI_CSI2_D2P</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">H38</td>
-      <td style="text-align: left;">GPIO[3]_54</td>
-      <td style="text-align: center;">W21</td>
-      <td style="text-align: left;">VCC_SYS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">H39</td>
-      <td style="text-align: left;">VSS</td>
-      <td style="text-align: center;">W22</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">H40</td>
-      <td style="text-align: left;">GPIO[3]_69</td>
-      <td style="text-align: center;">W23</td>
-      <td style="text-align: left;">VCC_SYS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">J21</td>
-      <td style="text-align: left;">AVDD08_PCIE0</td>
-      <td style="text-align: center;">W24</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">J22</td>
-      <td style="text-align: left;">AVSS_PCIEUSB</td>
-      <td style="text-align: center;">W25</td>
-      <td style="text-align: left;">VCC_SYS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">J23</td>
-      <td style="text-align: left;">AVSS_PCIEUSB</td>
-      <td style="text-align: center;">W26</td>
-      <td style="text-align: left;">VCC_SYS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">J24</td>
-      <td style="text-align: left;">UCIE_VCCAON_0V8</td>
-      <td style="text-align: center;">W27</td>
-      <td style="text-align: left;">VCC_SYS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">J25</td>
-      <td style="text-align: left;">UCIE_VCCAON_0V8</td>
-      <td style="text-align: center;">W28</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">J26</td>
-      <td style="text-align: left;">UCIE_BGR_EAREFCLKP</td>
-      <td style="text-align: center;">W29</td>
-      <td style="text-align: left;">VCC_SYS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">J27</td>
-      <td style="text-align: left;">UCIE_VDD_0V8</td>
-      <td style="text-align: center;">W30</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">J28</td>
-      <td style="text-align: left;">VSS_UCIE</td>
-      <td style="text-align: center;">W31</td>
-      <td style="text-align: left;">VCC_SYS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">J29</td>
-      <td style="text-align: left;">UCIE_VCCIO_0V8</td>
-      <td style="text-align: center;">W32</td>
-      <td style="text-align: left;">AVDD08_EMMC</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">J30</td>
-      <td style="text-align: left;">VSS_UCIE</td>
-      <td style="text-align: center;">W33</td>
-      <td style="text-align: left;">AVDD08_EMMC</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">J31</td>
-      <td style="text-align: left;">VSS_UCIE</td>
-      <td style="text-align: center;">W34</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">J32</td>
-      <td style="text-align: left;">XI_PAD</td>
-      <td style="text-align: center;">W35</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">J33</td>
-      <td style="text-align: left;">AVSS_OSCPLL234567</td>
-      <td style="text-align: center;">W36</td>
-      <td style="text-align: left;">AVSS_MIPI012</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">J34</td>
-      <td style="text-align: left;">GPIO[3]_43</td>
-      <td style="text-align: center;">W37</td>
-      <td style="text-align: left;">AVSS_MIPI012</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">J35</td>
-      <td style="text-align: left;">GPIO[3]_48</td>
-      <td style="text-align: center;">W38</td>
-      <td style="text-align: left;">MIPI_CSI3_CLKN</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">J36</td>
-      <td style="text-align: left;">VSS</td>
-      <td style="text-align: center;">W39</td>
-      <td style="text-align: left;">MIPI_CSI3_CLKP</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">J37</td>
-      <td style="text-align: left;">GPIO[3]_56</td>
-      <td style="text-align: center;">W40</td>
-      <td style="text-align: left;">AVSS_MIPI012</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">J38</td>
-      <td style="text-align: left;">GPIO[3]_59</td>
-      <td style="text-align: center;">Y21</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">J39</td>
-      <td style="text-align: left;">GPIO[3]_64</td>
-      <td style="text-align: center;">Y22</td>
-      <td style="text-align: left;">VCC_SYS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">J40</td>
-      <td style="text-align: left;">GPIO[3]_70</td>
-      <td style="text-align: center;">Y23</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">K21</td>
-      <td style="text-align: left;">AVDD08_PCIE0</td>
-      <td style="text-align: center;">Y24</td>
-      <td style="text-align: left;">VCC_SYS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">K22</td>
-      <td style="text-align: left;">AVDD08_USB20_HOST</td>
-      <td style="text-align: center;">Y25</td>
-      <td style="text-align: left;">VCC_SYS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">K23</td>
-      <td style="text-align: left;">AVSS_PCIEUSB</td>
-      <td style="text-align: center;">Y26</td>
-      <td style="text-align: left;">VCC_SYS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">K24</td>
-      <td style="text-align: left;">AVSS_PCIEUSB</td>
-      <td style="text-align: center;">Y27</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">K25</td>
-      <td style="text-align: left;">UCIE_VCCAON_0V8</td>
-      <td style="text-align: center;">Y28</td>
-      <td style="text-align: left;">VCC_SYS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">K26</td>
-      <td style="text-align: left;">UCIE_VCCPLL_1P2V</td>
-      <td style="text-align: center;">Y29</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">K27</td>
-      <td style="text-align: left;">VSS_UCIE</td>
-      <td style="text-align: center;">Y30</td>
-      <td style="text-align: left;">VCC_SYS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">K28</td>
-      <td style="text-align: left;">UCIE_VCCIO_0V8</td>
-      <td style="text-align: center;">Y31</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">K29</td>
-      <td style="text-align: left;">UCIE_VCCIO_0V8</td>
-      <td style="text-align: center;">Y32</td>
-      <td style="text-align: left;">VCC18_EMMC</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">K30</td>
-      <td style="text-align: left;">UCIE_VCCIO_0V8</td>
-      <td style="text-align: center;">Y33</td>
-      <td style="text-align: left;">VCC18_EMMC</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">K31</td>
-      <td style="text-align: left;">VSS_UCIE</td>
-      <td style="text-align: center;">Y34</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">K32</td>
-      <td style="text-align: left;">XO_PAD</td>
-      <td style="text-align: center;">Y35</td>
-      <td style="text-align: left;">VSS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">K33</td>
-      <td style="text-align: left;">AVSS_OSCPLL234567</td>
-      <td style="text-align: center;">Y36</td>
-      <td style="text-align: left;">MIPI_CSI2_D1P</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">K34</td>
-      <td style="text-align: left;">GPIO[3]_44</td>
-      <td style="text-align: center;">Y37</td>
-      <td style="text-align: left;">MIPI_CSI2_D1N</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">K35</td>
-      <td style="text-align: left;">GPIO[3]_49</td>
-      <td style="text-align: center;">Y38</td>
-      <td style="text-align: left;">AVSS_MIPI012</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">K38</td>
-      <td style="text-align: left;">VSS</td>
-      <td style="text-align: center;">Y39</td>
-      <td style="text-align: left;">MIPI_CSI2_D0P</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">K39</td>
-      <td style="text-align: left;">GPIO[3]_65</td>
-      <td style="text-align: center;">Y40</td>
-      <td style="text-align: left;">MIPI_CSI2_D0N</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">K40</td>
-      <td style="text-align: left;">GPIO[3]_71</td>
-      <td style="text-align: center;"></td>
-      <td style="text-align: left;"></td>
-    </tr>
-  </tbody>
-</table>
+| Pin Number | Pin Name | Pin Number | Pin Name |
+| --- | --- | --- | --- |
+| A21 | PCIE0_TX0N | L21 | AVDD08_PCIE0 |
+| A22 | AVSS_PCIEUSB | L22 | AVDD08_B_USB20 |
+| A23 | UCIE_EW_TXDATA_M0[2] | L23 | AVSS_PCIEUSB |
+| A24 | VSS_UCIE | L24 | AVSS_PCIEUSB |
+| A25 | UCIE_EW_TXCKN_M0 | L25 | UCIE_VDDBH_0V9 |
+| A26 | UCIE_EW_TXDATA_M0[8] | L26 | UCIE_VCCPLL_1P2V |
+| A27 | VSS_UCIE | L27 | VSS_UCIE |
+| A28 | UCIE_EW_RXCKP_M0 | L28 | UCIE_VCCIO_0V8 |
+| A29 | UCIE_EW_RXCKSB_M0 | L29 | VSS_UCIE |
+| A30 | VSS_UCIE | L30 | VSS_UCIE |
+| A31 | UCIE_EW_RXDATA_M0[7] | L31 | AVSS_OSCPLL234567 |
+| A32 | UCIE_EW_RXDATA_M0[2] | L32 | VSS |
+| A33 | VSS_UCIE | L33 | VSS |
+| A34 | GPIO[2]_21 | L34 | GPIO[3]_45 |
+| A35 | GPIO[2]_25 | L35 | GPIO[3]_50 |
+| A36 | GPIO[2]_29 | L36 | VSS |
+| A37 | GPIO[2]_32 | L37 | GPIO[3]_57 |
+| A38 | GPIO[2]_34 | L38 | GPIO[3]_60 |
+| A39 | VSS | L39 | GPIO[3]_66 |
+| B21 | PCIE0_TX0P | L40 | GPIO[3]_72 |
+| B22 | USB20_HOST_M | M21 | AVSS_PCIEUSB |
+| B23 | UCIE_EW_TXDATA_M0[5] | M22 | AVSS_PCIEUSB |
+| B24 | UCIE_EW_TXDATA_M0[3] | M23 | AVSS_USB20_HOST |
+| B25 | VSS_UCIE | M24 | AVSS_PCIEUSB |
+| B26 | UCIE_EW_TXCKP_M0 | M25 | VSS |
+| B27 | UCIE_EW_TXDATA_M0[14] | M26 | UCIE_VDDVPH0_0V9 |
+| B28 | VSS_UCIE | M27 | UCIE_VDDVPH0_0V9 |
+| B29 | UCIE_EW_RXCKN_M0 | M28 | VCC_SYS |
+| B30 | UCIE_EW_RXDATA_M0[15] | M29 | VSS |
+| B31 | VSS_UCIE | M30 | VCC_SYS |
+| B32 | UCIE_EW_RXDATA_M0[5] | M31 | AVSS_OSCPLL234567 |
+| B33 | VSS | M32 | VSS |
+| B34 | GPIO[2]_22 | M33 | VSS |
+| B35 | GPIO[2]_26 | M34 | GPIO[3]_46 |
+| B36 | GPIO[2]_30 | M35 | GPIO[3]_51 |
+| B37 | VSS | M36 | GPIO[3]_58 |
+| B38 | GPIO[2]_33 | M37 | VSS |
+| B39 | GPIO[2]_38 | M38 | GPIO[3]_61 |
+| B40 | VSS | M39 | GPIO[3]_67 |
+| C21 | AVSS_PCIEUSB | M40 | GPIO[3]_73 |
+| C22 | USB20_HOST_P | N21 | VCC_SYS |
+| C23 | VSS_UCIE | N22 | VSS |
+| C24 | UCIE_EW_TXDATA_M0[4] | N23 | VCC_SYS |
+| C25 | UCIE_EW_TXTRK_M0 | N24 | VSS |
+| C26 | VSS_UCIE | N25 | VCC_SYS |
+| C27 | UCIE_EW_TXDATA_M0[11] | N26 | VSS |
+| C28 | UCIE_EW_RXDATA_M0[11] | N27 | VCC_SYS |
+| C29 | VSS_UCIE | N28 | VSS |
+| C30 | UCIE_EW_RXDATA_M0[12] | N29 | VCC_SYS |
+| C31 | UCIE_EW_RXTRK_M0 | N30 | VSS |
+| C32 | VSS_UCIE | N31 | VCC_SYS |
+| C33 | VSS | N32 | VSS |
+| C34 | GPIO[2]_23 | N33 | DTEST_PAD |
+| C35 | GPIO[2]_27 | N34 | ATEST_PAD |
+| C36 | GPIO[2]_31 | N35 | GPIO[3]_52 |
+| C37 | GPIO[2]_35 | N38 | GPIO[3]_62 |
+| C38 | GPIO[2]_36 | N39 | VSS |
+| C39 | VSS | N40 | GPIO[3]_74 |
+| C40 | GPIO[2]_40 | P21 | VSS |
+| D21 | PCIE0_RX1P | P22 | VCC_SYS |
+| D22 | AVSS_PCIEUSB | P23 | VSS |
+| D23 | UCIE_EW_TXDATA_M0[0] | P24 | VCC_SYS |
+| D24 | VSS_UCIE | P25 | VSS |
+| D25 | UCIE_EW_TXVLD_M0 | P26 | VCC_SYS |
+| D26 | UCIE_EW_TXDATA_M0[12] | P27 | VSS |
+| D27 | VSS_UCIE | P28 | VCC_SYS |
+| D28 | UCIE_EW_RXDATA_M0[10] | P29 | VSS |
+| D29 | UCIE_EW_RXDATA_M0[14] | P30 | VCC_SYS |
+| D30 | VSS_UCIE | P31 | VSS |
+| D31 | UCIE_EW_RXDATA_M0[6] | P32 | VSS |
+| D32 | UCIE_EW_RXDATA_M0[1] | P33 | VSS |
+| D33 | VSS | P34 | VSS |
+| D34 | VSS | P35 | VSS |
+| D35 | GPIO[2]_28 | P36 | VSS |
+| D38 | GPIO[2]_37 | P37 | EMMC_DS |
+| D39 | GPIO[2]_39 | P38 | GPIO[3]_63 |
+| D40 | GPIO[2]_41 | P39 | GPIO[3]_68 |
+| E21 | PCIE0_RX1N | P40 | GPIO[3]_75 |
+| E22 | AVSS_PCIEUSB | R21 | VCC_SYS |
+| E23 | UCIE_EW_TXDATASB_M0 | R22 | AVDD08_OSC |
+| E24 | UCIE_EW_O_CKNT | R23 | AVDD18_OSC |
+| E25 | VSS_UCIE | R24 | AVSS_OSCPLL234567 |
+| E26 | UCIE_EW_TXCKSB_M0 | R25 | VCC_SYS |
+| E27 | UCIE_EW_TXDATA_M0[13] | R26 | VSS |
+| E28 | VSS_UCIE | R27 | VCC_SYS |
+| E29 | UCIE_EW_RXDATA_M0[8] | R28 | VSS |
+| E30 | UCIE_EW_RXDATA_M0[9] | R29 | VCC_SYS |
+| E31 | VSS_UCIE | R30 | VSS |
+| E32 | UCIE_EW_RXDATASB_M0 | R31 | VSS |
+| E33 | VSS | R32 | VCC18_GPIO2 |
+| E34 | GPIO[2]_24 | R33 | VCC18_GPIO2 |
+| E35 | PMIC_INT_N | R34 | VSS |
+| E36 | PWR_SSP_SCLK | R35 | VSS |
+| E37 | PMIC_WDT_N | R36 | EMMC_CLK |
+| E38 | PRI_TDO | R37 | EMMC_CMD |
+| E39 | PRI_TRST_N | R38 | VSS |
+| E40 | PWR_SSP_TXD | R39 | EMMC_D5 |
+| F21 | AVSS_PCIEUSB | R40 | EMMC_D3 |
+| F22 | PCIE0_RX0P | T21 | VSS |
+| F23 | VSS_UCIE | T22 | AVDD08_PLL234 |
+| F24 | UCIE_EW_O_CKPT | T23 | AVSS_OSCPLL234567 |
+| F25 | UCIE_EW_TXDATA_M0[7] | T24 | VCC_SYS |
+| F26 | VSS_UCIE | T25 | VSS |
+| F27 | UCIE_EW_TXDATA_M0[9] | T26 | VCC_SYS |
+| F28 | UCIE_EW_TXDATA_M0[15] | T30 | VCC_SYS |
+| F29 | VSS_UCIE | T31 | VSS |
+| F30 | UCIE_EW_RXVLD_M0 | T32 | VCC1833_GPIO2 |
+| F31 | UCIE_EW_RXDATA_M0[3] | T33 | VCC1833_GPIO2 |
+| F32 | VSS_UCIE | T34 | AVDD18_FUSE |
+| F33 | VSS | T35 | VSS |
+| F34 | PRI_TMS | T36 | EMMC_D4 |
+| F35 | VSS | T37 | EMMC_D1 |
+| F36 | PWR_SSP_RXD | T38 | EMMC_D6 |
+| F37 | EXT_32K_IN | T39 | EMMC_D2 |
+| F38 | PWR_SCL | T40 | EMMC_D7 |
+| F39 | PRI_TDI | U21 | VCC_SYS |
+| F40 | VSS | U22 | PCIE/USB3_RCAL |
+| G21 | AVDD33_USB20_HOST | U23 | AVDD18_PLL234 |
+| G22 | PCIE0_RX0N | U24 | VSS |
+| G23 | VSS_UCIE | U25 | VCC_SYS |
+| G24 | VSS_UCIE | U26 | VSS |
+| G25 | UCIE_EW_TXDATA_M0[6] | U30 | VSS |
+| G26 | UCIE_EW_TXDATA_M0[1] | U31 | VCC_SYS |
+| G27 | VSS_UCIE | U32 | VCC18_PMIC |
+| G28 | UCIE_EW_TXDATA_M0[10] | U33 | VCC18_PMIC |
+| G29 | UCIE_EW_RXDATA_M0[13] | U34 | VSS |
+| G30 | VSS_UCIE | U35 | VSS |
+| G31 | UCIE_EW_RXDATA_M0[4] | U36 | VSS |
+| G32 | UCIE_EW_RXDATA_M0[0] | U37 | VSS |
+| G33 | VSS | U38 | EMMC_D0 |
+| G34 | PRI_TCK | U39 | VSS |
+| G35 | VCXO_EN | U40 | VSS |
+| G38 | PWR_SDA | V21 | VSS |
+| G39 | RESET_IN_N | V22 | AVDD18_PLL567 |
+| G40 | PWR_SSP_FRM | V23 | AVDD08_PLL567 |
+| H21 | AVDD33_B_USB20 | V24 | VCC_SYS |
+| H22 | AVSS_PCIEUSB | V25 | VSS |
+| H23 | AVSS_PCIEUSB | V26 | VCC_SYS |
+| H24 | VSS_UCIE | V27 | VSS |
+| H25 | UCIE_EW_ATEST | V28 | VCC_SYS |
+| H26 | UCIE_BGR_EAREFCLKN | V29 | VSS |
+| H27 | UCIE_VDD_0V8 | V30 | VCC_SYS |
+| H28 | UCIE_EW_VCTRL_EXT | V31 | VSS |
+| H29 | VSS_UCIE | V32 | VCC18_GPIO3 |
+| H30 | VSS_UCIE | V33 | VCC18_GPIO3 |
+| H31 | VSS_UCIE | V34 | VSS |
+| H32 | VSS_UCIE | V35 | VSS |
+| H33 | VSS | V36 | MIPI_CSI2_D3N |
+| H34 | GPIO[3]_42 | V37 | MIPI_CSI2_D3P |
+| H35 | GPIO[3]_47 | V38 | AVSS_MIPI012 |
+| H36 | GPIO[3]_53 | V39 | MIPI_CSI2_D2N |
+| H37 | GPIO[3]_55 | V40 | MIPI_CSI2_D2P |
+| H38 | GPIO[3]_54 | W21 | VCC_SYS |
+| H39 | VSS | W22 | VSS |
+| H40 | GPIO[3]_69 | W23 | VCC_SYS |
+| J21 | AVDD08_PCIE0 | W24 | VSS |
+| J22 | AVSS_PCIEUSB | W25 | VCC_SYS |
+| J23 | AVSS_PCIEUSB | W26 | VCC_SYS |
+| J24 | UCIE_VCCAON_0V8 | W27 | VCC_SYS |
+| J25 | UCIE_VCCAON_0V8 | W28 | VSS |
+| J26 | UCIE_BGR_EAREFCLKP | W29 | VCC_SYS |
+| J27 | UCIE_VDD_0V8 | W30 | VSS |
+| J28 | VSS_UCIE | W31 | VCC_SYS |
+| J29 | UCIE_VCCIO_0V8 | W32 | AVDD08_EMMC |
+| J30 | VSS_UCIE | W33 | AVDD08_EMMC |
+| J31 | VSS_UCIE | W34 | VSS |
+| J32 | XI_PAD | W35 | VSS |
+| J33 | AVSS_OSCPLL234567 | W36 | AVSS_MIPI012 |
+| J34 | GPIO[3]_43 | W37 | AVSS_MIPI012 |
+| J35 | GPIO[3]_48 | W38 | MIPI_CSI3_CLKN |
+| J36 | VSS | W39 | MIPI_CSI3_CLKP |
+| J37 | GPIO[3]_56 | W40 | AVSS_MIPI012 |
+| J38 | GPIO[3]_59 | Y21 | VSS |
+| J39 | GPIO[3]_64 | Y22 | VCC_SYS |
+| J40 | GPIO[3]_70 | Y23 | VSS |
+| K21 | AVDD08_PCIE0 | Y24 | VCC_SYS |
+| K22 | AVDD08_USB20_HOST | Y25 | VCC_SYS |
+| K23 | AVSS_PCIEUSB | Y26 | VCC_SYS |
+| K24 | AVSS_PCIEUSB | Y27 | VSS |
+| K25 | UCIE_VCCAON_0V8 | Y28 | VCC_SYS |
+| K26 | UCIE_VCCPLL_1P2V | Y29 | VSS |
+| K27 | VSS_UCIE | Y30 | VCC_SYS |
+| K28 | UCIE_VCCIO_0V8 | Y31 | VSS |
+| K29 | UCIE_VCCIO_0V8 | Y32 | VCC18_EMMC |
+| K30 | UCIE_VCCIO_0V8 | Y33 | VCC18_EMMC |
+| K31 | VSS_UCIE | Y34 | VSS |
+| K32 | XO_PAD | Y35 | VSS |
+| K33 | AVSS_OSCPLL234567 | Y36 | MIPI_CSI2_D1P |
+| K34 | GPIO[3]_44 | Y37 | MIPI_CSI2_D1N |
+| K35 | GPIO[3]_49 | Y38 | AVSS_MIPI012 |
+| K38 | VSS | Y39 | MIPI_CSI2_D0P |
+| K39 | GPIO[3]_65 | Y40 | MIPI_CSI2_D0N |
+| K40 | GPIO[3]_71 | — | — |
 
 #### 4.1.3 (AA~AY, 1~20)
 
 <img src="static/k3_pinmap_aa-ay_1-20.png" alt="" width="800">
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px;">
-
-  <colgroup>
-    <col width="150">
-    <col width="350">
-    <col width="150">
-    <col width="350">
-  </colgroup>
-  
-  <thead>
-    <tr style="background-color: #f6f8fa;">
-      <th style="text-align: center;">Pin Number</th>
-      <th style="text-align: left;">Pin Name</th>
-      <th style="text-align: center;">Pin Number</th>
-      <th style="text-align: left;">Pin Name</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <tr><td style="text-align: center;">AA1</td><td style="text-align: left;">DDR0_DQ_B_15</td><td style="text-align: center;">AL1</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AA2</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AL2</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AA3</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AL3</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AA4</td><td style="text-align: left;">DDR0_ATO</td><td style="text-align: center;">AL4</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AA5</td><td style="text-align: left;">DDR0_PWROK</td><td style="text-align: center;">AL5</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AA6</td><td style="text-align: left;">DDR0_DTO</td><td style="text-align: center;">AL6</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AA7</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AL7</td><td style="text-align: left;">DDR0_CA_A_05</td></tr>
-    <tr><td style="text-align: center;">AA8</td><td style="text-align: left;">VDDQ_DDR</td><td style="text-align: center;">AL8</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AA9</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AL9</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AA10</td><td style="text-align: left;">VDD0V8_DDR</td><td style="text-align: center;">AL10</td><td style="text-align: left;">AVSS_PLL1</td></tr>
-    <tr><td style="text-align: center;">AA11</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AL11</td><td style="text-align: left;">AVDD18_DRD_USB</td></tr>
-    <tr><td style="text-align: center;">AA12</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AL12</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AA13</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AL13</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AA14</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AL14</td><td style="text-align: left;">AVSS_DRD</td></tr>
-    <tr><td style="text-align: center;">AA15</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AL15</td><td style="text-align: left;">AVDD18_EDP1</td></tr>
-    <tr><td style="text-align: center;">AA16</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AL16</td><td style="text-align: left;">AVDD18_EDP1</td></tr>
-    <tr><td style="text-align: center;">AA17</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AL17</td><td style="text-align: left;">AVSS_EDP1</td></tr>
-    <tr><td style="text-align: center;">AA18</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AL18</td><td style="text-align: left;">VCC_SYS</td></tr>
-    <tr><td style="text-align: center;">AA19</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AL19</td><td style="text-align: left;">VCC1833_QSPI</td></tr>
-    <tr><td style="text-align: center;">AA20</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AL20</td><td style="text-align: left;">VCC1833_SD</td></tr>
-    <tr><td style="text-align: center;">AB1</td><td style="text-align: left;">DDR0_DQ_B_13</td><td style="text-align: center;">AM1</td><td style="text-align: left;">DDR0_DQ_A_05</td></tr>
-    <tr><td style="text-align: center;">AB2</td><td style="text-align: left;">DDR0_DQ_B_14</td><td style="text-align: center;">AM2</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AB3</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AM3</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AB4</td><td style="text-align: left;">DDR0_DQ_B_02</td><td style="text-align: center;">AM4</td><td style="text-align: left;">DDR0_CA_A_04</td></tr>
-    <tr><td style="text-align: center;">AB5</td><td style="text-align: left;">DDR0_DQ_B_00</td><td style="text-align: center;">AM5</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AB6</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AM6</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AB7</td><td style="text-align: left;">DDR0_CA_B_00</td><td style="text-align: center;">AM7</td><td style="text-align: left;">DDR0_CA_A_02</td></tr>
-    <tr><td style="text-align: center;">AB8</td><td style="text-align: left;">VDDQ_DDR</td><td style="text-align: center;">AM8</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AB9</td><td style="text-align: left;">VDD0V8_DDR</td><td style="text-align: center;">AM9</td><td style="text-align: left;">AVDD08_DRD_USB</td></tr>
-    <tr><td style="text-align: center;">AB10</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AM10</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AB11</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AM11</td><td style="text-align: left;">AVDD18_DRD_USB</td></tr>
-    <tr><td style="text-align: center;">AB12</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AM12</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AB13</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AM13</td><td style="text-align: left;">AVSS_DRD</td></tr>
-    <tr><td style="text-align: center;">AB14</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AM14</td><td style="text-align: left;">AVSS_DRD</td></tr>
-    <tr><td style="text-align: center;">AB15</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AM15</td><td style="text-align: left;">VCC12_UFS</td></tr>
-    <tr><td style="text-align: center;">AB16</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AM16</td><td style="text-align: left;">AVSS_UFS</td></tr>
-    <tr><td style="text-align: center;">AB17</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AM17</td><td style="text-align: left;">AVSS_EDP1</td></tr>
-    <tr><td style="text-align: center;">AB18</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AM18</td><td style="text-align: left;">AVSS_EDP1</td></tr>
-    <tr><td style="text-align: center;">AB19</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AM19</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AB20</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AM20</td><td style="text-align: left;">VCC18_QSPI_CAP</td></tr>
-    <tr><td style="text-align: center;">AC1</td><td style="text-align: left;">DDR0_DMI1_B</td><td style="text-align: center;">AN1</td><td style="text-align: left;">DDR0_DQ_A_06</td></tr>
-    <tr><td style="text-align: center;">AC2</td><td style="text-align: left;">DDR0_DQ_B_12</td><td style="text-align: center;">AN2</td><td style="text-align: left;">DDR0_DQ_A_07</td></tr>
-    <tr><td style="text-align: center;">AC3</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AN3</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AC4</td><td style="text-align: left;">DDR0_DQ_B_03</td><td style="text-align: center;">AN4</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AC5</td><td style="text-align: left;">DDR0_DQ_B_01</td><td style="text-align: center;">AN5</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AC6</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AN6</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AC7</td><td style="text-align: left;">DDR0_CA_B_01</td><td style="text-align: center;">AN7</td><td style="text-align: left;">DDR0_CA_A_01</td></tr>
-    <tr><td style="text-align: center;">AC8</td><td style="text-align: left;">VDDQ_DDR</td><td style="text-align: center;">AN8</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AC9</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AN9</td><td style="text-align: left;">AVDD08_DRD_USB</td></tr>
-    <tr><td style="text-align: center;">AC10</td><td style="text-align: left;">VDD0V8_DDR</td><td style="text-align: center;">AN10</td><td style="text-align: left;">VDD08_UFS</td></tr>
-    <tr><td style="text-align: center;">AC11</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AN11</td><td style="text-align: left;">AVDD18_DRD_USB</td></tr>
-    <tr><td style="text-align: center;">AC12</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AN12</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AC13</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AN13</td><td style="text-align: left;">AVDD33_DRD_USB</td></tr>
-    <tr><td style="text-align: center;">AC14</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AN14</td><td style="text-align: left;">AVSS_DRD</td></tr>
-    <tr><td style="text-align: center;">AC15</td><td style="text-align: left;">VCC_CPUX</td><td style="text-align: center;">AN15</td><td style="text-align: left;">VCC12_UFS</td></tr>
-    <tr><td style="text-align: center;">AC16</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AN16</td><td style="text-align: left;">AVSS_UFS</td></tr>
-    <tr><td style="text-align: center;">AC17</td><td style="text-align: left;">VCC_CPUX</td><td style="text-align: center;">AN17</td><td style="text-align: left;">AVSS_EDP1</td></tr>
-    <tr><td style="text-align: center;">AC18</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AN18</td><td style="text-align: left;">AVSS_EDP1</td></tr>
-    <tr><td style="text-align: center;">AC19</td><td style="text-align: left;">VCC_CPUX</td><td style="text-align: center;">AN19</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AC20</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AN20</td><td style="text-align: left;">VCC1833_GPIO5</td></tr>
-    <tr><td style="text-align: center;">AD1</td><td style="text-align: left;">DDR0_DQS1_C_B</td><td style="text-align: center;">AP1</td><td style="text-align: left;">DDR0_DQ_A_04</td></tr>
-    <tr><td style="text-align: center;">AD2</td><td style="text-align: left;">DDR0_DQS1_T_B</td><td style="text-align: center;">AP2</td><td style="text-align: left;">DDR0_DMI0_A</td></tr>
-    <tr><td style="text-align: center;">AD3</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AP3</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AD4</td><td style="text-align: left;">DDR0_WCK_T_B_0</td><td style="text-align: center;">AP4</td><td style="text-align: left;">DDR0_DQ_A_14</td></tr>
-    <tr><td style="text-align: center;">AD5</td><td style="text-align: left;">DDR0_WCK_C_B_0</td><td style="text-align: center;">AP5</td><td style="text-align: left;">DDR0_DQ_A_15</td></tr>
-    <tr><td style="text-align: center;">AD6</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AP6</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AD7</td><td style="text-align: left;">DDR0_CKE0_B</td><td style="text-align: center;">AP7</td><td style="text-align: left;">DDR0_CA_A_00</td></tr>
-    <tr><td style="text-align: center;">AD8</td><td style="text-align: left;">VDDQ_DDR</td><td style="text-align: center;">AP8</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AD9</td><td style="text-align: left;">VDD0V8_DDR</td><td style="text-align: center;">AP9</td><td style="text-align: left;">AVDD08_DRD_USB</td></tr>
-    <tr><td style="text-align: center;">AD10</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AP10</td><td style="text-align: left;">VDD08_UFS</td></tr>
-    <tr><td style="text-align: center;">AD11</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AP11</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AD12</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AP12</td><td style="text-align: left;">AVDD18_DRD_USB</td></tr>
-    <tr><td style="text-align: center;">AD13</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AP13</td><td style="text-align: left;">AVDD33_DRD_USB</td></tr>
-    <tr><td style="text-align: center;">AD14</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AP14</td><td style="text-align: left;">AVDD18_UFS</td></tr>
-    <tr><td style="text-align: center;">AD15</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AP15</td><td style="text-align: left;">AVSS_UFS</td></tr>
-    <tr><td style="text-align: center;">AD16</td><td style="text-align: left;">VCC_CPUX</td><td style="text-align: center;">AP16</td><td style="text-align: left;">AVSS_UFS</td></tr>
-    <tr><td style="text-align: center;">AD17</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AP17</td><td style="text-align: left;">EDP1_EXTR</td></tr>
-    <tr><td style="text-align: center;">AD18</td><td style="text-align: left;">VCC_CPUX</td><td style="text-align: center;">AP18</td><td style="text-align: left;">AVSS_EDP1</td></tr>
-    <tr><td style="text-align: center;">AD19</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AP19</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AD20</td><td style="text-align: left;">VCC_CPUX</td><td style="text-align: center;">AP20</td><td style="text-align: left;">VCC1833_GPIO5</td></tr>
-    <tr><td style="text-align: center;">AE1</td><td style="text-align: left;">DDR0_WCK_T_B_1</td><td style="text-align: center;">AR1</td><td style="text-align: left;">DDR0_WCK_T_A_0</td></tr>
-    <tr><td style="text-align: center;">AE2</td><td style="text-align: left;">DDR0_WCK_C_B_1</td><td style="text-align: center;">AR2</td><td style="text-align: left;">DDR0_WCK_C_A_0</td></tr>
-    <tr><td style="text-align: center;">AE3</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AR3</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AE4</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AR4</td><td style="text-align: left;">DDR0_DQ_A_12</td></tr>
-    <tr><td style="text-align: center;">AE5</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AR5</td><td style="text-align: left;">DDR0_DQ_A_13</td></tr>
-    <tr><td style="text-align: center;">AE6</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AR6</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AE7</td><td style="text-align: left;">DDR0_CA_B_02</td><td style="text-align: center;">AR7</td><td style="text-align: left;">DDR0_CKE0_A</td></tr>
-    <tr><td style="text-align: center;">AE8</td><td style="text-align: left;">VDDQ_DDR</td><td style="text-align: center;">AR8</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AE9</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AR9</td><td style="text-align: left;">AVDD08_DRD_USB</td></tr>
-    <tr><td style="text-align: center;">AE10</td><td style="text-align: left;">VDD0V8_DDR</td><td style="text-align: center;">AR10</td><td style="text-align: left;">AVDD08_DRD_USB</td></tr>
-    <tr><td style="text-align: center;">AE11</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AR11</td><td style="text-align: left;">AVSS_DRD</td></tr>
-    <tr><td style="text-align: center;">AE12</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AR12</td><td style="text-align: left;">AVSS_DRD</td></tr>
-    <tr><td style="text-align: center;">AE13</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AR13</td><td style="text-align: left;">AVSS_DRD</td></tr>
-    <tr><td style="text-align: center;">AE14</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AR14</td><td style="text-align: left;">AVDD18_UFS</td></tr>
-    <tr><td style="text-align: center;">AE15</td><td style="text-align: left;">VCC_CPUX</td><td style="text-align: center;">AR15</td><td style="text-align: left;">AVSS_UFS</td></tr>
-    <tr><td style="text-align: center;">AE16</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AR16</td><td style="text-align: left;">AVSS_EDP1</td></tr>
-    <tr><td style="text-align: center;">AE17</td><td style="text-align: left;">VCC_CPUX</td><td style="text-align: center;">AR17</td><td style="text-align: left;">UFS_REF_CLK</td></tr>
-    <tr><td style="text-align: center;">AE18</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AR18</td><td style="text-align: left;">AVSS_EDP1</td></tr>
-    <tr><td style="text-align: center;">AE19</td><td style="text-align: left;">VCC_CPUX</td><td style="text-align: center;">AR19</td><td style="text-align: left;">QSPI_CLK</td></tr>
-    <tr><td style="text-align: center;">AE20</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AR20</td><td style="text-align: left;">QSPI_DAT3</td></tr>
-    <tr><td style="text-align: center;">AF1</td><td style="text-align: left;">DDR0_DQ_B_09</td><td style="text-align: center;">AT1</td><td style="text-align: left;">DDR0_DQS0_C_A</td></tr>
-    <tr><td style="text-align: center;">AF2</td><td style="text-align: left;">DDR0_DQ_B_11</td><td style="text-align: center;">AT2</td><td style="text-align: left;">DDR0_DQS0_T_A</td></tr>
-    <tr><td style="text-align: center;">AF3</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AT3</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AF4</td><td style="text-align: left;">DDR0_DQS0_C_B</td><td style="text-align: center;">AT4</td><td style="text-align: left;">DDR0_DQS1_C_A</td></tr>
-    <tr><td style="text-align: center;">AF5</td><td style="text-align: left;">DDR0_DQS0_T_B</td><td style="text-align: center;">AT5</td><td style="text-align: left;">DDR0_DQS1_T_A</td></tr>
-    <tr><td style="text-align: center;">AF6</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AT6</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AF7</td><td style="text-align: left;">DDR0_CKE1_B</td><td style="text-align: center;">AT7</td><td style="text-align: left;">DDR0_CKE1_A</td></tr>
-    <tr><td style="text-align: center;">AF8</td><td style="text-align: left;">VDDQ_DDR</td><td style="text-align: center;">AT8</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AF9</td><td style="text-align: left;">VDD0V8_DDR</td><td style="text-align: center;">AT9</td><td style="text-align: left;">AVDD08_DRD_USB</td></tr>
-    <tr><td style="text-align: center;">AF10</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AT10</td><td style="text-align: left;">USB_PORTA_ADTEST</td></tr>
-    <tr><td style="text-align: center;">AF11</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AT11</td><td style="text-align: left;">AVSS_DRD</td></tr>
-    <tr><td style="text-align: center;">AF12</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AT12</td><td style="text-align: left;">USB30_A_DRD0_RXN</td></tr>
-    <tr><td style="text-align: center;">AF13</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AT13</td><td style="text-align: left;">AVSS_DRD</td></tr>
-    <tr><td style="text-align: center;">AF14</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AT14</td><td style="text-align: left;">USB20_A_DRD_USB_P</td></tr>
-    <tr><td style="text-align: center;">AF15</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AT15</td><td style="text-align: left;">AVSS_UFS</td></tr>
-    <tr><td style="text-align: center;">AF16</td><td style="text-align: left;">VCC_CPUX</td><td style="text-align: center;">AT16</td><td style="text-align: left;">UFS_TXD0N</td></tr>
-    <tr><td style="text-align: center;">AF17</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AT17</td><td style="text-align: left;">AVSS_EDP1</td></tr>
-    <tr><td style="text-align: center;">AF18</td><td style="text-align: left;">VCC_CPUX</td><td style="text-align: center;">AT18</td><td style="text-align: left;">EDP1_TX0N</td></tr>
-    <tr><td style="text-align: center;">AF19</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AT19</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AF20</td><td style="text-align: left;">VCC_CPUX</td><td style="text-align: center;">AT20</td><td style="text-align: left;">QSPI_CS0</td></tr>
-    <tr><td style="text-align: center;">AG1</td><td style="text-align: left;">DDR0_DQ_B_08</td><td style="text-align: center;">AU1</td><td style="text-align: left;">DDR0_DQ_A_02</td></tr>
-    <tr><td style="text-align: center;">AG2</td><td style="text-align: left;">DDR0_DQ_B_10</td><td style="text-align: center;">AU2</td><td style="text-align: left;">DDR0_DQ_A_01</td></tr>
-    <tr><td style="text-align: center;">AG3</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AU3</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AG4</td><td style="text-align: left;">DDR0_DMI0_B</td><td style="text-align: center;">AU4</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AG5</td><td style="text-align: left;">DDR0_DQ_B_04</td><td style="text-align: center;">AU5</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AG6</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AU6</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AG7</td><td style="text-align: left;">DDR0_CS0_B_CA06</td><td style="text-align: center;">AU7</td><td style="text-align: left;">DDR0_CS1_A</td></tr>
-    <tr><td style="text-align: center;">AG8</td><td style="text-align: left;">VDDQ_DDR</td><td style="text-align: center;">AU8</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AG9</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AU9</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AG10</td><td style="text-align: left;">VDD0V8_DDR</td><td style="text-align: center;">AU10</td><td style="text-align: left;">AVSS_DRD</td></tr>
-    <tr><td style="text-align: center;">AG11</td><td style="text-align: left;">AVDD08_PLL_DDR0</td><td style="text-align: center;">AU11</td><td style="text-align: left;">AVSS_DRD</td></tr>
-    <tr><td style="text-align: center;">AG12</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AU12</td><td style="text-align: left;">USB30_A_DRD0_RXP</td></tr>
-    <tr><td style="text-align: center;">AG13</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AU13</td><td style="text-align: left;">AVSS_DRD</td></tr>
-    <tr><td style="text-align: center;">AG14</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AU14</td><td style="text-align: left;">USB20_A_DRD_USB_M</td></tr>
-    <tr><td style="text-align: center;">AG15</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AU15</td><td style="text-align: left;">AVSS_UFS</td></tr>
-    <tr><td style="text-align: center;">AG16</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AU16</td><td style="text-align: left;">UFS_TXD0P</td></tr>
-    <tr><td style="text-align: center;">AG17</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AU17</td><td style="text-align: left;">AVSS_EDP1</td></tr>
-    <tr><td style="text-align: center;">AG18</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AU18</td><td style="text-align: left;">EDP1_TX0P</td></tr>
-    <tr><td style="text-align: center;">AG19</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AU19</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AG20</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AU20</td><td style="text-align: left;">QSPI_DAT1</td></tr>
-    <tr><td style="text-align: center;">AH1</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AV1</td><td style="text-align: left;">DDR0_DQ_A_00</td></tr>
-    <tr><td style="text-align: center;">AH2</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AV2</td><td style="text-align: left;">DDR0_DQ_A_03</td></tr>
-    <tr><td style="text-align: center;">AH3</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AV3</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AH4</td><td style="text-align: left;">DDR0_DQ_B_06</td><td style="text-align: center;">AV4</td><td style="text-align: left;">DDR0_WCK_T_A_1</td></tr>
-    <tr><td style="text-align: center;">AH5</td><td style="text-align: left;">DDR0_DQ_B_05</td><td style="text-align: center;">AV5</td><td style="text-align: left;">DDR0_WCK_C_A_1</td></tr>
-    <tr><td style="text-align: center;">AH6</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AV6</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AH7</td><td style="text-align: left;">DDR0_CA_B_05</td><td style="text-align: center;">AV7</td><td style="text-align: left;">DDR0_ZN</td></tr>
-    <tr><td style="text-align: center;">AH8</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AV8</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AH9</td><td style="text-align: left;">VDD0V8_DDR</td><td style="text-align: center;">AV9</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AH10</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AV10</td><td style="text-align: left;">AVSS_DRD</td></tr>
-    <tr><td style="text-align: center;">AH11</td><td style="text-align: left;">AVDD18_PLL_DDR0</td><td style="text-align: center;">AV11</td><td style="text-align: left;">USB30_A_DRD1_RXP</td></tr>
-    <tr><td style="text-align: center;">AH12</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AV12</td><td style="text-align: left;">AVSS_DRD</td></tr>
-    <tr><td style="text-align: center;">AH13</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AV13</td><td style="text-align: left;">UFS_RST_N</td></tr>
-    <tr><td style="text-align: center;">AH14</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AV14</td><td style="text-align: left;">AVSS_UFS</td></tr>
-    <tr><td style="text-align: center;">AH15</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AV15</td><td style="text-align: left;">UFS_TXD1N</td></tr>
-    <tr><td style="text-align: center;">AH16</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AV16</td><td style="text-align: left;">AVSS_UFS</td></tr>
-    <tr><td style="text-align: center;">AH17</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AV17</td><td style="text-align: left;">EDP1_AUXP</td></tr>
-    <tr><td style="text-align: center;">AH18</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AV18</td><td style="text-align: left;">AVSS_EDP1</td></tr>
-    <tr><td style="text-align: center;">AH19</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AV19</td><td style="text-align: left;">EDP1_TX2P</td></tr>
-    <tr><td style="text-align: center;">AH20</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AV20</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AJ1</td><td style="text-align: left;">DDR0_CKC_B</td><td style="text-align: center;">AW1</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AJ2</td><td style="text-align: left;">DDR0_CKT_B</td><td style="text-align: center;">AW2</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AJ3</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AW3</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AJ4</td><td style="text-align: left;">DDR0_DQ_B_07</td><td style="text-align: center;">AW4</td><td style="text-align: left;">DDR0_DQ_A_11</td></tr>
-    <tr><td style="text-align: center;">AJ5</td><td style="text-align: left;">DDR0_CA_B_04</td><td style="text-align: center;">AW5</td><td style="text-align: left;">DDR0_DQ_A_09</td></tr>
-    <tr><td style="text-align: center;">AJ6</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AW6</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AJ7</td><td style="text-align: left;">DDR0_CA_B_03</td><td style="text-align: center;">AW7</td><td style="text-align: left;">DDR0_RESET_N</td></tr>
-    <tr><td style="text-align: center;">AJ8</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AW8</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AJ9</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AW9</td><td style="text-align: left;">AVSS_DRD</td></tr>
-    <tr><td style="text-align: center;">AJ10</td><td style="text-align: left;">AVDD08_PLL1</td><td style="text-align: center;">AW10</td><td style="text-align: left;">USB30_A_DRD0_TXP</td></tr>
-    <tr><td style="text-align: center;">AJ11</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AW11</td><td style="text-align: left;">USB30_A_DRD1_RXN</td></tr>
-    <tr><td style="text-align: center;">AJ12</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AW12</td><td style="text-align: left;">USB30_A_DRD1_TXN</td></tr>
-    <tr><td style="text-align: center;">AJ13</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AW13</td><td style="text-align: left;">AVSS_UFS</td></tr>
-    <tr><td style="text-align: center;">AJ14</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AW14</td><td style="text-align: left;">UFS_RXD1P</td></tr>
-    <tr><td style="text-align: center;">AJ15</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AW15</td><td style="text-align: left;">UFS_TXD1P</td></tr>
-    <tr><td style="text-align: center;">AJ16</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AW16</td><td style="text-align: left;">UFS_RXD0N</td></tr>
-    <tr><td style="text-align: center;">AJ17</td><td style="text-align: left;">DVDD08_EDP1</td><td style="text-align: center;">AW17</td><td style="text-align: left;">EDP1_AUXN</td></tr>
-    <tr><td style="text-align: center;">AJ18</td><td style="text-align: left;">DVDD08_EDP1</td><td style="text-align: center;">AW18</td><td style="text-align: left;">EDP1_TX1N</td></tr>
-    <tr><td style="text-align: center;">AJ19</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AW19</td><td style="text-align: left;">EDP1_TX2N</td></tr>
-    <tr><td style="text-align: center;">AJ20</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AW20</td><td style="text-align: left;">EDP1_TX3N</td></tr>
-    <tr><td style="text-align: center;">AK1</td><td style="text-align: left;">DDR0_CKC_A</td><td style="text-align: center;">AY2</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AK2</td><td style="text-align: left;">DDR0_CKT_A</td><td style="text-align: center;">AY3</td><td style="text-align: left;">DDR0_DMI1_A</td></tr>
-    <tr><td style="text-align: center;">AK3</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AY4</td><td style="text-align: left;">DDR0_DQ_A_10</td></tr>
-    <tr><td style="text-align: center;">AK4</td><td style="text-align: left;">DDR0_CS0_A_CA06</td><td style="text-align: center;">AY5</td><td style="text-align: left;">DDR0_DQ_A_08</td></tr>
-    <tr><td style="text-align: center;">AK5</td><td style="text-align: left;">DDR0_CA_A_03</td><td style="text-align: center;">AY6</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AK6</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AY7</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AK7</td><td style="text-align: left;">DDR0_CS1_B</td><td style="text-align: center;">AY8</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AK8</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AY9</td><td style="text-align: left;">AVSS_DRD</td></tr>
-    <tr><td style="text-align: center;">AK9</td><td style="text-align: left;">AVDD18_PLL1</td><td style="text-align: center;">AY10</td><td style="text-align: left;">USB30_A_DRD0_TXN</td></tr>
-    <tr><td style="text-align: center;">AK10</td><td style="text-align: left;">AVSS_PLL1</td><td style="text-align: center;">AY11</td><td style="text-align: left;">AVSS_DRD</td></tr>
-    <tr><td style="text-align: center;">AK11</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AY12</td><td style="text-align: left;">USB30_A_DRD1_TXP</td></tr>
-    <tr><td style="text-align: center;">AK12</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AY13</td><td style="text-align: left;">AVSS_UFS</td></tr>
-    <tr><td style="text-align: center;">AK13</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AY14</td><td style="text-align: left;">UFS_RXD1N</td></tr>
-    <tr><td style="text-align: center;">AK14</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AY15</td><td style="text-align: left;">AVSS_UFS</td></tr>
-    <tr><td style="text-align: center;">AK15</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AY16</td><td style="text-align: left;">UFS_RXD0P</td></tr>
-    <tr><td style="text-align: center;">AK16</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AY17</td><td style="text-align: left;">AVSS_EDP1</td></tr>
-    <tr><td style="text-align: center;">AK17</td><td style="text-align: left;">AVSS_EDP1</td><td style="text-align: center;">AY18</td><td style="text-align: left;">EDP1_TX1P</td></tr>
-    <tr><td style="text-align: center;">AK18</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AY19</td><td style="text-align: left;">AVSS_EDP1</td></tr>
-    <tr><td style="text-align: center;">AK19</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AY20</td><td style="text-align: left;">EDP1_TX3P</td></tr>
-    <tr><td style="text-align: center;">AK20</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;"></td><td style="text-align: left;"></td></tr>
-  </tbody>
-</table>
+| Pin Number | Pin Name | Pin Number | Pin Name |
+| --- | --- | --- | --- |
+| AA1 | DDR0_DQ_B_15 | AL1 | VSS |
+| AA2 | VSS | AL2 | VSS |
+| AA3 | VSS | AL3 | VSS |
+| AA4 | DDR0_ATO | AL4 | VSS |
+| AA5 | DDR0_PWROK | AL5 | VSS |
+| AA6 | DDR0_DTO | AL6 | VSS |
+| AA7 | VSS | AL7 | DDR0_CA_A_05 |
+| AA8 | VDDQ_DDR | AL8 | VSS |
+| AA9 | VSS | AL9 | VSS |
+| AA10 | VDD0V8_DDR | AL10 | AVSS_PLL1 |
+| AA11 | VSS | AL11 | AVDD18_DRD_USB |
+| AA12 | VSS | AL12 | VSS |
+| AA13 | VCC_SYS | AL13 | VSS |
+| AA14 | VSS | AL14 | AVSS_DRD |
+| AA15 | VCC_SYS | AL15 | AVDD18_EDP1 |
+| AA16 | VSS | AL16 | AVDD18_EDP1 |
+| AA17 | VCC_SYS | AL17 | AVSS_EDP1 |
+| AA18 | VSS | AL18 | VCC_SYS |
+| AA19 | VCC_SYS | AL19 | VCC1833_QSPI |
+| AA20 | VSS | AL20 | VCC1833_SD |
+| AB1 | DDR0_DQ_B_13 | AM1 | DDR0_DQ_A_05 |
+| AB2 | DDR0_DQ_B_14 | AM2 | VSS |
+| AB3 | VSS | AM3 | VSS |
+| AB4 | DDR0_DQ_B_02 | AM4 | DDR0_CA_A_04 |
+| AB5 | DDR0_DQ_B_00 | AM5 | VSS |
+| AB6 | VSS | AM6 | VSS |
+| AB7 | DDR0_CA_B_00 | AM7 | DDR0_CA_A_02 |
+| AB8 | VDDQ_DDR | AM8 | VSS |
+| AB9 | VDD0V8_DDR | AM9 | AVDD08_DRD_USB |
+| AB10 | VSS | AM10 | VSS |
+| AB11 | VSS | AM11 | AVDD18_DRD_USB |
+| AB12 | VCC_SYS | AM12 | VSS |
+| AB13 | VSS | AM13 | AVSS_DRD |
+| AB14 | VCC_SYS | AM14 | AVSS_DRD |
+| AB15 | VSS | AM15 | VCC12_UFS |
+| AB16 | VCC_SYS | AM16 | AVSS_UFS |
+| AB17 | VSS | AM17 | AVSS_EDP1 |
+| AB18 | VCC_SYS | AM18 | AVSS_EDP1 |
+| AB19 | VSS | AM19 | VSS |
+| AB20 | VCC_SYS | AM20 | VCC18_QSPI_CAP |
+| AC1 | DDR0_DMI1_B | AN1 | DDR0_DQ_A_06 |
+| AC2 | DDR0_DQ_B_12 | AN2 | DDR0_DQ_A_07 |
+| AC3 | VSS | AN3 | VSS |
+| AC4 | DDR0_DQ_B_03 | AN4 | VSS |
+| AC5 | DDR0_DQ_B_01 | AN5 | VSS |
+| AC6 | VSS | AN6 | VSS |
+| AC7 | DDR0_CA_B_01 | AN7 | DDR0_CA_A_01 |
+| AC8 | VDDQ_DDR | AN8 | VSS |
+| AC9 | VSS | AN9 | AVDD08_DRD_USB |
+| AC10 | VDD0V8_DDR | AN10 | VDD08_UFS |
+| AC11 | VSS | AN11 | AVDD18_DRD_USB |
+| AC12 | VSS | AN12 | VSS |
+| AC13 | VCC_SYS | AN13 | AVDD33_DRD_USB |
+| AC14 | VSS | AN14 | AVSS_DRD |
+| AC15 | VCC_CPUX | AN15 | VCC12_UFS |
+| AC16 | VSS | AN16 | AVSS_UFS |
+| AC17 | VCC_CPUX | AN17 | AVSS_EDP1 |
+| AC18 | VSS | AN18 | AVSS_EDP1 |
+| AC19 | VCC_CPUX | AN19 | VSS |
+| AC20 | VSS | AN20 | VCC1833_GPIO5 |
+| AD1 | DDR0_DQS1_C_B | AP1 | DDR0_DQ_A_04 |
+| AD2 | DDR0_DQS1_T_B | AP2 | DDR0_DMI0_A |
+| AD3 | VSS | AP3 | VSS |
+| AD4 | DDR0_WCK_T_B_0 | AP4 | DDR0_DQ_A_14 |
+| AD5 | DDR0_WCK_C_B_0 | AP5 | DDR0_DQ_A_15 |
+| AD6 | VSS | AP6 | VSS |
+| AD7 | DDR0_CKE0_B | AP7 | DDR0_CA_A_00 |
+| AD8 | VDDQ_DDR | AP8 | VSS |
+| AD9 | VDD0V8_DDR | AP9 | AVDD08_DRD_USB |
+| AD10 | VSS | AP10 | VDD08_UFS |
+| AD11 | VSS | AP11 | VSS |
+| AD12 | VSS | AP12 | AVDD18_DRD_USB |
+| AD13 | VSS | AP13 | AVDD33_DRD_USB |
+| AD14 | VCC_SYS | AP14 | AVDD18_UFS |
+| AD15 | VSS | AP15 | AVSS_UFS |
+| AD16 | VCC_CPUX | AP16 | AVSS_UFS |
+| AD17 | VSS | AP17 | EDP1_EXTR |
+| AD18 | VCC_CPUX | AP18 | AVSS_EDP1 |
+| AD19 | VSS | AP19 | VSS |
+| AD20 | VCC_CPUX | AP20 | VCC1833_GPIO5 |
+| AE1 | DDR0_WCK_T_B_1 | AR1 | DDR0_WCK_T_A_0 |
+| AE2 | DDR0_WCK_C_B_1 | AR2 | DDR0_WCK_C_A_0 |
+| AE3 | VSS | AR3 | VSS |
+| AE4 | VSS | AR4 | DDR0_DQ_A_12 |
+| AE5 | VSS | AR5 | DDR0_DQ_A_13 |
+| AE6 | VSS | AR6 | VSS |
+| AE7 | DDR0_CA_B_02 | AR7 | DDR0_CKE0_A |
+| AE8 | VDDQ_DDR | AR8 | VSS |
+| AE9 | VSS | AR9 | AVDD08_DRD_USB |
+| AE10 | VDD0V8_DDR | AR10 | AVDD08_DRD_USB |
+| AE11 | VSS | AR11 | AVSS_DRD |
+| AE12 | VSS | AR12 | AVSS_DRD |
+| AE13 | VCC_SYS | AR13 | AVSS_DRD |
+| AE14 | VSS | AR14 | AVDD18_UFS |
+| AE15 | VCC_CPUX | AR15 | AVSS_UFS |
+| AE16 | VSS | AR16 | AVSS_EDP1 |
+| AE17 | VCC_CPUX | AR17 | UFS_REF_CLK |
+| AE18 | VSS | AR18 | AVSS_EDP1 |
+| AE19 | VCC_CPUX | AR19 | QSPI_CLK |
+| AE20 | VSS | AR20 | QSPI_DAT3 |
+| AF1 | DDR0_DQ_B_09 | AT1 | DDR0_DQS0_C_A |
+| AF2 | DDR0_DQ_B_11 | AT2 | DDR0_DQS0_T_A |
+| AF3 | VSS | AT3 | VSS |
+| AF4 | DDR0_DQS0_C_B | AT4 | DDR0_DQS1_C_A |
+| AF5 | DDR0_DQS0_T_B | AT5 | DDR0_DQS1_T_A |
+| AF6 | VSS | AT6 | VSS |
+| AF7 | DDR0_CKE1_B | AT7 | DDR0_CKE1_A |
+| AF8 | VDDQ_DDR | AT8 | VSS |
+| AF9 | VDD0V8_DDR | AT9 | AVDD08_DRD_USB |
+| AF10 | VSS | AT10 | USB_PORTA_ADTEST |
+| AF11 | VSS | AT11 | AVSS_DRD |
+| AF12 | VSS | AT12 | USB30_A_DRD0_RXN |
+| AF13 | VSS | AT13 | AVSS_DRD |
+| AF14 | VCC_SYS | AT14 | USB20_A_DRD_USB_P |
+| AF15 | VSS | AT15 | AVSS_UFS |
+| AF16 | VCC_CPUX | AT16 | UFS_TXD0N |
+| AF17 | VSS | AT17 | AVSS_EDP1 |
+| AF18 | VCC_CPUX | AT18 | EDP1_TX0N |
+| AF19 | VSS | AT19 | VSS |
+| AF20 | VCC_CPUX | AT20 | QSPI_CS0 |
+| AG1 | DDR0_DQ_B_08 | AU1 | DDR0_DQ_A_02 |
+| AG2 | DDR0_DQ_B_10 | AU2 | DDR0_DQ_A_01 |
+| AG3 | VSS | AU3 | VSS |
+| AG4 | DDR0_DMI0_B | AU4 | VSS |
+| AG5 | DDR0_DQ_B_04 | AU5 | VSS |
+| AG6 | VSS | AU6 | VSS |
+| AG7 | DDR0_CS0_B_CA06 | AU7 | DDR0_CS1_A |
+| AG8 | VDDQ_DDR | AU8 | VSS |
+| AG9 | VSS | AU9 | VSS |
+| AG10 | VDD0V8_DDR | AU10 | AVSS_DRD |
+| AG11 | AVDD08_PLL_DDR0 | AU11 | AVSS_DRD |
+| AG12 | VSS | AU12 | USB30_A_DRD0_RXP |
+| AG13 | VCC_SYS | AU13 | AVSS_DRD |
+| AG14 | VSS | AU14 | USB20_A_DRD_USB_M |
+| AG15 | VCC_SYS | AU15 | AVSS_UFS |
+| AG16 | VSS | AU16 | UFS_TXD0P |
+| AG17 | VCC_SYS | AU17 | AVSS_EDP1 |
+| AG18 | VSS | AU18 | EDP1_TX0P |
+| AG19 | VCC_SYS | AU19 | VSS |
+| AG20 | VSS | AU20 | QSPI_DAT1 |
+| AH1 | VSS | AV1 | DDR0_DQ_A_00 |
+| AH2 | VSS | AV2 | DDR0_DQ_A_03 |
+| AH3 | VSS | AV3 | VSS |
+| AH4 | DDR0_DQ_B_06 | AV4 | DDR0_WCK_T_A_1 |
+| AH5 | DDR0_DQ_B_05 | AV5 | DDR0_WCK_C_A_1 |
+| AH6 | VSS | AV6 | VSS |
+| AH7 | DDR0_CA_B_05 | AV7 | DDR0_ZN |
+| AH8 | VSS | AV8 | VSS |
+| AH9 | VDD0V8_DDR | AV9 | VSS |
+| AH10 | VSS | AV10 | AVSS_DRD |
+| AH11 | AVDD18_PLL_DDR0 | AV11 | USB30_A_DRD1_RXP |
+| AH12 | VCC_SYS | AV12 | AVSS_DRD |
+| AH13 | VSS | AV13 | UFS_RST_N |
+| AH14 | VCC_SYS | AV14 | AVSS_UFS |
+| AH15 | VSS | AV15 | UFS_TXD1N |
+| AH16 | VCC_SYS | AV16 | AVSS_UFS |
+| AH17 | VSS | AV17 | EDP1_AUXP |
+| AH18 | VCC_SYS | AV18 | AVSS_EDP1 |
+| AH19 | VSS | AV19 | EDP1_TX2P |
+| AH20 | VCC_SYS | AV20 | VSS |
+| AJ1 | DDR0_CKC_B | AW1 | VSS |
+| AJ2 | DDR0_CKT_B | AW2 | VSS |
+| AJ3 | VSS | AW3 | VSS |
+| AJ4 | DDR0_DQ_B_07 | AW4 | DDR0_DQ_A_11 |
+| AJ5 | DDR0_CA_B_04 | AW5 | DDR0_DQ_A_09 |
+| AJ6 | VSS | AW6 | VSS |
+| AJ7 | DDR0_CA_B_03 | AW7 | DDR0_RESET_N |
+| AJ8 | VSS | AW8 | VSS |
+| AJ9 | VSS | AW9 | AVSS_DRD |
+| AJ10 | AVDD08_PLL1 | AW10 | USB30_A_DRD0_TXP |
+| AJ11 | VCC_SYS | AW11 | USB30_A_DRD1_RXN |
+| AJ12 | VSS | AW12 | USB30_A_DRD1_TXN |
+| AJ13 | VCC_SYS | AW13 | AVSS_UFS |
+| AJ14 | VSS | AW14 | UFS_RXD1P |
+| AJ15 | VCC_SYS | AW15 | UFS_TXD1P |
+| AJ16 | VSS | AW16 | UFS_RXD0N |
+| AJ17 | DVDD08_EDP1 | AW17 | EDP1_AUXN |
+| AJ18 | DVDD08_EDP1 | AW18 | EDP1_TX1N |
+| AJ19 | VCC_SYS | AW19 | EDP1_TX2N |
+| AJ20 | VSS | AW20 | EDP1_TX3N |
+| AK1 | DDR0_CKC_A | AY2 | VSS |
+| AK2 | DDR0_CKT_A | AY3 | DDR0_DMI1_A |
+| AK3 | VSS | AY4 | DDR0_DQ_A_10 |
+| AK4 | DDR0_CS0_A_CA06 | AY5 | DDR0_DQ_A_08 |
+| AK5 | DDR0_CA_A_03 | AY6 | VSS |
+| AK6 | VSS | AY7 | VSS |
+| AK7 | DDR0_CS1_B | AY8 | VSS |
+| AK8 | VSS | AY9 | AVSS_DRD |
+| AK9 | AVDD18_PLL1 | AY10 | USB30_A_DRD0_TXN |
+| AK10 | AVSS_PLL1 | AY11 | AVSS_DRD |
+| AK11 | VSS | AY12 | USB30_A_DRD1_TXP |
+| AK12 | VCC_SYS | AY13 | AVSS_UFS |
+| AK13 | VSS | AY14 | UFS_RXD1N |
+| AK14 | VSS | AY15 | AVSS_UFS |
+| AK15 | VSS | AY16 | UFS_RXD0P |
+| AK16 | VCC_SYS | AY17 | AVSS_EDP1 |
+| AK17 | AVSS_EDP1 | AY18 | EDP1_TX1P |
+| AK18 | VCC_SYS | AY19 | AVSS_EDP1 |
+| AK19 | VSS | AY20 | EDP1_TX3P |
+| AK20 | VCC_SYS | — | — |
 
 #### 4.1.4 (AA~AY, 21~40)
 
 <img src="static/k3_pinmap_aa-ay_21-40.png" alt="" width="800">
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px;">
-
-  <colgroup>
-    <col width="150">
-    <col width="350">
-    <col width="150">
-    <col width="350">
-  </colgroup>
-  
-  <thead>
-    <tr style="background-color: #f6f8fa;">
-      <th style="text-align: center;">Pin Number</th>
-      <th style="text-align: left;">Pin Name</th>
-      <th style="text-align: center;">Pin Number</th>
-      <th style="text-align: left;">Pin Name</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <tr><td style="text-align: center;">AA21</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AL21</td><td style="text-align: left;">VCC18_SD_CAP</td></tr>
-    <tr><td style="text-align: center;">AA22</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AL22</td><td style="text-align: left;">VCC18_GPIO5</td></tr>
-    <tr><td style="text-align: center;">AA23</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AL23</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AA24</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AL24</td><td style="text-align: left;">VCC18_GPIO1</td></tr>
-    <tr><td style="text-align: center;">AA25</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AL25</td><td style="text-align: left;">VCC18_GPIO4</td></tr>
-    <tr><td style="text-align: center;">AA26</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AL26</td><td style="text-align: left;">VCC18_GPIO4</td></tr>
-    <tr><td style="text-align: center;">AA27</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AL27</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AA28</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AL28</td><td style="text-align: left;">VCC_SYS</td></tr>
-    <tr><td style="text-align: center;">AA29</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AL29</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AA30</td><td style="text-align: left;">AVDD08_DSI</td><td style="text-align: center;">AL30</td><td style="text-align: left;">VCC_SYS</td></tr>
-    <tr><td style="text-align: center;">AA31</td><td style="text-align: left;">AVDD08_DSI</td><td style="text-align: center;">AL31</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AA32</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AL32</td><td style="text-align: left;">AVDD18_EDP0</td></tr>
-    <tr><td style="text-align: center;">AA33</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AL33</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AA34</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AL34</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AA35</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AL35</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AA36</td><td style="text-align: left;">AVSS_MIPI012</td><td style="text-align: center;">AL36</td><td style="text-align: left;">AVSS_DSI</td></tr>
-    <tr><td style="text-align: center;">AA37</td><td style="text-align: left;">AVSS_MIPI012</td><td style="text-align: center;">AL37</td><td style="text-align: left;">AVSS_DSI</td></tr>
-    <tr><td style="text-align: center;">AA38</td><td style="text-align: left;">MIPI_CSI1_D2N</td><td style="text-align: center;">AL38</td><td style="text-align: left;">MIPI_DSI1_CLKN</td></tr>
-    <tr><td style="text-align: center;">AA39</td><td style="text-align: left;">MIPI_CSI1_D2P</td><td style="text-align: center;">AL39</td><td style="text-align: left;">MIPI_DSI1_CLKP</td></tr>
-    <tr><td style="text-align: center;">AA40</td><td style="text-align: left;">AVSS_MIPI012</td><td style="text-align: center;">AL40</td><td style="text-align: left;">AVSS_DSI</td></tr>
-    <tr><td style="text-align: center;">AB21</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AM21</td><td style="text-align: left;">VCC18_SD_CAP</td></tr>
-    <tr><td style="text-align: center;">AB22</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AM22</td><td style="text-align: left;">VCC18_GPIO5</td></tr>
-    <tr><td style="text-align: center;">AB23</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AM23</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AB24</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AM24</td><td style="text-align: left;">VCC18_GPIO1</td></tr>
-    <tr><td style="text-align: center;">AB25</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AM25</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AB26</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AM26</td><td style="text-align: left;">VCC1833_GPIO4</td></tr>
-    <tr><td style="text-align: center;">AB27</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AM27</td><td style="text-align: left;">VCC1833_GPIO1</td></tr>
-    <tr><td style="text-align: center;">AB28</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AM28</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AB29</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AM29</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AB30</td><td style="text-align: left;">AVDD08_CSI2</td><td style="text-align: center;">AM30</td><td style="text-align: left;">VCC_SYS</td></tr>
-    <tr><td style="text-align: center;">AB31</td><td style="text-align: left;">AVDD08_CSI2</td><td style="text-align: center;">AM31</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AB32</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AM32</td><td style="text-align: left;">AVDD18_EDP0</td></tr>
-    <tr><td style="text-align: center;">AB33</td><td style="text-align: left;">MIPI_CSI2_CLKN</td><td style="text-align: center;">AM33</td><td style="text-align: left;">MIPI_DSI1_D1P</td></tr>
-    <tr><td style="text-align: center;">AB34</td><td style="text-align: left;">MIPI_CSI2_CLKP</td><td style="text-align: center;">AM34</td><td style="text-align: left;">MIPI_DSI1_D1N</td></tr>
-    <tr><td style="text-align: center;">AB35</td><td style="text-align: left;">AVSS_MIPI012</td><td style="text-align: center;">AM35</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AB36</td><td style="text-align: left;">MIPI_CSI1_D3N</td><td style="text-align: center;">AM36</td><td style="text-align: left;">MIPI_DSI1_D3P</td></tr>
-    <tr><td style="text-align: center;">AB37</td><td style="text-align: left;">MIPI_CSI1_D3P</td><td style="text-align: center;">AM37</td><td style="text-align: left;">MIPI_DSI1_D3N</td></tr>
-    <tr><td style="text-align: center;">AB38</td><td style="text-align: left;">AVSS_MIPI012</td><td style="text-align: center;">AM38</td><td style="text-align: left;">AVSS_DSI</td></tr>
-    <tr><td style="text-align: center;">AB39</td><td style="text-align: left;">MIPI_CSI1_CLKN</td><td style="text-align: center;">AM39</td><td style="text-align: left;">MIPI_DSI1_D0P</td></tr>
-    <tr><td style="text-align: center;">AB40</td><td style="text-align: left;">MIPI_CSI1_CLKP</td><td style="text-align: center;">AM40</td><td style="text-align: left;">MIPI_DSI1_D0N</td></tr>
-    <tr><td style="text-align: center;">AC21</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AN21</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AC22</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AN22</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AC23</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AN23</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AC24</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AN24</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AC25</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AN25</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AC26</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AN26</td><td style="text-align: left;">VCC1833_GPIO4</td></tr>
-    <tr><td style="text-align: center;">AC27</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AN27</td><td style="text-align: left;">VCC1833_GPIO1</td></tr>
-    <tr><td style="text-align: center;">AC28</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AN28</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AC29</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AN29</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AC30</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AN30</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AC31</td><td style="text-align: left;">AVSS_MIPI012</td><td style="text-align: center;">AN31</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AC32</td><td style="text-align: left;">AVSS_MIPI012</td><td style="text-align: center;">AN32</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AC33</td><td style="text-align: left;">AVSS_MIPI012</td><td style="text-align: center;">AN33</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AC34</td><td style="text-align: left;">AVSS_MIPI012</td><td style="text-align: center;">AN34</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AC35</td><td style="text-align: left;">AVSS_MIPI012</td><td style="text-align: center;">AN35</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AC36</td><td style="text-align: left;">AVSS_MIPI012</td><td style="text-align: center;">AN36</td><td style="text-align: left;">EDP0_EXTR</td></tr>
-    <tr><td style="text-align: center;">AC37</td><td style="text-align: left;">AVSS_MIPI012</td><td style="text-align: center;">AN37</td><td style="text-align: left;">AVSS_EDP0</td></tr>
-    <tr><td style="text-align: center;">AC38</td><td style="text-align: left;">MIPI_CSI1_D1P</td><td style="text-align: center;">AN38</td><td style="text-align: left;">EDP0_AUXN</td></tr>
-    <tr><td style="text-align: center;">AC39</td><td style="text-align: left;">MIPI_CSI1_D1N</td><td style="text-align: center;">AN39</td><td style="text-align: left;">EDP0_AUXP</td></tr>
-    <tr><td style="text-align: center;">AC40</td><td style="text-align: left;">AVSS_MIPI012</td><td style="text-align: center;">AN40</td><td style="text-align: left;">AVSS_EDP0</td></tr>
-    <tr><td style="text-align: center;">AD21</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AP21</td><td style="text-align: left;">QSPI_DAT2</td></tr>
-    <tr><td style="text-align: center;">AD22</td><td style="text-align: left;">VCC_CPUX</td><td style="text-align: center;">AP22</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AD23</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AP23</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AD24</td><td style="text-align: left;">VCC_CPUX</td><td style="text-align: center;">AP24</td><td style="text-align: left;">GPIO[5]_119</td></tr>
-    <tr><td style="text-align: center;">AD25</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AP25</td><td style="text-align: left;">GPIO[5]_114</td></tr>
-    <tr><td style="text-align: center;">AD26</td><td style="text-align: left;">VCC_CPUX</td><td style="text-align: center;">AP26</td><td style="text-align: left;">GPIO[5]_108</td></tr>
-    <tr><td style="text-align: center;">AD27</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AP27</td><td style="text-align: left;">GPIO[5]_106</td></tr>
-    <tr><td style="text-align: center;">AD28</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AP28</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AD29</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AP29</td><td style="text-align: left;">GPIO[1]_20</td></tr>
-    <tr><td style="text-align: center;">AD30</td><td style="text-align: left;">AVDD08_CSI0</td><td style="text-align: center;">AP30</td><td style="text-align: left;">GPIO[1]_16</td></tr>
-    <tr><td style="text-align: center;">AD31</td><td style="text-align: left;">AVDD08_CSI0</td><td style="text-align: center;">AP31</td><td style="text-align: left;">GPIO[1]_06</td></tr>
-    <tr><td style="text-align: center;">AD32</td><td style="text-align: left;">AVDD08_CSI1</td><td style="text-align: center;">AP32</td><td style="text-align: left;">GPIO[1]_05</td></tr>
-    <tr><td style="text-align: center;">AD33</td><td style="text-align: left;">AVDD08_CSI1</td><td style="text-align: center;">AP33</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AD34</td><td style="text-align: left;">AVSS_MIPI012</td><td style="text-align: center;">AP34</td><td style="text-align: left;">GPIO[4]_79</td></tr>
-    <tr><td style="text-align: center;">AD35</td><td style="text-align: left;">AVSS_MIPI012</td><td style="text-align: center;">AP35</td><td style="text-align: left;">GPIO[4]_78</td></tr>
-    <tr><td style="text-align: center;">AD36</td><td style="text-align: left;">MIPI_CSI1_D0P</td><td style="text-align: center;">AP36</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AD37</td><td style="text-align: left;">MIPI_CSI1_D0N</td><td style="text-align: center;">AP37</td><td style="text-align: left;">AVSS_EDP0</td></tr>
-    <tr><td style="text-align: center;">AD38</td><td style="text-align: left;">AVSS_MIPI012</td><td style="text-align: center;">AP38</td><td style="text-align: left;">AVSS_EDP0</td></tr>
-    <tr><td style="text-align: center;">AD39</td><td style="text-align: left;">MIPI_CSI0_D3N</td><td style="text-align: center;">AP39</td><td style="text-align: left;">EDP0_TX3P</td></tr>
-    <tr><td style="text-align: center;">AD40</td><td style="text-align: left;">MIPI_CSI0_D3P</td><td style="text-align: center;">AP40</td><td style="text-align: left;">EDP0_TX3N</td></tr>
-    <tr><td style="text-align: center;">AE21</td><td style="text-align: left;">VCC_CPUX</td><td style="text-align: center;">AR21</td><td style="text-align: left;">QSPI_CS1</td></tr>
-    <tr><td style="text-align: center;">AE22</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AR22</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AE23</td><td style="text-align: left;">VCC_CPUX</td><td style="text-align: center;">AR23</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AE24</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AR24</td><td style="text-align: left;">GPIO[5]_120</td></tr>
-    <tr><td style="text-align: center;">AE25</td><td style="text-align: left;">VCC_CPUX</td><td style="text-align: center;">AR25</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AE26</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AR26</td><td style="text-align: left;">GPIO[5]_109</td></tr>
-    <tr><td style="text-align: center;">AE27</td><td style="text-align: left;">VCC_CPUX</td><td style="text-align: center;">AR27</td><td style="text-align: left;">GPIO[5]_105</td></tr>
-    <tr><td style="text-align: center;">AE28</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AR28</td><td style="text-align: left;">GPIO[5]_99</td></tr>
-    <tr><td style="text-align: center;">AE29</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AR29</td><td style="text-align: left;">GPIO[1]_19</td></tr>
-    <tr><td style="text-align: center;">AE30</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AR30</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AE31</td><td style="text-align: left;">AVSS_MIPI012</td><td style="text-align: center;">AR31</td><td style="text-align: left;">GPIO[1]_07</td></tr>
-    <tr><td style="text-align: center;">AE32</td><td style="text-align: left;">AVSS_MIPI012</td><td style="text-align: center;">AR32</td><td style="text-align: left;">GPIO[1]_04</td></tr>
-    <tr><td style="text-align: center;">AE33</td><td style="text-align: left;">AVSS_MIPI012</td><td style="text-align: center;">AR33</td><td style="text-align: left;">GPIO[4]_76</td></tr>
-    <tr><td style="text-align: center;">AE34</td><td style="text-align: left;">AVSS_MIPI012</td><td style="text-align: center;">AR34</td><td style="text-align: left;">GPIO[4]_80</td></tr>
-    <tr><td style="text-align: center;">AE35</td><td style="text-align: left;">AVSS_MIPI012</td><td style="text-align: center;">AR35</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AE36</td><td style="text-align: left;">AVSS_MIPI012</td><td style="text-align: center;">AR36</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AE37</td><td style="text-align: left;">AVSS_MIPI012</td><td style="text-align: center;">AR37</td><td style="text-align: left;">AVSS_EDP0</td></tr>
-    <tr><td style="text-align: center;">AE38</td><td style="text-align: left;">MIPI_CSI0_D2N</td><td style="text-align: center;">AR38</td><td style="text-align: left;">EDP0_TX2P</td></tr>
-    <tr><td style="text-align: center;">AE39</td><td style="text-align: left;">MIPI_CSI0_D2P</td><td style="text-align: center;">AR39</td><td style="text-align: left;">EDP0_TX2N</td></tr>
-    <tr><td style="text-align: center;">AE40</td><td style="text-align: left;">AVSS_MIPI012</td><td style="text-align: center;">AR40</td><td style="text-align: left;">AVSS_EDP0</td></tr>
-    <tr><td style="text-align: center;">AF21</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AT21</td><td style="text-align: left;">QSPI_DAT0</td></tr>
-    <tr><td style="text-align: center;">AF22</td><td style="text-align: left;">VCC_CPUX</td><td style="text-align: center;">AT22</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AF23</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AT23</td><td style="text-align: left;">GPIO[5]_124</td></tr>
-    <tr><td style="text-align: center;">AF26</td><td style="text-align: left;">VCC_CPUX</td><td style="text-align: center;">AT24</td><td style="text-align: left;">GPIO[5]_121</td></tr>
-    <tr><td style="text-align: center;">AF27</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AT25</td><td style="text-align: left;">GPIO[5]_115</td></tr>
-    <tr><td style="text-align: center;">AF28</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AT26</td><td style="text-align: left;">GPIO[5]_110</td></tr>
-    <tr><td style="text-align: center;">AF29</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AT27</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AF30</td><td style="text-align: left;">AVDD18_CSI1</td><td style="text-align: center;">AT28</td><td style="text-align: left;">GPIO[5]_100</td></tr>
-    <tr><td style="text-align: center;">AF31</td><td style="text-align: left;">AVDD18_CSI1</td><td style="text-align: center;">AT29</td><td style="text-align: left;">GPIO[1]_18</td></tr>
-    <tr><td style="text-align: center;">AF32</td><td style="text-align: left;">AVDD18_CSI2</td><td style="text-align: center;">AT30</td><td style="text-align: left;">GPIO[1]_13</td></tr>
-    <tr><td style="text-align: center;">AF33</td><td style="text-align: left;">AVDD18_CSI2</td><td style="text-align: center;">AT31</td><td style="text-align: left;">GPIO[1]_08</td></tr>
-    <tr><td style="text-align: center;">AF34</td><td style="text-align: left;">AVSS_MIPI012</td><td style="text-align: center;">AT32</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AF35</td><td style="text-align: left;">AVSS_MIPI012</td><td style="text-align: center;">AT33</td><td style="text-align: left;">GPIO[4]_77</td></tr>
-    <tr><td style="text-align: center;">AF36</td><td style="text-align: left;">MIPI_CSI0_CLKN</td><td style="text-align: center;">AT34</td><td style="text-align: left;">GPIO[4]_81</td></tr>
-    <tr><td style="text-align: center;">AF37</td><td style="text-align: left;">MIPI_CSI0_CLKP</td><td style="text-align: center;">AT35</td><td style="text-align: left;">GPIO[4]_86</td></tr>
-    <tr><td style="text-align: center;">AF38</td><td style="text-align: left;">AVSS_MIPI012</td><td style="text-align: center;">AT36</td><td style="text-align: left;">GPIO[4]_90</td></tr>
-    <tr><td style="text-align: center;">AF39</td><td style="text-align: left;">MIPI_CSI0_D1P</td><td style="text-align: center;">AT37</td><td style="text-align: left;">AVSS_EDP0</td></tr>
-    <tr><td style="text-align: center;">AF40</td><td style="text-align: left;">MIPI_CSI0_D1N</td><td style="text-align: center;">AT38</td><td style="text-align: left;">AVSS_EDP0</td></tr>
-    <tr><td style="text-align: center;">AG21</td><td style="text-align: left;">VCC_CPUX</td><td style="text-align: center;">AT39</td><td style="text-align: left;">EDP0_TX1P</td></tr>
-    <tr><td style="text-align: center;">AG22</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AT40</td><td style="text-align: left;">EDP0_TX1N</td></tr>
-    <tr><td style="text-align: center;">AG23</td><td style="text-align: left;">VCC_CPUX</td><td style="text-align: center;">AU21</td><td style="text-align: left;">MMC1_DAT2</td></tr>
-    <tr><td style="text-align: center;">AG26</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AU22</td><td style="text-align: left;">MMC1_DAT1</td></tr>
-    <tr><td style="text-align: center;">AG27</td><td style="text-align: left;">VCC_CPUX</td><td style="text-align: center;">AU23</td><td style="text-align: left;">GPIO[5]_125</td></tr>
-    <tr><td style="text-align: center;">AG28</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AU25</td><td style="text-align: left;">GPIO[5]_116</td></tr>
-    <tr><td style="text-align: center;">AG29</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AU26</td><td style="text-align: left;">GPIO[5]_111</td></tr>
-    <tr><td style="text-align: center;">AG30</td><td style="text-align: left;">AVSS_DSI</td><td style="text-align: center;">AU28</td><td style="text-align: left;">GPIO[5]_101</td></tr>
-    <tr><td style="text-align: center;">AG31</td><td style="text-align: left;">AVSS_DSI</td><td style="text-align: center;">AU29</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AG32</td><td style="text-align: left;">AVSS_DSI</td><td style="text-align: center;">AU31</td><td style="text-align: left;">GPIO[1]_09</td></tr>
-    <tr><td style="text-align: center;">AG33</td><td style="text-align: left;">AVSS_DSI</td><td style="text-align: center;">AU32</td><td style="text-align: left;">GPIO[1]_03</td></tr>
-    <tr><td style="text-align: center;">AG34</td><td style="text-align: left;">AVSS_MIPI012</td><td style="text-align: center;">AU34</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AG35</td><td style="text-align: left;">AVSS_MIPI012</td><td style="text-align: center;">AU35</td><td style="text-align: left;">GPIO[4]_87</td></tr>
-    <tr><td style="text-align: center;">AG36</td><td style="text-align: left;">AVSS_MIPI012</td><td style="text-align: center;">AU37</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AG37</td><td style="text-align: left;">AVSS_MIPI012</td><td style="text-align: center;">AU38</td><td style="text-align: left;">EDP0_TX0P</td></tr>
-    <tr><td style="text-align: center;">AG38</td><td style="text-align: left;">MIPI_CSI0_D0P</td><td style="text-align: center;">AU39</td><td style="text-align: left;">EDP0_TX0N</td></tr>
-    <tr><td style="text-align: center;">AG39</td><td style="text-align: left;">MIPI_CSI0_D0N</td><td style="text-align: center;">AU40</td><td style="text-align: left;">AVSS_EDP0</td></tr>
-    <tr><td style="text-align: center;">AG40</td><td style="text-align: left;">AVSS_MIPI012</td><td style="text-align: center;">AV21</td><td style="text-align: left;">MMC1_CLK</td></tr>
-    <tr><td style="text-align: center;">AH21</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AV22</td><td style="text-align: left;">MMC1_DAT0</td></tr>
-    <tr><td style="text-align: center;">AH22</td><td style="text-align: left;">VCC_CPUX</td><td style="text-align: center;">AV23</td><td style="text-align: left;">GPIO[5]_126</td></tr>
-    <tr><td style="text-align: center;">AH23</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AV25</td><td style="text-align: left;">GPIO[5]_117</td></tr>
-    <tr><td style="text-align: center;">AH24</td><td style="text-align: left;">VCC_CPUX</td><td style="text-align: center;">AV26</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AH25</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AV28</td><td style="text-align: left;">GPIO[5]_102</td></tr>
-    <tr><td style="text-align: center;">AH26</td><td style="text-align: left;">VCC_CPUX</td><td style="text-align: center;">AV29</td><td style="text-align: left;">GPIO[1]_17</td></tr>
-    <tr><td style="text-align: center;">AH27</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AV31</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AH28</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AV32</td><td style="text-align: left;">GPIO[1]_02</td></tr>
-    <tr><td style="text-align: center;">AH29</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AV34</td><td style="text-align: left;">GPIO[4]_82</td></tr>
-    <tr><td style="text-align: center;">AH30</td><td style="text-align: left;">AVDD12_DSI</td><td style="text-align: center;">AV35</td><td style="text-align: left;">GPIO[4]_88</td></tr>
-    <tr><td style="text-align: center;">AH31</td><td style="text-align: left;">AVDD18_CSI0</td><td style="text-align: center;">AV37</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AH32</td><td style="text-align: left;">AVDD18_CSI0</td><td style="text-align: center;">AV38</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AH33</td><td style="text-align: left;">AVSS_DSI</td><td style="text-align: center;">AV39</td><td style="text-align: left;">GPIO[4]_96</td></tr>
-    <tr><td style="text-align: center;">AH34</td><td style="text-align: left;">AVSS_DSI</td><td style="text-align: center;">AV40</td><td style="text-align: left;">GPIO[4]_98</td></tr>
-    <tr><td style="text-align: center;">AH35</td><td style="text-align: left;">AVSS_DSI</td><td style="text-align: center;">AW21</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AH36</td><td style="text-align: left;">MIPI_DSI0_D2P</td><td style="text-align: center;">AW22</td><td style="text-align: left;">MMC1_CMD</td></tr>
-    <tr><td style="text-align: center;">AH37</td><td style="text-align: left;">MIPI_DSI0_D2N</td><td style="text-align: center;">AW23</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AH38</td><td style="text-align: left;">AVSS_DSI</td><td style="text-align: center;">AW24</td><td style="text-align: left;">GPIO[5]_122</td></tr>
-    <tr><td style="text-align: center;">AH39</td><td style="text-align: left;">MIPI_DSI0_D1N</td><td style="text-align: center;">AW25</td><td style="text-align: left;">GPIO[5]_118</td></tr>
-    <tr><td style="text-align: center;">AH40</td><td style="text-align: left;">MIPI_DSI0_D1P</td><td style="text-align: center;">AW26</td><td style="text-align: left;">GPIO[5]_112</td></tr>
-    <tr><td style="text-align: center;">AJ21</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AW27</td><td style="text-align: left;">GPIO[5]_104</td></tr>
-    <tr><td style="text-align: center;">AJ22</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AW28</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AJ23</td><td style="text-align: left;">VCC_CPUX</td><td style="text-align: center;">AW29</td><td style="text-align: left;">GPIO[1]_14</td></tr>
-    <tr><td style="text-align: center;">AJ24</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AW30</td><td style="text-align: left;">GPIO[1]_12</td></tr>
-    <tr><td style="text-align: center;">AJ25</td><td style="text-align: left;">VCC_CPUX</td><td style="text-align: center;">AW31</td><td style="text-align: left;">GPIO[1]_10</td></tr>
-    <tr><td style="text-align: center;">AJ26</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AW32</td><td style="text-align: left;">GPIO[1]_01</td></tr>
-    <tr><td style="text-align: center;">AJ27</td><td style="text-align: left;">DVDD08_EDP0</td><td style="text-align: center;">AW33</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AJ28</td><td style="text-align: left;">DVDD08_EDP0</td><td style="text-align: center;">AW34</td><td style="text-align: left;">GPIO[4]_83</td></tr>
-    <tr><td style="text-align: center;">AJ29</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AW35</td><td style="text-align: left;">GPIO[4]_89</td></tr>
-    <tr><td style="text-align: center;">AJ30</td><td style="text-align: left;">AVDD12_DSI</td><td style="text-align: center;">AW36</td><td style="text-align: left;">GPIO[4]_91</td></tr>
-    <tr><td style="text-align: center;">AJ31</td><td style="text-align: left;">AVDD18_DSI</td><td style="text-align: center;">AW37</td><td style="text-align: left;">GPIO[4]_93</td></tr>
-    <tr><td style="text-align: center;">AJ32</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AW38</td><td style="text-align: left;">GPIO[4]_95</td></tr>
-    <tr><td style="text-align: center;">AJ33</td><td style="text-align: left;">AVSS_DSI</td><td style="text-align: center;">AW39</td><td style="text-align: left;">GPIO[4]_97</td></tr>
-    <tr><td style="text-align: center;">AJ34</td><td style="text-align: left;">AVSS_DSI</td><td style="text-align: center;">AW40</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AJ35</td><td style="text-align: left;">AVSS_DSI</td><td style="text-align: center;">AY21</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AJ36</td><td style="text-align: left;">AVSS_DSI</td><td style="text-align: center;">AY22</td><td style="text-align: left;">MMC1_DAT3</td></tr>
-    <tr><td style="text-align: center;">AJ37</td><td style="text-align: left;">AVSS_DSI</td><td style="text-align: center;">AY23</td><td style="text-align: left;">GPIO[5]_127</td></tr>
-    <tr><td style="text-align: center;">AJ38</td><td style="text-align: left;">MIPI_DSI0_CLKN</td><td style="text-align: center;">AY24</td><td style="text-align: left;">GPIO[5]_123</td></tr>
-    <tr><td style="text-align: center;">AJ39</td><td style="text-align: left;">MIPI_DSI0_CLKP</td><td style="text-align: center;">AY25</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AJ40</td><td style="text-align: left;">AVSS_DSI</td><td style="text-align: center;">AY26</td><td style="text-align: left;">GPIO[5]_113</td></tr>
-    <tr><td style="text-align: center;">AK21</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AY27</td><td style="text-align: left;">GPIO[5]_107</td></tr>
-    <tr><td style="text-align: center;">AK22</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AY28</td><td style="text-align: left;">GPIO[5]_103</td></tr>
-    <tr><td style="text-align: center;">AK23</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AY29</td><td style="text-align: left;">GPIO[1]_15</td></tr>
-    <tr><td style="text-align: center;">AK24</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AY30</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AK25</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AY31</td><td style="text-align: left;">GPIO[1]_11</td></tr>
-    <tr><td style="text-align: center;">AK26</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AY32</td><td style="text-align: left;">GPIO[1]_00</td></tr>
-    <tr><td style="text-align: center;">AK27</td><td style="text-align: left;">AVSS_EDP0</td><td style="text-align: center;">AY33</td><td style="text-align: left;">GPIO[4]_85</td></tr>
-    <tr><td style="text-align: center;">AK28</td><td style="text-align: left;">VCC_SYS</td><td style="text-align: center;">AY34</td><td style="text-align: left;">GPIO[4]_84</td></tr>
-    <tr><td style="text-align: center;">AK29</td><td style="text-align: left;">AVSS_EDP0</td><td style="text-align: center;">AY35</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AK30</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AY36</td><td style="text-align: left;">GPIO[4]_92</td></tr>
-    <tr><td style="text-align: center;">AK31</td><td style="text-align: left;">AVDD18_DSI</td><td style="text-align: center;">AY37</td><td style="text-align: left;">GPIO[4]_94</td></tr>
-    <tr><td style="text-align: center;">AK32</td><td style="text-align: left;">VSS</td><td style="text-align: center;">AY38</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AK33</td><td style="text-align: left;">MIPI_DSI0_D0P</td><td style="text-align: center;">AY39</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AK34</td><td style="text-align: left;">MIPI_DSI0_D0N</td><td style="text-align: center;">AY40</td><td style="text-align: left;">VSS</td></tr>
-    <tr><td style="text-align: center;">AK35</td><td style="text-align: left;">AVSS_DSI</td><td style="text-align: center;"></td><td style="text-align: left;"></td></tr>
-    <tr><td style="text-align: center;">AK36</td><td style="text-align: left;">MIPI_DSI0_D3P</td><td style="text-align: center;"></td><td style="text-align: left;"></td></tr>
-    <tr><td style="text-align: center;">AK37</td><td style="text-align: left;">MIPI_DSI0_D3N</td><td style="text-align: center;"></td><td style="text-align: left;"></td></tr>
-    <tr><td style="text-align: center;">AK38</td><td style="text-align: left;">AVSS_DSI</td><td style="text-align: center;"></td><td style="text-align: left;"></td></tr>
-    <tr><td style="text-align: center;">AK39</td><td style="text-align: left;">MIPI_DSI1_D2N</td><td style="text-align: center;"></td><td style="text-align: left;"></td></tr>
-    <tr><td style="text-align: center;">AK40</td><td style="text-align: left;">MIPI_DSI1_D2P</td><td style="text-align: center;"></td><td style="text-align: left;"></td></tr>
-  </tbody>
-</table>
+| Pin Number | Pin Name | Pin Number | Pin Name |
+| --- | --- | --- | --- |
+| AA21 | VCC_SYS | AL21 | VCC18_SD_CAP |
+| AA22 | VSS | AL22 | VCC18_GPIO5 |
+| AA23 | VCC_SYS | AL23 | VSS |
+| AA24 | VSS | AL24 | VCC18_GPIO1 |
+| AA25 | VCC_SYS | AL25 | VCC18_GPIO4 |
+| AA26 | VSS | AL26 | VCC18_GPIO4 |
+| AA27 | VCC_SYS | AL27 | VSS |
+| AA28 | VSS | AL28 | VCC_SYS |
+| AA29 | VCC_SYS | AL29 | VSS |
+| AA30 | AVDD08_DSI | AL30 | VCC_SYS |
+| AA31 | AVDD08_DSI | AL31 | VSS |
+| AA32 | VSS | AL32 | AVDD18_EDP0 |
+| AA33 | VSS | AL33 | VSS |
+| AA34 | VSS | AL34 | VSS |
+| AA35 | VSS | AL35 | VSS |
+| AA36 | AVSS_MIPI012 | AL36 | AVSS_DSI |
+| AA37 | AVSS_MIPI012 | AL37 | AVSS_DSI |
+| AA38 | MIPI_CSI1_D2N | AL38 | MIPI_DSI1_CLKN |
+| AA39 | MIPI_CSI1_D2P | AL39 | MIPI_DSI1_CLKP |
+| AA40 | AVSS_MIPI012 | AL40 | AVSS_DSI |
+| AB21 | VSS | AM21 | VCC18_SD_CAP |
+| AB22 | VCC_SYS | AM22 | VCC18_GPIO5 |
+| AB23 | VSS | AM23 | VSS |
+| AB24 | VCC_SYS | AM24 | VCC18_GPIO1 |
+| AB25 | VSS | AM25 | VSS |
+| AB26 | VCC_SYS | AM26 | VCC1833_GPIO4 |
+| AB27 | VSS | AM27 | VCC1833_GPIO1 |
+| AB28 | VCC_SYS | AM28 | VSS |
+| AB29 | VSS | AM29 | VSS |
+| AB30 | AVDD08_CSI2 | AM30 | VCC_SYS |
+| AB31 | AVDD08_CSI2 | AM31 | VSS |
+| AB32 | VSS | AM32 | AVDD18_EDP0 |
+| AB33 | MIPI_CSI2_CLKN | AM33 | MIPI_DSI1_D1P |
+| AB34 | MIPI_CSI2_CLKP | AM34 | MIPI_DSI1_D1N |
+| AB35 | AVSS_MIPI012 | AM35 | VSS |
+| AB36 | MIPI_CSI1_D3N | AM36 | MIPI_DSI1_D3P |
+| AB37 | MIPI_CSI1_D3P | AM37 | MIPI_DSI1_D3N |
+| AB38 | AVSS_MIPI012 | AM38 | AVSS_DSI |
+| AB39 | MIPI_CSI1_CLKN | AM39 | MIPI_DSI1_D0P |
+| AB40 | MIPI_CSI1_CLKP | AM40 | MIPI_DSI1_D0N |
+| AC21 | VCC_SYS | AN21 | VSS |
+| AC22 | VSS | AN22 | VSS |
+| AC23 | VCC_SYS | AN23 | VSS |
+| AC24 | VSS | AN24 | VSS |
+| AC25 | VCC_SYS | AN25 | VSS |
+| AC26 | VSS | AN26 | VCC1833_GPIO4 |
+| AC27 | VCC_SYS | AN27 | VCC1833_GPIO1 |
+| AC28 | VSS | AN28 | VSS |
+| AC29 | VCC_SYS | AN29 | VSS |
+| AC30 | VSS | AN30 | VSS |
+| AC31 | AVSS_MIPI012 | AN31 | VSS |
+| AC32 | AVSS_MIPI012 | AN32 | VSS |
+| AC33 | AVSS_MIPI012 | AN33 | VSS |
+| AC34 | AVSS_MIPI012 | AN34 | VSS |
+| AC35 | AVSS_MIPI012 | AN35 | VSS |
+| AC36 | AVSS_MIPI012 | AN36 | EDP0_EXTR |
+| AC37 | AVSS_MIPI012 | AN37 | AVSS_EDP0 |
+| AC38 | MIPI_CSI1_D1P | AN38 | EDP0_AUXN |
+| AC39 | MIPI_CSI1_D1N | AN39 | EDP0_AUXP |
+| AC40 | AVSS_MIPI012 | AN40 | AVSS_EDP0 |
+| AD21 | VSS | AP21 | QSPI_DAT2 |
+| AD22 | VCC_CPUX | AP22 | VSS |
+| AD23 | VSS | AP23 | VSS |
+| AD24 | VCC_CPUX | AP24 | GPIO[5]_119 |
+| AD25 | VSS | AP25 | GPIO[5]_114 |
+| AD26 | VCC_CPUX | AP26 | GPIO[5]_108 |
+| AD27 | VSS | AP27 | GPIO[5]_106 |
+| AD28 | VCC_SYS | AP28 | VSS |
+| AD29 | VSS | AP29 | GPIO[1]_20 |
+| AD30 | AVDD08_CSI0 | AP30 | GPIO[1]_16 |
+| AD31 | AVDD08_CSI0 | AP31 | GPIO[1]_06 |
+| AD32 | AVDD08_CSI1 | AP32 | GPIO[1]_05 |
+| AD33 | AVDD08_CSI1 | AP33 | VSS |
+| AD34 | AVSS_MIPI012 | AP34 | GPIO[4]_79 |
+| AD35 | AVSS_MIPI012 | AP35 | GPIO[4]_78 |
+| AD36 | MIPI_CSI1_D0P | AP36 | VSS |
+| AD37 | MIPI_CSI1_D0N | AP37 | AVSS_EDP0 |
+| AD38 | AVSS_MIPI012 | AP38 | AVSS_EDP0 |
+| AD39 | MIPI_CSI0_D3N | AP39 | EDP0_TX3P |
+| AD40 | MIPI_CSI0_D3P | AP40 | EDP0_TX3N |
+| AE21 | VCC_CPUX | AR21 | QSPI_CS1 |
+| AE22 | VSS | AR22 | VSS |
+| AE23 | VCC_CPUX | AR23 | VSS |
+| AE24 | VSS | AR24 | GPIO[5]_120 |
+| AE25 | VCC_CPUX | AR25 | VSS |
+| AE26 | VSS | AR26 | GPIO[5]_109 |
+| AE27 | VCC_CPUX | AR27 | GPIO[5]_105 |
+| AE28 | VSS | AR28 | GPIO[5]_99 |
+| AE29 | VCC_SYS | AR29 | GPIO[1]_19 |
+| AE30 | VSS | AR30 | VSS |
+| AE31 | AVSS_MIPI012 | AR31 | GPIO[1]_07 |
+| AE32 | AVSS_MIPI012 | AR32 | GPIO[1]_04 |
+| AE33 | AVSS_MIPI012 | AR33 | GPIO[4]_76 |
+| AE34 | AVSS_MIPI012 | AR34 | GPIO[4]_80 |
+| AE35 | AVSS_MIPI012 | AR35 | VSS |
+| AE36 | AVSS_MIPI012 | AR36 | VSS |
+| AE37 | AVSS_MIPI012 | AR37 | AVSS_EDP0 |
+| AE38 | MIPI_CSI0_D2N | AR38 | EDP0_TX2P |
+| AE39 | MIPI_CSI0_D2P | AR39 | EDP0_TX2N |
+| AE40 | AVSS_MIPI012 | AR40 | AVSS_EDP0 |
+| AF21 | VSS | AT21 | QSPI_DAT0 |
+| AF22 | VCC_CPUX | AT22 | VSS |
+| AF23 | VSS | AT23 | GPIO[5]_124 |
+| AF26 | VCC_CPUX | AT24 | GPIO[5]_121 |
+| AF27 | VSS | AT25 | GPIO[5]_115 |
+| AF28 | VCC_SYS | AT26 | GPIO[5]_110 |
+| AF29 | VSS | AT27 | VSS |
+| AF30 | AVDD18_CSI1 | AT28 | GPIO[5]_100 |
+| AF31 | AVDD18_CSI1 | AT29 | GPIO[1]_18 |
+| AF32 | AVDD18_CSI2 | AT30 | GPIO[1]_13 |
+| AF33 | AVDD18_CSI2 | AT31 | GPIO[1]_08 |
+| AF34 | AVSS_MIPI012 | AT32 | VSS |
+| AF35 | AVSS_MIPI012 | AT33 | GPIO[4]_77 |
+| AF36 | MIPI_CSI0_CLKN | AT34 | GPIO[4]_81 |
+| AF37 | MIPI_CSI0_CLKP | AT35 | GPIO[4]_86 |
+| AF38 | AVSS_MIPI012 | AT36 | GPIO[4]_90 |
+| AF39 | MIPI_CSI0_D1P | AT37 | AVSS_EDP0 |
+| AF40 | MIPI_CSI0_D1N | AT38 | AVSS_EDP0 |
+| AG21 | VCC_CPUX | AT39 | EDP0_TX1P |
+| AG22 | VSS | AT40 | EDP0_TX1N |
+| AG23 | VCC_CPUX | AU21 | MMC1_DAT2 |
+| AG26 | VSS | AU22 | MMC1_DAT1 |
+| AG27 | VCC_CPUX | AU23 | GPIO[5]_125 |
+| AG28 | VSS | AU25 | GPIO[5]_116 |
+| AG29 | VCC_SYS | AU26 | GPIO[5]_111 |
+| AG30 | AVSS_DSI | AU28 | GPIO[5]_101 |
+| AG31 | AVSS_DSI | AU29 | VSS |
+| AG32 | AVSS_DSI | AU31 | GPIO[1]_09 |
+| AG33 | AVSS_DSI | AU32 | GPIO[1]_03 |
+| AG34 | AVSS_MIPI012 | AU34 | VSS |
+| AG35 | AVSS_MIPI012 | AU35 | GPIO[4]_87 |
+| AG36 | AVSS_MIPI012 | AU37 | VSS |
+| AG37 | AVSS_MIPI012 | AU38 | EDP0_TX0P |
+| AG38 | MIPI_CSI0_D0P | AU39 | EDP0_TX0N |
+| AG39 | MIPI_CSI0_D0N | AU40 | AVSS_EDP0 |
+| AG40 | AVSS_MIPI012 | AV21 | MMC1_CLK |
+| AH21 | VSS | AV22 | MMC1_DAT0 |
+| AH22 | VCC_CPUX | AV23 | GPIO[5]_126 |
+| AH23 | VSS | AV25 | GPIO[5]_117 |
+| AH24 | VCC_CPUX | AV26 | VSS |
+| AH25 | VSS | AV28 | GPIO[5]_102 |
+| AH26 | VCC_CPUX | AV29 | GPIO[1]_17 |
+| AH27 | VSS | AV31 | VSS |
+| AH28 | VCC_SYS | AV32 | GPIO[1]_02 |
+| AH29 | VSS | AV34 | GPIO[4]_82 |
+| AH30 | AVDD12_DSI | AV35 | GPIO[4]_88 |
+| AH31 | AVDD18_CSI0 | AV37 | VSS |
+| AH32 | AVDD18_CSI0 | AV38 | VSS |
+| AH33 | AVSS_DSI | AV39 | GPIO[4]_96 |
+| AH34 | AVSS_DSI | AV40 | GPIO[4]_98 |
+| AH35 | AVSS_DSI | AW21 | VSS |
+| AH36 | MIPI_DSI0_D2P | AW22 | MMC1_CMD |
+| AH37 | MIPI_DSI0_D2N | AW23 | VSS |
+| AH38 | AVSS_DSI | AW24 | GPIO[5]_122 |
+| AH39 | MIPI_DSI0_D1N | AW25 | GPIO[5]_118 |
+| AH40 | MIPI_DSI0_D1P | AW26 | GPIO[5]_112 |
+| AJ21 | VCC_SYS | AW27 | GPIO[5]_104 |
+| AJ22 | VSS | AW28 | VSS |
+| AJ23 | VCC_CPUX | AW29 | GPIO[1]_14 |
+| AJ24 | VSS | AW30 | GPIO[1]_12 |
+| AJ25 | VCC_CPUX | AW31 | GPIO[1]_10 |
+| AJ26 | VSS | AW32 | GPIO[1]_01 |
+| AJ27 | DVDD08_EDP0 | AW33 | VSS |
+| AJ28 | DVDD08_EDP0 | AW34 | GPIO[4]_83 |
+| AJ29 | VCC_SYS | AW35 | GPIO[4]_89 |
+| AJ30 | AVDD12_DSI | AW36 | GPIO[4]_91 |
+| AJ31 | AVDD18_DSI | AW37 | GPIO[4]_93 |
+| AJ32 | VSS | AW38 | GPIO[4]_95 |
+| AJ33 | AVSS_DSI | AW39 | GPIO[4]_97 |
+| AJ34 | AVSS_DSI | AW40 | VSS |
+| AJ35 | AVSS_DSI | AY21 | VSS |
+| AJ36 | AVSS_DSI | AY22 | MMC1_DAT3 |
+| AJ37 | AVSS_DSI | AY23 | GPIO[5]_127 |
+| AJ38 | MIPI_DSI0_CLKN | AY24 | GPIO[5]_123 |
+| AJ39 | MIPI_DSI0_CLKP | AY25 | VSS |
+| AJ40 | AVSS_DSI | AY26 | GPIO[5]_113 |
+| AK21 | VSS | AY27 | GPIO[5]_107 |
+| AK22 | VCC_SYS | AY28 | GPIO[5]_103 |
+| AK23 | VSS | AY29 | GPIO[1]_15 |
+| AK24 | VCC_SYS | AY30 | VSS |
+| AK25 | VSS | AY31 | GPIO[1]_11 |
+| AK26 | VCC_SYS | AY32 | GPIO[1]_00 |
+| AK27 | AVSS_EDP0 | AY33 | GPIO[4]_85 |
+| AK28 | VCC_SYS | AY34 | GPIO[4]_84 |
+| AK29 | AVSS_EDP0 | AY35 | VSS |
+| AK30 | VSS | AY36 | GPIO[4]_92 |
+| AK31 | AVDD18_DSI | AY37 | GPIO[4]_94 |
+| AK32 | VSS | AY38 | VSS |
+| AK33 | MIPI_DSI0_D0P | AY39 | VSS |
+| AK34 | MIPI_DSI0_D0N | AY40 | VSS |
+| AK35 | AVSS_DSI | — | — |
+| AK36 | MIPI_DSI0_D3P | — | — |
+| AK37 | MIPI_DSI0_D3N | — | — |
+| AK38 | AVSS_DSI | — | — |
+| AK39 | MIPI_DSI1_D2N | — | — |
+| AK40 | MIPI_DSI1_D2P | — | — |
 
 ### 4.2 I/O Pin Parameters
 
 #### 4.2.1 For 1.8V I/O Pins
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px;">
-
-  <colgroup>
-    <col width="150">
-    <col width="100">
-    <col width="450">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-  </colgroup>
-  
-  <thead>
-    <tr style="background-color: #f6f8fa;">
-      <th style="text-align: center;">Power Domain</th>
-      <th style="text-align: center;">Symbol</th>
-      <th style="text-align: left;">Description</th>
-      <th style="text-align: center;">Min</th>
-      <th style="text-align: center;">Typ</th>
-      <th style="text-align: center;">Max</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <!-- 1.8V Input Section -->
-    <tr>
-      <td rowspan="5" style="padding: 6px 8px; text-align: center; border: 1px solid #dfe2e5; font-weight: bold; vertical-align: middle;">1.8V Input</td>
-      <td style="text-align: center;">Vih</td>
-      <td style="text-align: left;">High level input</td>
-      <td style="text-align: center;">VCC×0.7V</td>
-      <td style="text-align: center;">1.8V</td>
-      <td style="text-align: center;">VCC+0.2V</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">Vil</td>
-      <td style="text-align: left;">Low level input</td>
-      <td style="text-align: center;">-0.3V</td>
-      <td style="text-align: center;">0V</td>
-      <td style="text-align: center;">VCC×0.3V</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">Rpu</td>
-      <td style="text-align: left;">Pull up resistor</td>
-      <td style="text-align: center;">55kΩ</td>
-      <td style="text-align: center;">79kΩ</td>
-      <td style="text-align: center;">121kΩ</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">Rpd</td>
-      <td style="text-align: left;">Pull down resistor</td>
-      <td style="text-align: center;">51kΩ</td>
-      <td style="text-align: center;">87kΩ</td>
-      <td style="text-align: center;">169kΩ</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">Iil</td>
-      <td style="text-align: left;">Input leakage current (Pad in input mode)</td>
-      <td style="text-align: center;">—</td>
-      <td style="text-align: center;">—</td>
-      <td style="text-align: center;">10µA</td>
-    </tr>
-    <!-- 1.8V Output Section -->
-    <tr>
-      <td rowspan="10" style="padding: 6px 8px; text-align: center; border: 1px solid #dfe2e5; font-weight: bold; vertical-align: middle;">1.8V Output</td>
-      <td style="text-align: center;">Voh</td>
-      <td style="text-align: left;">High level output</td>
-      <td style="text-align: center;">VCC−0.2V</td>
-      <td style="text-align: center;">—</td>
-      <td style="text-align: center;">—</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">Vol</td>
-      <td style="text-align: left;">Low level output</td>
-      <td style="text-align: center;">—</td>
-      <td style="text-align: center;">—</td>
-      <td style="text-align: center;">0.2V</td>
-    </tr>
-    <!-- IOL Rows (Split for clarity within 500px col) -->
-    <tr>
-      <td rowspan="4" style="padding: 6px 8px; text-align: center; border: 1px solid #dfe2e5; vertical-align: middle;">Iol<br><span style="font-size:11px; color:#666;">DCS[1:0]</span></td>
-      <td style="text-align: left;">Low level output current (Vpad=0.2V) <strong>DCS=00</strong></td>
-      <td style="text-align: center;">13mA</td>
-      <td style="text-align: center;">—</td>
-      <td style="text-align: center;">—</td>
-    </tr>
-    <tr>
-      <td style="text-align: left;">Low level output current (Vpad=0.2V) <strong>DCS=01</strong></td>
-      <td style="text-align: center;">25mA</td>
-      <td style="text-align: center;">—</td>
-      <td style="text-align: center;">—</td>
-    </tr>
-    <tr>
-      <td style="text-align: left;">Low level output current (Vpad=0.2V) <strong>DCS=10</strong></td>
-      <td style="text-align: center;">37mA</td>
-      <td style="text-align: center;">—</td>
-      <td style="text-align: center;">—</td>
-    </tr>
-    <tr>
-      <td style="text-align: left;">Low level output current (Vpad=0.2V) <strong>DCS=11</strong></td>
-      <td style="text-align: center;">49mA</td>
-      <td style="text-align: center;">—</td>
-      <td style="text-align: center;">—</td>
-    </tr>
-    <!-- IOH Rows (Split for clarity within 500px col) -->
-    <tr>
-      <td rowspan="4" style="padding: 6px 8px; text-align: center; border: 1px solid #dfe2e5; vertical-align: middle;">Ioh<br><span style="font-size:11px; color:#666;">DCS[1:0]</span></td>
-      <td style="text-align: left;">High level output current (Vpad=VCC−0.2V) <strong>DCS=00</strong></td>
-      <td style="text-align: center;">11mA</td>
-      <td style="text-align: center;">—</td>
-      <td style="text-align: center;">—</td>
-    </tr>
-    <tr>
-      <td style="text-align: left;">High level output current (Vpad=VCC−0.2V) <strong>DCS=01</strong></td>
-      <td style="text-align: center;">21mA</td>
-      <td style="text-align: center;">—</td>
-      <td style="text-align: center;">—</td>
-    </tr>
-    <tr>
-      <td style="text-align: left;">High level output current (Vpad=VCC−0.2V) <strong>DCS=10</strong></td>
-      <td style="text-align: center;">32mA</td>
-      <td style="text-align: center;">—</td>
-      <td style="text-align: center;">—</td>
-    </tr>
-    <tr>
-      <td style="text-align: left;">High level output current (Vpad=VCC−0.2V) <strong>DCS=11</strong></td>
-      <td style="text-align: center;">42mA</td>
-      <td style="text-align: center;">—</td>
-      <td style="text-align: center;">—</td>
-    </tr>
-  </tbody>
-</table>
+| Power Domain | Symbol | Description | Min | Typ | Max |
+| --- | --- | --- | --- | --- | --- |
+| **1.8V Input** | Vih | High level input | VCC×0.7V | 1.8V | VCC+0.2V |
+|  | Vil | Low level input | -0.3V | 0V | VCC×0.3V | 
+|  | Rpu | Pull up resistor | 55kΩ | 79kΩ | 121kΩ | 
+|  | Rpd | Pull down resistor | 51kΩ | 87kΩ | 169kΩ | 
+|  | Iil | Input leakage current (Pad in input mode) | — | — | 10µA | 
+| **1.8V Output** | Voh | High level output | VCC−0.2V | — | — |
+|  | Vol | Low level output | — | — | 0.2V |  
+|  | IolDCS[1:0] | Low level output current (Vpad=0.2V) DCS=00 | 13mA | — | — |  
+|  | IolDCS[1:0] | Low level output current (Vpad=0.2V) DCS=01 | 25mA | — | — |  
+|  | IolDCS[1:0] | Low level output current (Vpad=0.2V) DCS=10 | 37mA | — | — |
+|  | IolDCS[1:0] | Low level output current (Vpad=0.2V) DCS=11 | 49mA | — | — |
+|  | IohDCS[1:0] | High level output current (Vpad=VCC−0.2V) DCS=00 | 11mA | — | — |
+|  | IohDCS[1:0] | High level output current (Vpad=VCC−0.2V) DCS=01 | 21mA | — | — |  
+|  | IohDCS[1:0] |High level output current (Vpad=VCC−0.2V) DCS=10 | 32mA | — | — | 
+|  | IohDCS[1:0] |High level output current (Vpad=VCC−0.2V) DCS=11 | 42mA | — | — | 
 
 #### 4.2.2 For 3.3V I/O Pins
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px;">
-
-  <colgroup>
-    <col width="150">
-    <col width="100">
-    <col width="450">
-    <col width="100">
-    <col width="100">
-    <col width="100">
-  </colgroup>
-  
-  <thead>
-    <tr style="background-color: #f6f8fa;">
-      <th style="text-align: center;">Power Domain</th>
-      <th style="text-align: center;">Symbol</th>
-      <th style="text-align: left;">Description</th>
-      <th style="text-align: center;">Min</th>
-      <th style="text-align: center;">Typ</th>
-      <th style="text-align: center;">Max</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <!-- 3.3V Input Section -->
-    <tr>
-      <td rowspan="5" style="padding: 6px 8px; text-align: center; border: 1px solid #dfe2e5; font-weight: bold; vertical-align: middle;">3.3V Input</td>
-      <td style="text-align: center;">Vih</td>
-      <td style="text-align: left;">High level input voltage</td>
-      <td style="text-align: center;">2V</td>
-      <td style="text-align: center;">—</td>
-      <td style="text-align: center;">VCC+0.3V</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">Vil</td>
-      <td style="text-align: left;">Low level input voltage</td>
-      <td style="text-align: center;">-0.3V</td>
-      <td style="text-align: center;">0V</td>
-      <td style="text-align: center;">0.8V</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">Rpu</td>
-      <td style="text-align: left;">Pull-up resistor</td>
-      <td style="text-align: center;">26kΩ</td>
-      <td style="text-align: center;">47kΩ</td>
-      <td style="text-align: center;">72kΩ</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">Rpd</td>
-      <td style="text-align: left;">Pull-down resistor</td>
-      <td style="text-align: center;">27kΩ</td>
-      <td style="text-align: center;">54kΩ</td>
-      <td style="text-align: center;">267kΩ</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">Iil</td>
-      <td style="text-align: left;">Input leakage current</td>
-      <td style="text-align: center;">—</td>
-      <td style="text-align: center;">—</td>
-      <td style="text-align: center;">10µA</td>
-    </tr>
-    <!-- 3.3V Output Section -->
-    <tr>
-      <td rowspan="18" style="padding: 6px 8px; text-align: center; border: 1px solid #dfe2e5; font-weight: bold; vertical-align: middle;">3.3V Output</td>
-      <td style="text-align: center;">Voh</td>
-      <td style="text-align: left;">High level output voltage</td>
-      <td style="text-align: center;">2.4V</td>
-      <td style="text-align: center;">—</td>
-      <td style="text-align: center;">—</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">Vol</td>
-      <td style="text-align: left;">Low level output voltage</td>
-      <td style="text-align: center;">—</td>
-      <td style="text-align: center;">—</td>
-      <td style="text-align: center;">0.4V</td>
-    </tr>
-    <!-- IOL Rows (8 configurations) -->
-    <tr>
-      <td rowspan="8" style="padding: 6px 8px; text-align: center; border: 1px solid #dfe2e5; vertical-align: middle;">Iol<br><span style="font-size:11px; color:#666;">DS[2:0]</span></td>
-      <td style="text-align: left;">Low level output current (Vpad=0.4V) <strong>DS=000</strong></td>
-      <td style="text-align: center;">7mA</td>
-      <td style="text-align: center;">—</td>
-      <td style="text-align: center;">—</td>
-    </tr>
-    <tr>
-      <td style="text-align: left;">Low level output current (Vpad=0.4V) <strong>DS=001</strong></td>
-      <td style="text-align: center;">10mA</td>
-      <td style="text-align: center;">—</td>
-      <td style="text-align: center;">—</td>
-    </tr>
-    <tr>
-      <td style="text-align: left;">Low level output current (Vpad=0.4V) <strong>DS=010</strong></td>
-      <td style="text-align: center;">14mA</td>
-      <td style="text-align: center;">—</td>
-      <td style="text-align: center;">—</td>
-    </tr>
-    <tr>
-      <td style="text-align: left;">Low level output current (Vpad=0.4V) <strong>DS=011</strong></td>
-      <td style="text-align: center;">18mA</td>
-      <td style="text-align: center;">—</td>
-      <td style="text-align: center;">—</td>
-    </tr>
-    <tr>
-      <td style="text-align: left;">Low level output current (Vpad=0.4V) <strong>DS=100</strong></td>
-      <td style="text-align: center;">21mA</td>
-      <td style="text-align: center;">—</td>
-      <td style="text-align: center;">—</td>
-    </tr>
-    <tr>
-      <td style="text-align: left;">Low level output current (Vpad=0.4V) <strong>DS=101</strong></td>
-      <td style="text-align: center;">24mA</td>
-      <td style="text-align: center;">—</td>
-      <td style="text-align: center;">—</td>
-    </tr>
-    <tr>
-      <td style="text-align: left;">Low level output current (Vpad=0.4V) <strong>DS=110</strong></td>
-      <td style="text-align: center;">28mA</td>
-      <td style="text-align: center;">—</td>
-      <td style="text-align: center;">—</td>
-    </tr>
-    <tr>
-      <td style="text-align: left;">Low level output current (Vpad=0.4V) <strong>DS=111</strong></td>
-      <td style="text-align: center;">31mA</td>
-      <td style="text-align: center;">—</td>
-      <td style="text-align: center;">—</td>
-    </tr>
-    <!-- IOH Rows (8 configurations) -->
-    <tr>
-      <td rowspan="8" style="padding: 6px 8px; text-align: center; border: 1px solid #dfe2e5; vertical-align: middle;">Ioh<br><span style="font-size:11px; color:#666;">DS[2:0]</span></td>
-      <td style="text-align: left;">High level output current (Vpad=VCC−0.5V) <strong>DS=000</strong></td>
-      <td style="text-align: center;">7mA</td>
-      <td style="text-align: center;">—</td>
-      <td style="text-align: center;">—</td>
-    </tr>
-    <tr>
-      <td style="text-align: left;">High level output current (Vpad=VCC−0.5V) <strong>DS=001</strong></td>
-      <td style="text-align: center;">10mA</td>
-      <td style="text-align: center;">—</td>
-      <td style="text-align: center;">—</td>
-    </tr>
-    <tr>
-      <td style="text-align: left;">High level output current (Vpad=VCC−0.5V) <strong>DS=010</strong></td>
-      <td style="text-align: center;">13mA</td>
-      <td style="text-align: center;">—</td>
-      <td style="text-align: center;">—</td>
-    </tr>
-    <tr>
-      <td style="text-align: left;">High level output current (Vpad=VCC−0.5V) <strong>DS=011</strong></td>
-      <td style="text-align: center;">16mA</td>
-      <td style="text-align: center;">—</td>
-      <td style="text-align: center;">—</td>
-    </tr>
-    <tr>
-      <td style="text-align: left;">High level output current (Vpad=VCC−0.5V) <strong>DS=100</strong></td>
-      <td style="text-align: center;">19mA</td>
-      <td style="text-align: center;">—</td>
-      <td style="text-align: center;">—</td>
-    </tr>
-    <tr>
-      <td style="text-align: left;">High level output current (Vpad=VCC−0.5V) <strong>DS=101</strong></td>
-      <td style="text-align: center;">23mA</td>
-      <td style="text-align: center;">—</td>
-      <td style="text-align: center;">—</td>
-    </tr>
-    <tr>
-      <td style="text-align: left;">High level output current (Vpad=VCC−0.5V) <strong>DS=110</strong></td>
-      <td style="text-align: center;">26mA</td>
-      <td style="text-align: center;">—</td>
-      <td style="text-align: center;">—</td>
-    </tr>
-    <tr>
-      <td style="text-align: left;">High level output current (Vpad=VCC−0.5V) <strong>DS=111</strong></td>
-      <td style="text-align: center;">29mA</td>
-      <td style="text-align: center;">—</td>
-      <td style="text-align: center;">—</td>
-    </tr>
-  </tbody>
-</table>
+| Power Domain | Symbol | Description | Min | Typ | Max |
+| --- | --- | --- | --- | --- | --- |
+| **3.3V Input** | Vih | High level input voltage | 2V | — | VCC+0.3V |
+|  | Vil | Low level input voltage | -0.3V | 0V | 0.8V |
+|  | Rpu | Pull-up resistor | 26kΩ | 47kΩ | 72kΩ |
+|  | Rpd | Pull-down resistor | 27kΩ | 54kΩ | 267kΩ |
+|  | Iil | Input leakage current | — | — | 10µA |
+| **3.3V Output** | Voh | High level output voltage | 2.4V | — | — |
+|  | Vol | Low level output voltage | — | — | 0.4V | 
+|  | IolDS[2:0] | Low level output current (Vpad=0.4V) DS=000 | 7mA | — | — | 
+|  | IolDS[2:0] | Low level output current (Vpad=0.4V) DS=001 | 10mA | — | — |
+|  | IolDS[2:0] | Low level output current (Vpad=0.4V) DS=010 | 14mA | — | — |
+|  | IolDS[2:0] | Low level output current (Vpad=0.4V) DS=011 | 18mA | — | — |
+|  | IolDS[2:0] | Low level output current (Vpad=0.4V) DS=100 | 21mA | — | — |
+|  | IolDS[2:0] | Low level output current (Vpad=0.4V) DS=101 | 24mA | — | — |
+|  | IolDS[2:0] | Low level output current (Vpad=0.4V) DS=110 | 28mA | — | — |
+|  | IolDS[2:0] | Low level output current (Vpad=0.4V) DS=111 | 31mA | — | — |
+|  | IohDS[2:0] | High level output current (Vpad=VCC−0.5V) DS=000 | 7mA | — | — |
+|  | IohDS[2:0] | High level output current (Vpad=VCC−0.5V) DS=001 | 10mA | — | — |
+|  | IohDS[2:0] | High level output current (Vpad=VCC−0.5V) DS=010 | 13mA | — | — |
+|  | IohDS[2:0] | High level output current (Vpad=VCC−0.5V) DS=011 | 16mA | — | — |
+|  | IohDS[2:0] | High level output current (Vpad=VCC−0.5V) DS=100 | 19mA | — | — |
+|  | IohDS[2:0] | High level output current (Vpad=VCC−0.5V) DS=101 | 23mA | — | — |
+|  | IohDS[2:0] | High level output current (Vpad=VCC−0.5V) DS=110 | 26mA | — | — |
+|  | IohDS[2:0] | High level output current (Vpad=VCC−0.5V) DS=111 | 29mA | — | — |
 
 ### 4.3 Multiplexed Signal/Pin Functions
 
@@ -3846,2500 +2352,71 @@ The assigned signals are organized by their functions (e.g. power supply, clock,
 
 #### 4.3.1 JTAG – Primary
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px;">
-
-  <colgroup>
-    <col width="100">
-    <col width="100">
-    <col width="800">
-  </colgroup>
-  
-  <thead>
-    <tr style="background-color: #f6f8fa;">
-      <th style="text-align: left;">Signal/Pin</th>
-      <th style="text-align: center;">Type</th>
-      <th style="text-align: left;">Description</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <tr>
-      <td style="text-align: left;">PRI_TCK</td>
-      <td style="text-align: center;">I</td>
-      <td style="text-align: left;">Primary JTAG interface 1 test clock. Used for all transfers on the JTAG test interface.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left;">PRI_TDI</td>
-      <td style="text-align: center;">I</td>
-      <td style="text-align: left;">Primary JTAG interface 1 test data input. Used to send data from the JTAG controller to the K3 processor. This pin has an internal pullup resistor.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left;">PRI_TDO</td>
-      <td style="text-align: center;">O</td>
-      <td style="text-align: left;">Primary JTAG Interface 1 test data output. Used to return data from the K1 processor to the JTAG controller.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left;">PRI_TMS</td>
-      <td style="text-align: center;">I</td>
-      <td style="text-align: left;">Primary JTAG Interface 1 test mode select. Used to select the test mode required from the JTAG controller. This pin has an internal pullup resistor.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left;">PRI_TRSTn</td>
-      <td style="text-align: center;">I</td>
-      <td style="text-align: left;">Primary JTAG Interface 1 test reset. Used for IEEE 1194.1 test reset.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left;">VCXO_OUT</td>
-      <td style="text-align: center;">O</td>
-      <td style="text-align: left;">24 MHz VCXO output clock</td>
-    </tr>
-    <tr>
-      <td style="text-align: left;">VCXO_REQ</td>
-      <td style="text-align: center;">I</td>
-      <td style="text-align: left;">OCLK1 request</td>
-    </tr>
-  </tbody>
-</table>
+| Signal/Pin | Type | Description |
+| --- | --- | --- |
+| PRI_TCK | I | Primary JTAG interface 1 test clock. Used for all transfers on the JTAG test interface. |
+| PRI_TDI | I | Primary JTAG interface 1 test data input. Used to send data from the JTAG controller to the K3 processor. This pin has an internal pullup resistor. |
+| PRI_TDO | O | Primary JTAG Interface 1 test data output. Used to return data from the K3 processor to the JTAG controller. |
+| PRI_TMS | I | Primary JTAG Interface 1 test mode select. Used to select the test mode required from the JTAG controller. This pin has an internal pullup resistor. |
+| PRI_TRSTn | I | Primary JTAG Interface 1 test reset. Used for IEEE 1194.1 test reset. |
+| VCXO_OUT | O | 24 MHz VCXO output clock |
+| VCXO_REQ | I | OCLK1 request |
 
 #### 4.3.2 Miscellaneous
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px;">
-
-  <colgroup>
-    <col width="100">
-    <col width="100">
-    <col width="800">
-  </colgroup>
-  
-  <thead>
-    <tr style="background-color: #f6f8fa;">
-      <th style="text-align: left;">Signal/Pin</th>
-      <th style="text-align: center;">Type</th>
-      <th style="text-align: left;">Description</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <tr>
-      <td style="text-align: left;">MPLL_TST_CK</td>
-      <td style="text-align: center;">—</td>
-      <td style="text-align: left;">PLL test pin</td>
-    </tr>
-    <tr>
-      <td style="text-align: left;">MN_CLK_OUT</td>
-      <td style="text-align: center;">O</td>
-      <td style="text-align: left;">Fractional (M/N) divided clock. Main PMU general purpose M/N fractional clock divider clock output. CLK_REQ must be set as Function 0 and pulled high for the 13 MHz clock to be output on GPIO[122] (MN_CLK_OUT).</td>
-    </tr>
-    <tr>
-      <td style="text-align: left;">Sleep_OUT</td>
-      <td style="text-align: center;">O</td>
-      <td style="text-align: left;">PMIC sleep setting</td>
-    </tr>
-  </tbody>
-</table>
+| Signal/Pin | Type | Description |
+| --- | --- | --- |
+| MPLL_TST_CK | — | PLL test pin |
+| MN_CLK_OUT | O | Fractional (M/N) divided clock. Main PMU general purpose M/N fractional clock divider clock output. CLK_REQ must be set as Function 0 and pulled high for the 13 MHz clock to be output on GPIO[122] (MN_CLK_OUT). |
+| Sleep_OUT | O | PMIC sleep setting |
 
 #### 4.3.3 SPIx
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px;">
-
-  <colgroup>
-    <col width="100">
-    <col width="100">
-    <col width="800">
-  </colgroup>
-  
-  <thead>
-    <tr style="background-color: #f6f8fa;">
-      <th style="text-align: left;">Signal/Pin</th>
-      <th style="text-align: center;">Type</th>
-      <th style="text-align: left;">Description</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <tr>
-      <td style="text-align: left;">SPIx_FRM</td>
-      <td style="text-align: center;">I/O</td>
-      <td style="text-align: left;">Synchronous serial port frame 0/2. The serial frame sync can be configured as an output (master mode operation) or an input (slave mode operation).</td>
-    </tr>
-    <tr>
-      <td style="text-align: left;">SPIx_RXD</td>
-      <td style="text-align: center;">I</td>
-      <td style="text-align: left;">Synchronous serial port receive data 0/2. Serial data latched using the bit clock.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left;">SPIx_SCLK</td>
-      <td style="text-align: center;">I/O</td>
-      <td style="text-align: left;">Synchronous serial port clock 0/2. The serial bit clock can be configured as an output (master mode operation) or an input (slave mode operation).</td>
-    </tr>
-    <tr>
-      <td style="text-align: left;">SPIx_TXD</td>
-      <td style="text-align: center;">O</td>
-      <td style="text-align: left;">Synchronous serial port transmit data 0/2. Serial data driven out synchronously with the bit clock.</td>
-    </tr>
-  </tbody>
-</table>
+| Signal/Pin | Type | Description |
+| --- | --- | --- |
+| SPIx_FRM | I/O | Synchronous serial port frame 0/2. The serial frame sync can be configured as an output (master mode operation) or an input (slave mode operation). |
+| SPIx_RXD | I | Synchronous serial port receive data 0/2. Serial data latched using the bit clock. |
+| SPIx_SCLK | I/O | Synchronous serial port clock 0/2. The serial bit clock can be configured as an output (master mode operation) or an input (slave mode operation). |
+| SPIx_TXD | O | Synchronous serial port transmit data 0/2. Serial data driven out synchronously with the bit clock. |
 
 #### 4.3.4 TWSI
 
 **Dedicated**
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px;">
-
-  <colgroup>
-    <col width="100">
-    <col width="100">
-    <col width="800">
-  </colgroup>
-  
-  <thead>
-    <tr style="background-color: #f6f8fa;">
-      <th style="text-align: left;">Signal/Pin</th>
-      <th style="text-align: center;">Type</th>
-      <th style="text-align: left;">Description</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <tr>
-      <td style="text-align: left;">PWR_SDA</td>
-      <td style="text-align: center;">I/O</td>
-      <td style="text-align: left;">TWSI serial data/address signal</td>
-    </tr>
-    <tr>
-      <td style="text-align: left;">PWR_SCL</td>
-      <td style="text-align: center;">I/O</td>
-      <td style="text-align: left;">TWSI serial clock line signal</td>
-    </tr>
-  </tbody>
-</table>
+| Signal/Pin | Type | Description |
+| --- | --- | --- |
+| PWR_SDA | I/O | TWSI serial data/address signal |
+| PWR_SCL | I/O | TWSI serial clock line signal |
 
 **Common**
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px;">
-
-  <colgroup>
-    <col width="100">
-    <col width="100">
-    <col width="800">
-  </colgroup>
-  
-  <thead>
-    <tr style="background-color: #f6f8fa;">
-      <th style="text-align: left;">Signal/Pin</th>
-      <th style="text-align: center;">Type</th>
-      <th style="text-align: left;">Description</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <tr>
-      <td style="text-align: left;">I²Cx_SCL</td>
-      <td style="text-align: center;">I/O,OD</td>
-      <td style="text-align: left;">TWSIx clock</td>
-    </tr>
-    <tr>
-      <td style="text-align: left;">I²Cx_SDA</td>
-      <td style="text-align: center;">I/O,OD</td>
-      <td style="text-align: left;">TWSIx data</td>
-    </tr>
-  </tbody>
-</table>
+| Signal/Pin | Type | Description |
+| --- | --- | --- |
+| I²Cx_SCL | I/O,OD | TWSIx clock |
+| I²Cx_SDA | I/O,OD | TWSIx data |
 
 #### 4.3.5 UARTx
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px;">
-
-  <colgroup>
-    <col width="100">
-    <col width="100">
-    <col width="800">
-  </colgroup>
-  
-  <thead>
-    <tr style="background-color: #f6f8fa;">
-      <th style="text-align: left;">Signal/Pin</th>
-      <th style="text-align: center;">Type</th>
-      <th style="text-align: left;">Description</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <tr>
-      <td style="text-align: left;">UARTx_CTSn</td>
-      <td style="text-align: center;">I</td>
-      <td style="text-align: left;">UARTx clear-to-send</td>
-    </tr>
-    <tr>
-      <td style="text-align: left;">UARTx_RTSn</td>
-      <td style="text-align: center;">O</td>
-      <td style="text-align: left;">UARTx request-to-send</td>
-    </tr>
-    <tr>
-      <td style="text-align: left;">UARTx_RXD</td>
-      <td style="text-align: center;">I</td>
-      <td style="text-align: left;">UARTx receive data</td>
-    </tr>
-    <tr>
-      <td style="text-align: left;">UARTx_TXD</td>
-      <td style="text-align: center;">O</td>
-      <td style="text-align: left;">UARTx transmit data</td>
-    </tr>
-  </tbody>
-</table>
+| Signal/Pin | Type | Description |
+| --- | --- | --- |
+| UARTx_CTSn | I | UARTx clear-to-send |
+| UARTx_RTSn | O | UARTx request-to-send |
+| UARTx_RXD | I | UARTx receive data |
+| UARTx_TXD | O | UARTx transmit data |
 
 #### 4.3.6 USB
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px;">
-
-  <colgroup>
-    <col width="100">
-    <col width="100">
-    <col width="800">
-  </colgroup>
-  
-  <thead>
-    <tr style="background-color: #f6f8fa;">
-      <th style="text-align: left;">Signal/Pin</th>
-      <th style="text-align: center;">Type</th>
-      <th style="text-align: left;">Description</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <tr>
-      <td style="text-align: left;">USBx_N</td>
-      <td style="text-align: center;">I/O</td>
-      <td style="text-align: left;">USB D±</td>
-    </tr>
-    <tr>
-      <td style="text-align: left;">USBx_P</td>
-      <td style="text-align: center;">I/O</td>
-      <td style="text-align: left;"></td>
-    </tr>
-    <tr>
-      <td style="text-align: left;">VBUS_ON</td>
-      <td style="text-align: center;">I</td>
-      <td style="text-align: left;">USB VBUS present indicator</td>
-    </tr>
-  </tbody>
-</table>
+| Signal/Pin | Type | Description |
+| --- | --- | --- |
+| USBx_N | I/O | USB D± |
+| USBx_P | I/O | — |
+| VBUS_ON | I | USB VBUS present indicator |
 
 ### 4.4 Multi-Function I/O Pin Assignments
 
 The General-Purpose Input/Output (GPIO) module provides flexible pin control and signal multiplexing capabilities. Each GPIO pin can operate as a standard input/output or be configured for one of several alternate functions, allowing efficient connection between the system and on-chip peripherals.
 
-The tables below provide a detailed description of the signal assignments for Function 0 through Function 6, organized according to their respective interface groups.
-
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 12px;">
-  <colgroup>
-    <col width="100">
-    <col width="90"><col width="90"><col width="90">
-    <col width="90"><col width="90"><col width="90">
-    <col width="90"><col width="90"><col width="90"><col width="90">
-  </colgroup>
-  <thead>
-    <tr style="background-color: #f6f8fa; text-align: center;">
-      <th style="padding: 8px 4px;">Group</th>
-      <th style="padding: 8px 4px;">Pad Name</th>
-      <th style="padding: 8px 4px;">Default Pull</th>
-      <th style="padding: 8px 4px;">Pad Edge Wakeup</th>
-      <th style="padding: 8px 4px;">Function 0</th>
-      <th style="padding: 8px 4px;">Function 1</th>
-      <th style="padding: 8px 4px;">Function 2</th>
-      <th style="padding: 8px 4px;">Function 3</th>
-      <th style="padding: 8px 4px;">Function 4</th>
-      <th style="padding: 8px 4px;">Function 5</th>
-      <th style="padding: 8px 4px;">Function 6</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">QSPI [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">QSPI_DAT3</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">QSPI_DAT[3]</td>
-      <td style="padding: 4px 2px;">GPIO[0]</td>
-      <td style="padding: 4px 2px;">R.UART1_TXD</td>
-      <td style="padding: 4px 2px;">R.GPIO[0]</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">QSPI [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">QSPI_DAT2</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">QSPI_DAT[2]</td>
-      <td style="padding: 4px 2px;">GPIO[1]</td>
-      <td style="padding: 4px 2px;">R.UART1_RXD</td>
-      <td style="padding: 4px 2px;">R.GPIO[1]</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">QSPI [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">QSPI_DAT1</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">QSPI_DAT[1]</td>
-      <td style="padding: 4px 2px;">GPIO[2]</td>
-      <td style="padding: 4px 2px;">R.UART1_CTS</td>
-      <td style="padding: 4px 2px;">R.GPIO[2]</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">QSPI [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">QSPI_DAT0</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">QSPI_DAT[0]</td>
-      <td style="padding: 4px 2px;">GPIO[3]</td>
-      <td style="padding: 4px 2px;">R.UART1_RTS</td>
-      <td style="padding: 4px 2px;">R.GPIO[3]</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">QSPI [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">QSPI_CLK</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">QSPI_CLK</td>
-      <td style="padding: 4px 2px;">GPIO[4]</td>
-      <td style="padding: 4px 2px;">R.CAN1_TXD</td>
-      <td style="padding: 4px 2px;">R.GPIO[4]</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">QSPI [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">QSPI_CS0</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">QSPI_CS0</td>
-      <td style="padding: 4px 2px;">GPIO[5]</td>
-      <td style="padding: 4px 2px;">R.CAN1_RXD</td>
-      <td style="padding: 4px 2px;">R.GPIO[5]</td>
-      <td style="padding: 4px 2px;">I2C3_SCL</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">QSPI [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">QSPI_CS1</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">QSPI_CS1</td>
-      <td style="padding: 4px 2px;">GPIO[6]</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">I2C3_SDA</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">SD/MMC1 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">MMC1_DAT3</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">MMC1_DAT[3]</td>
-      <td style="padding: 4px 2px;">GPIO[93]</td>
-      <td style="padding: 4px 2px;">UART0_TXD</td>
-      <td style="padding: 4px 2px;">R.GPIO[6]</td>
-      <td style="padding: 4px 2px;">R.UART0_TXD</td>
-      <td style="padding: 4px 2px;">PRI_TDI</td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">SD/MMC1 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">MMC1_DAT2</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">MMC1_DAT[2]</td>
-      <td style="padding: 4px 2px;">GPIO[94]</td>
-      <td style="padding: 4px 2px;">UART0_RXD</td>
-      <td style="padding: 4px 2px;">R.GPIO[7]</td>
-      <td style="padding: 4px 2px;">R.UART0_RXD</td>
-      <td style="padding: 4px 2px;">PRI_TMS</td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">SD/MMC1 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">MMC1_DAT1</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">MMC1_DAT[1]</td>
-      <td style="padding: 4px 2px;">GPIO[95]</td>
-      <td style="padding: 4px 2px;">UART2_TXD</td>
-      <td style="padding: 4px 2px;">R.GPIO[8]</td>
-      <td style="padding: 4px 2px;">PWM2</td>
-      <td style="padding: 4px 2px;">PRI_TDO</td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">SD/MMC1 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">MMC1_DAT0</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">MMC1_DAT[0]</td>
-      <td style="padding: 4px 2px;">GPIO[96]</td>
-      <td style="padding: 4px 2px;">UART2_RXD</td>
-      <td style="padding: 4px 2px;">R.GPIO[9]</td>
-      <td style="padding: 4px 2px;">PWM3</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">SD/MMC1 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">MMC1_CMD</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">MMC1_CMD</td>
-      <td style="padding: 4px 2px;">GPIO[97]</td>
-      <td style="padding: 4px 2px;">UART2_CTS</td>
-      <td style="padding: 4px 2px;">R.GPIO[10]</td>
-      <td style="padding: 4px 2px;">PWM4</td>
-      <td style="padding: 4px 2px;">I2C4_SCL</td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">SD/MMC1 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">MMC1_CLK</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">MMC1_CLK</td>
-      <td style="padding: 4px 2px;">GPIO[98]</td>
-      <td style="padding: 4px 2px;">UART2_RTS</td>
-      <td style="padding: 4px 2px;">R.GPIO[11]</td>
-      <td style="padding: 4px 2px;">PWM5</td>
-      <td style="padding: 4px 2px;">PRI_TCK</td>
-      <td style="padding: 4px 2px;">I2C4_SDA</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">PMIC [1.8V only]</td>
-      <td style="padding: 4px 2px;">RESET_IN_N</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">NO</td>
-      <td style="padding: 4px 2px;">RESET_IN_N</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">PWM10</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">PMIC [1.8V only]</td>
-      <td style="padding: 4px 2px;">EXT_32K_IN</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">NO</td>
-      <td style="padding: 4px 2px;">EXT_32K_IN</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">PWM11</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">PMIC [1.8V only]</td>
-      <td style="padding: 4px 2px;">PWR_SCL</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">PWR_SCL</td>
-      <td style="padding: 4px 2px;">R_PWR_SCL</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">PWM12</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">PMIC [1.8V only]</td>
-      <td style="padding: 4px 2px;">PWR_SDA</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">PWR_SDA</td>
-      <td style="padding: 4px 2px;">R_PWR_SDA</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">PWM13</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">PMIC [1.8V only]</td>
-      <td style="padding: 4px 2px;">VCXO_EN</td>
-      <td style="padding: 4px 2px;">NO</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">VCXO_EN</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">PWM14</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">PMIC [1.8V only]</td>
-      <td style="padding: 4px 2px;">PMIC_WDT_N</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">NO</td>
-      <td style="padding: 4px 2px;">PMIC_WDT_N</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">PWM15</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">PMIC [1.8V only]</td>
-      <td style="padding: 4px 2px;">PMIC_INT_N</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">PMIC_INT_N</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">PWM16</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">PMIC [1.8V only]</td>
-      <td style="padding: 4px 2px;">PWR_SSP_TXD</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">PWR_SSP_TXD</td>
-      <td style="padding: 4px 2px;">GPIO[120]</td>
-      <td style="padding: 4px 2px;">I2C6_SCL</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">PMIC [1.8V only]</td>
-      <td style="padding: 4px 2px;">PWR_SSP_RXD</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">PWR_SSP_RXD</td>
-      <td style="padding: 4px 2px;">GPIO[121]</td>
-      <td style="padding: 4px 2px;">I2C6_SDA</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">PMIC [1.8V only]</td>
-      <td style="padding: 4px 2px;">PWR_SSP_SCLK</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">PWR_SSP_SCLK</td>
-      <td style="padding: 4px 2px;">GPIO[122]</td>
-      <td style="padding: 4px 2px;">UART0_TXD</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">PMIC [1.8V only]</td>
-      <td style="padding: 4px 2px;">PWR_SSP_FRM</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">PWR_SSP_FRM</td>
-      <td style="padding: 4px 2px;">GPIO[123]</td>
-      <td style="padding: 4px 2px;">UART0_RXD</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">PMIC [1.8V only]</td>
-      <td style="padding: 4px 2px;">PRI_TDI</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">NO</td>
-      <td style="padding: 4px 2px;">PRI_TDI</td>
-      <td style="padding: 4px 2px;">GPIO[124]</td>
-      <td style="padding: 4px 2px;">R.GPIO[17]</td>
-      <td style="padding: 4px 2px;">PWM6</td>
-      <td style="padding: 4px 2px;">UART5_TXD</td>
-      <td style="padding: 4px 2px;">UART0_TXD</td>
-      <td style="padding: 4px 2px;">R.UART0_TXD</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">PMIC [1.8V only]</td>
-      <td style="padding: 4px 2px;">PRI_TMS</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">NO</td>
-      <td style="padding: 4px 2px;">PRI_TMS</td>
-      <td style="padding: 4px 2px;">GPIO[125]</td>
-      <td style="padding: 4px 2px;">R.GPIO[14]</td>
-      <td style="padding: 4px 2px;">PWM7</td>
-      <td style="padding: 4px 2px;">UART5_RXD</td>
-      <td style="padding: 4px 2px;">UART0_RXD</td>
-      <td style="padding: 4px 2px;">R.UART0_RXD</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">PMIC [1.8V only]</td>
-      <td style="padding: 4px 2px;">PRI_TCK</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">NO</td>
-      <td style="padding: 4px 2px;">PRI_TCK</td>
-      <td style="padding: 4px 2px;">GPIO[126]</td>
-      <td style="padding: 4px 2px;">R.GPIO[15]</td>
-      <td style="padding: 4px 2px;">PWM8</td>
-      <td style="padding: 4px 2px;">UART9_TXD</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">PMIC [1.8V only]</td>
-      <td style="padding: 4px 2px;">PRI_TDO</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">NO</td>
-      <td style="padding: 4px 2px;">PRI_TDO</td>
-      <td style="padding: 4px 2px;">GPIO[127]</td>
-      <td style="padding: 4px 2px;">R.GPIO[16]</td>
-      <td style="padding: 4px 2px;">PWM9</td>
-      <td style="padding: 4px 2px;">UART9_RXD</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">PMIC [1.8V only]</td>
-      <td style="padding: 4px 2px;">PRI_TRST_N</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">NO</td>
-      <td style="padding: 4px 2px;">PRI_TRSTn</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">EMMC5 [1.8V only]</td>
-      <td style="padding: 4px 2px;">EMMC_D0</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">EMMC_D0</td>
-      <td style="padding: 4px 2px;">GPIO[32]</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">EMMC5 [1.8V only]</td>
-      <td style="padding: 4px 2px;">EMMC_D1</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">EMMC_D1</td>
-      <td style="padding: 4px 2px;">GPIO[33]</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">EMMC5 [1.8V only]</td>
-      <td style="padding: 4px 2px;">EMMC_D2</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">EMMC_D2</td>
-      <td style="padding: 4px 2px;">GPIO[34]</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">EMMC5 [1.8V only]</td>
-      <td style="padding: 4px 2px;">EMMC_D3</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">EMMC_D3</td>
-      <td style="padding: 4px 2px;">GPIO[35]</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">EMMC5 [1.8V only]</td>
-      <td style="padding: 4px 2px;">EMMC_D4</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">EMMC_D4</td>
-      <td style="padding: 4px 2px;">GPIO[36]</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">EMMC5 [1.8V only]</td>
-      <td style="padding: 4px 2px;">EMMC_D5</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">EMMC_D5</td>
-      <td style="padding: 4px 2px;">R.GPIO[8]</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">EMMC5 [1.8V only]</td>
-      <td style="padding: 4px 2px;">EMMC_D6</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">EMMC_D6</td>
-      <td style="padding: 4px 2px;">R.GPIO[9]</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">EMMC5 [1.8V only]</td>
-      <td style="padding: 4px 2px;">EMMC_D7</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">EMMC_D7</td>
-      <td style="padding: 4px 2px;">R.GPIO[10]</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">EMMC5 [1.8V only]</td>
-      <td style="padding: 4px 2px;">EMMC_DS</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">EMMC_DS</td>
-      <td style="padding: 4px 2px;">R.GPIO[11]</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">EMMC5 [1.8V only]</td>
-      <td style="padding: 4px 2px;">EMMC_CLK</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">EMMC_CLK</td>
-      <td style="padding: 4px 2px;">R.GPIO[12]</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">EMMC5 [1.8V only]</td>
-      <td style="padding: 4px 2px;">EMMC_CMD</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">EMMC_CMD</td>
-      <td style="padding: 4px 2px;">R.GPIO[13]</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO1 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[0]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[0]</td>
-      <td style="padding: 4px 2px;">GMAC0_RXDV</td>
-      <td style="padding: 4px 2px;">SSPA5_CLK</td>
-      <td style="padding: 4px 2px;">PWM0</td>
-      <td style="padding: 4px 2px;">IR1_RX</td>
-      <td style="padding: 4px 2px;">eSPI0_D0</td>
-      <td style="padding: 4px 2px;">I2C0_SCL</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO1 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[1]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[1]</td>
-      <td style="padding: 4px 2px;">GMAC0_RX_D0</td>
-      <td style="padding: 4px 2px;">SSPA5_FRM</td>
-      <td style="padding: 4px 2px;">PWM1</td>
-      <td style="padding: 4px 2px;">R.IR1_RX</td>
-      <td style="padding: 4px 2px;">eSPI0_D1</td>
-      <td style="padding: 4px 2px;">I2C0_SDA</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO1 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[2]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[2]</td>
-      <td style="padding: 4px 2px;">GMAC0_RX_D1</td>
-      <td style="padding: 4px 2px;">SSPA5_TXD</td>
-      <td style="padding: 4px 2px;">PWM2</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">eSPI0_D2</td>
-      <td style="padding: 4px 2px;">I2C1_SCL</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO1 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[3]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[3]</td>
-      <td style="padding: 4px 2px;">GMAC0_RX_CLK</td>
-      <td style="padding: 4px 2px;">SSPA5_RXD</td>
-      <td style="padding: 4px 2px;">PWM3</td>
-      <td style="padding: 4px 2px;">PCIeD_PERSTn</td>
-      <td style="padding: 4px 2px;">eSPI0_D3</td>
-      <td style="padding: 4px 2px;">I2C1_SDA</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO1 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[4]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[4]</td>
-      <td style="padding: 4px 2px;">GMAC0_RX_D2</td>
-      <td style="padding: 4px 2px;">SSPA5_SYSCLK</td>
-      <td style="padding: 4px 2px;">PWM4</td>
-      <td style="padding: 4px 2px;">PCIeD_WAKEn</td>
-      <td style="padding: 4px 2px;">eSPI0_CS</td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO1 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[5]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[5]</td>
-      <td style="padding: 4px 2px;">GMAC0_RX_D3</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">PWM5</td>
-      <td style="padding: 4px 2px;">PCIeD_CLKREQn</td>
-      <td style="padding: 4px 2px;">eSPI0_CLK</td>
-      <td style="padding: 4px 2px;">I2C2_SCL</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO1 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[6]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[6]</td>
-      <td style="padding: 4px 2px;">GMAC0_TX_D0</td>
-      <td style="padding: 4px 2px;">R.SSPA0_CLK</td>
-      <td style="padding: 4px 2px;">PWM6</td>
-      <td style="padding: 4px 2px;">PCIeD_PRSNT2n</td>
-      <td style="padding: 4px 2px;">eSPI0_RESETN</td>
-      <td style="padding: 4px 2px;">I2C2_SDA</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO1 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[7]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[7]</td>
-      <td style="padding: 4px 2px;">GMAC0_TX_D1</td>
-      <td style="padding: 4px 2px;">R.SSPA0_FRM</td>
-      <td style="padding: 4px 2px;">PWM7</td>
-      <td style="padding: 4px 2px;">PCIeD_ATTn</td>
-      <td style="padding: 4px 2px;">eSPI0_ALERT</td>
-      <td style="padding: 4px 2px;">I2C6_SCL</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO1 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[8]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[8]</td>
-      <td style="padding: 4px 2px;">GMAC0_TX_CLK</td>
-      <td style="padding: 4px 2px;">R.SSPA0_TXD</td>
-      <td style="padding: 4px 2px;">PWM8</td>
-      <td style="padding: 4px 2px;">PCIeD_AUXen</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">I2C6_SDA</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO1 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[9]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[9]</td>
-      <td style="padding: 4px 2px;">GMAC0_TX_D2</td>
-      <td style="padding: 4px 2px;">R.SSPA0_RXD</td>
-      <td style="padding: 4px 2px;">PWM9</td>
-      <td style="padding: 4px 2px;">PCIeD_PWRCTn</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">e/DP0_HPD</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO1 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[10]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[10]</td>
-      <td style="padding: 4px 2px;">GMAC0_TX_D3</td>
-      <td style="padding: 4px 2px;">R.SSPA0_SYSCLK</td>
-      <td style="padding: 4px 2px;">PWM10</td>
-      <td style="padding: 4px 2px;">PCIeD_PWRDet</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">e/DP1_HPD</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO1 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[11]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[11]</td>
-      <td style="padding: 4px 2px;">GMAC0_TX_EN</td>
-      <td style="padding: 4px 2px;">UART7_RTSn</td>
-      <td style="padding: 4px 2px;">CAN0_TXD</td>
-      <td style="padding: 4px 2px;">UART8_RXD</td>
-      <td style="padding: 4px 2px;">I2C4_SCL</td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO1 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[12]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[12]</td>
-      <td style="padding: 4px 2px;">GMAC0_MDC</td>
-      <td style="padding: 4px 2px;">UART7_CTSn</td>
-      <td style="padding: 4px 2px;">CAN0_RXD</td>
-      <td style="padding: 4px 2px;">PCIeC_PERSTn</td>
-      <td style="padding: 4px 2px;">UART8_TXD</td>
-      <td style="padding: 4px 2px;">I2C4_SDA</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO1 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[13]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[13]</td>
-      <td style="padding: 4px 2px;">GMAC0_MDIO</td>
-      <td style="padding: 4px 2px;">UART7_TXD</td>
-      <td style="padding: 4px 2px;">PWM13</td>
-      <td style="padding: 4px 2px;">PCIeC_WAKEn</td>
-      <td style="padding: 4px 2px;">CLK_CAMCK1</td>
-      <td style="padding: 4px 2px;">DSI0_TE</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO1 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[14]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[14]</td>
-      <td style="padding: 4px 2px;">GMAC0_INT_N</td>
-      <td style="padding: 4px 2px;">UART7_RXD</td>
-      <td style="padding: 4px 2px;">PWM14</td>
-      <td style="padding: 4px 2px;">PCIeC_CLKREQn</td>
-      <td style="padding: 4px 2px;">MNCLK_OUT1</td>
-      <td style="padding: 4px 2px;">I2C6_SCL</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO1 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[15]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[15]</td>
-      <td style="padding: 4px 2px;">GMAC0_RXER</td>
-      <td style="padding: 4px 2px;">SSPA1_CLK</td>
-      <td style="padding: 4px 2px;">R.PWM0</td>
-      <td style="padding: 4px 2px;">PCIeC_PRSNT2n</td>
-      <td style="padding: 4px 2px;">MNCLK_OUT2</td>
-      <td style="padding: 4px 2px;">I2C6_SDA</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO1 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[16]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[16]</td>
-      <td style="padding: 4px 2px;">GMAC0_TXER</td>
-      <td style="padding: 4px 2px;">SSPA1_FRM</td>
-      <td style="padding: 4px 2px;">R.PWM1</td>
-      <td style="padding: 4px 2px;">PCIeC_ATTn</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">USB20_HOST_DRV</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO1 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[17]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[17]</td>
-      <td style="padding: 4px 2px;">GMAC0_CRS</td>
-      <td style="padding: 4px 2px;">SSPA1_TXD</td>
-      <td style="padding: 4px 2px;">R.PWM2</td>
-      <td style="padding: 4px 2px;">PCIeC_PWRCTn</td>
-      <td style="padding: 4px 2px;">R.UART1_TXD</td>
-      <td style="padding: 4px 2px;">USB30_DRD_ID</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO1 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[18]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[18]</td>
-      <td style="padding: 4px 2px;">GMAC0_COL</td>
-      <td style="padding: 4px 2px;">SSPA1_RXD</td>
-      <td style="padding: 4px 2px;">R.PWM3</td>
-      <td style="padding: 4px 2px;">PCIeC_AUXen</td>
-      <td style="padding: 4px 2px;">R.UART1_RXD</td>
-      <td style="padding: 4px 2px;">USB30_DRD_VBUSON</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO1 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[19]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[19]</td>
-      <td style="padding: 4px 2px;">GMAC0_PPS</td>
-      <td style="padding: 4px 2px;">SSPA1_SYSCLK</td>
-      <td style="padding: 4px 2px;">R.PWM4</td>
-      <td style="padding: 4px 2px;">PCIeC_PWRDet</td>
-      <td style="padding: 4px 2px;">R.UART1_CTSn</td>
-      <td style="padding: 4px 2px;">USB30_DRD_DRV</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO1 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[20]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[20]</td>
-      <td style="padding: 4px 2px;">GMAC0_CLK_REF</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">R.PWM5</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">R.UART1_RTSn</td>
-      <td style="padding: 4px 2px;">USB30_D_DRV</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[21]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[21]</td>
-      <td style="padding: 4px 2px;">GMAC1_RXDV</td>
-      <td style="padding: 4px 2px;">UART5_TXD</td>
-      <td style="padding: 4px 2px;">PWM15</td>
-      <td style="padding: 4px 2px;">PCIeB_PERSTn</td>
-      <td style="padding: 4px 2px;">R.UART4_TXD</td>
-      <td style="padding: 4px 2px;">R.GPIO[28]</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[22]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[22]</td>
-      <td style="padding: 4px 2px;">GMAC1_RX_D0</td>
-      <td style="padding: 4px 2px;">UART5_RXD</td>
-      <td style="padding: 4px 2px;">PWM16</td>
-      <td style="padding: 4px 2px;">PCIeB_WAKEn</td>
-      <td style="padding: 4px 2px;">R.UART4_RXD</td>
-      <td style="padding: 4px 2px;">R.GPIO[29]</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[23]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[23]</td>
-      <td style="padding: 4px 2px;">GMAC1_RX_D1</td>
-      <td style="padding: 4px 2px;">UART5_CTS</td>
-      <td style="padding: 4px 2px;">PWM17</td>
-      <td style="padding: 4px 2px;">PCIeB_CLKREQn</td>
-      <td style="padding: 4px 2px;">UART7_TXD</td>
-      <td style="padding: 4px 2px;">e/DP0_HPD</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[24]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[24]</td>
-      <td style="padding: 4px 2px;">GMAC1_RX_CLK</td>
-      <td style="padding: 4px 2px;">UART5_RTS</td>
-      <td style="padding: 4px 2px;">PWM18</td>
-      <td style="padding: 4px 2px;">PCIeB_PRSNT2n</td>
-      <td style="padding: 4px 2px;">UART7_RXD</td>
-      <td style="padding: 4px 2px;">e/DP1_HPD</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[25]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[25]</td>
-      <td style="padding: 4px 2px;">GMAC1_RX_D2</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">PWM19</td>
-      <td style="padding: 4px 2px;">PCIeC_PERSTn</td>
-      <td style="padding: 4px 2px;">UART7_CTSn</td>
-      <td style="padding: 4px 2px;">I2C5_SDA</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[26]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[26]</td>
-      <td style="padding: 4px 2px;">GMAC1_RX_D3</td>
-      <td style="padding: 4px 2px;">UART3_TXD</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">PCIeC_WAKEn</td>
-      <td style="padding: 4px 2px;">UART7_RTSn</td>
-      <td style="padding: 4px 2px;">I2C5_SCL</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[27]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[27]</td>
-      <td style="padding: 4px 2px;">GMAC1_TX_D0</td>
-      <td style="padding: 4px 2px;">UART3_RXD</td>
-      <td style="padding: 4px 2px;">R.PWM0</td>
-      <td style="padding: 4px 2px;">PCIeC_CLKREQn</td>
-      <td style="padding: 4px 2px;">USB30_D_DRV</td>
-      <td style="padding: 4px 2px;">R.I2C0_SCL</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[28]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[28]</td>
-      <td style="padding: 4px 2px;">GMAC1_TX_D1</td>
-      <td style="padding: 4px 2px;">UART3_CTS</td>
-      <td style="padding: 4px 2px;">R.PWM1</td>
-      <td style="padding: 4px 2px;">PCIeC_PRSNT2n</td>
-      <td style="padding: 4px 2px;">SSP2_TXD</td>
-      <td style="padding: 4px 2px;">R.I2C0_SDA</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[29]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[29]</td>
-      <td style="padding: 4px 2px;">GMAC1_TX_CLK</td>
-      <td style="padding: 4px 2px;">UART3_RTS</td>
-      <td style="padding: 4px 2px;">R.PWM2</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">SSP2_RXD</td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[30]</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[30]</td>
-      <td style="padding: 4px 2px;">GMAC1_TX_D2</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">R.PWM3</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">SSP2_SCLK</td>
-      <td style="padding: 4px 2px;">EDP0_HPD</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[31]</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[31]</td>
-      <td style="padding: 4px 2px;">GMAC1_TX_D3</td>
-      <td style="padding: 4px 2px;">UART10_TXD</td>
-      <td style="padding: 4px 2px;">R.PWM4</td>
-      <td style="padding: 4px 2px;">PCIeE_PERSTn</td>
-      <td style="padding: 4px 2px;">SSP2_FRM</td>
-      <td style="padding: 4px 2px;">EDP1_HPD</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[32]</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[32]</td>
-      <td style="padding: 4px 2px;">GMAC1_TX_EN</td>
-      <td style="padding: 4px 2px;">UART10_RXD</td>
-      <td style="padding: 4px 2px;">R.PWM5</td>
-      <td style="padding: 4px 2px;">PCIeE_WAKEn</td>
-      <td style="padding: 4px 2px;">SSP1_TXD</td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[33]</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[33]</td>
-      <td style="padding: 4px 2px;">GMAC1_MDC</td>
-      <td style="padding: 4px 2px;">UART10_CTS</td>
-      <td style="padding: 4px 2px;">R.PWM6</td>
-      <td style="padding: 4px 2px;">PCIeE_CLKREQn</td>
-      <td style="padding: 4px 2px;">SSP1_RXD</td>
-      <td style="padding: 4px 2px;">R.I2C1_SCL</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[34]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[34]</td>
-      <td style="padding: 4px 2px;">GMAC1_MDIO</td>
-      <td style="padding: 4px 2px;">UART10_RTS</td>
-      <td style="padding: 4px 2px;">R.PWM7</td>
-      <td style="padding: 4px 2px;">CLK_CAMCK2</td>
-      <td style="padding: 4px 2px;">SSP1_SCLK</td>
-      <td style="padding: 4px 2px;">R.I2C1_SDA</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[35]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[35]</td>
-      <td style="padding: 4px 2px;">GMAC1_INT_N</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">R.PWM8</td>
-      <td style="padding: 4px 2px;">CLK_CAMCK3</td>
-      <td style="padding: 4px 2px;">SSP1_FRM</td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[36]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[36]</td>
-      <td style="padding: 4px 2px;">GMAC1_CLK_REF</td>
-      <td style="padding: 4px 2px;">R.SSPA1_CLK</td>
-      <td style="padding: 4px 2px;">R.PWM9</td>
-      <td style="padding: 4px 2px;">I2C3_SCL</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[37]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[37]</td>
-      <td style="padding: 4px 2px;">GMAC1_RXER</td>
-      <td style="padding: 4px 2px;">R.SSPA1_FRM</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">I2C3_SDA</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[38]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[38]</td>
-      <td style="padding: 4px 2px;">GMAC1_TXER</td>
-      <td style="padding: 4px 2px;">R.SSPA1_TXD</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">DSI0_TE</td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[39]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[39]</td>
-      <td style="padding: 4px 2px;">GMAC1_CRS</td>
-      <td style="padding: 4px 2px;">R.SSPA1_RXD</td>
-      <td style="padding: 4px 2px;">MNCLK_OUT1</td>
-      <td style="padding: 4px 2px;">R.I2C1_SCL</td>
-      <td style="padding: 4px 2px;">USB20_HOST_DRV</td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[40]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[40]</td>
-      <td style="padding: 4px 2px;">GMAC1_COL</td>
-      <td style="padding: 4px 2px;">R.SSPA1_SYSCLK</td>
-      <td style="padding: 4px 2px;">MNCLK_OUT2</td>
-      <td style="padding: 4px 2px;">R.I2C1_SDA</td>
-      <td style="padding: 4px 2px;">R.IR0_RX</td>
-      <td style="padding: 4px 2px;">CAN4_TXD</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO2 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[41]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[41]</td>
-      <td style="padding: 4px 2px;">GMAC1_PPS</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">CLK32K_OUT</td>
-      <td style="padding: 4px 2px;">IR0_RX</td>
-      <td style="padding: 4px 2px;">CAN4_RXD</td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
-      <td style="padding: 4px 2px;">GPIO_[42]</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[42]</td>
-      <td style="padding: 4px 2px;">GMAC2_RXDV</td>
-      <td style="padding: 4px 2px;">UART0_TXD</td>
-      <td style="padding: 4px 2px;">PCIeA_PERSTn</td>
-      <td style="padding: 4px 2px;">I2C0_SCL</td>
-      <td style="padding: 4px 2px;">PWM0</td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
-      <td style="padding: 4px 2px;">GPIO_[43]</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[43]</td>
-      <td style="padding: 4px 2px;">GMAC2_RX_D0</td>
-      <td style="padding: 4px 2px;">UART0_RXD</td>
-      <td style="padding: 4px 2px;">CLK_CAMCK4</td>
-      <td style="padding: 4px 2px;">I2C0_SDA</td>
-      <td style="padding: 4px 2px;">PWM1</td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
-      <td style="padding: 4px 2px;">GPIO_[44]</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[44]</td>
-      <td style="padding: 4px 2px;">GMAC2_RX_D1</td>
-      <td style="padding: 4px 2px;">UART10_TXD</td>
-      <td style="padding: 4px 2px;">CAN0_TXD</td>
-      <td style="padding: 4px 2px;">PCIeA_CLKREQn</td>
-      <td style="padding: 4px 2px;">PWM2</td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
-      <td style="padding: 4px 2px;">GPIO_[45]</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[45]</td>
-      <td style="padding: 4px 2px;">GMAC2_RX_CLK</td>
-      <td style="padding: 4px 2px;">UART10_RXD</td>
-      <td style="padding: 4px 2px;">CAN0_RXD</td>
-      <td style="padding: 4px 2px;">PCIeA_PRSNT2n</td>
-      <td style="padding: 4px 2px;">PWM3</td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
-      <td style="padding: 4px 2px;">GPIO_[46]</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[46]</td>
-      <td style="padding: 4px 2px;">GMAC2_RX_D2</td>
-      <td style="padding: 4px 2px;">UART10_CTSn</td>
-      <td style="padding: 4px 2px;">CLK_CAMCK1</td>
-      <td style="padding: 4px 2px;">PCIeA_ATTn</td>
-      <td style="padding: 4px 2px;">I2C2_SCL</td>
-      <td style="padding: 4px 2px;">PWM4</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
-      <td style="padding: 4px 2px;">GPIO_[47]</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[47]</td>
-      <td style="padding: 4px 2px;">GMAC2_RX_D3</td>
-      <td style="padding: 4px 2px;">UART10_RTSn</td>
-      <td style="padding: 4px 2px;">CLK_CAMCK2</td>
-      <td style="padding: 4px 2px;">PCIeA_PWRCTn</td>
-      <td style="padding: 4px 2px;">I2C2_SDA</td>
-      <td style="padding: 4px 2px;">PWM5</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
-      <td style="padding: 4px 2px;">GPIO_[48]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[48]</td>
-      <td style="padding: 4px 2px;">GMAC2_TX_D0</td>
-      <td style="padding: 4px 2px;">UART6_TXD</td>
-      <td style="padding: 4px 2px;">CAN1_RXD</td>
-      <td style="padding: 4px 2px;">PCIeA_AUXen</td>
-      <td style="padding: 4px 2px;">I2C0_SCL</td>
-      <td style="padding: 4px 2px;">PWM6</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
-      <td style="padding: 4px 2px;">GPIO_[49]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[49]</td>
-      <td style="padding: 4px 2px;">GMAC2_TX_D1</td>
-      <td style="padding: 4px 2px;">UART6_RXD</td>
-      <td style="padding: 4px 2px;">CAN1_TXD</td>
-      <td style="padding: 4px 2px;">PCIeA_PWRDet</td>
-      <td style="padding: 4px 2px;">I2C0_SDA</td>
-      <td style="padding: 4px 2px;">PWM7</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
-      <td style="padding: 4px 2px;">GPIO_[50]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[50]</td>
-      <td style="padding: 4px 2px;">GMAC2_TX_CLK</td>
-      <td style="padding: 4px 2px;">UART6_CTS</td>
-      <td style="padding: 4px 2px;">CAN2_TXD</td>
-      <td style="padding: 4px 2px;">PCIeA_MRLn</td>
-      <td style="padding: 4px 2px;">I2C4_SCL</td>
-      <td style="padding: 4px 2px;">PWM8</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
-      <td style="padding: 4px 2px;">GPIO_[51]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[51]</td>
-      <td style="padding: 4px 2px;">GMAC2_TX_D2</td>
-      <td style="padding: 4px 2px;">UART6_RTS</td>
-      <td style="padding: 4px 2px;">CAN2_RXD</td>
-      <td style="padding: 4px 2px;">PCIeA_ATNLED</td>
-      <td style="padding: 4px 2px;">I2C4_SDA</td>
-      <td style="padding: 4px 2px;">PWM9</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
-      <td style="padding: 4px 2px;">GPIO_[52]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[52]/Strap[5]</td>
-      <td style="padding: 4px 2px;">GMAC2_TX_D3</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">PCIeA_PWRLED</td>
-      <td style="padding: 4px 2px;">CLK_CAMCK3</td>
-      <td style="padding: 4px 2px;">PWM10</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
-      <td style="padding: 4px 2px;">GPIO_[53]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[53]</td>
-      <td style="padding: 4px 2px;">GMAC2_TX_EN</td>
-      <td style="padding: 4px 2px;">UART3_CTSn</td>
-      <td style="padding: 4px 2px;">SSP0_TXD</td>
-      <td style="padding: 4px 2px;">PCIeA_EINT</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">PWM11</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
-      <td style="padding: 4px 2px;">GPIO_[54]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[54]</td>
-      <td style="padding: 4px 2px;">GMAC2_MDC</td>
-      <td style="padding: 4px 2px;">UART3_RTSn</td>
-      <td style="padding: 4px 2px;">SSP0_RXD</td>
-      <td style="padding: 4px 2px;">PCIeA_EINTEG</td>
-      <td style="padding: 4px 2px;">I2C1_SCL</td>
-      <td style="padding: 4px 2px;">PWM12</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
-      <td style="padding: 4px 2px;">GPIO_[55]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[55]</td>
-      <td style="padding: 4px 2px;">GMAC2_MDIO</td>
-      <td style="padding: 4px 2px;">UART3_RXD</td>
-      <td style="padding: 4px 2px;">SSP0_SCLK</td>
-      <td style="padding: 4px 2px;">R.UART3_RXD</td>
-      <td style="padding: 4px 2px;">I2C1_SDA</td>
-      <td style="padding: 4px 2px;">PWM13</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
-      <td style="padding: 4px 2px;">GPIO_[56]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[56]</td>
-      <td style="padding: 4px 2px;">GMAC2_INT_N</td>
-      <td style="padding: 4px 2px;">UART3_TXD</td>
-      <td style="padding: 4px 2px;">SSP0_FRM</td>
-      <td style="padding: 4px 2px;">R.UART3_TXD</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">PWM14</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
-      <td style="padding: 4px 2px;">GPIO_[57]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[57]</td>
-      <td style="padding: 4px 2px;">GMAC2_CLK_REF</td>
-      <td style="padding: 4px 2px;">R.UART2_TXD</td>
-      <td style="padding: 4px 2px;">R.CAN0_RXD</td>
-      <td style="padding: 4px 2px;">EDP0_HPD</td>
-      <td style="padding: 4px 2px;">R.I2C0_SCL</td>
-      <td style="padding: 4px 2px;">PWM15</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
-      <td style="padding: 4px 2px;">GPIO_[58]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[58]</td>
-      <td style="padding: 4px 2px;">GMAC2_PPS</td>
-      <td style="padding: 4px 2px;">R.UART2_RXD</td>
-      <td style="padding: 4px 2px;">R.CAN0_TXD</td>
-      <td style="padding: 4px 2px;">PCIeC_PERSTn</td>
-      <td style="padding: 4px 2px;">R.I2C0_SDA</td>
-      <td style="padding: 4px 2px;">PWM16</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
-      <td style="padding: 4px 2px;">GPIO_[59]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[59]</td>
-      <td style="padding: 4px 2px;">R.GMAC3_RXDV</td>
-      <td style="padding: 4px 2px;">R.UART5_TXD</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">PCIeC_WAKEn</td>
-      <td style="padding: 4px 2px;">R.I2C1_SCL</td>
-      <td style="padding: 4px 2px;">PWM17</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
-      <td style="padding: 4px 2px;">GPIO_[60]</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[60]</td>
-      <td style="padding: 4px 2px;">R.GMAC3_RX_D0</td>
-      <td style="padding: 4px 2px;">R.UART5_RXD</td>
-      <td style="padding: 4px 2px;">R.SSP0_TXD</td>
-      <td style="padding: 4px 2px;">PCIeC_CLKREQn</td>
-      <td style="padding: 4px 2px;">R.I2C1_SDA</td>
-      <td style="padding: 4px 2px;">PWM18</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
-      <td style="padding: 4px 2px;">GPIO_[61]</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[61]</td>
-      <td style="padding: 4px 2px;">R.GMAC3_RX_D1</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">R.SSP0_RXD</td>
-      <td style="padding: 4px 2px;">PCIeC_PRSNT2n</td>
-      <td style="padding: 4px 2px;">I2C6_SCL</td>
-      <td style="padding: 4px 2px;">PWM19</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
-      <td style="padding: 4px 2px;">GPIO_[62]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[62]</td>
-      <td style="padding: 4px 2px;">R.GMAC3_RX_CLK</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">R.SSP0_SCLK</td>
-      <td style="padding: 4px 2px;">PCIeC_ATTn</td>
-      <td style="padding: 4px 2px;">I2C6_SDA</td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
-      <td style="padding: 4px 2px;">GPIO_[63]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[63]</td>
-      <td style="padding: 4px 2px;">R.GMAC3_RX_D2</td>
-      <td style="padding: 4px 2px;">R.GPIO[18]</td>
-      <td style="padding: 4px 2px;">R.SSP0_FRM</td>
-      <td style="padding: 4px 2px;">PCIeC_PWRCTn</td>
-      <td style="padding: 4px 2px;">I2C5_SCL</td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
-      <td style="padding: 4px 2px;">GPIO_[64]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[64]/Strap[4]</td>
-      <td style="padding: 4px 2px;">R.GMAC3_RX_D3</td>
-      <td style="padding: 4px 2px;">R.GPIO[19]</td>
-      <td style="padding: 4px 2px;">R.SSP1_TXD</td>
-      <td style="padding: 4px 2px;">PCIeC_AUXen</td>
-      <td style="padding: 4px 2px;">I2C5_SDA</td>
-      <td style="padding: 4px 2px;">R.PWM0</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
-      <td style="padding: 4px 2px;">GPIO_[65]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[65]/Strap[0]</td>
-      <td style="padding: 4px 2px;">R.GMAC3_TX_D0</td>
-      <td style="padding: 4px 2px;">R.GPIO[20]</td>
-      <td style="padding: 4px 2px;">R.SSP1_RXD</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">R.PWM1</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
-      <td style="padding: 4px 2px;">GPIO_[66]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[66]/Strap[1]</td>
-      <td style="padding: 4px 2px;">R.GMAC3_TX_D1</td>
-      <td style="padding: 4px 2px;">R.GPIO[21]</td>
-      <td style="padding: 4px 2px;">R.SSP1_SCLK</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">R.PWM2</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
-      <td style="padding: 4px 2px;">GPIO_[67]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[67]</td>
-      <td style="padding: 4px 2px;">R.GMAC3_TX_CLK</td>
-      <td style="padding: 4px 2px;">R.GPIO[22]</td>
-      <td style="padding: 4px 2px;">R.SSP1_FRM</td>
-      <td style="padding: 4px 2px;">CLK_CAMCK4</td>
-      <td style="padding: 4px 2px;">PCIeC_PWRDet</td>
-      <td style="padding: 4px 2px;">R.PWM3</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
-      <td style="padding: 4px 2px;">GPIO_[68]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[68]/Strap[2]</td>
-      <td style="padding: 4px 2px;">R.GMAC3_TX_D2</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">eSPI0_D0</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">SSP3_TXD</td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
-      <td style="padding: 4px 2px;">GPIO_[69]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[69]/Strap[3]</td>
-      <td style="padding: 4px 2px;">R.GMAC3_TX_D3</td>
-      <td style="padding: 4px 2px;">SSPA4_CLK</td>
-      <td style="padding: 4px 2px;">eSPI0_D1</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">SSP3_RXD</td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
-      <td style="padding: 4px 2px;">GPIO_[70]</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[70]</td>
-      <td style="padding: 4px 2px;">R.GMAC3_TX_EN</td>
-      <td style="padding: 4px 2px;">SSPA4_FRM</td>
-      <td style="padding: 4px 2px;">eSPI0_D2</td>
-      <td style="padding: 4px 2px;">IR1_RX</td>
-      <td style="padding: 4px 2px;">MNCLK_OUT1</td>
-      <td style="padding: 4px 2px;">SSP3_SCLK</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
-      <td style="padding: 4px 2px;">GPIO_[71]</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[71]</td>
-      <td style="padding: 4px 2px;">R.GMAC3_MDC</td>
-      <td style="padding: 4px 2px;">SSPA4_TXD</td>
-      <td style="padding: 4px 2px;">eSPI0_D3</td>
-      <td style="padding: 4px 2px;">R.IR0_RX</td>
-      <td style="padding: 4px 2px;">MNCLK_OUT2</td>
-      <td style="padding: 4px 2px;">SSP3_FRM</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
-      <td style="padding: 4px 2px;">GPIO_[72]</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[72]</td>
-      <td style="padding: 4px 2px;">R.GMAC3_MDIO</td>
-      <td style="padding: 4px 2px;">SSPA4_RXD</td>
-      <td style="padding: 4px 2px;">eSPI0_CS</td>
-      <td style="padding: 4px 2px;">e/DP1_HPD</td>
-      <td style="padding: 4px 2px;">DSI0_TE</td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
-      <td style="padding: 4px 2px;">GPIO_[73]</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[73]</td>
-      <td style="padding: 4px 2px;">R.GMAC3_INT_N</td>
-      <td style="padding: 4px 2px;">SSPA4_SYSCLK</td>
-      <td style="padding: 4px 2px;">eSPI0_CLK</td>
-      <td style="padding: 4px 2px;">R.IR1_RX</td>
-      <td style="padding: 4px 2px;">USB20_HOST_DRV</td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
-      <td style="padding: 4px 2px;">GPIO_[74]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[74]</td>
-      <td style="padding: 4px 2px;">R.GMAC3_CLK_REF</td>
-      <td style="padding: 4px 2px;">CLK_CAMCK2</td>
-      <td style="padding: 4px 2px;">eSPI0_RESETN</td>
-      <td style="padding: 4px 2px;">VCXO_REQ</td>
-      <td style="padding: 4px 2px;">USB30H-1_DRV</td>
-      <td style="padding: 4px 2px;">R.I2C0_SCL</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO3 [1.8V only]</td>
-      <td style="padding: 4px 2px;">GPIO_[75]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[75]</td>
-      <td style="padding: 4px 2px;">R.GMAC3_PPS</td>
-      <td style="padding: 4px 2px;">CLK_CAMCK1</td>
-      <td style="padding: 4px 2px;">eSPI0_ALERT</td>
-      <td style="padding: 4px 2px;">VCXO_OUT</td>
-      <td style="padding: 4px 2px;">USB30H-2_DRV</td>
-      <td style="padding: 4px 2px;">R.I2C0_SDA</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[76]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[76]</td>
-      <td style="padding: 4px 2px;">R.SSPA0_CLK</td>
-      <td style="padding: 4px 2px;">SSPA2_CLK</td>
-      <td style="padding: 4px 2px;">UART8_TXD</td>
-      <td style="padding: 4px 2px;">CAN0_TXD</td>
-      <td style="padding: 4px 2px;">PCIeE_PERSTn</td>
-      <td style="padding: 4px 2px;">I2C0_SCL</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[77]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[77]</td>
-      <td style="padding: 4px 2px;">R.SSPA0_FRM</td>
-      <td style="padding: 4px 2px;">SSPA2_FRM</td>
-      <td style="padding: 4px 2px;">UART8_RXD</td>
-      <td style="padding: 4px 2px;">CAN0_RXD</td>
-      <td style="padding: 4px 2px;">PCIeE_WAKEn</td>
-      <td style="padding: 4px 2px;">I2C0_SDA</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[78]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[78]</td>
-      <td style="padding: 4px 2px;">R.SSPA0_TXD</td>
-      <td style="padding: 4px 2px;">SSPA2_TXD</td>
-      <td style="padding: 4px 2px;">UART8_CTS</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">PCIeE_CLKREQn</td>
-      <td style="padding: 4px 2px;">I2C1_SCL</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[79]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[79]</td>
-      <td style="padding: 4px 2px;">R.SSPA0_RXD</td>
-      <td style="padding: 4px 2px;">SSPA2_RXD</td>
-      <td style="padding: 4px 2px;">UART8_RTS</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">PCIeA_PERSTn</td>
-      <td style="padding: 4px 2px;">I2C1_SDA</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[80]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[80]</td>
-      <td style="padding: 4px 2px;">R.SSPA0_SYSCLK</td>
-      <td style="padding: 4px 2px;">SSPA2_SYSCLK</td>
-      <td style="padding: 4px 2px;">R.UART4_TXD</td>
-      <td style="padding: 4px 2px;">CAN3_RXD</td>
-      <td style="padding: 4px 2px;">PCIeA_WAKEn</td>
-      <td style="padding: 4px 2px;">I2C2_SCL</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[81]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[81]</td>
-      <td style="padding: 4px 2px;">SSP0_TXD</td>
-      <td style="padding: 4px 2px;">SSA0_CLK</td>
-      <td style="padding: 4px 2px;">R.UART4_RXD</td>
-      <td style="padding: 4px 2px;">CAN3_TXD</td>
-      <td style="padding: 4px 2px;">PCIeA_CLKREQn</td>
-      <td style="padding: 4px 2px;">I2C2_SDA</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[82]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[82]</td>
-      <td style="padding: 4px 2px;">SSP0_RXD</td>
-      <td style="padding: 4px 2px;">SSA0_FRM</td>
-      <td style="padding: 4px 2px;">UART9_CTSn</td>
-      <td style="padding: 4px 2px;">UART5_RXD</td>
-      <td style="padding: 4px 2px;">PCIeA_PRSNT2n</td>
-      <td style="padding: 4px 2px;">I2C3_SCL</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[83]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[83]</td>
-      <td style="padding: 4px 2px;">SSP0_SCLK</td>
-      <td style="padding: 4px 2px;">SSA0_TXD</td>
-      <td style="padding: 4px 2px;">UART9_RTSn</td>
-      <td style="padding: 4px 2px;">UART5_TXD</td>
-      <td style="padding: 4px 2px;">PCIeA_ATTn</td>
-      <td style="padding: 4px 2px;">I2C3_SDA</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[84]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[84]</td>
-      <td style="padding: 4px 2px;">SSP0_FRM</td>
-      <td style="padding: 4px 2px;">SSA0_RXD</td>
-      <td style="padding: 4px 2px;">UART9_TXD</td>
-      <td style="padding: 4px 2px;">USB30_B_DRV</td>
-      <td style="padding: 4px 2px;">PCIeA_PWRCTn</td>
-      <td style="padding: 4px 2px;">DSI0_TE</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[85]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[85]</td>
-      <td style="padding: 4px 2px;">CLK_CAMCK3</td>
-      <td style="padding: 4px 2px;">SSA0_SYSCLK</td>
-      <td style="padding: 4px 2px;">UART9_RXD</td>
-      <td style="padding: 4px 2px;">USB30_C_DRV</td>
-      <td style="padding: 4px 2px;">PCIeA_AUXen</td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[86]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[86]</td>
-      <td style="padding: 4px 2px;">R.SSP0_TXD</td>
-      <td style="padding: 4px 2px;">R.eSPI0_D0</td>
-      <td style="padding: 4px 2px;">UART4_TXD</td>
-      <td style="padding: 4px 2px;">CAN2_TXD</td>
-      <td style="padding: 4px 2px;">PCIeA_PWRDet</td>
-      <td style="padding: 4px 2px;">USB30_DRD_DIR</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[87]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[87]</td>
-      <td style="padding: 4px 2px;">R.SSP0_RXD</td>
-      <td style="padding: 4px 2px;">R.eSPI0_D1</td>
-      <td style="padding: 4px 2px;">UART4_RXD</td>
-      <td style="padding: 4px 2px;">CAN2_RXD</td>
-      <td style="padding: 4px 2px;">PCIeA_MRLn</td>
-      <td style="padding: 4px 2px;">PCIeB_PRSNT2n</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[88]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[88]</td>
-      <td style="padding: 4px 2px;">R.SSP0_SCLK</td>
-      <td style="padding: 4px 2px;">R.eSPI0_D2</td>
-      <td style="padding: 4px 2px;">R.UART3_TXD</td>
-      <td style="padding: 4px 2px;">PCIeB_PERSTn</td>
-      <td style="padding: 4px 2px;">PCIeA_ATNLED</td>
-      <td style="padding: 4px 2px;">CAN1_RXD</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[89]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[89]</td>
-      <td style="padding: 4px 2px;">R.SSP0_FRM</td>
-      <td style="padding: 4px 2px;">R.eSPI0_D3</td>
-      <td style="padding: 4px 2px;">R.UART3_RXD</td>
-      <td style="padding: 4px 2px;">PCIeB_WAKEn</td>
-      <td style="padding: 4px 2px;">PCIeA_PWRLED</td>
-      <td style="padding: 4px 2px;">CAN1_TXD</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[90]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[90]</td>
-      <td style="padding: 4px 2px;">DSI0_TE</td>
-      <td style="padding: 4px 2px;">R.eSPI0_CS</td>
-      <td style="padding: 4px 2px;">UART4_CTSn</td>
-      <td style="padding: 4px 2px;">PCIeB_CLKREQn</td>
-      <td style="padding: 4px 2px;">PCIeA_EINT</td>
-      <td style="padding: 4px 2px;">R.CAN0_RXD</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[91]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[91]</td>
-      <td style="padding: 4px 2px;">R.GPIO[23]</td>
-      <td style="padding: 4px 2px;">R.eSPI0_CLK</td>
-      <td style="padding: 4px 2px;">UART4_RTSn</td>
-      <td style="padding: 4px 2px;">eSPI0_D0</td>
-      <td style="padding: 4px 2px;">PCIeA_EINTEG</td>
-      <td style="padding: 4px 2px;">R.CAN0_TXD</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[92]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[92]</td>
-      <td style="padding: 4px 2px;">R.GPIO[24]</td>
-      <td style="padding: 4px 2px;">R.eSPI0_RESETN</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">eSPI0_D1</td>
-      <td style="padding: 4px 2px;">R.PWM5</td>
-      <td style="padding: 4px 2px;">DSI0_TE</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[93]</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[93]</td>
-      <td style="padding: 4px 2px;">R.GPIO[25]</td>
-      <td style="padding: 4px 2px;">R.eSPI0_ALERT</td>
-      <td style="padding: 4px 2px;">UART0_TXD</td>
-      <td style="padding: 4px 2px;">eSPI0_D2</td>
-      <td style="padding: 4px 2px;">I2C5_SCL</td>
-      <td style="padding: 4px 2px;">R.PWM4</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[94]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[94]</td>
-      <td style="padding: 4px 2px;">R.GPIO[26]</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">UART0_RXD</td>
-      <td style="padding: 4px 2px;">eSPI0_D3</td>
-      <td style="padding: 4px 2px;">I2C5_SDA</td>
-      <td style="padding: 4px 2px;">R.PWM6</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[95]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[95]</td>
-      <td style="padding: 4px 2px;">R.GPIO[27]</td>
-      <td style="padding: 4px 2px;">UART1_TXD&lt;secure domain&gt;</td>
-      <td style="padding: 4px 2px;">USB30_DRD_ID</td>
-      <td style="padding: 4px 2px;">eSPI0_CS</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">PWM1</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[96]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[96]</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">UART1_RXD&lt;secure domain&gt;</td>
-      <td style="padding: 4px 2px;">USB30_DRD_VBUSON</td>
-      <td style="padding: 4px 2px;">eSPI0_CLK</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">PWM2</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[97]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[97]</td>
-      <td style="padding: 4px 2px;">UART2_TXD</td>
-      <td style="padding: 4px 2px;">UART1_CTS&lt;secure domain&gt;</td>
-      <td style="padding: 4px 2px;">USB30_DRD_DRV</td>
-      <td style="padding: 4px 2px;">eSPI0_RESETN</td>
-      <td style="padding: 4px 2px;">e/DP0_HPD</td>
-      <td style="padding: 4px 2px;">PWM3</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO4 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[98]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[98]</td>
-      <td style="padding: 4px 2px;">UART2_RXD</td>
-      <td style="padding: 4px 2px;">UART1_RTS&lt;secure domain&gt;</td>
-      <td style="padding: 4px 2px;">CLK32K_OUT</td>
-      <td style="padding: 4px 2px;">eSPI0_ALERT</td>
-      <td style="padding: 4px 2px;">e/DP1_HPD</td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[99]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[99]</td>
-      <td style="padding: 4px 2px;">SSP3_TXD</td>
-      <td style="padding: 4px 2px;">SSPA3_CLK</td>
-      <td style="padding: 4px 2px;">UART4_TXD</td>
-      <td style="padding: 4px 2px;">R.CAN2_TXD</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">CLK_CAMCK4</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[100]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[100]</td>
-      <td style="padding: 4px 2px;">SSP3_RXD</td>
-      <td style="padding: 4px 2px;">SSPA3_FRM</td>
-      <td style="padding: 4px 2px;">UART4_RXD</td>
-      <td style="padding: 4px 2px;">R.CAN2_RXD</td>
-      <td style="padding: 4px 2px;">PCIeD_PRSNT2n</td>
-      <td style="padding: 4px 2px;">CLK32K_OUT</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[101]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[101]</td>
-      <td style="padding: 4px 2px;">SSP3_SCLK</td>
-      <td style="padding: 4px 2px;">SSPA3_TXD</td>
-      <td style="padding: 4px 2px;">UART4_CTS</td>
-      <td style="padding: 4px 2px;">CAN4_RXD</td>
-      <td style="padding: 4px 2px;">PCIeD_ATTn</td>
-      <td style="padding: 4px 2px;">MNCLK_OUT1</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[102]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[102]</td>
-      <td style="padding: 4px 2px;">SSP3_FRM</td>
-      <td style="padding: 4px 2px;">SSPA3_RXD</td>
-      <td style="padding: 4px 2px;">UART4_RTS</td>
-      <td style="padding: 4px 2px;">CAN4_TXD</td>
-      <td style="padding: 4px 2px;">PCIeD_PWRCTn</td>
-      <td style="padding: 4px 2px;">I2C1_SCL</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[103]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[103]</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">SSPA3_SYSCLK</td>
-      <td style="padding: 4px 2px;">USB20_HOST_DRV</td>
-      <td style="padding: 4px 2px;">CAN3_TXD</td>
-      <td style="padding: 4px 2px;">PCIeD_AUXen</td>
-      <td style="padding: 4px 2px;">I2C1_SDA</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[104]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[104]</td>
-      <td style="padding: 4px 2px;">SSP0_TXD</td>
-      <td style="padding: 4px 2px;">SSP2_TXD</td>
-      <td style="padding: 4px 2px;">USB30H-1_DRV</td>
-      <td style="padding: 4px 2px;">CAN3_RXD</td>
-      <td style="padding: 4px 2px;">PCIeD_PWRDet</td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[105]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[105]</td>
-      <td style="padding: 4px 2px;">SSP0_RXD</td>
-      <td style="padding: 4px 2px;">SSP2_RXD</td>
-      <td style="padding: 4px 2px;">R.I2C1_SCL</td>
-      <td style="padding: 4px 2px;">I2C3_SCL</td>
-      <td style="padding: 4px 2px;">PCIeD_PERSTn</td>
-      <td style="padding: 4px 2px;">PWM17</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[106]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[106]</td>
-      <td style="padding: 4px 2px;">SSP0_SCLK</td>
-      <td style="padding: 4px 2px;">SSP2_SCLK</td>
-      <td style="padding: 4px 2px;">R.I2C1_SDA</td>
-      <td style="padding: 4px 2px;">I2C3_SDA</td>
-      <td style="padding: 4px 2px;">PCIeD_WAKEn</td>
-      <td style="padding: 4px 2px;">PWM18</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[107]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[107]</td>
-      <td style="padding: 4px 2px;">SSP0_FRM</td>
-      <td style="padding: 4px 2px;">SSP2_FRM</td>
-      <td style="padding: 4px 2px;">R.CAN4_TXD</td>
-      <td style="padding: 4px 2px;">USB30_DRD_DIR</td>
-      <td style="padding: 4px 2px;">PCIeD_CLKREQn</td>
-      <td style="padding: 4px 2px;">PWM19</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[108]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[108]</td>
-      <td style="padding: 4px 2px;">R.SSP1_TXD</td>
-      <td style="padding: 4px 2px;">USB20_HOST_DRV</td>
-      <td style="padding: 4px 2px;">R.CAN4_RXD</td>
-      <td style="padding: 4px 2px;">IR0_RX</td>
-      <td style="padding: 4px 2px;">PCIeA_PERSTn</td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[109]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[109]</td>
-      <td style="padding: 4px 2px;">R.SSP1_RXD</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">R.UART0_TXD</td>
-      <td style="padding: 4px 2px;">CAN1_TXD</td>
-      <td style="padding: 4px 2px;">PCIeA_WAKEn</td>
-      <td style="padding: 4px 2px;">R.PWM6</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[110]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[110]</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">R.UART0_RXD</td>
-      <td style="padding: 4px 2px;">CAN1_RXD</td>
-      <td style="padding: 4px 2px;">PCIeA_CLKREQn</td>
-      <td style="padding: 4px 2px;">R.PWM7</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[111]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[111]</td>
-      <td style="padding: 4px 2px;">SSP1_TXD</td>
-      <td style="padding: 4px 2px;">SSPA0_CLK</td>
-      <td style="padding: 4px 2px;">ucie_deSCL</td>
-      <td style="padding: 4px 2px;">I2C4_SCL</td>
-      <td style="padding: 4px 2px;">USB30_DRD_INT</td>
-      <td style="padding: 4px 2px;">R.PWM8</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[112]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[112]</td>
-      <td style="padding: 4px 2px;">SSP1_RXD</td>
-      <td style="padding: 4px 2px;">SSPA0_FRM</td>
-      <td style="padding: 4px 2px;">ucie_deSDA</td>
-      <td style="padding: 4px 2px;">I2C4_SDA</td>
-      <td style="padding: 4px 2px;">USB30_D_DRV</td>
-      <td style="padding: 4px 2px;">R.PWM9</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[113]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[113]</td>
-      <td style="padding: 4px 2px;">SSP1_SCLK</td>
-      <td style="padding: 4px 2px;">SSPA0_TXD</td>
-      <td style="padding: 4px 2px;">R.GPIO[30]</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">PCIeB_PERSTn</td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[114]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[114]</td>
-      <td style="padding: 4px 2px;">SSP1_FRM</td>
-      <td style="padding: 4px 2px;">SSPA0_RXD</td>
-      <td style="padding: 4px 2px;">R.GPIO[31]</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">PCIeB_WAKEn</td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[115]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[115]</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">SSPA0_SYSCLK</td>
-      <td style="padding: 4px 2px;">R.GPIO[32]</td>
-      <td style="padding: 4px 2px;">I2C0_SCL</td>
-      <td style="padding: 4px 2px;">PCIeB_CLKREQn</td>
-      <td style="padding: 4px 2px;">R.I2C0_SCL</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[116]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[116]</td>
-      <td style="padding: 4px 2px;">R.SSP1_SCLK</td>
-      <td style="padding: 4px 2px;">USB30_DRD_ID</td>
-      <td style="padding: 4px 2px;">R.GPIO[33]</td>
-      <td style="padding: 4px 2px;">I2C0_SDA</td>
-      <td style="padding: 4px 2px;">PCIeB_PRSNT2n</td>
-      <td style="padding: 4px 2px;">R.I2C0_SDA</td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[117]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[117]</td>
-      <td style="padding: 4px 2px;">R.SSP1_FRM</td>
-      <td style="padding: 4px 2px;">USB30_DRD_VBUSON</td>
-      <td style="padding: 4px 2px;">R.GPIO[34]</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">PCIeB_ATTn</td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[118]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[118]</td>
-      <td style="padding: 4px 2px;">UART1_RTSn&lt;secure domain&gt;</td>
-      <td style="padding: 4px 2px;">USB30_DRD_DRV</td>
-      <td style="padding: 4px 2px;">R.GPIO[35]</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">PCIeB_PWRCTn</td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[119]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[119]</td>
-      <td style="padding: 4px 2px;">UART1_CTSn&lt;secure domain&gt;</td>
-      <td style="padding: 4px 2px;">USB30_DRD_INT</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">PCIeB_AUXen</td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[120]</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[120]</td>
-      <td style="padding: 4px 2px;">UART1_RXD&lt;secure domain&gt;</td>
-      <td style="padding: 4px 2px;">I2C2_SCL</td>
-      <td style="padding: 4px 2px;">R.CAN3_TXD</td>
-      <td style="padding: 4px 2px;">CAN4_TXD</td>
-      <td style="padding: 4px 2px;">PCIeB_PWRDet</td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[121]</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[121]</td>
-      <td style="padding: 4px 2px;">UART1_TXD&lt;secure domain&gt;</td>
-      <td style="padding: 4px 2px;">I2C2_SDA</td>
-      <td style="padding: 4px 2px;">R.CAN3_RXD</td>
-      <td style="padding: 4px 2px;">CAN4_RXD</td>
-      <td style="padding: 4px 2px;">PCIeB_MRLn</td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[122]</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[122]</td>
-      <td style="padding: 4px 2px;">MMC2_DAT[3]</td>
-      <td style="padding: 4px 2px;">SSPA1_CLK</td>
-      <td style="padding: 4px 2px;">UART6_TXD</td>
-      <td style="padding: 4px 2px;">R.UART0_TXD</td>
-      <td style="padding: 4px 2px;">PCIeB_ATNLED</td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[123]</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[123]</td>
-      <td style="padding: 4px 2px;">MMC2_DAT[2]</td>
-      <td style="padding: 4px 2px;">SSPA1_FRM</td>
-      <td style="padding: 4px 2px;">UART6_RXD</td>
-      <td style="padding: 4px 2px;">R.UART0_RXD</td>
-      <td style="padding: 4px 2px;">PCIeB_PWRLED</td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[124]</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[124]</td>
-      <td style="padding: 4px 2px;">MMC2_DAT[1]</td>
-      <td style="padding: 4px 2px;">SSPA1_TXD</td>
-      <td style="padding: 4px 2px;">PCIeD_PERSTn</td>
-      <td style="padding: 4px 2px;">e/DP0_HPD</td>
-      <td style="padding: 4px 2px;">PCIeB_EINT</td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[125]</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[125]</td>
-      <td style="padding: 4px 2px;">MMC2_DAT[0]</td>
-      <td style="padding: 4px 2px;">SSPA1_RXD</td>
-      <td style="padding: 4px 2px;">PCIeD_WAKEn</td>
-      <td style="padding: 4px 2px;">e/DP1_HPD</td>
-      <td style="padding: 4px 2px;">PCIeB_EINTEG</td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[126]</td>
-      <td style="padding: 4px 2px;">UP</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[126]</td>
-      <td style="padding: 4px 2px;">MMC2_CMD</td>
-      <td style="padding: 4px 2px;">SSPA1_SYSCLK</td>
-      <td style="padding: 4px 2px;">PCIeD_CLKREQn</td>
-      <td style="padding: 4px 2px;">I2C5_SCL</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-    <tr style="text-align: center;">
-      <td style="padding: 4px 2px;">GPIO5 [1.8V/3.3V]</td>
-      <td style="padding: 4px 2px;">GPIO_[127]</td>
-      <td style="padding: 4px 2px;">DOWN</td>
-      <td style="padding: 4px 2px;">enable</td>
-      <td style="padding: 4px 2px;">GPIO[127]</td>
-      <td style="padding: 4px 2px;">MMC2_CLK</td>
-      <td style="padding: 4px 2px;"></td>
-      <td style="padding: 4px 2px;">PCIeD_PRSNT2n</td>
-      <td style="padding: 4px 2px;">I2C5_SDA</td>
-      <td style="padding: 4px 2px;">USB30_C_DRV</td>
-      <td style="padding: 4px 2px;"></td>
-    </tr>
-  </tbody>
-</table>
+For the complete multi-function pin assignment reference, see [K3 User Manual — Section 3.4](../k3_docs/k3_usermanual/03_pinout.md). A downloadable hard-copy version of the pin assignment table is also available at [K3 Hardware Resources](../k3_hw/k3_hw_resources.md#pin-list-and-pin-multiplexing).
 
 ## 5. Electrical Characteristics
 
@@ -6347,262 +2424,188 @@ The tables below provide a detailed description of the signal assignments for Fu
 
 The following table describes the recommended operating conditions.
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px;">
-
-  <colgroup>
-    <col width="200">
-    <col width="200">
-    <col width="200">
-    <col width="200">
-    <col width="200">
-  </colgroup>
-  
-  <thead>
-    <tr style="background-color: #f6f8fa;">
-      <th style="text-align: left;">Module</th>
-      <th style="text-align: left;">Symbol/Pin</th>
-      <th style="text-align: left;">Min</th>
-      <th style="text-align: left;">Typ</th>
-      <th style="text-align: left;">Max</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <tr><td style="text-align: left; font-weight: bold;">CPU</td><td style="text-align: left;">VDD08_X100</td><td style="text-align: left;">0.72V</td><td style="text-align: left;">0.8V</td><td style="text-align: left;">1.05V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">VDD08_M1A100</td><td style="text-align: left;">0.72V</td><td style="text-align: left;">0.8V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">PLL</td><td style="text-align: left;">AVDD08_PLL1</td><td style="text-align: left;">0.76V</td><td style="text-align: left;">0.8V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD08_PLL234</td><td style="text-align: left;">0.76V</td><td style="text-align: left;">0.8V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD08_PLL567</td><td style="text-align: left;">0.76V</td><td style="text-align: left;">0.8V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD18_PLL1</td><td style="text-align: left;">1.71V</td><td style="text-align: left;">1.8V</td><td style="text-align: left;">1.96V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD18_PLL234</td><td style="text-align: left;">1.71V</td><td style="text-align: left;">1.8V</td><td style="text-align: left;">1.96V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD18_PLL567</td><td style="text-align: left;">1.71V</td><td style="text-align: left;">1.8V</td><td style="text-align: left;">1.96V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">PLL-DDR</td><td style="text-align: left;">AVDD08_PLL_DDR0</td><td style="text-align: left;">0.76V</td><td style="text-align: left;">0.8V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD08_PLL_DDR1</td><td style="text-align: left;">0.76V</td><td style="text-align: left;">0.8V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD1V8_PLL_DDR0</td><td style="text-align: left;">1.71V</td><td style="text-align: left;">1.8V</td><td style="text-align: left;">1.96V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD1V8_PLL_DDR1</td><td style="text-align: left;">1.71V</td><td style="text-align: left;">1.8V</td><td style="text-align: left;">1.96V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">CSI</td><td style="text-align: left;">AVDD08_CSI0</td><td style="text-align: left;">0.76V</td><td style="text-align: left;">0.8V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD08_CSI1</td><td style="text-align: left;">0.76V</td><td style="text-align: left;">0.8V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD08_CSI2</td><td style="text-align: left;">0.76V</td><td style="text-align: left;">0.8V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD18_CSI0</td><td style="text-align: left;">1.71V</td><td style="text-align: left;">1.8V</td><td style="text-align: left;">1.96V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD18_CSI1</td><td style="text-align: left;">1.71V</td><td style="text-align: left;">1.8V</td><td style="text-align: left;">1.96V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD18_CSI2</td><td style="text-align: left;">1.71V</td><td style="text-align: left;">1.8V</td><td style="text-align: left;">1.96V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">DDR</td><td style="text-align: left;">VAA1V8_VDD2H_DDR</td><td style="text-align: left;">1.674V</td><td style="text-align: left;">1.8V</td><td style="text-align: left;">1.98V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">VDD2H_DDR</td><td style="text-align: left;">1.01V/1.045V (LP5/LP4x)</td><td style="text-align: left;">1.05V/1.1V (LP5/LP4x)</td><td style="text-align: left;">1.12V/1.155V (LP5/LP4x)</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">VDDQ_DDR</td><td style="text-align: left;">0.47V/0.57V (LP5/LP4x)</td><td style="text-align: left;">0.5V/0.6V (LP5/LP4x)</td><td style="text-align: left;">0.57V/0.63V (LP5/LP4x)</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">VDD0V8_DDR</td><td style="text-align: left;">0.744V</td><td style="text-align: left;">0.8V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">DSI</td><td style="text-align: left;">AVDD08_DSI</td><td style="text-align: left;">0.76V</td><td style="text-align: left;">0.8V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD12_DSI</td><td style="text-align: left;">1.14V</td><td style="text-align: left;">1.2V</td><td style="text-align: left;">1.32V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD18_DSI</td><td style="text-align: left;">1.71V</td><td style="text-align: left;">1.8V</td><td style="text-align: left;">1.96V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">EDP</td><td style="text-align: left;">AVDD18_EDP0</td><td style="text-align: left;">1.674V</td><td style="text-align: left;">1.8V</td><td style="text-align: left;">1.98V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">DVDD08_EDP0</td><td style="text-align: left;">0.744V</td><td style="text-align: left;">0.8V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">EDP1</td><td style="text-align: left;">AVDD18_EDP1</td><td style="text-align: left;">1.674V</td><td style="text-align: left;">1.8V</td><td style="text-align: left;">1.98V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">DVDD08_EDP1</td><td style="text-align: left;">0.744V</td><td style="text-align: left;">0.8V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">EMMC</td><td style="text-align: left;">AVDD08_EMMC</td><td style="text-align: left;">0.744V</td><td style="text-align: left;">0.8V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">VCC18_EMMC</td><td style="text-align: left;">1.674V</td><td style="text-align: left;">1.8V</td><td style="text-align: left;">1.98V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">FUSE</td><td style="text-align: left;">FUSE_AVDD18</td><td style="text-align: left;">1.71V</td><td style="text-align: left;">1.8V</td><td style="text-align: left;">1.96V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">GPIO</td><td style="text-align: left;">VCC18_GPIO1</td><td style="text-align: left;">1.674V</td><td style="text-align: left;">1.8V</td><td style="text-align: left;">1.98V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">VCC18_GPIO2</td><td style="text-align: left;">1.674V</td><td style="text-align: left;">1.8V</td><td style="text-align: left;">1.98V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">VCC18_GPIO3</td><td style="text-align: left;">1.674V</td><td style="text-align: left;">1.8V</td><td style="text-align: left;">1.98V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">VCC18_GPIO4</td><td style="text-align: left;">1.674V</td><td style="text-align: left;">1.8V</td><td style="text-align: left;">1.98V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">VCC18_GPIO5</td><td style="text-align: left;">1.674V</td><td style="text-align: left;">1.8V</td><td style="text-align: left;">1.98V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">VCC18_PMIC</td><td style="text-align: left;">1.674V</td><td style="text-align: left;">1.8V</td><td style="text-align: left;">1.98V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">VCC1833_GPIO1</td><td style="text-align: left;">1.674V/2.97V</td><td style="text-align: left;">1.8V/3.3V</td><td style="text-align: left;">1.98V/3.63V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">VCC1833_GPIO2</td><td style="text-align: left;">1.674V/2.97V</td><td style="text-align: left;">1.8V/3.3V</td><td style="text-align: left;">1.98V/3.63V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">VCC1833_GPIO4</td><td style="text-align: left;">1.674V/2.97V</td><td style="text-align: left;">1.8V/3.3V</td><td style="text-align: left;">1.98V/3.63V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">VCC1833_GPIO5</td><td style="text-align: left;">1.674V/2.97V</td><td style="text-align: left;">1.8V/3.3V</td><td style="text-align: left;">1.98V/3.63V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">VCC1833_QSPI</td><td style="text-align: left;">1.674V/2.97V</td><td style="text-align: left;">1.8V/3.3V</td><td style="text-align: left;">1.98V/3.63V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">VCC1833_MMC1</td><td style="text-align: left;">1.674V/2.97V</td><td style="text-align: left;">1.8V/3.3V</td><td style="text-align: left;">1.98V/3.63V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">OSC</td><td style="text-align: left;">AVDD08_OSC</td><td style="text-align: left;">0.76V</td><td style="text-align: left;">0.8V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD18_OSC</td><td style="text-align: left;">1.71V</td><td style="text-align: left;">1.8V</td><td style="text-align: left;">1.96V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">PICE PHY0</td><td style="text-align: left;">AVDD08_PCIeA</td><td style="text-align: left;">0.744V</td><td style="text-align: left;">0.8V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD18_PCIeA</td><td style="text-align: left;">1.674V</td><td style="text-align: left;">1.8V</td><td style="text-align: left;">1.98V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">PICE PHY1</td><td style="text-align: left;">AVDD08_PCIeB</td><td style="text-align: left;">0.744V</td><td style="text-align: left;">0.8V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD18_PCIeB</td><td style="text-align: left;">1.674V</td><td style="text-align: left;">1.8V</td><td style="text-align: left;">1.98V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">PICE PHY2</td><td style="text-align: left;">AVDD08_PCIeC/USB3-B</td><td style="text-align: left;">0.744V</td><td style="text-align: left;">0.8V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD18_PCIeC/USB3-B</td><td style="text-align: left;">1.674V</td><td style="text-align: left;">1.8V</td><td style="text-align: left;">1.98V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">PICE PHY3</td><td style="text-align: left;">AVDD08_PCIeD/USB3-C</td><td style="text-align: left;">0.744V</td><td style="text-align: left;">0.8V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD18_PCIeD/USB3-C</td><td style="text-align: left;">1.674V</td><td style="text-align: left;">1.8V</td><td style="text-align: left;">1.98V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">PICE PHY4</td><td style="text-align: left;">AVDD08_PCIeE/USB3-D</td><td style="text-align: left;">0.744V</td><td style="text-align: left;">0.8V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD18_PCIeE/USB3-D</td><td style="text-align: left;">1.674V</td><td style="text-align: left;">1.8V</td><td style="text-align: left;">1.98V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">PICE PHY5</td><td style="text-align: left;">AVDD08_PCIe5</td><td style="text-align: left;">0.744V</td><td style="text-align: left;">0.8V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD18_PCIe5</td><td style="text-align: left;">1.674V</td><td style="text-align: left;">1.8V</td><td style="text-align: left;">1.98V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">UCIE</td><td style="text-align: left;">UCIE_VCCAON_0V8</td><td style="text-align: left;">0.76V</td><td style="text-align: left;">0.8V</td><td style="text-align: left;">0.84V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">UCIE_VCCIO_0V8</td><td style="text-align: left;">0.76V</td><td style="text-align: left;">0.8V</td><td style="text-align: left;">0.84V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">UCIE_VCCPLL_1P2V</td><td style="text-align: left;">1.116V</td><td style="text-align: left;">1.2V</td><td style="text-align: left;">1.236V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">UCIE_VDD_0V8</td><td style="text-align: left;">0.76V</td><td style="text-align: left;">0.8V</td><td style="text-align: left;">0.84V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">UCIE_VDDBH_0V9</td><td style="text-align: left;">0.855V</td><td style="text-align: left;">0.9V</td><td style="text-align: left;">0.945V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">UCIE_VDDVPH0_0V9</td><td style="text-align: left;">0.855V</td><td style="text-align: left;">0.9V</td><td style="text-align: left;">0.945V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">UFS</td><td style="text-align: left;">UFS_VCC_1V8</td><td style="text-align: left;">1.71V</td><td style="text-align: left;">1.8V</td><td style="text-align: left;">1.96V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">UFS_VCCQ_1V2</td><td style="text-align: left;">1.14V</td><td style="text-align: left;">1.2V</td><td style="text-align: left;">1.32V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">UFS_VDDU_0V8</td><td style="text-align: left;">0.76</td><td style="text-align: left;">0.8V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">USB2</td><td style="text-align: left;">AVDD08_B_USB20</td><td style="text-align: left;">0.744V</td><td style="text-align: left;">0.8V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD08_C_USB20</td><td style="text-align: left;">0.744V</td><td style="text-align: left;">0.8V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD08_D_USB20</td><td style="text-align: left;">0.744V</td><td style="text-align: left;">0.8V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD08_USB20_Host</td><td style="text-align: left;">0.744V</td><td style="text-align: left;">0.8V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD18_B_USB20</td><td style="text-align: left;">1.674V</td><td style="text-align: left;">1.8V</td><td style="text-align: left;">1.98V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD18_C_USB20</td><td style="text-align: left;">1.674V</td><td style="text-align: left;">1.8V</td><td style="text-align: left;">1.98V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD18_D_USB20</td><td style="text-align: left;">1.674V</td><td style="text-align: left;">1.8V</td><td style="text-align: left;">1.98V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD18_USB20_Host</td><td style="text-align: left;">1.674V</td><td style="text-align: left;">1.8V</td><td style="text-align: left;">1.98V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD33_B_USB20</td><td style="text-align: left;">3.069V</td><td style="text-align: left;">3.3V</td><td style="text-align: left;">3.63V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD33_C_USB20</td><td style="text-align: left;">3.069V</td><td style="text-align: left;">3.3V</td><td style="text-align: left;">3.63V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD33_D_USB20</td><td style="text-align: left;">3.069V</td><td style="text-align: left;">3.3V</td><td style="text-align: left;">3.63V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD33_DRD_USB</td><td style="text-align: left;">3.069V</td><td style="text-align: left;">3.3V</td><td style="text-align: left;">3.63V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD33_USB20_Host</td><td style="text-align: left;">3.069V</td><td style="text-align: left;">3.3V</td><td style="text-align: left;">3.63V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">USB3-DRD</td><td style="text-align: left;">AVDD08_DRD_USB</td><td style="text-align: left;">0.744V</td><td style="text-align: left;">0.8V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD18_DRD_USB</td><td style="text-align: left;">1.674V</td><td style="text-align: left;">1.8V</td><td style="text-align: left;">1.98V</td></tr>
-  </tbody>
-</table>
+| Module | Symbol/Pin | Min | Typ | Max |
+| --- | --- | --- | --- | --- |
+| **CPU** | VDD08_X100 | 0.72V | 0.8V | 1.05V |
+| | VDD08_M1A100 | 0.72V | 0.8V | 0.88V |
+| **PLL** | AVDD08_PLL1 | 0.76V | 0.8V | 0.88V |
+| | AVDD08_PLL234 | 0.76V | 0.8V | 0.88V |
+| | AVDD08_PLL567 | 0.76V | 0.8V | 0.88V |
+| | AVDD18_PLL1 | 1.71V | 1.8V | 1.96V |
+| | AVDD18_PLL234 | 1.71V | 1.8V | 1.96V |
+| | AVDD18_PLL567 | 1.71V | 1.8V | 1.96V |
+| **PLL-DDR** | AVDD08_PLL_DDR0 | 0.76V | 0.8V | 0.88V |
+| | AVDD08_PLL_DDR1 | 0.76V | 0.8V | 0.88V |
+| | AVDD1V8_PLL_DDR0 | 1.71V | 1.8V | 1.96V |
+| | AVDD1V8_PLL_DDR1 | 1.71V | 1.8V | 1.96V |
+| **CSI** | AVDD08_CSI0 | 0.76V | 0.8V | 0.88V |
+| | AVDD08_CSI1 | 0.76V | 0.8V | 0.88V |
+| | AVDD08_CSI2 | 0.76V | 0.8V | 0.88V |
+| | AVDD18_CSI0 | 1.71V | 1.8V | 1.96V |
+| | AVDD18_CSI1 | 1.71V | 1.8V | 1.96V |
+| | AVDD18_CSI2 | 1.71V | 1.8V | 1.96V |
+| **DDR** | VAA1V8_VDD2H_DDR | 1.674V | 1.8V | 1.98V |
+| | VDD2H_DDR | 1.01V/1.045V (LP5/LP4x) | 1.05V/1.1V (LP5/LP4x) | 1.12V/1.155V (LP5/LP4x) |
+| | VDDQ_DDR | 0.47V/0.57V (LP5/LP4x) | 0.5V/0.6V (LP5/LP4x) | 0.57V/0.63V (LP5/LP4x) |
+| | VDD0V8_DDR | 0.744V | 0.8V | 0.88V |
+| **DSI** | AVDD08_DSI | 0.76V | 0.8V | 0.88V |
+| | AVDD12_DSI | 1.14V | 1.2V | 1.32V |
+| | AVDD18_DSI | 1.71V | 1.8V | 1.96V |
+| **EDP** | AVDD18_EDP0 | 1.674V | 1.8V | 1.98V |
+| | DVDD08_EDP0 | 0.744V | 0.8V | 0.88V |
+| **EDP1** | AVDD18_EDP1 | 1.674V | 1.8V | 1.98V |
+| | DVDD08_EDP1 | 0.744V | 0.8V | 0.88V |
+| **EMMC** | AVDD08_EMMC | 0.744V | 0.8V | 0.88V |
+| | VCC18_EMMC | 1.674V | 1.8V | 1.98V |
+| **FUSE** | FUSE_AVDD18 | 1.71V | 1.8V | 1.96V |
+| **GPIO** | VCC18_GPIO1 | 1.674V | 1.8V | 1.98V |
+| | VCC18_GPIO2 | 1.674V | 1.8V | 1.98V |
+| | VCC18_GPIO3 | 1.674V | 1.8V | 1.98V |
+| | VCC18_GPIO4 | 1.674V | 1.8V | 1.98V |
+| | VCC18_GPIO5 | 1.674V | 1.8V | 1.98V |
+| | VCC18_PMIC | 1.674V | 1.8V | 1.98V |
+| | VCC1833_GPIO1 | 1.674V/2.97V | 1.8V/3.3V | 1.98V/3.63V |
+| | VCC1833_GPIO2 | 1.674V/2.97V | 1.8V/3.3V | 1.98V/3.63V |
+| | VCC1833_GPIO4 | 1.674V/2.97V | 1.8V/3.3V | 1.98V/3.63V |
+| | VCC1833_GPIO5 | 1.674V/2.97V | 1.8V/3.3V | 1.98V/3.63V |
+| | VCC1833_QSPI | 1.674V/2.97V | 1.8V/3.3V | 1.98V/3.63V |
+| | VCC1833_MMC1 | 1.674V/2.97V | 1.8V/3.3V | 1.98V/3.63V |
+| **OSC** | AVDD08_OSC | 0.76V | 0.8V | 0.88V |
+| | AVDD18_OSC | 1.71V | 1.8V | 1.96V |
+| **PICE PHY0** | AVDD08_PCIeA | 0.744V | 0.8V | 0.88V |
+| | AVDD18_PCIeA | 1.674V | 1.8V | 1.98V |
+| **PICE PHY1** | AVDD08_PCIeB | 0.744V | 0.8V | 0.88V |
+| | AVDD18_PCIeB | 1.674V | 1.8V | 1.98V |
+| **PICE PHY2** | AVDD08_PCIeC/USB3-B | 0.744V | 0.8V | 0.88V |
+| | AVDD18_PCIeC/USB3-B | 1.674V | 1.8V | 1.98V |
+| **PICE PHY3** | AVDD08_PCIeD/USB3-C | 0.744V | 0.8V | 0.88V |
+| | AVDD18_PCIeD/USB3-C | 1.674V | 1.8V | 1.98V |
+| **PICE PHY4** | AVDD08_PCIeE/USB3-D | 0.744V | 0.8V | 0.88V |
+| | AVDD18_PCIeE/USB3-D | 1.674V | 1.8V | 1.98V |
+| **PICE PHY5** | AVDD08_PCIe5 | 0.744V | 0.8V | 0.88V |
+| | AVDD18_PCIe5 | 1.674V | 1.8V | 1.98V |
+| **UCIE** | UCIE_VCCAON_0V8 | 0.76V | 0.8V | 0.84V |
+| | UCIE_VCCIO_0V8 | 0.76V | 0.8V | 0.84V |
+| | UCIE_VCCPLL_1P2V | 1.116V | 1.2V | 1.236V |
+| | UCIE_VDD_0V8 | 0.76V | 0.8V | 0.84V |
+| | UCIE_VDDBH_0V9 | 0.855V | 0.9V | 0.945V |
+| | UCIE_VDDVPH0_0V9 | 0.855V | 0.9V | 0.945V |
+| **UFS** | UFS_VCC_1V8 | 1.71V | 1.8V | 1.96V |
+| | UFS_VCCQ_1V2 | 1.14V | 1.2V | 1.32V |
+| | UFS_VDDU_0V8 | 0.76 | 0.8V | 0.88V |
+| **USB2** | AVDD08_B_USB20 | 0.744V | 0.8V | 0.88V |
+| | AVDD08_C_USB20 | 0.744V | 0.8V | 0.88V |
+| | AVDD08_D_USB20 | 0.744V | 0.8V | 0.88V |
+| | AVDD08_USB20_Host | 0.744V | 0.8V | 0.88V |
+| | AVDD18_B_USB20 | 1.674V | 1.8V | 1.98V |
+| | AVDD18_C_USB20 | 1.674V | 1.8V | 1.98V |
+| | AVDD18_D_USB20 | 1.674V | 1.8V | 1.98V |
+| | AVDD18_USB20_Host | 1.674V | 1.8V | 1.98V |
+| | AVDD33_B_USB20 | 3.069V | 3.3V | 3.63V |
+| | AVDD33_C_USB20 | 3.069V | 3.3V | 3.63V |
+| | AVDD33_D_USB20 | 3.069V | 3.3V | 3.63V |
+| | AVDD33_DRD_USB | 3.069V | 3.3V | 3.63V |
+| | AVDD33_USB20_Host | 3.069V | 3.3V | 3.63V |
+| **USB3-DRD** | AVDD08_DRD_USB | 0.744V | 0.8V | 0.88V |
+| | AVDD18_DRD_USB | 1.674V | 1.8V | 1.98V |
 
 ### 5.2 Absolute Maximum DC Ratings
 
 #### 5.2.1 For Pins
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px;">
-
-  <colgroup>
-    <col width="250">
-    <col width="250">
-    <col width="250">
-    <col width="250">
-  </colgroup>
-  
-  <thead>
-    <tr style="background-color: #f6f8fa;">
-      <th style="text-align: left;">Module</th>
-      <th style="text-align: left;">Symbol/Pin</th>
-      <th style="text-align: left;">Min</th>
-      <th style="text-align: left;">Max</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <tr><td style="text-align: left; font-weight: bold;">CPU</td><td style="text-align: left;">VDD08_X100</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.05V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">VDD08_M1A100</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">Digital Power</td><td style="text-align: left;">VCC_M1</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">PLL</td><td style="text-align: left;">AVDD08_PLL1</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD08_PLL234</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD08_PLL567</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD18_PLL1</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.96V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD18_PLL234</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.96V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD18_PLL567</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.96V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">PLL-DDR</td><td style="text-align: left;">AVDD08_PLL_DDR0</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD08_PLL_DDR1</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD1V8_PLL_DDR0</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.96V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD1V8_PLL_DDR1</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.96V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">CSI</td><td style="text-align: left;">AVDD08_CSI0</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD08_CSI1</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD08_CSI2</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD18_CSI0</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.96V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD18_CSI1</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.96V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD18_CSI2</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.96V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">DDR</td><td style="text-align: left;">VAA1V8_VDD2H_DDR</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.98V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">VDD2H_DDR</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.12V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">VDDQ_DDR</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">0.57V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">VDD0V8_DDR</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">DSI</td><td style="text-align: left;">AVDD08_DSI</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD12_DSI</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.32V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD18_DSI</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.96V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">EDP</td><td style="text-align: left;">AVDD18_EDP0</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.98V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">DVDD08_EDP0</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">EDP1</td><td style="text-align: left;">AVDD18_EDP1</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.98V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">DVDD08_EDP1</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">EMMC</td><td style="text-align: left;">AVDD08_EMMC</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">VCC18_EMMC</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.98V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">FUSE</td><td style="text-align: left;">FUSE_AVDD18</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.96V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">GPIO</td><td style="text-align: left;">VCC18_GPIO1</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.98V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">VCC18_GPIO2</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.98V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">VCC18_GPIO3</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.98V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">VCC18_GPIO4</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.98V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">VCC18_GPIO5</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.98V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">VCC18_PMIC</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.98V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">VCC1833_GPIO1</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.98V/3.63V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">VCC1833_GPIO2</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.98V/3.63V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">VCC1833_GPIO4</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.98V/3.63V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">VCC1833_GPIO5</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.98V/3.63V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">VCC1833_QSPI</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.98V/3.63V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">VCC1833_MMC1</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.98V/3.63V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">OSC</td><td style="text-align: left;">AVDD08_OSC</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD18_OSC</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.96V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">PICE PHY0</td><td style="text-align: left;">AVDD08_PCIeA</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD18_PCIeA</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.98V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">PICE PHY1</td><td style="text-align: left;">AVDD08_PCIeB</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD18_PCIeB</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.98V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">PICE PHY2</td><td style="text-align: left;">AVDD08_PCIeC/USB3-B</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD18_PCIeC/USB3-B</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.98V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">PICE PHY3</td><td style="text-align: left;">AVDD08_PCIeD/USB3-C</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD18_PCIeD/USB3-C</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.98V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">PICE PHY4</td><td style="text-align: left;">AVDD08_PCIeE/USB3-D</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD18_PCIeE/USB3-D</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.98V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">PICE PHY5</td><td style="text-align: left;">AVDD08_PCIe5</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD18_PCIe5</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.98V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">UCIE</td><td style="text-align: left;">UCIE_VCCAON_0V8</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">0.84V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">UCIE_VCCIO_0V8</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">0.84V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">UCIE_VCCPLL_1P2V</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.236V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">UCIE_VDD_0V8</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">0.84V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">UCIE_VDDBH_0V9</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">0.945V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">UCIE_VDDVPH0_0V9</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">0.945V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">UFS</td><td style="text-align: left;">UFS_VCC_1V8</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.96V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">UFS_VCCQ_1V2</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.32V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">UFS_VDDU_0V8</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">USB2</td><td style="text-align: left;">AVDD08_B_USB20</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD08_C_USB20</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD08_D_USB20</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD08_USB20_Host</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD18_B_USB20</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.98V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD18_C_USB20</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.98V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD18_D_USB20</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.98V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD18_USB20_Host</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.98V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD33_B_USB20</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">3.63V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD33_C_USB20</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">3.63V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD33_D_USB20</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">3.63V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD33_DRD_USB</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">3.63V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD33_USB20_Host</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">3.63V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;">USB3-DRD</td><td style="text-align: left;">AVDD08_DRD_USB</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">0.88V</td></tr>
-    <tr><td style="text-align: left; font-weight: bold;"></td><td style="text-align: left;">AVDD18_DRD_USB</td><td style="text-align: left;">-0.3V</td><td style="text-align: left;">1.98V</td></tr>
-  </tbody>
-</table>
+| Module | Symbol/Pin | Min | Max |
+| --- | --- | --- | --- |
+| **CPU** | VDD08_X100 | -0.3V | 1.05V |
+| | VDD08_M1A100 | -0.3V | 0.88V |
+| **Digital Power** | VCC_M1 | -0.3V | 0.88V |
+| **PLL** | AVDD08_PLL1 | -0.3V | 0.88V |
+| | AVDD08_PLL234 | -0.3V | 0.88V |
+| | AVDD08_PLL567 | -0.3V | 0.88V |
+| | AVDD18_PLL1 | -0.3V | 1.96V |
+| | AVDD18_PLL234 | -0.3V | 1.96V |
+| | AVDD18_PLL567 | -0.3V | 1.96V |
+| **PLL-DDR** | AVDD08_PLL_DDR0 | -0.3V | 0.88V |
+| | AVDD08_PLL_DDR1 | -0.3V | 0.88V |
+| | AVDD1V8_PLL_DDR0 | -0.3V | 1.96V |
+| | AVDD1V8_PLL_DDR1 | -0.3V | 1.96V |
+| **CSI** | AVDD08_CSI0 | -0.3V | 0.88V |
+| | AVDD08_CSI1 | -0.3V | 0.88V |
+| | AVDD08_CSI2 | -0.3V | 0.88V |
+| | AVDD18_CSI0 | -0.3V | 1.96V |
+| | AVDD18_CSI1 | -0.3V | 1.96V |
+| | AVDD18_CSI2 | -0.3V | 1.96V |
+| **DDR** | VAA1V8_VDD2H_DDR | -0.3V | 1.98V |
+| | VDD2H_DDR | -0.3V | 1.12V |
+| | VDDQ_DDR | -0.3V | 0.57V |
+| | VDD0V8_DDR | -0.3V | 0.88V |
+| | AVDD08_DSI | -0.3V | 0.88V |
+| | AVDD12_DSI | -0.3V | 1.32V |
+| | AVDD18_DSI | -0.3V | 1.96V |
+| **EDP** | AVDD18_EDP0 | -0.3V | 1.98V |
+| | DVDD08_EDP0 | -0.3V | 0.88V |
+| **EDP1** | AVDD18_EDP1 | -0.3V | 1.98V |
+| | DVDD08_EDP1 | -0.3V | 0.88V |
+| **EMMC** | AVDD08_EMMC | -0.3V | 0.88V |
+| | VCC18_EMMC | -0.3V | 1.98V |
+| **FUSE** | FUSE_AVDD18 | -0.3V | 1.96V |
+| **GPIO** | VCC18_GPIO1 | -0.3V | 1.98V |
+| | VCC18_GPIO2 | -0.3V | 1.98V |
+| | VCC18_GPIO3 | -0.3V | 1.98V |
+| | VCC18_GPIO4 | -0.3V | 1.98V |
+| | VCC18_GPIO5 | -0.3V | 1.98V |
+| | VCC18_PMIC | -0.3V | 1.98V |
+| | VCC1833_GPIO1 | -0.3V | 1.98V/3.63V |
+| | VCC1833_GPIO2 | -0.3V | 1.98V/3.63V |
+| | VCC1833_GPIO4 | -0.3V | 1.98V/3.63V |
+| | VCC1833_GPIO5 | -0.3V | 1.98V/3.63V |
+| | VCC1833_QSPI | -0.3V | 1.98V/3.63V |
+| | VCC1833_MMC1 | -0.3V | 1.98V/3.63V |
+| **OSC** | AVDD08_OSC | -0.3V | 0.88V |
+| | AVDD18_OSC | -0.3V | 1.96V |
+| **PICE PHY0** | AVDD08_PCIeA | -0.3V | 0.88V |
+| | AVDD18_PCIeA | -0.3V | 1.98V |
+| **PICE PHY1** | AVDD08_PCIeB | -0.3V | 0.88V |
+| | AVDD18_PCIeB | -0.3V | 1.98V |
+| **PICE PHY2** | AVDD08_PCIeC/USB3-B | -0.3V | 0.88V |
+| | AVDD18_PCIeC/USB3-B | -0.3V | 1.98V |
+| **PICE PHY3** | AVDD08_PCIeD/USB3-C | -0.3V | 0.88V |
+| | AVDD18_PCIeD/USB3-C | -0.3V | 1.98V |
+| **PICE PHY4** | AVDD08_PCIeE/USB3-D | -0.3V | 0.88V |
+| | AVDD18_PCIeE/USB3-D | -0.3V | 1.98V |
+| **PICE PHY5** | AVDD08_PCIe5 | -0.3V | 0.88V |
+| | AVDD18_PCIe5 | -0.3V | 1.98V |
+| **UCIE** | UCIE_VCCAON_0V8 | -0.3V | 0.84V |
+| | UCIE_VCCIO_0V8 | -0.3V | 0.84V |
+| | UCIE_VCCPLL_1P2V | -0.3V | 1.236V |
+| | UCIE_VDD_0V8 | -0.3V | 0.84V |
+| | UCIE_VDDBH_0V9 | -0.3V | 0.945V |
+| | UCIE_VDDVPH0_0V9 | -0.3V | 0.945V |
+| **UFS** | UFS_VCC_1V8 | -0.3V | 1.96V |
+| | UFS_VCCQ_1V2 | -0.3V | 1.32V |
+| | UFS_VDDU_0V8 | -0.3V | 0.88V |
+| **USB2** | AVDD08_B_USB20 | -0.3V | 0.88V |
+| | AVDD08_C_USB20 | -0.3V | 0.88V |
+| | AVDD08_D_USB20 | -0.3V | 0.88V |
+| | AVDD08_USB20_Host | -0.3V | 0.88V |
+| | AVDD18_B_USB20 | -0.3V | 1.98V |
+| | AVDD18_C_USB20 | -0.3V | 1.98V |
+| | AVDD18_D_USB20 | -0.3V | 1.98V |
+| | AVDD18_USB20_Host | -0.3V | 1.98V |
+| | AVDD33_B_USB20 | -0.3V | 3.63V |
+| | AVDD33_C_USB20 | -0.3V | 3.63V |
+| | AVDD33_D_USB20 | -0.3V | 3.63V |
+| | AVDD33_DRD_USB | -0.3V | 3.63V |
+| | AVDD33_USB20_Host | -0.3V | 3.63V |
+| **USB3-DRD** | AVDD08_DRD_USB | -0.3V | 0.88V |
+| | AVDD18_DRD_USB | -0.3V | 1.98V |
 
 #### 5.2.2 For Packages
 
-<table width="1000" style="table-layout: fixed; border-collapse: collapse; font-size: 13px;">
-
-  <colgroup>
-    <col width="250">
-    <col width="250">
-    <col width="250">
-    <col width="250">
-  </colgroup>
-  
-  <thead>
-    <tr style="background-color: #f6f8fa;">
-      <th style="text-align: left;">Item</th>
-      <th style="text-align: left;">Symbol</th>
-      <th style="text-align: left;">Min</th>
-      <th style="text-align: left;">Max</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <tr>
-      <td style="text-align: left;">Operating Temperature (Industrial Standard)</td>
-      <td style="text-align: left;">Ta</td>
-      <td style="text-align: left;">-40°C</td>
-      <td style="text-align: left;">85°C</td>
-    </tr>
-    <tr>
-      <td style="text-align: left;">Junction Temperature</td>
-      <td style="text-align: left;">Tj</td>
-      <td style="text-align: left;">N/A</td>
-      <td style="text-align: left;">125°C</td>
-    </tr>
-    <tr>
-      <td style="text-align: left;">Storage Temperature</td>
-      <td style="text-align: left;">Tstg</td>
-      <td style="text-align: left;">-40°C</td>
-      <td style="text-align: left;">125°C</td>
-    </tr>
-  </tbody>
-</table>
+| Item | Symbol | Min | Max |
+| --- | --- | --- | --- |
+| Operating Temperature (Industrial Standard) | Ta | -40°C | 85°C |
+| Junction Temperature | Tj | N/A | 125°C |
+| Storage Temperature | Tstg | -40°C | 125°C |
 
 ### 5.3 Thermal Characteristics
 

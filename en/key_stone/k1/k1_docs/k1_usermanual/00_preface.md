@@ -4,26 +4,11 @@ sidebar_position: 1
 
 # Preface
 
-## Proprietary, Confidentiality & Disclaimer
-
-**Copyright©2024 SPACEMIT. All rights reserved.**
-
-Without the written approval of SpacemiT (Hangzhou) Technology Co. Ltd. (hereafter SpacemiT), no individual or entity may excerpt, copy or distribute any part or all of the content of this document in any form.
-
-The copyrights of all materials and contents set forth herein are owned by SpacemiT and/or its subsidiaries, except for those specifically indicated as reference to any other party (if any).
-
-The content of this document may be periodically updated due to product version upgrades or other reasons. Unless otherwise specified, this document is provided solely as a user guide, and THE INFORMATION AND ADVICE PROVIDED IN THIS DOCUMENT DO NOT CONSTITUTE ANY EXPLICIT OR IMPLIED WARRANTIES. TO THE EXTENT NOT PROHIBITED BY LAW, THE COMPANY SHALL NOT BE LIABLE FOR ANY FORM OF DAMAGE CAUSED BY THIS DOCUMENT.
-
-**SpacemiT (Hangzhou) Technology Co. Ltd.**  
-**Address:** Room 701, Block B, Future Center, Wuchang Street, Yuhang District, Hangzhou City, Zhejiang Province, China  
-**Website:** [https://www.spacemit.com](https://www.spacemit.com)  
-**Email:** <business@spacemit.com>  
-**Telephone:** (+86) 0571-89000775  
-
 ## Revision History
 
 | Version | Date       | Notes  |
 |---------|------------|--------|
+| V6.2    | 2026.07.16 | Added RX and TX descriptor details to Chapter 15, including descriptor layouts and bit-field definitions |
 | V6.1    | 2025.08.06 | 1. Updated clock tree structure diagram<br>2. Updated register "SoC I2S CLOCK GENERATION CONTROL REGISTER (ISCCR0/1)" |
 | V6.0    | 2025.08.04 | 1. Updated clock tree structure diagram<br>2. Added new register "FREQUENCY CHANGE CONTROL REGISTER (FCCR)"<br>3. Updated register "SSPAX CLOCK RESET CONTROL REGISTER (APBC_SSPAX_CLK_RST)" |
 | V5.2    | 2025.07.11 | Made some color adjustments to the overall layout to improve readability                  |

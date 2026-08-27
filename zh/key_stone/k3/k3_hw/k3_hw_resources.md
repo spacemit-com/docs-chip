@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# K3 硬件资源
+# K3 硬件设计资源
 
 本节汇总 K3 芯片相关硬件资源文件，供硬件设计与系统开发使用。
 
@@ -11,7 +11,7 @@ sidebar_position: 3
 ### 管脚列表与复用（Pin List & Pinmux）
 
 该文件包含全部管脚信息及其复用功能配置。  
-[k3_pinlist_pinmux_v21.xlsx](https://cdn-resource.spacemit.com/file/chip/K3/k3_pinlist_pinmux_v21.xlsx)
+[k3_pinlist_pinmux.xlsx](https://cdn-resource.spacemit.com/file/chip/K3/k3_pinlist_pinmux.xlsx)
 
 ### 管脚映射（Pin Map）
 
@@ -43,13 +43,13 @@ sidebar_position: 3
 
 提供最小系统参考设计的原理图文件。
 
-- [下载原理图工程文件（DSN 格式）](https://cdn-resource.spacemit.com/file/chip/K3/k3-minisys-lp5-au4562-v2.DSN)
-- [下载原理图（PDF 格式）](https://cdn-resource.spacemit.com/file/chip/K3/k3-minisys-lp5-au4562-v2.pdf)
+- [下载原理图工程文件（DSN 格式）](https://cdn-resource.spacemit.com/file/chip/K3/k3-minisys-lp5-au4562-v2.1.DSN)
+- [下载原理图（PDF 格式）](https://cdn-resource.spacemit.com/file/chip/K3/k3-minisys-lp5-au4562-v2.1.pdf)
 
 ### 设计检查清单
 
 用于指导硬件设计规范性审查与量产前验证。
 
-- [原理图设计 Checklist](https://cdn-resource.spacemit.com/file/chip/K3/K3_Schematic_checklist-V1.0-20240417.xlsx)
+- [原理图设计 Checklist](https://cdn-resource.spacemit.com/file/chip/K3/K3_Schematic_checklist.xlsx)
 - [PCB 设计 Checklist](https://cdn-resource.spacemit.com/file/chip/K3/K3_Layout_checklist-V1.0-20260417.xlsx)
 - [硬件测试 Checklist](https://cdn-resource.spacemit.com/file/chip/K3/K3_Hardware_Tests_checklist-V1.0-20251028.xlsx)
