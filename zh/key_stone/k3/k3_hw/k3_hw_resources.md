@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# K3 硬件资源
+# K3 硬件设计资源
 
 本节汇总 K3 芯片相关硬件资源文件，供硬件设计与系统开发使用。
 
@@ -50,6 +50,6 @@ sidebar_position: 3
 
 用于指导硬件设计规范性审查与量产前验证。
 
-- [原理图设计 Checklist](https://cdn-resource.spacemit.com/file/chip/K3/K3_Schematic_checklist-V1.0-20240417.xlsx)
+- [原理图设计 Checklist](https://cdn-resource.spacemit.com/file/chip/K3/K3_Schematic_checklist.xlsx)
 - [PCB 设计 Checklist](https://cdn-resource.spacemit.com/file/chip/K3/K3_Layout_checklist-V1.0-20260417.xlsx)
 - [硬件测试 Checklist](https://cdn-resource.spacemit.com/file/chip/K3/K3_Hardware_Tests_checklist-V1.0-20251028.xlsx)

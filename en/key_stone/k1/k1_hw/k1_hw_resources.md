@@ -2,29 +2,53 @@ sidebar_position: 2
 
 # K1 Hardware Design Resources
 
-## Schematics & PCB Files
+This section provides a consolidated list of K1 hardware resource files for hardware design and system development.
 
-Validated, production-ready reference designs and checklists for K1-based hardware development:
+## Pin Configuration
 
-- **K1 Minimum System Reference Designs**
-  - [K1_minimum_system_schematic (PDF) – V3.1 (2024-06-20)](https://cdn-resource.spacemit.com/file/chip/K1/K1_minimum_system_schematic%28PDF%29-V3.1-20240620.pdf) – Minimum system reference schematic (PDF)
-  - [K1_minimum_system_schematic (DSN) – V3.1 (2024-06-20)](https://cdn-resource.spacemit.com/file/chip/K1/K1_minimum_system_schematic%28DSN%29-V3.1-20240620.DSN) – OrCAD schematic project source files
-  - [K1_minimum_system_layout (BRD) – V3.1 (2024-06-05)](https://cdn-resource.spacemit.com/file/chip/K1/K1_minimum_system_layout-V3.1-20240605.brd) – PCB layout project source files
+### Pin List and Pin Multiplexing
 
-- **Design Checklists**
-  - [K1_Schematic_Checklist (xlsx) – V1.2 (2025-07-09)](https://cdn-resource.spacemit.com/file/chip/K1/K1_Schematic_checklist-V1.2-20250709.xlsx) – Schematic design checklist
-  - [K1_Layout_Design_Checklist (xlsx) – V1.1 (2025-07-09)](https://cdn-resource.spacemit.com/file/chip/K1/K1_Layout_Design_Checklist-V1.1-20250709.xlsx) – PCB layout design review checklist
+This file contains the complete pin list and the corresponding pin multiplexing options.  
+[K1X_Pin_Multiplex-V1.1-20250717.xls](https://cdn-resource.spacemit.com/file/chip/K1/K1X_Pin_Multiplex-V1.1-20250717.xls)
 
-## Package, Pinout, and Electrical Resources
+### Pin Map
 
-- **Pin Configuration & Multiplexing**
-  - [K1X_Pin_Multiplex  (xls) – V1.1 (2025-07-17)](https://cdn-resource.spacemit.com/file/chip/K1/K1X_Pin_Multiplex-V1.1-20250717.xls) – Pin multiplexing configuration table
-  - [K1_Pinmap (xlsm) – V1.1 (2025-07-17)](https://cdn-resource.spacemit.com/file/chip/K1/K1_pinmap-V1.1-20250717.xlsm) – Complete chip pin mapping table
+This file describes the mapping between the package pins and the internal chip modules and interfaces.  
+[K1_pinmap-V1.1-20250717.xlsm](https://cdn-resource.spacemit.com/file/chip/K1/K1_pinmap-V1.1-20250717.xlsm)
 
-- **Signal Timing & Electrical Parameters**
-  - [K1_Pin_Delay (xlsx) – V1.2 (2024-09-26)](https://cdn-resource.spacemit.com/file/chip/K1/K1_pin_delay-V1.2-20240926.xlsx) – Pin-level delay and timing characteristics
+## Timing Configuration
 
-- **Package Specifications**
-  - [K1_PODCSP (PDF) – V1.0 (2024-03-01)](https://cdn-resource.spacemit.com/file/chip/K1/K1_PODCSP-V1.0-20240301.pdf) – CSP package specification and mechanical drawings
-  - [M1_PODBGA (PDF) – V1.0 (2024-04-24)](https://cdn-resource.spacemit.com/file/chip/K1/M1_PODBGA-V1.0-20240424.pdf) – BGA package outline, ball map, and solder mask recommendations
+### Pin Delay
 
+This file is used to configure input and output timing delays for high-speed interfaces.  
+[K1_pin_delay-V1.2-20240926.xlsx](https://cdn-resource.spacemit.com/file/chip/K1/K1_pin_delay-V1.2-20240926.xlsx)
+
+## Package Information
+
+### POD (Package Outline Drawing)
+
+This file includes package dimensions, the BGA ball layout, ball pitch, and other mechanical specifications.
+
+- [CSP package specification](https://cdn-resource.spacemit.com/file/chip/K1/K1_PODCSP-V1.0-20240301.pdf)
+- [BGA package specification](https://cdn-resource.spacemit.com/file/chip/K1/M1_PODBGA-V1.0-20240424.pdf)
+
+## Minimum System Reference Design
+
+### PCB Reference Design
+
+This file provides the PCB reference design for the K1 minimum system.  
+[K1_minimum_system_layout-V3.1-20240605.brd](https://cdn-resource.spacemit.com/file/chip/K1/K1_minimum_system_layout-V3.1-20240605.brd)
+
+### Schematic
+
+Schematic files for the minimum system reference design are provided below.
+
+- [Schematic project file (DSN)](https://cdn-resource.spacemit.com/file/chip/K1/K1_minimum_system_schematic%28DSN%29-V3.1-20240620.DSN)
+- [Schematic (PDF)](https://cdn-resource.spacemit.com/file/chip/K1/K1_minimum_system_schematic%28PDF%29-V3.1-20240620.pdf)
+
+### Design Checklists
+
+These checklists are intended to support hardware design reviews and pre-production validation.
+
+- [Schematic Design Checklist](https://cdn-resource.spacemit.com/file/chip/K1/K1_Schematic_checklist.xlsx)
+- [PCB Design Checklist](https://cdn-resource.spacemit.com/file/chip/K1/K1_Layout_Design_Checklist-V1.1-20250709.xlsx)
