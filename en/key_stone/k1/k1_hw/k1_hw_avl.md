@@ -1,6 +1,6 @@
 sidebar_position: 3
 
-# K1 Hardware Design BOM / AVL
+# K1 Hardware AVL
 
 The **AVL** contains validated and production-proven components compatible with the K1 platform, including:
 
