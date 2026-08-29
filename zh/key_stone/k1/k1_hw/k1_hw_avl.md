@@ -1,6 +1,6 @@
 sidebar_position: 3
 
-# K1 硬件物料清单（BOM / AVL）
+# K1 硬件 AVL
 
 **AVL（Approved Vendor List）** 包含经验证、可量产的 K1 平台兼容器件，包括但不限于：
 

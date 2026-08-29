@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 99
 ---
 
 # K3 硬件方案 FAQ
