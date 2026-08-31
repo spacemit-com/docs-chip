@@ -8,6 +8,7 @@ sidebar_position: 1
 
 | Version | Date       | Notes  |
 |---------|------------|--------|
+| V6.3    | 2026.08.31 | Removed Secure Boot feature in Section 1.2 |
 | V6.2    | 2026.07.16 | Added RX and TX descriptor details to Chapter 15, including descriptor layouts and bit-field definitions |
 | V6.1    | 2025.08.06 | 1. Updated clock tree structure diagram<br>2. Updated register "SoC I2S CLOCK GENERATION CONTROL REGISTER (ISCCR0/1)" |
 | V6.0    | 2025.08.04 | 1. Updated clock tree structure diagram<br>2. Added new register "FREQUENCY CHANGE CONTROL REGISTER (FCCR)"<br>3. Updated register "SSPAX CLOCK RESET CONTROL REGISTER (APBC_SSPAX_CLK_RST)" |

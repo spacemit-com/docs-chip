@@ -10,6 +10,7 @@ Click to download **[K1 Datasheet (PDF)](https://cdn-resource.spacemit.com/file/
 
 | Version | Date       | Notes    |
 |---------|------------|----------|
+| V7.1    | 2026.08.31 | Removed Secure Boot feature from Section 1.2 |
 | V7.0    | 2025.05.20 | Updated K1 architecture block diagram:<br>- DDR clock rate change<br>- RCPU modules change<br>Updated K1 general features:<br>- RCPU modules related |
 | V6.0    | 2025.05.09 | Updated pinout                                                                                    |
 | V5.1    | 2025.05.08 | Fixed typos in several sections                                                                   |
@@ -112,7 +113,6 @@ SpacemiT Key Stone® K1 is a high-performance and ultra-low-power SoC that integ
   - IR-RX (×1)
 - Security System
   - RISC-V PMP Security
-  - Secure Boot
   - Secure eFuse 4K bits
   - Cryptographic engine (TRNG, AES, RSA, ECC, SHA2, HMAC)
 - Debug System
