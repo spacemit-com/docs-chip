@@ -50,7 +50,7 @@ The CPU delivers stable and reliable computing power from -40°C to 85°C, compl
 
 - **RISC-V security architecture** 
   - Support of RISC-V PMP & ePMP security extensions
-  - Support of secure boot, storage and signature verification
+  - Support of secure storage and signature verification
   - Support of algorithms AES, SHA, RSA
   - Support of product lifecycle security management
 

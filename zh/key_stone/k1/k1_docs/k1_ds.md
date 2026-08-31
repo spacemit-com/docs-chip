@@ -10,6 +10,7 @@ sidebar_position: 2
 
 | 版本   | 日期       | 修订说明   |
 |--------|------------|---------|
+| V7.1   | 2026.08.31 | 移除了安全启动功能相关内容 |
 | V7.0   | 2025.05.20 | 更新了 K1 架构框图：<br>- DDR 时钟频率变更<br>- RCPU 模块变更<br>更新了 K1 通用特性：<br>- 与 RCPU 模块相关的内容 |
 | V6.0   | 2025.05.09 | 更新引脚定义     |
 | V5.1   | 2025.05.08 | 修正多个章节中的拼写错误   |
@@ -137,7 +138,6 @@ sidebar_position: 2
 
 - 安全系统（Security System）
   - 支持 RISC-V PMP（Physical Memory Protection）安全机制
-  - 支持 安全启动（Secure Boot）
   - 集成 4 Kbit 安全 eFuse
   - 内置 硬件加密引擎，支持以下算法：
     - TRNG（真随机数发生器）

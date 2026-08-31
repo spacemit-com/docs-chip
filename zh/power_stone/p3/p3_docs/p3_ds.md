@@ -562,7 +562,7 @@ DVS引脚配置流程：
 
 2. 根据需要配置其它GPIO配置，如上下拉和极性等
 
-[Table 6-34](#table-6-34-buckx_dvs_io) BUCKx_DVS_IO 的 BUCKx_DVS0_IO[2:0] 用于选择 BUCKx 绑定的 DVS0 GPIO，BUCKx_DVS1_IO[2:0] 用于选择 BUCKx 绑定的 DVS1 GPIO，可用于 SoC 通过控制 GPIO 引脚来控制对应 BUCK 电压。生效的前提是被绑定的 GPIO 配置为 DVS0/1 复用功能，否则对应的 DVS 控制逻辑为 0。DVS 引脚控制 BUCK 电压的说明见[5.5.3 电压配置和动态调压](#553-电压配置和动态调压)。
+[Table 6-34](#table-6-34-buckx_dvs_io) BUCKx_DVS_IO 的 BUCKx_DVS0_IO[2:0] 用于选择 BUCKx 绑定的 DVS0 GPIO，可用于 SoC 通过控制 GPIO 引脚来控制对应 BUCK 电压。生效的前提是被绑定的 GPIO 配置为 DVS0/1 复用功能，否则对应的 DVS 控制逻辑为 0。DVS 引脚控制 BUCK 电压的说明见[5.5.3 电压配置和动态调压](#553-电压配置和动态调压)。
 
 #### 5.1.9 PH_CFG 引脚
 
