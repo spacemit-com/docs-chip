@@ -2072,7 +2072,7 @@ The basic register parameter definitions are shown in Table 6-1. Special paramet
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
-|0x2C/0x34<br>/0x3C/0x44|7|Reserved|RV|0x0|Reserved|
+|0x2C/0x34<br>/0x3C/0x44|7:6|Reserved|RV|0x0|Reserved|
 ||5:3|BUCKx_DVS1_IO<sup>1</sup>|RE|0x0|GPIO DVS1 control selection for BUCKx (if the corresponding GPIO does not enable the DVS1 function, BUCKx_DVS1 is 0)<br>000: Not controlled by GPIO (BUCKx_DVS1 is 0)<br>001: Controlled by GPIO0<br>010: Controlled by GPIO1<br>011: Controlled by GPIO2<br>100: Controlled by GPIO3<br>101~111: Not controlled by GPIO (BUCKx_DVS1 is 0)|
 ||2:0|BUCKx_DVS0_IO<sup>1</sup>|RE|0x0|GPIO DVS0 control selection for BUCKx (if the corresponding GPIO does not enable the DVS0 function, BUCKx_DVS0 is 0)<br>000: Not controlled by GPIO (BUCKx_DVS0 is 0)<br>001: Controlled by GPIO0<br>010: Controlled by GPIO1<br>011: Controlled by GPIO2<br>100: Controlled by GPIO3<br>101~111: Not controlled by GPIO (BUCKx_DVS0 is 0)|
 
