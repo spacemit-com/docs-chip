@@ -2071,7 +2071,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
-|0x2C/0x34<br>/0x3C/0x44|7|Reserved|RV|0x0|Reserved|
+|0x2C/0x34<br>/0x3C/0x44|7:6|Reserved|RV|0x0|Reserved|
 ||5:3|BUCKx_DVS1_IO<sup>1</sup>|RE|0x0|GPIO DVS1控制BUCKx选择（若对应GPIO未使能DVS1功能，则BUCKx_DVS1为0）<br>000：不由GPIO控制（BUCKx_DVS1为0）<br>001：GPIO0控制<br>010：GPIO1控制<br>011：GPIO2控制<br>100：GPIO3控制<br>101~111：不由GPIO控制（BUCKx_DVS1为0）|
 ||2:0|BUCKx_DVS0_IO<sup>1</sup>|RE|0x0|GPIO DVS0控制BUCKx选择（若对应GPIO未使能DVS0功能，则BUCKx_DVS0为0）<br>000：不由GPIO控制（BUCKx_DVS0为0）<br>001：GPIO0控制<br>010：GPIO1控制<br>011：GPIO2控制<br>100：GPIO3控制<br>101~111：不由GPIO控制（BUCKx_DVS0为0）|
 
