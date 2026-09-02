@@ -562,7 +562,7 @@ DVS pin configuration:
 
 2. Configure other GPIO settings as required, such as pull-up/pull-down and polarity.
 
-BUCKx_DVS_IO[2:0] in [Table 6-34](#table-6-34-buckx_dvs_io) selects the DVS0 GPIO bound to BUCKx, and BUCKx_DVS1_IO[2:0] selects the DVS1 GPIO bound to BUCKx. The SoC can use these GPIO pins to control the corresponding BUCK voltage. The configuration takes effect only when the bound GPIO is configured for the DVS0/1 alternate function; otherwise, the corresponding DVS control logic is 0. For a description of BUCK voltage control using the DVS pins, see [5.5.3 Voltage Configuration and Dynamic Voltage Scaling](#553-voltage-configuration-and-dynamic-voltage-scaling).
+BUCKx_DVS0_IO[2:0] in [Table 6-34](#table-6-34-buckx_dvs_io) selects the DVS0 GPIO bound to BUCKx; BUCKx_DVS1_IO[2:0] selects the DVS1 GPIO bound to BUCKx. The SoC can use these GPIO pins to control the corresponding BUCK voltage. The configuration takes effect only when the bound GPIO is configured for the DVS0/1 alternate function; otherwise, the corresponding DVS control logic is 0. For a description of BUCK voltage control using the DVS pins, see [5.5.3 Voltage Configuration and Dynamic Voltage Scaling](#553-voltage-configuration-and-dynamic-voltage-scaling).
 
 #### 5.1.9 PH_CFG Pin
 
