@@ -1,8 +1,12 @@
-﻿---
+---
 sidebar_position: 2
 ---
 
 # P3 数据手册
+
+## PDF 版本下载
+
+点击下载 [P3 数据手册（PDF）](https://cdn-resource.spacemit.com/file/chip/P3/p3_ds_zh.pdf)
 
 ## 修订记录
 
@@ -357,29 +361,29 @@ P3是一款低压多通道电源管理芯片（PMIC），内部集成4路快速�
 
 <a id="table-5-1"></a>
 
-**Table 5-1 相关名词解释**
+**表 5-1 相关名词解释**
 
 |名词|描述|
 |---|---|
-|复位模式|P3工作模式，如 [Figure 5-1](#mode-switching-diagram) 模式切换示意图所示|
-|关机模式|P3工作模式，如 [Figure 5-1](#mode-switching-diagram) 模式切换示意图所示|
-|开机模式|P3工作模式，如 [Figure 5-1](#mode-switching-diagram) 模式切换示意图所示|
-|睡眠模式|P3工作模式，如 [Figure 5-1](#mode-switching-diagram) 模式切换示意图所示|
+|复位模式|P3工作模式，如 [图 5-1](#mode-switching-diagram) 模式切换示意图所示|
+|关机模式|P3工作模式，如 [图 5-1](#mode-switching-diagram) 模式切换示意图所示|
+|开机模式|P3工作模式，如 [图 5-1](#mode-switching-diagram) 模式切换示意图所示|
+|睡眠模式|P3工作模式，如 [图 5-1](#mode-switching-diagram) 模式切换示意图所示|
 |MTP_READ1|上电后第一次加载MTP所有配置|
 |MTP_READ2|触发开机流程后加载MTP用户相关配置|
 |PG_PUP_DLY / PG_WKUP_DLY|开机序列/唤醒序列完成后，PGOOD延时释放的时间|
 |PG_PD_DLY / <br>PG_SLP_DLY|PGOOD拉低后，关机序列/睡眠序列启动前的延时时间|
 |WAIT_PG|等待PGOOD释放阶段|
-|非关机模式|开机模式、睡眠模式及[Figure 5-1](#mode-switching-diagram)中带 \* 或 # 号的状态|
-|非复位模式|开机模式、睡眠模式、[Figure 5-1](#mode-switching-diagram)中带 \* 或 # 号的状态、<br>PG_PD_DLY、关机序列|
-|工作模式|[Figure 5-1](#mode-switching-diagram)中带 # 号的状态|
+|非关机模式|开机模式、睡眠模式及[图 5-1](#mode-switching-diagram)中带 \* 或 # 号的状态|
+|非复位模式|开机模式、睡眠模式、[图 5-1](#mode-switching-diagram)中带 \* 或 # 号的状态、<br>PG_PD_DLY、关机序列|
+|工作模式|[图 5-1](#mode-switching-diagram)中带 # 号的状态|
 |开机流程|关机模式 -> MTP_READ2 -> 开机序列 -> PG_PUP_DLY -> 开机模式；<br>关机模式 -> MTP_READ2 -> 开机序列 -> PG_PUP_DLY -> WAIT_PG -> 开机模式|
-|关机流程|[Figure 5-1](#mode-switching-diagram)中带 # 号的状态 -> 关机模式；<br>[Figure 5-1](#mode-switching-diagram)中带 # 号的状态 -> PG_PD_DLY -> 关机序列 -> 关机模式|
-|开机结束|[Figure 5-1](#mode-switching-diagram)中的 PG_PUP_DLY 状态结束|
+|关机流程|[图 5-1](#mode-switching-diagram)中带 # 号的状态 -> 关机模式；<br>[图 5-1](#mode-switching-diagram)中带 # 号的状态 -> PG_PD_DLY -> 关机序列 -> 关机模式|
+|开机结束|[图 5-1](#mode-switching-diagram)中的 PG_PUP_DLY 状态结束|
 |睡眠流程|开机模式 -> 睡眠模式；<br>开机模式 -> 睡眠序列 -> 睡眠模式；<br>开机模式 -> PG_SLP_DLY -> 睡眠序列 -> 睡眠模式|
 |唤醒流程|睡眠模式 -> 开机模式；<br>睡眠模式 -> 唤醒序列 -> 开机模式；<br>睡眠模式 -> 唤醒序列 -> PG_WKUP_DLY -> 开机模式|
-|唤醒结束|[Figure 5-1](#mode-switching-diagram)中的 PG_WKUP_DLY 状态结束|
-|热复位流程|[Figure 5-1](#mode-switching-diagram)中带 # 号的状态发生热复位事件 -> 热复位 -> MTP_READ2 -> 开机序列 -> PG_PUP_DLY -> 开机模式<br>[Figure 5-1](#mode-switching-diagram)中带 # 号的状态发生热复位事件 -> 热复位 -> MTP_READ2 -> 开机序列 -> PG_PUP_DLY -> WAIT_PG -> 开机模式|
+|唤醒结束|[图 5-1](#mode-switching-diagram)中的 PG_WKUP_DLY 状态结束|
+|热复位流程|[图 5-1](#mode-switching-diagram)中带 # 号的状态发生热复位事件 -> 热复位 -> MTP_READ2 -> 开机序列 -> PG_PUP_DLY -> 开机模式<br>[图 5-1](#mode-switching-diagram)中带 # 号的状态发生热复位事件 -> 热复位 -> MTP_READ2 -> 开机序列 -> PG_PUP_DLY -> WAIT_PG -> 开机模式|
 |电源轨|所有BUCK|
 |时序槽|SLOT0 ~ SLOT15|
 |DUMMY SLOT|无任何BUCK或EXT绑定的时序槽|
@@ -391,7 +395,7 @@ P3是一款低压多通道电源管理芯片（PMIC），内部集成4路快速�
 
 <a id="table-5-2"></a>
 
-**Table 5-2 电源管理引脚说明**
+**表 5-2 电源管理引脚说明**
 
 |管脚|电压域|描述|
 |---|---|---|
@@ -412,7 +416,7 @@ P3是一款低压多通道电源管理芯片（PMIC），内部集成4路快速�
 
 <a id="table-5-3"></a>
 
-**Table 5-3 CE 引脚功能说明**
+**表 5-3 CE 引脚功能说明**
 
 |模式|功能|描述|
 |---|---|---|
@@ -425,27 +429,27 @@ INT引脚为开漏输出，当中断事件触发且对应中断使能，将拉�
 
 <a id="table-5-4"></a>
 
-**Table 5-4 INT 引脚不同模式下功能说明**
+**表 5-4 INT 引脚不同模式下功能说明**
 
 |模式|功能|描述|寄存器配置|
 |---|---|---|---|
-|开机模式|中断源|中断事件触发 & 中断使能 <br>-> 拉低INT引脚|如 [Table 5-27](#table-5-27) 中断事件|
+|开机模式|中断源|中断事件触发 & 中断使能 <br>-> 拉低INT引脚|如 [表 5-27](#table-5-27) 中断事件|
 
 #### 5.1.3 PGOOD 引脚
 
-PGOOD 引脚为开漏输出，内部施密特输入电路工作在VIO2电压。PGOOD 引脚有内部上拉电阻，通过配置[Table 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[6]为1，可以将PGOOD电平上拉到VIO2。
+PGOOD 引脚为开漏输出，内部施密特输入电路工作在VIO2电压。PGOOD 引脚有内部上拉电阻，通过配置[表 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[6]为1，可以将PGOOD电平上拉到VIO2。
 
 <a id="table-5-5"></a>
 
-**Table 5-5 PGOOD 引脚不同模式下功能说明**
+**表 5-5 PGOOD 引脚不同模式下功能说明**
 
 |模式|功能|描述|寄存器配置|
 |---|---|---|---|
 |关机流程/<br>关机模式|输出|PMIC将PGOOD引脚拉低以复位外部模块|-|
-|开机结束|输入|释放PGOOD引脚并进入开机模式|[Table 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[1]<br>[Table 6-19](#table-6-19-pmu_ctrl3) PMU_CTRL3[0]|
-|开机结束|输入|释放PGOOD引脚并等待PGOOD被释放|[Table 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[1]|
-|工作模式|复位源|1. PGOOD引脚从高电平被拉低并超过100 μs<br>2. PGOOD下拉复位使能<br>1 & 2 -> 触发复位流程|[Table 6-16](#table-6-16-pmu_ctrl0) PMU_CTRL0[0]|
-|睡眠模式/<br>睡眠流程|输出|PGOOD引脚可配置在该模式下拉低|[Table 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[0]|
+|开机结束|输入|释放PGOOD引脚并进入开机模式|[表 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[1]<br>[表 6-19](#table-6-19-pmu_ctrl3) PMU_CTRL3[0]|
+|开机结束|输入|释放PGOOD引脚并等待PGOOD被释放|[表 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[1]|
+|工作模式|复位源|1. PGOOD引脚从高电平被拉低并超过100 μs<br>2. PGOOD下拉复位使能<br>1 & 2 -> 触发复位流程|[表 6-16](#table-6-16-pmu_ctrl0) PMU_CTRL0[0]|
+|睡眠模式/<br>睡眠流程|输出|PGOOD引脚可配置在该模式下拉低|[表 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[0]|
 |热复位流程|输出|PGOOD引脚在该模式下拉低|-|
 
 #### 5.1.4 PWRCTRL 引脚
@@ -454,22 +458,22 @@ PWRCTRL引脚为GPIO复用输入功能，内部施密特输入电路工作在VIO
 
 PWRCTRL引脚配置流程：
 
-1. [Table 6-12 GPIO_AFR0](#table-6-12-gpio_afr0)和[Table 6-13 GPIO_AFR1](#table-6-13-gpio_afr1)中的GPIOx_AFR=4’b0011
+1. [表 6-12 GPIO_AFR0](#table-6-12-gpio_afr0)和[表 6-13 GPIO_AFR1](#table-6-13-gpio_afr1)中的GPIOx_AFR=4’b0011
 
 2. 根据需要配置其它GPIO配置，如上下拉和极性等
 
 <a id="table-5-6"></a>
 
-**Table 5-6 PWRCTRL 引脚不同模式下功能说明**
+**表 5-6 PWRCTRL 引脚不同模式下功能说明**
 
 |模式|功能|描述|寄存器配置|
 |---|---|---|---|
-|**开机流程/<br>唤醒流程**|时序控制|1. BUCK绑定到某个PWRCTRL引脚<br>2. PWRCTRL引脚有效<br>1 & 2 -> 开机和唤醒流程继续执行相应BUCK的操作<br>1 & !2 -> 一直等待对应的PWRCTRL引脚有效|[Table 6-33](#table-6-33-buckx_pwrctrl_io) BUCKx_PWRCTRL_IO[2:0]<br>[Table 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[5]<br>[Table 6-7](#table-6-7-gpio_dr) GPIO_DR[7:4]|
-|**睡眠流程**|时序控制|1. BUCK绑定在某个PWRCTRL引脚<br>2. 反序睡眠使能<br>3. 使能睡眠等待PWRCTRL引脚无效<br>4. PWRCTRL引脚无效<br>1 & 2 & 3 & 4 -> 睡眠流程继续执行相应BUCK的操作，<br>1 & 2 & 3 & !4 -> 一直等待PWRCTRL，若等待时间超过[Table 6-19](#table-6-19-pmu_ctrl3) PMU_CTRL3[7]<br>，则继续执行相应BUCK的操作，并按流程进入睡眠模式|[Table 6-33](#table-6-33-buckx_pwrctrl_io) BUCKx_PWRCTRL_IO[2:0]<br>[Table 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[5]<br>[Table 6-18](#table-6-18-pmu_ctrl2) PMU_CTRL2[2]<br>[Table 6-19](#table-6-19-pmu_ctrl3) PMU_CTRL3[7]<br>[Table 6-7](#table-6-7-gpio_dr) GPIO_DR[7:4]|
-|**关机流程**|时序控制|1. BUCK绑定在某个PWRCTRL引脚<br>2. 反序关机使能<br>3. PWRCTRL引脚等待使能<br>4. PWRCTRL引脚无效<br>1 & 2 & 3 & 4 -> 关机流程继续执行相应BUCK或LDO的操作，否则一直等待PWRCTRL，若等待时间超过[Table 6-19](#table-6-19-pmu_ctrl3) PMU_CTRL3[7]，则继续执行相应BUCK的操作，并按流程进入关机模式|[Table 6-33](#table-6-33-buckx_pwrctrl_io) BUCKx_PWRCTRL_IO[2:0]<br>[Table 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[4]<br>[Table 6-18](#table-6-18-pmu_ctrl2) PMU_CTRL2[2]<br>[Table 6-19](#table-6-19-pmu_ctrl3) PMU_CTRL3[7]<br>[Table 6-7](#table-6-7-gpio_dr) GPIO_DR[7:4]|
-|**开机模式**|使能控制|BUCK绑定在某个PWRCTRL引脚：<br>软件使能位 & PWRCTRL有效 -> 电源轨使能<br>无绑定PWRCTRL：<br>软件使能位 -> 电源轨使能|[Table 6-33](#table-6-33-buckx_pwrctrl_io) BUCKx_PWRCTRL_IO[2:0]<br>[Table 6-32](#table-6-32-buckx_ctrl) BUCKx_CTRL[6]<br>[Table 6-7](#table-6-7-gpio_dr) GPIO_DR[7:4]|
+|**开机流程/<br>唤醒流程**|时序控制|1. BUCK绑定到某个PWRCTRL引脚<br>2. PWRCTRL引脚有效<br>1 & 2 -> 开机和唤醒流程继续执行相应BUCK的操作<br>1 & !2 -> 一直等待对应的PWRCTRL引脚有效|[表 6-33](#table-6-33-buckx_pwrctrl_io) BUCKx_PWRCTRL_IO[2:0]<br>[表 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[5]<br>[表 6-7](#table-6-7-gpio_dr) GPIO_DR[7:4]|
+|**睡眠流程**|时序控制|1. BUCK绑定在某个PWRCTRL引脚<br>2. 反序睡眠使能<br>3. 使能睡眠等待PWRCTRL引脚无效<br>4. PWRCTRL引脚无效<br>1 & 2 & 3 & 4 -> 睡眠流程继续执行相应BUCK的操作，<br>1 & 2 & 3 & !4 -> 一直等待PWRCTRL，若等待时间超过[表 6-19](#table-6-19-pmu_ctrl3) PMU_CTRL3[7]<br>，则继续执行相应BUCK的操作，并按流程进入睡眠模式|[表 6-33](#table-6-33-buckx_pwrctrl_io) BUCKx_PWRCTRL_IO[2:0]<br>[表 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[5]<br>[表 6-18](#table-6-18-pmu_ctrl2) PMU_CTRL2[2]<br>[表 6-19](#table-6-19-pmu_ctrl3) PMU_CTRL3[7]<br>[表 6-7](#table-6-7-gpio_dr) GPIO_DR[7:4]|
+|**关机流程**|时序控制|1. BUCK绑定在某个PWRCTRL引脚<br>2. 反序关机使能<br>3. PWRCTRL引脚等待使能<br>4. PWRCTRL引脚无效<br>1 & 2 & 3 & 4 -> 关机流程继续执行相应BUCK或LDO的操作，否则一直等待PWRCTRL，若等待时间超过[表 6-19](#table-6-19-pmu_ctrl3) PMU_CTRL3[7]，则继续执行相应BUCK的操作，并按流程进入关机模式|[表 6-33](#table-6-33-buckx_pwrctrl_io) BUCKx_PWRCTRL_IO[2:0]<br>[表 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[4]<br>[表 6-18](#table-6-18-pmu_ctrl2) PMU_CTRL2[2]<br>[表 6-19](#table-6-19-pmu_ctrl3) PMU_CTRL3[7]<br>[表 6-7](#table-6-7-gpio_dr) GPIO_DR[7:4]|
+|**开机模式**|使能控制|BUCK绑定在某个PWRCTRL引脚：<br>软件使能位 & PWRCTRL有效 -> 电源轨使能<br>无绑定PWRCTRL：<br>软件使能位 -> 电源轨使能|[表 6-33](#table-6-33-buckx_pwrctrl_io) BUCKx_PWRCTRL_IO[2:0]<br>[表 6-32](#table-6-32-buckx_ctrl) BUCKx_CTRL[6]<br>[表 6-7](#table-6-7-gpio_dr) GPIO_DR[7:4]|
 
-PWRCTRL引脚有效极性可通过[Table 6-7](#table-6-7-gpio_dr) GPIO_DR[7:4]寄存器配置。
+PWRCTRL引脚有效极性可通过[表 6-7](#table-6-7-gpio_dr) GPIO_DR[7:4]寄存器配置。
 
 #### 5.1.5 SLEEP/WKUP 引脚
 
@@ -477,20 +481,20 @@ SLEEP/WKUP引脚为GPIO复用输入功能，内部施密特输入电路工作在
 
 SLEEP/WKUP引脚配置流程：
 
-1. [Table 6-12](#table-6-12-gpio_afr0) GPIO_AFR0和[Table 6-13](#table-6-13-gpio_afr1) GPIO_AFR1中的GPIOx_AFR=4’b0100
+1. [表 6-12](#table-6-12-gpio_afr0) GPIO_AFR0和[表 6-13](#table-6-13-gpio_afr1) GPIO_AFR1中的GPIOx_AFR=4’b0100
 
 2. 根据需要配置其它GPIO配置，如上下拉和中断类型等。
 
 <a id="table-5-7"></a>
 
-**Table 5-7 SLEEP/WKUP 引脚不同模式下功能说明**
+**表 5-7 SLEEP/WKUP 引脚不同模式下功能说明**
 
 |模式|功能|描述|寄存器配置|
 |---|---|---|---|
-|开机模式|睡眠源|SLEEP/WKUP引脚有效 -> 睡眠流程|[Table 6-7](#table-6-7-gpio_dr) GPIO_DR[7:4]|
-|睡眠模式|唤醒源|SLEEP/WKUP引脚无效 -> 唤醒流程|[Table 6-7](#table-6-7-gpio_dr) GPIO_DR[7:4]|
+|开机模式|睡眠源|SLEEP/WKUP引脚有效 -> 睡眠流程|[表 6-7](#table-6-7-gpio_dr) GPIO_DR[7:4]|
+|睡眠模式|唤醒源|SLEEP/WKUP引脚无效 -> 唤醒流程|[表 6-7](#table-6-7-gpio_dr) GPIO_DR[7:4]|
 
-SLEEP/WKUP引脚有效极性可通过[Table 6-7](#table-6-7-gpio_dr) GPIO_DR[7:4]寄存器配置。
+SLEEP/WKUP引脚有效极性可通过[表 6-7](#table-6-7-gpio_dr) GPIO_DR[7:4]寄存器配置。
 
 #### 5.1.6 WARM_RESET 引脚
 
@@ -498,22 +502,22 @@ WARM_RESET引脚为GPIO复用输入功能，内部施密特输入电路工作在
 
 WARM_RESET引脚配置流程：
 
-1. [Table 6-12](#table-6-12-gpio_afr0) GPIO_AFR0和[Table 6-13](#table-6-13-gpio_afr1) GPIO_AFR1中的GPIOx_AFR=4’b0101
+1. [表 6-12](#table-6-12-gpio_afr0) GPIO_AFR0和[表 6-13](#table-6-13-gpio_afr1) GPIO_AFR1中的GPIOx_AFR=4’b0101
 
 2. 根据需要配置其它GPIO配置，如上下拉和极性等
 
 <a id="table-5-8"></a>
 
-**Table 5-8 WARM_RESET 引脚不同模式下功能说明**
+**表 5-8 WARM_RESET 引脚不同模式下功能说明**
 
 |模式|功能|描述|寄存器配置|
 |---|---|---|---|
-|工作模式|热复位|WARM_RESET引脚从无效状态变有效状态并且持续时间超WARM_RESET_TIME<sup>1</sup><br>-> 触发热复位<br>-> PG拉低<br>-> BUCK按开机时序恢复到开机默认值|[Table 6-9](#table-6-9-gpio_deb) GPIO_DEB[6:4]<br>[Table 6-7](#table-6-7-gpio_dr) GPIO_DR[7:4]|
+|工作模式|热复位|WARM_RESET引脚从无效状态变有效状态并且持续时间超WARM_RESET_TIME<sup>1</sup><br>-> 触发热复位<br>-> PG拉低<br>-> BUCK按开机时序恢复到开机默认值|[表 6-9](#table-6-9-gpio_deb) GPIO_DEB[6:4]<br>[表 6-7](#table-6-7-gpio_dr) GPIO_DR[7:4]|
 
-> 注：当GPIO滤波使能打开：WARM_RESET_TIME=250 μs + [Table 6-9](#table-6-9-gpio_deb) GPIO_DEB[6:4]
+> 注：当GPIO滤波使能打开：WARM_RESET_TIME=250 μs + [表 6-9](#table-6-9-gpio_deb) GPIO_DEB[6:4]
 >
 > 1. GPIO滤波使能关闭：WARM_RESET_TIME = 250 μs。
-> 2. WARM_RESET引脚有效极性可通过[Table 6-7](#table-6-7-gpio_dr) GPIO_DR[7:4]寄存器配置。
+> 2. WARM_RESET引脚有效极性可通过[表 6-7](#table-6-7-gpio_dr) GPIO_DR[7:4]寄存器配置。
 
 #### 5.1.7 EXT_EN 引脚
 
@@ -521,27 +525,27 @@ EXT_EN引脚为GPIO复用输出功能，内部施密特输入电路工作在VIO1
 
 EXT_EN引脚配置流程：
 
-1. [Table 6-12](#table-6-12-gpio_afr0) GPIO_AFR0和[Table 6-13](#table-6-13-gpio_afr1) GPIO_AFR1中的GPIOx_AFR=4’b0010
+1. [表 6-12](#table-6-12-gpio_afr0) GPIO_AFR0和[表 6-13](#table-6-13-gpio_afr1) GPIO_AFR1中的GPIOx_AFR=4’b0010
 
 2. 根据需要配置其它GPIO配置，如上下拉和极性等。
 
 <a id="table-5-9"></a>
 
-**Table 5-9 EXT_EN 引脚不同模式下功能说明**
+**表 5-9 EXT_EN 引脚不同模式下功能说明**
 
 |模式|功能|描述|寄存器配置|
 |---|---|---|---|
-|开机流程 /<br>唤醒流程|输出|1. 绑定某一时序槽<br>2. 开机序列/唤醒序列走到对应绑定的时序槽<br>1 & 2 -> EXT_EN引脚变有效|[Table 6-14](#table-6-14-gpio_ext_slot0) GPIO_EXT_SLOT0<br>[Table 6-15](#table-6-15-gpio_ext_slot1) GPIO_EXT_SLOT1<br>[Table 6-25](#table-6-25-ext_ctrl) EXT_CTRL<br>[Table 6-7](#table-6-7-gpio_dr) GPIO_DR[7:4]|
-|睡眠流程|输出|1. 绑定某一时序槽<br>2. 睡眠序列走到对应绑定的时序槽<br>3. 受睡眠时序控制（EXTx_SLP_SD = 1）<br>1 & 2 & 3 -> EXT_EN引脚变无效|[Table 6-14](#table-6-14-gpio_ext_slot0) GPIO_EXT_SLOT0<br>[Table 6-15](#table-6-15-gpio_ext_slot1) GPIO_EXT_SLOT1<br>[Table 6-25](#table-6-25-ext_ctrl) EXT_CTRL<br>[Table 6-7](#table-6-7-gpio_dr) GPIO_DR[7:4]|
-|关机流程|输出|1. 绑定某一时序槽<br>2. 关机序列走到对应绑定的时序槽<br>1 & 2 -> EXT_EN引脚变无效，不满足条件则保持原来状态|[Table 6-14](#table-6-14-gpio_ext_slot0) GPIO_EXT_SLOT0<br>[Table 6-15](#table-6-15-gpio_ext_slot1) GPIO_EXT_SLOT1<br>[Table 6-25](#table-6-25-ext_ctrl) EXT_CTRL<br>[Table 6-7](#table-6-7-gpio_dr) GPIO_DR[7:4]|
-|开机模式|输出|EXTx_EN = 1 -> EXT_EN引脚变有效<br>EXTx_EN = 0 -> EXT_EN引脚变无效|[Table 6-25](#table-6-25-ext_ctrl) EXT_CTRL[3:0]<br>[Table 6-7](#table-6-7-gpio_dr) GPIO_DR[7:4]|
-|睡眠模式|输出|1. EXTx_EN = 1<br>2. EXTx_SLP_SD = 0<br>1 & 2 -> EXT_EN引脚变有效，不满足条件则变无效|[Table 6-25](#table-6-25-ext_ctrl) EXT_CTRL<br>[Table 6-7](#table-6-7-gpio_dr) GPIO_DR[7:4]|
+|开机流程 /<br>唤醒流程|输出|1. 绑定某一时序槽<br>2. 开机序列/唤醒序列走到对应绑定的时序槽<br>1 & 2 -> EXT_EN引脚变有效|[表 6-14](#table-6-14-gpio_ext_slot0) GPIO_EXT_SLOT0<br>[表 6-15](#table-6-15-gpio_ext_slot1) GPIO_EXT_SLOT1<br>[表 6-25](#table-6-25-ext_ctrl) EXT_CTRL<br>[表 6-7](#table-6-7-gpio_dr) GPIO_DR[7:4]|
+|睡眠流程|输出|1. 绑定某一时序槽<br>2. 睡眠序列走到对应绑定的时序槽<br>3. 受睡眠时序控制（EXTx_SLP_SD = 1）<br>1 & 2 & 3 -> EXT_EN引脚变无效|[表 6-14](#table-6-14-gpio_ext_slot0) GPIO_EXT_SLOT0<br>[表 6-15](#table-6-15-gpio_ext_slot1) GPIO_EXT_SLOT1<br>[表 6-25](#table-6-25-ext_ctrl) EXT_CTRL<br>[表 6-7](#table-6-7-gpio_dr) GPIO_DR[7:4]|
+|关机流程|输出|1. 绑定某一时序槽<br>2. 关机序列走到对应绑定的时序槽<br>1 & 2 -> EXT_EN引脚变无效，不满足条件则保持原来状态|[表 6-14](#table-6-14-gpio_ext_slot0) GPIO_EXT_SLOT0<br>[表 6-15](#table-6-15-gpio_ext_slot1) GPIO_EXT_SLOT1<br>[表 6-25](#table-6-25-ext_ctrl) EXT_CTRL<br>[表 6-7](#table-6-7-gpio_dr) GPIO_DR[7:4]|
+|开机模式|输出|EXTx_EN = 1 -> EXT_EN引脚变有效<br>EXTx_EN = 0 -> EXT_EN引脚变无效|[表 6-25](#table-6-25-ext_ctrl) EXT_CTRL[3:0]<br>[表 6-7](#table-6-7-gpio_dr) GPIO_DR[7:4]|
+|睡眠模式|输出|1. EXTx_EN = 1<br>2. EXTx_SLP_SD = 0<br>1 & 2 -> EXT_EN引脚变有效，不满足条件则变无效|[表 6-25](#table-6-25-ext_ctrl) EXT_CTRL<br>[表 6-7](#table-6-7-gpio_dr) GPIO_DR[7:4]|
 
-EXT_EN引脚有效极性可通过[Table 6-7](#table-6-7-gpio_dr) GPIO_DR[7:4]寄存器配置。
+EXT_EN引脚有效极性可通过[表 6-7](#table-6-7-gpio_dr) GPIO_DR[7:4]寄存器配置。
 
 <a id="table-5-10"></a>
 
-**Table 5-10 EXT_EN 引脚状态控制汇总表**
+**表 5-10 EXT_EN 引脚状态控制汇总表**
 
 |(x = 0 ~ 3)|开机流程|开机模式|睡眠流程|睡眠模式|唤醒流程|关机流程|关机模式|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
@@ -558,11 +562,11 @@ DVS引脚为GPIO复用输入功能，内部施密特输入电路工作在VIO1电
 
 DVS引脚配置流程：
 
-1. [Table 6-12](#table-6-12-gpio_afr0) GPIO_AFR0和[Table 6-13](#table-6-13-gpio_afr1) GPIO_AFR1中的GPIOx_AFR=4’b1000/4’b1001
+1. [表 6-12](#table-6-12-gpio_afr0) GPIO_AFR0和[表 6-13](#table-6-13-gpio_afr1) GPIO_AFR1中的GPIOx_AFR=4’b1000/4’b1001
 
 2. 根据需要配置其它GPIO配置，如上下拉和极性等
 
-[Table 6-34](#table-6-34-buckx_dvs_io) BUCKx_DVS_IO 的 BUCKx_DVS0_IO[2:0] 用于选择 BUCKx 绑定的 DVS0 GPIO，可用于 SoC 通过控制 GPIO 引脚来控制对应 BUCK 电压。生效的前提是被绑定的 GPIO 配置为 DVS0/1 复用功能，否则对应的 DVS 控制逻辑为 0。DVS 引脚控制 BUCK 电压的说明见[5.5.3 电压配置和动态调压](#553-电压配置和动态调压)。
+[表 6-34](#table-6-34-buckx_dvs_io) BUCKx_DVS_IO 的 BUCKx_DVS0_IO[2:0] 用于选择 BUCKx 绑定的 DVS0 GPIO, BUCKx_DVS1_IO[2:0] 用于选择 BUCKx 绑定的 DVS1 GPIO, 可用于 SoC 通过控制 GPIO 引脚来控制对应 BUCK 电压。生效的前提是被绑定的 GPIO 配置为 DVS0/1 复用功能，否则对应的 DVS 控制逻辑为 0。DVS 引脚控制 BUCK 电压的说明见[5.5.3 电压配置和动态调压](#553-电压配置和动态调压)。
 
 #### 5.1.9 PH_CFG 引脚
 
@@ -570,9 +574,9 @@ PH_CFG引脚为GPIO复用输入功能，内部施密特输入电路工作在VIO1
 
 PH_CFG引脚配置流程：
 
-1. [Table 6-28](#table-6-28-buck_glb_ctrl) BUCK_GLB_CTRL[5]配置为1，选择GPIO复用功能作为PH_CFGx
+1. [表 6-28](#table-6-28-buck_glb_ctrl) BUCK_GLB_CTRL[5]配置为1，选择GPIO复用功能作为PH_CFGx
 
-2. [Table 6-12](#table-6-12-gpio_afr0) GPIO_AFR0 和 [Table 6-13](#table-6-13-gpio_afr1) GPIO_AFR1 中 GPIO2_AFR、GPIO1_AFR 和 GPIO0_AFR 三个寄存器均配置为 4’b0111 时，GPIO2 将作为 PH_CFG2、GPIO1 将作为 PH_CFG1、GPIO0 将作为 PH_CFG0；否则，未配置多相复用功能的 GPIO 对应的 PH_CFGx 默认为 0。例如，三个 IO 都未配置为 PH_CFGx 模式时，将选择 000 模式（4 + 0 四相模式）。
+2. [表 6-12](#table-6-12-gpio_afr0) GPIO_AFR0 和 [表 6-13](#table-6-13-gpio_afr1) GPIO_AFR1 中 GPIO2_AFR、GPIO1_AFR 和 GPIO0_AFR 三个寄存器均配置为 4’b0111 时，GPIO2 将作为 PH_CFG2、GPIO1 将作为 PH_CFG1、GPIO0 将作为 PH_CFG0；否则，未配置多相复用功能的 GPIO 对应的 PH_CFGx 默认为 0。例如，三个 IO 都未配置为 PH_CFGx 模式时，将选择 000 模式（4 + 0 四相模式）。
 
 3. 根据需要配置其它GPIO配置，如上下拉和极性等。
 
@@ -580,7 +584,7 @@ PH_CFGx引脚可用于Soc通过控制GPIO引脚来控制PMIC的多相控制，�
 
 ### 5.2 工作模式
 
-<a id="mode-switching-diagram"></a>**Figure 5-1 模式切换示意图**
+<a id="mode-switching-diagram"></a>**图 5-1 模式切换示意图**
 
 ![Image](./static/p3-ds-3.png)
 
@@ -596,7 +600,7 @@ PH_CFGx引脚可用于Soc通过控制GPIO引脚来控制PMIC的多相控制，�
 
 <a id="table-5-11"></a>
 
-**Table 5-11 工作模式说明**
+**表 5-11 工作模式说明**
 
 |模式/状态|进入|退出|行为|
 |---|---|---|---|
@@ -607,14 +611,14 @@ PH_CFGx引脚可用于Soc通过控制GPIO引脚来控制PMIC的多相控制，�
 |**配置读取1**|VSYS ≥ 2.2 V \| CRC 校验失败|最后的 MTP 数据读取完成 & CRC 校验正确|将所有 MTP 数据加载到对应映射的寄存器|
 |**配置读取2**|配置读取 1 完成 & CE 为高|最后的用户 MTP 数据读取完成|将用户 MTP 数据加载到对应映射的寄存器|
 |**开机序列**|配置读取 2 完成|所有 BUCK 序列完成|BUCK 按配置打开|
-|**开机延时**|开机序列完成 & 配置使能[Table 6-18](#table-6-18-pmu_ctrl2) PMU_CTRL2[1]|开机延时计数完成|延时完成后，释放PG信号|
-|**主机握手**|1.配置使能[Table 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[1] <br>2.开机延时完成 & 配置[Table 6-18](#table-6-18-pmu_ctrl2) PMU_CTRL2[1]为1<br>3.开机序列完成 & 配置[Table 6-18](#table-6-18-pmu_ctrl2) PMU_CTRL2[1]为0<br>1 & （2 \| 3）-> 主机握手|1.主机下拉PG<br>2.等待主机下拉PG超时|1.等待主机下拉<br>2.若握手成功，则进入开机模式<br>3.若等待超时，则进入关机模式|
-|**关机延时**|开机完成 & 关机/复位事件 & [Table 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[4]为0（反序关机） & 配置[Table 6-18](#table-6-18-pmu_ctrl2) PMU_CTRL2[0]为1|关机延时计数完成|PG下拉，延时结束后进入关机序列|
-|**关机序列**|1.开机完成并发生关机/复位事件<br>2. [Table 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[4]为0 & 关机延时完成<br>3.配置[Table 6-18](#table-6-18-pmu_ctrl2) PMU_CTRL2[0]为0<br>4. 配置[Table 6-18](#table-6-18-pmu_ctrl2) PMU_CTRL2[0]为1 & 关机延时完成<br>1 & 2 & (3 \| 4)->关机序列|BUCK按配置关闭完成|BUCK按配置反序关闭|
-|**睡眠延时**|开机模式 & 睡眠事件<br>& 配置使能[Table 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[5] & 配置使能[Table 6-18](#table-6-18-pmu_ctrl2) PMU_CTRL2[0]|睡眠延时计数完成|PG下拉，延时结束后进入睡眠序列|
-|**睡眠序列**|1.开机模式 & 睡眠事件<br>& 配置使能[Table 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[5] <br>2.配置[Table 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[0]=0<br>3.配置[Table 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[0]=1 & 配置[Table 6-18](#table-6-18-pmu_ctrl2) PMU_CTRL2[0]为0<br>4. 配置[Table 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[0]=1 & 配置[Table 6-18](#table-6-18-pmu_ctrl2) PMU_CTRL2[0]为1 & 睡眠延时完成<br>1 & （2 \| 3 \| 4）->睡眠序列|BUCK按配置调压或关闭完成|BUCK按配置调压或关闭|
-|**唤醒序列**|睡眠模式 & 唤醒事件 &配置使能[Table 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[5]|BUCK按配置调压或开启完成|BUCK按配置调压或开启|
-|**唤醒延时**|唤醒序列完成 & 配置使能[Table 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[0] & 配置使能[Table 6-18](#table-6-18-pmu_ctrl2) PMU_CTRL2[0]|唤醒延时计数完成|延时结束后，释放PG，进入开机模式|
+|**开机延时**|开机序列完成 & 配置使能[表 6-18](#table-6-18-pmu_ctrl2) PMU_CTRL2[1]|开机延时计数完成|延时完成后，释放PG信号|
+|**主机握手**|1.配置使能[表 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[1] <br>2.开机延时完成 & 配置[表 6-18](#table-6-18-pmu_ctrl2) PMU_CTRL2[1]为1<br>3.开机序列完成 & 配置[表 6-18](#table-6-18-pmu_ctrl2) PMU_CTRL2[1]为0<br>1 & （2 \| 3）-> 主机握手|1.主机下拉PG<br>2.等待主机下拉PG超时|1.等待主机下拉<br>2.若握手成功，则进入开机模式<br>3.若等待超时，则进入关机模式|
+|**关机延时**|开机完成 & 关机/复位事件 & [表 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[4]为0（反序关机） & 配置[表 6-18](#table-6-18-pmu_ctrl2) PMU_CTRL2[0]为1|关机延时计数完成|PG下拉，延时结束后进入关机序列|
+|**关机序列**|1.开机完成并发生关机/复位事件<br>2. [表 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[4]为0 & 关机延时完成<br>3.配置[表 6-18](#table-6-18-pmu_ctrl2) PMU_CTRL2[0]为0<br>4. 配置[表 6-18](#table-6-18-pmu_ctrl2) PMU_CTRL2[0]为1 & 关机延时完成<br>1 & 2 & (3 \| 4)->关机序列|BUCK按配置关闭完成|BUCK按配置反序关闭|
+|**睡眠延时**|开机模式 & 睡眠事件<br>& 配置使能[表 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[5] & 配置使能[表 6-18](#table-6-18-pmu_ctrl2) PMU_CTRL2[0]|睡眠延时计数完成|PG下拉，延时结束后进入睡眠序列|
+|**睡眠序列**|1.开机模式 & 睡眠事件<br>& 配置使能[表 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[5] <br>2.配置[表 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[0]=0<br>3.配置[表 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[0]=1 & 配置[表 6-18](#table-6-18-pmu_ctrl2) PMU_CTRL2[0]为0<br>4. 配置[表 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[0]=1 & 配置[表 6-18](#table-6-18-pmu_ctrl2) PMU_CTRL2[0]为1 & 睡眠延时完成<br>1 & （2 \| 3 \| 4）->睡眠序列|BUCK按配置调压或关闭完成|BUCK按配置调压或关闭|
+|**唤醒序列**|睡眠模式 & 唤醒事件 &配置使能[表 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[5]|BUCK按配置调压或开启完成|BUCK按配置调压或开启|
+|**唤醒延时**|唤醒序列完成 & 配置使能[表 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[0] & 配置使能[表 6-18](#table-6-18-pmu_ctrl2) PMU_CTRL2[0]|唤醒延时计数完成|延时结束后，释放PG，进入开机模式|
 |**热复位**|开机完成 & 发生热复位事件|热复位事件无效|复位所有配置寄存器，BUCK电压不变，待配置读取2结束后，在开机序列中根据配置读取2的配置恢复BUCK电压|
 
 #### 5.2.1 复位模式
@@ -625,18 +629,18 @@ PH_CFGx引脚可用于Soc通过控制GPIO引脚来控制PMIC的多相控制，�
 
 <a id="table-5-12"></a>
 
-**Table 5-12 关机模式的进入和退出**
+**表 5-12 关机模式的进入和退出**
 
 |条件|描述|
 |---|---|
 |**进入条件**|1. PMIC上电复位释放（VSYS > 2.2 V），并且MTP配置读取1完成后进入该状态<br>2. 开机流程中遇到任一关机或复位事件 - 立即进入<br>3. 工作模式下遇到任一关机或复位事件 - 经过关机流程后进入|
 |**退出条件**|任一开机事件|
 
-该模式下大部分模块不工作，保持工作的模块有： Bandgap，VSYS电压检测等。复位事件进入该模式时会停留一段时间（[Table 6-19](#table-6-19-pmu_ctrl3) PMU_CTRL3[2:1]）：
+该模式下大部分模块不工作，保持工作的模块有： Bandgap，VSYS电压检测等。复位事件进入该模式时会停留一段时间（[表 6-19](#table-6-19-pmu_ctrl3) PMU_CTRL3[2:1]）：
 
-- 复位事件进入关机模式后，等待[Table 6-19](#table-6-19-pmu_ctrl3) PMU_CTRL3[2:1]配置的时间后并且此时VSYS电压高于设定开机阈值（[Table 6-42](#table-6-42-prot_cfg) PROT_CFG[5:3]），则自动再进行开机流程。
+- 复位事件进入关机模式后，等待[表 6-19](#table-6-19-pmu_ctrl3) PMU_CTRL3[2:1]配置的时间后并且此时VSYS电压高于设定开机阈值（[表 6-42](#table-6-42-prot_cfg) PROT_CFG[5:3]），则自动再进行开机流程。
 
-- 在释放PGOOD后，若配置成无需等待外部PGOOD释放（[Table 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[1] = 0），则直接进入开机模式，否则需要等待PGOOD被释放后才进开机模式。若PMIC检测到PGOOD长时间未被释放（[Table 6-19](#table-6-19-pmu_ctrl3) PMU_CTRL3[0]），则直接回到关机模式。
+- 在释放PGOOD后，若配置成无需等待外部PGOOD释放（[表 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[1] = 0），则直接进入开机模式，否则需要等待PGOOD被释放后才进开机模式。若PMIC检测到PGOOD长时间未被释放（[表 6-19](#table-6-19-pmu_ctrl3) PMU_CTRL3[0]），则直接回到关机模式。
 
 #### 5.2.3 开机模式
 
@@ -658,7 +662,7 @@ PH_CFGx引脚可用于Soc通过控制GPIO引脚来控制PMIC的多相控制，�
 
 <a id="table-5-13"></a>
 
-**Table 5-13 各模式工作状态**
+**表 5-13 各模式工作状态**
 
 |电压域|模块|复位模式|关机模式<br>（CE = 0）|开机模式|睡眠模式|
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -684,16 +688,16 @@ PH_CFGx引脚可用于Soc通过控制GPIO引脚来控制PMIC的多相控制，�
 
 <a id="table-5-14"></a>
 
-**Table 5-14 PMIC 相关事件及行为**
+**表 5-14 PMIC 相关事件及行为**
 
 |类型|事件|作用区间|行为|
 |:---:|:---:|:---:|:---:|
 |**开机事件**|CE为高|关机模式|开机唤醒|
-|**关机事件**|CE为低|[Figure 5-1](#mode-switching-diagram)中带 \* 或 # 号的状态|按配置关机|
-||VSYS低阈值|[Figure 5-1](#mode-switching-diagram)中带 \* 或 # 号的状态|按配置关机|
-||VIO低阈值|[Figure 5-1](#mode-switching-diagram)中带 \* 或 # 号的状态|按配置关机|
-||电源轨异常|[Figure 5-1](#mode-switching-diagram)中带 \* 或 # 号的状态|按配置关机|
-||软件关机|[Figure 5-1](#mode-switching-diagram)中带 # 号的状态|按配置关机|
+|**关机事件**|CE为低|[图 5-1](#mode-switching-diagram)中带 \* 或 # 号的状态|按配置关机|
+||VSYS低阈值|[图 5-1](#mode-switching-diagram)中带 \* 或 # 号的状态|按配置关机|
+||VIO低阈值|[图 5-1](#mode-switching-diagram)中带 \* 或 # 号的状态|按配置关机|
+||电源轨异常|[图 5-1](#mode-switching-diagram)中带 \* 或 # 号的状态|按配置关机|
+||软件关机|[图 5-1](#mode-switching-diagram)中带 # 号的状态|按配置关机|
 ||芯片过温/VSYS过压|非复位模式|强制关机|
 |**睡眠事件**|软件睡眠|开机模式|按配置进入睡眠|
 ||GPIO睡眠|开机模式|按配置进入睡眠|
@@ -702,8 +706,8 @@ PH_CFGx引脚可用于Soc通过控制GPIO引脚来控制PMIC的多相控制，�
 ||WDT唤醒|睡眠模式|按配置退出睡眠|
 ||GPIO中断唤醒|睡眠模式|按配置退出睡眠|
 |**复位事件**|PGOOD复位|非复位模式|按配置复位|
-||软件复位|[Figure 5-1](#mode-switching-diagram)中带 # 号的状态|按配置复位|
-|**热复位事件**|GPIO（WARM_RESET）事件|[Figure 5-1](#mode-switching-diagram)中带 # 号的状态|不经过关机模式，恢复到开机默认状态|
+||软件复位|[图 5-1](#mode-switching-diagram)中带 # 号的状态|按配置复位|
+|**热复位事件**|GPIO（WARM_RESET）事件|[图 5-1](#mode-switching-diagram)中带 # 号的状态|不经过关机模式，恢复到开机默认状态|
 
 ### 5.4 序列控制器-Sequencer
 
@@ -711,37 +715,37 @@ PH_CFGx引脚可用于Soc通过控制GPIO引脚来控制PMIC的多相控制，�
 
 <a id="table-5-15"></a>
 
-**Table 5-15. 序列控制器功能说明**
+**表 5-15. 序列控制器功能说明**
 
 |功能|描述|寄存器|
 |---|---|---|
-|**BUCK ID绑定**|1. 每个BUCK都包含一个可编程的SLOT ID；<br>2. 可任意指向SLOT 0 ~SLOT15这16个时序槽之一|[Table 6-23](#table-6-23-slot_ctrl0) SLOT_CTRL0<br>[Table 6-24](#table-6-24-slot_ctrl1) SLOT_CTRL1<br>[Table 6-26](#table-6-26-stup_slot_dlyx) STUP_SLOT_DLYx<br>[Table 6-27](#table-6-27-shut_slot_dlyx) SHUT_SLOT_DLYx|
-|**EXT_EN ID绑定**|1. 每个EXT_EN引脚都包含一个可编程的SLOT ID；<br>2. 可任意指向SLOT 0 ~SLOT15这16个时序槽之一|[Table 6-14](#table-6-14-gpio_ext_slot0) GPIO_EXT_SLOT0<br>[Table 6-15](#table-6-15-gpio_ext_slot1) GPIO_EXT_SLOT1<br>[Table 6-26](#table-6-26-stup_slot_dlyx) STUP_SLOT_DLYx<br>[Table 6-27](#table-6-27-shut_slot_dlyx) SHUT_SLOT_DLYx|
-|**PWRCTRL时序开关**|1. 每个电源轨可受PWRCTRL控制<br>2. 可任意指向一个或多个PWRCTRL复用引脚<br>开机流程/唤醒流程：等待绑定的所有PWRCTRL有效打开电源轨<br>- 关机流程/睡眠流程：等待PWRCTRL无效关闭电源轨<br>- 热复位流程：无PWRCTRL功能|[Table 6-23](#table-6-23-slot_ctrl0) SLOT_CTRL0<br>[Table 6-24](#table-6-24-slot_ctrl1) SLOT_CTRL1<br>[Table 6-26](#table-6-26-stup_slot_dlyx) STUP_SLOT_DLYx<br>[Table 6-27](#table-6-27-shut_slot_dlyx) SHUT_SLOT_DLYx|
-|**PWRCTRL计时开关**|任一SLOT内绑定的电源轨绑定了PWRCTRL，<br>该SLOT计时即受PWRCTRL控制：<br>- 开机流程/唤醒流程：等待全部PWRCTRL有效开始计时<br>- 关机流程/睡眠流程：等待全部PWRCTRL无效开始计时|[Table 6-23](#table-6-23-slot_ctrl0) SLOT_CTRL0<br>[Table 6-24](#table-6-24-slot_ctrl1) SLOT_CTRL1<br>[Table 6-26](#table-6-26-stup_slot_dlyx) STUP_SLOT_DLYx<br>[Table 6-27](#table-6-27-shut_slot_dlyx) SHUT_SLOT_DLYx|
+|**BUCK ID绑定**|1. 每个BUCK都包含一个可编程的SLOT ID；<br>2. 可任意指向SLOT 0 ~SLOT15这16个时序槽之一|[表 6-23](#table-6-23-slot_ctrl0) SLOT_CTRL0<br>[表 6-24](#table-6-24-slot_ctrl1) SLOT_CTRL1<br>[表 6-26](#table-6-26-stup_slot_dlyx) STUP_SLOT_DLYx<br>[表 6-27](#table-6-27-shut_slot_dlyx) SHUT_SLOT_DLYx|
+|**EXT_EN ID绑定**|1. 每个EXT_EN引脚都包含一个可编程的SLOT ID；<br>2. 可任意指向SLOT 0 ~SLOT15这16个时序槽之一|[表 6-14](#table-6-14-gpio_ext_slot0) GPIO_EXT_SLOT0<br>[表 6-15](#table-6-15-gpio_ext_slot1) GPIO_EXT_SLOT1<br>[表 6-26](#table-6-26-stup_slot_dlyx) STUP_SLOT_DLYx<br>[表 6-27](#table-6-27-shut_slot_dlyx) SHUT_SLOT_DLYx|
+|**PWRCTRL时序开关**|1. 每个电源轨可受PWRCTRL控制<br>2. 可任意指向一个或多个PWRCTRL复用引脚<br>开机流程/唤醒流程：等待绑定的所有PWRCTRL有效打开电源轨<br>- 关机流程/睡眠流程：等待PWRCTRL无效关闭电源轨<br>- 热复位流程：无PWRCTRL功能|[表 6-23](#table-6-23-slot_ctrl0) SLOT_CTRL0<br>[表 6-24](#table-6-24-slot_ctrl1) SLOT_CTRL1<br>[表 6-26](#table-6-26-stup_slot_dlyx) STUP_SLOT_DLYx<br>[表 6-27](#table-6-27-shut_slot_dlyx) SHUT_SLOT_DLYx|
+|**PWRCTRL计时开关**|任一SLOT内绑定的电源轨绑定了PWRCTRL，<br>该SLOT计时即受PWRCTRL控制：<br>- 开机流程/唤醒流程：等待全部PWRCTRL有效开始计时<br>- 关机流程/睡眠流程：等待全部PWRCTRL无效开始计时|[表 6-23](#table-6-23-slot_ctrl0) SLOT_CTRL0<br>[表 6-24](#table-6-24-slot_ctrl1) SLOT_CTRL1<br>[表 6-26](#table-6-26-stup_slot_dlyx) STUP_SLOT_DLYx<br>[表 6-27](#table-6-27-shut_slot_dlyx) SHUT_SLOT_DLYx|
 |**DUMMY SLOT**|无任何BUCK、EXT_EN绑定的时序槽：<br>- 若该SLOT及后面的所有SLOT都无任何BUCK、EXT_EN绑定，则跳过该SLOT及后面的所有SLOT的计时<br>- 若该SLOT后面还有绑定的SLOT，则该SLOT需要计时结束再跳过<br>- 热复位流程中，不管是否为DUMMY SLOT，SLOT 0 ~ SLOT15这16个时序槽的计时均不跳过|-|
 
 1. 在开机流程或唤醒流程中，SLOT0 ~ SLOT15阶段相应的BUCK使能打开，并且EXT_EN变有效。
 
-2. 在睡眠流程中，SLOT0 ~ SLOT15阶段相应的BUCK使能保持当前状态不变，但当电源轨的睡眠电压设置成0，睡眠流程中相应电源轨使能关闭；当EXT_EN配置为受睡眠时序控制（[Table 6-25](#table-6-25-ext_ctrl) EXT_CTRL[7:4]），则在睡眠过程中EXT_EN变无效，否则保持当前状态不变。
+2. 在睡眠流程中，SLOT0 ~ SLOT15阶段相应的BUCK使能保持当前状态不变，但当电源轨的睡眠电压设置成0，睡眠流程中相应电源轨使能关闭；当EXT_EN配置为受睡眠时序控制（[表 6-25](#table-6-25-ext_ctrl) EXT_CTRL[7:4]），则在睡眠过程中EXT_EN变无效，否则保持当前状态不变。
 
 3. 在关机流程中，SLOT15 ~ SLOT0各阶段对应的BUCK使能关闭，EXT_EN变无效。
 
 4. 在热复位流程中，SLOT0 ~ SLOT15阶段会根据MTP配置的BUCK使能、EXT_EN上电默认状态进行打开、关闭或者保持。
 
-5. 每个SLOT的延时可以单独配置，上电/唤醒的延时通过[Table 6-26](#table-6-26-stup_slot_dlyx) STUP_SLOT_DLYx配置，关机/睡眠的延时通过[Table 6-26](#table-6-26-stup_slot_dlyx) STUP_SLOT_DLYx配置。可配时间间隔0.5/1/2/4/8/16ms。
+5. 每个SLOT的延时可以单独配置，上电/唤醒的延时通过[表 6-26](#table-6-26-stup_slot_dlyx) STUP_SLOT_DLYx配置，关机/睡眠的延时通过[表 6-26](#table-6-26-stup_slot_dlyx) STUP_SLOT_DLYx配置。可配时间间隔0.5/1/2/4/8/16ms。
 
 序列控制器可控制最高8个SLOT ID，包括4个EXT_EN和4个BUCK，其工作流程如下图所示，其中BUCK2和BUCK3分别绑定了某一PWRCTRL。
 
 <a id="figure-5-2"></a>
 
-**Figure 5-2 序列控制器时序控制示意图**
+**图 5-2 序列控制器时序控制示意图**
 
 ![Image](./static/p3-ds-4.png)
 
 <a id="table-5-16"></a>
 
-**Table 5-16 各模式和流程下电源轨状态和输出电压**
+**表 5-16 各模式和流程下电源轨状态和输出电压**
 
 |Mode|SLOT_ID|PWRCTRLx|Software|电源轨状态|电源轨输出电压|
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -764,7 +768,7 @@ PMIC的开机事件：
 
 所有开机事件触发开机的前提为VSYS高于开机阈值。
 
-系统唤醒需要足够且稳定的VSYS电压（2.9 V ~ 5.5 V）和任一唤醒事件，开机阈值可通过MTP配置（[Table 6-42](#table-6-42-prot_cfg) PROT_CFG[5:3]）。PMIC的开机阈值除了通过MTP配置外，硬件本身也会根据情况调整开机阈值，防止由于较弱供电导致的错误开关机流程，如下图所示。调整过程如下：
+系统唤醒需要足够且稳定的VSYS电压（2.9 V ~ 5.5 V）和任一唤醒事件，开机阈值可通过MTP配置（[表 6-42](#table-6-42-prot_cfg) PROT_CFG[5:3]）。PMIC的开机阈值除了通过MTP配置外，硬件本身也会根据情况调整开机阈值，防止由于较弱供电导致的错误开关机流程，如下图所示。调整过程如下：
 
 1. PMIC系统复位释放并进入关机模式。
 
@@ -772,17 +776,17 @@ PMIC的开机事件：
 
 3. 进入开机模式后，若在16 s内VSYS小于关机阈值，则启动关机流程并进入关机模式。
 
-4. 与此同时判断开机阈值是否是最大开机阈值，若是则屏蔽VSYS开机事件，否则开机阈值较之前提高0.1 V / 0.2 V（[Table 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[2]），但最高的开机阈值不超过3.6 V。
+4. 与此同时判断开机阈值是否是最大开机阈值，若是则屏蔽VSYS开机事件，否则开机阈值较之前提高0.1 V / 0.2 V（[表 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[2]），但最高的开机阈值不超过3.6 V。
 
 5. 若VSYS开机事件被屏蔽，等待其它开机事件，否则当VSYS再次超过新的开机阈值后，PMIC启动开机流程并进入开机模式。
 
 <a id="figure-5-3"></a>
 
-**Figure 5-3 开机和关机阈值切换示意图**
+**图 5-3 开机和关机阈值切换示意图**
 
 ![Image](./static/p3-ds-5.png)
 
-PMIC进入开机模式开始，如果VSYS电压在16s内未低于关机阈值，此时开机阈值将恢复为默认开机阈值，如上图示。上述调整过程通过寄存器[Table 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[3]配置为1进行关闭。
+PMIC进入开机模式开始，如果VSYS电压在16s内未低于关机阈值，此时开机阈值将恢复为默认开机阈值，如上图示。上述调整过程通过寄存器[表 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[3]配置为1进行关闭。
 
 #### 5.4.2 开机流程
 
@@ -792,23 +796,23 @@ PMIC进入开机模式开始，如果VSYS电压在16s内未低于关机阈值，
 
 2. 加载完配置后，PMIC会启动一系列开机前检测，如异常事件（电源轨过压，欠压，短路，芯片过温），检测完成并无异常发生时即启动电源轨开机序列，否则立即回到关机模式。
 
-3. 开机序列完成后，通过配置[Table 6-18](#table-6-18-pmu_ctrl2) PMU_CTRL2[1]，可以选择是否经过一段可编程控制的延时（[Table 6-19](#table-6-19-pmu_ctrl3) PMU_CTRL3 [6:5]），PMIC再主动释放PGOOD引脚：
+3. 开机序列完成后，通过配置[表 6-18](#table-6-18-pmu_ctrl2) PMU_CTRL2[1]，可以选择是否经过一段可编程控制的延时（[表 6-19](#table-6-19-pmu_ctrl3) PMU_CTRL3 [6:5]），PMIC再主动释放PGOOD引脚：
 
-    1. 此时若配置成无需等待外部PGOOD释放（[Table 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[1] = 0），则直接进入开机模式，否则需要等待PGOOD被释放后才进开机模式
+    1. 此时若配置成无需等待外部PGOOD释放（[表 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[1] = 0），则直接进入开机模式，否则需要等待PGOOD被释放后才进开机模式
 
-    2. 若PMIC检测到PGOOD长时间未被释放（[Table 6-19](#table-6-19-pmu_ctrl3) PMU_CTRL3 [0]），则直接回到关机模式。
+    2. 若PMIC检测到PGOOD长时间未被释放（[表 6-19](#table-6-19-pmu_ctrl3) PMU_CTRL3 [0]），则直接回到关机模式。
 
-在上述流程中（进入开机模式前，见[Figure 5-1](#mode-switching-diagram)中带 * 号的状态），若遇到异常、关机或复位事件，都会立即打断开机流程并回到关机模式，等待下一次唤醒。
+在上述流程中（进入开机模式前，见[图 5-1](#mode-switching-diagram)中带 * 号的状态），若遇到异常、关机或复位事件，都会立即打断开机流程并回到关机模式，等待下一次唤醒。
 
 所有的BUCK（BUCK1~4）和EXT_EN都有各自独立可编程的SLOT ID，该SLOT ID通过PMIC内部的MTP配置内容决定，在关机模式下唤醒后即从MTP相应内存单元内取得配置。
 
 多个电源轨或EXTx_EN可同时绑定到同一个SLOT里，即电源轨可在同一个SLOT中打开。
 
-开机序列从SLOT0开始，所有SLOT的计时是独立可编程的，有六个档位选择（[Table 6-26](#table-6-26-stup_slot_dlyx) STUP_SLOT_DLYx）。根据不同的PWRCTRL引脚绑定情况，有如下几种场景：
+开机序列从SLOT0开始，所有SLOT的计时是独立可编程的，有六个档位选择（[表 6-26](#table-6-26-stup_slot_dlyx) STUP_SLOT_DLYx）。根据不同的PWRCTRL引脚绑定情况，有如下几种场景：
 
 <a id="table-5-17"></a>
 
-**Table 5-17 开机序列行为说明**
+**表 5-17 开机序列行为说明**
 
 |场景|配置|电源轨使能|SLOT计时|
 |---|---|---|---|
@@ -825,7 +829,7 @@ PMIC进入开机模式开始，如果VSYS电压在16s内未低于关机阈值，
 
 <a id="figure-5-4"></a>
 
-**Figure 5-4 开机流程时序图**
+**图 5-4 开机流程时序图**
 
 ![Image](./static/p3-ds-6.png)
 
@@ -843,29 +847,29 @@ PMIC进入开机模式开始，如果VSYS电压在16s内未低于关机阈值，
 
 5. VSYS过压（可软件或MTP屏蔽）、电源轨异常事件（如过压OV，欠压UV，可软件或MTP屏蔽），芯片过温（可软件或MTP屏蔽）
 
-另外电源轨异常事件可以配置[Table 6-28](#table-6-28-buck_glb_ctrl) BUCK_GLB_CTRL[1]来选择是进行关机还是关闭发生异常事件的BUCK。
+另外电源轨异常事件可以配置[表 6-28](#table-6-28-buck_glb_ctrl) BUCK_GLB_CTRL[1]来选择是进行关机还是关闭发生异常事件的BUCK。
 
 #### 5.4.4 关机流程
 
 关机流程中的关机时序与开机流程中的开机时序流程是相反的，关机时序是从SLOT15开始反序走到SLOT0，在每个SLOT里的涉及到的操作对象（BUCK，LDO或EXT_EN）是与开机流程一样的，但是触发相关行为的事件极性（PWRCTRL极性）和导致的结果（电源轨的开启或关闭）都是相反的，如 **开机流程时序图（[5.4.2 开机流程](#542-开机流程)）** 和 **关机流程时序图（下图）** 所示。
 
-当在睡眠和唤醒过程中（[Figure 5-1](#mode-switching-diagram)中带 # 号的状态）遇到关机或复位事件，睡眠和唤醒过程会被打断，并根据当前配置执行相应的关机流程（[Table 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[0]）。
+当在睡眠和唤醒过程中（[图 5-1](#mode-switching-diagram)中带 # 号的状态）遇到关机或复位事件，睡眠和唤醒过程会被打断，并根据当前配置执行相应的关机流程（[表 6-20](#table-6-20-pmu_ctrl4) PMU_CTRL4[0]）。
 
-反序走到某个SLOT时，与该SLOT绑定的电源轨关闭，EXT_EN变无效；当电源轨配置成等待PWRCTRL（[Table 6-18](#table-6-18-pmu_ctrl2) PMU_CTRL2[2] = 1），则该SLOT的计时以及电源轨的关闭需等待PWRCTRL无效，若等待PWRCTRL超时（[Table 6-19](#table-6-19-pmu_ctrl3) PMU_CTRL3[7]），则启动SLOT计时并关闭相应电源轨。
+反序走到某个SLOT时，与该SLOT绑定的电源轨关闭，EXT_EN变无效；当电源轨配置成等待PWRCTRL（[表 6-18](#table-6-18-pmu_ctrl2) PMU_CTRL2[2] = 1），则该SLOT的计时以及电源轨的关闭需等待PWRCTRL无效，若等待PWRCTRL超时（[表 6-19](#table-6-19-pmu_ctrl3) PMU_CTRL3[7]），则启动SLOT计时并关闭相应电源轨。
 
-关机流程过程中如遇紧急事件，包括VSYS过压（[Table 6-77](#table-6-77-sys_status) SYS_STATUS[5]）和芯片严重过温（[Table 6-77](#table-6-77-sys_status) SYS_STATUS[3]），并且使能相关保护操作（[Table 6-43](#table-6-43-prot_en) PROT_EN[4][6]），则立即回到关机模式，所有电源轨和EXT_EN立即关闭或无效。
+关机流程过程中如遇紧急事件，包括VSYS过压（[表 6-77](#table-6-77-sys_status) SYS_STATUS[5]）和芯片严重过温（[表 6-77](#table-6-77-sys_status) SYS_STATUS[3]），并且使能相关保护操作（[表 6-43](#table-6-43-prot_en) PROT_EN[4][6]），则立即回到关机模式，所有电源轨和EXT_EN立即关闭或无效。
 
 <a id="figure-5-5"></a>
 
-**Figure 5-5 关机流程时序图**
+**图 5-5 关机流程时序图**
 
 ![Image](./static/p3-ds-7.png)
 
 #### 5.4.5 睡眠事件
 
-[Figure 5-1](#mode-switching-diagram)中的睡眠事件，是开机模式进入睡眠模式的条件：
+[图 5-1](#mode-switching-diagram)中的睡眠事件，是开机模式进入睡眠模式的条件：
 
-1. 软件进入睡眠（[Table 6-17](#table-6-17-pmu_ctrl1) PMU_CTRL1[1] = 1）。
+1. 软件进入睡眠（[表 6-17](#table-6-17-pmu_ctrl1) PMU_CTRL1[1] = 1）。
 
 2. GPIO 复用输入功能（SLEEP/WKUP）引脚有效事件。
 
@@ -873,9 +877,9 @@ PMIC进入开机模式开始，如果VSYS电压在16s内未低于关机阈值，
 
 睡眠流程时序和关机流程的SLOT顺序是一致，但是行为不一样：
 
-1. 各电源轨的使能保持不变（若[Table 6-39](#table-6-39-buckx_slp_vout) BUCKx_SLP_VOUT睡眠电压设置为0，则会关闭该BUCK使能），否则在此过程各电源轨只会将其电压调节到睡眠电压。
+1. 各电源轨的使能保持不变（若[表 6-39](#table-6-39-buckx_slp_vout) BUCKx_SLP_VOUT睡眠电压设置为0，则会关闭该BUCK使能），否则在此过程各电源轨只会将其电压调节到睡眠电压。
 
-2. EXT_EN受[Table 6-25](#table-6-25-ext_ctrl) EXT_CTRL控制，即只有EXTx_SLP_SD = 1时，睡眠流程走到对应的SLOT时才会关闭，否则保持不变。
+2. EXT_EN受[表 6-25](#table-6-25-ext_ctrl) EXT_CTRL控制，即只有EXTx_SLP_SD = 1时，睡眠流程走到对应的SLOT时才会关闭，否则保持不变。
 
 3. 睡眠流程中，唤醒事件不会打断睡眠过程，当进入睡眠模式后，此时唤醒条件还成立，则启动唤醒流程，其中软件和GPIO引脚触发睡眠条件是电平方式的，并只在开机模式下生效。
 
@@ -883,7 +887,7 @@ PMIC进入开机模式开始，如果VSYS电压在16s内未低于关机阈值，
 
 #### 5.4.7 唤醒事件
 
-[Figure 5-1](#mode-switching-diagram)中的唤醒事件，是睡眠模式退出的条件：
+[图 5-1](#mode-switching-diagram)中的唤醒事件，是睡眠模式退出的条件：
 
 1. 软件唤醒
 
@@ -923,7 +927,7 @@ PMIC进入开机模式开始，如果VSYS电压在16s内未低于关机阈值，
 
 在开机模式、睡眠模式下遇到复位事件的行为是一致的，然后根据配置进行下一步操作，复位流程都需要经过关机流程。
 
-经过关机流程进入关机模式后，PMIC 会在此模式下停留 20/100/200/500 ms（[Table 6-19](#table-6-19-pmu_ctrl3) PMU_CTRL3[2:1]），以保证足够的复位时间。计时完成后，退出关机模式并进入 MTP_READ2，如[Figure 5-1](#mode-switching-diagram)所示。复位源触发进入关机模式的（[Table 6-19](#table-6-19-pmu_ctrl3) PMU_CTRL3[2:1]）期间，开机源被屏蔽，即开机源无效。
+经过关机流程进入关机模式后，PMIC 会在此模式下停留 20/100/200/500 ms（[表 6-19](#table-6-19-pmu_ctrl3) PMU_CTRL3[2:1]），以保证足够的复位时间。计时完成后，退出关机模式并进入 MTP_READ2，如[图 5-1](#mode-switching-diagram)所示。复位源触发进入关机模式的（[表 6-19](#table-6-19-pmu_ctrl3) PMU_CTRL3[2:1]）期间，开机源被屏蔽，即开机源无效。
 
 #### 5.4.11 热复位
 
@@ -935,17 +939,17 @@ PMIC进入开机模式开始，如果VSYS电压在16s内未低于关机阈值，
 
 3. 其他模块的工作状态也恢复到上电默认状态
 
-热复位通过 WARM_RESET（GPIO 复用输入功能）有效事件触发（可软件屏蔽）。如[Figure 5-1](#mode-switching-diagram)所示，热复位发生后，PMIC 复位所有配置寄存器和部分外设标志位（详见[6.2.2 寄存器描述](#622-寄存器描述)），拉低 PGOOD；执行 MTP_READ2 后，将所有 BUCK 输出电压恢复至开机默认值（无需等待 PWRCTRL）。对于开机时不启动的电源轨，则保持关闭。热复位完成后，后续行为与普通开机一致。
+热复位通过 WARM_RESET（GPIO 复用输入功能）有效事件触发（可软件屏蔽）。如[图 5-1](#mode-switching-diagram)所示，热复位发生后，PMIC 复位所有配置寄存器和部分外设标志位（详见[6.2.2 寄存器描述](#622-寄存器描述)），拉低 PGOOD；执行 MTP_READ2 后，将所有 BUCK 输出电压恢复至开机默认值（无需等待 PWRCTRL）。对于开机时不启动的电源轨，则保持关闭。热复位完成后，后续行为与普通开机一致。
 
 <a id="figure-5-6"></a>
 
-**Figure 5-6 热复位流程时序图**
+**图 5-6 热复位流程时序图**
 
 ![Image](./static/p3-ds-8.png)
 
 <a id="table-5-18"></a>
 
-**Table 5-18 各模式和流程下电源轨状态和输出电压**
+**表 5-18 各模式和流程下电源轨状态和输出电压**
 
 |Mode|SLOT_ID|PWRCTRLx|Software|电源轨状态|电源轨输出电压|
 |---|---|---|---|---|---|
@@ -976,7 +980,7 @@ PMIC 共有四路高性能 BUCK，输出电压范围为 0.25 ~ 1.83 V，最大�
 
 4. 热复位流程打开默认开启的BUCK
 
-软启动的电压变化斜率有 4 个档位（2.5/10/25/50 mV/μs），可通过 [Table 6-21](#table-6-21-slew_ctrl0) SLEW_CTRL0[3:2] 进行配置。
+软启动的电压变化斜率有 4 个档位（2.5/10/25/50 mV/μs），可通过 [表 6-21](#table-6-21-slew_ctrl0) SLEW_CTRL0[3:2] 进行配置。
 
 #### 5.5.2 软关闭
 
@@ -992,35 +996,35 @@ PMIC 共有四路高性能 BUCK，输出电压范围为 0.25 ~ 1.83 V，最大�
 
 4. 热复位流程关闭默认关闭的BUCK
 
-软关闭的电压变化斜率有 4 个档位（2.5/10/25/50 mV/μs），可通过 [Table 6-21](#table-6-21-slew_ctrl0) SLEW_CTRL0[1:0] 进行配置。
+软关闭的电压变化斜率有 4 个档位（2.5/10/25/50 mV/μs），可通过 [表 6-21](#table-6-21-slew_ctrl0) SLEW_CTRL0[1:0] 进行配置。
 
-所有BUCK输出端都有一个下拉电阻控制，当BUCK使能打开时，BUCK下拉电阻关闭，当BUCK关闭时，BUCK下拉电阻是否打开取决于[Table 6-28](#table-6-28-buck_glb_ctrl) BUCK_GLB_CTRL[0]。
+所有BUCK输出端都有一个下拉电阻控制，当BUCK使能打开时，BUCK下拉电阻关闭，当BUCK关闭时，BUCK下拉电阻是否打开取决于[表 6-28](#table-6-28-buck_glb_ctrl) BUCK_GLB_CTRL[0]。
 
 #### 5.5.3 电压配置和动态调压
 
 每个BUCK有5个电压配置寄存器：
 
-1. [Table 6-35](#table-6-35-buckx_vout0) BUCKx_VOUT0
+1. [表 6-35](#table-6-35-buckx_vout0) BUCKx_VOUT0
 
-2. [Table 6-36](#table-6-36-buckx_vout1) BUCKx_VOUT1
+2. [表 6-36](#table-6-36-buckx_vout1) BUCKx_VOUT1
 
-3. [Table 6-37](#table-6-37-buckx_vout2) BUCKx_VOUT2
+3. [表 6-37](#table-6-37-buckx_vout2) BUCKx_VOUT2
 
-4. [Table 6-38](#table-6-38-buckx_vout3) BUCKx_VOUT3
+4. [表 6-38](#table-6-38-buckx_vout3) BUCKx_VOUT3
 
-5. [Table 6-39](#table-6-39-buckx_slp_vout) BUCKx_SLP_VOUT
+5. [表 6-39](#table-6-39-buckx_slp_vout) BUCKx_SLP_VOUT
 
-其中，BUCKx_SLP_VOUT 在睡眠模式下生效；开机模式下生效的电压寄存器则由 DVS 引脚状态确定，见 [Table 5-19](#table-5-19)“DVS1 引脚设置”和 [Table 5-20](#table-5-20)“DVS0 引脚设置”。
+其中，BUCKx_SLP_VOUT 在睡眠模式下生效；开机模式下生效的电压寄存器则由 DVS 引脚状态确定，见 [表 5-19](#table-5-19)“DVS1 引脚设置”和 [表 5-20](#table-5-20)“DVS0 引脚设置”。
 
 有两种方式可以实现动态调压：
 
 1. 通过I2C/SPI通信接口，在开机模式下修改BUCKx_VOUTx；在睡眠模式则修改睡眠模式下的电压配置寄存器BUCKx_SLP_VOUT。
 
-2. 通过 GPIO 复用 DVS 引脚进行调压。[Table 6-34](#table-6-34-buckx_dvs_io) BUCKx_DVS_IO[5:0] 可设置 DVS1/0 对应的 IO 口（需要 [Table 6-12](#table-6-12-gpio_afr0) GPIO_AFR0 和 [Table 6-13](#table-6-13-gpio_afr1) GPIO_AFR1 配置为对应的 DVS 功能）。
+2. 通过 GPIO 复用 DVS 引脚进行调压。[表 6-34](#table-6-34-buckx_dvs_io) BUCKx_DVS_IO[5:0] 可设置 DVS1/0 对应的 IO 口（需要 [表 6-12](#table-6-12-gpio_afr0) GPIO_AFR0 和 [表 6-13](#table-6-13-gpio_afr1) GPIO_AFR1 配置为对应的 DVS 功能）。
 
 <a id="table-5-19"></a>
 
-**Table 5-19 DVS1 引脚设置**
+**表 5-19 DVS1 引脚设置**
 
 |BUCKx_DVS1_IO[2:0]|描述|
 |:---:|---|
@@ -1035,7 +1039,7 @@ PMIC 共有四路高性能 BUCK，输出电压范围为 0.25 ~ 1.83 V，最大�
 
 <a id="table-5-20"></a>
 
-**Table 5-20 DVS0 引脚设置**
+**表 5-20 DVS0 引脚设置**
 
 |BUCKx_DVS0_IO[2:0]|描述|
 |:---:|---|
@@ -1050,28 +1054,28 @@ PMIC 共有四路高性能 BUCK，输出电压范围为 0.25 ~ 1.83 V，最大�
 
 <a id="table-5-21"></a>
 
-**Table 5-21 DVS 引脚功能与开机模式下的电压输出**
+**表 5-21 DVS 引脚功能与开机模式下的电压输出**
 
 |BUCKx｛DVS1,DVS0｝|BUCKx生效的DVS电压寄存器|
 |:---:|---|
-|00|[Table 6-35](#table-6-35-buckx_vout0) BUCKx_VOUT0|
-|01|[Table 6-36](#table-6-36-buckx_vout1) BUCKx_VOUT1|
-|10|[Table 6-37](#table-6-37-buckx_vout2) BUCKx_VOUT2|
-|11|[Table 6-38](#table-6-38-buckx_vout3) BUCKx_VOUT3|
+|00|[表 6-35](#table-6-35-buckx_vout0) BUCKx_VOUT0|
+|01|[表 6-36](#table-6-36-buckx_vout1) BUCKx_VOUT1|
+|10|[表 6-37](#table-6-37-buckx_vout2) BUCKx_VOUT2|
+|11|[表 6-38](#table-6-38-buckx_vout3) BUCKx_VOUT3|
 
 DVS1/DVS0的引脚逻辑如下图 **DVS0/DVS1逻辑** 所示，在使用DVS功能时，应该合理配置DVS引脚和GPIO引脚的复用，只有配置DVS的引脚和GPIO_AFR的复用功能匹配，才能通过GPIO来控制BUCK电压，否则，对应的DVS逻辑为0。比如，BUCK1_DVS0_IO设置为010（GPIO0）且GPIO1_AFR设置为1000（DVS0），但是BUCK1_DVS1_IO设置为100（GPIO3），GPIO3_AFR设置为0000（通用输入），那BUCK1的DVS1就恒为0，只能通过DVS0的变化来选择BUCKx_VOUT0、BUCKx_VOUT1。
 
 <a id="figure-5-7"></a>
 
-**Figure 5-7 DVS0/DVS1逻辑**
+**图 5-7 DVS0/DVS1逻辑**
 
 ![Image](./static/p3-ds-9.png)
 
-关于调压速度，[5.5.1 软启动](#551-软启动)和[5.5.2 软关闭](#552-软关闭)分别说明了软启动和软关闭的场景，两者的速度均可在 2.5/10/25/50 mV/μs 中选择。软启动时，调压速度由 [Table 6-21](#table-6-21-slew_ctrl0) SLEW_CTRL0[3:2] 控制；软关闭时，调压速度由 [Table 6-21](#table-6-21-slew_ctrl0) SLEW_CTRL0[1:0] 控制。除软启动和软关闭外，还有以下调压场景：
+关于调压速度，[5.5.1 软启动](#551-软启动)和[5.5.2 软关闭](#552-软关闭)分别说明了软启动和软关闭的场景，两者的速度均可在 2.5/10/25/50 mV/μs 中选择。软启动时，调压速度由 [表 6-21](#table-6-21-slew_ctrl0) SLEW_CTRL0[3:2] 控制；软关闭时，调压速度由 [表 6-21](#table-6-21-slew_ctrl0) SLEW_CTRL0[1:0] 控制。除软启动和软关闭外，还有以下调压场景：
 
-1. 开机模式通过I2C/SPI配置已打开BUCK的有效寄存器[Table 6-35](#table-6-35-buckx_vout0) BUCKx_VOUT0，[Table 6-36](#table-6-36-buckx_vout1) BUCKx_VOUT1，[Table 6-37](#table-6-37-buckx_vout2) BUCKx_VOUT2，[Table 6-38](#table-6-38-buckx_vout3) BUCKx_VOUT3
+1. 开机模式通过I2C/SPI配置已打开BUCK的有效寄存器[表 6-35](#table-6-35-buckx_vout0) BUCKx_VOUT0，[表 6-36](#table-6-36-buckx_vout1) BUCKx_VOUT1，[表 6-37](#table-6-37-buckx_vout2) BUCKx_VOUT2，[表 6-38](#table-6-38-buckx_vout3) BUCKx_VOUT3
 
-2. 睡眠模式通过I2C/SPI配置已打开BUCK的[Table 6-39](#table-6-39-buckx_slp_vout) BUCKx_SLP_VOUT
+2. 睡眠模式通过I2C/SPI配置已打开BUCK的[表 6-39](#table-6-39-buckx_slp_vout) BUCKx_SLP_VOUT
 
 3. 开机模式通过DVS引脚控制BUCK电压选择
 
@@ -1079,25 +1083,25 @@ DVS1/DVS0的引脚逻辑如下图 **DVS0/DVS1逻辑** 所示，在使用DVS功�
 
 5. 热复位流程中的不涉及软启动和软关闭的BUCK电压变化
 
-当变化前的电压 > 变化后的电压时，调压屏蔽由 [Table 6-22](#table-6-22-slew_ctrl1) SLEW_CTRL1[4] 控制，调压速度通过 [Table 6-22](#table-6-22-slew_ctrl1) SLEW_CTRL1[1:0] 进行配置；
+当变化前的电压 > 变化后的电压时，调压屏蔽由 [表 6-22](#table-6-22-slew_ctrl1) SLEW_CTRL1[4] 控制，调压速度通过 [表 6-22](#table-6-22-slew_ctrl1) SLEW_CTRL1[1:0] 进行配置；
 
-当变化前的电压 < 变化后的电压时，调压屏蔽由 [Table 6-22](#table-6-22-slew_ctrl1) SLEW_CTRL1[5] 控制，调压速度通过 [Table 6-22](#table-6-22-slew_ctrl1) SLEW_CTRL1[3:2] 进行配置。
+当变化前的电压 < 变化后的电压时，调压屏蔽由 [表 6-22](#table-6-22-slew_ctrl1) SLEW_CTRL1[5] 控制，调压速度通过 [表 6-22](#table-6-22-slew_ctrl1) SLEW_CTRL1[3:2] 进行配置。
 
-在开机模式或睡眠模式下调压完成后（不涉及软关闭和软启动），将置起 [Table 6-80](#table-6-80-buck_status0) BUCK_STATUS0[3:0] 调压完成标志位。如果使能对应中断，还会通过 INT 通知 SoC。需要注意的是，调压完成标志位会在热复位流程中清零。
+在开机模式或睡眠模式下调压完成后（不涉及软关闭和软启动），将置起 [表 6-80](#table-6-80-buck_status0) BUCK_STATUS0[3:0] 调压完成标志位。如果使能对应中断，还会通过 INT 通知 SoC。需要注意的是，调压完成标志位会在热复位流程中清零。
 
 #### 5.5.4 多相控制
 
-PMIC 支持 4+0、3+1、2+2、2+1+1、1+1+1+1 输出配置。可通过 MTP 或 PH_CFGx（IO 复用）进行选择：当 [Table 6-28](#table-6-28-buck_glb_ctrl) BUCK_GLB_CTRL[5] 为 0 时，通过 MTP 在 MTP_READ2 阶段完成多相配置。
+PMIC 支持 4+0、3+1、2+2、2+1+1、1+1+1+1 输出配置。可通过 MTP 或 PH_CFGx（IO 复用）进行选择：当 [表 6-28](#table-6-28-buck_glb_ctrl) BUCK_GLB_CTRL[5] 为 0 时，通过 MTP 在 MTP_READ2 阶段完成多相配置。
 
-当 [Table 6-28](#table-6-28-buck_glb_ctrl) BUCK_GLB_CTRL[5] 为 1 时，在 MTP_READ2 完成后，通过 GPIO、[Table 6-28](#table-6-28-buck_glb_ctrl) BUCK_GLB_CTRL[4:2]、GPIO 复用控制以及 GPIO 输入来控制多相选择。
+当 [表 6-28](#table-6-28-buck_glb_ctrl) BUCK_GLB_CTRL[5] 为 1 时，在 MTP_READ2 完成后，通过 GPIO、[表 6-28](#table-6-28-buck_glb_ctrl) BUCK_GLB_CTRL[4:2]、GPIO 复用控制以及 GPIO 输入来控制多相选择。
 
 注意，两种多相控制的方式均只在PMIC上电后第一次开机流程中进行逻辑控制，后续关机再开机将保持多相配置的选择。
 
 <a id="table-5-22"></a>
 
-**Table 5-22 多相控制设置**
+**表 5-22 多相控制设置**
 
-|[Table 6-28](#table-6-28-buck_glb_ctrl) BUCK_GLB_CTRL[5]|PH_CFG2,PG_CFG1,<br>PH_CFG0（IO复用）|[Table 6-28](#table-6-28-buck_glb_ctrl) BUCK_GLB_CTRL[4:2]|BUCK多相配置|备注|
+|[表 6-28](#table-6-28-buck_glb_ctrl) BUCK_GLB_CTRL[5]|PH_CFG2,PG_CFG1,<br>PH_CFG0（IO复用）|[表 6-28](#table-6-28-buck_glb_ctrl) BUCK_GLB_CTRL[4:2]|BUCK多相配置|备注|
 |:---:|:---:|:---:|:---:|:---:|
 |**0**|-|000|4+0|BUCK1作为master|
 ||-|001|3+1|BUCK1作为master|
@@ -1112,23 +1116,23 @@ PMIC 支持 4+0、3+1、2+2、2+1+1、1+1+1+1 输出配置。可通过 MTP 或 P
 
 BUCK1/3作为master，slave BUCK的以下寄存器将无效，slave BUCK的相关控制由master BUCK决定。
 
-[Table 6-32](#table-6-32-buckx_ctrl) BUCKx_CTRL
+[表 6-32](#table-6-32-buckx_ctrl) BUCKx_CTRL
 
-[Table 6-23](#table-6-23-slot_ctrl0) SLOT_CTRL0
+[表 6-23](#table-6-23-slot_ctrl0) SLOT_CTRL0
 
-[Table 6-24](#table-6-24-slot_ctrl1) SLOT_CTRL1
+[表 6-24](#table-6-24-slot_ctrl1) SLOT_CTRL1
 
-[Table 6-34](#table-6-34-buckx_dvs_io) BUCKx_DVS_IO
+[表 6-34](#table-6-34-buckx_dvs_io) BUCKx_DVS_IO
 
-[Table 6-35](#table-6-35-buckx_vout0) BUCKx_VOUT0
+[表 6-35](#table-6-35-buckx_vout0) BUCKx_VOUT0
 
-[Table 6-36](#table-6-36-buckx_vout1) BUCKx_VOUT1
+[表 6-36](#table-6-36-buckx_vout1) BUCKx_VOUT1
 
-[Table 6-37](#table-6-37-buckx_vout2) BUCKx_VOUT2
+[表 6-37](#table-6-37-buckx_vout2) BUCKx_VOUT2
 
-[Table 6-38](#table-6-38-buckx_vout3) BUCKx_VOUT3
+[表 6-38](#table-6-38-buckx_vout3) BUCKx_VOUT3
 
-[Table 6-39](#table-6-39-buckx_slp_vout) BUCKx_SLP_VOUT
+[表 6-39](#table-6-39-buckx_slp_vout) BUCKx_SLP_VOUT
 
 另外，多相并联模式下，只有 master BUCK 会有对应的异常事件产生，slave BUCK 异常事件被屏蔽。
 
@@ -1138,43 +1142,43 @@ PMIC 集成 4 路 BUCK，支持主从两颗 PMIC 通过 GPIO3 引脚进行级联
 
 1. PMIC做主机。作为级联主机时，在控制自身4个BUCK（主机需配置为四相）的前提下，需要生成并输出相位同步时钟，并从GPIO3输出。MTP配置说明如下：
 
-    GPIO3配置为通用输出模式：[Table 6-13](#table-6-13-gpio_afr1) GPIO_AFR1[7:4]配置为1000
+    GPIO3配置为通用输出模式：[表 6-13](#table-6-13-gpio_afr1) GPIO_AFR1[7:4]配置为1000
 
-    设置为主机模式：[Table 6-29](#table-6-29-buck_cascade_ctrl0) BUCK_CASCADE_CTRL0[1:0]配置为11
+    设置为主机模式：[表 6-29](#table-6-29-buck_cascade_ctrl0) BUCK_CASCADE_CTRL0[1:0]配置为11
 
-    从机级联相数选择：[Table 6-29](#table-6-29-buck_cascade_ctrl0) BUCK_CASCADE_CTRL0[3:2]，4+1（00）、4+2（01）、4+3（10）、4+4（11）。主机自身4个BUCK通道默认按BUCK1~BUCK4依次对应第1~4相，不受cas_sel影响。cas_sel仅决定输出给从机的同步信号中包含多少个相位。
+    从机级联相数选择：[表 6-29](#table-6-29-buck_cascade_ctrl0) BUCK_CASCADE_CTRL0[3:2]，4+1（00）、4+2（01）、4+3（10）、4+4（11）。主机自身4个BUCK通道默认按BUCK1~BUCK4依次对应第1~4相，不受cas_sel影响。cas_sel仅决定输出给从机的同步信号中包含多少个相位。
 
-    输出级联信号脉宽：[Table 6-31](#table-6-31-buck_cascade_ctrl2) BUCK_CASCADE_CTRL2[1:0]
+    输出级联信号脉宽：[表 6-31](#table-6-31-buck_cascade_ctrl2) BUCK_CASCADE_CTRL2[1:0]
 
     <a id="figure-5-8"></a>
 
-    **Figure 5-8 PMIC级联主机输出相数和GPIO3输出相位时序**
+    **图 5-8 PMIC级联主机输出相数和GPIO3输出相位时序**
 
     ![Image](./static/p3-ds-10.png)
 
 2. PMIC做从机。作为级联从机，其工作为通过GPIO3接收来自级联主机的输入同步信号，并将内部BUCK通道分配到指定的相位上，与主机形成并联。MTP配置说明如下：
 
-    GPIO3配置为通用输入模式：[Table 6-13](#table-6-13-gpio_afr1) GPIO_AFR1[7:4]配置为0000
+    GPIO3配置为通用输入模式：[表 6-13](#table-6-13-gpio_afr1) GPIO_AFR1[7:4]配置为0000
 
-    设置为从机模式：[Table 6-29](#table-6-29-buck_cascade_ctrl0) BUCK_CASCADE_CTRL0[1:0]配置为10
+    设置为从机模式：[表 6-29](#table-6-29-buck_cascade_ctrl0) BUCK_CASCADE_CTRL0[1:0]配置为10
 
-    使能BUCKx进行从机级联：[Table 6-29](#table-6-29-buck_cascade_ctrl0) BUCK_CASCADE_CTRL0[7:4]
+    使能BUCKx进行从机级联：[表 6-29](#table-6-29-buck_cascade_ctrl0) BUCK_CASCADE_CTRL0[7:4]
 
-    级联信号的第几相用于控制从机BUCKx：[Table 6-30](#table-6-30-buck_cascade_ctrl1) BUCK_CASCADE_CTRL1
+    级联信号的第几相用于控制从机BUCKx：[表 6-30](#table-6-30-buck_cascade_ctrl1) BUCK_CASCADE_CTRL1
 
     <a id="figure-5-9"></a>
 
-    **Figure 5-9 PMIC级联从机BUCKx的相位控制（4+4）**
+    **图 5-9 PMIC级联从机BUCKx的相位控制（4+4）**
 
     ![Image](./static/p3-ds-11.png)
 
 #### 5.5.6 VOUT 寄存器配置和电压映射
 
-通过配置[Table 6-35](#table-6-35-buckx_vout0) BUCKx_VOUT0，[Table 6-36](#table-6-36-buckx_vout1) BUCKx_VOUT1，[Table 6-37](#table-6-37-buckx_vout2) BUCKx_VOUT2，[Table 6-38](#table-6-38-buckx_vout3) BUCKx_VOUT3和[Table 6-39](#table-6-39-buckx_slp_vout) BUCKx_SLP_VOUT可以修改开机和睡眠模式下的BUCKx电压，其配置和电压的映射关系如下：
+通过配置[表 6-35](#table-6-35-buckx_vout0) BUCKx_VOUT0，[表 6-36](#table-6-36-buckx_vout1) BUCKx_VOUT1，[表 6-37](#table-6-37-buckx_vout2) BUCKx_VOUT2，[表 6-38](#table-6-38-buckx_vout3) BUCKx_VOUT3和[表 6-39](#table-6-39-buckx_slp_vout) BUCKx_SLP_VOUT可以修改开机和睡眠模式下的BUCKx电压，其配置和电压的映射关系如下：
 
 <a id="table-5-23"></a>
 
-**Table 5-23 BUCKx_VOUT 和 BUCKx_SLP_VOUT 配置和电压映射（单位：V）**
+**表 5-23 BUCKx_VOUT 和 BUCKx_SLP_VOUT 配置和电压映射（单位：V）**
 
 表中每个单元格的格式为“寄存器编码 / 输出电压”。
 
@@ -1205,7 +1209,7 @@ PMIC 集成 4 路 BUCK，支持主从两颗 PMIC 通过 GPIO3 引脚进行级联
 
 #### 5.5.7 LPM（低功耗）模式
 
-每个 BUCK 均包含 LPM（低功耗）功能，可在主机进入睡眠状态后将静态电流降至最低。在 LPM 模式下，增强型瞬态响应（ETR）、自适应死区时间控制（ADT）和 POK 比较器会被禁用，因此 BUCK 的负载瞬态响应性能会有所降低。BUCK 的 LPM 模式使能共用，通过 [Table 6-28](#table-6-28-buck_glb_ctrl) BUCK_GLB_CTRL[6] 启动。
+每个 BUCK 均包含 LPM（低功耗）功能，可在主机进入睡眠状态后将静态电流降至最低。在 LPM 模式下，增强型瞬态响应（ETR）、自适应死区时间控制（ADT）和 POK 比较器会被禁用，因此 BUCK 的负载瞬态响应性能会有所降低。BUCK 的 LPM 模式使能共用，通过 [表 6-28](#table-6-28-buck_glb_ctrl) BUCK_GLB_CTRL[6] 启动。
 
 ### 5.6 异常保护
 
@@ -1225,31 +1229,31 @@ PMIC有以下保护操作：
 
 <a id="table-5-24"></a>
 
-**Table 5-24 异常事件保护和相关寄存器**
+**表 5-24 异常事件保护和相关寄存器**
 
 |保护类型|相关寄存器|行为|
 |---|---|---|
-|**BUCK欠压**|[Table 6-43](#table-6-43-prot_en) PROT_EN[1]<br>[Table 6-28](#table-6-28-buck_glb_ctrl) BUCK_GLB_CTRL[0]<br>[Table 6-44](#table-6-44-sys_deb) SYS_DEB[4:3]<br>[Table 6-44](#table-6-44-sys_deb) SYS_DEB[2:0]<br>[Table 6-76](#table-6-76-shut_status) SHUT_STATUS[1]<br>[Table 6-81](#table-6-81-buck_status1) BUCK_STATUS1[7:4]<br>[Table 6-87](#table-6-87-buck_irq_en1) BUCK_IRQ_EN1[7:4]|按关机配置关机或关闭发生异常的BUCK|
-|**BUCK过压**|[Table 6-43](#table-6-43-prot_en) PROT_EN[2]<br>[Table 6-28](#table-6-28-buck_glb_ctrl) BUCK_GLB_CTRL[0]<br>[Table 6-44](#table-6-44-sys_deb) SYS_DEB[4:3]<br>[Table 6-44](#table-6-44-sys_deb) SYS_DEB[2:0]<br>[Table 6-76](#table-6-76-shut_status) SHUT_STATUS[2]<br>[Table 6-82](#table-6-82-buck_status2) BUCK_STATUS2[7:4]<br>[Table 6-88](#table-6-88-buck_irq_en2) BUCK_IRQ_EN2[7:4]|按关机配置关机或关闭发生异常的BUCK|
-|**芯片严重过温**|[Table 6-43](#table-6-43-prot_en) PROT_EN[3]<br>[Table 6-42](#table-6-42-prot_cfg) PROT_CFG[6]<br>[Table 6-44](#table-6-44-sys_deb) SYS_DEB[6:4]<br>[Table 6-76](#table-6-76-shut_status) SHUT_STATUS[3]<br>[Table 6-77](#table-6-77-sys_status) SYS_STATUS[2]<br>[Table 6-83](#table-6-83-sys_irq_en) SYS_IRQ_EN[2]|按关机配置关机|
-|**芯片紧急过温**|[Table 6-43](#table-6-43-prot_en) PROT_EN[4]<br>[Table 6-42](#table-6-42-prot_cfg) PROT_CFG[6]<br>[Table 6-44](#table-6-44-sys_deb) SYS_DEB[6:4]<br>[Table 6-76](#table-6-76-shut_status) SHUT_STATUS[3]<br>[Table 6-77](#table-6-77-sys_status) SYS_STATUS[3]<br>[Table 6-83](#table-6-83-sys_irq_en) SYS_IRQ_EN[3]|直接进入关机模式|
-|**VIO欠压**|[Table 6-43](#table-6-43-prot_en) PROT_EN[5]<br>[Table 6-44](#table-6-44-sys_deb) SYS_DEB[6:4]<br>[Table 6-76](#table-6-76-shut_status) SHUT_STATUS[4]<br>[Table 6-77](#table-6-77-sys_status) SYS_STATUS[4]<br>[Table 6-83](#table-6-83-sys_irq_en) SYS_IRQ_EN[4]|按关机配置关机|
-|**VSYS过压**|[Table 6-43](#table-6-43-prot_en) PROT_EN[6]<br>[Table 6-44](#table-6-44-sys_deb) SYS_DEB[6:4]<br>[Table 6-76](#table-6-76-shut_status) SHUT_STATUS[6]<br>[Table 6-77](#table-6-77-sys_status) SYS_STATUS[5]<br>[Table 6-83](#table-6-83-sys_irq_en) SYS_IRQ_EN[5]|直接进入关机模式|
-|**VSYS欠压**|[Table 6-44](#table-6-44-sys_deb) SYS_DEB[6:4]<br>[Table 6-76](#table-6-76-shut_status) SHUT_STATUS[5]|按关机配置关机|
+|**BUCK欠压**|[表 6-43](#table-6-43-prot_en) PROT_EN[1]<br>[表 6-28](#table-6-28-buck_glb_ctrl) BUCK_GLB_CTRL[0]<br>[表 6-44](#table-6-44-sys_deb) SYS_DEB[4:3]<br>[表 6-44](#table-6-44-sys_deb) SYS_DEB[2:0]<br>[表 6-76](#table-6-76-shut_status) SHUT_STATUS[1]<br>[表 6-81](#table-6-81-buck_status1) BUCK_STATUS1[7:4]<br>[表 6-87](#table-6-87-buck_irq_en1) BUCK_IRQ_EN1[7:4]|按关机配置关机或关闭发生异常的BUCK|
+|**BUCK过压**|[表 6-43](#table-6-43-prot_en) PROT_EN[2]<br>[表 6-28](#table-6-28-buck_glb_ctrl) BUCK_GLB_CTRL[0]<br>[表 6-44](#table-6-44-sys_deb) SYS_DEB[4:3]<br>[表 6-44](#table-6-44-sys_deb) SYS_DEB[2:0]<br>[表 6-76](#table-6-76-shut_status) SHUT_STATUS[2]<br>[表 6-82](#table-6-82-buck_status2) BUCK_STATUS2[7:4]<br>[表 6-88](#table-6-88-buck_irq_en2) BUCK_IRQ_EN2[7:4]|按关机配置关机或关闭发生异常的BUCK|
+|**芯片严重过温**|[表 6-43](#table-6-43-prot_en) PROT_EN[3]<br>[表 6-42](#table-6-42-prot_cfg) PROT_CFG[6]<br>[表 6-44](#table-6-44-sys_deb) SYS_DEB[6:4]<br>[表 6-76](#table-6-76-shut_status) SHUT_STATUS[3]<br>[表 6-77](#table-6-77-sys_status) SYS_STATUS[2]<br>[表 6-83](#table-6-83-sys_irq_en) SYS_IRQ_EN[2]|按关机配置关机|
+|**芯片紧急过温**|[表 6-43](#table-6-43-prot_en) PROT_EN[4]<br>[表 6-42](#table-6-42-prot_cfg) PROT_CFG[6]<br>[表 6-44](#table-6-44-sys_deb) SYS_DEB[6:4]<br>[表 6-76](#table-6-76-shut_status) SHUT_STATUS[3]<br>[表 6-77](#table-6-77-sys_status) SYS_STATUS[3]<br>[表 6-83](#table-6-83-sys_irq_en) SYS_IRQ_EN[3]|直接进入关机模式|
+|**VIO欠压**|[表 6-43](#table-6-43-prot_en) PROT_EN[5]<br>[表 6-44](#table-6-44-sys_deb) SYS_DEB[6:4]<br>[表 6-76](#table-6-76-shut_status) SHUT_STATUS[4]<br>[表 6-77](#table-6-77-sys_status) SYS_STATUS[4]<br>[表 6-83](#table-6-83-sys_irq_en) SYS_IRQ_EN[4]|按关机配置关机|
+|**VSYS过压**|[表 6-43](#table-6-43-prot_en) PROT_EN[6]<br>[表 6-44](#table-6-44-sys_deb) SYS_DEB[6:4]<br>[表 6-76](#table-6-76-shut_status) SHUT_STATUS[6]<br>[表 6-77](#table-6-77-sys_status) SYS_STATUS[5]<br>[表 6-83](#table-6-83-sys_irq_en) SYS_IRQ_EN[5]|直接进入关机模式|
+|**VSYS欠压**|[表 6-44](#table-6-44-sys_deb) SYS_DEB[6:4]<br>[表 6-76](#table-6-76-shut_status) SHUT_STATUS[5]|按关机配置关机|
 
 #### 5.6.1 电源轨异常保护
 
-[Table 6-43](#table-6-43-prot_en) PROT_EN[2:1]可以使能电源轨的关机保护（UV/OV），当有任一电源轨发生对应异常时：
+[表 6-43](#table-6-43-prot_en) PROT_EN[2:1]可以使能电源轨的关机保护（UV/OV），当有任一电源轨发生对应异常时：
 
-如果[Table 6-28](#table-6-28-buck_glb_ctrl) BUCK_GLB_CTRL[0]配置为1，即执行关机流程。
+如果[表 6-28](#table-6-28-buck_glb_ctrl) BUCK_GLB_CTRL[0]配置为1，即执行关机流程。
 
-如果[Table 6-28](#table-6-28-buck_glb_ctrl) BUCK_GLB_CTRL[0]配置为0，则仅关闭发生异常事件的BUCK。
+如果[表 6-28](#table-6-28-buck_glb_ctrl) BUCK_GLB_CTRL[0]配置为0，则仅关闭发生异常事件的BUCK。
 
 其中电源轨的OV/UV异常事件有滤波时间选择和屏蔽时间选择：
 
-1. 滤波时间：通过[Table 6-44](#table-6-44-sys_deb) SYS_DEB[4:3]配置为：100/375/750 μs/屏蔽滤波。
+1. 滤波时间：通过[表 6-44](#table-6-44-sys_deb) SYS_DEB[4:3]配置为：100/375/750 μs/屏蔽滤波。
 
-2. 屏蔽时间：在电源轨开启和电源轨电压改变阶段，PMIC内部检测电路可能会产生异常的过压欠压事件，这段时间会屏蔽对应BUCK的过压欠压事件。在电源开启完成或调压完成后，BUCK也会需要有一段电压稳定的时间，可以通过[Table 6-44](#table-6-44-sys_deb) SYS_DEB[2:0]屏蔽BUCK调压完成到稳定这段时间的异常过压欠压事件。
+2. 屏蔽时间：在电源轨开启和电源轨电压改变阶段，PMIC内部检测电路可能会产生异常的过压欠压事件，这段时间会屏蔽对应BUCK的过压欠压事件。在电源开启完成或调压完成后，BUCK也会需要有一段电压稳定的时间，可以通过[表 6-44](#table-6-44-sys_deb) SYS_DEB[2:0]屏蔽BUCK调压完成到稳定这段时间的异常过压欠压事件。
 
 #### 5.6.2 其它异常保护
 
@@ -1257,28 +1261,28 @@ VSYS欠压没有使能，即发生VSYS欠压事件时，必定进行关机流程
 
 VSYS过压，VIO欠压，芯片温度保护分别有单独的使能位：
 
-[Table 6-43](#table-6-43-prot_en) PROT_EN[3]（芯片严重过温保护使能）
+[表 6-43](#table-6-43-prot_en) PROT_EN[3]（芯片严重过温保护使能）
 
-[Table 6-43](#table-6-43-prot_en) PROT_EN[4]（芯片紧急过温保护使能）
+[表 6-43](#table-6-43-prot_en) PROT_EN[4]（芯片紧急过温保护使能）
 
-[Table 6-43](#table-6-43-prot_en) PROT_EN[5]（VIO欠压保护使能）
+[表 6-43](#table-6-43-prot_en) PROT_EN[5]（VIO欠压保护使能）
 
-[Table 6-43](#table-6-43-prot_en) PROT_EN[6]（VSYS过压保护使能）
+[表 6-43](#table-6-43-prot_en) PROT_EN[6]（VSYS过压保护使能）
 
-上述所有事件可通过寄存器[Table 6-44](#table-6-44-sys_deb) SYS_DEB[6:4]设置滤波时间：100/375/750 μs/屏蔽滤波。
+上述所有事件可通过寄存器[表 6-44](#table-6-44-sys_deb) SYS_DEB[6:4]设置滤波时间：100/375/750 μs/屏蔽滤波。
 
-关于温度保护，如下表所示，根据不同的温度大小，温度相关事件有三种：温度报警、严重过温、紧急过温（[Table 6-77](#table-6-77-sys_status) SYS_STATUS[3:1]）。[Table 6-42](#table-6-42-prot_cfg) PROT_CFG[6]（TEMP_LEVEL）可以选择温度保护档位。温度报警只有中断使能位，严重过温和关机过温有中断使能位和关机保护位。当发生相应事件时，PMIC根据使能位的配置进行中断或关机的操作。
+关于温度保护，如下表所示，根据不同的温度大小，温度相关事件有三种：温度报警、严重过温、紧急过温（[表 6-77](#table-6-77-sys_status) SYS_STATUS[3:1]）。[表 6-42](#table-6-42-prot_cfg) PROT_CFG[6]（TEMP_LEVEL）可以选择温度保护档位。温度报警只有中断使能位，严重过温和关机过温有中断使能位和关机保护位。当发生相应事件时，PMIC根据使能位的配置进行中断或关机的操作。
 
 <a id="table-5-25"></a>
 
-**Table 5-25 过温保护档位及其行为**
+**表 5-25 过温保护档位及其行为**
 
-|[Table 6-42](#table-6-42-prot_cfg) PROT_CFG[6]|温度报警（warning）/ ℃|严重过温（severe）/ ℃|关机过温（critical）/ ℃|
+|[表 6-42](#table-6-42-prot_cfg) PROT_CFG[6]|温度报警（warning）/ ℃|严重过温（severe）/ ℃|关机过温（critical）/ ℃|
 |:---:|:---:|:---:|:---:|
 |0|95|115|135|
 |1|110|130|150|
-|事件|[Table 6-77](#table-6-77-sys_status) SYS_STATUS[1] E_TEMP_WARN|[Table 6-77](#table-6-77-sys_status) SYS_STATUS[2] E_TEMP_SEVERE|[Table 6-77](#table-6-77-sys_status) SYS_STATUS[3] E_TEMP_CRIT|
-|中断使能/保护使能|[Table 6-83](#table-6-83-sys_irq_en) SYS_IRQ_EN[1]|[Table 6-83](#table-6-83-sys_irq_en) SYS_IRQ_EN[2]<br>[Table 6-43](#table-6-43-prot_en) PROT_EN[3]|[Table 6-83](#table-6-83-sys_irq_en) SYS_IRQ_EN[3]<br>[Table 6-43](#table-6-43-prot_en) PROT_EN[4]|
+|事件|[表 6-77](#table-6-77-sys_status) SYS_STATUS[1] E_TEMP_WARN|[表 6-77](#table-6-77-sys_status) SYS_STATUS[2] E_TEMP_SEVERE|[表 6-77](#table-6-77-sys_status) SYS_STATUS[3] E_TEMP_CRIT|
+|中断使能/保护使能|[表 6-83](#table-6-83-sys_irq_en) SYS_IRQ_EN[1]|[表 6-83](#table-6-83-sys_irq_en) SYS_IRQ_EN[2]<br>[表 6-43](#table-6-43-prot_en) PROT_EN[3]|[表 6-83](#table-6-83-sys_irq_en) SYS_IRQ_EN[3]<br>[表 6-43](#table-6-43-prot_en) PROT_EN[4]|
 |行为|中断|关机/中断可配|关机/中断可配|
 
 ### 5.7 模数转换（ADC）
@@ -1307,7 +1311,7 @@ VSYS过压，VIO欠压，芯片温度保护分别有单独的使能位：
 
 <a id="figure-5-10"></a>
 
-**Figure 5-10 ADC模块工作示意图**
+**图 5-10 ADC模块工作示意图**
 
 ![Image](./static/p3-ds-12.png)
 
@@ -1315,7 +1319,7 @@ ADC各测量通道如下：
 
 <a id="table-5-26"></a>
 
-**Table 5-26 ADC 转换通道**
+**表 5-26 ADC 转换通道**
 
 |ADC_CHNL_SEL|通道描述|是否有阈值比较|
 |:---:|:---:|:---:|
@@ -1340,13 +1344,13 @@ ADC各测量通道如下：
 
 手动模式配置流程：
 
-1. 配置[Table 6-48](#table-6-48-adc_auto0) ADC_AUTO0和[Table 6-49](#table-6-49-adc_auto1) ADC_AUTO1均配置为0x00，即手动模式。
+1. 配置[表 6-48](#table-6-48-adc_auto0) ADC_AUTO0和[表 6-49](#table-6-49-adc_auto1) ADC_AUTO1均配置为0x00，即手动模式。
 
-2. 使能ADC：[Table 6-45](#table-6-45-adc_ctrl) ADC_CTRL[1] = 1。
+2. 使能ADC：[表 6-45](#table-6-45-adc_ctrl) ADC_CTRL[1] = 1。
 
-3. 选择ADC转换通道，即配置[Table 6-46](#table-6-46-adc_cfg0) ADC_CFG0[3:0]。
+3. 选择ADC转换通道，即配置[表 6-46](#table-6-46-adc_cfg0) ADC_CFG0[3:0]。
 
-4. 置位ADC_GO启动一次转换（[Table 6-45](#table-6-45-adc_ctrl) ADC_CTRL[0] = 1）。
+4. 置位ADC_GO启动一次转换（[表 6-45](#table-6-45-adc_ctrl) ADC_CTRL[0] = 1）。
 
 手动模式下每完成一次转换：
 
@@ -1354,9 +1358,9 @@ ADC各测量通道如下：
 
 2. ADC_GO被硬件清零。
 
-3. ADC单次转换完成事件[Table 6-78](#table-6-78-adc_gpio_status) ADC_GPIO_STATUS[6]（ADC_EOC）会被置位。
+3. ADC单次转换完成事件[表 6-78](#table-6-78-adc_gpio_status) ADC_GPIO_STATUS[6]（ADC_EOC）会被置位。
 
-4. 如果使能了中断[Table 6-84](#table-6-84-adc_gpio_irq_en) ADC_GPIO_IRQ_EN[6]（IRQ_EN_ADC_EOC），会产生一个中断事件（拉低INT引脚）直至软件清除该事件或清零中断使能位。
+4. 如果使能了中断[表 6-84](#table-6-84-adc_gpio_irq_en) ADC_GPIO_IRQ_EN[6]（IRQ_EN_ADC_EOC），会产生一个中断事件（拉低INT引脚）直至软件清除该事件或清零中断使能位。
 
 > 注：
 >
@@ -1369,15 +1373,15 @@ ADC各测量通道如下：
 
 如果配置了通道阈值比较功能：
 
-1. 在未开启结果滤波时（[Table 6-50](#table-6-50-adc_deb0) ADC_DEB0、[Table 6-51](#table-6-51-adc_deb1) ADC_DEB1[4:0]），当本次转换结果超过或低于所设阈值，相应通道的事件（[Table 6-78](#table-6-78-adc_gpio_status) ADC_GPIO_STATUS[4:0]、[Table 6-79](#table-6-79-adc_status) ADC_STATUS）标志位将被置起。
+1. 在未开启结果滤波时（[表 6-50](#table-6-50-adc_deb0) ADC_DEB0、[表 6-51](#table-6-51-adc_deb1) ADC_DEB1[4:0]），当本次转换结果超过或低于所设阈值，相应通道的事件（[表 6-78](#table-6-78-adc_gpio_status) ADC_GPIO_STATUS[4:0]、[表 6-79](#table-6-79-adc_status) ADC_STATUS）标志位将被置起。
 
-2. 当开启了结果滤波时，只有连续遇到超阈值事件或低阈值事件达到[Table 6-51](#table-6-51-adc_deb1) ADC_DEB1[7:5]设置的次数后才会置起相应标志位。
+2. 当开启了结果滤波时，只有连续遇到超阈值事件或低阈值事件达到[表 6-51](#table-6-51-adc_deb1) ADC_DEB1[7:5]设置的次数后才会置起相应标志位。
 
 如果使能了对应的中断，会产生一个中断事件（拉低INT引脚）直至软件清除该事件或清零中断使能位。
 
 <a id="figure-5-11"></a>
 
-**Figure 5-11 ADC结果滤波示意图**
+**图 5-11 ADC结果滤波示意图**
 
 ![Image](./static/p3-ds-13.png)
 
@@ -1385,85 +1389,85 @@ ADC各测量通道如下：
 
 自动模式配置流程：
 
-1. 配置自动扫描通道：[Table 6-48](#table-6-48-adc_auto0) ADC_AUTO0和[Table 6-49](#table-6-49-adc_auto1) ADC_AUTO1。
+1. 配置自动扫描通道：[表 6-48](#table-6-48-adc_auto0) ADC_AUTO0和[表 6-49](#table-6-49-adc_auto1) ADC_AUTO1。
 
-2. 根据需要配置[Table 6-47](#table-6-47-adc_cfg1) ADC_CFG1[0]选择电流结果或功耗结果、[Table 6-47](#table-6-47-adc_cfg1) ADC_CFG1[1]选择是否转换总功耗结果并存储在BUCK1电流/功耗通道结果寄存器
+2. 根据需要配置[表 6-47](#table-6-47-adc_cfg1) ADC_CFG1[0]选择电流结果或功耗结果、[表 6-47](#table-6-47-adc_cfg1) ADC_CFG1[1]选择是否转换总功耗结果并存储在BUCK1电流/功耗通道结果寄存器
 
-    [Table 6-66](#table-6-66-adc_buckx_cur_pwr_rdout_h) ADC_BUCKx_CUR_PWR_RDOUT_H[7:0]（x=1）
+    [表 6-66](#table-6-66-adc_buckx_cur_pwr_rdout_h) ADC_BUCKx_CUR_PWR_RDOUT_H[7:0]（x=1）
 
-    [Table 6-67](#table-6-67-adc_buckx_cur_pwr_rdout_l) ADC_BUCKx_CUR_PWR_RDOUT_L[7:4]（x=1）
+    [表 6-67](#table-6-67-adc_buckx_cur_pwr_rdout_l) ADC_BUCKx_CUR_PWR_RDOUT_L[7:4]（x=1）
 
-    [Table 6-47](#table-6-47-adc_cfg1) ADC_CFG1[4:2]选择数据更新间隔1.5/3/6/12/50/100/300/1500ms
+    [表 6-47](#table-6-47-adc_cfg1) ADC_CFG1[4:2]选择数据更新间隔1.5/3/6/12/50/100/300/1500ms
 
-3. 使能ADC：[Table 6-45](#table-6-45-adc_ctrl) ADC_CTRL[1] = 1，后续扫描操作均由硬件完成
+3. 使能ADC：[表 6-45](#table-6-45-adc_ctrl) ADC_CTRL[1] = 1，后续扫描操作均由硬件完成
 
-4. 任意时候配置[Table 6-45](#table-6-45-adc_ctrl) ADC_CTRL[1] = 0，结束ADC自动扫描
+4. 任意时候配置[表 6-45](#table-6-45-adc_ctrl) ADC_CTRL[1] = 0，结束ADC自动扫描
 
 <a id="figure-5-12"></a>
 
-**Figure 5-12 ADC自动扫描示意图**
+**图 5-12 ADC自动扫描示意图**
 
 ![Image](./static/p3-ds-14.png)
 
 <a id="figure-5-13"></a>
 
-**Figure 5-13 ADC自动模式时序**
+**图 5-13 ADC自动模式时序**
 
 ![Image](./static/p3-ds-15.png)
 
 自动模式下每完成一个通道的扫描：
 
-1. 更新数据到对应的结果寄存器，未在[Table 6-48](#table-6-48-adc_auto0) ADC_AUTO0和[Table 6-49](#table-6-49-adc_auto1) ADC_AUTO1使能的通道不进行数据更新，另外，若配置了[Table 6-47](#table-6-47-adc_cfg1) ADC_CFG1[1]选择统计BUCK总功耗，则在BUCK4_1通道转换结束后更新到BUCK1电流/功耗通道结果寄存器。
+1. 更新数据到对应的结果寄存器，未在[表 6-48](#table-6-48-adc_auto0) ADC_AUTO0和[表 6-49](#table-6-49-adc_auto1) ADC_AUTO1使能的通道不进行数据更新，另外，若配置了[表 6-47](#table-6-47-adc_cfg1) ADC_CFG1[1]选择统计BUCK总功耗，则在BUCK4_1通道转换结束后更新到BUCK1电流/功耗通道结果寄存器。
 
 2. 对于TJ、BUCKx_I和ADCINx通道，进行阈值比较。如果使能了对应中断并且阈值超出设置范围，会产生一个中断事件（拉低INT引脚）直至软件清除该事件或清零中断使能位。
 
-    相关的中断位为：[Table 6-78](#table-6-78-adc_gpio_status) ADC_GPIO_STATUS[4:0]，[Table 6-79](#table-6-79-adc_status) ADC_STATUS[7:0]
+    相关的中断位为：[表 6-78](#table-6-78-adc_gpio_status) ADC_GPIO_STATUS[4:0]，[表 6-79](#table-6-79-adc_status) ADC_STATUS[7:0]
 
-    相关的中断使能位为：[Table 6-84](#table-6-84-adc_gpio_irq_en) ADC_GPIO_IRQ_EN[4:0]，[Table 6-85](#table-6-85-adc_irq_en) ADC_IRQ_EN[7:0]
+    相关的中断使能位为：[表 6-84](#table-6-84-adc_gpio_irq_en) ADC_GPIO_IRQ_EN[4:0]，[表 6-85](#table-6-85-adc_irq_en) ADC_IRQ_EN[7:0]
 
 自动模式下每完成一个序列的扫描（ADC_AUTO使能的通道都被扫描完成）：
 
-1. 序列转换完成事件[Table 6-78](#table-6-78-adc_gpio_status) ADC_GPIO_STATUS[5]（ADC_EOS）会被置位，如果使能了中断[Table 6-84](#table-6-84-adc_gpio_irq_en) ADC_GPIO_IRQ_EN[5]（IRQ_EN_ADC_EOS），会产生一个中断事件（拉低INT引脚）直至软件清除该事件或清零中断使能位。
+1. 序列转换完成事件[表 6-78](#table-6-78-adc_gpio_status) ADC_GPIO_STATUS[5]（ADC_EOS）会被置位，如果使能了中断[表 6-84](#table-6-84-adc_gpio_irq_en) ADC_GPIO_IRQ_EN[5]（IRQ_EN_ADC_EOS），会产生一个中断事件（拉低INT引脚）直至软件清除该事件或清零中断使能位。
 
-2. 硬件关闭ADC以节省功耗，待[Table 6-47](#table-6-47-adc_cfg1) ADC_CFG1[4:2]（ADC_UPFREQ_SEL）时间结束后，硬件再次启动ADC。
+2. 硬件关闭ADC以节省功耗，待[表 6-47](#table-6-47-adc_cfg1) ADC_CFG1[4:2]（ADC_UPFREQ_SEL）时间结束后，硬件再次启动ADC。
 
 > 注：
 >
 > 1. 为保证转换结果的准确性，通道转换过程中不可随意更改配置。
-> 2. 对于任意通道，连续扫描n次取平均值（n随ADC_UPFREQ_SEL变化，见[Table 6-47](#table-6-47-adc_cfg1) ADC_CFG1[4:2]），通道结束后更新数据
-> 3. 若配置了[Table 6-47](#table-6-47-adc_cfg1) ADC_CFG1[0]选择转换功耗，必须同时使能BUCK的电压和电流通道自动扫描。
-> 4. 若配置了 [Table 6-47](#table-6-47-adc_cfg1) ADC_CFG1[1]选择统计BUCK总功耗，仅统计被使能的电压和电流通道自动扫描的BUCK功耗。
+> 2. 对于任意通道，连续扫描n次取平均值（n随ADC_UPFREQ_SEL变化，见[表 6-47](#table-6-47-adc_cfg1) ADC_CFG1[4:2]），通道结束后更新数据
+> 3. 若配置了[表 6-47](#table-6-47-adc_cfg1) ADC_CFG1[0]选择转换功耗，必须同时使能BUCK的电压和电流通道自动扫描。
+> 4. 若配置了 [表 6-47](#table-6-47-adc_cfg1) ADC_CFG1[1]选择统计BUCK总功耗，仅统计被使能的电压和电流通道自动扫描的BUCK功耗。
 > 5. ADC相关的标志位会在热复位流程中清除。
 
 #### 5.7.6 功耗测量
 
 **单个BUCK功耗测量**
 
-如果配置 [Table 6-47](#table-6-47-adc_cfg1) ADC_CFG1[0] 选择功耗结果，并且某个BUCK的电压和电流通道启动自动扫描，扫描完某个BUCK的电压和电流后将计算功耗，并存储到以下寄存器：
+如果配置 [表 6-47](#table-6-47-adc_cfg1) ADC_CFG1[0] 选择功耗结果，并且某个BUCK的电压和电流通道启动自动扫描，扫描完某个BUCK的电压和电流后将计算功耗，并存储到以下寄存器：
 
-- [Table 6-66](#table-6-66-adc_buckx_cur_pwr_rdout_h) ADC_BUCKx_CUR_PWR_RDOUT_H[7:0]（x=1~4）
-- [Table 6-67](#table-6-67-adc_buckx_cur_pwr_rdout_l) ADC_BUCKx_CUR_PWR_RDOUT_L[7:4]（x=1~4）
+- [表 6-66](#table-6-66-adc_buckx_cur_pwr_rdout_h) ADC_BUCKx_CUR_PWR_RDOUT_H[7:0]（x=1~4）
+- [表 6-67](#table-6-67-adc_buckx_cur_pwr_rdout_l) ADC_BUCKx_CUR_PWR_RDOUT_L[7:4]（x=1~4）
 
 **BUCK总功耗测量**
 
-如果 [Table 6-47](#table-6-47-adc_cfg1) ADC_CFG1[1] 选择转换总功耗，则结果将存储在BUCK1电流/功耗通道结果寄存器：
+如果 [表 6-47](#table-6-47-adc_cfg1) ADC_CFG1[1] 选择转换总功耗，则结果将存储在BUCK1电流/功耗通道结果寄存器：
 
-- [Table 6-66](#table-6-66-adc_buckx_cur_pwr_rdout_h) ADC_BUCKx_CUR_PWR_RDOUT_H[7:0]（x=1）
-- [Table 6-67](#table-6-67-adc_buckx_cur_pwr_rdout_l) ADC_BUCKx_CUR_PWR_RDOUT_L[7:4]（x=1）
+- [表 6-66](#table-6-66-adc_buckx_cur_pwr_rdout_h) ADC_BUCKx_CUR_PWR_RDOUT_H[7:0]（x=1）
+- [表 6-67](#table-6-67-adc_buckx_cur_pwr_rdout_l) ADC_BUCKx_CUR_PWR_RDOUT_L[7:4]（x=1）
 
 ### 5.8 看门狗
 
-在开机模式和睡眠模式下，主机可通过I2C通信接口使能看门狗并配置超时时间（[Table 6-70](#table-6-70-wdt_ctrl) WDT_CTRL[2:1]）
+在开机模式和睡眠模式下，主机可通过I2C通信接口使能看门狗并配置超时时间（[表 6-70](#table-6-70-wdt_ctrl) WDT_CTRL[2:1]）
 
 超时时间内主机进行了喂狗操作：计时清零，并重新开始计数。
 
-如果在设定超时时间内主机未进行喂狗操作（[Table 6-70](#table-6-70-wdt_ctrl) WDT_CTRL[0]=1）：
+如果在设定超时时间内主机未进行喂狗操作（[表 6-70](#table-6-70-wdt_ctrl) WDT_CTRL[0]=1）：
 
-1. 产生看门狗超时事件并置起相关标志位（[Table 6-77](#table-6-77-sys_status) SYS_STATUS[0]）。
+1. 产生看门狗超时事件并置起相关标志位（[表 6-77](#table-6-77-sys_status) SYS_STATUS[0]）。
 
-2. 假如看门狗超时复位使能（[Table 6-16](#table-6-16-pmu_ctrl0) PMU_CTRL0[1]），则触发PMIC的复位流程。
+2. 假如看门狗超时复位使能（[表 6-16](#table-6-16-pmu_ctrl0) PMU_CTRL0[1]），则触发PMIC的复位流程。
 
-3. 假如看门狗中断使能打开（[Table 6-83](#table-6-83-sys_irq_en) SYS_IRQ_EN[0]），则产生看门狗中断并拉低INT引脚。
+3. 假如看门狗中断使能打开（[表 6-83](#table-6-83-sys_irq_en) SYS_IRQ_EN[0]），则产生看门狗中断并拉低INT引脚。
 
 > 注：
 >
@@ -1473,22 +1477,22 @@ ADC各测量通道如下：
 
 ### 5.9 通用 IO
 
-PMIC总共有4个GPIO，既可作为通用IO，也可配置成复用功能，详见寄存器 [Table 6-12](#table-6-12-gpio_afr0) GPIO_AFR0、[Table 6-13](#table-6-13-gpio_afr1) GPIO_AFR1。
+PMIC总共有4个GPIO，既可作为通用IO，也可配置成复用功能，详见寄存器 [表 6-12](#table-6-12-gpio_afr0) GPIO_AFR0、[表 6-13](#table-6-13-gpio_afr1) GPIO_AFR1。
 
 #### GPIO 基本特性
 
 1. **功能支持**：除了作为复用ADC输入功能外，GPIO的极性、上下拉、开漏和滤波功能都有效。
 
 2. **滤波功能**：
-   - 使能控制：[Table 6-9](#table-6-9-gpio_deb) GPIO_DEB[3:0]
-   - 滤波时间：15.625 μs ~ 1.0 ms（[Table 6-9](#table-6-9-gpio_deb) GPIO_DEB[6:4]）
-   - 端口状态：寄存器 [Table 6-7](#table-6-7-gpio_dr) GPIO_DR[3:0] 可反应当前端口状态
+   - 使能控制：[表 6-9](#table-6-9-gpio_deb) GPIO_DEB[3:0]
+   - 滤波时间：15.625 μs ~ 1.0 ms（[表 6-9](#table-6-9-gpio_deb) GPIO_DEB[6:4]）
+   - 端口状态：寄存器 [表 6-7](#table-6-7-gpio_dr) GPIO_DR[3:0] 可反应当前端口状态
 
-3. **输入中断功能**：作为GPIO输入功能时，GPIOx_IDR（[Table 6-7](#table-6-7-gpio_dr) GPIO_DR[3:0]）和 [Table 6-11](#table-6-11-gpio_itype) GPIO_ITYPE 相互配合可产生 GPIOx_INT（[Table 6-78](#table-6-78-adc_gpio_status) ADC_GPIO_STATUS[3:0]）事件。如果是以软件方式进入睡眠，GPIOx_INT 中断可以进行睡眠唤醒。
+3. **输入中断功能**：作为GPIO输入功能时，GPIOx_IDR（[表 6-7](#table-6-7-gpio_dr) GPIO_DR[3:0]）和 [表 6-11](#table-6-11-gpio_itype) GPIO_ITYPE 相互配合可产生 GPIOx_INT（[表 6-78](#table-6-78-adc_gpio_status) ADC_GPIO_STATUS[3:0]）事件。如果是以软件方式进入睡眠，GPIOx_INT 中断可以进行睡眠唤醒。
 
 #### GPIOx_ODR 复用功能
 
-GPIOx_ODR（[Table 6-7](#table-6-7-gpio_dr) GPIO_DR[7:4]）具有两种功能：
+GPIOx_ODR（[表 6-7](#table-6-7-gpio_dr) GPIO_DR[7:4]）具有两种功能：
 
 1. 作为GPIO输出时（GPIOx_AFR=4’b0001），GPIOx_ODR即为GPIO输出状态。
 
@@ -1506,7 +1510,7 @@ GPIOx_ODR（[Table 6-7](#table-6-7-gpio_dr) GPIO_DR[7:4]）具有两种功能：
 
 ### 5.10 通信接口
 
-PMIC 支持 I2C 和 SPI 通信接口，通过 [Table 6-40](#table-6-40-interface_cfg) INTERFACE_CFG[2] 进行选择；该 PMIC 仅作为从机使用。
+PMIC 支持 I2C 和 SPI 通信接口，通过 [表 6-40](#table-6-40-interface_cfg) INTERFACE_CFG[2] 进行选择；该 PMIC 仅作为从机使用。
 
 #### 5.10.1 SPI
 
@@ -1514,31 +1518,31 @@ SPI 通信接口兼容 SPI 模式 0，最高支持速率为 30 MHz。支持单�
 
 <a id="figure-5-14"></a>
 
-**Figure 5-14 SPI通信命令**
+**图 5-14 SPI通信命令**
 
 ![Image](./static/p3-ds-16.png)
 
 <a id="figure-5-15"></a>
 
-**Figure 5-15 SPI读写时序**
+**图 5-15 SPI读写时序**
 
 ![Image](./static/p3-ds-17.png)
 
 #### 5.10.2 I2C
 
-I2C从机地址可通过MTP配置：[Table 6-41](#table-6-41-i2c_slv_addr) I2C_SLV_ADDR[6:0]。
+I2C从机地址可通过MTP配置：[表 6-41](#table-6-41-i2c_slv_addr) I2C_SLV_ADDR[6:0]。
 
-支持单字节读、连续地址多字节读、单字节写和连续地址多字节写（[Table 6-40](#table-6-40-interface_cfg) INTERFACE_CFG[0] = 0），以及数据对模式（pair mode）写（[Table 6-40](#table-6-40-interface_cfg) INTERFACE_CFG[0] = 1）。
+支持单字节读、连续地址多字节读、单字节写和连续地址多字节写（[表 6-40](#table-6-40-interface_cfg) INTERFACE_CFG[0] = 0），以及数据对模式（pair mode）写（[表 6-40](#table-6-40-interface_cfg) INTERFACE_CFG[0] = 1）。
 
 <a id="figure-5-16"></a>
 
-**Figure 5-16 I2C通信命令**
+**图 5-16 I2C通信命令**
 
 ![Image](./static/p3-ds-18.png)
 
 <a id="figure-5-17"></a>
 
-**Figure 5-17 I2C读写时序**
+**图 5-17 I2C读写时序**
 
 ![Image](./static/p3-ds-19.png)
 
@@ -1550,17 +1554,17 @@ LS_MODE和HS_MODE切换逻辑涉及到寄存器I2C_HS_MODE和HS_MASTER_CODE，�
 
 <a id="figure-5-18"></a>
 
-**Figure 5-18 I2C HS_MODE和LS_MODE切换**
+**图 5-18 I2C HS_MODE和LS_MODE切换**
 
 ![Image](./static/p3-ds-20.png)
 
 ### 5.11 中断
 
-PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件发生时，标志位将被置起；如果使能对应的中断使能位，INT 引脚将被拉低，将中断事件反馈给主控。
+PMIC 的中断事件如 [表 5-27](#table-5-27) 所示。当某个中断事件发生时，标志位将被置起；如果使能对应的中断使能位，INT 引脚将被拉低，将中断事件反馈给主控。
 
 <a id="table-5-27"></a>
 
-**Table 5-27 中断事件**
+**表 5-27 中断事件**
 
 |中断标志位|使能位|滤波|描述|
 |---|---|---|---|
@@ -1612,11 +1616,11 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 ### 6.1 寄存器参数定义
 
-寄存器基本参数定义如 Table 6-1 所示；部分寄存器的特殊参数定义如 Table 6-2 所示。
+寄存器基本参数定义如 表 6-1 所示；部分寄存器的特殊参数定义如 表 6-2 所示。
 
 <a id="table-6-1"></a>
 
-**Table 6-1 寄存器基本参数定义**
+**表 6-1 寄存器基本参数定义**
 
 |参数|简称|描述|
 |---|---|---|
@@ -1626,12 +1630,12 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 |Reserved|RV|该 bit 为保留位，软件不可修改。|
 
 <a id="table-6-2"></a>
-**Table 6-2 特殊寄存器参数定义**
+**表 6-2 特殊寄存器参数定义**
 
 |参数|简称|描述|
 |---|---|---|
 |Write 1 Only|IO|该 bit 只能通过软件写入 1，写入 0 无效。|
-|Protected|P|该 bit 受解锁寄存器 [Table 6-71](#table-6-71-mtp_key) 保护。当未向解锁寄存器写入解锁序列时，该位不能通过软件修改。|
+|Protected|P|该 bit 受解锁寄存器 [表 6-71](#table-6-71-mtp_key) 保护。当未向解锁寄存器写入解锁序列时，该位不能通过软件修改。|
 |MTP Loaded|E|该 bit 可通过 MTP 修改。|
 
 ### 6.2 寄存器表
@@ -1639,7 +1643,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 #### 6.2.1 寄存器映射
 
 <a id="table-6-3"></a>
-**Table 6-3 用户寄存器映射表**
+**表 6-3 用户寄存器映射表**
 
 |**Module**|Name|Address|Description|
 |---|---|---|---|
@@ -1747,7 +1751,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 #### 6.2.2 寄存器描述
 
-##### Table 6-4 DEVICE_ID
+##### 表 6-4 DEVICE_ID
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -1755,7 +1759,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式保持不变，遇到开机事件后恢复为MTP内的数值
 
-##### Table 6-5 VERSION_ID
+##### 表 6-5 VERSION_ID
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -1763,7 +1767,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式保持不变，遇到开机事件后恢复为MTP内的数值
 
-##### Table 6-6 CUSTOMER_ID
+##### 表 6-6 CUSTOMER_ID
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -1771,7 +1775,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 
-##### Table 6-7 GPIO_DR
+##### 表 6-7 GPIO_DR
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -1786,7 +1790,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 
-##### Table 6-8 GPIO_PUPD
+##### 表 6-8 GPIO_PUPD
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -1797,7 +1801,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 
-##### Table 6-9 GPIO_DEB
+##### 表 6-9 GPIO_DEB
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -1810,7 +1814,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式或热复位事件恢复默认值
 
-##### Table 6-10 GPIO_OD
+##### 表 6-10 GPIO_OD
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -1822,7 +1826,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式或热复位事件恢复默认值
 
-##### Table 6-11 GPIO_ITYPE
+##### 表 6-11 GPIO_ITYPE
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -1833,7 +1837,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 
-##### Table 6-12 GPIO_AFR0
+##### 表 6-12 GPIO_AFR0
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -1842,7 +1846,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 
-##### Table 6-13 GPIO_AFR1
+##### 表 6-13 GPIO_AFR1
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -1851,7 +1855,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 
-##### Table 6-14 GPIO_EXT_SLOT0
+##### 表 6-14 GPIO_EXT_SLOT0
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -1860,7 +1864,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 
-##### Table 6-15 GPIO_EXT_SLOT1
+##### 表 6-15 GPIO_EXT_SLOT1
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -1869,7 +1873,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 
-##### Table 6-16 PMU_CTRL0
+##### 表 6-16 PMU_CTRL0
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -1880,7 +1884,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 > 2：进入关机模式或热复位事件后恢复默认值
 
-##### Table 6-17 PMU_CTRL1
+##### 表 6-17 PMU_CTRL1
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -1891,7 +1895,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式或热复位事件恢复默认值
 
-##### Table 6-18 PMU_CTRL2
+##### 表 6-18 PMU_CTRL2
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -1902,7 +1906,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 
-##### Table 6-19 PMU_CTRL3
+##### 表 6-19 PMU_CTRL3
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -1914,7 +1918,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 
-##### Table 6-20 PMU_CTRL4
+##### 表 6-20 PMU_CTRL4
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -1928,7 +1932,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 
-##### Table 6-21 SLEW_CTRL0
+##### 表 6-21 SLEW_CTRL0
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -1938,7 +1942,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 
-##### Table 6-22 SLEW_CTRL1
+##### 表 6-22 SLEW_CTRL1
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -1950,7 +1954,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 
-##### Table 6-23 SLOT_CTRL0
+##### 表 6-23 SLOT_CTRL0
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -1959,7 +1963,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 
-##### Table 6-24 SLOT_CTRL1
+##### 表 6-24 SLOT_CTRL1
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -1968,7 +1972,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 
-##### Table 6-25 EXT_CTRL
+##### 表 6-25 EXT_CTRL
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -1983,7 +1987,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 
-##### Table 6-26 STUP_SLOT_DLYx
+##### 表 6-26 STUP_SLOT_DLYx
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -1993,7 +1997,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 
-##### Table 6-27 SHUT_SLOT_DLYx
+##### 表 6-27 SHUT_SLOT_DLYx
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2003,7 +2007,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 
-##### Table 6-28 BUCK_GLB_CTRL
+##### 表 6-28 BUCK_GLB_CTRL
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2016,7 +2020,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 
-##### Table 6-29 BUCK_CASCADE_CTRL0
+##### 表 6-29 BUCK_CASCADE_CTRL0
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2026,7 +2030,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 
-##### Table 6-30 BUCK_CASCADE_CTRL1
+##### 表 6-30 BUCK_CASCADE_CTRL1
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2037,7 +2041,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 
-##### Table 6-31 BUCK_CASCADE_CTRL2
+##### 表 6-31 BUCK_CASCADE_CTRL2
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2046,7 +2050,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 
-##### Table 6-32 BUCKx_CTRL
+##### 表 6-32 BUCKx_CTRL
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2058,7 +2062,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 
-##### Table 6-33 BUCKx_PWRCTRL_IO
+##### 表 6-33 BUCKx_PWRCTRL_IO
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2067,7 +2071,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 
-##### Table 6-34 BUCKx_DVS_IO
+##### 表 6-34 BUCKx_DVS_IO
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2077,47 +2081,47 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 
-##### Table 6-35 BUCKx_VOUT0
+##### 表 6-35 BUCKx_VOUT0
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
-|0x2D/0x35<br>/0x3D/0x45|7:0|BUCKx_VOUT0[7:0]<sup>1</sup>|RWE|0x0|当｛DVS1:DVS0｝为2’b00，该寄存器为BUCKx的有效电压控制寄存器<br>电压定义见 [Table 5-23](#table-5-23)“BUCKx_VOUT 和 BUCKx_SLP_VOUT 配置和电压映射”|
+|0x2D/0x35<br>/0x3D/0x45|7:0|BUCKx_VOUT0[7:0]<sup>1</sup>|RWE|0x0|当｛DVS1:DVS0｝为2’b00，该寄存器为BUCKx的有效电压控制寄存器<br>电压定义见 [表 5-23](#table-5-23)“BUCKx_VOUT 和 BUCKx_SLP_VOUT 配置和电压映射”|
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 
-##### Table 6-36 BUCKx_VOUT1
+##### 表 6-36 BUCKx_VOUT1
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
-|0x2E/0x36<br>/0x3E/0x46|7:0|BUCKx_VOUT1[7:0]<sup>1</sup>|RWE|0x0|当｛DVS1:DVS0｝为2’b01，该寄存器为BUCKx的有效电压控制寄存器<br>电压定义见 [Table 5-23](#table-5-23)“BUCKx_VOUT 和 BUCKx_SLP_VOUT 配置和电压映射”|
+|0x2E/0x36<br>/0x3E/0x46|7:0|BUCKx_VOUT1[7:0]<sup>1</sup>|RWE|0x0|当｛DVS1:DVS0｝为2’b01，该寄存器为BUCKx的有效电压控制寄存器<br>电压定义见 [表 5-23](#table-5-23)“BUCKx_VOUT 和 BUCKx_SLP_VOUT 配置和电压映射”|
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 
-##### Table 6-37 BUCKx_VOUT2
+##### 表 6-37 BUCKx_VOUT2
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
-|0x2F/0x37<br>/0x3F/0x47|7:0|BUCKx_VOUT2[7:0]<sup>1</sup>|RWE|0x0|当｛DVS1:DVS0｝为2’b10，该寄存器为BUCKx的有效电压控制寄存器<br>电压定义见 [Table 5-23](#table-5-23)“BUCKx_VOUT 和 BUCKx_SLP_VOUT 配置和电压映射”|
+|0x2F/0x37<br>/0x3F/0x47|7:0|BUCKx_VOUT2[7:0]<sup>1</sup>|RWE|0x0|当｛DVS1:DVS0｝为2’b10，该寄存器为BUCKx的有效电压控制寄存器<br>电压定义见 [表 5-23](#table-5-23)“BUCKx_VOUT 和 BUCKx_SLP_VOUT 配置和电压映射”|
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 
-##### Table 6-38 BUCKx_VOUT3
+##### 表 6-38 BUCKx_VOUT3
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
-|0x30/0x38<br>/0x40/0x48|7:0|BUCKx_VOUT3[7:0]<sup>1</sup>|RWE|0x0|当｛DVS1:DVS0｝为2’b11，该寄存器为BUCKx的有效电压控制寄存器<br>电压定义见 [Table 5-23](#table-5-23)“BUCKx_VOUT 和 BUCKx_SLP_VOUT 配置和电压映射”|
+|0x30/0x38<br>/0x40/0x48|7:0|BUCKx_VOUT3[7:0]<sup>1</sup>|RWE|0x0|当｛DVS1:DVS0｝为2’b11，该寄存器为BUCKx的有效电压控制寄存器<br>电压定义见 [表 5-23](#table-5-23)“BUCKx_VOUT 和 BUCKx_SLP_VOUT 配置和电压映射”|
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 
-##### Table 6-39 BUCKx_SLP_VOUT
+##### 表 6-39 BUCKx_SLP_VOUT
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
-|0x31/0x39<br>/0x41/0x49|7:0|BUCKx_SLP_VOUT [7:0]<sup>1</sup>|RWE|0x0|睡眠时，该寄存器为BUCKx的有效电压控制寄存器<br>电压定义见 [Table 5-23](#table-5-23)“BUCKx_VOUT 和 BUCKx_SLP_VOUT 配置和电压映射”|
+|0x31/0x39<br>/0x41/0x49|7:0|BUCKx_SLP_VOUT [7:0]<sup>1</sup>|RWE|0x0|睡眠时，该寄存器为BUCKx的有效电压控制寄存器<br>电压定义见 [表 5-23](#table-5-23)“BUCKx_VOUT 和 BUCKx_SLP_VOUT 配置和电压映射”|
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 
-##### Table 6-40 INTERFACE_CFG
+##### 表 6-40 INTERFACE_CFG
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2129,7 +2133,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 > 2：进入关机模式或热复位事件后恢复默认值
 
-##### Table 6-41 I2C_SLV_ADDR
+##### 表 6-41 I2C_SLV_ADDR
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2138,7 +2142,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 
-##### Table 6-42 PROT_CFG
+##### 表 6-42 PROT_CFG
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2149,7 +2153,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 
-##### Table 6-43 PROT_EN
+##### 表 6-43 PROT_EN
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2164,7 +2168,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 
-##### Table 6-44 SYS_DEB
+##### 表 6-44 SYS_DEB
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2175,7 +2179,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 
-##### Table 6-45 ADC_CTRL
+##### 表 6-45 ADC_CTRL
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2187,7 +2191,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 > 2：手动模式下，该bit软件置1后，转换每完成一次即硬件清零；自动模式下，该位不起作用，无需进行配置
 
-##### Table 6-46 ADC_CFG0
+##### 表 6-46 ADC_CFG0
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2196,7 +2200,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式或热复位事件恢复默认值
 
-##### Table 6-47 ADC_CFG1
+##### 表 6-47 ADC_CFG1
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2208,7 +2212,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 
-##### Table 6-48 ADC_AUTO0
+##### 表 6-48 ADC_AUTO0
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2223,7 +2227,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 
-##### Table 6-49 ADC_AUTO1
+##### 表 6-49 ADC_AUTO1
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2238,7 +2242,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 
-##### Table 6-50 ADC_DEB0
+##### 表 6-50 ADC_DEB0
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2250,7 +2254,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 
-##### Table 6-51 ADC_DEB1
+##### 表 6-51 ADC_DEB1
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2263,7 +2267,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 
-##### Table 6-52 ADC_TJ_H_VTH
+##### 表 6-52 ADC_TJ_H_VTH
 
 |Addr|Bits|Field Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2271,7 +2275,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 
-##### Table 6-53 ADC_TJ_L_VTH
+##### 表 6-53 ADC_TJ_L_VTH
 
 |Addr|Bits|Field Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2279,7 +2283,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值
 
-##### Table 6-54 ADC_BUCKx_OC_VTH
+##### 表 6-54 ADC_BUCKx_OC_VTH
 
 |Addr|Bits|Field Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2287,7 +2291,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值，x=1~4
 
-##### Table 6-55 ADC_BUCKx_PWR_VTH
+##### 表 6-55 ADC_BUCKx_PWR_VTH
 
 |Addr|Bits|Field Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2295,7 +2299,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式保持不变，遇到开机事件或热复位事件后恢复为MTP内的数值，x=1~4
 
-##### Table 6-56 ADCINx_H_VTH
+##### 表 6-56 ADCINx_H_VTH
 
 |Addr|Bits|Field Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2303,7 +2307,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式或热复位事件恢复默认值，x=0~3
 
-##### Table 6-57 ADCINx_L_VTH
+##### 表 6-57 ADCINx_L_VTH
 
 |Addr|Bits|Field Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2311,7 +2315,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式或热复位事件恢复默认值，x=0~3
 
-##### Table 6-58 ADC_VSYS_RDOUT_H
+##### 表 6-58 ADC_VSYS_RDOUT_H
 
 |Addr|Bits|Field Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2319,7 +2323,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入复位模式恢复默认值
 
-##### Table 6-59 ADC_VSYS_RDOUT_L
+##### 表 6-59 ADC_VSYS_RDOUT_L
 
 |Addr|Bits|Field Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2328,7 +2332,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入复位模式恢复默认值
 
-##### Table 6-60 ADC_VIO_RDOUT_H
+##### 表 6-60 ADC_VIO_RDOUT_H
 
 |Addr|Bits|Field Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2336,7 +2340,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入复位模式恢复默认值
 
-##### Table 6-61 ADC_VIO_RDOUT_L
+##### 表 6-61 ADC_VIO_RDOUT_L
 
 |Addr|Bits|Field Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2345,7 +2349,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入复位模式恢复默认值
 
-##### Table 6-62 ADC_TJ_RDOUT_H
+##### 表 6-62 ADC_TJ_RDOUT_H
 
 |Addr|Bits|Field Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2353,7 +2357,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入复位模式恢复默认值
 
-##### Table 6-63 ADC_TJ_RDOUT_L
+##### 表 6-63 ADC_TJ_RDOUT_L
 
 |Addr|Bits|Field Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2362,7 +2366,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入复位模式恢复默认值
 
-##### Table 6-64 ADC_BUCKx_VOL_RDOUT_H
+##### 表 6-64 ADC_BUCKx_VOL_RDOUT_H
 
 |Addr|Bits|Field Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2370,7 +2374,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入复位模式恢复默认值，x=1~4
 
-##### Table 6-65 ADC_BUCKx_VOL_RDOUT_L
+##### 表 6-65 ADC_BUCKx_VOL_RDOUT_L
 
 |Addr|Bits|Field Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2379,7 +2383,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入复位模式恢复默认值，x=1~4
 
-##### Table 6-66 ADC_BUCKx_CUR_PWR_RDOUT_H
+##### 表 6-66 ADC_BUCKx_CUR_PWR_RDOUT_H
 
 |Addr|Bits|Field Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2387,7 +2391,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入复位模式恢复默认值，x=1~4。
 
-##### Table 6-67 ADC_BUCKx_CUR_PWR_RDOUT_L
+##### 表 6-67 ADC_BUCKx_CUR_PWR_RDOUT_L
 
 |Addr|Bits|Field Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2396,7 +2400,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入复位模式恢复默认值，x=1~4
 
-##### Table 6-68 ADCINx_RDOUT_H
+##### 表 6-68 ADCINx_RDOUT_H
 
 |Addr|Bits|Field Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2404,7 +2408,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入复位模式恢复默认值，x=0~3
 
-##### Table 6-69 ADCINx_RDOUT_L
+##### 表 6-69 ADCINx_RDOUT_L
 
 |Addr|Bits|Field Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2413,7 +2417,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入复位模式恢复默认值，x=0~3
 
-##### Table 6-70 WDT_CTRL
+##### 表 6-70 WDT_CTRL
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2424,7 +2428,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式或热复位模式恢复默认值
 
-##### Table 6-71 MTP_KEY
+##### 表 6-71 MTP_KEY
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2432,7 +2436,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：复位模式或热复位事件恢复成默认值
 
-##### Table 6-72 MTP_ADDR
+##### 表 6-72 MTP_ADDR
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2440,7 +2444,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：复位模式或热复位事件恢复成默认值
 
-##### Table 6-73 MTP_DATA
+##### 表 6-73 MTP_DATA
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2448,7 +2452,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：复位模式或热复位事件恢复成默认值
 
-##### Table 6-74 MTP_CFG
+##### 表 6-74 MTP_CFG
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2460,7 +2464,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：复位模式或热复位事件恢复成默认值
 
-##### Table 6-75 MTP_CTRL
+##### 表 6-75 MTP_CTRL
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2472,7 +2476,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：复位模式或热复位事件恢复成默认值
 
-##### Table 6-76 SHUT_STATUS
+##### 表 6-76 SHUT_STATUS
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2487,7 +2491,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入复位模式恢复默认值
 
-##### Table 6-77 SYS_STATUS
+##### 表 6-77 SYS_STATUS
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2502,7 +2506,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入复位模式恢复默认值
 
-##### Table 6-78 ADC_GPIO_STATUS
+##### 表 6-78 ADC_GPIO_STATUS
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2517,7 +2521,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式或热复位模式恢复默认值
 
-##### Table 6-79 ADC_STATUS
+##### 表 6-79 ADC_STATUS
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2532,7 +2536,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式恢复默认值
 
-##### Table 6-80 BUCK_STATUS0
+##### 表 6-80 BUCK_STATUS0
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2544,7 +2548,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式或热复位模式恢复默认值
 
-##### Table 6-81 BUCK_STATUS1
+##### 表 6-81 BUCK_STATUS1
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2559,7 +2563,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入复位模式恢复默认值
 
-##### Table 6-82 BUCK_STATUS2
+##### 表 6-82 BUCK_STATUS2
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2574,7 +2578,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入复位模式恢复默认值
 
-##### Table 6-83 SYS_IRQ_EN
+##### 表 6-83 SYS_IRQ_EN
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2588,7 +2592,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式或热复位事件恢复默认值
 
-##### Table 6-84 ADC_GPIO_IRQ_EN
+##### 表 6-84 ADC_GPIO_IRQ_EN
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2603,7 +2607,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式或热复位事件恢复默认值
 
-##### Table 6-85 ADC_IRQ_EN
+##### 表 6-85 ADC_IRQ_EN
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2618,7 +2622,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式或热复位事件恢复默认值
 
-##### Table 6-86 BUCK_IRQ_EN0
+##### 表 6-86 BUCK_IRQ_EN0
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2630,7 +2634,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式或热复位事件恢复默认值
 
-##### Table 6-87 BUCK_IRQ_EN1
+##### 表 6-87 BUCK_IRQ_EN1
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2645,7 +2649,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式或热复位事件恢复默认值
 
-##### Table 6-88 BUCK_IRQ_EN2
+##### 表 6-88 BUCK_IRQ_EN2
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2660,7 +2664,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入关机模式或热复位事件恢复默认值
 
-##### Table 6-89 USER_DATA_REG0
+##### 表 6-89 USER_DATA_REG0
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2668,7 +2672,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入复位模式恢复默认值
 
-##### Table 6-90 USER_DATA_REG1
+##### 表 6-90 USER_DATA_REG1
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2676,7 +2680,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入复位模式恢复默认值
 
-##### Table 6-91 USER_DATA_REG2
+##### 表 6-91 USER_DATA_REG2
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
@@ -2684,7 +2688,7 @@ PMIC 的中断事件如 [Table 5-27](#table-5-27) 所示。当某个中断事件
 
 > 1：进入复位模式恢复默认值
 
-##### Table 6-92 USER_DATA_REG3
+##### 表 6-92 USER_DATA_REG3
 
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
