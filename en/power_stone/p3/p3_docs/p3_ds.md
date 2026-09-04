@@ -4,6 +4,10 @@ sidebar_position: 2
 
 # P3 Datasheet
 
+## PDF Version
+
+Click to download [P3 Datasheet (PDF)](https://cdn-resource.spacemit.com/file/chip/P3/p3_ds_en.pdf)
+
 ## Revision History
 
 | Version | Date | Notes |
