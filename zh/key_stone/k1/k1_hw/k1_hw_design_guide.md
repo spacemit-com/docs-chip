@@ -50,7 +50,7 @@ sidebar_position: 1
 #### 1.1.4 电源管理(PMIC) 电路设计
 
 - P1 的输入供电推荐使用 4V，Vin3、Vin4 按参考 PCB 隔离输入；Vin5、Vin6 按参考 PCB 隔离输入。
-- P1 的 SW~SW6 默认增加 220pF 电容。
+- P1 的 SW1~SW6 默认增加 220pF 电容。
 - BUCK1/2 的 FB 和 FBGND pin 必须连接到主控的 FB 和 FBGND pin，layout 上注意远离干扰信号 。
 
 ![](static/P1.jpg)
