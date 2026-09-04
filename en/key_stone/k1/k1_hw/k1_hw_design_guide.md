@@ -10,6 +10,7 @@ Click to download **[K1 Hardware Design Guide (PDF)](https://cdn-resource.spacem
 
 | Version | Date       | Notes                                      |
 |---------|------------|--------------------------------------------|
+| V1.2    | 2026.09.04 | Updated the P1 switch capacitor labeling and the related picture in Section 1.1.4 |
 | V1.1    | 2025.08.04 | Added a note regarding GPIO90 when not in use |
 | V1.0    | 2024.03.12 | Initial release                            |
 
