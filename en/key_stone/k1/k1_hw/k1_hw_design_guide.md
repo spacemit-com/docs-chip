@@ -52,11 +52,11 @@ Click to download **[K1 Hardware Design Guide (PDF)](https://cdn-resource.spacem
 
 - P1 input supply is recommended to be **4V**.
   Vin3/Vin4 and Vin5/Vin6 must follow the reference PCB isolation guidelines.
-- Add 220pF capacitors by default to **SW3–SW6**.
+- Add 220pF capacitors by default to **SW1–SW6**.
 - The **FB** and **FBGND** pins of BUCK1/2 must connect directly to the main controller’s FB/FBGND pins.
   Keep routing away from noise-sensitive signals.
 
-![](static/Z9NxbQDzcous9ixm2dYcNILnnnc.jpg)
+![](static/P1.jpg)
 
 **The P1 peripheral circuits must strictly follow our reference design. Please see the hardware files included in the release package.**
 
