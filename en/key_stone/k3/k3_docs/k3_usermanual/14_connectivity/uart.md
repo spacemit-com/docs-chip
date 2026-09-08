@@ -285,8 +285,10 @@ The divisor reset value is 0x0002. Changing the baud rate (writing to registers 
 
 > **Note.**
 >
-> - The UART_0 Register Base Address is 0xF0612000
-> - The UART_2~9 Register Base Address is 0xD4017000 ~ 0xD4017800, each address space of 256-Byte
+> - The UART_0 Register Base Address is 0xD4017000
+> - The UART_1 Register Base Address is 0xF0612000
+> - The UART_2~9 Register Base Address is 0xD4017100 ~ 0xD4017800, each address space of 256-Byte
+> - The UART_10 Register Base Address is 0xD401F000
 
 ### Receive Buffer Register
 
