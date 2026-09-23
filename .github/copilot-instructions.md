@@ -99,7 +99,7 @@ Before the user opens a PR, they may ask for a review. Apply the same checks the
 - All images referenced with `![](...)` exist in the corresponding `static/` folder.
 - Code blocks have language identifiers.
 - The bilingual counterpart file exists.
-- In `zh/` files: Chinese punctuation is used (「，。、：；」 not `,.:;`).
+- In `zh/` files: Chinese punctuation is used in prose (，。、：；《》「」 not `,.:;`). Exceptions where ASCII punctuation is correct and must not be changed: URLs, Markdown link syntax `[text](url)`, inline code spans, code blocks, file paths, and reference anchors.
 
 Report issues using the same format as the CI agent:
 - English files: `` `[Error]` `` / `` `[Warning]` `` / `` `[Suggestion]` ``
@@ -109,23 +109,28 @@ Report issues using the same format as the CI agent:
 
 ## Terminology Reference
 
-| English | Chinese |
-|---|---|
-| Datasheet | 数据手册 |
-| User Manual | 用户手册 |
-| Hardware Design Guide | 硬件设计指南 |
-| SDK User Guide | SDK 用户指南 |
-| Product Brief | 产品简介 |
-| Evaluation Board (EVB) | 评估板 |
-| power rail | 电源轨 |
-| boot sequence | 启动序列 |
-| register map | 寄存器映射 |
-| memory map | 内存映射 |
-| thermal dissipation | 散热方案 |
-| signal integrity | 信号完整性 |
-| schematic | 原理图 |
-| layout guideline | 布局布线规范 |
-| interrupt controller | 中断控制器 |
+Rules synced with `spacemit-knowledge-sync/glossary.yaml`. Avoid forbidden variants.
+
+| English | Chinese | Forbidden Variants |
+|---|---|---|
+| Datasheet | 数据手册 | |
+| User Manual | 用户手册 | |
+| Hardware Design Guide | 硬件设计指南 | |
+| SDK User Guide | SDK 用户指南 | |
+| Product Brief | 产品简介 | zh: standalone "简介" as H1 heading |
+| Evaluation Board (EVB) | 评估板 | en: "evaluation card", "eval board" |
+| power rail | 电源轨 | zh: "电源轨线", "供电轨" |
+| boot sequence | 启动序列 | zh: "启动流程", "引导序列", "开机顺序" |
+| register map | 寄存器映射 | zh: "寄存器图"; en: "register table map" |
+| memory map | 内存映射 | zh: "存储器映射", "内存分布图" |
+| thermal dissipation | 散热方案 | zh: "散热设计", "热解决方案"; en: "heat dissipation solution" |
+| signal integrity | 信号完整性 | zh: "信号完整度" |
+| schematic | 原理图 | zh: "原理电路图"; en: "principle diagram" |
+| layout guideline | 布局布线规范 | zh: "布局规则"; en: "layout rule", "wiring guideline" |
+| interrupt controller | 中断控制器 | zh: "中断控制单元" |
+| I²C | I²C | en: "I2C", "IIC"; zh: "I2C", "IIC" (always use superscript ²) |
+| temperature range | 温度范围 | Use ° (U+00B0), not ˚ (U+02DA) or ℃ (U+2103). Correct: `-40°C to 85°C` |
+| package dimensions | 封装尺寸 | Canonical: "7 mm x 7 mm". Not: "7mmx7mm", "7mm x 7mm" |
 
 ---
 
