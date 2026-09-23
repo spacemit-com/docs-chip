@@ -1,0 +1,54 @@
+# Entity: K1 (key_stone family)
+#
+# canonical.* is the approved one-line description. Every other mention of K1
+# across the docs should be a paraphrase of it, or a scoped detail that does
+# not contradict it. Variants listed under attributes are flagged for review
+# even when they are not factually wrong, so we can converge on one phrasing.
+
+entity: K1
+family: key_stone
+language_pair: true        # en/ and zh/ files are a translation pair, not drift
+
+aliases:
+  - K1
+  - K1 Series
+  - "Key Stone K1"
+  - "SpacemiT Key Stone K1"
+  - "SpacemiT Key Stone® K1"
+
+canonical:
+  en: >-
+    SpacemiT Key Stone K1 is a high-performance and ultra-low-power SoC that
+    integrates 8 RISC-V CPU cores with SpacemiT Daoyi AI computing power.
+  zh: >-
+    K1 系列是 8 核 64 位 RISC-V AI CPU，采用同构融合计算技术，集成 8 个
+    高性能 X60 计算核，提供 50KDMIPS 通用算力与 2 TOPS AI 算力。
+
+source_of_truth:
+  en: en/key_stone/k1/k1_docs/k1_ds.md
+  zh: zh/key_stone/k1/k1_docs/k1_ds.md
+
+attributes:
+  - key: cpu_core_count
+    canonical_en: "8-core"
+    canonical_zh: "8 核"
+    variants_en: ["8 core", "8-core", "octa-core", "eight-core"]
+    variants_zh: ["八核", "8核", "8 核"]
+
+  - key: l2_cache
+    canonical_en: "shared 1 MB L2 across 8 cores"
+    canonical_zh: "八核共享 1 MB L2"
+    variants_en: ["512K L2", "1MB L2", "1 MB L2"]
+    variants_zh: ["512K L2", "1MB L2", "1 MB L2"]
+
+  - key: ai_compute
+    canonical_en: "2.0 TOPS"
+    canonical_zh: "2.0 TOPS"
+    variants_en: ["2 TOPS", "2.0 TOPS"]
+    variants_zh: ["2 TOPS", "2.0 TOPS"]
+
+  - key: core_name
+    canonical_en: "X60"
+    canonical_zh: "X60"
+    variants_en: ["X60™", "X60"]
+    variants_zh: ["X60™", "X60"]

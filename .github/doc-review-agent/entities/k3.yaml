@@ -1,0 +1,46 @@
+# Entity: K3 (key_stone family)
+
+entity: K3
+family: key_stone
+language_pair: true
+
+aliases:
+  - K3
+  - K3 Series
+  - "Key Stone K3"
+  - "SpacemiT Key Stone K3"
+
+canonical:
+  en: >-
+    K3 is a high-performance RISC-V AI CPU capable of running 30B large models.
+  zh: >-
+    K3 是运行 30B 大模型的高性能 RISC-V AI CPU。
+
+source_of_truth:
+  en: en/key_stone/k3/k3_docs/root_overview.md
+  zh: zh/key_stone/k3/k3_docs/root_overview.md
+
+attributes:
+  - key: core_name
+    canonical_en: "X100"
+    canonical_zh: "X100"
+    variants_en: ["X100™", "X100"]
+    variants_zh: ["X100™", "X100"]
+
+  - key: ai_core_name
+    canonical_en: "A100"
+    canonical_zh: "A100"
+    variants_en: ["A100™", "A100"]
+    variants_zh: ["A100™", "A100"]
+
+  - key: ai_compute
+    canonical_en: "60 TOPS"
+    canonical_zh: "60 TOPS"
+    variants_en: ["60 TOPS", "60TOPS"]
+    variants_zh: ["60 TOPS", "60TOPS"]
+
+  - key: model_size
+    canonical_en: "30B"
+    canonical_zh: "30B"
+    variants_en: ["30B", "300 亿", "30 billion"]
+    variants_zh: ["30B", "300 亿", "300亿"]

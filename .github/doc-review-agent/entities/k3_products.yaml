@@ -1,0 +1,44 @@
+# Entity: K3-based products (K3 Pico, CoM260, RV2768) in docs-product
+# Values must stay consistent with entities/k3.yaml.
+
+entity: K3 Products
+family: k3_product
+language_pair: true
+
+aliases:
+  - "K3 Pico"
+  - "CoM260"
+  - "RV2768"
+  - "K3 Shelf"
+
+canonical:
+  en: >-
+    K3-based products are powered by SpacemiT K3, a high-performance RISC-V
+    AI CPU with 60 TOPS AI computing power capable of running 30B large models.
+  zh: >-
+    K3 系列产品搭载进迭时空 K3 高性能 RISC-V AI CPU，具备 60 TOPS AI 算力，
+    可流畅运行 30B 本地大模型。
+
+source_of_truth:
+  en: en/k3_pico/root_overview.md
+  zh: zh/k3_pico/root_overview.md
+
+# These values must match entities/k3.yaml.
+attributes:
+  - key: ai_compute
+    canonical_en: "60 TOPS"
+    canonical_zh: "60 TOPS"
+    variants_en: ["60 TOPS", "60TOPS"]
+    variants_zh: ["60 TOPS", "60TOPS"]
+
+  - key: model_size
+    canonical_en: "30B"
+    canonical_zh: "30B"
+    variants_en: ["30B", "30 billion"]
+    variants_zh: ["30B", "300 亿", "300亿"]
+
+  - key: core_name
+    canonical_en: "X100"
+    canonical_zh: "X100"
+    variants_en: ["X100™", "X100"]
+    variants_zh: ["X100™", "X100"]

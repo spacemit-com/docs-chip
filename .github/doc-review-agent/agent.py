@@ -29,6 +29,11 @@ import requests
 from dataclasses import dataclass, field
 from typing import Literal
 
+try:
+    from . import knowledge_sync
+except ImportError:
+    knowledge_sync = None
+
 # ─── Configuration ────────────────────────────────────────────────────────────
 
 REPO          = os.environ["GITHUB_REPOSITORY"]          # "owner/repo"
@@ -824,6 +829,11 @@ def run_checks(file_path: str, content: str, cfg: dict,
 
     if tw.get("admonition_keywords", {}).get("enabled", True):
         issues += check_admonition_keywords(lines, file_path)
+
+    # ── Knowledge-sync checks (terminology + entity descriptions) ──────────────
+    if knowledge_sync:
+        issues += knowledge_sync.check_terminology(lines, file_path)
+        issues += knowledge_sync.check_descriptions(lines, file_path)
 
     return issues
 

@@ -1,0 +1,122 @@
+# Terminology glossary — preferred form + forbidden variants.
+#
+# Every `forbidden` entry is a string the linter greps for. When it matches,
+# the report names the preferred form and the exact file:line.
+#
+# scope: en | zh | both   (which language trees the rule applies to)
+#
+# Seeded from the conventions in .github/copilot-instructions.md and
+# .github/doc-review-agent/system_prompt.md, plus real variants already
+# present in the corpus.
+
+- term: boot sequence
+  zh: 启动序列
+  scope: both
+  forbidden_zh: ["启动流程", "引导序列", "开机顺序", "启动顺序"]
+  note: system_prompt.md fixes 启动序列 as the preferred form
+
+- term: register map
+  zh: 寄存器映射
+  scope: both
+  forbidden_zh: ["寄存器图", "寄存器表映射"]
+  forbidden_en: ["register table map"]
+
+- term: memory map
+  zh: 内存映射
+  scope: both
+  forbidden_zh: ["存储器映射", "内存分布图"]
+
+- term: thermal dissipation
+  zh: 散热方案
+  scope: both
+  forbidden_zh: ["散热设计", "热解决方案", "散热措施"]
+  forbidden_en: ["heat dissipation solution"]
+
+- term: power rail
+  zh: 电源轨
+  scope: both
+  forbidden_zh: ["电源轨线", "供电轨"]
+
+- term: evaluation board
+  zh: 评估板
+  scope: both
+  forbidden_en: ["evaluation card", "eval board"]
+  note: prefer EVB after first mention
+
+- term: schematic
+  zh: 原理图
+  scope: both
+  forbidden_zh: ["原理电路图", "电路原理图"]
+  forbidden_en: ["principle diagram"]
+
+- term: layout guideline
+  zh: 布局布线规范
+  scope: both
+  forbidden_en: ["layout rule", "wiring guideline"]
+  forbidden_zh: ["布局规则"]
+
+- term: signal integrity
+  zh: 信号完整性
+  scope: both
+  forbidden_zh: ["信号完整度"]
+
+- term: interrupt controller
+  zh: 中断控制器
+  scope: both
+  forbidden_zh: ["中断控制单元"]
+
+- term: I²C
+  zh: I²C
+  scope: both
+  forbidden_en: ["I2C", "IIC", "IIC bus"]
+  forbidden_zh: ["I2C", "IIC"]
+  note: >-
+    Use the superscript form I²C. Real drift present: P1 zh uses I²C,
+    P1S zh/en use I2C.
+
+- term: product brief
+  zh: 产品简介
+  scope: both
+  # standalone "简介" as H1 only — avoid matching "产品简介" or "### 产品简介"
+  forbidden_zh: ["^# 简介$", "产品概述简介"]
+  forbidden_en: ["product introduction", "brief introduction"]
+  note: >-
+    H1 headings drift: K1/K3 zh use "产品简介", P1/P1S zh use just "简介".
+
+# --- unit / formatting conventions (not terms, but same check channel) ---
+
+- term: "temperature range"
+  zh: 温度范围
+  scope: both
+  forbidden_zh: ["˚C", "℃"]
+  forbidden_en: ["deg C", "degrees C"]
+  note: >-
+    Degree sign must be ° (U+00B0), not ˚ (U+02DA) or ℃ (U+2103).
+    K1 zh uses "-40˚C～85˚C" while K3 zh uses "-40°C ～ 85°C".
+
+- term: "package dimensions"
+  zh: 封装尺寸
+  scope: both
+  forbidden_zh: ["7mm x 7mm", "7mmx7mm"]
+  forbidden_en: ["7mmx7mm", "7mm x 7mm"]
+  note: >-
+    Canonical: "7 mm x 7 mm" (en) / "7 mm x 7 mm" (zh). Variants found:
+    7mmx7mm, 7mm x 7mm, 7 mm × 7 mm.
+
+- term: "AI compute unit"
+  zh: AI 算力
+  scope: both
+  forbidden_zh: ["AI算力"]
+  forbidden_en: ["AI power", "AI compute"]
+  note: >-
+    "TOPS" is the canonical unit. Watch for "2 TOPS" vs "2.0 TOPS"
+    and "50KDMIPS" vs "50 KDMIPS".
+
+- term: "large model size"
+  zh: 大模型参数规模
+  scope: both
+  forbidden_zh: ["300亿"]
+  forbidden_en: ["30 billion"]
+  note: >-
+    Prefer the B form (30B) over the 亿/word form. K3 zh drift:
+    both "30B" and "300 亿" appear.

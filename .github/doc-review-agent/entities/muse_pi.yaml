@@ -1,0 +1,52 @@
+# Entity: MUSE Pi (K1-based product in docs-product)
+# Values here must stay consistent with entities/k1.yaml.
+
+entity: MUSE Pi
+family: k1_product
+language_pair: true
+
+aliases:
+  - "MUSE Pi"
+  - "K1 MUSE Pi"
+  - "Muse Pi"
+
+canonical:
+  en: >-
+    MUSE Pi is powered by SpacemiT 8-core RISC-V AI CPU with 2.0 TOPS AI
+    processing power.
+  zh: >-
+    MUSE Pi 搭载进迭时空 8 核 RISC-V AI CPU，具备 2.0 TOPS AI 算力。
+
+source_of_truth:
+  en: en/k1_muse_pi/root_overview.md
+  zh: zh/k1_muse_pi/root_overview.md
+
+# These attribute values must match entities/k1.yaml — the chip is the SoT.
+attributes:
+  - key: ai_compute
+    canonical_en: "2.0 TOPS"
+    canonical_zh: "2.0 TOPS"
+    variants_en: ["2 TOPS", "2.0 TOPS", "2TOPS"]
+    variants_zh: ["2 TOPS", "2.0 TOPS", "2TOPS"]
+
+  - key: cpu_core_count
+    canonical_en: "8-core"
+    canonical_zh: "8 核"
+    variants_en: ["8 core", "8-core", "octa-core", "eight-core"]
+    variants_zh: ["八核", "8核", "8 核"]
+
+  - key: memory_type
+    canonical_en: "LPDDR4X"
+    canonical_zh: "LPDDR4X"
+    variants_en: ["LPDDR4X", "LPDDR4x", "lpddr4x"]
+    variants_zh: ["LPDDR4X", "LPDDR4x"]
+
+  - key: processor_label
+    canonical_en: "SpacemiT M1"
+    canonical_zh: "SpacemiT M1"
+    variants_en: ["SpacemiT M1", "M1"]
+    variants_zh: ["SpacemiT M1", "M1"]
+    note: >-
+      MUSE Pi spec table calls the chip "SpacemiT M1" while docs-chip uses K1.
+      These are the same silicon — flag for human review if values diverge.
+      conflict: true

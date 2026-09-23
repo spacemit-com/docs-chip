@@ -1,0 +1,39 @@
+# Entity: P1 (power_stone family)
+
+entity: P1
+family: power_stone
+language_pair: true
+
+aliases:
+  - P1
+  - "P1 PMIC"
+
+canonical:
+  en: >-
+    P1 is a high-performance multi-channel power management chip (PMIC)
+    designed to provide customized power solutions for complex computing systems.
+  zh: >-
+    P1 是一款高性能多通道电源管理芯片（PMIC），旨在为复杂计算系统提供定制化电源解决方案。
+
+source_of_truth:
+  en: en/power_stone/p1/p1_docs/root_overview.md
+  zh: zh/power_stone/p1/p1_docs/root_overview.md
+
+attributes:
+  - key: ldo_count
+    canonical_en: "12 LDO"
+    canonical_zh: "12 LDO"
+    variants_en: ["12 LDO", "12 LDOs", "twelve LDO"]
+    variants_zh: ["12 LDO", "12 个 LDO", "十二"]
+
+  - key: buck_count
+    canonical_en: "6 buck converters"
+    canonical_zh: "6 个降压转换器"
+    variants_en: ["6 buck", "6 COT buck", "six buck"]
+    variants_zh: ["6 个降压", "6 个 COT", "六个降压"]
+
+  - key: package
+    canonical_en: "QFN-60 (7 mm x 7 mm)"
+    canonical_zh: "QFN-60（7 mm x 7 mm）"
+    variants_en: ["QFN-60 (7mmx7mm)", "QFN-60 (7 mm x 7 mm)"]
+    variants_zh: ["QFN-60（7mm x 7mm）", "QFN-60（7 mm x 7 mm）"]

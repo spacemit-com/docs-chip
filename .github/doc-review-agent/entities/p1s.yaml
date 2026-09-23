@@ -1,0 +1,51 @@
+# Entity: P1S (power_stone family)
+#
+# NOTE: the zh and en sources currently disagree on the LDO count
+# (zh says 5, en says 12). Both are recorded below so the linter reports
+# the conflict instead of silently picking one.
+
+entity: P1S
+family: power_stone
+language_pair: true
+
+aliases:
+  - P1S
+  - "P1S PMIC"
+
+canonical:
+  en: >-
+    P1S is a high-performance multi-channel power management chip (PMIC)
+    designed to provide customized power solutions for complex computing systems.
+  zh: >-
+    P1S 是一款多通道电源管理芯片（PMIC），旨在满足各种应用的不同电源需求，
+    为客户提供完整的电源解决方案。
+
+source_of_truth:
+  en: en/power_stone/p1s/p1s_docs/root_overview.md
+  zh: zh/power_stone/p1s/p1s_docs/root_overview.md
+
+attributes:
+  - key: ldo_count
+    canonical_en: "12 LDO"
+    canonical_zh: "5 LDO"
+    conflict: true
+    variants_en: ["12 LDO", "12 LDOs", "twelve LDO"]
+    variants_zh: ["5 个低压差稳压器", "5 LDO", "五个"]
+
+  - key: buck_count
+    canonical_en: "6 buck converters"
+    canonical_zh: "6 个降压转换器"
+    variants_en: ["6 buck", "6 COT buck", "six buck"]
+    variants_zh: ["6 个降压", "6 个 COT", "六个降压"]
+
+  - key: package
+    canonical_en: "QFN-60 (7 mm x 7 mm)"
+    canonical_zh: "QFN-60（7 mm x 7 mm）"
+    variants_en: ["QFN-60 (7mmx7mm)", "QFN-60 (7 mm x 7 mm)"]
+    variants_zh: ["QFN-60（7mm x 7mm）", "QFN-60（7 mm x 7 mm）"]
+
+  - key: i2c_writing
+    canonical_en: "I2C"
+    canonical_zh: "I²C"
+    variants_en: ["I2C", "I²C", "IIC"]
+    variants_zh: ["I2C", "I²C", "IIC"]
