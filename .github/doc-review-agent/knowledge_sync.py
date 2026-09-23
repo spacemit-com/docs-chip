@@ -2,7 +2,7 @@
 Knowledge-sync linters — terminology and description checks.
 
 Integrated into agent.py to run alongside other rule-based checks.
-Requires spacemit-knowledge-sync repo cloned as a sibling to docs-chip.
+Reads glossary.yaml and entities/ from the same directory.
 """
 
 from __future__ import annotations
