@@ -8,6 +8,7 @@ sidebar_position: 1
 
 | Version | Date | Notes |
 | --- | --- | --- |
+| **V1.13** | 2026.09.24 | Updated Section 4.2.1 dual-voltage GPIO absolute maximum supply |
 | **V1.12** | 2026.09.08 | Updated the clock tree diagram in Chapter 17 |
 | **V1.11** | 2026.09.07 | Updated UART register base addresses in Section 14.6.4 |
 | **V1.10** | 2026.08.25 | Added DPU0/DPU1 display interface support note in Section 1.2 |

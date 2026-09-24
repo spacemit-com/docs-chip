@@ -12,6 +12,7 @@ Click to download [K3 Datasheet (PDF)](https://cdn-resource.spacemit.com/file/ch
 
 | Version | Date | Notes |
 | --- | --- | --- |
+| **V1.9** | 2026.09.24 | Updated Section 5.2.1 dual-voltage GPIO absolute maximum supply |
 | **V1.8** | 2026.08.25 | Added DPU0/DPU1 display interface support note in section 1.2 |
 | **V1.7** | 2026.08.19 | Added section 4.4 cross-references to pin assignment tables |
 | **V1.6** | 2026.07.15 | Updated video subsystem parameters |
