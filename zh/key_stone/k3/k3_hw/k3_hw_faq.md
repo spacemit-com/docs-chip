@@ -35,6 +35,8 @@ sidebar_position: 99
 
       ![](./static/com260_debug_00.png)
 
+      图中子板详细介绍可参考 [TF 卡扩展调试子板使用说明](https://www.spacemit.com/community/document/info?lang=zh&nodepath=hardware/eco/hw_accessories/tf_card_debug_board.md) 。
+
 ## 电源系统
 
 该部分主要解答与电源系统相关的常见问题，包括 DCIN、P1（多通道电源管理芯片）、电源域、DCDC、电池、充电器、电量计等。
