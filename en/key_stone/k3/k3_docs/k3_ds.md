@@ -12,6 +12,7 @@ Click to download [K3 Datasheet (PDF)](https://cdn-resource.spacemit.com/file/ch
 
 | Version | Date | Notes |
 | --- | --- | --- |
+| **V1.9** | 2026.09.24 | Updated Section 5.2.1 dual-voltage GPIO absolute maximum supply |
 | **V1.8** | 2026.08.25 | Added DPU0/DPU1 display interface support note in section 1.2 |
 | **V1.7** | 2026.08.19 | Added section 4.4 cross-references to pin assignment tables |
 | **V1.6** | 2026.07.15 | Updated video subsystem parameters |
@@ -2554,12 +2555,12 @@ The following table describes the recommended operating conditions.
 | | VCC18_GPIO4 | -0.3V | 1.98V |
 | | VCC18_GPIO5 | -0.3V | 1.98V |
 | | VCC18_PMIC | -0.3V | 1.98V |
-| | VCC1833_GPIO1 | -0.3V | 1.98V/3.63V |
-| | VCC1833_GPIO2 | -0.3V | 1.98V/3.63V |
-| | VCC1833_GPIO4 | -0.3V | 1.98V/3.63V |
-| | VCC1833_GPIO5 | -0.3V | 1.98V/3.63V |
-| | VCC1833_QSPI | -0.3V | 1.98V/3.63V |
-| | VCC1833_MMC1 | -0.3V | 1.98V/3.63V |
+| | VCC1833_GPIO1 | -0.3V | 1.98V/3.465V |
+| | VCC1833_GPIO2 | -0.3V | 1.98V/3.465V |
+| | VCC1833_GPIO4 | -0.3V | 1.98V/3.465V |
+| | VCC1833_GPIO5 | -0.3V | 1.98V/3.465V |
+| | VCC1833_QSPI | -0.3V | 1.98V/3.465V |
+| | VCC1833_MMC1 | -0.3V | 1.98V/3.465V |
 | **OSC** | AVDD08_OSC | -0.3V | 0.88V |
 | | AVDD18_OSC | -0.3V | 1.96V |
 | **PICE PHY0** | AVDD08_PCIeA | -0.3V | 0.88V |
