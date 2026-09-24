@@ -83,7 +83,7 @@ K3 系列芯片主要应用在 AI 消费硬件如 AI 智慧家居、AI 会议办
 - 8 条 PCIe Gen3 通道（8 Gbps/通道），支持 RC/EP 模式及热插拔  
 - 3 × USB 3.0 Host，1 × USB 3.0 DRD（Type-C），1 × USB 2.0 Host  
 - 4 × GMAC（支持 RGMII/RMII/MII），集成 TSN 协议  
-- 6 × SPI，2 × eSPI，17 × UART，10 × CAN，9 × I²C，30 × PWM
+- 6 × SPI，2 × eSPI，17 × UART，10 × CAN-FD，9 × I²C，30 × PWM
 
 **功耗**  
 

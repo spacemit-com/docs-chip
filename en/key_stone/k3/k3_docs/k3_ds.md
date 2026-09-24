@@ -73,7 +73,7 @@ The K3 series chips are mainly used in AI consumer hardware, such as AI smart ho
 **Multimedia and Display**  
 
 - Integrated 3D graphics engine supporting Vulkan, OpenCL, OpenGL ES  
-- 4K@180 fps decoding and 4K@90 fps encoding (H.265/H.264/VP9)
+- 4K@180 fps decoding and 4K@90 fps encoding (H.265/H.264/VP8/VP9)
 - Dual 3840×2160@60fps display outputs via MIPI-DSI (8-lane, 4.5 Gbps/lane) or DP/eDP
   > Note: DPU0 supports MIPI-DSI or DP/eDP; DPU1 supports DP/eDP only.
 - 4 × MIPI-CSI interfaces (12 lanes total), supporting up to 12 camera inputs  
@@ -83,7 +83,7 @@ The K3 series chips are mainly used in AI consumer hardware, such as AI smart ho
 - 8 × PCIe Gen3 lanes (8 Gbps/lane) with RC & EP modes, hot-plug supported  
 - 3 × USB 3.0 Host, 1 × USB 3.0 DRD (Type-C), 1 × USB 2.0 Host  
 - 4 × GMAC (RGMII, RMII, MII) with TSN protocol support  
-- 6 × SPI, 2 × eSPI, 17 × UART, 10 × CAN, 9 × I²C, 30 × PWM  
+- 6 × SPI, 2 × eSPI, 17 × UART, 10 × CAN-FD, 9 × I²C, 30 × PWM  
 
 **Power**  
 

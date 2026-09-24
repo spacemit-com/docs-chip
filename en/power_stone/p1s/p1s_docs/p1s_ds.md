@@ -14,11 +14,11 @@ sidebar_position: 2
 
 ### 1.1 Overview
 
-SpacemiT® Power Stone™ P1S is a multi-channel power management chip (PMIC) designed to meet the different power needs of various applications and provide customers with complete power solutions. It features 6 constant-on-time (COT) control mode buck converters, 5 low-dropout regulators (LDOs), an IIC interface, and multiple-time programmable non-volatile memory (MTP) for a variety of Mobile devices and embedded systems provide highly flexible power management capabilities.
+SpacemiT® Power Stone™ P1S is a multi-channel power management chip (PMIC) designed to meet the different power needs of various applications and provide customers with complete power solutions. It features 6 constant-on-time (COT) control mode buck converters, 5 low-dropout regulators (LDOs), an I²C interface, and multiple-time programmable non-volatile memory (MTP) for a variety of Mobile devices and embedded systems provide highly flexible power management capabilities.
 
 Six fully integrated buck converters provide stable power to a variety of target voltage rails. Constant on-time (COT) control provides fast load transient performance. In continuous conduction mode (CCM), the default fixed switching frequency of 1.5MHz greatly reduces external inductor and capacitor values. Comprehensive protection features include undervoltage lockout (UVLO), overcurrent protection (OCP), overvoltage protection (OVP) and thermal shutdown. Dynamic Voltage Control (DVC) allows real-time control of supply voltage based on application requirements.
 
-Individual output voltages and startup/shutdown sequences can be preset via the Multi-Time Programmable Non-Volatile Memory (MTP) interface and controlled via the IIC bus. The P1S requires only a minimal number of external components and is available in a compact QFN-60 (7mmx7mm) package.
+Individual output voltages and startup/shutdown sequences can be preset via the Multi-Time Programmable Non-Volatile Memory (MTP) interface and controlled via the I²C bus. The P1S requires only a minimal number of external components and is available in a compact QFN-60 (7mmx7mm) package.
 
 ### 1.2 Key Features
 
@@ -37,7 +37,7 @@ Individual output voltages and startup/shutdown sequences can be preset via the 
   - 4 low noise LDOs
   - output voltage：0.5V～3.4V，25mV/step
   - Output current：0.3A
-- IIC communication interface
+- I²C communication interface
 - User programmable MTP
 - System monitor with watchdog timer
 - 12-bit ADC with 8 channels and configurable alarm thresholds
