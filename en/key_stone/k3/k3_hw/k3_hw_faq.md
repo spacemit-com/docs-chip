@@ -34,6 +34,8 @@ sidebar_position: 99
 
        ![](./static/com260_debug_00.png)
 
+      For detailed information on the board shown in the figure, please refer to [TF Card Debug Expansion Board User Guide](https://www.spacemit.com/community/document/info?lang=en&nodepath=hardware/eco/hw_accessories/tf_card_debug_board.md) .
+
 ## Power System
 
 This section answers common questions about the power system, including DCIN, P1 (the multi-channel power management IC), power domains, DCDC, battery, charger, and fuel gauge.
