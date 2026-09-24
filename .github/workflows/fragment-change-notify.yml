@@ -1,0 +1,43 @@
+name: Fragment Change Notification
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'en/key_stone/**/k*_ds.md'
+      - 'zh/key_stone/**/k*_ds.md'
+      - 'en/key_stone/**/root_overview.md'
+      - 'zh/key_stone/**/root_overview.md'
+      - 'en/power_stone/**/p*_ds.md'
+      - 'zh/power_stone/**/p*_ds.md'
+      - 'en/power_stone/**/root_overview.md'
+      - 'zh/power_stone/**/root_overview.md'
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  notify:
+    name: Check for fragment changes
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2  # need HEAD and HEAD~1 for diff
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests pyyaml
+
+      - name: Detect fragment changes and create issue
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: python .github/scripts/notify_fragment_changes.py
