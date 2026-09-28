@@ -22,7 +22,7 @@ canonical:
     integrates 8 RISC-V CPU cores with SpacemiT Daoyi AI computing power.
   zh: >-
     K1 系列是 8 核 64 位 RISC-V AI CPU，采用同构融合计算技术，集成 8 个
-    高性能 X60 计算核，提供 50KDMIPS 通用算力与 2 TOPS AI 算力。
+    高性能 X60 计算核，提供 50 KDMIPS 通用算力与 2 TOPS AI 算力。
 
 source_of_truth:
   en: en/key_stone/k1/k1_docs/k1_ds.md
@@ -42,10 +42,10 @@ attributes:
     variants_zh: ["512K L2", "1MB L2", "1 MB L2"]
 
   - key: ai_compute
-    canonical_en: "2.0 TOPS"
-    canonical_zh: "2.0 TOPS"
-    variants_en: ["2 TOPS", "2.0 TOPS"]
-    variants_zh: ["2 TOPS", "2.0 TOPS"]
+    canonical_en: "2 TOPS"
+    canonical_zh: "2 TOPS"
+    variants_en: ["2 TOPS", "2 TOPS"]
+    variants_zh: ["2 TOPS", "2 TOPS"]
 
   - key: core_name
     canonical_en: "X60"

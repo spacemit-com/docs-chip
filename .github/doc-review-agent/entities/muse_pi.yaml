@@ -12,10 +12,10 @@ aliases:
 
 canonical:
   en: >-
-    MUSE Pi is powered by SpacemiT 8-core RISC-V AI CPU with 2.0 TOPS AI
+    MUSE Pi is powered by SpacemiT 8-core RISC-V AI CPU with 2 TOPS AI
     processing power.
   zh: >-
-    MUSE Pi 搭载进迭时空 8 核 RISC-V AI CPU，具备 2.0 TOPS AI 算力。
+    MUSE Pi 搭载进迭时空 8 核 RISC-V AI CPU，具备 2 TOPS AI 算力。
 
 source_of_truth:
   en: en/k1_muse_pi/root_overview.md
@@ -24,10 +24,10 @@ source_of_truth:
 # These attribute values must match entities/k1.yaml — the chip is the SoT.
 attributes:
   - key: ai_compute
-    canonical_en: "2.0 TOPS"
-    canonical_zh: "2.0 TOPS"
-    variants_en: ["2 TOPS", "2.0 TOPS", "2TOPS"]
-    variants_zh: ["2 TOPS", "2.0 TOPS", "2TOPS"]
+    canonical_en: "2 TOPS"
+    canonical_zh: "2 TOPS"
+    variants_en: ["2 TOPS", "2 TOPS", "2TOPS"]
+    variants_zh: ["2 TOPS", "2 TOPS", "2TOPS"]
 
   - key: cpu_core_count
     canonical_en: "8-core"

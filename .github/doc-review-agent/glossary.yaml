@@ -68,8 +68,8 @@
 - term: I²C
   zh: I²C
   scope: both
-  forbidden_en: ["I2C", "IIC", "IIC bus"]
-  forbidden_zh: ["I2C", "IIC"]
+  forbidden_en: ["I2C", "I²C", "I²C bus"]
+  forbidden_zh: ["I2C", "I²C"]
   note: >-
     Use the superscript form I²C. Real drift present: P1 zh uses I²C,
     P1S zh/en use I2C.
@@ -109,8 +109,8 @@
   forbidden_zh: ["AI算力"]
   forbidden_en: ["AI power", "AI compute"]
   note: >-
-    "TOPS" is the canonical unit. Watch for "2 TOPS" vs "2.0 TOPS"
-    and "50KDMIPS" vs "50 KDMIPS".
+    "TOPS" is the canonical unit. Watch for "2 TOPS" vs "2 TOPS"
+    and "50 KDMIPS" vs "50 KDMIPS".
 
 - term: "large model size"
   zh: 大模型参数规模
