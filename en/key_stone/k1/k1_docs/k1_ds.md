@@ -32,7 +32,7 @@ Click to download **[K1 Datasheet (PDF)](https://cdn-resource.spacemit.com/file/
 SpacemiT Key Stone® K1 is a high-performance and ultra-low-power SoC that integrates 8 RISC-V CPU cores with SpacemiT® Daoyi™ AI computing power. It comes with the following most relevant advantages:
 
 - Integration with SpacemiT® self-innovated X60™ RISC-V core processor which adheres to the RISC-V 64GCVB architecture and RVA22 standard
-- Capable of delivering 2.0 TOPS AI computing power by leveraging customized RISC-V instructions to enable CPU AI fusion computing
+- Capable of delivering 2 TOPS AI computing power by leveraging customized RISC-V instructions to enable CPU AI fusion computing
 - Support for the popular AI inference frameworks such as TensorFlow Lite, TensorFlow, and ONNX Runtime
 - Attainment of ultra-low power consumption through the incorporation of multiple granular power islands and dynamic power state adjustments, making K1 highly competitive in energy efficiency
 - Availability of full-feature interfaces for enabling innovative applications and products
@@ -45,7 +45,7 @@ SpacemiT Key Stone® K1 is a high-performance and ultra-low-power SoC that integ
   - SpacemiT® X60™ RISC-V Dual-Cluster 8-Core Processor
   - Adherence to the RISC-V 64GCVB architecture and RVA22 standard
   - Cluster 0
-    - Quad-Core with 2.0 TOPS AI computing power
+    - Quad-Core with 2 TOPS AI computing power
     - 32K L1-Cache per core
     - 512K L2-Cache
     - 512KB TCM
@@ -181,7 +181,7 @@ The architecture of K1 is depicted below.
 
 - Availability of two asymmetric CPU clusters, where
 
-  - Cluster 0 includes Quad RISC-V SpacemiT® X60™ cores with 2.0 TOPS AI-Power extension
+  - Cluster 0 includes Quad RISC-V SpacemiT® X60™ cores with 2 TOPS AI-Power extension
   - Cluster 1 includes Quad RISC-V SpacemiT® X60™ cores without AI capability
 - High-performance: low-power SpacemiT® X60™ CPU core adheres to RISC-V 64GCVB architecture and RVA22 standard
 - Support for a processor core local interrupt controller (CLINT) and a platform level interrupt controller (PLIC)

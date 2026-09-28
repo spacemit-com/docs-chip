@@ -45,7 +45,7 @@ The K3 series chips are mainly used in AI consumer hardware, such as AI smart ho
   - 8 MB shared L2 cache per 8-core cluster
 - **60 TOPS General-Purpose AI Compute**
   - 8-core A100™ delivers up to 60 TOPS AI performance
-  - Model throughput > 10 Tokens/s @ 30B
+  - Model throughput > 10 tokens/s @ 30B
   - Supports FP16, BF16, FP8, INT8, and INT4 data formats
   - Supports all AI algorithms and model deployment
 - **RISC-V Hardware Virtualization**

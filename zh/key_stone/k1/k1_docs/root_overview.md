@@ -9,14 +9,14 @@ sidebar_position: 1
 **量产数量最多的高能效 RISC-V AI CPU**
 
 K1 系列是 8 核 64 位 RISC-V AI CPU。
-K1 采用同构融合计算技术，集成进迭时空自研的 8 个高性能计算核 X60，可提供 50KDMIPS 通用算力，同时融合 2 TOPS AI 算力，可流畅运行 0.5B、1B 的本地大模型。
+K1 采用同构融合计算技术，集成进迭时空自研的 8 个高性能计算核 X60，可提供 50 KDMIPS 通用算力，同时融合 2 TOPS AI 算力，可流畅运行 0.5B、1B 的本地大模型。
 K1 系列芯片主要应用在 AI 边缘计算机、AI + 硬件、智能机器人、工业主控、云电脑、开源鸿蒙应用等领域。
 
 - **出色的 CPU 性能**
-8 核 RISC-V AI CPU，提供 50KDMIPS CPU 算力，单核 CPU 性能 Specint2006 >4.0/GHz。
+8 核 RISC-V AI CPU，提供 50 KDMIPS CPU 算力，单核 CPU 性能 SPECint2006 > 4.0/GHz。
 
 - **同构融合 AI 算力，卓越的本地大模型运行能力**
-提供 2 TOPS AI 算力，以并行计算的 AI-CPU 核提供原生 AI 算力，实现与所有主流 AI 生态的快速对接，大模型算力 > 10 Tokens/S @1B 本地大模型。
+提供 2 TOPS AI 算力，以并行计算的 AI-CPU 核提供原生 AI 算力，实现与所有主流 AI 生态的快速对接，大模型算力 > 10 tokens/s @ 1B 本地大模型。
 
 - **最新的 RISC-V 架构，强大的并行计算能力**
 支持 RVA22 Profile、256bit RVV 1.0 标准的 RISC-V CPU，提供 2 倍于 Neon 的并行处理算力，向量性能是 ARM NEON 的 150% 以上。
@@ -37,12 +37,12 @@ CPU 在 -40°C～85°C 的环境温度下仍能提供稳定可靠的持续算力
   - 八核 X60™ 64 位 AI 处理器
   - 八级双发按序流水线
   - 支持 256-bit RVV1.0 标准
-  - CPU 融合 2.0 TOPS AI 算力
+  - CPU 融合 2 TOPS AI 算力
   - 八核共享 1MB L2 Cache
 
 - **RISC-V 融合 AI 技术**
-  - AI-CPU 融合 2.0 TOPS AI 算力
-  - 大模型算力 > 10Tokens/S@1B 本地大模型
+  - AI-CPU 融合 2 TOPS AI 算力
+  - 大模型算力 > 10 tokens/s @ 1B 本地大模型
   - 支持所有的 AI 算法和模型，支持所有的本地大模型
   - 遵循 CPU 编程范式，实现 AI 算法的部署成本为零
 
@@ -53,7 +53,7 @@ CPU 在 -40°C～85°C 的环境温度下仍能提供稳定可靠的持续算力
   - 支持产品生命周期安全管理
 
 - **RCPU**
-  - RISC-V 实时 CPU，主频 300MHz
+  - RISC-V 实时 CPU，主频 300 MHz
   - 支持异构双系统
 
 - **内存**

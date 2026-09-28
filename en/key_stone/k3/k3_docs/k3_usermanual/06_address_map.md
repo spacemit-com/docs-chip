@@ -68,14 +68,14 @@ The SoC address maps from each CPU perspective are provided in the following sec
 | Reserved | 0xCD00_0000 | 0x0700_0000 |  |  |
 | PDMA Controller Config | 0xD400_0000 | 0x0001_0000 |  |  |
 | RTC | 0xD401_0000 | 0x0000_0800 |  |  |
-| IIC0 | 0xD401_0800 | 0x0000_0800 |  |  |
-| IIC1 | 0xD401_1000 | 0x0000_0800 |  |  |
+| I²C0 | 0xD401_0800 | 0x0000_0800 |  |  |
+| I²C1 | 0xD401_1000 | 0x0000_0800 |  |  |
 | reserved | 0xD401_1800 | 0x0000_0800 |  |  |
-| IIC2 | 0xD401_2000 | 0x0000_0800 |  |  |
-| IIC4 | 0xD401_2800 | 0x0000_0800 |  |  |
+| I²C2 | 0xD401_2000 | 0x0000_0800 |  |  |
+| I²C4 | 0xD401_2800 | 0x0000_0800 |  |  |
 | DRO | 0xD401_3000 | 0x0000_0400 |  |  |
 | IPCADSP2AP (Audio-to-RISCV) | 0xD401_3400 | 0x0000_0400 |  |  |
-| IIC5 | 0xD401_3800 | 0x0000_0800 |  |  |
+| I²C5 | 0xD401_3800 | 0x0000_0800 |  |  |
 | Timer0 (WDT0) | 0xD401_4000 | 0x0000_1000 |  |  |
 | APB Bus Clock Unit | 0xD401_5000 | 0x0000_1000 |  |  |
 | Timer1 (WDT1) | 0xD401_6000 | 0x0000_1000 |  |  |
@@ -92,7 +92,7 @@ The SoC address maps from each CPU perspective are provided in the following sec
 | IR | 0xD401_7E00 | 0x0000_0100 |  |  |
 | IR1 | 0xD401_7F00 | 0x0000_0100 |  |  |
 | Tsensor | 0xD401_8000 | 0x0000_0800 |  |  |
-| IIC6 | 0xD401_8800 | 0x0000_0800 |  |  |
+| I²C6 | 0xD401_8800 | 0x0000_0800 |  |  |
 | GPIO | 0xD401_9000 | 0x0000_0800 |  |  |
 | GPIO Edge | 0xD401_9800 | 0x0000_0800 |  |  |
 | PWM0 | 0xD401_A000 | 0x0000_0400 |  |  |
@@ -104,7 +104,7 @@ The SoC address maps from each CPU perspective are provided in the following sec
 | PWM6 | 0xD401_B800 | 0x0000_0400 |  |  |
 | PWM7 | 0xD401_BC00 | 0x0000_0400 |  |  |
 | SSP3 | 0xD401_C000 | 0x0000_1800 |  |  |
-| IIC8 (PWR_IIC) | 0xD401_D800 | 0x0000_0800 |  |  |
+| I²C8 (PWR_I²C) | 0xD401_D800 | 0x0000_0800 |  |  |
 | Pad Configuration | 0xD401_E000 | 0x0000_1000 |  |  |
 | UART10 | 0xD401_F000 | 0x0000_1000 |  |  |
 | PWM8 | 0xD402_0000 | 0x0000_0400 |  |  |
@@ -186,7 +186,7 @@ The SoC address maps from each CPU perspective are provided in the following sec
 | SEC APB Bus Clock Unit | 0xF061_0000 | 0x0000_2000 |  | Secure |
 | SEC UART1 | 0xF061_2000 | 0x0000_1000 |  | Secure |
 | SEC SSP2 | 0xF061_3000 | 0x0000_1000 |  | Secure |
-| SEC IIC3 | 0xF061_4000 | 0x0000_1000 |  | Secure |
+| SEC I²C3 | 0xF061_4000 | 0x0000_1000 |  | Secure |
 | SEC RTC | 0xF061_5000 | 0x0000_1000 |  | Secure |
 | SEC_Timer 8 | 0xF061_6000 | 0x0000_1000 |  | Secure |
 | SEC_Keypad Controller | 0xF061_7000 | 0x0000_1000 |  | Secure |

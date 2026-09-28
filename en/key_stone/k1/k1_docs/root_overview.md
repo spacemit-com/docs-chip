@@ -15,10 +15,10 @@ The K1 series leverages homogeneous fusion computing technology, integrating eig
 The K1 series chips are primarily designed for applications in AI edge computing, AI-integrated hardware, intelligent robotics, industrial main control systems, cloud computing and open-source Harmony OS among others.
 
 - **Outstanding CPU performance**
-8-core RISC-V AI CPU, delivering 50 KDMIPS of CPU computing power, with single-core CPU performance SPECint®2006 > 4.0/GHz
+8-core RISC-V AI CPU, delivering 50 KDMIPS of CPU computing power, with single-core CPU performance SPECint2006 > 4.0/GHz
 
 - **Homogeneous AI integration, superior LLM performance**
-Delivers 2 TOPS AI power via parallel AI-CPU cores, integrating swiftly with major AI ecosystems. Large model performance > 10 Tokens/S @ 1B local model
+Delivers 2 TOPS AI power via parallel AI-CPU cores, integrating swiftly with major AI ecosystems. Large model performance > 10 tokens/s @ 1B local model
 
 - **Latest RISC-V architecture, robust parallel computing power**
 Support of RVA22 Profile and 256-bit RVV 1.0 standard RISC-V CPU, offering double the parallel processing power of Neon, with vector performance exceeding ARM NEON by over 150%
@@ -39,12 +39,12 @@ The CPU delivers stable and reliable computing power from -40°C to 85°C, compl
   - 8-core X60™ 64-bit AI processor
   - 8-stage dual-issue in-order pipeline
   - Support of 256-bit RVV1.0 standard
-  - CPU integrated with 2.0 TOPS AI performance
+  - CPU integrated with 2 TOPS AI performance
   - Shared 1MB L2 cache across 8 cores
 
 - **RISC-V integrated AI technology**
-  - AI-CPU with 2.0 TOPS AI performance
-  - Capable of > 10 Tokens/S @1B for LLMs
+  - AI-CPU with 2 TOPS AI performance
+  - Capable of > 10 tokens/s @ 1B for LLMs
   - Support of all AI algorithms and models, including all LLMs
   - Follow of CPU programming paradigms, enabling zero-cost AI deployment
 
@@ -55,7 +55,7 @@ The CPU delivers stable and reliable computing power from -40°C to 85°C, compl
   - Support of product lifecycle security management
 
 - **RCPU**
-  - RISC-V real-time CPU with 300MHz clock speed
+  - RISC-V real-time CPU with 300 MHz clock speed
   - Support of heterogeneous dual system
 
 - **Memory**
@@ -77,7 +77,7 @@ The CPU delivers stable and reliable computing power from -40°C to 85°C, compl
     - MIPI-CSI 8 Lanes (4+2+2 or 4+4)
 
 - **Interfaces**
-  - 5× PCIe 2.1 (x2 + x2 + x1 configuration, 5Gbps per lane)
+  - 5× PCIe 2.1 (x2 + x2 + x1 configuration, 5 Gbps per lane)
   - 1× USB 3.0 (combo with PCIe 2.1 x1)
   - 2× USB 2.0 (OTG + Host)
   - 2× GMAC (RGMII & 1000M)

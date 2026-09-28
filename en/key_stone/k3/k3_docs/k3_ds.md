@@ -38,7 +38,7 @@ The K3 series chips are mainly used in AI consumer hardware, such as AI smart ho
 
 - 8 × X100™ 64-bit RISC-V cores (quad-issue, out-of-order)  
 - Total CPU performance: 130 KDMIPS  
-- SpecINT2006 > 9.0 per GHz; max frequency 2.4 GHz  
+- SPECint2006 > 9.0 per GHz; max frequency 2.4 GHz  
 - Shared 8 MB L2 cache across 8 cores  
 
 **AI Computing Subsystem**  
@@ -143,9 +143,8 @@ The SpacemiT® A100™ is an AI-first RISC-V AI-CPU that delivers native AI comp
 In addition to advanced AI acceleration, the A100 fully supports general-purpose CPU functionalities defined by the RVA23* specification and leverages a standard RISC-V unified programming model to power Small-Local Language Model (SLM) and a broad range of AI-centric applications.
 
 **Features**  
-- AI Compute Performance: 60 TOPs (@INT4 sparse)  
-- RISC-V Compliance: Fully compliant with RISC-V RVA23* standards  
-- Cache Architecture:  
+- AI Compute Performance: 60 TOPS (@INT4 sparse)  
+- RISC-V Compliance: Fully compliant with RISC-V RVA23* standards  60 TOPS Architecture:  
   - 32 KB L1 I-Cache and 32 KB L1 D-Cache per core  
   - 1 MB L2 Cache per cluster  
   - 1.5 MB Scratchpad per cluster  

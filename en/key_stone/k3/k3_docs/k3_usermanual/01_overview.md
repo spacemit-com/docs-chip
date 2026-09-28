@@ -15,7 +15,7 @@ The K3 series chips are mainly used in AI consumer hardware, such as AI smart ho
 
 - 8 × X100™ 64-bit RISC-V cores (quad-issue, out-of-order)  
 - Total CPU performance: 130 KDMIPS  
-- SpecINT2006 > 9.0 per GHz; max frequency 2.4 GHz  
+- SPECint2006 > 9.0 per GHz; max frequency 2.4 GHz  
 - Shared 8 MB L2 cache across 8 cores  
 
 **AI Computing Subsystem**  

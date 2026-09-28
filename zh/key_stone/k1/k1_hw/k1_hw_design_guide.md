@@ -246,9 +246,9 @@ K1 有 12 组 UART 接口，分为两类：X60 UART 和 N308 UART。
 - X60 UART 有 10 组，其中 UART0 是 2 线调试口，UART1~UART9 是 4 线，其中 UART3 可用于 secure domain。
 - N308 UART 有 2 组，目前暂不支持，需要使用时，请联系 FAE 确认。
 
-#### 1.4.4 IIC
+#### 1.4.4 I²C
 
-K1 有 10 组 IIC 接口，分为 4 类：AP I2C ,HDMI I2C, PWR I2C。
+K1 有 10 组 I²C 接口，分为 4 类：AP I2C ,HDMI I2C, PWR I2C。
 
 - AP I2C 有 8 组， I2C0~I2C7 ，用于外设控制功能，其中 I2C0,I2C1,I2C7 用于摄像头功能控制。
 - HDMI  I2C 有 1 组，HDMI_I2C， 用于 HDMI 接口功能控制
