@@ -830,7 +830,7 @@ Table 6-4: PMIC Mode Management
 | VSYS            | DIGITAL     | -     | -               | x               | x               | x               | x               |
 | AONLDO          | GPIO        | -     | -               | -               | -               | x               | x               |
 |                 | INT         | -     | -               | -               | -               | x               | x               |
-|                 | IIC         | -     | -               | -               | -               | x               | x               |
+|                 | I²C         | -     | -               | -               | -               | x               | x               |
 
 ### 6.3 PMIC Events and Behaviors
 
@@ -1301,7 +1301,7 @@ When the shutdown protection for a power rail is enabled (PROT_EN[5:0], Table 7-
 
 Over-Temperature Protection Levels
 
-| SYS_CFG0[7] (Table 7-125) | Warning Temp (℃) | Severe Temp (℃) | Critical Temp (℃) |
+| SYS_CFG0[7] (Table 7-125) | Warning Temp (°C) | Severe Temp (°C) | Critical Temp (°C) |
 |----------------------------|-----------------|----------------|------------------|
 | 0                          | 95              | 115            | 135              |
 | 1                          | 110             | 130            | 150              |

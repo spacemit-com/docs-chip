@@ -43,7 +43,7 @@ Individual output voltages and startup/shutdown sequences can be preset via the 
 - 12-bit ADC with 8 channels and configurable alarm thresholds
 - Output voltage and startup/shutdown sequence can be preset by MTP
 - 6 GPIO pins for peripheral control
-- Chip junction temperature: - 40℃ to 125℃
+- Chip junction temperature: - 40°C to 125°C
 - Package: QFN-60, 7x7mm, 0.4mm pitch
 
 ### 1.3 Application
@@ -419,14 +419,14 @@ Table 3-2 P1S pin description
 <td>44</td>
 <td>SDA</td>
 <td>DIO</td>
-<td>IIC communication interface data signal</td>
+<td>I²C communication interface data signal</td>
 <td> </td>
 </tr>
 <tr>
 <td>45</td>
 <td>SCL</td>
 <td>DIN</td>
-<td>IIC communication interface clock signal</td>
+<td>I²C communication interface clock signal</td>
 <td> </td>
 </tr>
 <tr>
@@ -624,7 +624,7 @@ Table 5-1 Recommended working conditions
 <td>-40</td>
 <td> </td>
 <td>125</td>
-<td>℃</td>
+<td>°C</td>
 </tr>
 <tr>
 <td>V(SYS)</td>
@@ -651,7 +651,7 @@ Table 5-1 Recommended working conditions
 <td> </td>
 <td>38</td>
 <td> </td>
-<td>℃/W</td>
+<td>°C/W</td>
 </tr>
 <tr>
 <td>R(JC)</td>
@@ -660,7 +660,7 @@ Table 5-1 Recommended working conditions
 <td> </td>
 <td>12</td>
 <td> </td>
-<td>℃/W</td>
+<td>°C/W</td>
 </tr>
 <tr>
 <td>R(JB)</td>
@@ -669,7 +669,7 @@ Table 5-1 Recommended working conditions
 <td> </td>
 <td>9</td>
 <td> </td>
-<td>℃/W</td>
+<td>°C/W</td>
 </tr>
 </tbody>
 </table>
@@ -700,7 +700,7 @@ Table 5-2 Power consumption in each mode
 </tr>
 <tr>
 <td>RTC mode</td>
-<td>Vin=5V, Ta=25℃</td>
+<td>Vin=5V, Ta=25°C</td>
 <td> </td>
 <td>1.5</td>
 <td> </td>
@@ -708,7 +708,7 @@ Table 5-2 Power consumption in each mode
 </tr>
 <tr>
 <td>Shutdown mode-SHUTDOWN</td>
-<td>Vin=5V, Ta=25℃</td>
+<td>Vin=5V, Ta=25°C</td>
 <td> </td>
 <td>35</td>
 <td> </td>
@@ -751,7 +751,7 @@ Table 5-3 Digital pin electrical characteristics
 <tr>
 <td>V(IH)</td>
 <td>High level input</td>
-<td>2.7 ～ 5.5 V，-40 ~ 105 ℃</td>
+<td>2.7 ～ 5.5 V，-40 ~ 105 °C</td>
 <td> </td>
 <td> </td>
 <td>0.3 * AONLDO</td>
@@ -760,7 +760,7 @@ Table 5-3 Digital pin electrical characteristics
 <tr>
 <td>V(IL)</td>
 <td>low level input</td>
-<td>2.7 ～ 5.5 V，-40 ~ 105 ℃</td>
+<td>2.7 ～ 5.5 V，-40 ~ 105 °C</td>
 <td>0.7 * AONLDO</td>
 <td> </td>
 <td> </td>
@@ -769,7 +769,7 @@ Table 5-3 Digital pin electrical characteristics
 <tr>
 <td>V(OH)</td>
 <td>High level output</td>
-<td>5 V，25  ℃,<br/>AONLDO = 1.8 V，I(LOAD)=1 mA</td>
+<td>5 V，25  °C,<br/>AONLDO = 1.8 V，I(LOAD)=1 mA</td>
 <td> </td>
 <td>AONLDO - 0.1</td>
 <td> </td>
@@ -778,7 +778,7 @@ Table 5-3 Digital pin electrical characteristics
 <tr>
 <td>V(OL)</td>
 <td>Low level output</td>
-<td>5V，25 ℃,<br/>AONLDO  = 1.8 V，I(LOAD)=1 mA</td>
+<td>5V，25 °C,<br/>AONLDO  = 1.8 V，I(LOAD)=1 mA</td>
 <td> </td>
 <td>0.1</td>
 <td> </td>
@@ -787,7 +787,7 @@ Table 5-3 Digital pin electrical characteristics
 <tr>
 <td>I(DRIVE)</td>
 <td>Source current drive</td>
-<td>5V，25 ℃,<br/>AONLDO = 1.8 V，PAD = 1.3 V</td>
+<td>5V，25 °C,<br/>AONLDO = 1.8 V，PAD = 1.3 V</td>
 <td> </td>
 <td>10</td>
 <td> </td>
@@ -796,7 +796,7 @@ Table 5-3 Digital pin electrical characteristics
 <tr>
 <td>I(SINK)</td>
 <td>Sink current driver</td>
-<td>5V，25 ℃,<br/>AONLDO = 1.8 V，PAD = 0.5 V</td>
+<td>5V，25 °C,<br/>AONLDO = 1.8 V，PAD = 0.5 V</td>
 <td> </td>
 <td>25</td>
 <td> </td>
@@ -1701,7 +1701,7 @@ Table 5-11 ADC electrical characteristics
 <tr>
 <td>DNL</td>
 <td>differential nonlinearity</td>
-<td>2.7 ~ 5.5 V<br/>-40 ~ 105 ℃</td>
+<td>2.7 ~ 5.5 V<br/>-40 ~ 105 °C</td>
 <td>-3</td>
 <td> </td>
 <td>3</td>
@@ -1710,7 +1710,7 @@ Table 5-11 ADC electrical characteristics
 <tr>
 <td>INL</td>
 <td>Integral nonlinearity<br/></td>
-<td>2.7 ~ 5.5 V<br/>-40 ~ 105 ℃</td>
+<td>2.7 ~ 5.5 V<br/>-40 ~ 105 °C</td>
 <td>-4</td>
 <td> </td>
 <td>4</td>
@@ -1719,7 +1719,7 @@ Table 5-11 ADC electrical characteristics
 <tr>
 <td>Offset error</td>
 <td>Offset error</td>
-<td>2.7 ~ 5.5 V<br/>-40 ~ 105 ℃</td>
+<td>2.7 ~ 5.5 V<br/>-40 ~ 105 °C</td>
 <td>-4</td>
 <td> </td>
 <td>4</td>
@@ -1728,7 +1728,7 @@ Table 5-11 ADC electrical characteristics
 <tr>
 <td>Gain error</td>
 <td>Gain error</td>
-<td>2.7 ~ 5.5 V<br/>-40 ~ 105 ℃</td>
+<td>2.7 ~ 5.5 V<br/>-40 ~ 105 °C</td>
 <td>-4</td>
 <td> </td>
 <td>4</td>
@@ -1737,7 +1737,7 @@ Table 5-11 ADC electrical characteristics
 <tr>
 <td>Sample rate</td>
 <td>Sampling rate</td>
-<td>25 ℃</td>
+<td>25 °C</td>
 <td>0.1</td>
 <td> </td>
 <td>25</td>
@@ -1746,7 +1746,7 @@ Table 5-11 ADC electrical characteristics
 <tr>
 <td>I(WORK)</td>
 <td>Working current</td>
-<td>5V，25 ℃</td>
+<td>5V，25 °C</td>
 <td> </td>
 <td>190</td>
 <td> </td>
@@ -1771,7 +1771,7 @@ Table 5-12 ADC internal reference electrical characteristics
 <tr>
 <td>V(REF_2V)</td>
 <td>2V reference voltage</td>
-<td>2.7 ~ 5.5 V，25 ℃</td>
+<td>2.7 ~ 5.5 V，25 °C</td>
 <td>1.995</td>
 <td>2</td>
 <td>2.005</td>
@@ -1780,7 +1780,7 @@ Table 5-12 ADC internal reference electrical characteristics
 <tr>
 <td>V(REF_3V)</td>
 <td>3V reference voltage</td>
-<td>3.5 ~ 5.5 V，25 ℃</td>
+<td>3.5 ~ 5.5 V，25 °C</td>
 <td>2.995</td>
 <td>3</td>
 <td>3.005</td>
@@ -1789,7 +1789,7 @@ Table 5-12 ADC internal reference electrical characteristics
 <tr>
 <td>I(WORK)</td>
 <td>Working current</td>
-<td>5.0V，-40 ~ 105 ℃</td>
+<td>5.0V，-40 ~ 105 °C</td>
 <td> </td>
 <td>400</td>
 <td> </td>
@@ -1816,7 +1816,7 @@ Table 5-13 Internal LSI electrical characteristics
 <tr>
 <td>F(ACC)</td>
 <td>频率精度</td>
-<td>5 V，25 ℃</td>
+<td>5 V，25 °C</td>
 <td>30</td>
 <td>32</td>
 <td>34</td>
@@ -1825,7 +1825,7 @@ Table 5-13 Internal LSI electrical characteristics
 <tr>
 <td>V(C)</td>
 <td>电压系数</td>
-<td>2.0 ~ 5.5 V，25 ℃</td>
+<td>2.0 ~ 5.5 V，25 °C</td>
 <td>-7</td>
 <td> </td>
 <td>7</td>
@@ -1834,7 +1834,7 @@ Table 5-13 Internal LSI electrical characteristics
 <tr>
 <td>T(C)</td>
 <td>温度系数</td>
-<td>5V，-40 ~ 105 ℃</td>
+<td>5V，-40 ~ 105 °C</td>
 <td>-10</td>
 <td> </td>
 <td>10</td>
@@ -1843,7 +1843,7 @@ Table 5-13 Internal LSI electrical characteristics
 <tr>
 <td>I(WORK)</td>
 <td>工作电流</td>
-<td>2.0 ~ 5.5 V，-40 ~ 105 ℃</td>
+<td>2.0 ~ 5.5 V，-40 ~ 105 °C</td>
 <td>0.4</td>
 <td>0.9</td>
 <td>1.5</td>
@@ -1868,7 +1868,7 @@ Table 5-14 Internal HSI electrical characteristics
 <tr>
 <td>F(ACC)</td>
 <td>Frequency accuracy</td>
-<td>5 V，25 ℃</td>
+<td>5 V，25 °C</td>
 <td>1.98</td>
 <td>2</td>
 <td>2.02</td>
@@ -1877,7 +1877,7 @@ Table 5-14 Internal HSI electrical characteristics
 <tr>
 <td>V(C)</td>
 <td>Voltage coefficient</td>
-<td>2.0 ~ 5.5 V，25 ℃</td>
+<td>2.0 ~ 5.5 V，25 °C</td>
 <td>-0.5</td>
 <td> </td>
 <td>0.5</td>
@@ -1886,7 +1886,7 @@ Table 5-14 Internal HSI electrical characteristics
 <tr>
 <td>T(C)</td>
 <td>Temperature coefficient</td>
-<td>5V，-40 ~ 105 ℃</td>
+<td>5V，-40 ~ 105 °C</td>
 <td>-3</td>
 <td> </td>
 <td>3</td>
@@ -1895,7 +1895,7 @@ Table 5-14 Internal HSI electrical characteristics
 <tr>
 <td>I(WORK)</td>
 <td>Working current</td>
-<td>2.0 ~ 5.5 V，-40 ~ 105 ℃</td>
+<td>2.0 ~ 5.5 V，-40 ~ 105 °C</td>
 <td>45</td>
 <td>80</td>
 <td>120</td>
@@ -1922,7 +1922,7 @@ Table 5-15 Crystal oscillator electrical characteristics
 <tr>
 <td>C(LOAD)</td>
 <td>External load capacitor</td>
-<td>2.7 ~ 5.5 V，-40 ~ 105 ℃</td>
+<td>2.7 ~ 5.5 V，-40 ~ 105 °C</td>
 <td>7</td>
 <td>22.5<br/></td>
 <td>30</td>
@@ -1931,7 +1931,7 @@ Table 5-15 Crystal oscillator electrical characteristics
 <tr>
 <td>I(WORK)</td>
 <td>Working current</td>
-<td>5 V，25 ℃，C(LOAD) = 12.5 pF</td>
+<td>5 V，25 °C，C(LOAD) = 12.5 pF</td>
 <td> </td>
 <td>1</td>
 <td> </td>
@@ -1940,7 +1940,7 @@ Table 5-15 Crystal oscillator electrical characteristics
 <tr>
 <td>T(SETUP)</td>
 <td>Start time</td>
-<td>5 V，25 ℃</td>
+<td>5 V，25 °C</td>
 <td> </td>
 <td>0.6</td>
 <td> </td>
@@ -1967,7 +1967,7 @@ Table 5-16 Electrical characteristics of power-on and power-off reset
 <tr>
 <td>POR</td>
 <td>Power on reset voltage</td>
-<td>-40 ~ 105 ℃</td>
+<td>-40 ~ 105 °C</td>
 <td>1.75</td>
 <td>2.0</td>
 <td>2.25</td>
@@ -1976,7 +1976,7 @@ Table 5-16 Electrical characteristics of power-on and power-off reset
 <tr>
 <td>PDR</td>
 <td>Power down reset voltage</td>
-<td>-40 ~ 105 ℃</td>
+<td>-40 ~ 105 °C</td>
 <td>1.75</td>
 <td>2.0</td>
 <td>2.25</td>
@@ -1985,7 +1985,7 @@ Table 5-16 Electrical characteristics of power-on and power-off reset
 <tr>
 <td>T(FILTER)</td>
 <td>POR pulse interference filter length</td>
-<td>25 ℃，3 V ~ 1.5 V</td>
+<td>25 °C，3 V ~ 1.5 V</td>
 <td> </td>
 <td>2.0</td>
 <td> </td>
@@ -1994,7 +1994,7 @@ Table 5-16 Electrical characteristics of power-on and power-off reset
 <tr>
 <td>I(WORK)</td>
 <td>Working current</td>
-<td>2.0 ~ 5.5 V，-40 ~ 105 ℃</td>
+<td>2.0 ~ 5.5 V，-40 ~ 105 °C</td>
 <td>0.1</td>
 <td>0.3</td>
 <td>1</td>
@@ -2021,7 +2021,7 @@ Table 5-17 RTC power-on and power-off reset electrical characteristics
 <tr>
 <td>POR</td>
 <td>Power on reset voltage</td>
-<td>-40 ~ 105 ℃</td>
+<td>-40 ~ 105 °C</td>
 <td>1.55</td>
 <td>1.7</td>
 <td>1.85</td>
@@ -2030,7 +2030,7 @@ Table 5-17 RTC power-on and power-off reset electrical characteristics
 <tr>
 <td>PDR</td>
 <td>Power down reset voltage</td>
-<td>-40 ~ 105 ℃</td>
+<td>-40 ~ 105 °C</td>
 <td>1.55</td>
 <td>1.7</td>
 <td>1.85</td>
@@ -2039,7 +2039,7 @@ Table 5-17 RTC power-on and power-off reset electrical characteristics
 <tr>
 <td>I(WORK)</td>
 <td>Working current</td>
-<td>2.0 ~ 5.5 V，-40 ~ 105 ℃</td>
+<td>2.0 ~ 5.5 V，-40 ~ 105 °C</td>
 <td>0.1</td>
 <td>0.3</td>
 <td>1</td>
@@ -2050,7 +2050,7 @@ Table 5-17 RTC power-on and power-off reset electrical characteristics
 
 ## 6. Function description
 
-P1S is a low-voltage multi-channel power management chip (PMIC) that integrates 6 channels of fast transient response BUCK and 12 channels of low-noise LDO. It also integrates MTP internally, which can flexibly customize the default voltage and switch of each output according to different usage scenarios. Machine timing to meet the power supply timing requirements of different SoC platforms.
+P1S is a low-voltage multi-channel power management chip (PMIC) that integrates 6 channels of fast transient response BUCK and 5 channels of low-noise LDO. It also integrates MTP internally, which can flexibly customize the default voltage and switch of each output according to different usage scenarios. Machine timing to meet the power supply timing requirements of different SoC platforms.
 
 ### 6.1 Power management pins
 
@@ -2552,7 +2552,7 @@ Table 6-4 PMIC mode management
 <td>x</td>
 </tr>
 <tr>
-<td>IIC</td>
+<td>I²C</td>
 <td>-</td>
 <td>-</td>
 <td>-</td>
@@ -2920,7 +2920,7 @@ Figure 6-9 Cold reset process
 
 ### 6.5 Watchdog
 
-In power-on mode and sleep mode, the host can enable the watchdog and configure the timeout through the IIC communication interface (**Table 7-72** WDT\_CTRL[2:1]).
+In power-on mode and sleep mode, the host can enable the watchdog and configure the timeout through the I²C communication interface (**Table 7-72** WDT\_CTRL[2:1]).
 
 If the host does not perform a dog feeding operation within the set timeout period (**Table 7-72 WDT\_CTRL[0]=1), a watchdog timeout event will occur and the relevant flag bit will be set (Table 7-108 **EVENT1[3]).
 
@@ -2943,11 +2943,11 @@ GPIOx\_ODR multiplexes two functions:
 1. When used as a GPIO output (GPIOx\_MODE=2’b01), GPIOx\_ODR is the GPIO output state.
 2. When used as a multiplexing function (GPIOx\_MODE=2’b1x), GPIOx\_ODR is the effective status configuration bit of the relevant multiplexing function.
 
-### 6.7 IIC communication interface
+### 6.7 I²C communication interface
 
-The communication interface of PMIC is IIC, the maximum supported speed is 1MHz, this PMIC can only be used as a slave.
+The communication interface of PMIC is I²C, the maximum supported speed is 1MHz, this PMIC can only be used as a slave.
 
-In shutdown mode, the SCL and SDA interfaces do not work. Only after entering power-on mode and sleep mode can the host operate the PMIC register through the IIC interface. This IIC slave address can be configured through MTP: Table 7-125 SYS\_CFG0[6:0].
+In shutdown mode, the SCL and SDA interfaces do not work. Only after entering power-on mode and sleep mode can the host operate the PMIC register through the I²C interface. This I²C slave address can be configured through MTP: Table 7-125 SYS\_CFG0[6:0].
 
 ### 6.8 LDO
 
@@ -2996,7 +2996,7 @@ Table 6-7 LDO control parameters
 </tbody>
 </table>
 
-The enablement of all LDOs (except AONLDO) and voltage adjustment can be modified through software, that is, the host accesses the PMIC internal registers through IIC. AONLDO remains normally open after VSYS is powered on (VSYS \> 2.7 V). AONLDO has no sleep voltage to set, while other LDOs do, and the step size of all LDO voltage adjustments is 25 mV.
+The enablement of all LDOs (except AONLDO) and voltage adjustment can be modified through software, that is, the host accesses the PMIC internal registers through I²C. AONLDO remains normally open after VSYS is powered on (VSYS \> 2.7 V). AONLDO has no sleep voltage to set, while other LDOs do, and the step size of all LDO voltage adjustments is 25 mV.
 
 ALDO1~4 and DLDO1~7 can also be controlled by hardware:
 
@@ -3130,9 +3130,9 @@ The over-temperature protection gears are as follows:
 <tbody>
 <tr>
 <td>Table 7125 SYS_CFG0[7]</td>
-<td>Temperature alarm(warning)/ ℃</td>
-<td>Severe overheating(severe)/ ℃</td>
-<td>Shut down and overheat(critical)/ ℃</td>
+<td>Temperature alarm(warning)/ °C</td>
+<td>Severe overheating(severe)/ °C</td>
+<td>Shut down and overheat(critical)/ °C</td>
 </tr>
 <tr>
 <td>0</td>
@@ -8953,7 +8953,7 @@ Table 7-120 IRQ\_PWRKY\_EN
 <td>TEMP_CRIT_PROT</td>
 <td>RWE</td>
 <td>0x0</td>
-<td>Over temperature (135℃/150℃) shutdown protection enabled<br/>0: Prohibited<br/>1: enable</td>
+<td>Over temperature (135°C/150°C) shutdown protection enabled<br/>0: Prohibited<br/>1: enable</td>
 </tr>
 <tr>
 <td>5</td>
@@ -9159,14 +9159,14 @@ Table 7-125 SYS\_CFG0
 <td>TEMP_LEVEL</td>
 <td>RE</td>
 <td>0x0</td>
-<td>Temperature range selection<br/>            warn             severe               critical<br/>0：       95 ℃            115 ℃               135℃<br/>1：      110 ℃            130 ℃               150℃</td>
+<td>Temperature range selection<br/>            warn             severe               critical<br/>0：       95 °C            115 °C               135°C<br/>1：      110 °C            130 °C               150°C</td>
 </tr>
 <tr>
 <td>6:0</td>
 <td>IF_ADDR</td>
 <td>RE</td>
 <td>0x55</td>
-<td>IIC slave address configuration</td>
+<td>I²C slave address configuration</td>
 </tr>
 </tbody>
 </table>
