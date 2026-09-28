@@ -117,8 +117,8 @@ P3 引脚描述
 
 |参数|描述|条件|最小值|典型值|最大值|单位|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|TSTG|存储温度|-|- 40|-|150|℃|
-|TJ|结温|-|-40|-|125|℃|
+|TSTG|存储温度|-|- 40|-|150|°C|
+|TJ|结温|-|-40|-|125|°C|
 |VSYS|系统供电电压|-|-0.3|-|5.8|V|
 |VESD_HBM|ESD保护-HBM|-|2|-|-|kV|
 |VESD_CDM|ESD保护-CDM|-|500|-|-|V|
@@ -127,19 +127,19 @@ P3 引脚描述
 
 |参数|描述|条件|最小值|典型值|最大值|单位|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|TJ|结温|-|-|-|85|℃|
+|TJ|结温|-|-|-|85|°C|
 |VSYS|系统供电电压|-|3.3|5.0|5.5|V|
 |PDIS|芯片最大功耗|-|-|-|2|W|
-|RJA|Junction到环境热阻|-|-|31|-|℃/W|
-|RJC|Junction到芯片表面热阻|-|-|-|-|℃/W|
-|RJB|Junction到PCB板热阻|-|-|-|-|℃/W|
+|RJA|Junction到环境热阻|-|-|31|-|°C/W|
+|RJC|Junction到芯片表面热阻|-|-|-|-|°C/W|
+|RJB|Junction到PCB板热阻|-|-|-|-|°C/W|
 |ISHDN|关机模式电流|CE = 0|-|17|-|μA|
 
 ### 4.3 数字引脚电气特性
 
 #### Top-Level Electrical Characteristics
 
-(VSYS = +2.5 ~ +5.5 V, VVIO1 = +1.8 V, VVIO2 = +1.8 V, TJ = -40 ~ 105 ℃; typical values are at VSYS = 5 V, TJ = +25 ℃)
+(VSYS = +2.5 ~ +5.5 V, VVIO1 = +1.8 V, VVIO2 = +1.8 V, TJ = -40 ~ 105 °C; typical values are at VSYS = 5 V, TJ = +25 °C)
 
 **LOGIC AND CONTROL INPUTS**
 
@@ -170,7 +170,7 @@ P3 引脚描述
 
 **I2C Electrical Characteristics**
 
-(VSYS = +2.5 ~ +5.5 V, VVIO1 = +1.8 V, VVIO2 = +1.8 V, TJ = -40 ~ 105 ℃; typical values are at VSYS = 5 V, TJ = +25 ℃)
+(VSYS = +2.5 ~ +5.5 V, VVIO1 = +1.8 V, VVIO2 = +1.8 V, TJ = -40 ~ 105 °C; typical values are at VSYS = 5 V, TJ = +25 °C)
 
 **POWER SUPPLY**
 
@@ -218,7 +218,7 @@ P3 引脚描述
 
 #### SPI Electrical Characteristics
 
-(VSYS = +2.5 ~ +5.5 V, VVIO1 = +1.8 V, VVIO2 = +1.8 V, TJ = -40 ~ 105 ℃; typical values are at VSYS = 5 V, TJ = +25 ℃)
+(VSYS = +2.5 ~ +5.5 V, VVIO1 = +1.8 V, VVIO2 = +1.8 V, TJ = -40 ~ 105 °C; typical values are at VSYS = 5 V, TJ = +25 °C)
 
 **POWER SUPPLY AND I/O STAGES**
 
@@ -270,8 +270,8 @@ BUCK1~4电气特性
 |Soft on / off Slow|软启动/关闭时间|SOFT_STA_SLEW / SOFT_STP_SLEW|-|10|-|mV/μs|
 |Soft on / off Slow|软启动/关闭时间|SOFT_STA_SLEW / SOFT_STP_SLEW|-|25|-|mV/μs|
 |Soft on / off Slow|软启动/关闭时间|SOFT_STA_SLEW / SOFT_STP_SLEW|-|50|-|mV/μs|
-|VBUCK_ACC|输出电压精度|VOUT > 0.8 V, VIN = 4 V, <br>IOUT = 1 A, TA = 25 ℃|-|-|±1|%|
-|VBUCK_ACC|输出电压精度|VOUT < 0.8 V, VIN = 4 V, <br>IOUT = 1 A, TA = 25 ℃|-|-|±8|mV|
+|VBUCK_ACC|输出电压精度|VOUT > 0.8 V, VIN = 4 V, <br>IOUT = 1 A, TA = 25 °C|-|-|±1|%|
+|VBUCK_ACC|输出电压精度|VOUT < 0.8 V, VIN = 4 V, <br>IOUT = 1 A, TA = 25 °C|-|-|±8|mV|
 |Load Regulation|负载调整率|IOUT = 0.1 ~ 8 A, VOUT > 0.8 V, CCM|-|-|±1|%|
 |Load Regulation|负载调整率|IOUT = 0.1 ~ 8 A, VOUT < 0.8 V, CCM|-|-|±8|mV|
 |Line Regulation|线性调整率|VIN = 3.0 ~ 5.5 V, VOUT > 0.8 V, CCM|-|-|±1|%|
@@ -293,8 +293,8 @@ BUCK1~4电气特性
 |OV||VOUT/VOUT_target - 1|-|12.5|-|%|
 |UV||VOUT/VOUT_target - 1||-10.0|-|%|
 |Power Down resistor||-|-|120|-|Ω|
-|SWx Leakage Current|SW脚漏电|CE = 0, VLXx = 0 or 5.5 V, 25 ℃|-0.3|-|0.3|uA|
-|SWx Leakage Current|SW脚漏电|CE = 0, VLXx = 0 or 5.5 V, 85 ℃|-3|-|3|-|
+|SWx Leakage Current|SW脚漏电|CE = 0, VLXx = 0 or 5.5 V, 25 °C|-0.3|-|0.3|uA|
+|SWx Leakage Current|SW脚漏电|CE = 0, VLXx = 0 or 5.5 V, 85 °C|-3|-|3|-|
 |Efficiency|效率|VIN = 4 V, VOUT = 0.9 V<br>IOUT = 1 A/Phase|-|90|-|%|
 |Efficiency|效率|VIN = 4 V, VOUT = 0.9 V<br>IOUT = 6.0 A/Phase|-|80|-|-|
 |Efficiency|效率|VIN = 4 V, VOUT = 0.9 V<br>IOUT = 8.0 A/Phase|-|77|-|-|
@@ -307,22 +307,22 @@ ADC电气特性
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |Resolution|分辨率|-|-|-|12|Bits|
 |VDD|供电电压|-|2.5|-|5.5|V|
-|DNL|微分非线性|VDD = 4.25 V, T = 25 ℃, Freq = 1 MHz|-|±3|-|LSB|
-|INL|积分非线性|VDD = 4.25 V, T = 25 ℃, Freq = 1 MHz|-|±3|-|LSB|
-|Offset error|偏移误差|VDD = 4.25 V, T = 25 ℃, Freq = 1 MHz|-|±5|-|LSB|
-|Gain error|增益误差|VDD = 4.25 V, T = 25 ℃, Freq = 1 MHz|-|±5|-|LSB|
-|Sample rate|采样率|T = 25 ℃, Freq = 1 MHz|-|76|-|Ksps|
-|IWORK|工作电流|T = 25 ℃, Freq = 0.5 MHz|-|180|-|μA|
+|DNL|微分非线性|VDD = 4.25 V, T = 25 °C, Freq = 1 MHz|-|±3|-|LSB|
+|INL|积分非线性|VDD = 4.25 V, T = 25 °C, Freq = 1 MHz|-|±3|-|LSB|
+|Offset error|偏移误差|VDD = 4.25 V, T = 25 °C, Freq = 1 MHz|-|±5|-|LSB|
+|Gain error|增益误差|VDD = 4.25 V, T = 25 °C, Freq = 1 MHz|-|±5|-|LSB|
+|Sample rate|采样率|T = 25 °C, Freq = 1 MHz|-|76|-|Ksps|
+|IWORK|工作电流|T = 25 °C, Freq = 0.5 MHz|-|180|-|μA|
 
 ADC内部基准电气特性
 
 |参数|描述|条件|最小值|典型值|最大值|单位|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|VREF_2V|2V基准电压|VDD = 4.25 V, T = 25 ℃|2.046|2.048|2.050|V|
-|VREF_3V|3V基准电压|VDD = 4.25 V, T = 25 ℃|3.070|3.072|3.074|V|
-|VC|电压系数|VDD = 4.25 V, T = 25 ℃|-|-|-|%|
+|VREF_2V|2V基准电压|VDD = 4.25 V, T = 25 °C|2.046|2.048|2.050|V|
+|VREF_3V|3V基准电压|VDD = 4.25 V, T = 25 °C|3.070|3.072|3.074|V|
+|VC|电压系数|VDD = 4.25 V, T = 25 °C|-|-|-|%|
 |TC|温度系数|VDD = 4.25 V|-|-|-|%|
-|IWORK|工作电流|VDD = 4.25 V, T = 25 ℃|-|200|-|μA|
+|IWORK|工作电流|VDD = 4.25 V, T = 25 °C|-|200|-|μA|
 
 ### 4.7 时钟
 
@@ -330,19 +330,19 @@ ADC内部基准电气特性
 
 |参数|描述|条件|最小值|典型值|最大值|单位|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|FACC|频率精度|5 V, 25 ℃|-|64|-|kHz|
-|VC|电压系数|2.7 ~ 5.5 V, 25 ℃|-|-|-|%|
-|TC|温度系数|5 V, -40 ~ 105 ℃|-|-|-|%|
-|IWORK|工作电流|2.7 ~ 5.5 V, -40 ~ 105 ℃|-|-|-|μA|
+|FACC|频率精度|5 V, 25 °C|-|64|-|kHz|
+|VC|电压系数|2.7 ~ 5.5 V, 25 °C|-|-|-|%|
+|TC|温度系数|5 V, -40 ~ 105 °C|-|-|-|%|
+|IWORK|工作电流|2.7 ~ 5.5 V, -40 ~ 105 °C|-|-|-|μA|
 
 内部HSI电气特性
 
 |参数|描述|条件|最小值|典型值|最大值|单位|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|FACC|频率精度|5 V, 25 ℃|-|8|-|MHz|
-|VC|电压系数|2.7 ~ 5.5 V, 25 ℃|-|-|-|%|
-|TC|温度系数|5 V, -40 ~ 105 ℃|-|-|-|%|
-|IWORK|工作电流|2.0 ~ 5.5 V, -40 ~ 105 ℃|-|-|-|μA|
+|FACC|频率精度|5 V, 25 °C|-|8|-|MHz|
+|VC|电压系数|2.7 ~ 5.5 V, 25 °C|-|-|-|%|
+|TC|温度系数|5 V, -40 ~ 105 °C|-|-|-|%|
+|IWORK|工作电流|2.0 ~ 5.5 V, -40 ~ 105 °C|-|-|-|μA|
 
 ### 4.8 POR/PDR
 
@@ -1277,7 +1277,7 @@ VSYS过压，VIO欠压，芯片温度保护分别有单独的使能位：
 
 **表 5-25 过温保护档位及其行为**
 
-|[表 6-42](#表-6-42-prot_cfg) PROT_CFG[6]|温度报警（warning）/ ℃|严重过温（severe）/ ℃|关机过温（critical）/ ℃|
+|[表 6-42](#表-6-42-prot_cfg) PROT_CFG[6]|温度报警（warning）/ °C|严重过温（severe）/ °C|关机过温（critical）/ °C|
 |:---:|:---:|:---:|:---:|
 |0|95|115|135|
 |1|110|130|150|
@@ -2147,7 +2147,7 @@ PMIC 的中断事件如 [表 5-27](#table-5-27) 所示。当某个中断事件�
 |Address|Bits|Name|Attr|Default|Description|
 |---|---|---|---|---|---|
 |0x4C|7|Reserved|RV|0|Reserved|
-||6|TEMP_LEVEL<sup>1</sup>|RE|0x0|温度档位选择：<br>0：温度报警（warn）95 ℃ / 严重过温（severe）115 ℃ / 关机过温（critical）135 ℃<br>1：温度报警（warn）110 ℃ / 严重过温（severe）130 ℃ / 关机过温（critical）150 ℃|
+||6|TEMP_LEVEL<sup>1</sup>|RE|0x0|温度档位选择：<br>0：温度报警（warn）95 °C / 严重过温（severe）115 °C / 关机过温（critical）135 °C<br>1：温度报警（warn）110 °C / 严重过温（severe）130 °C / 关机过温（critical）150 °C|
 ||5:3|VSYS_RDY_VTH<sup>1</sup>|RE|0x0|开机阈值<br>000：VSYS>2.9V，启动开机流程<br>001：VSYS>3.0V，启动开机流程<br>010：VSYS>3.1V，启动开机流程<br>011：VSYS>3.2V，启动开机流程<br>100：VSYS>3.3V，启动开机流程<br>101：VSYS>3.4V，启动开机流程<br>110：VSYS>3.5V，启动开机流程<br>111：VSYS>3.6V，启动开机流程|
 ||2:0|VSYS_SHUT_VTH<sup>1</sup>|RE|0x0|关机阈值<br>000：VSYS<2.6V，启动关机流程<br>001：VSYS<2.7V，启动关机流程<br>010：VSYS<2.8V，启动关机流程<br>011：VSYS<2.9V，启动关机流程<br>100：VSYS<3.0V，启动关机流程<br>101：VSYS<3.1V，启动关机流程<br>110：VSYS<3.2V，启动关机流程<br>111：VSYS<3.3V，启动关机流程|
 
@@ -2160,8 +2160,8 @@ PMIC 的中断事件如 [表 5-27](#table-5-27) 所示。当某个中断事件�
 |0x4D|7|Reserved|RV|0|Reserved|
 ||6|VSYS_OV_PROT_EN<sup>1</sup>|RWE|0x0|VSYS过压（5.9V）关机保护使能<br>0：禁止<br>1：使能|
 ||5|VIO_UV_PROT_EN<sup>1</sup>|RWE|0x0|VIO欠压关机保护使能<br>0：禁止<br>1：使能|
-||4|TEMP_CRIT_PROT_EN<sup>1</sup>|RWE|0x0|关机过温（135℃/150℃）关机保护使能<br>0：禁止<br>1：使能|
-||3|TEMP_SEVERE_PROT_EN<sup>1</sup>|RWE|0x0|严重过温（115℃/130℃）关机保护使能<br>0：禁止<br>1：使能|
+||4|TEMP_CRIT_PROT_EN<sup>1</sup>|RWE|0x0|关机过温（135°C/150°C）关机保护使能<br>0：禁止<br>1：使能|
+||3|TEMP_SEVERE_PROT_EN<sup>1</sup>|RWE|0x0|严重过温（115°C/130°C）关机保护使能<br>0：禁止<br>1：使能|
 ||2|BUCK_OV_PROT_EN<sup>1</sup>|RWE|0x0|任一BUCK输出过压保护（进行关机保护）<br>0： 禁止保护<br>1： 使能保护|
 ||1|BUCK_UV_PROT_EN<sup>1</sup>|RWE|0x0|任一BUCK输出欠压保护（进行关机保护）<br>0： 禁止保护<br>1： 使能保护|
 ||0|Reserved|RV|0|Reserved|

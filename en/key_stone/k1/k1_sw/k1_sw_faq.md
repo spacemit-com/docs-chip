@@ -974,7 +974,7 @@ TBD
       open the thermal control related device tree file `arch/riscv/boot/dts/spacemit/k1-x_thermal_cooling.dtsi`.
      - **Modify thermal control settings:**  
       In the file, locate the thermal control nodes such as `cls0_trip4` and `cls1_trip4`, and set the `temperature` and `hysteresis` parameters. These attributes define the temperature threshold and hysteresis value for triggering shutdown. 
-      As shown in the following dts configuration, set 115℃ to trigger shutdown to protect the chip:
+      As shown in the following dts configuration, set 115°C to trigger shutdown to protect the chip:
        ```c
        //arch/riscv/boot/dts/spacemit/k1-x_thermal_cooling.dtsi
 
@@ -995,7 +995,7 @@ TBD
    - **Step 2:** Flash the new device tree (dts) to the device and reboot the system. 
    - **Step 3: Verify the changes:** Monitor system temperature with appropriate tools, and ensure the thermal control settings work as expected.  
      **Note.** Changing thermal control settings may affect system stability and hardware lifespan, so please be cautious.   
-     It is recommended to read relevant documents or seek professional guidance before making changes (the recommended maximum temperature is 115℃).  
+     It is recommended to read relevant documents or seek professional guidance before making changes (the recommended maximum temperature is 115°C).  
      To disable thermal control, you can turn off the kernel compilation configuration CONFIG\_THERMAL, but this is not recommended.
 
 10. **How to Pull Up GPIO via Command Line?**  

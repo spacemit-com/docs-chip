@@ -3756,8 +3756,8 @@ Instead, the input thresholds of Schmitt Trigger Mode of I/O PADs are tabled bel
 | Item                              | Symbol | Min  | Max  | Unit |
 |-----------------------------------|--------|------|------|------|
 | Operating Temperature<br>(Industrial Standard) | Ta     | -40  | +85  | °C   |
-| Junction Temperature              | Tj     | N/A  | 125  | ℃    |
-| Storage Temperature               | Tstg   | -40  | 125  | ℃    |
+| Junction Temperature              | Tj     | N/A  | 125  | °C    |
+| Storage Temperature               | Tstg   | -40  | 125  | °C    |
 
 ### 5.3 Pin Max Currents
 

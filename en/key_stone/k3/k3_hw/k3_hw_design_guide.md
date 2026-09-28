@@ -566,9 +566,9 @@ The K3 provides 17 UART interfaces, divided into two categories: X100 UART and R
   - UART1 can be used in the secure domain
 - RCPU UART: 6 ports
 
-#### 1.4.3 IIC
+#### 1.4.3 I²C
 
-The K3 provides 11 IIC interfaces.
+The K3 provides 11 I²C interfaces.
 
 - 9 x general-purpose I2C interfaces.
 - 1 × PWR I2C and 1 × RCPU PWR I2C, used for power IC configuration and control
@@ -975,7 +975,7 @@ PCB insertion loss requirement: < 2 dB @ 2.7 GHz
 
 ### 3.1 Thermal Resistance Simulation Results
 
-| Package | Jc (℃/W) | Jb (℃/W) |
+| Package | Jc (°C/W) | Jb (°C/W) |
 | --- | --- | --- |
 | Thermal resistance | 0.17 |  |
 
@@ -989,7 +989,7 @@ Thermal control strategy: step_wise (temperature rise triggers gradual frequency
 
 Key parameters:
 - OPP index starts from 0. Lower index = higher frequency
-- Hysteresis: 2 ℃ (trigger temperature - 2 ℃ = exit temperature)
+- Hysteresis: 2 °C (trigger temperature - 2 °C = exit temperature)
 
 Dual cluster configuration:
 - Cluster1 (CPU0–7): opp_table0_x100
@@ -1023,27 +1023,27 @@ OPP8: 1300 MHz
 
 #### 3.2.2 Full Temperature Range Strategy (Heating + Cooling)
 
-1. Temperature < 83 ℃
+1. Temperature < 83 °C
 
    Status: No limitation (maximum performance)
    - Cluster1: 2400 MHz (OPP0)
    - Cluster2: 2000 MHz (OPP0)
 
-   Temperature rise: ≥85 ℃ → enter 85 ℃ frequency lock
+   Temperature rise: ≥85 °C → enter 85 °C frequency lock
 
    Temperature drop: maintain full performance, no action
 
-2. 83 ℃ ≤ Temperature < 93 ℃ (85 ℃ active thermal control)
+2. 83 °C ≤ Temperature < 93 °C (85 °C active thermal control)
 
    Limit: Fixed frequency lock
    - Cluster1: OPP2 = 2200 MHz
    - Cluster2: OPP3 = 1800 MHz
 
-   Temperature rise: ≥95 ℃ → enter 95 ℃ dynamic throttling
+   Temperature rise: ≥95 °C → enter 95 °C dynamic throttling
 
-   Temperature drop: ≤83 ℃ → release lock, restore full performance (OPP0)
+   Temperature drop: ≤83 °C → release lock, restore full performance (OPP0)
 
-3. 93 ℃ ≤ Temperature < 103 ℃ (95 ℃ passive thermal control)
+3. 93 °C ≤ Temperature < 103 °C (95 °C passive thermal control)
 
    Limit: Dynamic frequency scaling within range
    - Cluster1: OPP3 ~ OPP5 → 2150 MHz ~ 2000 MHz
@@ -1053,11 +1053,11 @@ OPP8: 1300 MHz
    - Temperature rise: hotter → higher OPP index → lower frequency
    - Temperature drop: cooler → lower OPP index → higher frequency
 
-   Temperature rise: ≥105 ℃ → enter 105 ℃ deep throttling
+   Temperature rise: ≥105 °C → enter 105 °C deep throttling
 
-   Temperature drop: ≤93 ℃ → return to 85 ℃ fixed frequency lock
+   Temperature drop: ≤93 °C → return to 85 °C fixed frequency lock
 
-4. 103 ℃ ≤ Temperature < 113 ℃ (105 ℃ deep passive thermal control)
+4. 103 °C ≤ Temperature < 113 °C (105 °C deep passive thermal control)
 
    Limit: Deep aggressive throttling
    - Cluster1: OPP6 ~ OPP8 → 1900 MHz ~ 1800 MHz
@@ -1067,11 +1067,11 @@ OPP8: 1300 MHz
    - Temperature rise: hotter → throttle to lowest frequency in range
    - Temperature drop: cooler → gradually return to higher frequency in range
 
-   Temperature rise: ≥115 ℃ → emergency shutdown
+   Temperature rise: ≥115 °C → emergency shutdown
 
-   Temperature drop: ≤103 ℃ → return to 95 ℃ dynamic throttling
+   Temperature drop: ≤103 °C → return to 95 °C dynamic throttling
 
-5. Temperature ≥ 113 ℃ (115 ℃ critical)
+5. Temperature ≥ 113 °C (115 °C critical)
 
    Action: System immediately shuts down / reboots
 
@@ -1085,11 +1085,11 @@ Note: After K3 system boot, the default maximum frequencies are
 
 | Temperature Range | Control Method | Cluster1 | Cluster2 | Temperature Rise Trigger (Enter Next Stage) | Temperature Drop Trigger (Return to Previous Stage) |
 | --- | --- | --- | --- | --- | --- |
-| < 83℃ | Full performance | 2400 MHz | 2000 MHz | ≥85℃ → frequency lock | None |
-| 83~93℃ | Fixed frequency lock | 2200 MHz | 1800 MHz | ≥95℃ → dynamic throttling | ≤83℃ → restore full performance |
-| 93~103℃ | Dynamic throttling | 2150~2000 MHz | 1700~1600 MHz | ≥105℃ → deep throttling | ≤93℃ → return to frequency lock |
-| 103~113℃ | Deep throttling | 1900~1800 MHz | 1500~1300 MHz | ≥115℃ → shutdown | ≤103℃ → return to dynamic |
-| ≥115℃ | Emergency shutdown | Shutdown | Shutdown | Immediate shutdown | No automatic recovery |
+| < 83°C | Full performance | 2400 MHz | 2000 MHz | ≥85°C → frequency lock | None |
+| 83~93°C | Fixed frequency lock | 2200 MHz | 1800 MHz | ≥95°C → dynamic throttling | ≤83°C → restore full performance |
+| 93~103°C | Dynamic throttling | 2150~2000 MHz | 1700~1600 MHz | ≥105°C → deep throttling | ≤93°C → return to frequency lock |
+| 103~113°C | Deep throttling | 1900~1800 MHz | 1500~1300 MHz | ≥115°C → shutdown | ≤103°C → return to dynamic |
+| ≥115°C | Emergency shutdown | Shutdown | Shutdown | Immediate shutdown | No automatic recovery |
 
 ### 3.3 PCB Thermal Design Reference
 
@@ -1142,8 +1142,8 @@ K3 chips use environmentally friendly materials. Pb-Free process is recommended.
 
 | Material / Parameter / Tool | Criteria | 49VP03 |
 | --- | --- | --- |
-| Soaking time (127~170 ℃) | 60~90 sec | 61~64 sec |
-| Ramp up rate (170~245 ℃) | 0.5~1.2 (℃/sec) | 0.81~0.86 (℃/sec) |
-| Peak temperature | 235~245 ℃ | 235.94~238.3 ℃ |
-| Reflow time (> 220 ℃) | 35~55 sec | 44~47 sec |
-| Cooling rate (245~120 ℃) | ≤ 2.5 (℃/sec) | 1.23~1.28 (℃/sec) |
+| Soaking time (127~170 °C) | 60~90 sec | 61~64 sec |
+| Ramp up rate (170~245 °C) | 0.5~1.2 (°C/sec) | 0.81~0.86 (°C/sec) |
+| Peak temperature | 235~245 °C | 235.94~238.3 °C |
+| Reflow time (> 220 °C) | 35~55 sec | 44~47 sec |
+| Cooling rate (245~120 °C) | ≤ 2.5 (°C/sec) | 1.23~1.28 (°C/sec) |

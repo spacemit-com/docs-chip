@@ -9,7 +9,7 @@ P1S is a high-performance multi-channel power management chip (PMIC), designed t
 P1S is mainly used for AR/VR, industrial devices, AI robots, and drones.
 
 - **Highly Flexible Power Management Capabilities**
-It features 6 channels of COT (Constant On-Time) control buck converters, 12 Low Drop-Out (LDO) regulators, and an I2C interface, providing highly flexible power management capabilities for a range of mobile devices and embedded systems.
+It features 6 channels of COT (Constant On-Time) control buck converters, 5 Low Drop-Out (LDO) regulators, and an I²C interface, providing highly flexible power management capabilities for a range of mobile devices and embedded systems.
 
 - **Provide Safe and Stable Power**
 Six integrated buck converters power a variety of target rails. Constant-on-time (COT) control offers fast transient performance. The 1.5MHz, default, fixed switching frequency during continuous conduction mode (CCM) reduces the external inductor and capacitor values greatly. Full protection features include UVLO, OCP, OVP and thermal shutdown. Dynamic voltage control (DVC) enables supply voltage controllability based on the application requirements. The output voltage and start up/shutdown sequence can be  preset by the multiple-time programmable (MTP) interface and controlled via the I2C bus. 
@@ -20,7 +20,7 @@ The P1S requires a minimal number of external components, and is available in a 
 ## Key Features
 
 - **Power supply voltage (VIN)**
-  - 2.6V ~ 5.5V
+  - 2.7V ~ 5.5V
 
 - **6 High-Efficiency Buck Converters**
   - Buck1/2: 0.5V ~ 3.4V, 4A , can dual phase operation
@@ -32,7 +32,7 @@ The P1S requires a minimal number of external components, and is available in a 
 
 - **5 Programmable LDO regulators** 
   - 1 Dedicated always on LDO
-  - 5 Low-Noise LDOs 
+  - 4 Low-Noise LDOs 
   - VOUT: 0.5V ~ 3.4V, 25mV step
   - IOUT: 0.3A max
 
@@ -46,7 +46,7 @@ The P1S requires a minimal number of external components, and is available in a 
 
 - **6 GPIO pins for peripheral control**
 
-- **-40℃ ~ 125℃ junction temperature**
+- **-40°C ~ 125°C junction temperature**
 
 - **Package: QFN-60 7mm * 7mm, 0.4mm pitch**
 

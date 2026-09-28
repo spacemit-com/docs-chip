@@ -117,8 +117,8 @@ P3 Pin Description
 
 |Parameter|Description|Condition|Min|Typ|Max|Unit|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|TSTG|Storage temperature|-|- 40|-|150|℃|
-|TJ|Junction temperature|-|-40|-|125|℃|
+|TSTG|Storage temperature|-|- 40|-|150|°C|
+|TJ|Junction temperature|-|-40|-|125|°C|
 |VSYS|System supply voltage|-|-0.3|-|5.8|V|
 |VESD_HBM|ESD protection - HBM|-|2|-|-|kV|
 |VESD_CDM|ESD protection - CDM|-|500|-|-|V|
@@ -127,19 +127,19 @@ P3 Pin Description
 
 |Parameter|Description|Condition|Min|Typ|Max|Unit|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|TJ|Junction temperature|-|-|-|85|℃|
+|TJ|Junction temperature|-|-|-|85|°C|
 |VSYS|System supply voltage|-|3.3|5.0|5.5|V|
 |PDIS|Maximum chip power dissipation|-|-|-|2|W|
-|RJA|Junction-to-ambient thermal resistance|-|-|31|-|℃/W|
-|RJC|Junction-to-case thermal resistance|-|-|-|-|℃/W|
-|RJB|Junction-to-board thermal resistance|-|-|-|-|℃/W|
+|RJA|Junction-to-ambient thermal resistance|-|-|31|-|°C/W|
+|RJC|Junction-to-case thermal resistance|-|-|-|-|°C/W|
+|RJB|Junction-to-board thermal resistance|-|-|-|-|°C/W|
 |ISHDN|Shutdown mode current|CE = 0|-|17|-|μA|
 
 ### 4.3 Digital Pin Electrical Characteristics
 
 #### Top-Level Electrical Characteristics
 
-(VSYS = +2.5 ~ +5.5 V, VVIO1 = +1.8 V, VVIO2 = +1.8 V, TJ = -40 ~ 105 ℃; typical values are at VSYS = 5 V, TJ = +25 ℃)
+(VSYS = +2.5 ~ +5.5 V, VVIO1 = +1.8 V, VVIO2 = +1.8 V, TJ = -40 ~ 105 °C; typical values are at VSYS = 5 V, TJ = +25 °C)
 
 **LOGIC AND CONTROL INPUTS**
 
@@ -170,7 +170,7 @@ P3 Pin Description
 
 **I2C Electrical Characteristics**
 
-(VSYS = +2.5 ~ +5.5 V, VVIO1 = +1.8 V, VVIO2 = +1.8 V, TJ = -40 ~ 105 ℃; typical values are at VSYS = 5 V, TJ = +25 ℃)
+(VSYS = +2.5 ~ +5.5 V, VVIO1 = +1.8 V, VVIO2 = +1.8 V, TJ = -40 ~ 105 °C; typical values are at VSYS = 5 V, TJ = +25 °C)
 
 **POWER SUPPLY**
 
@@ -218,7 +218,7 @@ P3 Pin Description
 
 #### SPI Electrical Characteristics
 
-(VSYS = +2.5 ~ +5.5 V, VVIO1 = +1.8 V, VVIO2 = +1.8 V, TJ = -40 ~ 105 ℃; typical values are at VSYS = 5 V, TJ = +25 ℃)
+(VSYS = +2.5 ~ +5.5 V, VVIO1 = +1.8 V, VVIO2 = +1.8 V, TJ = -40 ~ 105 °C; typical values are at VSYS = 5 V, TJ = +25 °C)
 
 **POWER SUPPLY AND I/O STAGES**
 
@@ -270,8 +270,8 @@ BUCK1~4 Electrical Characteristics
 |Soft on / off Slow|Soft-start/soft-stop time|SOFT_STA_SLEW / SOFT_STP_SLEW|-|10|-|mV/μs|
 |Soft on / off Slow|Soft-start/soft-stop time|SOFT_STA_SLEW / SOFT_STP_SLEW|-|25|-|mV/μs|
 |Soft on / off Slow|Soft-start/soft-stop time|SOFT_STA_SLEW / SOFT_STP_SLEW|-|50|-|mV/μs|
-|VBUCK_ACC|Output voltage accuracy|VOUT > 0.8 V, VIN = 4 V, <br>IOUT = 1 A, TA = 25 ℃|-|-|±1|%|
-|VBUCK_ACC|Output voltage accuracy|VOUT < 0.8 V, VIN = 4 V, <br>IOUT = 1 A, TA = 25 ℃|-|-|±8|mV|
+|VBUCK_ACC|Output voltage accuracy|VOUT > 0.8 V, VIN = 4 V, <br>IOUT = 1 A, TA = 25 °C|-|-|±1|%|
+|VBUCK_ACC|Output voltage accuracy|VOUT < 0.8 V, VIN = 4 V, <br>IOUT = 1 A, TA = 25 °C|-|-|±8|mV|
 |Load Regulation|Load regulation|IOUT = 0.1 ~ 8 A, VOUT > 0.8 V, CCM|-|-|±1|%|
 |Load Regulation|Load regulation|IOUT = 0.1 ~ 8 A, VOUT < 0.8 V, CCM|-|-|±8|mV|
 |Line Regulation|Line regulation|VIN = 3.0 ~ 5.5 V, VOUT > 0.8 V, CCM|-|-|±1|%|
@@ -293,8 +293,8 @@ BUCK1~4 Electrical Characteristics
 |OV||VOUT/VOUT_target - 1|-|12.5|-|%|
 |UV||VOUT/VOUT_target - 1||-10.0|-|%|
 |Power Down resistor||-|-|120|-|Ω|
-|SWx Leakage Current|SW pin leakage current|CE = 0, VLXx = 0 or 5.5 V, 25 ℃|-0.3|-|0.3|uA|
-|SWx Leakage Current|SW pin leakage current|CE = 0, VLXx = 0 or 5.5 V, 85 ℃|-3|-|3|-|
+|SWx Leakage Current|SW pin leakage current|CE = 0, VLXx = 0 or 5.5 V, 25 °C|-0.3|-|0.3|uA|
+|SWx Leakage Current|SW pin leakage current|CE = 0, VLXx = 0 or 5.5 V, 85 °C|-3|-|3|-|
 |Efficiency|Efficiency|VIN = 4 V, VOUT = 0.9 V<br>IOUT = 1 A/Phase|-|90|-|%|
 |Efficiency|Efficiency|VIN = 4 V, VOUT = 0.9 V<br>IOUT = 6.0 A/Phase|-|80|-|-|
 |Efficiency|Efficiency|VIN = 4 V, VOUT = 0.9 V<br>IOUT = 8.0 A/Phase|-|77|-|-|
@@ -307,22 +307,22 @@ ADC Electrical Characteristics
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |Resolution|Resolution|-|-|-|12|Bits|
 |VDD|Supply voltage|-|2.5|-|5.5|V|
-|DNL|Differential non-linearity|VDD = 4.25 V, T = 25 ℃, Freq = 1 MHz|-|±3|-|LSB|
-|INL|Integral non-linearity|VDD = 4.25 V, T = 25 ℃, Freq = 1 MHz|-|±3|-|LSB|
-|Offset error|Offset error|VDD = 4.25 V, T = 25 ℃, Freq = 1 MHz|-|±5|-|LSB|
-|Gain error|Gain error|VDD = 4.25 V, T = 25 ℃, Freq = 1 MHz|-|±5|-|LSB|
-|Sample rate|Sample rate|T = 25 ℃, Freq = 1 MHz|-|76|-|Ksps|
-|IWORK|Operating current|T = 25 ℃, Freq = 0.5 MHz|-|180|-|μA|
+|DNL|Differential non-linearity|VDD = 4.25 V, T = 25 °C, Freq = 1 MHz|-|±3|-|LSB|
+|INL|Integral non-linearity|VDD = 4.25 V, T = 25 °C, Freq = 1 MHz|-|±3|-|LSB|
+|Offset error|Offset error|VDD = 4.25 V, T = 25 °C, Freq = 1 MHz|-|±5|-|LSB|
+|Gain error|Gain error|VDD = 4.25 V, T = 25 °C, Freq = 1 MHz|-|±5|-|LSB|
+|Sample rate|Sample rate|T = 25 °C, Freq = 1 MHz|-|76|-|Ksps|
+|IWORK|Operating current|T = 25 °C, Freq = 0.5 MHz|-|180|-|μA|
 
 ADC Internal Reference Electrical Characteristics
 
 |Parameter|Description|Condition|Min|Typ|Max|Unit|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|VREF_2V|2V reference voltage|VDD = 4.25 V, T = 25 ℃|2.046|2.048|2.050|V|
-|VREF_3V|3V reference voltage|VDD = 4.25 V, T = 25 ℃|3.070|3.072|3.074|V|
-|VC|Voltage coefficient|VDD = 4.25 V, T = 25 ℃|-|-|-|%|
+|VREF_2V|2V reference voltage|VDD = 4.25 V, T = 25 °C|2.046|2.048|2.050|V|
+|VREF_3V|3V reference voltage|VDD = 4.25 V, T = 25 °C|3.070|3.072|3.074|V|
+|VC|Voltage coefficient|VDD = 4.25 V, T = 25 °C|-|-|-|%|
 |TC|Temperature coefficient|VDD = 4.25 V|-|-|-|%|
-|IWORK|Operating current|VDD = 4.25 V, T = 25 ℃|-|200|-|μA|
+|IWORK|Operating current|VDD = 4.25 V, T = 25 °C|-|200|-|μA|
 
 ### 4.7 Clocks
 
@@ -330,19 +330,19 @@ Internal LSI Electrical Characteristics
 
 |Parameter|Description|Condition|Min|Typ|Max|Unit|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|FACC|Frequency accuracy|5 V, 25 ℃|-|64|-|kHz|
-|VC|Voltage coefficient|2.7 ~ 5.5 V, 25 ℃|-|-|-|%|
-|TC|Temperature coefficient|5 V, -40 ~ 105 ℃|-|-|-|%|
-|IWORK|Operating current|2.7 ~ 5.5 V, -40 ~ 105 ℃|-|-|-|μA|
+|FACC|Frequency accuracy|5 V, 25 °C|-|64|-|kHz|
+|VC|Voltage coefficient|2.7 ~ 5.5 V, 25 °C|-|-|-|%|
+|TC|Temperature coefficient|5 V, -40 ~ 105 °C|-|-|-|%|
+|IWORK|Operating current|2.7 ~ 5.5 V, -40 ~ 105 °C|-|-|-|μA|
 
 Internal HSI Electrical Characteristics
 
 |Parameter|Description|Condition|Min|Typ|Max|Unit|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|FACC|Frequency accuracy|5 V, 25 ℃|-|8|-|MHz|
-|VC|Voltage coefficient|2.7 ~ 5.5 V, 25 ℃|-|-|-|%|
-|TC|Temperature coefficient|5 V, -40 ~ 105 ℃|-|-|-|%|
-|IWORK|Operating current|2.0 ~ 5.5 V, -40 ~ 105 ℃|-|-|-|μA|
+|FACC|Frequency accuracy|5 V, 25 °C|-|8|-|MHz|
+|VC|Voltage coefficient|2.7 ~ 5.5 V, 25 °C|-|-|-|%|
+|TC|Temperature coefficient|5 V, -40 ~ 105 °C|-|-|-|%|
+|IWORK|Operating current|2.0 ~ 5.5 V, -40 ~ 105 °C|-|-|-|μA|
 
 ### 4.8 POR/PDR
 
