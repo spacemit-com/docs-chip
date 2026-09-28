@@ -47,5 +47,5 @@ attributes:
   - key: i2c_writing
     canonical_en: "I2C"
     canonical_zh: "I²C"
-    variants_en: ["I2C", "I²C", "IIC"]
-    variants_zh: ["I2C", "I²C", "IIC"]
+    variants_en: ["I2C", "I²C", "I²C"]
+    variants_zh: ["I2C", "I²C", "I²C"]

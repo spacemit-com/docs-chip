@@ -128,7 +128,7 @@ Rules synced with `spacemit-knowledge-sync/glossary.yaml`. Avoid forbidden varia
 | schematic | 原理图 | zh: "原理电路图"; en: "principle diagram" |
 | layout guideline | 布局布线规范 | zh: "布局规则"; en: "layout rule", "wiring guideline" |
 | interrupt controller | 中断控制器 | zh: "中断控制单元" |
-| I²C | I²C | en: "I2C", "IIC"; zh: "I2C", "IIC" (always use superscript ²) |
+| I²C | I²C | en: "I2C", "I²C"; zh: "I2C", "I²C" (always use superscript ²) |
 | temperature range | 温度范围 | Use ° (U+00B0), not ˚ (U+02DA) or ℃ (U+2103). Correct: `-40°C to 85°C` |
 | package dimensions | 封装尺寸 | Canonical: "7 mm x 7 mm". Not: "7mmx7mm", "7mm x 7mm" |
 
