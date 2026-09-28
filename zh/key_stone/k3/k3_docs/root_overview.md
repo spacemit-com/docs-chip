@@ -16,7 +16,7 @@ K3 系列芯片主要应用在 AI 消费硬件如 AI 智慧家居、AI 会议办
 
 - **卓越的 CPU 性能**
   8 个高性能计算大核 X100，最大主频 2.4 GHz，130 KDMIPS 算力
-  支持完整 RVA23 Profile，单核 SpecINT2006 > 9.0/GHz，等效 ARM A76
+  支持完整 RVA23 Profile，单核 SPECint2006 > 9.0/GHz，等效 ARM A76
 
 - **通用 AI 算力**
   60 TOPS AI 算力，支持 BF16、FP16、FP8、INT8、INT4 等数据类型
@@ -45,7 +45,7 @@ K3 系列芯片主要应用在 AI 消费硬件如 AI 智慧家居、AI 会议办
   - 每 8 核共享 8MB L2 Cache
 - **60 TOPS 通用 AI 算力**
   - 8 核 A100™ 提供 60 TOPS AI 算力
-  - 模型性能 > 10 Tokens/s @ 30B
+  - 模型性能 > 10 tokens/s @ 30B
   - 支持 FP16、BF16、FP8、INT8、INT4 等数据格式
   - 支持所有 AI 算法和模型部署
 - **RISC-V 硬件虚拟化**

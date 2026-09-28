@@ -32,7 +32,7 @@ P3 is a high-performance four-phase buck power management Chip (PMIC) featuring 
 - COT control architecture with fast load transient response
 - Adjustable Ramp-up and Ramp-down slopes for each buck output voltage
 - Supports MTP for flexible power-on/power-off sequence configuration
-- High-speed 3.4MHz I2C or 30MHz SPI interface with dynamic voltage scaling support
+- High-speed 3.4 MHz I²C or 30 MHz SPI interface with dynamic voltage scaling support
 - UVLO, short-circuit, and thermal protection
 - 8-channel configurable 12-bit ADC
 - Four flexible GPIOs for multi-function expansion

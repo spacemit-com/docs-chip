@@ -29,7 +29,7 @@ sidebar_position: 2
 
 ### 1.1 产品简介
 
-SpacemiT Key Stone K3 系列芯片采用 RISC-V 同构融合计算技术，集成进迭时空的 8 个高性能计算大核 X100 及 8 个超宽并行计算 AI 核 A100，可提供 130 KDMIPS 通用算力及 60TOPS 通用 AI 算力，可流畅运行 300 亿参数模型。
+SpacemiT Key Stone K3 系列芯片采用 RISC-V 同构融合计算技术，集成进迭时空的 8 个高性能计算大核 X100 及 8 个超宽并行计算 AI 核 A100，可提供 130 KDMIPS 通用算力及 60 TOPS 通用 AI 算力，可流畅运行 300 亿参数模型。
 K3 系列芯片主要应用在 AI 消费硬件如 AI 智慧家居、AI 会议办公、AI 内容创作、AI 电商零售等领域。
 
 ### 1.2 主要特性
@@ -38,14 +38,14 @@ K3 系列芯片主要应用在 AI 消费硬件如 AI 智慧家居、AI 会议办
 
 - 8 个 X100™ 64 位 RISC-V 核心（四发射、乱序执行）  
 - 总 CPU 性能：130 KDMIPS  
-- SpecINT2006 > 9.0 /GHz；最高主频 2.4 GHz  
+- SPECint2006 > 9.0/GHz；最高主频 2.4 GHz  
 - 每 8 核共享 8MB L2 缓存
 
 **AI 计算子系统**
 
 - 8 核 A100™ 提供 60TOPS AI 算力  
-- 支持最高 300 亿参数模型推理（>10 tokens/s @ 30B）  
-- 兼容 RVV 1.0、RVA23 及 Vector Crypto 标准  
+- 支持最高 300 亿参数模型推理（>10 tokens/s @ 30B）
+- 兼容 RVV 1.0、RVA23 及 Vector Crypto 标准
 - 遵循 CPU 编程范式，实现零成本AI算法的部署
 
 **内存子系统**  
@@ -94,7 +94,7 @@ K3 系列芯片主要应用在 AI 消费硬件如 AI 智慧家居、AI 会议办
 
 - 工作温度范围：–40 °C 至 +85 °C（工业级）
 
-## 1.3 架构框图
+### 1.3 架构框图
 
 <img src="static/k3_block_diagram.png" alt="K3 Block Diagram" width="800">
 
@@ -2674,6 +2674,6 @@ TBD
 
 TBD
 
-## 6. 回流焊温度曲线
+## 6. 回流焊接温度曲线（Reflow Profile）
 
 TBD

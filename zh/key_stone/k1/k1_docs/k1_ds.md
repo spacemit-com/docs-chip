@@ -32,7 +32,7 @@ sidebar_position: 2
 进迭时空的 Key Stone® K1 是一款高性能、超低功耗的片上系统（SoC），集成了 8 个 RISC-V CPU 核，并融合了 进迭时空的道义 AI 计算能力。其主要优势包括：
 
 - 集成进迭时空自主研发的 X60™ RISC-V 核处理器，符合 RISC-V 64GCVB 指令集架构 和 RVA22 标准；
-- 通过定制化 RISC-V 指令实现 CPU-AI 融合计算架构，可提供高达 2.0 TOPS（INT8） 的 AI 算力；
+- 通过定制化 RISC-V 指令实现 CPU-AI 融合计算架构，可提供高达 2 TOPS（INT8） 的 AI 算力；
 - 支持主流 AI 推理框架，包括 TensorFlow Lite、TensorFlow 和 ONNX Runtime；
 - 采用多粒度电源岛设计与动态电源状态调节技术，实现超低功耗运行，在能效方面具备显著竞争优势；
 - 提供完整的外设接口组合，支持各类创新应用与产品开发；
@@ -45,7 +45,7 @@ sidebar_position: 2
   - 进迭时空 X60™ RISC-V 双簇八核处理器
   - 符合 RISC-V 64GCVB 指令集架构 与 RVA22 标准
   - 簇 0（Cluster 0）
-    - 四核配置，集成 2.0 TOPS（INT8）AI 算力
+    - 四核配置，集成 2 TOPS（INT8）AI 算力
     - 每核配备 32 KB L1 缓存
     - 共享 512 KB L2 缓存
     - 配置 512 KB TCM（紧耦合存储器）
@@ -228,7 +228,7 @@ K1 的系统架构如下图所示。
 ### 2.1 CPU 子系统
 
 - 采用 双非对称 CPU 簇架构，其中：
-  - 簇 0（Cluster 0）：包含 4 个 SpacemiT® X60™ RISC-V 核，集成 2.0 TOPS AI 算力扩展单元
+  - 簇 0（Cluster 0）：包含 4 个 SpacemiT® X60™ RISC-V 核，集成 2 TOPS AI 算力扩展单元
   - 簇 1（Cluster 1）：包含 4 个 SpacemiT® X60™ RISC-V 核，不带 AI 加速能力
 - 高性能、低功耗的 SpacemiT® X60™ CPU 核，符合 RISC-V 64GCVB 指令集架构 与 RVA22 标准
 - 支持 核本地中断控制器（CLINT） 与 平台级中断控制器（PLIC）
