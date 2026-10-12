@@ -1,4 +1,6 @@
+---
 sidebar_position: 1
+---
 
 # K 系列 AI CPU 芯片
 
