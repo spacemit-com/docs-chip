@@ -10,8 +10,8 @@ sidebar_position: 99
 
     They are available at the following links:
 
-    - [K3 Pico-ITX User Guide](https://spacemit.com/community/document/info?lang=en&nodepath=hardware/eco/k3_pico/pico_user_guide.md)
-    - [K3 CoM260 Development Kit User Guide](https://spacemit.com/community/document/info?lang=en&nodepath=hardware/eco/k3_com260/com260_user_guide.md)
+    - [K3 Pico-ITX User Guide](https://spacemit.com/community/document/info?lang=en&nodepath=ecohardware/k3_series/k3_pico/pico_user_guide.md)
+    - [K3 CoM260 Development Kit User Guide](https://spacemit.com/community/document/info?lang=en&nodepath=ecohardware/k3_series/k3_com260/com260_user_guide.md)
 
 2. How should the serial port and JTAG be connected for debugging on K3 Pico-ITX?
 
@@ -34,7 +34,7 @@ sidebar_position: 99
 
        ![](./static/com260_debug_00.png)
 
-      For detailed information on the board shown in the figure, please refer to [TF Card Debug Expansion Board User Guide](https://www.spacemit.com/community/document/info?lang=en&nodepath=hardware/eco/hw_accessories/tf_card_debug_board.md) .
+      For detailed information on the board shown in the figure, please refer to [TF Card Debug Expansion Board User Guide](https://www.spacemit.com/community/document/info?lang=en&nodepath=ecohardware/hw_accessories/tf_card_debug_board.md) .
 
 ## Power System
 

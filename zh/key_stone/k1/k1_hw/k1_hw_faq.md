@@ -9,7 +9,7 @@ sidebar_position: 5
 1. **K1 MUSE Pi 的开发板使用指南在哪里获取？**
 
    - 开发文件统一在进迭开发者社区发布。可以通过以下链接访问：
-     [K1 MUSE Pi 用户使用指南](https://spacemit.com/community/document/info?lang=zh&nodepath=hardware/eco/k1_muse_pi/pi_user_guide.md)
+     [K1 MUSE Pi 用户使用指南](https://spacemit.com/community/document/info?lang=zh&nodepath=ecohardware/k1_series/k1_muse_pi/pi_user_guide.md)
 
 2. **K1 MUSE Pi 如何连接串口和 JTAG 调试？**
 
@@ -32,7 +32,7 @@ sidebar_position: 5
      - SEC JTAG 连接方式：
           由于 SD 卡槽封装的原因，相关 Pin 未引出，因此建议自行制作转接小板，或将 SD 卡槽拆除后根据位号图飞线连接。
      - SEC JTAG 使用要求：
-       使用 SEC JTAG 前，请先按照 K1 MUSE Pi 用户使用指南 \> 硬件介绍 \> **Boot Download Sel&JTAG Sel** 的说明调整硬件。**参考链接**：[K1 MUSE Pi 用户使用指南](https://spacemit.com/community/document/info?lang=zh&nodepath=hardware/eco/k1_muse_pi/pi_user_guide.md)
+       使用 SEC JTAG 前，请先按照 K1 MUSE Pi 用户使用指南 \> 硬件介绍 \> **Boot Download Sel&JTAG Sel** 的说明调整硬件。**参考链接**：[K1 MUSE Pi 用户使用指南](https://spacemit.com/community/document/info?lang=zh&nodepath=ecohardware/k1_series/k1_muse_pi/pi_user_guide.md)
 
 3. **原理图中，有注释 "for test" 的器件，可以去掉的？**
 

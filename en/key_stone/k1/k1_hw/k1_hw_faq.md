@@ -9,7 +9,7 @@ sidebar_position: 5
 1. **How to get the user guides for the K1 MUSE Pi development board?**
 
    - Development documentation is published on SpacemiT Developer Community. You can access the guide via the link:
-     [K1 MUSE Pi User Guide](https://spacemit.com/community/document/info?lang=en&nodepath=hardware/eco/k1_muse_pi/pi_user_guide.md)
+     [K1 MUSE Pi User Guide](https://spacemit.com/community/document/info?lang=en&nodepath=ecohardware/k1_series/k1_muse_pi/pi_user_guide.md)
 
 2. **How should the serial port and JTAG be connected for debugging on K1 MUSE Pi?**
 
@@ -31,7 +31,7 @@ sidebar_position: 5
      - SEC JTAG connection method:
           Due to the SD card slot package design, these pins are not routed to external headers. It is recommended that you either fabricate a custom adapter board, or remove the SD card slot and make flying wire connections according to the board's schematic/position diagram.
      - SEC JTAG usage requirements:
-       Before using the SEC JTAG interface, you must first configure the hardware as described in the [K1 MUSE Pi User Guide](https://spacemit.com/community/document/info?lang=en&nodepath=hardware/eco/k1_muse_pi/pi_user_guide.md) → Hardware Overview → Boot Download Sel & JTAG Sel section.
+       Before using the SEC JTAG interface, you must first configure the hardware as described in the [K1 MUSE Pi User Guide](https://spacemit.com/community/document/info?lang=en&nodepath=ecohardware/k1_series/k1_muse_pi/pi_user_guide.md) → Hardware Overview → Boot Download Sel & JTAG Sel section.
 
 3. **Can components annotated "for test" in the schematic be removed?**
 

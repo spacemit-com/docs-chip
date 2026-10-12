@@ -10,8 +10,8 @@ sidebar_position: 99
 
     可通过以下链接获取。
 
-    - [K3 Pico-ITX 用户使用指南](https://spacemit.com/community/document/info?lang=zh&nodepath=hardware/eco/k3_pico/pico_user_guide.md)
-    - [K3 CoM260 开发套件用户使用指南](https://spacemit.com/community/document/info?lang=zh&nodepath=hardware/eco/k3_com260/com260_user_guide.md)
+    - [K3 Pico-ITX 用户使用指南](https://spacemit.com/community/document/info?lang=zh&nodepath=ecohardware/k3_series/k3_pico/pico_user_guide.md)
+    - [K3 CoM260 开发套件用户使用指南](https://spacemit.com/community/document/info?lang=zh&nodepath=ecohardware/k3_series/k3_com260/com260_user_guide.md)
 
 2. K3 Pico-ITX 如何连接串口和 JTAG 进行调试？
 
@@ -35,7 +35,7 @@ sidebar_position: 99
 
       ![](./static/com260_debug_00.png)
 
-      图中子板详细介绍可参考 [TF 卡扩展调试子板使用说明](https://www.spacemit.com/community/document/info?lang=zh&nodepath=hardware/eco/hw_accessories/tf_card_debug_board.md) 。
+      图中子板详细介绍可参考 [TF 卡扩展调试子板使用说明](https://www.spacemit.com/community/document/info?lang=zh&nodepath=ecohardware/hw_accessories/tf_card_debug_board.md) 。
 
 ## 电源系统
 
