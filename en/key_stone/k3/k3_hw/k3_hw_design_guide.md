@@ -12,6 +12,7 @@ Click to download **[K3 Hardware Design Guidelines and PCB Layout Manual (PDF)](
 
 | Version | Date       | Description     |
 | ------- | ---------- | --------------- |
+| V1.1    | 2026.10.16 | 1. Section 1.2.5 CPU Power Design: the power requirement for the two core types is changed to a combined power supply.<br>2. Section 1.2.6 DDR Power Design: added the Buglist design requirements. |
 | V1.0    | 2026.04.30 | Initial release |
 
 ## Foreword
@@ -378,7 +379,7 @@ After reset is asserted low, each power rail is powered down in the reverse orde
 
 #### 1.2.5 CPU Power Design
 
-The chip integrates 16 high-performance CPU cores, consisting of 8 X100 cores and 8 A100 cores. X100 and A100 are powered independently, with each cluster supplied by a separate rail from the multiphase controller. The A100 cluster shares its rail with the system (SYS) power domain. Special attention must be paid to decoupling capacitor count, capacitance values, and PCB layout, which must strictly follow the reference design.
+The chip integrates 16 high-performance cores, consisting of 8 X100 cores and 8 A100 cores. X100, A100, VCC_SYS, and VDD0V8_DDR must be supplied from a combined power rail. Special attention must be paid to decoupling capacitor count, capacitance values, and layout, which must strictly follow the reference design.
 
 When selecting the power solution, the following requirements must be met:
 
