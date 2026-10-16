@@ -378,12 +378,7 @@ After reset is asserted low, each power rail is powered down in the reverse orde
 
 #### 1.2.5 CPU Power Design
 
-The chip integrates 16 high-performance CPU cores, consisting of 8 X100 cores and 8 A100 cores.
-
-- The X100 and A100 clusters are powered independently, with each rail supplied by a separate output of the multiphase controller.
-- The A100 cluster shares its power rail with the system (SYS) power domain.
-
-Special attention must be paid to decoupling capacitor count, capacitance values, and PCB layout, which must strictly follow the reference design.
+The chip integrates 16 high-performance CPU cores, consisting of 8 X100 cores and 8 A100 cores. X100 and A100 are powered independently, with each cluster supplied by a separate rail from the multiphase controller. The A100 cluster shares its rail with the system (SYS) power domain. Special attention must be paid to decoupling capacitor count, capacitance values, and PCB layout, which must strictly follow the reference design.
 
 When selecting the power solution, the following requirements must be met:
 
@@ -405,7 +400,10 @@ For the supply voltages, refer to [1.2.1](#121-chip-power-topology) and [1.2.2](
 > Note: Some supply voltages differ between LPDDR5 and LPDDR4x devices. Refer to the schematic design for the exact requirements.
 
 The number and values of the decoupling capacitors must strictly follow the schematic and PCB layout design.
+
 For detailed circuit implementation, refer to the K3 reference schematic design.
+
+The reference design for this section has Buglist updates. Pay close attention to the design requirements in the Buglist. [K3 Hardware Design Buglist](#)
 
 #### 1.2.7 IO Power Design
 
