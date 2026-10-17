@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
 # K3 硬件设计指南和 Layout 指导手册
@@ -373,7 +373,7 @@ K3 芯片支持 LPDDR5/LPDDR4x，共两个通道，供电电压可参考 [1.2.1]
 
 详细设计电路可参考 K3 参考设计图纸。
 
-该部分的参考设计有 Buglist 修改，注意关注 Buglist 的设计要求。[K3 硬件设计 Buglist](#)
+该部分的参考设计有 Buglist 修改，注意关注 Buglist 的设计要求。[K3 硬件设计 Buglist](k3_hw_design_buglist.md)
 
 #### 1.2.7 IO 电源设计
 

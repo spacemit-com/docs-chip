@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
 # K3 Hardware Design Guidelines and PCB Layout Manual
@@ -404,7 +404,7 @@ The number and values of the decoupling capacitors must strictly follow the sche
 
 For detailed circuit implementation, refer to the K3 reference schematic design.
 
-The reference design for this section has Buglist updates. Pay close attention to the design requirements in the Buglist. [K3 Hardware Design Buglist](#)
+The reference design for this section has Buglist updates. Pay close attention to the design requirements in the Buglist. [K3 Hardware Design Buglist](k3_hw_design_buglist.md)
 
 #### 1.2.7 IO Power Design
 
