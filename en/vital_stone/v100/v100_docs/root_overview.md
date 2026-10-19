@@ -5,7 +5,7 @@ sidebar_position: 1
 
 # V100 Brief
 
-Click to download **[V100 Core Brief (PDF)](file/chip/V100/v100_brief_en.pdf)**
+Click to download **[V100 Core Brief (PDF)](https://cdn-resource.spacemit.com/file/chip/V100/v100_brief_en.pdf)**
 
 ## Overview
 
