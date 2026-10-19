@@ -5,7 +5,7 @@ sidebar_position: 1
 
 # V100 产品简介
 
-点击下载 **[V100 产品简介（PDF）]()**
+点击下载 **[V100 产品简介（PDF）](file/chip/V100/v100_brief_zh.pdf)**
 
 ## 概述
 

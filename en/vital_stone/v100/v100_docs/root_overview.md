@@ -5,7 +5,7 @@ sidebar_position: 1
 
 # V100 Brief
 
-Click to download **[V100 Core Brief (PDF)]()**
+Click to download **[V100 Core Brief (PDF)](file/chip/V100/v100_brief_en.pdf)**
 
 ## Overview
 
