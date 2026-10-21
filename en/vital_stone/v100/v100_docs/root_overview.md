@@ -9,6 +9,8 @@ Click to download **[V100 Core Brief (PDF)](https://cdn-resource.spacemit.com/fi
 
 ## Overview
 
+**First RISC-V CPU that fully meets server specification requirements**
+
 The SpacemiT Vital Stone V100 RISC-V server processor features high clock frequency, high core count, high reliability, strong scalability, and high security. It integrates 46 RISC-V CPU cores, is fully compatible with the RISC-V RVA23 Profile, and operates at up to 2.4 GHz, providing strong compute capability for data centers.
 
 As a RISC-V CPU that fully meets server specification requirements, it is suitable for data center AI training servers, inference servers, general-purpose compute servers, storage servers, and edge servers.
