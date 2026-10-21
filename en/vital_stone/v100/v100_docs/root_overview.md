@@ -9,9 +9,9 @@ Click to download **[V100 Core Brief (PDF)](https://cdn-resource.spacemit.com/fi
 
 ## Overview
 
-The SpacemiT Vital Stone RISC-V server-grade CPU V100 features high clock frequency, high core count, high reliability, strong scalability, and high security. It integrates 46 RISC-V CPU cores, is fully compatible with the RISC-V RVA23 Profile, and operates at up to 2.4 GHz, providing strong compute capability for data centers.
+The SpacemiT Vital Stone V100 RISC-V server processor features high clock frequency, high core count, high reliability, strong scalability, and high security. It integrates 46 RISC-V CPU cores, is fully compatible with the RISC-V RVA23 Profile, and operates at up to 2.4 GHz, providing strong compute capability for data centers.
 
-As the first RISC-V CPU that fully meets server specification requirements, it is suitable for data center AI training servers, inference servers, computing servers, storage servers, and edge servers.
+As a RISC-V CPU that fully meets server specification requirements, it is suitable for data center AI training servers, inference servers, general-purpose compute servers, storage servers, and edge servers.
 
 - **Excellent Data Center CPU Performance**
 
@@ -45,7 +45,7 @@ As the first RISC-V CPU that fully meets server specification requirements, it i
 
 ## Specifications
 
-- 46-core high-performance RISC-V processor
+- **46-core high-performance RISC-V processor**
   - 6 × Kunminghu V2R2 + 40 × X100 cores, RVA23 supported
   - Kunminghu V2R2
     - 2.1 GHz
@@ -58,18 +58,18 @@ As the first RISC-V CPU that fully meets server specification requirements, it i
     - 64 KB L1 I-Cache, 64 KB L1 D-Cache, 2 MB L2 Cache
   - 64 MB SLC Cache
 
-- RISC-V Server-Class Virtualization
+- **RISC-V Server-Class Virtualization**
   - CPU virtualization: Hypervisor 1.0, memory virtualization (SV48×4 / SV39×4 Guest address translation)
   - Interrupt virtualization: RISC-V AIA, supports 255 M-mode MSI, 255 S-mode MSI, 63 VS-mode MSI, up to 7 vCPUs per VS hart
   - Device virtualization: IOMMU-based I/O virtualization with SR-IOV for improved VM I/O performance
 
-- RISC-V Server Security Architecture
+- **RISC-V Server Security Architecture**
   - RISC-V Standards: Supports RISC-V security components including PMP/ePMP and IOPMP (Rapid-k Model)
   - Server Security: Trusted computing, secure boot, key management, lifecycle management, and secure debugging
   - Security Hardware: Integrated HSM security module supporting key management and Root of Trust (RoT)-based secure boot
   - Cryptography support: AES / SHA / RSA / SM2 / SM3 / SM4
 
-- RISC-V Server RAS Features
+- **RISC-V Server RAS Features**
   - RISC-V Standards: RERI RAS specification support
   - CPU RAS: CE/UEC handling and interrupt logging
   - Memory RAS: ECC/CRC, patrol, fault isolation, address protection
@@ -78,27 +78,27 @@ As the first RISC-V CPU that fully meets server specification requirements, it i
   - System RAS: motherboard, network, GPU, and storage RAS management
   - RAS Management: Firmware-first design for efficient in-/out-of-band management
 
-- Memory
+- **Memory**
   - Up to 8 DDR5 channels, 1DPC
   - Supports mainstream DDR5 RDIMM
   - Up to 4800 MT/s, 307 GB/s bandwidth
   - Supports 80-bit ECC DIMMs per channel with Sideband ECC
   - Up to 256 GB per DIMM, up to 2 TB per chip
 
-- High-Speed Interfaces
+- **High-Speed Interfaces**
   - Supports PCIe 5.0 with 52 high-speed lanes
   - Supports 3 groups of x16 / x8x8 / x8x4x4 configurations, and 1 group of x2x1x1
   - Supports SAS/SATA over PCIe, NVMe over PCIe, USB over PCIe, and more
   - 1 × GMAC with IEEE 1588 support
 
-- Peripheral I/O
+- **Peripheral I/O**
   - 1 × QSPI
   - 1 × LPC, 1 × eSPI
   - 3 × SPI Master, 1 × SPI Slave
   - 4 × I3C, 12 × I2C, 12 × SMBus
   - 5 × UART
 
-- RISC-V Server Software Stack
+- **RISC-V Server Software Stack**
   - Compliant with UEFI 2.11 and ACPI 6.6, with EDK2-based server BIOS support
   - Supports OpenBMC-based in-band and out-of-band management firmware
   - Supports mainstream compiler toolchains, including GCC and LLVM
@@ -108,11 +108,11 @@ As the first RISC-V CPU that fully meets server specification requirements, it i
   - Supports virtualization software, including KVM and QEMU
   - Supports Docker container deployment
 
-- Power
+- **Power**
   - TDP: 120W
-  - Operating temperature: 0 ~ 40℃
+  - Operating temperature: 0 ~ 40°C
 
-- Package
+- **Package**
   - FCBGA, 58.5 mm × 75.4 mm, 0.94 mm pitch
 
 ## Block Diagram

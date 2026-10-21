@@ -48,7 +48,7 @@ Connect VCC_SYS and VDD0V8_DDR directly to a common power plane without ferrite 
 ### 2.1 Potential Design Issues
 
 Section 1.2.5 in the [Hardware Design Guide](k3_hw_design_guide.md) specified separate power supplies for X100 and A100. Under this design, the measured VCC_SYS ripple (the A100 power rail) is: Vripple-pp > 130 mV, Vripple-min < -80 mV, and Vripple-max > 50 mV.
-The chip has 16 high-performance cores: 8 X100 cores and 8 A100 cores. X100 and A100 are powered independently by two rails from a multi-phase controller.
+> The chip (K3) has 16 high-performance cores: 8 X100 cores and 8 A100 cores. X100 and A100 are powered independently by two rails from a multi-phase controller.
 
 Because VDD0V8_DDR shares the VCC_SYS power supply, this ripple does not meet the VDD0V8_DDR design requirements.
 
