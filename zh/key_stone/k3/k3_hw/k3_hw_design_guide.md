@@ -12,6 +12,7 @@ sidebar_position: 1
 
 | 版本 | 日期       | 修订说明                     |
 |------|------------|------------------------------|
+| V1.2 | 2026.10.21 | 更新第 1.1.5 小节：修改 Boot 启动模式组合，并更新为 6 个 strap pin。 |
 | V1.1 | 2026.10.16 | 1. 第 1.2.5 小节 CPU 电源设计，两种核心电源要求修改为合并电源供电；<br>2. 第 1.2.6 小节的 DDR 电源设计，Buglist 增加设计要求。 |
 | V1.0 | 2026.04.30 | 首版                         |
 
@@ -242,15 +243,15 @@ sidebar_position: 1
 
 #### 1.1.5 硬件初始化系统配置电路
 
-共有 5 个 strap pin，分别为 GPIO65、GPIO66、GPIO68、GPIO69、GPIO90，组合如下：
+共有 6 个 strap pin，分别为 GPIO52、GPIO64、GPIO65、GPIO66、GPIO68、GPIO69，组合如下：
 
 1. Boot
 
    | 组合 | GPIO[66] (Strap 1) <br> [default down] | GPIO[65] (Strap 0) <br> [default down] | Function |
    |------|--------|------|--------|
    | 1    | 0                                      | 0                                      | TF Card → EMMC [default]     |
-   | 2    | 1                                      | 0                                      | TF Card → SPI NOR            |
-   | 3    | 0                                      | 1                                      | TF Card → SPI NAND           |
+   | 2    | 0                                      | 1                                      | TF Card → SPI NOR            |
+   | 3    | 1                                      | 0                                      | TF Card → SPI NAND           |
    | 4    | 1                                      | 1                                      | TF Card → UFS                |
 
 2. Download sel
@@ -808,7 +809,7 @@ PCB 端损耗要求 < 2 dB@2.7 GHz。
 
 | Package | Jc（°C/W） | Jb（°C/W） |
 | --- | --- | --- |
-| 热阻值 | 0.17 |  |
+| 热阻值 | 0.17 | |
 
 > 注：数据为仿真数据，仅供参考，请以实物测试为准。
 
