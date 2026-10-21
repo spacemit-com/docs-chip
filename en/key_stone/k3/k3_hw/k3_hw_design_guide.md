@@ -12,6 +12,7 @@ Click to download **[K3 Hardware Design Guidelines and PCB Layout Manual (PDF)](
 
 | Version | Date       | Description     |
 | ------- | ---------- | --------------- |
+| V1.2    | 2026.10.21 | Updated the boot mode combinations and the list of six strap pins in Section 1.1.5. |
 | V1.1    | 2026.10.16 | 1. Section 1.2.5 CPU Power Design: the power requirement for the two core types is changed to a combined power supply.<br>2. Section 1.2.6 DDR Power Design: added the Buglist design requirements. |
 | V1.0    | 2026.04.30 | Initial release |
 
@@ -261,7 +262,7 @@ This document is intended for the following roles:
 
 #### 1.1.5 Hardware Initialization and System Configuration Circuit
 
-There are 5 strap pins: GPIO65, GPIO66, GPIO68, GPIO69, and GPIO90.
+There are 6 strap pins: GPIO52, GPIO64, GPIO65, GPIO66, GPIO68 and GPIO69.
 The configuration combinations are defined as follows:
 
 1. Boot
@@ -269,8 +270,8 @@ The configuration combinations are defined as follows:
    | Mode | GPIO[66] (Strap 1) <br> [default down] | GPIO[65] (Strap 0) <br> [default down] | Function |
    |------|----------------------------------------|----------------------------------------|----------|
    | 1    | 0                                      | 0                                      | TF card → eMMC [default] |
-   | 2    | 1                                      | 0                                      | TF card → SPI NOR |
-   | 3    | 0                                      | 1                                      | TF card → SPI NAND |
+   | 2    | 0                                      | 1                                      | TF card → SPI NOR |
+   | 3    | 1                                      | 0                                      | TF card → SPI NAND |
    | 4    | 1                                      | 1                                      | TF card → UFS |
 
 2. Download selection
@@ -976,7 +977,7 @@ PCB insertion loss requirement: < 2 dB @ 2.7 GHz
 
 | Package | Jc (°C/W) | Jb (°C/W) |
 | --- | --- | --- |
-| Thermal resistance | 0.17 |  |
+| Thermal resistance | 0.17 | |
 
 > Note: The values shown are derived from simulation and are for reference purposes only. Final validation shall be performed using actual measurement data.
 
