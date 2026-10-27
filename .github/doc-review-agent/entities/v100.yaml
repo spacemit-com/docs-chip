@@ -1,0 +1,104 @@
+# Entity: V100 (vital_stone family)
+#
+# canonical.* is the approved one-line description. Every other mention of V100
+# across the docs should be a paraphrase of it, or a scoped detail that does
+# not contradict it.
+
+entity: V100
+family: vital_stone
+language_pair: true
+
+aliases:
+  - V100
+  - "Vital Stone V100"
+  - "SpacemiT V100"
+  - "SpacemiT Vital Stone V100"
+  - "V100 processor"
+  - "V100 CPU"
+  - "V100 处理器"
+
+canonical:
+  en: >-
+    SpacemiT Vital Stone V100 is a RISC-V server-class CPU integrating 46 cores,
+    fully compatible with the RISC-V RVA23 Profile, and operating at up to 2.4 GHz,
+    providing strong compute capability for data centers.
+  zh: >-
+    SpacemiT Vital Stone RISC-V 服务器级 CPU V100 集成 46 个 RISC-V CPU 核，
+    全面兼容 RISC-V RVA23 Profile，主频最高可达 2.4 GHz，为数据中心提供强劲算力支撑。
+
+source_of_truth:
+  en: en/vital_stone/v100/v100_docs/root_overview.md
+  zh: zh/vital_stone/v100/v100_docs/root_overview.md
+
+attributes:
+  - key: core_count
+    canonical_en: "46 cores"
+    canonical_zh: "46 核"
+    variants_en: ["46 core ", "forty-six cores", "46 total cores"]
+    variants_zh: ["46个核", "四十六核", "46 个核"]
+
+  - key: core_composition
+    canonical_en: "6 × Kunminghu V2R2 + 40 × X100"
+    canonical_zh: "6 个香山昆明湖 V2R2 CPU 核 + 40 个进迭时空 X100 CPU 核"
+    variants_en: ["6 × Kunminghu V2R2", "6 XiangShan Kunminghu V2R2", "40 × X100", "40 × SpacemiT X100"]
+    variants_zh: ["6 个香山昆明湖 V2R2", "40 个进迭时空 X100", "40 个 X100"]
+
+  - key: max_frequency
+    canonical_en: "2.4 GHz"
+    canonical_zh: "2.4 GHz"
+    variants_en: ["2.4GHz", "2.4G Hz", "2.4 gigahertz"]
+    variants_zh: ["2.4GHz", "2.4G Hz", "2.4 吉赫兹"]
+
+  - key: memory_channels
+    canonical_en: "8 DDR5 channels"
+    canonical_zh: "8 个 DDR5 通道"
+    variants_en: ["8 channel DDR5", "8-channel  DDR5", "eight channel DDR5"]
+    variants_zh: ["8通道DDR5", "8 通道 DDR5", "八通道DDR5"]
+
+  - key: memory_bandwidth
+    canonical_en: "307 GB/s"
+    canonical_zh: "307 GB/s"
+    variants_en: ["307 GB/s", "307GB/s"]
+    variants_zh: ["307 GB/s", "307GB/s"]
+
+  - key: memory_speed
+    canonical_en: "4800 MT/s"
+    canonical_zh: "4800 MT/s"
+    variants_en: ["4800 MT/s", "4800MT/s"]
+    variants_zh: ["4800 MT/s", "4800MT/s"]
+
+  - key: max_memory
+    canonical_en: "2 TB"
+    canonical_zh: "2 TB"
+    variants_en: ["2 TB", "2TB"]
+    variants_zh: ["2 TB", "2TB"]
+
+  - key: pcie_version
+    canonical_en: "PCIe 5.0"
+    canonical_zh: "PCIe 5.0"
+    variants_en: ["PCIe 5.0", "PCIe5.0", "PCI-E 5.0"]
+    variants_zh: ["PCIe 5.0", "PCIe5.0"]
+
+  - key: pcie_lanes
+    canonical_en: "52 PCIe 5.0 lanes"
+    canonical_zh: "52 条高速通道"
+    variants_en: ["52 lanes", "52 high-speed lanes", "52 PCIe lanes"]
+    variants_zh: ["52 条高速通道", "52条通道"]
+
+  - key: tdp
+    canonical_en: "120 W"
+    canonical_zh: "120 W"
+    variants_en: ["120W", "120 W"]
+    variants_zh: ["120W", "120 W"]
+
+  - key: package
+    canonical_en: "FCBGA, 58.5 mm × 75.4 mm"
+    canonical_zh: "FCBGA，58.5 mm × 75.4 mm"
+    variants_en: ["FCBGA, 58.5 mm × 75.4 mm", "FCBGA 58.5mm × 75.4mm"]
+    variants_zh: ["FCBGA，58.5 mm × 75.4 mm", "FCBGA 58.5mm × 75.4mm"]
+
+  - key: slc_cache
+    canonical_en: "64 MB SLC Cache"
+    canonical_zh: "64 MB SLC Cache"
+    variants_en: ["64MB SLC", "64 MB SLC Cache", "64 MB SLC"]
+    variants_zh: ["64MB SLC", "64 MB SLC Cache"]

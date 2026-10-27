@@ -1,0 +1,124 @@
+# Entity: V100 Server Products (vital_stone family)
+#
+# The three systems built on the V100 server CPU. Aliases are model numbers
+# only: board/product aliases must not collide with the V100 chip entity, or
+# chip attributes would be re-checked against product pages.
+
+entity: V100 Products
+family: vital_stone
+language_pair: true
+
+aliases:
+  - C2201
+  - G5201
+  - S5236
+
+canonical:
+  en: >-
+    The V100 server product line comprises the C2201 general-purpose computing
+    server, the G5201 intelligent computing server, and the S5236 storage server,
+    all built on two SpacemiT V100 RISC-V server-class processors.
+  zh: >-
+    V100 服务器产品线包括 C2201 计算服务器、G5201 智算服务器与 S5236 存储服务器，
+    均基于两颗进迭时空 V100 RISC-V 服务器级处理器构建。
+
+source_of_truth:
+  en: en/v100_series/index.md
+  zh: zh/v100_series/index.md
+
+attributes:
+  - key: c2201_chassis
+    canonical_en: "2U dual-socket rackmount server"
+    canonical_zh: "2U 双路机架式服务器"
+    variants_en: ["2U rackmount server", "2U rack-mount server", "2U dual socket rackmount"]
+    variants_zh: ["2U 机架式服务器", "2U双路机架式服务器"]
+
+  - key: c2201_processor
+    canonical_en: "2 × SpacemiT V100 processors, 46 cores per processor"
+    canonical_zh: "2 颗进迭时空 V100 处理器，单颗 46 核"
+    variants_en: ["2 × V100 processors", "two V100 processors", "2 SpacemiT V100 processors"]
+    variants_zh: ["2 颗 V100 处理器", "两颗 V100 处理器"]
+
+  - key: c2201_total_cores
+    canonical_en: "92 high-performance cores"
+    canonical_zh: "92 个高性能核心"
+    variants_en: ["92 cores", "92 high-performance cores"]
+    variants_zh: ["92 个核心", "92 个高性能核心"]
+
+  - key: c2201_dimensions
+    canonical_en: "820 × 447.4 × 87.8 mm"
+    canonical_zh: "820 × 447.4 × 87.8 mm"
+    variants_en: ["820 × 447.4 × 87.8 mm", "820×447.4×87.8mm"]
+    variants_zh: ["820 × 447.4 × 87.8 mm", "820×447.4×87.8mm"]
+
+  - key: c2201_weight
+    canonical_en: "≤ 35 kg"
+    canonical_zh: "≤ 35 kg"
+    variants_en: ["≤ 35 kg", "35 kg", "< 35 kg"]
+    variants_zh: ["≤ 35 kg", "35 kg"]
+
+  - key: c2201_power
+    canonical_en: "1600 W CRPS Platinum, 1+1 redundancy"
+    canonical_zh: "1600 W CRPS 铂金电源，1+1 冗余"
+    variants_en: ["1600 W CRPS", "1600W CRPS Platinum", "1600 W CRPS Platinum power supplies"]
+    variants_zh: ["1600 W CRPS", "1600W CRPS 铂金电源"]
+
+  - key: g5201_chassis
+    canonical_en: "4U high-density rackmount intelligent computing server"
+    canonical_zh: "4U 高密度机架式智算服务器"
+    variants_en: ["4U intelligent computing server", "4U AI computing server"]
+    variants_zh: ["4U 智算服务器", "4U高密度机架式智算服务器"]
+
+  - key: g5201_gpu_count
+    canonical_en: "8 PCIe air-cooled accelerator cards"
+    canonical_zh: "8 张 PCIe 风冷加速卡"
+    variants_en: ["8 GPU cards", "eight accelerator cards", "8 × GPU cards"]
+    variants_zh: ["8 张加速卡", "8 张 GPU 卡", "8 张 PCIe 风冷加速卡"]
+
+  - key: g5201_gpu_tdp
+    canonical_en: "600 W each"
+    canonical_zh: "600 W"
+    variants_en: ["600 W", "600W"]
+    variants_zh: ["600 W", "600W"]
+
+  - key: g5201_interconnect
+    canonical_en: "256 GB/s"
+    canonical_zh: "256 GB/s"
+    variants_en: ["256 GB/s", "256GB/s"]
+    variants_zh: ["256 GB/s", "256GB/s"]
+
+  - key: g5201_network
+    canonical_en: "4 × 400GbE RoCE"
+    canonical_zh: "4 × 400GbE RoCE"
+    variants_en: ["4 × 400GbE", "four 400GbE RoCE", "4×400GbE RoCE"]
+    variants_zh: ["4 张 400GbE RoCE", "4×400GbE RoCE"]
+
+  - key: s5236_chassis
+    canonical_en: "4U high-density rackmount storage server"
+    canonical_zh: "4U 高密度机架式存储服务器"
+    variants_en: ["4U storage server", "4U high-density storage"]
+    variants_zh: ["4U 存储服务器", "4U高密度机架式存储服务器"]
+
+  - key: s5236_drive_bays
+    canonical_en: "36 drive bays"
+    canonical_zh: "36 个硬盘槽位"
+    variants_en: ["36 drive bays", "36 bays", "up to 36 drive bays"]
+    variants_zh: ["36 个硬盘槽位", "36 个盘位"]
+
+  - key: s5236_front_bays
+    canonical_en: "24 × 3.5-inch SATA drives"
+    canonical_zh: "24 个 3.5 英寸 SATA 盘位"
+    variants_en: ["24 × 3.5-inch SATA", "24 front 3.5-inch SATA bays"]
+    variants_zh: ["24 个 3.5 英寸 SATA"]
+
+  - key: s5236_rear_bays
+    canonical_en: "12 × 3.5-inch SATA drives"
+    canonical_zh: "12 个 3.5 英寸 SATA 盘位"
+    variants_en: ["12 × 3.5-inch SATA", "12 rear 3.5-inch SATA bays"]
+    variants_zh: ["12 个 3.5 英寸 SATA"]
+
+  - key: product_operating_temperature
+    canonical_en: "0°C ~ 40°C"
+    canonical_zh: "0℃～40℃"
+    variants_en: ["0°C ~ 40°C", "0°C to 40°C", "0 to 40°C", "0℃～40℃"]
+    variants_zh: ["0℃～40℃", "0°C ~ 40°C", "0~40°C", "0 ~ 40℃"]
