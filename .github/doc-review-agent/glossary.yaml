@@ -120,3 +120,47 @@
   note: >-
     Prefer the B form (30B) over the 亿/word form. K3 zh drift:
     both "30B" and "300 亿" appear.
+
+# --- V100 (vital_stone) terminology ---
+
+- term: SMBus
+  zh: SMBus
+  scope: both
+  forbidden_en: ["SMBUS", "SMBus bus"]
+  forbidden_zh: ["SMBUS", "SMBus总线"]
+  note: >-
+    Canonical casing is SMBus. Real drift: V100 en uses "SMBus" while
+    V100 zh uses "SMBUS". Match the exact casing variant, not the "SMB" stem.
+
+- term: Kunminghu V2R2
+  zh: 香山昆明湖 V2R2
+  scope: both
+  forbidden_en: ["Kunming Lake V2R2", "Kunminghu-V2R2", "Kunming Hu V2R2"]
+  forbidden_zh: ["昆明湖V2R2", "香山昆明湖V2R2"]
+  note: >-
+    First mention may expand to "XiangShan Kunminghu V2R2" (en) /
+    "香山昆明湖 V2R2" (zh). Keep the space before V2R2.
+
+- term: Vital Stone
+  zh: 进迭时空 Vital Stone
+  scope: both
+  forbidden_en: ["VitalStone", "Vital-Stone", "vital stone"]
+  forbidden_zh: ["VitalStone", "维塔斯通"]
+  note: >-
+    En chip overview uses "SpacemiT Vital Stone V100"; zh chip overview uses
+    "SpacemiT Vital Stone RISC-V 服务器级 CPU V100". Do not merge the words.
+
+- term: DDR5 RDIMM
+  zh: DDR5 RDIMM
+  scope: both
+  forbidden_en: ["DDR5-RDIMM", "DDR5 Rdimm", "RDIMM DDR5"]
+  forbidden_zh: ["DDR5-RDIMM", "DDR5 Rdimms"]
+
+- term: X100 core
+  zh: X100 计算核
+  scope: both
+  forbidden_en: ["x100 core", "X100 CPU Core"]
+  forbidden_zh: ["X100计算核", "X100 核心"]
+  note: >-
+    V100 integrates 40 × SpacemiT X100 cores alongside 6 × Kunminghu V2R2.
+    Keep the space in "X100 CPU 核" / "X100 CPU cores".
