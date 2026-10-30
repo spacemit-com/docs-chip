@@ -528,12 +528,12 @@ def check_table_structure(lines: list[str]) -> list[tuple[int, str, str]]:
 
 
 def check_product_name_casing(lines: list[str]) -> list[tuple[int, str, str]]:
-    """Flag incorrect casing of product names (K1, K3, P1, P1S)."""
+    """Flag incorrect casing of product names (K1, K3, P1)."""
     issues = []
-    # Match variants like k1, K-1, k-1, p1s, P-1S, etc. but not the correct forms
-    wrong = re.compile(r'\b(k1|k3|p1s|p1|K-1|K-3|P-1S|P-1)\b')
-    correct_forms = {"k1": "K1", "k3": "K3", "p1s": "P1S", "p1": "P1",
-                     "K-1": "K1", "K-3": "K3", "P-1S": "P1S", "P-1": "P1"}
+    # Match variants like k1, K-1, k-1, etc. but not the correct forms
+    wrong = re.compile(r'\b(k1|k3|p1|K-1|K-3|P-1)\b')
+    correct_forms = {"k1": "K1", "k3": "K3", "p1": "P1",
+                     "K-1": "K1", "K-3": "K3", "P-1": "P1"}
     in_code = False
     for i, line in enumerate(lines, 1):
         if line.startswith("```"):
@@ -919,8 +919,8 @@ def classify_file(fpath: str) -> str:
 
 
 def get_chip_from_path(fpath: str) -> str:
-    """Extract chip name (K1 / K3 / P1 / P1S) from file path."""
-    chip_map = {"k1": "K1", "k3": "K3", "p1s": "P1S", "p1": "P1"}
+    """Extract chip name (K1 / K3 / P1) from file path."""
+    chip_map = {"k1": "K1", "k3": "K3", "p1": "P1"}
     parts = fpath.lower().split("/")
     for part in parts:
         for key, name in chip_map.items():
@@ -1009,7 +1009,7 @@ def build_pr_description_block(pr_files: list[dict]) -> str:
     Auto-generate a structured summary block describing what changed in this PR.
     Covers: which chips, which doc types, EN/ZH or both.
     """
-    chip_map = {"k1": "K1", "k3": "K3", "p1s": "P1S", "p1": "P1"}
+    chip_map = {"k1": "K1", "k3": "K3", "p1": "P1"}
     doctype_map = {
         "_usermanual": "User Manual",
         "_hw": "Hardware Design",
