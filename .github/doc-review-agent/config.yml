@@ -71,7 +71,7 @@ checks:
     table_structure:
       enabled: true
 
-    # Enforce correct product name casing: K1, K3, P1, P1S
+    # Enforce correct product name casing: K1, K3, P1
     product_name_casing:
       enabled: true
 

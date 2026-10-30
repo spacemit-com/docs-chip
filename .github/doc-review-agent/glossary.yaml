@@ -70,9 +70,7 @@
   scope: both
   forbidden_en: ["I2C", "IIC", "IIC bus"]
   forbidden_zh: ["I2C", "IIC"]
-  note: >-
-    Use the superscript form I²C. Real drift present: P1 zh uses I²C,
-    P1S zh/en use I2C.
+  note: Use the superscript form I²C.
 
 - term: product brief
   zh: 产品简介
@@ -81,7 +79,7 @@
   forbidden_zh: ["^# 简介$", "产品概述简介"]
   forbidden_en: ["product introduction", "brief introduction"]
   note: >-
-    H1 headings drift: K1/K3 zh use "产品简介", P1/P1S zh use just "简介".
+    H1 headings drift: K1/K3 zh use "产品简介", P1 zh uses just "简介".
 
 # --- unit / formatting conventions (not terms, but same check channel) ---
 

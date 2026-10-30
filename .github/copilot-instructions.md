@@ -1,6 +1,6 @@
 # GitHub Copilot Instructions — docs-chip
 
-This repository contains bilingual (English + Chinese) technical documentation for SpacemiT SoC products: **K1, K3** (key_stone family) and **P1, P1S** (power_stone family). Docs cover datasheets, hardware design guides, user manuals, SDK guides, and FAQs.
+This repository contains bilingual (English + Chinese) technical documentation for SpacemiT SoC products: **K1, K3** (key_stone family) and **P1** (power_stone family). Docs cover datasheets, hardware design guides, user manuals, SDK guides, and FAQs.
 
 ---
 
@@ -20,7 +20,7 @@ zh/   # Chinese docs (mirrors en/ structure exactly)
         static/
     k3/  (same pattern)
   power_stone/
-    p1/   p1s/  (same pattern)
+    p1/  (same pattern)
 .github/
   workflows/doc-review.yml          # CI: runs on every PR touching en/**/*.md or zh/**/*.md
   doc-review-agent/
