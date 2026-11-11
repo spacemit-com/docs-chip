@@ -271,6 +271,11 @@ This section answers common questions about peripherals and interfaces, includin
 
     ![K3 PCIe PHY to controller mapping diagram](./static/k3_phy.png)
 
+21. Why does flashing fail when the adapter powers the USB Hub and the USB Hub then powers the K3 Pico-ITX?
+
+    - The recommended input voltage for the K3 Pico-ITX Type-C port is 20V. The USB Hub must support PD voltage negotiation up to 20V; some Hubs only support negotiation up to 12V. Insufficient input voltage may prevent the board from entering flashing mode normally.
+    - A USB Hub that supports PD 20V is recommended, such as [this model](https://item.jd.com/10143041606701.html).
+
 ## Reliability
 
 This section answers common questions about reliability, including ESD, high and low temperature operation, humidity, lifetime, and EMI.

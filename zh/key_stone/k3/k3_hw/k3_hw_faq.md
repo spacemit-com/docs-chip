@@ -28,7 +28,7 @@ sidebar_position: 99
     - 串口位置：
      ![](./static/com260_Input_keys.png)
 
-    - 连接方式：串口线的 TX 连接 K3-CoM260 KIT 的 RX，RX 连接 K3-CoM260 KIT 的 TX。
+    - 连接方式：串口线的 TX 连接 K3 CoM260 KIT 的 RX，RX 连接 K3 CoM260 KIT 的 TX。
     - 串口调试要求：使用 3.3V 电平的串口线。
     - PRI JTAG 调试：支持通过 TF 卡接口转 JTAG。
       > 注：JTAG 调试器与转接子板的 TMS 和 TDI 需要交叉连接，如下图所示
@@ -68,7 +68,7 @@ sidebar_position: 99
 6. 插入适配器时，P1 端口是否具备自动开机功能？
 
     当前方案设计为插入适配器后，P1 自动启动，无需手动操作。
-    对于 K3-CoM260，默认插入适配器后可自动上电；当 12pin 按键中的 `AUTO ON` 与 `DIS` 短接时，需要按下 `PWR_BTN` 按键后，K3-CoM260 才会上电开机。
+    对于 K3 CoM260，默认插入适配器后可自动上电；当 12pin 按键中的 `AUTO ON` 与 `DIS` 短接时，需要按下 `PWR_BTN` 按键后，K3 CoM260 才会上电开机。
 
 7. P1 上没有单独的适配器检测电路时，如何判断适配器已插入？
 
@@ -212,7 +212,7 @@ sidebar_position: 99
 
     GPIO 均可使用。但 RCPU 相关开发的优先级会稍慢，建议优先使用 X100 的 functions，其次再考虑使用 R_xxx 对应的 RCPU functions。
 
-7. K3 Pico ITX 原理图带有 EC 控制；如果不使用 EC，上电时序控制应如何参考？
+7. K3 Pico-ITX 原理图带有 EC 控制；如果不使用 EC，上电时序控制应如何参考？
 
     如果需要控制上电时序，可使用 P1 的这 4 个 GPIO 使能信号，或使用前一级上电电源的使能信号。如果需要进行功耗管理，并在不同场景下控制开关电，则应使用 K3 的 GPIO。具体使用哪个 IO 没有限制，可联系 FAE 沟通确认。
 
@@ -237,7 +237,7 @@ sidebar_position: 99
 
     可以，USB3-C 或 USB3-D 均可与 USB20_HOST 搭配使用。
 
-13. K3-CoM260 是否有下电时序要求？
+13. K3 CoM260 是否有下电时序要求？
 
     没有。
 
@@ -270,6 +270,11 @@ sidebar_position: 99
     如下图所示，PCIE0 ~ PCIE5 表示 PCIe PHY 顺序，PCIEA ~ PCIEE 表示 PCIe 控制器顺序，GPIO 组复用的边带信号 functions 与控制器顺序对应。
 
     ![K3 PCIe PHY 与控制器对应关系示意图](./static/k3_phy.png)
+
+21. 为什么适配器先给 USB Hub 供电，再通过 USB Hub 给 K3 Pico-ITX 供电时，会出现无法烧录的情况？
+
+    - K3 Pico-ITX 的 Type-C 口建议输入 20V。USB Hub 需要支持 PD 20V 调压；部分 Hub 最高只能调到 12V。供电电压不足时，板卡无法正常进入烧录状态。
+    - 推荐使用支持 PD 20V 的 USB Hub，例如 [此型号](https://item.jd.com/10143041606701.html)。
 
 ## 可靠性
 

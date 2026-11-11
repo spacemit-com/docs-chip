@@ -8,6 +8,7 @@ sidebar_position: 1
 
 | Version | Date | Notes |
 | --- | --- | --- |
+| **V1.14** | 2026.11.11 | - Updated Section 4.1 CPU and VDD0V8_DDR operating conditions and added a remarks column; <br>- Updated Section 4.2.1 CPU and VDD0V8_DDR absolute maximum ratings; <br>- Updated Section 16.3.1 for number of timers |
 | **V1.13** | 2026.09.24 | Updated Section 4.2.1 dual-voltage GPIO absolute maximum supply |
 | **V1.12** | 2026.09.08 | Updated the clock tree diagram in Chapter 17 |
 | **V1.11** | 2026.09.07 | Updated UART register base addresses in Section 14.6.4 |

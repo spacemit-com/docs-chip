@@ -12,6 +12,7 @@ Click to download **[K3 Hardware Design Guidelines and PCB Layout Manual (PDF)](
 
 | Version | Date       | Description     |
 | ------- | ---------- | --------------- |
+| V1.3    | 2026.11.11 | Updated Section 1.2.5 with the recommended combined-supply voltage and feedback pin connection guidance. |
 | V1.2    | 2026.10.21 | Updated the boot mode combinations and the list of six strap pins in Section 1.1.5. |
 | V1.1    | 2026.10.16 | 1. Section 1.2.5 CPU Power Design: the power requirement for the two core types is changed to a combined power supply.<br>2. Section 1.2.6 DDR Power Design: added the Buglist design requirements. |
 | V1.0    | 2026.04.30 | Initial release |
@@ -380,12 +381,12 @@ After reset is asserted low, each power rail is powered down in the reverse orde
 
 #### 1.2.5 CPU Power Design
 
-The chip integrates 16 high-performance cores, consisting of 8 X100 cores and 8 A100 cores. X100, A100, VCC_SYS, and VDD0V8_DDR must be supplied from a combined power rail. Special attention must be paid to decoupling capacitor count, capacitance values, and layout, which must strictly follow the reference design.
+The chip integrates 16 high-performance cores, consisting of 8 X100 cores and 8 A100 cores. X100, A100, VCC_SYS, and VDD0V8_DDR must be supplied from a combined power rail, with a recommended voltage of 0.95V. Special attention must be paid to decoupling capacitor count, capacitance values, and layout, which must strictly follow the reference design.
 
 When selecting the power solution, the following requirements must be met:
 
 - The power supply slew rate must be greater than 70 A/us.
-- Due to the high current demand of the CPU, the regulator must support remote sensing, and the feedback (FB) must be taken from the chip ball (load point).
+- Due to the high current demand of the CPU, the regulator must support remote sensing, and the feedback (FB) must be taken from the chip balls; N17 and M16 are recommended.
 - Power efficiency and thermal performance must be carefully considered to manage heat dissipation.
 
 For detailed implementation, refer to the K3 reference schematic design.
