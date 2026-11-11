@@ -8,8 +8,8 @@ sidebar_position: 3
 
 The K3 includes:
 
-- Three 32-bit general-purpose timers with programmable clock frequencies
-- One 24-bit watchdog timer with a programmable clock frequency
+- Nine general-purpose 32-bit timers with programmable clock frequencies
+- Six 24-bit watchdog timers with a programmable clock frequency
 
 ## 16.3.2 Features
 
