@@ -12,6 +12,7 @@ Click to download [K3 Datasheet (PDF)](https://cdn-resource.spacemit.com/file/ch
 
 | Version | Date | Notes |
 | --- | --- | --- |
+| **V1.11** | 2026.11.23 | Updated Sections 2.5.1 and 2.5.3 to clarify DPU output configurations and single-display DP/eDP resolutions |
 | **V1.10** | 2026.11.11 | - Updated Section 5.1 CPU and VDD0V8_DDR operating conditions and added a remarks column; <br>- Updated Section 5.2.1 CPU and VDD0V8_DDR absolute maximum ratings |
 | **V1.9** | 2026.09.24 | Updated Section 5.2.1 dual-voltage GPIO absolute maximum supply |
 | **V1.8** | 2026.08.25 | Added DPU0/DPU1 display interface support note in section 1.2 |
@@ -641,7 +642,13 @@ In addition, multiple standard-agnostic modules share common runtime logic, ensu
 #### 2.5.1 Display Controller
 
 **Introduction**  
-The Display Controller is a hardware module that transfers display data from the internal memory to the DSI and DP/eDP controllers. It supports high-resolution panels and advanced image processing features.
+The display controller is a hardware module that transfers display data from internal memory to the MIPI DSI or DP/eDP controller. It supports high-resolution panels and advanced image processing and includes two display processing units (DPU0 and DPU1).
+- DPU0: Supports either MIPI DSI or DP/eDP output, but not both at the same time.
+  - In the eight-lane MIPI DSI configuration, DPU0 can drive either two 1080p displays simultaneously (four lanes per display) or one display at 2.5K resolution or higher (using all eight lanes).
+- DPU1: Supports DP/eDP output only.
+- Simultaneous display configurations:
+  - Up to three displays: DPU0 drives two 1080p MIPI DSI displays while DPU1 drives one DP/eDP display.
+  - Up to two 4K@60fps displays each when both DPU0 and DPU1 use DP/eDP output.
 
 **Features**  
 - Resolution Support:
@@ -712,7 +719,9 @@ The DP/eDP Controller is a display interface controller that manages data transf
 **Features**  
 - Compliance with DisplayPort (DP) standard v1.2  
 - Compliance with embedded DisplayPort (eDP) standard v1.4  
-- Supports resolutions up to 3840×2160 @ 60fps or 2560×1440 @ 144fps  
+- Maximum resolution for a single display output:
+  - 3840 × 2160 @ 60 fps 
+  - 2560 × 1440 @ 144 fps
 
 ### 2.6 Audio Subsystem
 

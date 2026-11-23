@@ -8,7 +8,13 @@ sidebar_position: 13
 
 ### 12.1.1 Overview
 
-The Display Controller is a hardware block used to transfer display data from the display memory to the DSI controller. It supports one independent display device through MIPI DSI.
+The display controller is a hardware module that transfers display data from internal memory to the MIPI DSI or DP/eDP controller. It supports high-resolution panels and advanced image processing and includes two display processing units (DPU0 and DPU1).
+- DPU0: Supports either MIPI DSI or DP/eDP output, but not both at the same time.
+  - In the eight-lane MIPI DSI configuration, DPU0 can drive either two 1080p displays simultaneously (four lanes per display) or one display at 2.5K resolution or higher (using all eight lanes).
+- DPU1: Supports DP/eDP output only.
+- Simultaneous display configurations:
+  - Up to three displays: DPU0 drives two 1080p MIPI DSI displays while DPU1 drives one DP/eDP display.
+  - Up to two 4K@60fps displays each when both DPU0 and DPU1 use DP/eDP output.
 
 ### 12.1.2 Features
 
